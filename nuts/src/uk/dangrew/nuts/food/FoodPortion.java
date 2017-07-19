@@ -40,8 +40,8 @@ public class FoodPortion {
       this.macros = new EnumMap<>( MacroNutrient.class );
       this.macroRatios = new EnumMap<>( MacroNutrient.class );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.macros.put( macro, new SimpleObjectProperty<>() );
-         this.macroRatios.put( macro, new SimpleObjectProperty<>() );
+         this.macros.put( macro, new SimpleObjectProperty<>( 0.0 ) );
+         this.macroRatios.put( macro, new SimpleObjectProperty<>( 0.0  ) );
       }
       
       this.portion.addListener( macroUpdater );
@@ -61,8 +61,8 @@ public class FoodPortion {
       
       double proportion = portion.get() / 100.0;
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.macros.get( macro ).set( food.get().nutritionFor( macro ).inGrams() * proportion );
-         this.macroRatios.get( macro ).set( food.get().analytics().nutrientRatioFor( macro ).get() );
+         this.macros.get( macro ).set( food.get().properties().nutritionFor( macro ).inGrams() * proportion );
+         this.macroRatios.get( macro ).set( food.get().properties().analytics().nutrientRatioFor( macro ).get() );
       }
    }//End Method
    
@@ -131,7 +131,7 @@ public class FoodPortion {
       }
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.food.get().nutritionFor( macro ).gramsProperty().removeListener( macroUpdater );
+         this.food.get().properties().nutritionFor( macro ).gramsProperty().removeListener( macroUpdater );
       }
    }//End Method
    
@@ -146,7 +146,7 @@ public class FoodPortion {
          return;
       }
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         food.nutritionFor( macro ).gramsProperty().addListener( macroUpdater );
+         food.properties().nutritionFor( macro ).gramsProperty().addListener( macroUpdater );
       }
    }//End Method
 

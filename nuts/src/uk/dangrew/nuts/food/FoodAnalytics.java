@@ -22,7 +22,7 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
  */
 public class FoodAnalytics {
 
-   private Food food;
+   private FoodProperties properties;
    private final Map< MacroNutrient, ObjectProperty< Double > > macroProportions;
    
    /**
@@ -36,18 +36,18 @@ public class FoodAnalytics {
    }//End Constructor
    
    /**
-    * Associated the {@link FoodAnalytics} with the given {@link Food}.
-    * @param food the {@link Food} to associated with.
+    * Associate the {@link FoodAnalytics} with the given {@link FoodProperties}.
+    * @param properties the {@link FoodProperties} to associate with.
     */
-   public void associate( Food food ) {
-      if ( this.food != null ) {
+   public void associate( FoodProperties properties ) {
+      if ( this.properties != null ) {
          throw new IllegalStateException( "Allredy associated." );
       }
       
-      this.food = food;
+      this.properties = properties;
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         food.nutritionFor( macro ).gramsProperty().addListener( ( s, o, n ) -> updateRatios() );
+         properties.nutritionFor( macro ).gramsProperty().addListener( ( s, o, n ) -> updateRatios() );
       }
       updateRatios();
    }//End Method
@@ -58,10 +58,10 @@ public class FoodAnalytics {
    private void updateRatios(){
       double total = 0;
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         total += food.nutritionFor( macro ).inGrams();
+         total += properties.nutritionFor( macro ).inGrams();
       }
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         double value = food.nutritionFor( macro ).inGrams();
+         double value = properties.nutritionFor( macro ).inGrams();
          double proportion = total == 0 ? 0 : value * 100 / total;
          macroProportions.get( macro ).set( proportion );
       }
@@ -80,7 +80,7 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Carbohydrates} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ReadOnlyObjectProperty< Double > carbohydratesRatio() {
+   public ReadOnlyObjectProperty< Double > carbohydratesRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Carbohydrates );
    }//End Method
    
@@ -88,7 +88,7 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Fats} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ReadOnlyObjectProperty< Double > fatsRatio() {
+   public ReadOnlyObjectProperty< Double > fatsRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Fats );
    }//End Method
    
@@ -96,8 +96,32 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Protein} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ReadOnlyObjectProperty< Double > proteinRatio() {
+   public ReadOnlyObjectProperty< Double > proteinRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Protein );
+   }//End Method
+   
+   /**
+    * Access to the {@link MacroNutrient#Carbohydrates} ratio.
+    * @return the value.
+    */
+   public double carbohydratesRatio() {
+      return nutrientRatioFor( MacroNutrient.Carbohydrates ).get();
+   }//End Method
+   
+   /**
+    * Access to the {@link MacroNutrient#Fats} ratio.
+    * @return the value.
+    */
+   public double fatsRatio() {
+      return nutrientRatioFor( MacroNutrient.Fats ).get();
+   }//End Method
+   
+   /**
+    * Access to the {@link MacroNutrient#Protein} ratio.
+    * @return the value.
+    */
+   public double proteinRatio() {
+      return nutrientRatioFor( MacroNutrient.Protein ).get();
    }//End Method
 
 }//End Class

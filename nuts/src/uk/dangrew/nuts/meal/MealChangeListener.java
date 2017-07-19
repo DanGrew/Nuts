@@ -6,7 +6,7 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.meals;
+package uk.dangrew.nuts.meal;
 
 /**
  * The {@link MealChangeListener} provides the interface for notifying when a {@link Meal} changes.

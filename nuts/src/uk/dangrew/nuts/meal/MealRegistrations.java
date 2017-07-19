@@ -6,44 +6,52 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.meals;
+package uk.dangrew.nuts.meal;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javafx.beans.value.ChangeListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 /**
- * The {@link Meal} represents a collection of {@link FoodPortion}s and provides notifications
- * as they change.
+ * {@link MealRegistrations} provides a mechanism for notifying changes made to the {@link Meal}.
  */
-public class Meal {
-
+public class MealRegistrations {
+   
    private final ChangeListener< Food > foodNotifier;
    private final ChangeListener< Double > valueNotifier;
    
-   private final ObservableList< FoodPortion > portions;
    private final Set< MealChangeListener > listeners;
    
+   private Meal meal;
+   
    /**
-    * Constructs a new {@link Meal}.
+    * Constructs a new {@link MealRegistrations}.
     */
-   public Meal() {
-      this.portions = FXCollections.observableArrayList();
+   public MealRegistrations() {
       this.listeners = new LinkedHashSet<>();
       this.foodNotifier = ( s, o, n ) -> notifyListeners();
       this.valueNotifier = ( s, o, n ) -> notifyListeners();
+   }//End Constructor
+   
+   /**
+    * Associate the registrations with the given {@link Meal}.
+    * @param meal the {@link Meal} to associate with, only one allowed.
+    */
+   void associate( Meal meal ) {
+      if ( this.meal != null ){
+         throw new IllegalStateException( "Already associated." );
+      }
+      this.meal = meal;
       
-      this.portions.addListener( new FunctionListChangeListenerImpl<>( 
+      meal.portions().addListener( new FunctionListChangeListenerImpl<>( 
                this::portionAdded, this::portionRemoved 
       ) );
-   }//End Constructor
+   }//End Method
    
    /**
     * Method to triggered when a {@link FoodPortion} is added.
@@ -78,13 +86,6 @@ public class Meal {
       listeners.forEach( MealChangeListener::mealChanged );
    }//End Method
    
-   /**
-    * Access to the {@link FoodPortion}s in the {@link Meal}.
-    * @return the {@link FoodPortion}s.
-    */
-   public ObservableList< FoodPortion > portions() {
-      return portions;
-   }//End Method
 
    /**
     * Method to listen for {@link Meal} changes.

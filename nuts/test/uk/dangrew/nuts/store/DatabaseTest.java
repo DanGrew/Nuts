@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.food.FoodItem;
 
 public class DatabaseTest {
 
@@ -19,11 +19,11 @@ public class DatabaseTest {
    }//End Method
 
    @Test public void shouldProvideMappedFoods() {
-      assertThat( systemUnderTest.foods(), is( instanceOf( MappedObservableStoreManagerImpl.class ) ) );
+      assertThat( systemUnderTest.foodItems(), is( instanceOf( MappedObservableStoreManagerImpl.class ) ) );
       
-      Food food = new Food( "Anything" );
-      systemUnderTest.foods().store( food );
-      assertThat( systemUnderTest.foods().get( food.id() ), is( food ) );
+      FoodItem foodItem = new FoodItem( "Anything" );
+      systemUnderTest.foodItems().store( foodItem );
+      assertThat( systemUnderTest.foodItems().get( foodItem.properties().id() ), is( foodItem ) );
    }//End Method
 
 }//End Class

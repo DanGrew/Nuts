@@ -11,42 +11,42 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodAnalyticsTest {
 
-   private Food food;
+   private FoodProperties foodProperties;
    private FoodAnalytics systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       systemUnderTest = new FoodAnalytics();
       
-      food = new Food( "anything", "Something", systemUnderTest );
+      foodProperties = new FoodProperties( "anything", "something", systemUnderTest );
    }//End Method
 
    @Test( expected = IllegalStateException.class ) public void shouldNotAllowAssociateAgain(){
-      systemUnderTest.associate( food );
+      systemUnderTest.associate( foodProperties );
    }//End Method
    
    @Test public void shouldCalculateProportionsOnAssociation(){
-      food.carbohydrates().setGrams( 45 );
-      food.fats().setGrams( 15 );
-      food.protein().setGrams( 40 );
+      foodProperties.carbohydrates().setGrams( 45 );
+      foodProperties.fats().setGrams( 15 );
+      foodProperties.protein().setGrams( 40 );
       
       systemUnderTest = new FoodAnalytics();
-      systemUnderTest.associate( food );
+      systemUnderTest.associate( foodProperties );
       assertMacroProportions( 45, 15, 40 );
    }//End Method
    
    @Test public void shouldProvideMacroProportions() {
       assertMacroProportions( 0, 0, 0 );
       
-      food.nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 10 );
+      foodProperties.nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 10 );
       assertMacroProportions( 100, 0, 0 );
       
-      food.nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 15 );
+      foodProperties.nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 15 );
       assertMacroProportions( 40, 60, 0 );
       
-      food.nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, 75 );
+      foodProperties.nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, 75 );
       assertMacroProportions( 10, 15, 75 );
       
-      food.nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 115 );
+      foodProperties.nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 115 );
       assertMacroProportions( 5, 57.5, 37.5 );
    }//End Method
    
@@ -61,9 +61,13 @@ public class FoodAnalyticsTest {
       assertThat( systemUnderTest.nutrientRatioFor( MacroNutrient.Fats ).get(), is( f ) );
       assertThat( systemUnderTest.nutrientRatioFor( MacroNutrient.Protein ).get(), is( p ) );
       
-      assertThat( systemUnderTest.carbohydratesRatio().get(), is( c ) );
-      assertThat( systemUnderTest.fatsRatio().get(), is( f ) );
-      assertThat( systemUnderTest.proteinRatio().get(), is( p ) );      
+      assertThat( systemUnderTest.carbohydratesRatioProperty().get(), is( c ) );
+      assertThat( systemUnderTest.fatsRatioProperty().get(), is( f ) );
+      assertThat( systemUnderTest.proteinRatioProperty().get(), is( p ) );
+      
+      assertThat( systemUnderTest.carbohydratesRatio(), is( c ) );
+      assertThat( systemUnderTest.fatsRatio(), is( f ) );
+      assertThat( systemUnderTest.proteinRatio(), is( p ) );  
    }//End Method
 
 }//End Class

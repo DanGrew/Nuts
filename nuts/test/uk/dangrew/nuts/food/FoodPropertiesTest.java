@@ -13,17 +13,17 @@ import org.mockito.Spy;
 import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
-public class FoodTest {
+public class FoodPropertiesTest {
 
    private static final String ID = "some id";
    private static final String NAME = "this is a name";
    
    @Spy private FoodAnalytics analytics;
-   private Food systemUnderTest;
+   private FoodProperties systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
-      systemUnderTest = new Food( ID, NAME, analytics );
+      systemUnderTest = new FoodProperties( ID, NAME, analytics );
    }//End Method
    
    @Test public void shouldAssociateWithAnalytics(){
@@ -72,6 +72,13 @@ public class FoodTest {
    
    @Test public void shouldProvideAnalytics() {
       assertThat( systemUnderTest.analytics(), is( notNullValue() ) );
+   }//End Method
+   
+   @Test public void shouldSetMacrosTogether(){
+      systemUnderTest.setMacros( 45, 67, 89 );
+      assertThat( systemUnderTest.carbohydrates().inGrams(), is( 45.0 ) );
+      assertThat( systemUnderTest.fats().inGrams(), is( 67.0 ) );
+      assertThat( systemUnderTest.protein().inGrams(), is( 89.0 ) );
    }//End Method
 
 }//End Class
