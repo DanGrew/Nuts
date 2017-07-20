@@ -8,9 +8,6 @@
  */
 package uk.dangrew.nuts.food;
 
-import java.util.EnumMap;
-import java.util.Map;
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -20,14 +17,24 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
 /**
  * The {@link FoodPortion} wraps a {@link Food} item to portion it linearly, as a percentage.
  */
-public class FoodPortion {
+public class FoodPortion implements Food {
    
    private final ChangeListener< Double > macroUpdater;
+   private final FoodProperties properties;
    
    private final ObjectProperty< Food > food;
    private final ObjectProperty< Double > portion;
-   private final Map< MacroNutrient, ObjectProperty< Double > > macros;
-   private final Map< MacroNutrient, ObjectProperty< Double > > macroRatios;
+   
+   /**
+    * Constructs a new {@link FoodPortion}.
+    * @param food the {@link Food} immediately applied.
+    * @param portion the portion immediately applied.
+    */
+   public FoodPortion( Food food, double portion ) {
+      this();
+      setFood( food );
+      setPortion( portion );
+   }//End Constructor
    
    /**
     * Constructs a new {@link FoodPortion}.
@@ -35,15 +42,8 @@ public class FoodPortion {
    public FoodPortion() {
       this.food = new SimpleObjectProperty<>();
       this.portion = new SimpleObjectProperty<>( 100.0 );
+      this.properties = new FoodProperties( "Portion" );
       this.macroUpdater = ( s, o, n ) -> updateMacros();
-      
-      this.macros = new EnumMap<>( MacroNutrient.class );
-      this.macroRatios = new EnumMap<>( MacroNutrient.class );
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.macros.put( macro, new SimpleObjectProperty<>( 0.0 ) );
-         this.macroRatios.put( macro, new SimpleObjectProperty<>( 0.0  ) );
-      }
-      
       this.portion.addListener( macroUpdater );
    }//End Constructor
    
@@ -53,16 +53,14 @@ public class FoodPortion {
    private void updateMacros(){
       if ( food.get() == null ) {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
-            this.macros.get( macro ).set( 0.0 );
-            this.macroRatios.get( macro ).set( 0.0 );
+            properties.nutritionFor( macro ).setGrams( 0.0 );
          }
          return;
       }
       
       double proportion = portion.get() / 100.0;
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.macros.get( macro ).set( food.get().properties().nutritionFor( macro ).inGrams() * proportion );
-         this.macroRatios.get( macro ).set( food.get().properties().analytics().nutrientRatioFor( macro ).get() );
+         properties.nutritionFor( macro ).setGrams( food.get().properties().nutritionFor( macro ).inGrams() * proportion );
       }
    }//End Method
    
@@ -110,7 +108,7 @@ public class FoodPortion {
     * @return the {@link ObjectProperty}.
     */
    public ReadOnlyObjectProperty< Double > nutritionFor( MacroNutrient macro ) {
-      return macros.get( macro );
+      return properties.nutritionFor( macro ).gramsProperty();
    }//End Method
    
    /**
@@ -119,7 +117,7 @@ public class FoodPortion {
     * @return the {@link ObjectProperty}.
     */
    public ReadOnlyObjectProperty< Double > nutritionRatioFor( MacroNutrient macro ) {
-      return macroRatios.get( macro );
+      return properties.analytics().nutrientRatioFor( macro );
    }//End Method
    
    /**
@@ -148,6 +146,13 @@ public class FoodPortion {
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          food.properties().nutritionFor( macro ).gramsProperty().addListener( macroUpdater );
       }
+   }//End Method
+
+   /**
+    * {@inheritDoc}
+    */
+   @Override public FoodProperties properties() {
+      return properties;
    }//End Method
 
 }//End Class

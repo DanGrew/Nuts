@@ -3,6 +3,7 @@ package uk.dangrew.nuts.meal;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -117,4 +118,21 @@ public class MealRegistrationsTest {
       verify( listener, times( 1 ) ).mealChanged();
    }//End Method
 
-}
+   @Test public void shouldStopListening(){
+      meal.portions().add( portion1 );
+      systemUnderTest.listen( listener );
+      portion1.setPortion( 50 );
+      verify( listener, times( 1 ) ).mealChanged();
+      
+      systemUnderTest.stopListening( listener );
+      
+      portion1.setFood( food2 );
+      portion1.setPortion( 89 );
+      food2.properties().nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 100 );
+      food2.properties().nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 100 );
+      food2.properties().nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, 100 );
+      
+      verifyNoMoreInteractions( listener );
+   }//End Method
+   
+}//End Class

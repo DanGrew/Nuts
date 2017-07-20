@@ -170,4 +170,10 @@ public class FoodPortionTest {
       }
    }//End Method
    
+   @Test public void shouldConstructWithInitialFoodAndPortion(){
+      systemUnderTest = new FoodPortion( food, 67 );
+      assertThat( systemUnderTest.food().get(), is( food ) );
+      assertThat( systemUnderTest.portion().get(), is( 67.0 ) );
+   }//End Method
+   
 }//End Class

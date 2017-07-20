@@ -8,30 +8,41 @@
  */
 package uk.dangrew.nuts.store;
 
-import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.kode.storage.structure.ObjectStoreManager;
-import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.food.FoodItemStore;
+import uk.dangrew.nuts.meal.MealStore;
 
 /**
  * The {@link Database} provides access to the data for the system such as {@link Food}s.
  */
 public class Database {
 
-   private final ObjectStoreManager< String, FoodItem > foodItems;
+   private final FoodItemStore foodItems;
+   private final MealStore meals;
    
    /**
     * Constructs a new {@link Database}.
     */
    public Database() {
-      this.foodItems = new MappedObservableStoreManagerImpl<>( f -> f.properties().id() );
+      this.foodItems = new FoodItemStore();
+      this.meals = new MealStore();
    }//End Constructor
    
    /**
-    * Access to the {@link Food}s stored.
-    * @return the {@link ObjectStoreManager} of {@link Food}s against their {@link Food#id()}.
+    * Access to the {@link FoodItem}s stored.
+    * @return the {@link ObjectStoreManager} of {@link uk.dangrew.nuts.food.FoodItem}s against 
+    * their {@link uk.dangrew.nuts.food.FoodProperties#id()}.
     */
-   public ObjectStoreManager< String, FoodItem > foodItems() {
+   public FoodItemStore foodItems() {
       return foodItems;
+   }//End Method
+   
+   /**
+    * Access to the {@link uk.dangrew.nuts.meal.Meal}s stored.
+    * @return the {@link ObjectStoreManager} of {@link uk.dangrew.nuts.meal.Meal}s against 
+    * their {@link uk.dangrew.nuts.food.FoodProperties#id()}.
+    */
+   public MealStore meals() {
+      return meals;
    }//End Method
 
 }//End Class

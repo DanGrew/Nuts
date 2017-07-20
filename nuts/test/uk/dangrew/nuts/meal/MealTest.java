@@ -40,6 +40,11 @@ public class MealTest {
       properties = new FoodProperties( "anything" );
       systemUnderTest = new Meal( registrations, properties, propertiesCalculator );
    }//End Method
+   
+   @Test public void shouldUseName(){
+      systemUnderTest = new Meal( "Name" );
+      assertThat( systemUnderTest.properties().nameProperty().get(), is( "Name" ) );
+   }//End Method
 
    @Test public void shouldProvideFoodPortions() {
       assertThat( systemUnderTest.portions(), is( empty() ) );

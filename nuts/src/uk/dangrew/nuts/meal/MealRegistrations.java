@@ -95,4 +95,12 @@ public class MealRegistrations {
       this.listeners.add( listener );
    }//End Method
 
+   /**
+    * Method to stop listening for {@link MealChangeListener} notifications.
+    * @param updater the {@link MealChangeListener} to remove.
+    */
+   public void stopListening( MealChangeListener updater ) {
+      this.listeners.remove( updater );
+   }//End Method
+
 }//End Class

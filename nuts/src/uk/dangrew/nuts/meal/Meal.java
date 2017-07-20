@@ -25,8 +25,12 @@ public class Meal implements Food {
    private final FoodProperties properties;
    private final ObservableList< FoodPortion > portions;
    
-   public Meal() {
-      this( new MealRegistrations(), new FoodProperties( "Meal" ), new MealPropertiesCalculator() );
+   /**
+    * Constructs a new {@link Meal}.
+    * @param name the name of the {@link Meal}.
+    */
+   public Meal( String name ) {
+      this( new MealRegistrations(), new FoodProperties( name ), new MealPropertiesCalculator() );
    }//End Constructor
    
    /**
