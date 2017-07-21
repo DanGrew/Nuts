@@ -37,11 +37,20 @@ public class FoodProperties {
    
    /**
     * Constructs a new {@link FoodProperties}.
+    * @param id the id.
+    * @param name the name of the {@link FoodProperties}.
+    */
+   public FoodProperties( String id, String name ) {
+      this( id, name, new FoodAnalytics() );
+   }//End Constructor
+   
+   /**
+    * Constructs a new {@link FoodProperties}.
     * @param id the unique id for the {@link FoodProperties}.
     * @param name the name of the {@link FoodProperties}.
     * @param analytics the {@link FoodAnalytics} supporting the properties.
     */
-   public FoodProperties( String id, String name, FoodAnalytics analytics ) {
+   FoodProperties( String id, String name, FoodAnalytics analytics ) {
       this.id = id;
       this.nameProperty = new SimpleObjectProperty<>( name );
       this.macros = new EnumMap<>( MacroNutrient.class );

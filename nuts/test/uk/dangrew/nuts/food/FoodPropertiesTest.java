@@ -26,6 +26,12 @@ public class FoodPropertiesTest {
       systemUnderTest = new FoodProperties( ID, NAME, analytics );
    }//End Method
    
+   @Test public void shouldCreateWithId(){
+      systemUnderTest = new FoodProperties( "3487653", "skdjnvs." );
+      assertThat( systemUnderTest.id(), is( "3487653" ) );
+      assertThat( systemUnderTest.nameProperty().get(), is( "skdjnvs." ) );
+   }//End Method
+   
    @Test public void shouldAssociateWithAnalytics(){
       verify( analytics ).associate( systemUnderTest );
    }//End Method

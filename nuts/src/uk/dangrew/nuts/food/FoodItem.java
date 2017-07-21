@@ -26,9 +26,18 @@ public class FoodItem implements Food {
    
    /**
     * Constructs a new {@link FoodItem}.
+    * @param id the id.
+    * @param name the name.
+    */
+   public FoodItem( String id, String name ) {
+      this( new FoodProperties( id, name ) );
+   }//End Constructor
+   
+   /**
+    * Constructs a new {@link FoodItem}.
     * @param properties the {@link FoodProperties}.
     */
-   public FoodItem( FoodProperties properties ) {
+   FoodItem( FoodProperties properties ) {
       this.properties = properties;
    }//End Constructor
 

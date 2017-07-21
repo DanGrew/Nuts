@@ -7,7 +7,6 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodPortionTest {
