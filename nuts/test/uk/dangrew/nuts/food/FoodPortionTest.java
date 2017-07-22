@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.food;
 
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -10,6 +11,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
@@ -207,6 +209,65 @@ public class FoodPortionTest {
    
    @Test public void shouldAssociateGoalRatioCalculator(){
       verify( goalRatioCalculator ).associate( properties, goalAnalytics );
+   }//End Method
+   
+   @Test public void shouldSyncGoalAnalytics(){
+      assertThatGoalAnalyticsInSync();
+      food.goalAnalytics().goal().set( new Goal( "anything" ) );
+      assertThatGoalAnalyticsInSync();
+      food.goalAnalytics().carbohydratesRatioProperty().set( 23.0 );
+      assertThatGoalAnalyticsInSync();
+      food.goalAnalytics().fatsRatioProperty().set( 56.7 );
+      assertThatGoalAnalyticsInSync();
+      food.goalAnalytics().proteinRatioProperty().set( 23.6 );
+      assertThatGoalAnalyticsInSync();
+      
+      systemUnderTest.goalAnalytics().goal().set( new Goal( "anything" ) );
+      assertThatGoalAnalyticsInSync();
+      systemUnderTest.goalAnalytics().carbohydratesRatioProperty().set( 3.0 );
+      assertThatGoalAnalyticsInSync();
+      systemUnderTest.goalAnalytics().fatsRatioProperty().set( 5.7 );
+      assertThatGoalAnalyticsInSync();
+      systemUnderTest.goalAnalytics().proteinRatioProperty().set( 3.6 );
+      assertThatGoalAnalyticsInSync();
+   }//End Method
+   
+   @Test public void shouldNotRespondToPreviousGoalAnalytics(){
+      systemUnderTest.setFood( new FoodItem( "anything" ) );
+      food.goalAnalytics().goal().set( new Goal( "" ) );
+      food.goalAnalytics().carbohydratesRatioProperty().set( 34.0 );
+      food.goalAnalytics().fatsRatioProperty().set( 12.0 );
+      food.goalAnalytics().proteinRatioProperty().set( 65.0 );
+      
+      assertThat( systemUnderTest.goalAnalytics().goal().get(), is( nullValue() ) );
+      assertThat( systemUnderTest.goalAnalytics().carbohydratesRatio(), is( 0.0 ) );
+      assertThat( systemUnderTest.goalAnalytics().fatsRatio(), is( 0.0 ) );
+      assertThat( systemUnderTest.goalAnalytics().proteinRatio(), is( 0.0 ) );
+   }//End Method
+   
+   @Test public void shouldTakeFoodGoalAnalytics(){
+      Food food = new FoodItem( "something" );
+      Goal goal = new Goal( "" );
+      food.goalAnalytics().goal().set( goal );
+      food.goalAnalytics().carbohydratesRatioProperty().set( 34.0 );
+      food.goalAnalytics().fatsRatioProperty().set( 12.0 );
+      food.goalAnalytics().proteinRatioProperty().set( 65.0 );
+      systemUnderTest.setFood( food );
+      
+      assertThat( systemUnderTest.goalAnalytics().goal().get(), is( goal ) );
+      assertThat( systemUnderTest.goalAnalytics().carbohydratesRatio(), is( 34.0 ) );
+      assertThat( systemUnderTest.goalAnalytics().fatsRatio(), is( 12.0 ) );
+      assertThat( systemUnderTest.goalAnalytics().proteinRatio(), is( 65.0 ) );
+   }//End Method
+   
+   /**
+    * Method to assert that the {@link GoalAnalytics} are in sync between {@link Food} and sut.
+    */
+   private void assertThatGoalAnalyticsInSync(){
+      assertThat( systemUnderTest.goalAnalytics().goal().get(), is( food.goalAnalytics().goal().get() ) );
+      assertThat( systemUnderTest.goalAnalytics().carbohydratesRatio(), is( food.goalAnalytics().carbohydratesRatio() ) );
+      assertThat( systemUnderTest.goalAnalytics().fatsRatio(), is( food.goalAnalytics().fatsRatio() ) );
+      assertThat( systemUnderTest.goalAnalytics().proteinRatio(), is( food.goalAnalytics().proteinRatio() ) );
    }//End Method
    
 }//End Class

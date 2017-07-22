@@ -12,6 +12,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
+import uk.dangrew.kode.javafx.registrations.ChangeListenerBindingImpl;
+import uk.dangrew.kode.javafx.registrations.RegistrationManager;
 import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
@@ -21,6 +23,8 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
 public class FoodPortion implements Food {
    
    private final ChangeListener< Double > macroUpdater;
+   private final RegistrationManager registrations;
+   
    private final FoodProperties properties;
    private final FoodAnalytics analytics;
    private final GoalAnalytics goalAnalytics;
@@ -77,6 +81,7 @@ public class FoodPortion implements Food {
       //need to bind macros
       this.macroUpdater = ( s, o, n ) -> updateMacros();
       this.portion.addListener( macroUpdater );
+      this.registrations = new RegistrationManager();
    }//End Constructor
    
    /**
@@ -163,6 +168,7 @@ public class FoodPortion implements Food {
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          this.food.get().properties().nutritionFor( macro ).gramsProperty().removeListener( macroUpdater );
       }
+      registrations.shutdown();
    }//End Method
    
    /**
@@ -178,6 +184,10 @@ public class FoodPortion implements Food {
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          food.properties().nutritionFor( macro ).gramsProperty().addListener( macroUpdater );
       }
+      registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().goal(), goalAnalytics.goal() ) );
+      registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().carbohydratesRatioProperty(), goalAnalytics.carbohydratesRatioProperty() ) );
+      registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().fatsRatioProperty(), goalAnalytics.fatsRatioProperty() ) );
+      registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().proteinRatioProperty(), goalAnalytics.proteinRatioProperty() ) );
    }//End Method
 
    /**
