@@ -3,12 +3,10 @@ package uk.dangrew.nuts.food;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 
 import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
@@ -18,22 +16,17 @@ public class FoodPropertiesTest {
    private static final String ID = "some id";
    private static final String NAME = "this is a name";
    
-   @Spy private FoodAnalytics analytics;
    private FoodProperties systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
-      systemUnderTest = new FoodProperties( ID, NAME, analytics );
+      systemUnderTest = new FoodProperties( ID, NAME );
    }//End Method
    
    @Test public void shouldCreateWithId(){
       systemUnderTest = new FoodProperties( "3487653", "skdjnvs." );
       assertThat( systemUnderTest.id(), is( "3487653" ) );
       assertThat( systemUnderTest.nameProperty().get(), is( "skdjnvs." ) );
-   }//End Method
-   
-   @Test public void shouldAssociateWithAnalytics(){
-      verify( analytics ).associate( systemUnderTest );
    }//End Method
    
    @Test public void shouldProvideFoodId(){
@@ -76,8 +69,9 @@ public class FoodPropertiesTest {
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Protein ).inGrams(), is( 24.8 ) );
    }//End Method
    
-   @Test public void shouldProvideAnalytics() {
-      assertThat( systemUnderTest.analytics(), is( notNullValue() ) );
+   @Test public void shouldProvideCalories(){
+      assertThat( systemUnderTest.calories(), is( notNullValue() ) );
+      assertThat( systemUnderTest.calories().get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldSetMacrosTogether(){

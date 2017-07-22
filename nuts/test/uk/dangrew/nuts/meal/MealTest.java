@@ -10,10 +10,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 
+import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.MacroRatioCalculator;
 
 public class MealTest {
 
@@ -25,6 +28,8 @@ public class MealTest {
    private FoodPortion portion2;
    
    private FoodProperties properties;
+   private FoodAnalytics analytics;
+   @Spy private MacroRatioCalculator ratioCalculator;
    @Mock private MealRegistrations registrations;
    @Mock private MealPropertiesCalculator propertiesCalculator;
    private Meal systemUnderTest;
@@ -38,7 +43,8 @@ public class MealTest {
       portion2 = new FoodPortion();
       
       properties = new FoodProperties( "anything" );
-      systemUnderTest = new Meal( registrations, properties, propertiesCalculator );
+      analytics = new FoodAnalytics();
+      systemUnderTest = new Meal( properties, analytics, registrations, propertiesCalculator, ratioCalculator );
    }//End Method
    
    @Test public void shouldUseName(){
@@ -62,6 +68,18 @@ public class MealTest {
    
    @Test public void shouldAssoiateWithCalculator(){
       verify( propertiesCalculator ).associate( systemUnderTest );
+   }//End Method
+   
+   @Test public void shouldProvideProperties(){
+      assertThat( systemUnderTest.properties(), is( properties ) );
+   }//End Method
+   
+   @Test public void shouldProvideAnalytics(){
+      assertThat( systemUnderTest.analytics(), is( analytics ) );
+   }//End Method
+   
+   @Test public void shouldAssociateRatioCalculator(){
+      verify( ratioCalculator ).associate( properties, analytics );
    }//End Method
 
 }//End Class

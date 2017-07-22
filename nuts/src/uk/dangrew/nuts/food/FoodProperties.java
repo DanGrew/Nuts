@@ -24,24 +24,15 @@ public class FoodProperties {
 
    private final String id;
    private final ObjectProperty< String > nameProperty;
+   private final ObjectProperty< Double > calories;
    private final EnumMap< MacroNutrient, NutrientValue > macros;
-   private final FoodAnalytics analytics;
    
    /**
     * Constructs a new {@link FoodProperties}.
     * @param name the name of the {@link FoodProperties}.
     */
    public FoodProperties( String name ) {
-      this( UUID.randomUUID().toString(), name, new FoodAnalytics() );
-   }//End Constructor
-   
-   /**
-    * Constructs a new {@link FoodProperties}.
-    * @param id the id.
-    * @param name the name of the {@link FoodProperties}.
-    */
-   public FoodProperties( String id, String name ) {
-      this( id, name, new FoodAnalytics() );
+      this( UUID.randomUUID().toString(), name );
    }//End Constructor
    
    /**
@@ -50,15 +41,14 @@ public class FoodProperties {
     * @param name the name of the {@link FoodProperties}.
     * @param analytics the {@link FoodAnalytics} supporting the properties.
     */
-   FoodProperties( String id, String name, FoodAnalytics analytics ) {
+   FoodProperties( String id, String name ) {
       this.id = id;
       this.nameProperty = new SimpleObjectProperty<>( name );
+      this.calories = new SimpleObjectProperty<>( 0.0 );
       this.macros = new EnumMap<>( MacroNutrient.class );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          this.macros.put( macro, new NutrientValue( 0 ) );
       }
-      this.analytics = analytics;
-      this.analytics.associate( this );
    }//End Constructor
    
    /**
@@ -75,6 +65,14 @@ public class FoodProperties {
     */
    public ObjectProperty< String > nameProperty() {
       return nameProperty;
+   }//End Method
+   
+   /**
+    * Access to the calories.
+    * @return the {@link ObjectProperty}.
+    */
+   public ObjectProperty< Double > calories() {
+      return calories;
    }//End Method
 
    /**
@@ -111,14 +109,6 @@ public class FoodProperties {
    }//End Method
 
    /**
-    * Access to the {@link FoodAnalytics} to support the information given in the properties.
-    * @return the {@link FoodAnalytics}.
-    */
-   public FoodAnalytics analytics() {
-      return analytics;
-   }//End Method
-   
-   /**
     * Method to set the {@link MacroNutrient} for convenience.
     * @param cGrams the {@link MacroNutrient#Carbohydrates} in grams.
     * @param fGrams the {@link MacroNutrient#Fats} in grams.
@@ -129,5 +119,5 @@ public class FoodProperties {
       fats().setGrams( fGrams );
       protein().setGrams( pGrams );
    }//End Method
-   
+
 }//End Class

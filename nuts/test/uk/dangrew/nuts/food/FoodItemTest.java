@@ -2,18 +2,25 @@ package uk.dangrew.nuts.food;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 
 public class FoodItemTest {
 
    private FoodProperties properties;
+   private FoodAnalytics analytics;
+   @Spy private MacroRatioCalculator ratioCalculator;
    private FoodItem systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
+      MockitoAnnotations.initMocks( this );
       properties = new FoodProperties( "anything" );
-      systemUnderTest = new FoodItem( properties );
+      analytics = new FoodAnalytics();
+      systemUnderTest = new FoodItem( properties, analytics, ratioCalculator );
    }//End Method
    
    @Test public void shouldCreateWithId(){
@@ -22,8 +29,16 @@ public class FoodItemTest {
       assertThat( systemUnderTest.properties().nameProperty().get(), is( "skdjnvs." ) );
    }//End Method
 
-   @Test public void shouldProvideProperties() {
+   @Test public void shouldProvideProperties(){
       assertThat( systemUnderTest.properties(), is( properties ) );
+   }//End Method
+   
+   @Test public void shouldProvideAnalytics(){
+      assertThat( systemUnderTest.analytics(), is( analytics ) );
+   }//End Method
+   
+   @Test public void shouldAssociateRatioCalculator(){
+      verify( ratioCalculator ).associate( properties, analytics );
    }//End Method
 
 }//End Class

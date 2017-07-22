@@ -18,4 +18,10 @@ public interface Food {
     * @return the {@link FoodProperties}.
     */
    public FoodProperties properties();
+   
+   /**
+    * Access to the {@link FoodAnalytics} associated.
+    * @return the {@link FoodAnalytics}.
+    */
+   public FoodAnalytics analytics();
 }//End Interface

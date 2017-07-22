@@ -12,7 +12,6 @@ import java.util.EnumMap;
 import java.util.Map;
 
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
@@ -22,65 +21,32 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
  */
 public class FoodAnalytics {
 
-   private FoodProperties properties;
-   private final Map< MacroNutrient, ObjectProperty< Double > > macroProportions;
+   private final Map< MacroNutrient, ObjectProperty< Double > > macroRatios;
    
    /**
     * Constructs a new {@link FoodAnalytics}.
     */
    public FoodAnalytics() {
-      this.macroProportions = new EnumMap<>( MacroNutrient.class );
+      this.macroRatios = new EnumMap<>( MacroNutrient.class );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.macroProportions.put( macro, new SimpleObjectProperty< Double >( 0.0 ) );
+         this.macroRatios.put( macro, new SimpleObjectProperty< Double >( 0.0 ) );
       }
    }//End Constructor
    
-   /**
-    * Associate the {@link FoodAnalytics} with the given {@link FoodProperties}.
-    * @param properties the {@link FoodProperties} to associate with.
-    */
-   public void associate( FoodProperties properties ) {
-      if ( this.properties != null ) {
-         throw new IllegalStateException( "Allredy associated." );
-      }
-      
-      this.properties = properties;
-      
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         properties.nutritionFor( macro ).gramsProperty().addListener( ( s, o, n ) -> updateRatios() );
-      }
-      updateRatios();
-   }//End Method
-   
-   /**
-    * Method to update the ratios of {@link MacroNutrient}s.
-    */
-   private void updateRatios(){
-      double total = 0;
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         total += properties.nutritionFor( macro ).inGrams();
-      }
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         double value = properties.nutritionFor( macro ).inGrams();
-         double proportion = total == 0 ? 0 : value * 100 / total;
-         macroProportions.get( macro ).set( proportion );
-      }
-   }//End Method
-
    /**
     * Access to the ratio for the given {@link MacroNutrient} property.
     * @param macro the {@link MacroNutrient} in question.
     * @return the {@link ObjectProperty}.
     */
-   public ReadOnlyObjectProperty< Double > nutrientRatioFor( MacroNutrient macro ) {
-      return macroProportions.get( macro );
+   public ObjectProperty< Double > nutrientRatioFor( MacroNutrient macro ) {
+      return macroRatios.get( macro );
    }//End Method
    
    /**
     * Access to the {@link MacroNutrient#Carbohydrates} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ReadOnlyObjectProperty< Double > carbohydratesRatioProperty() {
+   public ObjectProperty< Double > carbohydratesRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Carbohydrates );
    }//End Method
    
@@ -88,7 +54,7 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Fats} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ReadOnlyObjectProperty< Double > fatsRatioProperty() {
+   public ObjectProperty< Double > fatsRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Fats );
    }//End Method
    
@@ -96,7 +62,7 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Protein} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ReadOnlyObjectProperty< Double > proteinRatioProperty() {
+   public ObjectProperty< Double > proteinRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Protein );
    }//End Method
    

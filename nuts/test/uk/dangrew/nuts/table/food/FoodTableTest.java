@@ -1,6 +1,5 @@
 package uk.dangrew.nuts.table.food;
 
-import org.json.JSONObject;
 import org.junit.Test;
 
 import javafx.scene.layout.BorderPane;
@@ -10,7 +9,6 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
-import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.table.manager.FoodManagerPane;
 import uk.dangrew.sd.graphics.launch.TestApplication;
@@ -50,13 +48,6 @@ public class FoodTableTest {
       addNewMeal( "Meal1", new FoodPortion( food8, 100 ), new FoodPortion( food9, 100 ), new FoodPortion( food10, 100 ) );
       
       TestApplication.launch( () -> new BorderPane( new FoodManagerPane( database ) ) );
-      
-      FoodItemPersistence p = new FoodItemPersistence( database );
-      JSONObject o = new JSONObject();
-      p.structure().build( o );
-      System.out.println( o );
-      p.writeHandles().parse( o );
-      System.out.println( o );
       
       Thread.sleep( 1000000 );
    }//End Method

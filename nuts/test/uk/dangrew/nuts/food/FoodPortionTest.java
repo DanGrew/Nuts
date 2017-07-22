@@ -3,20 +3,30 @@ package uk.dangrew.nuts.food;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodPortionTest {
 
    private Food food;
+   
+   private FoodProperties properties;
+   private FoodAnalytics analytics;
+   @Spy private MacroRatioCalculator ratioCalculator;
    private FoodPortion systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
+      MockitoAnnotations.initMocks( this );
       food = new FoodItem( "Anything" );
-      systemUnderTest = new FoodPortion();
+      properties = new FoodProperties( "Food" );
+      analytics = new FoodAnalytics();
+      systemUnderTest = new FoodPortion( properties, analytics, ratioCalculator );
       systemUnderTest.setFood( food );
    }//End Method
 
@@ -130,7 +140,7 @@ public class FoodPortionTest {
       food.properties().setMacros( 40, 60, 20 );
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( food.properties().analytics().nutrientRatioFor( macro ).get() ) );
+         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( food.analytics().nutrientRatioFor( macro ).get() ) );
       }
    }//End Method
    
@@ -144,13 +154,13 @@ public class FoodPortionTest {
       systemUnderTest.setFood( otherFood );
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( otherFood.properties().analytics().nutrientRatioFor( macro ).get() ) );
+         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( otherFood.analytics().nutrientRatioFor( macro ).get() ) );
       }
       
       food.properties().setMacros( 3476, 90, 234 );
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( otherFood.properties().analytics().nutrientRatioFor( macro ).get() ) );
+         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( otherFood.analytics().nutrientRatioFor( macro ).get() ) );
       }
    }//End Method
    
@@ -173,6 +183,18 @@ public class FoodPortionTest {
       systemUnderTest = new FoodPortion( food, 67 );
       assertThat( systemUnderTest.food().get(), is( food ) );
       assertThat( systemUnderTest.portion().get(), is( 67.0 ) );
+   }//End Method
+   
+   @Test public void shouldAssociateRatioCalculator(){
+      verify( ratioCalculator ).associate( properties, analytics );
+   }//End Method
+   
+   @Test public void shouldProvideProperties(){
+      assertThat( systemUnderTest.properties(), is( properties ) );
+   }//End Method
+   
+   @Test public void shouldProvideAnalytics(){
+      assertThat( systemUnderTest.analytics(), is( analytics ) );
    }//End Method
    
 }//End Class

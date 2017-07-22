@@ -21,6 +21,7 @@ public class FoodPortion implements Food {
    
    private final ChangeListener< Double > macroUpdater;
    private final FoodProperties properties;
+   private final FoodAnalytics analytics;
    
    private final ObjectProperty< Food > food;
    private final ObjectProperty< Double > portion;
@@ -40,9 +41,22 @@ public class FoodPortion implements Food {
     * Constructs a new {@link FoodPortion}.
     */
    public FoodPortion() {
+      this( new FoodProperties( "Portion" ), new FoodAnalytics(), new MacroRatioCalculator() );
+   }//End Constructor
+   
+   /**
+    * Constructs a new {@link FoodPortion}.
+    * @param properties the {@link FoodProperties}.
+    * @param analytics the {@link FoodAnalytics}.
+    * @param ratioCalculator the {@link MacroRatioCalculator}.
+    */
+   FoodPortion( FoodProperties properties, FoodAnalytics analytics, MacroRatioCalculator ratioCalculator ) {
       this.food = new SimpleObjectProperty<>();
       this.portion = new SimpleObjectProperty<>( 100.0 );
-      this.properties = new FoodProperties( "Portion" );
+      this.properties = properties;
+      this.analytics = analytics;
+      ratioCalculator.associate( properties, analytics );
+      
       this.macroUpdater = ( s, o, n ) -> updateMacros();
       this.portion.addListener( macroUpdater );
    }//End Constructor
@@ -117,7 +131,7 @@ public class FoodPortion implements Food {
     * @return the {@link ObjectProperty}.
     */
    public ReadOnlyObjectProperty< Double > nutritionRatioFor( MacroNutrient macro ) {
-      return properties.analytics().nutrientRatioFor( macro );
+      return analytics.nutrientRatioFor( macro );
    }//End Method
    
    /**
@@ -153,6 +167,13 @@ public class FoodPortion implements Food {
     */
    @Override public FoodProperties properties() {
       return properties;
+   }//End Method
+   
+   /**
+    * {@inheritDoc}
+    */
+   @Override public FoodAnalytics analytics() {
+      return analytics;
    }//End Method
 
 }//End Class

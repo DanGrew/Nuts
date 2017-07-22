@@ -93,7 +93,7 @@ public class FoodTableConfiguration {
    ){
       TableColumn< FoodTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
       column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().properties().analytics() ).asString() );
+      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().analytics() ).asString() );
       table.getColumns().add( column );
    }//End Method
 

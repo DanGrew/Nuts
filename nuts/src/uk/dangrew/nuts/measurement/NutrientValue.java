@@ -9,7 +9,6 @@
 package uk.dangrew.nuts.measurement;
 
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 /**
@@ -40,7 +39,7 @@ public class NutrientValue {
     * Access to the value in grams property.
     * @return the {@link ObjectProperty}.
     */
-   public ReadOnlyObjectProperty< Double > gramsProperty() {
+   public ObjectProperty< Double > gramsProperty() {
       return siGrams;
    }//End Method
 

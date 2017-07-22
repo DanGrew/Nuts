@@ -10,9 +10,11 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
@@ -39,7 +41,7 @@ public class MealRegistrationsTest {
       
       properties = new FoodProperties( "anything" );
       systemUnderTest = new MealRegistrations();
-      meal = new Meal( systemUnderTest, properties, mock( MealPropertiesCalculator.class ) );
+      meal = new Meal( properties, new FoodAnalytics(), systemUnderTest, mock( MealPropertiesCalculator.class ), new MacroRatioCalculator() );
    }//End Method
    
    @Test( expected = IllegalStateException.class ) public void shouldNotAllowMultipleAssociations(){

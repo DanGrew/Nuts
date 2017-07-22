@@ -71,9 +71,9 @@ public class MealSummary extends GridPane {
       double totalFats = meal.properties().fats().inGrams();
       double totalProtein = meal.properties().protein().inGrams();
       
-      double totalCarbsRatio = meal.properties().analytics().carbohydratesRatio();
-      double totalFatsRatio = meal.properties().analytics().fatsRatio();
-      double totalProteinRatio = meal.properties().analytics().proteinRatio();
+      double totalCarbsRatio = meal.analytics().carbohydratesRatio();
+      double totalFatsRatio = meal.analytics().fatsRatio();
+      double totalProteinRatio = meal.analytics().proteinRatio();
       
       double total = totalCarbs + totalFats + totalProtein;
       
