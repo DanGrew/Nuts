@@ -28,7 +28,7 @@ public class FoodTableTest {
       Food food5 = addNewFood( "Belvita Duos", 34, 7.6, 3.6 );
       Food food6 = addNewFood( "Cookies & Cream Carb Killa", 13.6, 8.2, 23.3 );
       Food food7 = addNewFood( "Graze Protein Bite", 14, 8, 4.6 );
-      Food food8 = addNewFood( "Wholemeal Break (4 Slices)", 60.4, 2.8, 16 );
+      Food food8 = addNewFood( "Wholemeal Bread (4 Slices)", 60.4, 2.8, 16 );
       Food food9 = addNewFood( "Tuna & Sweetcorn (62.5g)", 4.1, 8.2, 6.2 );
       Food food10 = addNewFood( "Grapes", 21.6, 0.1, 0.6 );
       Food food11 = addNewFood( "Brazil Nuts (15g)", 1.6, 10.2, 2.1 );
@@ -53,18 +53,16 @@ public class FoodTableTest {
    }//End Method
    
    private Food addNewFood( String name, double c, double f, double p ) {
-      FoodItem foodItem = new FoodItem( name );
+      FoodItem foodItem = database.foodItems().createFood( name );
       foodItem.properties().nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, c );
       foodItem.properties().nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, f );
       foodItem.properties().nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, p );
-      database.foodItems().store( foodItem );
       return foodItem;
    }//End Method
    
    private void addNewMeal( String name, FoodPortion... portions ) {
-      Meal meal = new Meal( name );
+      Meal meal = database.meals().createFood( name );
       meal.portions().addAll( portions );
-      database.meals().store( meal );
    }//End Method
    
 }//End Class

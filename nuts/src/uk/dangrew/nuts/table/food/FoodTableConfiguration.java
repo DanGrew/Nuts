@@ -19,6 +19,7 @@ import uk.dangrew.kode.javafx.table.EditCommitHandler;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.measurement.NutrientValue;
 
 /**
@@ -89,11 +90,11 @@ public class FoodTableConfiguration {
             TableView< FoodTableRow< FoodTypeT > > table,
             String title, 
             double widthProportion,
-            Function< FoodAnalytics, ReadOnlyObjectProperty< Double > > propertyRetriever 
+            Function< GoalAnalytics, ReadOnlyObjectProperty< Double > > propertyRetriever 
    ){
       TableColumn< FoodTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
       column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().analytics() ).asString() );
+      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().goalAnalytics() ).asString() );
       table.getColumns().add( column );
    }//End Method
 

@@ -14,7 +14,9 @@ import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
@@ -41,7 +43,11 @@ public class MealRegistrationsTest {
       
       properties = new FoodProperties( "anything" );
       systemUnderTest = new MealRegistrations();
-      meal = new Meal( properties, new FoodAnalytics(), systemUnderTest, mock( MealPropertiesCalculator.class ), new MacroRatioCalculator() );
+      meal = new Meal( 
+               properties, new FoodAnalytics(), new GoalAnalytics(), 
+               systemUnderTest, 
+               mock( MealPropertiesCalculator.class ), new MacroRatioCalculator(), new MacroGoalRatioCalculator() 
+      );
    }//End Method
    
    @Test( expected = IllegalStateException.class ) public void shouldNotAllowMultipleAssociations(){

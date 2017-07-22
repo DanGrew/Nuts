@@ -132,5 +132,12 @@ public class FoodOptionsTest {
       assertThat( systemUnderTest.find( "Three" ), is( item3 ) );
       assertThat( systemUnderTest.find( "something else" ), is( nullValue() ) );
    }//End Method
+   
+   @Test public void shouldPopulateFoodsInitially(){
+      database.foodItems().store( foodItem1 );
+      database.meals().store( meal1 );
+      systemUnderTest = new FoodOptions( database );
+      assertThat( systemUnderTest.options(), contains( foodItem1, meal1 ) );
+   }//End Method
 
 }//End Class

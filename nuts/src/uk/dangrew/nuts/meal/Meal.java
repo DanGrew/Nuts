@@ -14,7 +14,9 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 
 /**
  * The {@link Meal} represents a collection of {@link FoodPortion}s and provides notifications
@@ -22,10 +24,12 @@ import uk.dangrew.nuts.food.MacroRatioCalculator;
  */
 public class Meal implements Food {
 
-   private final MealRegistrations registrations;
-   private final MealPropertiesCalculator propertiesCalculator;
    private final FoodProperties properties;
-   private final FoodAnalytics analytics;
+   private final FoodAnalytics foodAnalytics;
+   private final GoalAnalytics goalAnalytics;
+   private final MealPropertiesCalculator propertiesCalculator;
+   
+   private final MealRegistrations registrations;
    private final ObservableList< FoodPortion > portions;
    
    /**
@@ -36,35 +40,43 @@ public class Meal implements Food {
       this( 
                new FoodProperties( name ), 
                new FoodAnalytics(), 
+               new GoalAnalytics(),
                new MealRegistrations(), 
                new MealPropertiesCalculator(),
-               new MacroRatioCalculator()
+               new MacroRatioCalculator(),
+               new MacroGoalRatioCalculator()
       );
    }//End Constructor
    
    /**
     * Constructs a new {@link Meal}.
     * @param properties the {@link FoodProperties}.
-    * @param analytics the {@link FoodAnalytics}.
+    * @param foodAnalytics the {@link FoodAnalytics}.
+    * @param goalAnalytics the {@link GoalAnalytics}.
     * @param registrations the {@link MealRegistrations}.
     * @param propertiesCalculator the {@link MealPropertiesCalculator}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
+    * @param goalRatioCalculator the {@link MacroGoalRatioCalculator}.
     */
    Meal( 
             FoodProperties properties,
-            FoodAnalytics analytics,
+            FoodAnalytics foodAnalytics,
+            GoalAnalytics goalAnalytics,
             MealRegistrations registrations, 
             MealPropertiesCalculator propertiesCalculator,
-            MacroRatioCalculator ratioCalculator
+            MacroRatioCalculator ratioCalculator,
+            MacroGoalRatioCalculator goalRatioCalculator
    ) {
       this.registrations = registrations;
       this.portions = FXCollections.observableArrayList();
       this.registrations.associate( this );
       this.properties = properties;
+      this.foodAnalytics = foodAnalytics;
+      this.goalAnalytics = goalAnalytics;
       this.propertiesCalculator = propertiesCalculator;
       this.propertiesCalculator.associate( this );
-      this.analytics = analytics;
-      ratioCalculator.associate( properties, analytics );
+      ratioCalculator.associate( properties, foodAnalytics );
+      goalRatioCalculator.associate( properties, goalAnalytics );
    }//End Constructor
    
    /**
@@ -77,8 +89,15 @@ public class Meal implements Food {
    /**
     * {@inheritDoc}
     */
-   @Override public FoodAnalytics analytics() {
-      return analytics;
+   @Override public FoodAnalytics foodAnalytics() {
+      return foodAnalytics;
+   }//End Method
+   
+   /**
+    * {@inheritDoc}
+    */
+   @Override public GoalAnalytics goalAnalytics() {
+      return goalAnalytics;
    }//End Method
    
    /**

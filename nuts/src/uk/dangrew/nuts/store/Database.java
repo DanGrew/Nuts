@@ -9,6 +9,7 @@
 package uk.dangrew.nuts.store;
 
 import uk.dangrew.nuts.food.FoodItemStore;
+import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.meal.MealStore;
 
 /**
@@ -23,8 +24,11 @@ public class Database {
     * Constructs a new {@link Database}.
     */
    public Database() {
-      this.foodItems = new FoodItemStore();
-      this.meals = new MealStore();
+      //needs removing
+      Goal goal = new Goal( "Goal" );
+      goal.properties().setMacros( 350, 60, 200 );
+      this.foodItems = new FoodItemStore( goal );
+      this.meals = new MealStore( goal );
    }//End Constructor
    
    /**
@@ -44,5 +48,5 @@ public class Database {
    public MealStore meals() {
       return meals;
    }//End Method
-
+   
 }//End Class

@@ -6,8 +6,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
@@ -15,35 +15,36 @@ public class MacroGoalRatioCalculatorTest {
 
    private Goal goal;
    private FoodProperties properties;
-   private FoodAnalytics analytics;
+   private GoalAnalytics analytics;
    private MacroGoalRatioCalculator systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       properties = new FoodProperties( "Props" );
-      analytics = new FoodAnalytics();
+      analytics = new GoalAnalytics();
       goal = new Goal( "Goal" );
       
       systemUnderTest = new MacroGoalRatioCalculator();
-      systemUnderTest.associate( properties, analytics, goal );
+      systemUnderTest.associate( properties, analytics );
    }//End Method
 
    @Test( expected = IllegalStateException.class ) public void shouldNotAllowAssociateAgain(){
-      systemUnderTest.associate( properties, analytics, goal );
+      systemUnderTest.associate( properties, analytics );
    }//End Method
    
-   @Test public void shouldCalculateProportionsOnAssociation(){
+   @Test public void shouldCalculateProportionsWhenFoodSet(){
       goal.properties().setMacros( 300, 60, 200 );
       
       properties.carbohydrates().setGrams( 45 );
       properties.fats().setGrams( 15 );
       properties.protein().setGrams( 40 );
       
-      systemUnderTest = new MacroGoalRatioCalculator();
-      systemUnderTest.associate( properties, analytics, goal );
+      analytics.goal().set( goal );
       assertMacroProportions( 15, 25, 20 );
    }//End Method
    
    @Test public void shouldProvideMacroProportions() {
+      analytics.goal().set( goal );
+      
       assertMacroProportions( 0, 0, 0 );
       goal.properties().setMacros( 300, 60, 200 );
       
@@ -64,6 +65,8 @@ public class MacroGoalRatioCalculatorTest {
    }//End Method
    
    @Test public void shouldRespondToGoalChanges() {
+      analytics.goal().set( goal );
+      
       properties.carbohydrates().setGrams( 20 );
       properties.fats().setGrams( 15 );
       properties.protein().setGrams( 10 );
@@ -79,6 +82,42 @@ public class MacroGoalRatioCalculatorTest {
       
       goal.properties().fats().setGrams( 20 );
       assertMacroProportions( 40, 75, 12.5 );
+   }//End Method
+   
+   @Test public void shouldNotCalculateProportionsWhenNoGoal(){
+      assertMacroProportions( 0, 0, 0 );
+      properties.carbohydrates().setGrams( 100 );
+      assertMacroProportions( 0, 0, 0 );
+   }//End Method
+   
+   @Test public void shouldResetProportionsWhenGoalRemoved(){
+      goal.properties().setMacros( 300, 60, 200 );
+      properties.carbohydrates().setGrams( 45 );
+      properties.fats().setGrams( 15 );
+      properties.protein().setGrams( 40 );
+      
+      assertMacroProportions( 0, 0, 0 );
+      analytics.goal().set( goal );
+      assertMacroProportions( 15, 25, 20 );
+      
+      analytics.goal().set( null );
+      assertMacroProportions( 0, 0, 0 );
+   }//End Method
+   
+   @Test public void shouldNotRespondToPreviousGoal(){
+      analytics.goal().set( goal );
+      
+      goal.properties().setMacros( 300, 60, 200 );
+      properties.carbohydrates().setGrams( 45 );
+      properties.fats().setGrams( 15 );
+      properties.protein().setGrams( 40 );
+      assertMacroProportions( 15, 25, 20 );
+      
+      analytics.goal().set( null );
+      assertMacroProportions( 0, 0, 0 );
+      properties.setMacros( 23, 456, 980 );
+      goal.properties().setMacros( 100, 23, 987 );
+      assertMacroProportions( 0, 0, 0 );
    }//End Method
    
    /**

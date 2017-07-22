@@ -9,18 +9,23 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
+
 public class FoodItemTest {
 
    private FoodProperties properties;
-   private FoodAnalytics analytics;
+   private FoodAnalytics foodAnalytics;
+   private GoalAnalytics goalAnalytics;
    @Spy private MacroRatioCalculator ratioCalculator;
+   @Spy private MacroGoalRatioCalculator goalRatioCalculator;
    private FoodItem systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
       properties = new FoodProperties( "anything" );
-      analytics = new FoodAnalytics();
-      systemUnderTest = new FoodItem( properties, analytics, ratioCalculator );
+      foodAnalytics = new FoodAnalytics();
+      goalAnalytics = new GoalAnalytics();
+      systemUnderTest = new FoodItem( properties, foodAnalytics, goalAnalytics, ratioCalculator, goalRatioCalculator );
    }//End Method
    
    @Test public void shouldCreateWithId(){
@@ -33,12 +38,20 @@ public class FoodItemTest {
       assertThat( systemUnderTest.properties(), is( properties ) );
    }//End Method
    
-   @Test public void shouldProvideAnalytics(){
-      assertThat( systemUnderTest.analytics(), is( analytics ) );
+   @Test public void shouldProvideFoodAnalytics(){
+      assertThat( systemUnderTest.foodAnalytics(), is( foodAnalytics ) );
    }//End Method
    
    @Test public void shouldAssociateRatioCalculator(){
-      verify( ratioCalculator ).associate( properties, analytics );
+      verify( ratioCalculator ).associate( properties, foodAnalytics );
+   }//End Method
+   
+   @Test public void shouldProvideGoalAnalytics(){
+      assertThat( systemUnderTest.goalAnalytics(), is( goalAnalytics ) );
+   }//End Method
+   
+   @Test public void shouldAssociateGoalRatioCalculator(){
+      verify( goalRatioCalculator ).associate( properties, goalAnalytics );
    }//End Method
 
 }//End Class

@@ -13,7 +13,9 @@ import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 
 public class MealPropertiesCalculatorTest {
 
@@ -42,7 +44,15 @@ public class MealPropertiesCalculatorTest {
       portion3.setFood( item3 );
       
       systemUnderTest = new MealPropertiesCalculator();
-      meal = new Meal( new FoodProperties( "anything" ), new FoodAnalytics(), registrations, systemUnderTest, new MacroRatioCalculator() );
+      meal = new Meal( 
+               new FoodProperties( "anything" ), 
+               new FoodAnalytics(), 
+               new GoalAnalytics(),
+               registrations, 
+               systemUnderTest, 
+               new MacroRatioCalculator(),
+               new MacroGoalRatioCalculator()
+      );
    }//End Method
 
    @Test( expected = IllegalStateException.class ) public void shouldNotAllowMultipleAssociations(){
@@ -63,9 +73,9 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.properties().fats().inGrams(), is( 0.0 ) );
       assertThat( meal.properties().protein().inGrams(), is( 0.0 ) );
       
-      assertThat( meal.analytics().carbohydratesRatio(), is( 0.0 ) );
-      assertThat( meal.analytics().fatsRatio(), is( 0.0 ) );
-      assertThat( meal.analytics().proteinRatio(), is( 0.0 ) );
+      assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 0.0 ) );
+      assertThat( meal.foodAnalytics().fatsRatio(), is( 0.0 ) );
+      assertThat( meal.foodAnalytics().proteinRatio(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldResetPropertiesWhenEmptyMeal(){
@@ -77,9 +87,9 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.properties().fats().inGrams(), is( 14.0 ) );
       assertThat( meal.properties().protein().inGrams(), is( 50.0 ) );
       
-      assertThat( meal.analytics().carbohydratesRatio(), is( 48.8 ) );
-      assertThat( meal.analytics().fatsRatio(), is( 11.2 ) );
-      assertThat( meal.analytics().proteinRatio(), is( 40.0 ) );
+      assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 48.8 ) );
+      assertThat( meal.foodAnalytics().fatsRatio(), is( 11.2 ) );
+      assertThat( meal.foodAnalytics().proteinRatio(), is( 40.0 ) );
    }//End Method
    
    @Test public void shouldIgnorePortionsWithNoFood(){
@@ -91,9 +101,9 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.properties().fats().inGrams(), is( 14.0 ) );
       assertThat( meal.properties().protein().inGrams(), is( 50.0 ) );
       
-      assertThat( meal.analytics().carbohydratesRatio(), is( 48.8 ) );
-      assertThat( meal.analytics().fatsRatio(), is( 11.2 ) );
-      assertThat( meal.analytics().proteinRatio(), is( 40.0 ) );
+      assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 48.8 ) );
+      assertThat( meal.foodAnalytics().fatsRatio(), is( 11.2 ) );
+      assertThat( meal.foodAnalytics().proteinRatio(), is( 40.0 ) );
    }//End Method
 
 }//End Class

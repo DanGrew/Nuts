@@ -12,6 +12,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
+import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 /**
@@ -22,6 +23,7 @@ public class FoodPortion implements Food {
    private final ChangeListener< Double > macroUpdater;
    private final FoodProperties properties;
    private final FoodAnalytics analytics;
+   private final GoalAnalytics goalAnalytics;
    
    private final ObjectProperty< Food > food;
    private final ObjectProperty< Double > portion;
@@ -41,22 +43,38 @@ public class FoodPortion implements Food {
     * Constructs a new {@link FoodPortion}.
     */
    public FoodPortion() {
-      this( new FoodProperties( "Portion" ), new FoodAnalytics(), new MacroRatioCalculator() );
+      this( 
+               new FoodProperties( "Portion" ), 
+               new FoodAnalytics(),
+               new GoalAnalytics(),
+               new MacroRatioCalculator(),
+               new MacroGoalRatioCalculator()
+      );
    }//End Constructor
    
    /**
     * Constructs a new {@link FoodPortion}.
     * @param properties the {@link FoodProperties}.
-    * @param analytics the {@link FoodAnalytics}.
+    * @param foodAnalytics the {@link FoodAnalytics}.
+    * @param goalAnalytics the {@link GoalAnalytics}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
+    * @param goalRatioCalculator the {@link MacroGoalRatioCalculator}.
     */
-   FoodPortion( FoodProperties properties, FoodAnalytics analytics, MacroRatioCalculator ratioCalculator ) {
+   FoodPortion( 
+            FoodProperties properties, 
+            FoodAnalytics foodAnalytics, 
+            GoalAnalytics goalAnalytics,
+            MacroRatioCalculator ratioCalculator,
+            MacroGoalRatioCalculator goalRatioCalculator
+   ) {
       this.food = new SimpleObjectProperty<>();
       this.portion = new SimpleObjectProperty<>( 100.0 );
       this.properties = properties;
-      this.analytics = analytics;
-      ratioCalculator.associate( properties, analytics );
-      
+      this.analytics = foodAnalytics;
+      this.goalAnalytics = goalAnalytics;
+      ratioCalculator.associate( properties, foodAnalytics );
+      goalRatioCalculator.associate( properties, goalAnalytics );
+      //need to bind macros
       this.macroUpdater = ( s, o, n ) -> updateMacros();
       this.portion.addListener( macroUpdater );
    }//End Constructor
@@ -172,8 +190,15 @@ public class FoodPortion implements Food {
    /**
     * {@inheritDoc}
     */
-   @Override public FoodAnalytics analytics() {
+   @Override public FoodAnalytics foodAnalytics() {
       return analytics;
+   }//End Method
+   
+   /**
+    * {@inheritDoc}
+    */
+   @Override public GoalAnalytics goalAnalytics() {
+      return goalAnalytics;
    }//End Method
 
 }//End Class

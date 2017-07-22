@@ -35,6 +35,9 @@ class FoodOptions {
       this.options = FXCollections.observableArrayList();
       this.comparator = Comparators.stringExtractionComparater( f -> f.properties().nameProperty().get() );
       
+      database.foodItems().objectList().forEach( this::add );
+      database.meals().objectList().forEach( this::add );
+      
       database.foodItems().objectList().addListener( new FunctionListChangeListenerImpl<>( 
                this::add, this::remove 
       ) );
@@ -74,15 +77,9 @@ class FoodOptions {
     * @return the found {@link Food}.
     */
    Food find( String name ) {
-      Optional< Food > found = options().stream().filter( 
+      return options().stream().filter( 
                f -> f.properties().nameProperty().get().equals( name ) 
-      ).findFirst();
-      
-      if ( found.isPresent() ) {
-         return found.get();
-      } else {
-         return null;
-      }
+      ).findFirst().orElse( null );
    }//End Method
 
 }//End Class

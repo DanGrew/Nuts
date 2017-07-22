@@ -7,6 +7,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.sd.graphics.launch.TestApplication;
@@ -18,7 +19,7 @@ public class FoodTableWithControlsTest {
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
-      store = new MealStore();
+      store = new MealStore( new Goal( "Goal" ) );
       systemUnderTest = new FoodTableWithControls<>( store );
    }//End Method
 

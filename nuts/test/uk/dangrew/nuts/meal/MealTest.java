@@ -16,7 +16,9 @@ import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 
 public class MealTest {
 
@@ -28,10 +30,12 @@ public class MealTest {
    private FoodPortion portion2;
    
    private FoodProperties properties;
-   private FoodAnalytics analytics;
+   private FoodAnalytics foodAnalytics;
+   private GoalAnalytics goalAnalytics;
    @Spy private MacroRatioCalculator ratioCalculator;
    @Mock private MealRegistrations registrations;
    @Mock private MealPropertiesCalculator propertiesCalculator;
+   @Spy private MacroGoalRatioCalculator goalRatioCalculator;
    private Meal systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -43,8 +47,17 @@ public class MealTest {
       portion2 = new FoodPortion();
       
       properties = new FoodProperties( "anything" );
-      analytics = new FoodAnalytics();
-      systemUnderTest = new Meal( properties, analytics, registrations, propertiesCalculator, ratioCalculator );
+      foodAnalytics = new FoodAnalytics();
+      goalAnalytics = new GoalAnalytics();
+      systemUnderTest = new Meal(
+               properties, 
+               foodAnalytics, 
+               goalAnalytics,
+               registrations, 
+               propertiesCalculator, 
+               ratioCalculator,
+               goalRatioCalculator
+      );
    }//End Method
    
    @Test public void shouldUseName(){
@@ -74,12 +87,20 @@ public class MealTest {
       assertThat( systemUnderTest.properties(), is( properties ) );
    }//End Method
    
-   @Test public void shouldProvideAnalytics(){
-      assertThat( systemUnderTest.analytics(), is( analytics ) );
+   @Test public void shouldProvideFoodAnalytics(){
+      assertThat( systemUnderTest.foodAnalytics(), is( foodAnalytics ) );
    }//End Method
    
    @Test public void shouldAssociateRatioCalculator(){
-      verify( ratioCalculator ).associate( properties, analytics );
+      verify( ratioCalculator ).associate( properties, foodAnalytics );
+   }//End Method
+   
+   @Test public void shouldProvideGoalAnalytics(){
+      assertThat( systemUnderTest.goalAnalytics(), is( goalAnalytics ) );
+   }//End Method
+   
+   @Test public void shouldAssociateGoalRatioCalculator(){
+      verify( goalRatioCalculator ).associate( properties, goalAnalytics );
    }//End Method
 
 }//End Class

@@ -35,7 +35,7 @@ public class GoalTest {
    }//End Method
    
    @Test public void shouldProvideAnalytics(){
-      assertThat( systemUnderTest.analytics(), is( analytics ) );
+      assertThat( systemUnderTest.foodAnalytics(), is( analytics ) );
    }//End Method
    
    @Test public void shouldAssociateRatioCalculator(){

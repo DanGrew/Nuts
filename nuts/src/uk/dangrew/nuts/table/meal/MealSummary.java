@@ -12,8 +12,8 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealChangeListener;
+import uk.dangrew.nuts.meal.Meal;
 
 /**
  * {@link MealSummary} provides a summary of properties of a {@link Meal}.
@@ -71,9 +71,9 @@ public class MealSummary extends GridPane {
       double totalFats = meal.properties().fats().inGrams();
       double totalProtein = meal.properties().protein().inGrams();
       
-      double totalCarbsRatio = meal.analytics().carbohydratesRatio();
-      double totalFatsRatio = meal.analytics().fatsRatio();
-      double totalProteinRatio = meal.analytics().proteinRatio();
+      double totalCarbsRatio = meal.foodAnalytics().carbohydratesRatio();
+      double totalFatsRatio = meal.foodAnalytics().fatsRatio();
+      double totalProteinRatio = meal.foodAnalytics().proteinRatio();
       
       double total = totalCarbs + totalFats + totalProtein;
       
@@ -101,7 +101,7 @@ public class MealSummary extends GridPane {
    
    /**
     * Method to show a particular {@link Meal} in the summary.
-    * @param meal the {@link Meal} to show.
+    * @param MealImpl the {@link Meal} to show.
     */
    public void showMeal( Meal meal ) {
       if ( this.meal != null ) {

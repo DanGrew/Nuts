@@ -8,6 +8,8 @@
  */
 package uk.dangrew.nuts.food;
 
+import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
+
 /**
  * {@link FoodItem} represents a single item of food and the properties of that food. The {@link Food}
  * has a size, but is not portioned and simply measured in some amount.
@@ -15,14 +17,15 @@ package uk.dangrew.nuts.food;
 public class FoodItem implements Food {
 
    private final FoodProperties properties;
-   private final FoodAnalytics analytics;
+   private final FoodAnalytics foodAnalytics;
+   private final GoalAnalytics goalAnalytics;
    
    /**
     * Constructs a new {@link FoodItem}.
     * @param name the name of the {@link FoodItem}.
     */
    public FoodItem( String name ) {
-      this( new FoodProperties( name ), new FoodAnalytics(), new MacroRatioCalculator() );
+      this( new FoodProperties( name ) );
    }//End Constructor
    
    /**
@@ -31,19 +34,43 @@ public class FoodItem implements Food {
     * @param name the name.
     */
    public FoodItem( String id, String name ) {
-      this( new FoodProperties( id, name ), new FoodAnalytics(), new MacroRatioCalculator() );
+      this( new FoodProperties( id, name ) );
+   }//End Constructor
+   
+   /**
+    * Constructs a new {@link FoodItem} with the given {@link FoodProperties}.
+    * @param properties the {@link FoodProperties}.
+    */
+   private FoodItem( FoodProperties properties ) {
+      this( 
+               properties,
+               new FoodAnalytics(),
+               new GoalAnalytics(),
+               new MacroRatioCalculator(),
+               new MacroGoalRatioCalculator()
+      );
    }//End Constructor
    
    /**
     * Constructs a new {@link FoodItem}.
     * @param properties the {@link FoodProperties}.
-    * @param analytics the {@link FoodAnalytics}.
+    * @param foodAnalytics the {@link FoodAnalytics}.
+    * @param goalAnalytics the {@link GoalAnalytics}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
+    * @param goalRatioCalculator the {@link MacroGoalRatioCalculator}.
     */
-   FoodItem( FoodProperties properties, FoodAnalytics analytics, MacroRatioCalculator ratioCalculator ) {
+   FoodItem( 
+            FoodProperties properties, 
+            FoodAnalytics foodAnalytics, 
+            GoalAnalytics goalAnalytics,
+            MacroRatioCalculator ratioCalculator,
+            MacroGoalRatioCalculator goalRatioCalculator
+   ) {
       this.properties = properties;
-      this.analytics = analytics;
-      ratioCalculator.associate( properties, analytics );
+      this.foodAnalytics = foodAnalytics;
+      this.goalAnalytics = goalAnalytics;
+      ratioCalculator.associate( properties, foodAnalytics );
+      goalRatioCalculator.associate( properties, goalAnalytics );
    }//End Constructor
 
    /**
@@ -56,8 +83,15 @@ public class FoodItem implements Food {
    /**
     * {@inheritDoc}
     */
-   @Override public FoodAnalytics analytics() {
-      return analytics;
+   @Override public FoodAnalytics foodAnalytics() {
+      return foodAnalytics;
+   }//End Method
+   
+   /**
+    * {@inheritDoc}
+    */
+   @Override public GoalAnalytics goalAnalytics() {
+      return goalAnalytics;
    }//End Method
    
 }//End Class
