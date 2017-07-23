@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.table.food;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javafx.scene.layout.BorderPane;
@@ -7,7 +8,6 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.table.manager.FoodManagerPane;
@@ -18,6 +18,7 @@ public class FoodTableTest {
    private Database database;
    private FoodTable< FoodItem > table;
    
+   @Ignore
    @Test public void manual() throws InterruptedException {
       database = new Database();
       
@@ -54,9 +55,9 @@ public class FoodTableTest {
    
    private Food addNewFood( String name, double c, double f, double p ) {
       FoodItem foodItem = database.foodItems().createFood( name );
-      foodItem.properties().nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, c );
-      foodItem.properties().nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, f );
-      foodItem.properties().nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, p );
+      foodItem.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( c );
+      foodItem.properties().nutritionFor( MacroNutrient.Fats ).set( f );
+      foodItem.properties().nutritionFor( MacroNutrient.Protein ).set( p );
       return foodItem;
    }//End Method
    

@@ -67,13 +67,13 @@ public class MealSummary extends GridPane {
     * Method to update the properties displayed.
     */
    private void updateProperties(){
-      double totalCarbs = meal.properties().carbohydrates().inGrams();
-      double totalFats = meal.properties().fats().inGrams();
-      double totalProtein = meal.properties().protein().inGrams();
+      double totalCarbs = meal.properties().carbohydrates().get();
+      double totalFats = meal.properties().fats().get();
+      double totalProtein = meal.properties().protein().get();
       
-      double totalCarbsRatio = meal.foodAnalytics().carbohydratesRatio();
-      double totalFatsRatio = meal.foodAnalytics().fatsRatio();
-      double totalProteinRatio = meal.foodAnalytics().proteinRatio();
+      double totalCarbsRatio = meal.goalAnalytics().carbohydratesRatio();
+      double totalFatsRatio = meal.goalAnalytics().fatsRatio();
+      double totalProteinRatio = meal.goalAnalytics().proteinRatio();
       
       double total = totalCarbs + totalFats + totalProtein;
       

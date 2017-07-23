@@ -51,6 +51,9 @@ public class MealRegistrations {
       meal.portions().addListener( new FunctionListChangeListenerImpl<>( 
                this::portionAdded, this::portionRemoved 
       ) );
+      meal.goalAnalytics().carbohydratesRatioProperty().addListener( valueNotifier );
+      meal.goalAnalytics().fatsRatioProperty().addListener( valueNotifier );
+      meal.goalAnalytics().proteinRatioProperty().addListener( valueNotifier );
    }//End Method
    
    /**

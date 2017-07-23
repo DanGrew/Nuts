@@ -33,7 +33,7 @@ public class MacroRatioCalculator {
       this.analytics = analytics;
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         properties.nutritionFor( macro ).gramsProperty().addListener( ( s, o, n ) -> updateRatios() );
+         properties.nutritionFor( macro ).addListener( ( s, o, n ) -> updateRatios() );
       }
       updateRatios();
    }//End Method
@@ -44,10 +44,10 @@ public class MacroRatioCalculator {
    private void updateRatios(){
       double total = 0;
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         total += properties.nutritionFor( macro ).inGrams();
+         total += properties.nutritionFor( macro ).get();
       }
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         double value = properties.nutritionFor( macro ).inGrams();
+         double value = properties.nutritionFor( macro ).get();
          double proportion = total == 0 ? 0 : value * 100 / total;
          analytics.nutrientRatioFor( macro ).set( proportion );
       }

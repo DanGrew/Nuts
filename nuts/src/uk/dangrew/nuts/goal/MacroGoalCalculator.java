@@ -45,17 +45,17 @@ class MacroGoalCalculator {
     */
    private void calculate(){
       double proteinGoal = goal.mass().get() * goal.proteinPerPound().get();
-      goal.properties().protein().setGrams( proteinGoal );
+      goal.properties().protein().set( proteinGoal );
       
       double fatGoal = goal.mass().get() * goal.fatPerPound().get();
-      goal.properties().fats().setGrams( fatGoal );
+      goal.properties().fats().set( fatGoal );
       
       double proteinCalories = proteinGoal * CALORIES_PER_PROTEIN_GRAM;
       double fatCalories = fatGoal * CALORIES_PER_FAT_GRAM;
       
       double remainingCalories = goal.properties().calories().get() - proteinCalories - fatCalories;
       double carbohydrateGoal = remainingCalories / CALORIES_PER_CARBOHYDRATE_GRAM;
-      goal.properties().carbohydrates().setGrams( carbohydrateGoal );
+      goal.properties().carbohydrates().set( carbohydrateGoal );
    }//End Method
 
 }//End Class

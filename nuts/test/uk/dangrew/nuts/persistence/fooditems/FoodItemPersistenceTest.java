@@ -57,17 +57,17 @@ public class FoodItemPersistenceTest {
       assertFoodItemProperties( 
                item, 
                item1.properties().id(), item1.properties().nameProperty().get(),
-               item1.properties().carbohydrates().inGrams(),
-               item1.properties().fats().inGrams(),
-               item1.properties().protein().inGrams()
+               item1.properties().carbohydrates().get(),
+               item1.properties().fats().get(),
+               item1.properties().protein().get()
       );
       item = database.foodItems().objectList().get( 1 );
       assertFoodItemProperties( 
                item, 
                item2.properties().id(), item2.properties().nameProperty().get(),
-               item2.properties().carbohydrates().inGrams(),
-               item2.properties().fats().inGrams(),
-               item2.properties().protein().inGrams()
+               item2.properties().carbohydrates().get(),
+               item2.properties().fats().get(),
+               item2.properties().protein().get()
       );
    }//End Method
 
@@ -87,8 +87,8 @@ public class FoodItemPersistenceTest {
    ){
       assertThat( item.properties().id(), is( id ) );
       assertThat( item.properties().nameProperty().get(), is( name ) );
-      assertThat( item.properties().carbohydrates().inGrams(), is( c ) );
-      assertThat( item.properties().fats().inGrams(), is( f ) );
-      assertThat( item.properties().protein().inGrams(), is( p ) );
+      assertThat( item.properties().carbohydrates().get(), is( c ) );
+      assertThat( item.properties().fats().get(), is( f ) );
+      assertThat( item.properties().protein().get(), is( p ) );
    }//End Method
 }//End Class

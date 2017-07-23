@@ -6,7 +6,6 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class MacroRatioCalculatorTest {
@@ -27,9 +26,9 @@ public class MacroRatioCalculatorTest {
    }//End Method
    
    @Test public void shouldCalculateProportionsOnAssociation(){
-      properties.carbohydrates().setGrams( 45 );
-      properties.fats().setGrams( 15 );
-      properties.protein().setGrams( 40 );
+      properties.carbohydrates().set( 45.0 );
+      properties.fats().set( 15.0 );
+      properties.protein().set( 40.0 );
       
       systemUnderTest = new MacroRatioCalculator();
       systemUnderTest.associate( properties, analytics );
@@ -39,16 +38,16 @@ public class MacroRatioCalculatorTest {
    @Test public void shouldProvideMacroProportions() {
       assertMacroProportions( 0, 0, 0 );
       
-      properties.nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 10 );
+      properties.nutritionFor( MacroNutrient.Carbohydrates ).set( 10.0 );
       assertMacroProportions( 100, 0, 0 );
       
-      properties.nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 15 );
+      properties.nutritionFor( MacroNutrient.Fats ).set( 15.0 );
       assertMacroProportions( 40, 60, 0 );
       
-      properties.nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, 75 );
+      properties.nutritionFor( MacroNutrient.Protein ).set( 75.0 );
       assertMacroProportions( 10, 15, 75 );
       
-      properties.nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 115 );
+      properties.nutritionFor( MacroNutrient.Fats ).set( 115.0 );
       assertMacroProportions( 5, 57.5, 37.5 );
    }//End Method
    

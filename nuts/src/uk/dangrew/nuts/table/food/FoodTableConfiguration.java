@@ -17,10 +17,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
 import uk.dangrew.kode.javafx.table.EditCommitHandler;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
-import uk.dangrew.nuts.measurement.NutrientValue;
 
 /**
  * {@link FoodTableConfiguration} provides configuration for the {@link FoodTable}.
@@ -52,7 +50,7 @@ public class FoodTableConfiguration {
    }//End Method
    
    /**
-    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link NutrientValue}.
+    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link ObjectProperty}.
     * @param table the {@link TableView} to configure.
     * @param title the title of the {@link TableColumn}.
     * @param widthProportion the proportion of the width the {@link TableColumn} should be.
@@ -63,17 +61,17 @@ public class FoodTableConfiguration {
             TableView< FoodTableRow< FoodTypeT > > table,
             String title, 
             double widthProportion,
-            Function< FoodProperties, NutrientValue > propertyRetriever,
+            Function< FoodProperties, ObjectProperty< Double > > propertyRetriever,
             boolean editable
    ){
       TableColumn< FoodTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
       column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().properties() ).gramsProperty().asString() );
+      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().properties() ).asString() );
       
       if ( editable ) {
          column.setCellFactory(TextFieldTableCell.forTableColumn());
          column.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> 
-                  propertyRetriever.apply( r.food().properties() ).setGrams( Double.valueOf( v ) )
+                  propertyRetriever.apply( r.food().properties() ).set( Double.valueOf( v ) )
          ) );
       }
       table.getColumns().add( column );

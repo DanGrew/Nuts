@@ -86,12 +86,12 @@ public class Meal implements Food {
    ) {
       this.registrations = registrations;
       this.portions = FXCollections.observableArrayList();
-      this.registrations.associate( this );
       this.properties = properties;
       this.foodAnalytics = foodAnalytics;
       this.goalAnalytics = goalAnalytics;
       this.propertiesCalculator = propertiesCalculator;
       this.propertiesCalculator.associate( this );
+      this.registrations.associate( this );
       ratioCalculator.associate( properties, foodAnalytics );
       goalRatioCalculator.associate( properties, goalAnalytics );
    }//End Constructor

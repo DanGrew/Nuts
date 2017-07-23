@@ -86,7 +86,7 @@ class FoodItemWriteModel {
     * @return the value.
     */
    Double getCarbohydrates( String key ) {
-      return currentFood.properties().carbohydrates().inGrams();
+      return currentFood.properties().carbohydrates().get();
    }//End Method
    
    /**
@@ -95,7 +95,7 @@ class FoodItemWriteModel {
     * @return the value.
     */
    Double getFats( String key ) {
-      return currentFood.properties().fats().inGrams();
+      return currentFood.properties().fats().get();
    }//End Method
    
    /**
@@ -104,7 +104,7 @@ class FoodItemWriteModel {
     * @return the value.
     */
    Double getProtein( String key ) {
-      return currentFood.properties().protein().inGrams();
+      return currentFood.properties().protein().get();
    }//End Method
    
 }//End Class

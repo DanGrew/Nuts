@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodPropertiesTest {
@@ -39,34 +38,34 @@ public class FoodPropertiesTest {
    
    @Test public void shouldProvideMacroNutrient() {
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ), is( notNullValue() ) );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).inGrams(), is( 0.0 ) );
+      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 0.0 ) );
       
-      systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 24.8 );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).inGrams(), is( 24.8 ) );
+      systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).set( 24.8 );
+      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 24.8 ) );
    }//End Method
    
    @Test public void shouldProvideCarbsIndividually(){
       assertThat( systemUnderTest.carbohydrates(), is( notNullValue() ) );
-      assertThat( systemUnderTest.carbohydrates().inGrams(), is( 0.0 ) );
-      systemUnderTest.carbohydrates().setValue( NutrientMeasurement.Grams, 24.8 );
-      assertThat( systemUnderTest.carbohydrates().inGrams(), is( 24.8 ) );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).inGrams(), is( 24.8 ) );
+      assertThat( systemUnderTest.carbohydrates().get(), is( 0.0 ) );
+      systemUnderTest.carbohydrates().set( 24.8 );
+      assertThat( systemUnderTest.carbohydrates().get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 24.8 ) );
    }//End Method
    
    @Test public void shouldProvideFatIndividually(){
       assertThat( systemUnderTest.fats(), is( notNullValue() ) );
-      assertThat( systemUnderTest.fats().inGrams(), is( 0.0 ) );
-      systemUnderTest.fats().setValue( NutrientMeasurement.Grams, 24.8 );
-      assertThat( systemUnderTest.fats().inGrams(), is( 24.8 ) );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).inGrams(), is( 24.8 ) );
+      assertThat( systemUnderTest.fats().get(), is( 0.0 ) );
+      systemUnderTest.fats().set( 24.8 );
+      assertThat( systemUnderTest.fats().get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 24.8 ) );
    }//End Method
    
    @Test public void shouldProvideProteinIndividually(){
       assertThat( systemUnderTest.protein(), is( notNullValue() ) );
-      assertThat( systemUnderTest.protein().inGrams(), is( 0.0 ) );
-      systemUnderTest.protein().setValue( NutrientMeasurement.Grams, 24.8 );
-      assertThat( systemUnderTest.protein().inGrams(), is( 24.8 ) );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Protein ).inGrams(), is( 24.8 ) );
+      assertThat( systemUnderTest.protein().get(), is( 0.0 ) );
+      systemUnderTest.protein().set( 24.8 );
+      assertThat( systemUnderTest.protein().get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Protein ).get(), is( 24.8 ) );
    }//End Method
    
    @Test public void shouldProvideCalories(){
@@ -76,9 +75,9 @@ public class FoodPropertiesTest {
    
    @Test public void shouldSetMacrosTogether(){
       systemUnderTest.setMacros( 45, 67, 89 );
-      assertThat( systemUnderTest.carbohydrates().inGrams(), is( 45.0 ) );
-      assertThat( systemUnderTest.fats().inGrams(), is( 67.0 ) );
-      assertThat( systemUnderTest.protein().inGrams(), is( 89.0 ) );
+      assertThat( systemUnderTest.carbohydrates().get(), is( 45.0 ) );
+      assertThat( systemUnderTest.fats().get(), is( 67.0 ) );
+      assertThat( systemUnderTest.protein().get(), is( 89.0 ) );
    }//End Method
 
 }//End Class

@@ -1,158 +1,158 @@
 {  
    "foodItems":[  
       {  
-         "Carbohydrates":0,
+         "carbohydrates":0,
          "id":"36aa4059-24c1-496c-af11-8e61a4ccc4ea",
-         "Fats":8,
-         "Protein":9,
-         "Name":"Egg"
+         "fats":8,
+         "protein":9,
+         "name":"Egg"
       },
       {  
-         "Carbohydrates":26.3,
+         "carbohydrates":26.3,
          "id":"3156adb6-e267-4e79-8993-ea30399f84f0",
-         "Fats":2.2,
-         "Protein":3.2,
-         "Name":"Oats So Simple"
+         "fats":2.2,
+         "protein":3.2,
+         "name":"Oats So Simple"
       },
       {  
-         "Carbohydrates":31.4,
+         "carbohydrates":31.4,
          "id":"39f8fd1c-b08a-42fe-aa42-4e2f7798372c",
-         "Fats":0.2,
-         "Protein":1,
-         "Name":"Apple"
+         "fats":0.2,
+         "protein":1,
+         "name":"Apple"
       },
       {  
-         "Carbohydrates":14.8,
+         "carbohydrates":14.8,
          "id":"65441ff2-b864-4767-850a-4a30ceaf0d2c",
-         "Fats":8.3,
-         "Protein":22.7,
-         "Name":"Banana Carb Killa"
+         "fats":8.3,
+         "protein":22.7,
+         "name":"Banana Carb Killa"
       },
       {  
-         "Carbohydrates":34,
+         "carbohydrates":34,
          "id":"00591020-c5c4-4265-88a4-2219d5a2129c",
-         "Fats":7.6,
-         "Protein":3.6,
-         "Name":"Belvita Duos"
+         "fats":7.6,
+         "protein":3.6,
+         "name":"Belvita Duos"
       },
       {  
-         "Carbohydrates":13.6,
+         "carbohydrates":13.6,
          "id":"b42402f4-3523-4203-b034-a6b03f50f5b7",
-         "Fats":8.2,
-         "Protein":23.3,
-         "Name":"Cookies & Cream Carb Killa"
+         "fats":8.2,
+         "protein":23.3,
+         "name":"Cookies & Cream Carb Killa"
       },
       {  
-         "Carbohydrates":14,
+         "carbohydrates":14,
          "id":"2346a0ee-196d-478d-92a6-371396024e1b",
-         "Fats":8,
-         "Protein":4.6,
-         "Name":"Graze Protein Bite"
+         "fats":8,
+         "protein":4.6,
+         "name":"Graze protein Bite"
       },
       {  
-         "Carbohydrates":60.4,
+         "carbohydrates":60.4,
          "id":"9b6cce4c-cc09-464e-adec-bba1b76d7428",
-         "Fats":2.8,
-         "Protein":16,
-         "Name":"Wholemeal Break (4 Slices)"
+         "fats":2.8,
+         "protein":16,
+         "name":"Wholemeal Break (4 Slices)"
       },
       {  
-         "Carbohydrates":4.1,
+         "carbohydrates":4.1,
          "id":"6ff157da-1cba-4c8a-8c76-930c3e95ea96",
-         "Fats":8.2,
-         "Protein":6.2,
-         "Name":"Tuna & Sweetcorn (62.5g)"
+         "fats":8.2,
+         "protein":6.2,
+         "name":"Tuna & Sweetcorn (62.5g)"
       },
       {  
-         "Carbohydrates":21.6,
+         "carbohydrates":21.6,
          "id":"acf848f0-97d9-4fba-88da-0839931ac811",
-         "Fats":0.1,
-         "Protein":0.6,
-         "Name":"Grapes"
+         "fats":0.1,
+         "protein":0.6,
+         "name":"Grapes"
       },
       {  
-         "Carbohydrates":1.6,
+         "carbohydrates":1.6,
          "id":"3f69fdf4-3d98-4884-99e8-efd6755cbb3d",
-         "Fats":10.2,
-         "Protein":2.1,
-         "Name":"Brazil Nuts (15g)"
+         "fats":10.2,
+         "protein":2.1,
+         "name":"Brazil Nuts (15g)"
       },
       {  
-         "Carbohydrates":0.7,
+         "carbohydrates":0.7,
          "id":"76e8727a-1f98-490f-ac04-9029ec8fddcc",
-         "Fats":13.7,
-         "Protein":3,
-         "Name":"Walnut Halves (20g)"
+         "fats":13.7,
+         "protein":3,
+         "name":"Walnut Halves (20g)"
       },
       {  
-         "Carbohydrates":0.6,
+         "carbohydrates":0.6,
          "id":"7c2c3aae-2a2b-43ce-b692-cc91205d5008",
-         "Fats":21.1,
-         "Protein":28.9,
-         "Name":"Salmon (130g)"
+         "fats":21.1,
+         "protein":28.9,
+         "name":"Salmon (130g)"
       },
       {  
-         "Carbohydrates":26,
+         "carbohydrates":26,
          "id":"e13f3b0c-ca85-4aba-bfa3-5cfea22a834f",
-         "Fats":1.4,
-         "Protein":4.5,
-         "Name":"Brown Basmati (125g)"
+         "fats":1.4,
+         "protein":4.5,
+         "name":"Brown Basmati (125g)"
       },
       {  
-         "Carbohydrates":11.9,
+         "carbohydrates":11.9,
          "id":"44c2536b-94e3-4779-8830-1d7d3ec3f230",
-         "Fats":2.8,
-         "Protein":1,
-         "Name":"90c Squares"
+         "fats":2.8,
+         "protein":1,
+         "name":"90c Squares"
       },
       {  
-         "Carbohydrates":3.4,
+         "carbohydrates":3.4,
          "id":"bceccd43-2d7b-4f96-b19d-4d5346dade55",
-         "Fats":3.7,
-         "Protein":3.7,
-         "Name":"Yoghurt (Onken)"
+         "fats":3.7,
+         "protein":3.7,
+         "name":"Yoghurt (Onken)"
       },
       {  
-         "Carbohydrates":26,
+         "carbohydrates":26,
          "id":"df3e01bd-7221-49e7-b3ec-4dd44134e8eb",
-         "Fats":14,
-         "Protein":8,
-         "Name":"Graze Banana Flapjack"
+         "fats":14,
+         "protein":8,
+         "name":"Graze Banana Flapjack"
       },
       {  
-         "Carbohydrates":31,
+         "carbohydrates":31,
          "id":"fb8496a9-028d-4a5c-ba73-c2a5d800b66c",
-         "Fats":11,
-         "Protein":3,
-         "Name":"Summer Berry Flapjack"
+         "fats":11,
+         "protein":3,
+         "name":"Summer Berry Flapjack"
       },
       {  
-         "Carbohydrates":0,
+         "carbohydrates":0,
          "id":"9c7c1cf1-fc85-4953-889f-44c519a7ab17",
-         "Fats":7.1,
-         "Protein":33.9,
-         "Name":"Lean Mince (166g)"
+         "fats":7.1,
+         "protein":33.9,
+         "name":"Lean Mince (166g)"
       },
       {  
-         "Carbohydrates":52.5,
+         "carbohydrates":52.5,
          "id":"fadbed10-03c9-4587-bb9c-520622eb1504",
-         "Fats":1,
-         "Protein":8.9,
-         "Name":"Spaghetti (75g dry)"
+         "fats":1,
+         "protein":8.9,
+         "name":"Spaghetti (75g dry)"
       },
       {  
-         "Carbohydrates":10.4,
+         "carbohydrates":10.4,
          "id":"4de0d8c3-b380-4aff-a53b-48c363cc302a",
-         "Fats":0.1,
-         "Protein":2.5,
-         "Name":"Dolmios Sauce (166g)"
+         "fats":0.1,
+         "protein":2.5,
+         "name":"Dolmios Sauce (166g)"
       },
       {  
-         "Carbohydrates":23,
+         "carbohydrates":23,
          "id":"b76abca5-42fc-49fd-be8e-4768224f78a7",
-         "Fats":0.3,
-         "Protein":1,
-         "Name":"Banana"
+         "fats":0.3,
+         "protein":1,
+         "name":"Banana"
       }
    ]
 }

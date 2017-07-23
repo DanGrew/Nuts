@@ -17,7 +17,6 @@ import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
-import uk.dangrew.nuts.measurement.NutrientMeasurement;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class MealRegistrationsTest {
@@ -86,14 +85,26 @@ public class MealRegistrationsTest {
       portion1.setFood( food1 );
       verify( listener, times( 1 ) ).mealChanged();
       
-      food1.properties().nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 100 );
+      food1.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( 100.0 );
       verify( listener, times( 2 ) ).mealChanged();
       
-      food1.properties().nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 100 );
+      food1.properties().nutritionFor( MacroNutrient.Fats ).set( 100.0 );
       verify( listener, times( 3 ) ).mealChanged();
       
-      food1.properties().nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, 100 );
+      food1.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );
       verify( listener, times( 4 ) ).mealChanged();
+   }//End Method
+   
+   @Test public void shouldNotifyWhenGoalChanges() {
+      systemUnderTest.listen( listener );
+      meal.goalAnalytics().carbohydratesRatioProperty().set( 50.0 );
+      verify( listener, times( 1 ) ).mealChanged();
+      
+      meal.goalAnalytics().fatsRatioProperty().set( 51.0 );
+      verify( listener, times( 2 ) ).mealChanged();
+      
+      meal.goalAnalytics().proteinRatioProperty().set( 52.0 );
+      verify( listener, times( 3 ) ).mealChanged();
    }//End Method
    
    @Test public void shouldNotNotifyWhenFoodRemoved() {
@@ -103,9 +114,9 @@ public class MealRegistrationsTest {
       portion1.setFood( null );
       verify( listener, times( 1 ) ).mealChanged();
       
-      food1.properties().nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 100 );
-      food1.properties().nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 100 );
-      food1.properties().nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, 100 );
+      food1.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( 100.0 );
+      food1.properties().nutritionFor( MacroNutrient.Fats ).set( 100.0 );
+      food1.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );
       
       verify( listener, times( 1 ) ).mealChanged();
    }//End Method
@@ -119,9 +130,9 @@ public class MealRegistrationsTest {
       
       portion1.setFood( food2 );
       portion1.setPortion( 89 );
-      food2.properties().nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 100 );
-      food2.properties().nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 100 );
-      food2.properties().nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, 100 );
+      food2.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( 100.0 );
+      food2.properties().nutritionFor( MacroNutrient.Fats ).set( 100.0 );
+      food2.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );
       
       verify( listener, times( 1 ) ).mealChanged();
    }//End Method
@@ -136,9 +147,9 @@ public class MealRegistrationsTest {
       
       portion1.setFood( food2 );
       portion1.setPortion( 89 );
-      food2.properties().nutritionFor( MacroNutrient.Carbohydrates ).setValue( NutrientMeasurement.Grams, 100 );
-      food2.properties().nutritionFor( MacroNutrient.Fats ).setValue( NutrientMeasurement.Grams, 100 );
-      food2.properties().nutritionFor( MacroNutrient.Protein ).setValue( NutrientMeasurement.Grams, 100 );
+      food2.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( 100.0 );
+      food2.properties().nutritionFor( MacroNutrient.Fats ).set( 100.0 );
+      food2.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );
       
       verifyNoMoreInteractions( listener );
    }//End Method

@@ -56,7 +56,7 @@ public class MacroGoalRatioCalculator {
    private void setGoal( Goal goal ) {
       if ( this.goal != null ) {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
-            this.goal.properties().nutritionFor( macro ).gramsProperty().removeListener( updater );
+            this.goal.properties().nutritionFor( macro ).removeListener( updater );
          }
       }
       
@@ -68,8 +68,8 @@ public class MacroGoalRatioCalculator {
          return;
       } else {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
-            properties.nutritionFor( macro ).gramsProperty().addListener( updater );
-            this.goal.properties().nutritionFor( macro ).gramsProperty().addListener( updater );
+            properties.nutritionFor( macro ).addListener( updater );
+            this.goal.properties().nutritionFor( macro ).addListener( updater );
          }
          updateRatios();
       }
@@ -83,12 +83,12 @@ public class MacroGoalRatioCalculator {
          return;
       }
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         double macroGoal = goal.properties().nutritionFor( macro ).inGrams();
+         double macroGoal = goal.properties().nutritionFor( macro ).get();
          if ( macroGoal == 0 ) {
             analytics.nutrientRatioFor( macro ).set( 0.0 );   
             continue;
          }
-         double macroUsage = properties.nutritionFor( macro ).inGrams();
+         double macroUsage = properties.nutritionFor( macro ).get();
          double proportion = macroUsage * 100 / macroGoal;
          analytics.nutrientRatioFor( macro ).set( proportion );
       }

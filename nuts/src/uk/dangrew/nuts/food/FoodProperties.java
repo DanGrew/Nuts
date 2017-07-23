@@ -13,7 +13,6 @@ import java.util.UUID;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import uk.dangrew.nuts.measurement.NutrientValue;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 /**
@@ -25,7 +24,7 @@ public class FoodProperties {
    private final String id;
    private final ObjectProperty< String > nameProperty;
    private final ObjectProperty< Double > calories;
-   private final EnumMap< MacroNutrient, NutrientValue > macros;
+   private final EnumMap< MacroNutrient, ObjectProperty< Double > > macros;
    
    /**
     * Constructs a new {@link FoodProperties}.
@@ -47,7 +46,7 @@ public class FoodProperties {
       this.calories = new SimpleObjectProperty<>( 0.0 );
       this.macros = new EnumMap<>( MacroNutrient.class );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.macros.put( macro, new NutrientValue( 0 ) );
+         this.macros.put( macro, new SimpleObjectProperty<>( 0.0 ) );
       }
    }//End Constructor
    
@@ -76,35 +75,35 @@ public class FoodProperties {
    }//End Method
 
    /**
-    * Access to the {@link NutrientValue} for the {@link MacroNutrient} given.
+    * Access to the {@link ObjectProperty} for the {@link MacroNutrient} given.
     * @param nutrient the {@link MacroNutrient} in question.
-    * @return the {@link NutrientValue}.
+    * @return the {@link ObjectProperty}.
     */
-   public NutrientValue nutritionFor( MacroNutrient nutrient ) {
+   public ObjectProperty< Double > nutritionFor( MacroNutrient nutrient ) {
       return macros.get( nutrient );
    }//End Method
    
    /**
-    * Access to the {@link MacroNutrient#Carbohydrates} {@link NutrientValue}.
-    * @return the {@link NutrientValue}.
+    * Access to the {@link MacroNutrient#Carbohydrates} {@link ObjectProperty}.
+    * @return the {@link ObjectProperty}.
     */
-   public NutrientValue carbohydrates() {
+   public ObjectProperty< Double > carbohydrates() {
       return nutritionFor( MacroNutrient.Carbohydrates );
    }//End Method
    
    /**
-    * Access to the {@link MacroNutrient#Fats} {@link NutrientValue}.
-    * @return the {@link NutrientValue}.
+    * Access to the {@link MacroNutrient#Fats} {@link ObjectProperty}.
+    * @return the {@link ObjectProperty}.
     */
-   public NutrientValue fats() {
+   public ObjectProperty< Double > fats() {
       return nutritionFor( MacroNutrient.Fats );
    }//End Method
    
    /**
-    * Access to the {@link MacroNutrient#Protein} {@link NutrientValue}.
-    * @return the {@link NutrientValue}.
+    * Access to the {@link MacroNutrient#Protein} {@link ObjectProperty}.
+    * @return the {@link ObjectProperty}.
     */
-   public NutrientValue protein() {
+   public ObjectProperty< Double > protein() {
       return nutritionFor( MacroNutrient.Protein );
    }//End Method
 
@@ -115,9 +114,9 @@ public class FoodProperties {
     * @param pGrams the {@link MacroNutrient#Protein} in grams.
     */
    public void setMacros( double cGrams, double fGrams, double pGrams ) {
-      carbohydrates().setGrams( cGrams );
-      fats().setGrams( fGrams );
-      protein().setGrams( pGrams );
+      carbohydrates().set( cGrams );
+      fats().set( fGrams );
+      protein().set( pGrams );
    }//End Method
 
 }//End Class

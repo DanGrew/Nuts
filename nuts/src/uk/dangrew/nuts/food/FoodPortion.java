@@ -90,14 +90,14 @@ public class FoodPortion implements Food {
    private void updateMacros(){
       if ( food.get() == null ) {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
-            properties.nutritionFor( macro ).setGrams( 0.0 );
+            properties.nutritionFor( macro ).set( 0.0 );
          }
          return;
       }
       
       double proportion = portion.get() / 100.0;
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         properties.nutritionFor( macro ).setGrams( food.get().properties().nutritionFor( macro ).inGrams() * proportion );
+         properties.nutritionFor( macro ).set( food.get().properties().nutritionFor( macro ).get() * proportion );
       }
    }//End Method
    
@@ -145,7 +145,7 @@ public class FoodPortion implements Food {
     * @return the {@link ObjectProperty}.
     */
    public ReadOnlyObjectProperty< Double > nutritionFor( MacroNutrient macro ) {
-      return properties.nutritionFor( macro ).gramsProperty();
+      return properties.nutritionFor( macro );
    }//End Method
    
    /**
@@ -166,7 +166,7 @@ public class FoodPortion implements Food {
       }
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.food.get().properties().nutritionFor( macro ).gramsProperty().removeListener( macroUpdater );
+         this.food.get().properties().nutritionFor( macro ).removeListener( macroUpdater );
       }
       registrations.shutdown();
    }//End Method
@@ -182,7 +182,7 @@ public class FoodPortion implements Food {
          return;
       }
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         food.properties().nutritionFor( macro ).gramsProperty().addListener( macroUpdater );
+         food.properties().nutritionFor( macro ).addListener( macroUpdater );
       }
       registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().goal(), goalAnalytics.goal() ) );
       registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().carbohydratesRatioProperty(), goalAnalytics.carbohydratesRatioProperty() ) );

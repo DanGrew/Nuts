@@ -69,9 +69,9 @@ public class MealPropertiesCalculatorTest {
       meal.portions().clear();
       systemUnderTest.mealChanged();
       
-      assertThat( meal.properties().carbohydrates().inGrams(), is( 0.0 ) );
-      assertThat( meal.properties().fats().inGrams(), is( 0.0 ) );
-      assertThat( meal.properties().protein().inGrams(), is( 0.0 ) );
+      assertThat( meal.properties().carbohydrates().get(), is( 0.0 ) );
+      assertThat( meal.properties().fats().get(), is( 0.0 ) );
+      assertThat( meal.properties().protein().get(), is( 0.0 ) );
       
       assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 0.0 ) );
       assertThat( meal.foodAnalytics().fatsRatio(), is( 0.0 ) );
@@ -83,9 +83,9 @@ public class MealPropertiesCalculatorTest {
       
       systemUnderTest.mealChanged();
       
-      assertThat( meal.properties().carbohydrates().inGrams(), is( 61.0 ) );
-      assertThat( meal.properties().fats().inGrams(), is( 14.0 ) );
-      assertThat( meal.properties().protein().inGrams(), is( 50.0 ) );
+      assertThat( meal.properties().carbohydrates().get(), is( 61.0 ) );
+      assertThat( meal.properties().fats().get(), is( 14.0 ) );
+      assertThat( meal.properties().protein().get(), is( 50.0 ) );
       
       assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 48.8 ) );
       assertThat( meal.foodAnalytics().fatsRatio(), is( 11.2 ) );
@@ -97,9 +97,9 @@ public class MealPropertiesCalculatorTest {
       
       systemUnderTest.mealChanged();
       
-      assertThat( meal.properties().carbohydrates().inGrams(), is( 61.0 ) );
-      assertThat( meal.properties().fats().inGrams(), is( 14.0 ) );
-      assertThat( meal.properties().protein().inGrams(), is( 50.0 ) );
+      assertThat( meal.properties().carbohydrates().get(), is( 61.0 ) );
+      assertThat( meal.properties().fats().get(), is( 14.0 ) );
+      assertThat( meal.properties().protein().get(), is( 50.0 ) );
       
       assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 48.8 ) );
       assertThat( meal.foodAnalytics().fatsRatio(), is( 11.2 ) );
