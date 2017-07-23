@@ -37,8 +37,25 @@ public class Meal implements Food {
     * @param name the name of the {@link Meal}.
     */
    public Meal( String name ) {
+      this( new FoodProperties( name ) );
+   }//End Constructor
+   
+   /**
+    * Constructs a new {@link Meal}.
+    * @param id the id of the {@link Meal}.
+    * @param name the name of the {@link Meal}.
+    */
+   public Meal( String id, String name ) {
+      this( new FoodProperties( id, name ) );
+   }//End Constructor
+   
+   /**
+    * Constructs a new {@link Meal}.
+    * @param properties the {@link FoodProperties}.
+    */
+   private Meal( FoodProperties properties ) {
       this( 
-               new FoodProperties( name ), 
+               properties, 
                new FoodAnalytics(), 
                new GoalAnalytics(),
                new MealRegistrations(), 

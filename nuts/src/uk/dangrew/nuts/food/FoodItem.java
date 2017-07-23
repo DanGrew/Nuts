@@ -94,4 +94,11 @@ public class FoodItem implements Food {
       return goalAnalytics;
    }//End Method
    
+   /**
+    * {@inheritDoc}
+    */
+   @Override public String toString() {
+      return properties.id() + ": " + properties.nameProperty().get();
+   }//End Method
+   
 }//End Class

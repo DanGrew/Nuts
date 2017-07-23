@@ -20,6 +20,7 @@ import uk.dangrew.nuts.store.Database;
  */
 class FoodItemWriteModel {
    
+   private final Database database;
    private final List< FoodItem > foodBuffer;
    private FoodItem currentFood; 
    
@@ -28,10 +29,8 @@ class FoodItemWriteModel {
     * @param database the {@link Database}.
     */
    FoodItemWriteModel( Database database ) {
+      this.database = database;
       this.foodBuffer = new ArrayList<>();
-      
-      foodBuffer.clear();
-      foodBuffer.addAll( database.foodItems().objectList() );
    }//End Constructor
    
    /**
@@ -40,7 +39,16 @@ class FoodItemWriteModel {
     * @return the number of items.
     */
    Integer getNumberOfFoodItems( String key ){
-      return foodBuffer.size();
+      return database.foodItems().objectList().size();
+   }//End Method
+   
+   /**
+    * Triggered when the writing of the {@link FoodItem}s begins, initialising the items to write.
+    * @param key the parsed key.
+    */
+   void startWritingFoodItems( String key ) {
+      foodBuffer.clear();
+      foodBuffer.addAll( database.foodItems().objectList() );
    }//End Method
    
    /**

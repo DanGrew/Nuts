@@ -17,6 +17,7 @@ import uk.dangrew.nuts.meal.MealStore;
  */
 public class Database {
 
+   private final Goal goal;
    private final FoodItemStore foodItems;
    private final MealStore meals;
    
@@ -24,12 +25,18 @@ public class Database {
     * Constructs a new {@link Database}.
     */
    public Database() {
-      //needs removing
-      Goal goal = new Goal( "Goal" );
-      goal.properties().setMacros( 350, 60, 200 );
+      this.goal = new Goal( "Goal" );
       this.foodItems = new FoodItemStore( goal );
       this.meals = new MealStore( goal );
    }//End Constructor
+   
+   /**
+    * Access to the {@link Goal}.
+    * @return the {@link Goal}.
+    */
+   public Goal goal() {
+      return goal;
+   }//End Method
    
    /**
     * Access to the {@link FoodItem}s stored.

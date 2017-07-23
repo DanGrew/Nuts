@@ -29,7 +29,7 @@ import uk.dangrew.nuts.table.food.FoodTableRow;
 public class MealTable extends TableView< FoodTableRow< FoodPortion > > {
 
    static final String COLUMN_TITLE_FOOD = "Food";
-   static final String COLUMN_TITLE_PORTION = "Portion";
+   static final String COLUMN_TITLE_PORTION = "Portion %";
    static final String COLUMN_TITLE_CARBS = "Carbs";
    static final String COLUMN_TITLE_FATS = "Fats";
    static final String COLUMN_TITLE_PROTEINS = "Protein";

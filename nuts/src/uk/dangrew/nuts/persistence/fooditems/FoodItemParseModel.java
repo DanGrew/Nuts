@@ -50,9 +50,12 @@ class FoodItemParseModel {
     * @param key the parsed key.
     */
    void finishFoodItem( String key ) {
-      FoodItem item = new FoodItem( id, name );
+      FoodItem item = database.foodItems().get( id );
+      if ( item == null ) {
+         item = new FoodItem( id, name );
+         database.foodItems().store( item );
+      }
       item.properties().setMacros( carbohydrates, fats, protein );
-      database.foodItems().store( item );
    }//End Method
    
    /**

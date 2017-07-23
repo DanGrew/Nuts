@@ -41,7 +41,7 @@ public class FoodProperties {
     * @param name the name of the {@link FoodProperties}.
     * @param analytics the {@link FoodAnalytics} supporting the properties.
     */
-   FoodProperties( String id, String name ) {
+   public FoodProperties( String id, String name ) {
       this.id = id;
       this.nameProperty = new SimpleObjectProperty<>( name );
       this.calories = new SimpleObjectProperty<>( 0.0 );

@@ -2,6 +2,8 @@ package uk.dangrew.nuts.store;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -33,6 +35,11 @@ public class DatabaseTest {
       Meal meal = new Meal( "Meal" );
       systemUnderTest.meals().store( meal );
       assertThat( systemUnderTest.meals().get( meal.properties().id() ), is( meal ) );
+   }//End Method
+   
+   @Test public void shouldProvideGoal(){
+      assertThat( systemUnderTest.goal(), is( not( nullValue() ) ) );
+      assertThat( systemUnderTest.goal(), is( systemUnderTest.goal() ) );
    }//End Method
 
 }//End Class

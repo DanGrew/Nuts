@@ -1,0 +1,32 @@
+{  
+   "foodItems":[  
+      {  
+         "carbohydrates":45,
+         "fats":3.4,
+         "protein":98.1,
+         "name":"Food1",
+         "id":"12345"
+      },
+      {  
+         "carbohydrates":2.11,
+         "fats":0.56,
+         "protein":123,
+         "name":"Food2",
+         "id":"67890"
+      },
+      {  
+         "carbohydrates":2.3,
+         "fats":3.8,
+         "protein":8.6,
+         "name":"Food3",
+         "id":"3421"
+      },
+      {  
+         "carbohydrates":0.1,
+         "fats":1.1,
+         "protein":0.3,
+         "name":"Food4",
+         "id":"1324"
+      }
+   ]
+}

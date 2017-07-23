@@ -10,8 +10,8 @@ package uk.dangrew.nuts.persistence.fooditems;
 
 import uk.dangrew.jupa.file.protocol.JarJsonPersistingProtocol;
 import uk.dangrew.jupa.json.marshall.ModelMarshaller;
-import uk.dangrew.jupa.json.session.SessionManager;
 import uk.dangrew.nuts.main.Nuts;
+import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -21,11 +21,14 @@ public class FoodSessions {
 
    static final String FOLDER_NAME = "uk.dangrew.nuts";
    static final String FOOD_ITEM_FILE_NAME = "food-items.json";
+   static final String MEAL_FILE_NAME = "meals.json";
    
    private final Database database;
-   private final FoodItemChangeMonitor monitor;
-   private final SessionManager sessions;
-   private final JarJsonPersistingProtocol fileLocation;
+   private final JarJsonPersistingProtocol foodItemFileLocation;
+   private final JarJsonPersistingProtocol mealFileLocation;
+   
+   private final ModelMarshaller foodItemMarshaller;
+   private final ModelMarshaller mealMarshaller;
    
    /**
     * Constructs a new {@link FoodSessions}.
@@ -38,6 +41,9 @@ public class FoodSessions {
                database, 
                new JarJsonPersistingProtocol( 
                         FOLDER_NAME, FOOD_ITEM_FILE_NAME, Nuts.class 
+               ),
+               new JarJsonPersistingProtocol( 
+                        FOLDER_NAME, MEAL_FILE_NAME, Nuts.class 
                )
       );
    }//End Constructor
@@ -45,42 +51,65 @@ public class FoodSessions {
    /**
     * Constructs a new {@link BuildWallConfigurationSessions}.
     * @param database the {@link Database}.
-    * @param protocol the {@link JarJsonPersistingProtocol}.
+    * @param foodItemFileLocation the {@link JarJsonPersistingProtocol}.
+    * @param mealFileLocation the {@link JarJsonPersistingProtocol}.
     */
    FoodSessions( 
             Database database, 
-            JarJsonPersistingProtocol protocol 
+            JarJsonPersistingProtocol foodItemFileLocation,
+            JarJsonPersistingProtocol mealFileLocation 
    ) {
       this.database = database;
-      this.fileLocation = protocol;
-      this.monitor = new FoodItemChangeMonitor();
+      this.foodItemFileLocation = foodItemFileLocation;
+      this.mealFileLocation = mealFileLocation;
       
-      ModelMarshaller marshaller = constructMarshaller();
-      marshaller.read();
-      this.sessions = new SessionManager( marshaller );
-      this.sessions.triggerWriteOnChange( monitor.trigger() );
+      this.foodItemMarshaller = constructFoodItemMarshaller();
+      this.mealMarshaller = constructMealMarshaller();
    }//End Constructor
    
    /**
     * Method to construct the {@link ModelMarshaller}.
-    * @param database the {@link Database}.
-    * @param locationProtocol the {@link JarJsonPersistingProtocol}.
-    * @return the {@link ModelMarshaller} constructed.
+    * @return the {@link ModelMarshaller} constructed for {@link uk.dangrew.nuts.food.FoodItem}s.
     */
-   private ModelMarshaller constructMarshaller(){
+   private ModelMarshaller constructFoodItemMarshaller(){
       FoodItemPersistence persistence = new FoodItemPersistence( database );
       return new ModelMarshaller( 
                persistence.structure(), 
                persistence.readHandles(), 
                persistence.writeHandles(), 
-               fileLocation 
+               foodItemFileLocation 
       );
    }//End Method
    
    /**
-    * Method to shutdown the {@link SessionManager}s associated.
+    * Method to construct the {@link ModelMarshaller}.
+    * @return the {@link ModelMarshaller} constructed for {@link uk.dangrew.nuts.meal.Meal}s.
     */
-   public void shutdownSessions(){
-      sessions.stop();
+   private ModelMarshaller constructMealMarshaller(){
+      MealPersistence persistence = new MealPersistence( database );
+      return new ModelMarshaller( 
+               persistence.structure(), 
+               persistence.readHandles(), 
+               persistence.writeHandles(), 
+               mealFileLocation 
+      );
    }//End Method
+
+   /**
+    * Method to read all {@link uk.dangrew.nuts.food.FoodItem}s and {@link uk.dangrew.nuts.meal.Meal}s
+    * from known files.
+    */
+   public void read() {
+      foodItemMarshaller.read();
+      mealMarshaller.read();
+   }// End Method
+
+   /**
+    * Method to write all {@link uk.dangrew.nuts.food.FoodItem}s and {@link uk.dangrew.nuts.meal.Meal}s
+    * to known files.
+    */
+   public void write() {
+      foodItemMarshaller.write();
+      mealMarshaller.write();
+   }// End Method
 }//End Class

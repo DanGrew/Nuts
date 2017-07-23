@@ -44,8 +44,8 @@ public class FoodTableTest {
       Food food21 = addNewFood( "Dolmios Sauce (166g)", 10.4, 0.1, 2.5 );
       Food food22 = addNewFood( "Banana", 23, 0.3, 1 );
       
-      addNewMeal( "Meal1", new FoodPortion( food1, 100 ), new FoodPortion( food2, 100 ), new FoodPortion( food3, 50 ) );
-      addNewMeal( "Meal1", new FoodPortion( food8, 100 ), new FoodPortion( food9, 100 ), new FoodPortion( food10, 100 ) );
+      addNewMeal( "Breakfast", new FoodPortion( food1, 100 ), new FoodPortion( food2, 100 ), new FoodPortion( food3, 50 ) );
+      addNewMeal( "Lunch", new FoodPortion( food8, 100 ), new FoodPortion( food9, 100 ), new FoodPortion( food10, 100 ) );
       
       TestApplication.launch( () -> new BorderPane( new FoodManagerPane( database ) ) );
       
