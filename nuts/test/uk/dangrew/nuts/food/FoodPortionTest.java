@@ -270,4 +270,31 @@ public class FoodPortionTest {
       assertThat( systemUnderTest.goalAnalytics().proteinRatio(), is( food.goalAnalytics().proteinRatio() ) );
    }//End Method
    
+   @Test public void shouldUpdateCaloriesWhenPortionChanges(){
+      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
+      food.properties().calories().set( 250.0 );
+      assertThat( systemUnderTest.properties().calories().get(), is( 250.0 ) );
+      systemUnderTest.setPortion( 50 );
+      assertThat( systemUnderTest.properties().calories().get(), is( 125.0 ) );
+   }//End Method
+   
+   @Test public void shouldIgnorePreviousFoodCalories(){
+      systemUnderTest.setPortion( 50 );
+      food.properties().calories().set( 250.0 );
+      assertThat( systemUnderTest.properties().calories().get(), is( 125.0 ) );
+      
+      systemUnderTest.setFood( new FoodItem( "anything" ) );
+      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
+      food.properties().calories().set( 250.0 );
+      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
+   }//End Method
+   
+   @Test public void shouldUpdateCaloriesWhenCaloriesChanges(){
+      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
+      systemUnderTest.setPortion( 50 );
+      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
+      food.properties().calories().set( 250.0 );
+      assertThat( systemUnderTest.properties().calories().get(), is( 125.0 ) );
+   }//End Method
+   
 }//End Class

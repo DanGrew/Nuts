@@ -18,7 +18,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import uk.dangrew.kode.javafx.table.EditCommitHandler;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodProperties;
-import uk.dangrew.nuts.food.GoalAnalytics;
 
 /**
  * {@link FoodTableConfiguration} provides configuration for the {@link FoodTable}.
@@ -82,17 +81,17 @@ public class FoodTableConfiguration {
     * @param table the {@link TableView} to configure.
     * @param title the title of the {@link TableColumn}.
     * @param widthProportion the proportion of the width the {@link TableColumn} should be.
-    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodAnalytics}.
+    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link Food}.
     */
    public < FoodTypeT extends Food > void initialRatioColumn(
             TableView< FoodTableRow< FoodTypeT > > table,
             String title, 
             double widthProportion,
-            Function< GoalAnalytics, ReadOnlyObjectProperty< Double > > propertyRetriever 
+            Function< Food, ReadOnlyObjectProperty< Double > > propertyRetriever 
    ){
       TableColumn< FoodTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
       column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().goalAnalytics() ).asString() );
+      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food() ).asString() );
       table.getColumns().add( column );
    }//End Method
 

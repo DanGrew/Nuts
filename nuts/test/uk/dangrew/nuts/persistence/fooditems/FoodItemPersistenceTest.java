@@ -23,11 +23,11 @@ public class FoodItemPersistenceTest {
       persistence.readHandles().parse( json );
       
       FoodItem item = database.foodItems().objectList().get( 0 );
-      assertFoodItemProperties( item, "36aa4059-24c1-496c-af11-8e61a4ccc4ea", "Egg", 0.0, 8.0, 9.0 );
+      assertFoodItemProperties( item, "de3c984c-f742-4cf7-98fd-501e40fa2291", "Egg", 0.6, 5.0, 6.0 );
       item = database.foodItems().objectList().get( 1 );
-      assertFoodItemProperties( item, "3156adb6-e267-4e79-8993-ea30399f84f0", "Oats So Simple", 26.3, 2.2, 3.2 );
+      assertFoodItemProperties( item, "be66258a-d0ff-4e54-a13a-e6069c333a2a", "Oats So Simple", 26.3, 2.2, 3.2 );
       item = database.foodItems().objectList().get( 2 );
-      assertFoodItemProperties( item, "39f8fd1c-b08a-42fe-aa42-4e2f7798372c", "Apple", 31.4, 0.2, 1.0 );
+      assertFoodItemProperties( item, "64303ce3-d19e-4ed6-b44f-9b59be6ca31d", "Apple", 31.4, 0.2, 1.0 );
    }//End Method
    
    @Test public void shouldWriteData(){

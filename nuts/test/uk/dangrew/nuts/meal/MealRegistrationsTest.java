@@ -95,6 +95,16 @@ public class MealRegistrationsTest {
       verify( listener, times( 4 ) ).mealChanged();
    }//End Method
    
+   @Test public void shouldNotifyWhenFoodCaloriesChange() {
+      meal.portions().add( portion1 );
+      systemUnderTest.listen( listener );
+      portion1.setFood( food1 );
+      verify( listener, times( 1 ) ).mealChanged();
+      
+      food1.properties().calories().set( 100.0 );
+      verify( listener, times( 2 ) ).mealChanged();
+   }//End Method
+   
    @Test public void shouldNotifyWhenGoalChanges() {
       systemUnderTest.listen( listener );
       meal.goalAnalytics().carbohydratesRatioProperty().set( 50.0 );
@@ -114,6 +124,7 @@ public class MealRegistrationsTest {
       portion1.setFood( null );
       verify( listener, times( 1 ) ).mealChanged();
       
+      food1.properties().calories().set( 230.0 );
       food1.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( 100.0 );
       food1.properties().nutritionFor( MacroNutrient.Fats ).set( 100.0 );
       food1.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );

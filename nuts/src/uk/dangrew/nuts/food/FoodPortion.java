@@ -99,6 +99,7 @@ public class FoodPortion implements Food {
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          properties.nutritionFor( macro ).set( food.get().properties().nutritionFor( macro ).get() * proportion );
       }
+      properties.calories().set( food.get().properties().calories().get() * proportion );
    }//End Method
    
    /**
@@ -168,6 +169,7 @@ public class FoodPortion implements Food {
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          this.food.get().properties().nutritionFor( macro ).removeListener( macroUpdater );
       }
+      this.food.get().properties().calories().removeListener( macroUpdater );
       registrations.shutdown();
    }//End Method
    
@@ -184,6 +186,7 @@ public class FoodPortion implements Food {
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          food.properties().nutritionFor( macro ).addListener( macroUpdater );
       }
+      food.properties().calories().addListener( macroUpdater );
       registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().goal(), goalAnalytics.goal() ) );
       registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().carbohydratesRatioProperty(), goalAnalytics.carbohydratesRatioProperty() ) );
       registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().fatsRatioProperty(), goalAnalytics.fatsRatioProperty() ) );

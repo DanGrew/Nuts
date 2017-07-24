@@ -31,6 +31,7 @@ public class FoodItemPersistence {
    static final String CARBOHYDRATES = "carbohydrates";
    static final String FATS = "fats";
    static final String PROTEIN = "protein";
+   static final String CALORIES = "calories";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -74,6 +75,7 @@ public class FoodItemPersistence {
       structure.child( CARBOHYDRATES, FOOD_ITEM );
       structure.child( FATS, FOOD_ITEM );
       structure.child( PROTEIN, FOOD_ITEM );
+      structure.child( CALORIES, FOOD_ITEM );
    }//End Method
    
    /**
@@ -89,6 +91,7 @@ public class FoodItemPersistence {
       parserWithReadHandles.when( CARBOHYDRATES, new DoubleParseHandle( parseModel::setCarbohydrates ) );
       parserWithReadHandles.when( FATS, new DoubleParseHandle( parseModel::setFats ) );
       parserWithReadHandles.when( PROTEIN, new DoubleParseHandle( parseModel::setProtein ) );
+      parserWithReadHandles.when( CALORIES, new DoubleParseHandle( parseModel::setCalories ) );
    }//End Method
    
    /**
@@ -104,6 +107,7 @@ public class FoodItemPersistence {
       parserWithWriteHandles.when( CARBOHYDRATES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCarbohydrates ) ) );
       parserWithWriteHandles.when( FATS, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFats ) ) );
       parserWithWriteHandles.when( PROTEIN, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProtein ) ) );
+      parserWithWriteHandles.when( CALORIES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCalories ) ) );
    }//End Method
    
    /**

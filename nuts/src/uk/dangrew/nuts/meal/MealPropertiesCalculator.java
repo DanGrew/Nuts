@@ -39,6 +39,7 @@ public class MealPropertiesCalculator implements MealChangeListener {
       double totalCarbs = 0;
       double totalFats = 0;
       double totalProtein = 0;
+      double totalCalories = 0;
       
       for ( FoodPortion portion : meal.portions() ) {
          if ( portion.food().get() == null ) {
@@ -47,9 +48,11 @@ public class MealPropertiesCalculator implements MealChangeListener {
          totalCarbs += portion.nutritionFor( MacroNutrient.Carbohydrates ).get();
          totalFats += portion.nutritionFor( MacroNutrient.Fats ).get();
          totalProtein += portion.nutritionFor( MacroNutrient.Protein ).get();
+         totalCalories += portion.properties().calories().get();
       }
 
       meal.properties().setMacros( totalCarbs, totalFats, totalProtein );
+      meal.properties().calories().set( totalCalories );
    }//End Method
 
 }//End Class

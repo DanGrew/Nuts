@@ -24,6 +24,7 @@ class FoodItemParseModel {
    private Double carbohydrates;
    private Double fats;
    private Double protein;
+   private Double calories;
    
    /**
     * Constructs a new {@link FoodItemParseModel}.
@@ -43,6 +44,7 @@ class FoodItemParseModel {
       this.carbohydrates = null;
       this.fats = null;
       this.protein = null;
+      this.calories = null;
    }//End Method
    
    /**
@@ -56,6 +58,7 @@ class FoodItemParseModel {
          database.foodItems().store( item );
       }
       item.properties().setMacros( carbohydrates, fats, protein );
+      item.properties().calories().set( calories );
    }//End Method
    
    /**
@@ -101,6 +104,15 @@ class FoodItemParseModel {
     */
    void setProtein( String key, Double value ) {
       this.protein = value;
+   }//End Method
+   
+   /**
+    * Sets the {@link uk.dangrew.nuts.food.FoodProperties#calories()} for the current {@link FoodItem}.
+    * @param key the parsed key.
+    * @param value the parsed value.
+    */
+   void setCalories( String key, Double value ) {
+      this.calories = value;
    }//End Method
    
 }//End Class

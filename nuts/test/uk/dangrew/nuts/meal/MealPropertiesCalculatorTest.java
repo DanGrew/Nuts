@@ -32,14 +32,17 @@ public class MealPropertiesCalculatorTest {
       
       FoodItem item1 = new FoodItem( "Food1" );
       item1.properties().setMacros( 1, 2, 7 );
+      item1.properties().calories().set( 100.0 );
       portion1 = new FoodPortion();
       portion1.setFood( item1 );
       FoodItem item2 = new FoodItem( "Food2" );
       item2.properties().setMacros( 10, 2, 3 );
+      item1.properties().calories().set( 150.0 );
       portion2 = new FoodPortion();
       portion2.setFood( item2 );
       FoodItem item3 = new FoodItem( "Food3" );
       item3.properties().setMacros( 50, 10, 40 );
+      item1.properties().calories().set( 50.0 );
       portion3 = new FoodPortion();
       portion3.setFood( item3 );
       
@@ -69,6 +72,7 @@ public class MealPropertiesCalculatorTest {
       meal.portions().clear();
       systemUnderTest.mealChanged();
       
+      assertThat( meal.properties().calories().get(), is( 0.0 ) );
       assertThat( meal.properties().carbohydrates().get(), is( 0.0 ) );
       assertThat( meal.properties().fats().get(), is( 0.0 ) );
       assertThat( meal.properties().protein().get(), is( 0.0 ) );
@@ -83,6 +87,7 @@ public class MealPropertiesCalculatorTest {
       
       systemUnderTest.mealChanged();
       
+      assertThat( meal.properties().calories().get(), is( 300.0 ) );
       assertThat( meal.properties().carbohydrates().get(), is( 61.0 ) );
       assertThat( meal.properties().fats().get(), is( 14.0 ) );
       assertThat( meal.properties().protein().get(), is( 50.0 ) );
@@ -97,6 +102,7 @@ public class MealPropertiesCalculatorTest {
       
       systemUnderTest.mealChanged();
       
+      assertThat( meal.properties().calories().get(), is( 300.0 ) );
       assertThat( meal.properties().carbohydrates().get(), is( 61.0 ) );
       assertThat( meal.properties().fats().get(), is( 14.0 ) );
       assertThat( meal.properties().protein().get(), is( 50.0 ) );

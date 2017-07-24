@@ -66,6 +66,7 @@ public class MealRegistrations {
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          portion.nutritionFor( macro ).addListener( valueNotifier );
       }
+      portion.properties().calories().addListener( valueNotifier );
       notifyListeners();
    }//End Method
    
@@ -79,6 +80,7 @@ public class MealRegistrations {
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          portion.nutritionFor( macro ).removeListener( valueNotifier );
       }
+      portion.properties().calories().removeListener( valueNotifier );
       notifyListeners();
    }//End Method
    

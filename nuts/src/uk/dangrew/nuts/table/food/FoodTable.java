@@ -11,7 +11,6 @@ package uk.dangrew.nuts.table.food;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.FoodStore;
 
@@ -21,9 +20,11 @@ import uk.dangrew.nuts.food.FoodStore;
 public class FoodTable< FoodTypeT extends Food > extends TableView< FoodTableRow< FoodTypeT > > {
 
    static final String COLUMN_TITLE_FOOD = "Food";
+   static final String COLUMN_TITLE_CALORIES = "Calories";
    static final String COLUMN_TITLE_CARBS = "Carbohydrates";
    static final String COLUMN_TITLE_FATS = "Fats";
    static final String COLUMN_TITLE_PROTEINS = "Protein";
+   static final String COLUMN_TITLE_CALORIES_PROPORTION = "Calories %";
    static final String COLUMN_TITLE_CARBS_PROPORTION = "Carbohydrates %";
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
@@ -64,15 +65,17 @@ public class FoodTable< FoodTypeT extends Food > extends TableView< FoodTableRow
    private void initialiseColumns(){
       setEditable( true );
       
-      configuration.initialStringColumn( this, COLUMN_TITLE_FOOD, 0.4, FoodProperties::nameProperty );
+      configuration.initialStringColumn( this, COLUMN_TITLE_FOOD, 0.2, FoodProperties::nameProperty );
       
+      configuration.initialNutrientColumn( this, COLUMN_TITLE_CALORIES, 0.1, FoodProperties::calories, true );
       configuration.initialNutrientColumn( this, COLUMN_TITLE_CARBS, 0.1, FoodProperties::carbohydrates, true );
       configuration.initialNutrientColumn( this, COLUMN_TITLE_FATS, 0.1, FoodProperties::fats, true );
       configuration.initialNutrientColumn( this, COLUMN_TITLE_PROTEINS, 0.1, FoodProperties::protein, true );
       
-      configuration.initialRatioColumn( this, COLUMN_TITLE_CARBS_PROPORTION, 0.1, FoodAnalytics::carbohydratesRatioProperty );
-      configuration.initialRatioColumn( this, COLUMN_TITLE_FATS_PROPORTION, 0.1, FoodAnalytics::fatsRatioProperty );
-      configuration.initialRatioColumn( this, COLUMN_TITLE_PROTEINS_PROPORTION, 0.1, FoodAnalytics::proteinRatioProperty );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_CALORIES_PROPORTION, 0.1, f -> f.goalAnalytics().caloriesRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_CARBS_PROPORTION, 0.1, f -> f.goalAnalytics().carbohydratesRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_FATS_PROPORTION, 0.1, f -> f.goalAnalytics().fatsRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_PROTEINS_PROPORTION, 0.1, f -> f.goalAnalytics().proteinRatioProperty() );
    }//End Method
    
    /**

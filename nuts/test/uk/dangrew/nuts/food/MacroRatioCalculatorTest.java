@@ -70,5 +70,5 @@ public class MacroRatioCalculatorTest {
       assertThat( analytics.fatsRatio(), is( f ) );
       assertThat( analytics.proteinRatio(), is( p ) );  
    }//End Method
-
+   
 }//End Class

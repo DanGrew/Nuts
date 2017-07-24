@@ -107,4 +107,13 @@ class FoodItemWriteModel {
       return currentFood.properties().protein().get();
    }//End Method
    
+   /**
+    * Provides the next {@link uk.dangrew.nuts.food.FoodProperties#calories()}.
+    * @param key the parsed key.
+    * @return the value.
+    */
+   Double getCalories( String key ) {
+      return currentFood.properties().calories().get();
+   }//End Method
+   
 }//End Class

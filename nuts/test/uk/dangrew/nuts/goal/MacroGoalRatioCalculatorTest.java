@@ -138,5 +138,45 @@ public class MacroGoalRatioCalculatorTest {
       assertThat( analytics.fatsRatio(), is( f ) );
       assertThat( analytics.proteinRatio(), is( p ) );  
    }//End Method
+   
+   @Test public void shouldCalculateCalorieRatio(){
+      analytics.goal().set( goal );
+      
+      assertThat( analytics.caloriesRatio(), is( 0.0 ) );
+      goal.properties().calories().set( 600.0 );
+      assertThat( analytics.caloriesRatio(), is( 0.0 ) );
+      properties.calories().set( 150.0 );
+      assertThat( analytics.caloriesRatio(), is( 25.0 ) );
+      goal.properties().calories().set( 1000.0 );
+      assertThat( analytics.caloriesRatio(), is( 15.0 ) );
+   }//End Method
+   
+   @Test public void shouldNotRespondToPreviousForCalorieRatio(){
+      analytics.goal().set( goal );
+      goal.properties().calories().set( 600.0 );
+      properties.calories().set( 150.0 );
+      assertThat( analytics.caloriesRatio(), is( 25.0 ) );
+      
+      analytics.goal().set( new Goal( "anything" ) );
+      assertThat( analytics.caloriesRatio(), is( 0.0 ) );
+      
+      goal.properties().calories().set( 1000.0 );
+      assertThat( analytics.caloriesRatio(), is( 0.0 ) );
+   }//End Method
+   
+   @Test public void shouldRespondToPropertyChanges() {
+      analytics.goal().set( goal );
+      goal.properties().setMacros( 100, 60, 200 );
+      assertMacroProportions( 0, 0, 0 );
+      
+      properties.carbohydrates().set( 20.0 );
+      assertThat( analytics.carbohydratesRatio(), is( 20.0 ) );
+      
+      properties.fats().set( 15.0 );
+      assertThat( analytics.fatsRatio(), is( 25.0 ) );
+      
+      properties.protein().set( 10.0 );
+      assertThat( analytics.proteinRatio(), is( 5.0 ) );
+   }//End Method
 
 }//End Class

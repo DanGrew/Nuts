@@ -29,10 +29,12 @@ import uk.dangrew.nuts.table.food.FoodTableRow;
 public class MealTable extends TableView< FoodTableRow< FoodPortion > > {
 
    static final String COLUMN_TITLE_FOOD = "Food";
+   static final String COLUMN_TITLE_CALORIES = "Calories";
    static final String COLUMN_TITLE_PORTION = "Portion %";
    static final String COLUMN_TITLE_CARBS = "Carbs";
    static final String COLUMN_TITLE_FATS = "Fats";
    static final String COLUMN_TITLE_PROTEINS = "Protein";
+   static final String COLUMN_TITLE_CALORIES_PROPORTION = "Calories %";
    static final String COLUMN_TITLE_CARBS_PROPORTION = "Carbs %";
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
@@ -83,12 +85,12 @@ public class MealTable extends TableView< FoodTableRow< FoodPortion > > {
                "None"
       ), foodOptions.options() ) );
       nameColumn.setCellValueFactory( object -> object.getValue().food().food() );
-      nameColumn.prefWidthProperty().bind( widthProperty().multiply( 0.3 ) );
+      nameColumn.prefWidthProperty().bind( widthProperty().multiply( 0.15 ) );
       nameColumn.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> r.food().setFood( v ) ) );
       getColumns().add( nameColumn );
       
       TableColumn< FoodTableRow< FoodPortion >, String > portionColumn = new TableColumn<>( COLUMN_TITLE_PORTION );
-      portionColumn.prefWidthProperty().bind( widthProperty().multiply( 0.1 ) );
+      portionColumn.prefWidthProperty().bind( widthProperty().multiply( 0.05 ) );
       portionColumn.setCellValueFactory( object -> object.getValue().food().portion().asString() );
       getColumns().add( portionColumn );
       
@@ -96,13 +98,15 @@ public class MealTable extends TableView< FoodTableRow< FoodPortion > > {
       portionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
       portionColumn.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> r.food().setPortion( Double.valueOf( v ) ) ) );
       
+      configuration.initialNutrientColumn( this, COLUMN_TITLE_CALORIES, 0.1, FoodProperties::calories, false );
       configuration.initialNutrientColumn( this, COLUMN_TITLE_CARBS, 0.1, FoodProperties::carbohydrates, false );
       configuration.initialNutrientColumn( this, COLUMN_TITLE_FATS, 0.1, FoodProperties::fats, false );
       configuration.initialNutrientColumn( this, COLUMN_TITLE_PROTEINS, 0.1, FoodProperties::protein, false );
       
-      configuration.initialRatioColumn( this, COLUMN_TITLE_CARBS_PROPORTION, 0.1, FoodAnalytics::carbohydratesRatioProperty );
-      configuration.initialRatioColumn( this, COLUMN_TITLE_FATS_PROPORTION, 0.1, FoodAnalytics::fatsRatioProperty );
-      configuration.initialRatioColumn( this, COLUMN_TITLE_PROTEINS_PROPORTION, 0.1, FoodAnalytics::proteinRatioProperty );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_CALORIES_PROPORTION, 0.1, f -> f.goalAnalytics().caloriesRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_CARBS_PROPORTION, 0.1, f -> f.goalAnalytics().carbohydratesRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_FATS_PROPORTION, 0.1, f -> f.goalAnalytics().fatsRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_PROTEINS_PROPORTION, 0.1, f -> f.goalAnalytics().proteinRatioProperty() );
    }//End Method
 
    /**

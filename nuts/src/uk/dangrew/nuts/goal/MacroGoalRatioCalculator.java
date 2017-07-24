@@ -45,6 +45,10 @@ public class MacroGoalRatioCalculator {
       }
       
       this.properties = properties;
+      this.properties.carbohydrates().addListener( updater );
+      this.properties.fats().addListener( updater );
+      this.properties.protein().addListener( updater );
+      this.properties.calories().addListener( updater );
       this.analytics = analytics;
       this.analytics.goal().addListener( ( s, o, n ) -> setGoal( n ) );
    }//End Method
@@ -58,6 +62,7 @@ public class MacroGoalRatioCalculator {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
             this.goal.properties().nutritionFor( macro ).removeListener( updater );
          }
+         this.goal.properties().calories().removeListener( updater );
       }
       
       this.goal = goal;
@@ -71,6 +76,7 @@ public class MacroGoalRatioCalculator {
             properties.nutritionFor( macro ).addListener( updater );
             this.goal.properties().nutritionFor( macro ).addListener( updater );
          }
+         this.goal.properties().calories().addListener( updater );
          updateRatios();
       }
    }//End Method
@@ -91,6 +97,13 @@ public class MacroGoalRatioCalculator {
          double macroUsage = properties.nutritionFor( macro ).get();
          double proportion = macroUsage * 100 / macroGoal;
          analytics.nutrientRatioFor( macro ).set( proportion );
+      }
+      
+      if ( goal.properties().calories().get() == 0.0 ) {
+         analytics.caloriesRatioProperty().set( 0.0 );   
+      } else {
+         double calorieProprtion = properties.calories().get() * 100 / goal.properties().calories().get();
+         analytics.caloriesRatioProperty().set( calorieProprtion );
       }
    }//End Method
 
