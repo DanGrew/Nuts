@@ -20,6 +20,7 @@ public class Database {
    private final Goal goal;
    private final FoodItemStore foodItems;
    private final MealStore meals;
+   private final MealStore plans;
    
    /**
     * Constructs a new {@link Database}.
@@ -28,6 +29,7 @@ public class Database {
       this.goal = new Goal( "Goal" );
       this.foodItems = new FoodItemStore( goal );
       this.meals = new MealStore( goal );
+      this.plans = new MealStore( goal );
    }//End Constructor
    
    /**
@@ -54,6 +56,15 @@ public class Database {
     */
    public MealStore meals() {
       return meals;
+   }//End Method
+   
+   /**
+    * Access to the {@link uk.dangrew.nuts.meal.Meal}s stored as plans.
+    * @return the {@link MealStore} of {@link uk.dangrew.nuts.meal.Meal}s against 
+    * their {@link uk.dangrew.nuts.food.FoodProperties#id()}.
+    */
+   public MealStore plans() {
+      return plans;
    }//End Method
    
 }//End Class

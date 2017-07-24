@@ -13,6 +13,7 @@ import java.util.List;
 
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -21,7 +22,7 @@ import uk.dangrew.nuts.store.Database;
  */
 class MealWriteModel {
    
-   private final Database database;
+   private final MealStore meals;
    private final List< Meal > foodBuffer;
    private final List< Meal > foodPortionCoundBuffer;
    private final List< FoodPortion > portionBuffer;
@@ -30,10 +31,10 @@ class MealWriteModel {
    
    /**
     * Constructs a new {@link FoodItemWriteModel}.
-    * @param database the {@link Database}.
+    * @param meals the {@link MealStore}.
     */
-   MealWriteModel( Database database ) {
-      this.database = database;
+   MealWriteModel( MealStore meals ) {
+      this.meals = meals;
       this.foodBuffer = new ArrayList<>();
       this.portionBuffer = new ArrayList<>();
       this.foodPortionCoundBuffer = new ArrayList<>();
@@ -49,8 +50,8 @@ class MealWriteModel {
     */
    Integer getNumberOfMeals( String key ){
       foodPortionCoundBuffer.clear();
-      foodPortionCoundBuffer.addAll( database.meals().objectList() );
-      return database.meals().objectList().size();
+      foodPortionCoundBuffer.addAll( meals.objectList() );
+      return meals.objectList().size();
    }//End Method
    
    /**
@@ -68,7 +69,7 @@ class MealWriteModel {
     */
    void startWritingMeals( String key ) {
       foodBuffer.clear();
-      foodBuffer.addAll( database.meals().objectList() );
+      foodBuffer.addAll( meals.objectList() );
    }//End Method
    
    /**

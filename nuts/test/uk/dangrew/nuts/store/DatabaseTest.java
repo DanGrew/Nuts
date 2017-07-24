@@ -12,6 +12,7 @@ import org.junit.Test;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.MealStore;
 
 public class DatabaseTest {
 
@@ -40,6 +41,14 @@ public class DatabaseTest {
    @Test public void shouldProvideGoal(){
       assertThat( systemUnderTest.goal(), is( not( nullValue() ) ) );
       assertThat( systemUnderTest.goal(), is( systemUnderTest.goal() ) );
+   }//End Method
+   
+   @Test public void shouldProvidePlans(){
+      assertThat( systemUnderTest.plans(), is( instanceOf( MealStore.class ) ) );
+      
+      Meal plan = new Meal( "Plan" );
+      systemUnderTest.plans().store( plan );
+      assertThat( systemUnderTest.plans().get( plan.properties().id() ), is( plan ) );
    }//End Method
 
 }//End Class

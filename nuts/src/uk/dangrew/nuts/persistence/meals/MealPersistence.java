@@ -16,6 +16,7 @@ import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
+import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -43,9 +44,10 @@ public class MealPersistence {
   /**
     * Constructs a new {@link MealPersistence}.
     * @param database the {@link Database}.
+    * @param meals the {@link MealStore}.
     */
-   public MealPersistence( Database database ) {
-      this( new MealParseModel( database ), new MealWriteModel( database ) );
+   public MealPersistence( Database database, MealStore meals ) {
+      this( new MealParseModel( database, meals ), new MealWriteModel( meals ) );
    }//End Constructor
    
    /**

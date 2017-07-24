@@ -22,7 +22,7 @@ public class MealPersistenceTest {
    @Test public void shouldReadData() {
       Database database = new Database();
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      MealPersistence persistence = new MealPersistence( database );
+      MealPersistence persistence = new MealPersistence( database, database.meals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
       JSONObject json = new JSONObject( value );
@@ -94,7 +94,7 @@ public class MealPersistenceTest {
       foodItemPersistence.structure().build( foodItemJson );
       foodItemPersistence.writeHandles().parse( foodItemJson );
       
-      MealPersistence persistence = new MealPersistence( database );
+      MealPersistence persistence = new MealPersistence( database, database.meals() );
       JSONObject mealJson = new JSONObject();
       persistence.structure().build( mealJson );
       persistence.writeHandles().parse( mealJson );
@@ -108,7 +108,7 @@ public class MealPersistenceTest {
       foodItemPersistence.readHandles().parse( foodItemJson );
       assertThat( database.foodItems().objectList(), hasSize( 4 ) );
       
-      persistence = new MealPersistence( database );
+      persistence = new MealPersistence( database, database.meals() );
       
       assertThat( database.meals().objectList(), is( empty() ) );
       persistence.readHandles().parse( mealJson );

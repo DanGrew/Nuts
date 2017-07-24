@@ -15,6 +15,7 @@ import java.util.List;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -24,6 +25,7 @@ import uk.dangrew.nuts.store.Database;
 class MealParseModel {
    
    private final Database database;
+   private final MealStore meals;
    
    private String id;
    private String name;
@@ -35,9 +37,11 @@ class MealParseModel {
    /**
     * Constructs a new {@link MealParseModel}.
     * @param database the {@link Database}.
+    * @param meals {@link MealStore}.
     */
-   MealParseModel( Database database ) {
+   MealParseModel( Database database, MealStore meals ) {
       this.database = database;
+      this.meals = meals;
       this.portions = new ArrayList<>();
    }//End Constructor
    
@@ -58,10 +62,10 @@ class MealParseModel {
     * @param key the parsed key.
     */
    void finishMeal( String key ) {
-      Meal meal = database.meals().get( id );
+      Meal meal = meals.get( id );
       if ( meal == null ) {
          meal = new Meal( id, name );
-         database.meals().store( meal );
+         meals.store( meal );
       }
       meal.portions().clear();
       meal.portions().addAll( portions );

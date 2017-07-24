@@ -15,6 +15,7 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
+import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.javafx.table.EditCommitHandler;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodProperties;
@@ -66,6 +67,7 @@ public class FoodTableConfiguration {
       TableColumn< FoodTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
       column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
       column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().properties() ).asString() );
+      column.comparatorProperty().set( Comparators.STRING_AS_NUMBER_ASCENDING );
       
       if ( editable ) {
          column.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -92,6 +94,7 @@ public class FoodTableConfiguration {
       TableColumn< FoodTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
       column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
       column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food() ).asString() );
+      column.comparatorProperty().set( Comparators.STRING_AS_NUMBER_ASCENDING );
       table.getColumns().add( column );
    }//End Method
 
