@@ -3,6 +3,7 @@
  */
 plugins {
     id "com.jfrog.bintray" version "1.6"
+    id "com.github.johnrengelman.shadow" version "1.2.3"
 }
 
 allprojects { 
@@ -10,6 +11,7 @@ allprojects {
 	apply plugin: 'maven'
 	apply plugin: 'maven-publish'
 	apply plugin: 'eclipse'
+	apply plugin: 'application'
 }
 
 /*
@@ -117,11 +119,31 @@ task packageTests(type: Jar) {
 }
 artifacts.archives packageTests
 
+/*
+ * SHADOW: configure runnable element
+ */
+//configure specific name so not '-all'
+shadowJar.archiveName = jar.archiveName.replace( '.jar', '-runnable.jar' )
+shadowJar.outputs.upToDateWhen { false }
+//link to main class in jar
+mainClassName = "uk.dangrew.nuts.main.Nuts"
+//bind with jar so that whenever jar is run, shadow is run
+jar.dependsOn shadowJar
+//automatic distribution options pulled in from application plugin - not interested
+distZip.enabled = false
+distTar.enabled = false
+//publish will fail with above disabled if we do not tell it to ignore them
+configurations.archives.with {
+    artifacts.remove artifacts.find { it.archiveTask.is distZip }
+    artifacts.remove artifacts.find { it.archiveTask.is distTar }
+}
+
+
 bintray {
     user = bintrayUser
     key = bintrayKey
     configurations = ['archives']
-    publications = ['core']
+    publications = ['core', 'runnable']
     
     publish = true //auto publish everything
     
@@ -152,5 +174,16 @@ publishing {
             artifactId 'nuts'
             version version
         }
+        
+        //publish runnable jar
+        runnable(MavenPublication) {
+        	//publish only the shadow jar
+      		artifact ( shadowJar ) { classifier = 'runnable' }
+        
+        	//configure description of publication
+            groupId group
+            artifactId 'nuts'
+            version version
+    	}
     }
 }

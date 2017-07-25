@@ -36,7 +36,7 @@ public class GoalCalculationView extends VBox {
       try {
          return Double.valueOf( s );
       } catch ( NumberFormatException e ) {
-         return null;
+         return 0.0;
       }
    };
    
