@@ -37,12 +37,12 @@ public class MealPropertiesCalculatorTest {
       portion1.setFood( item1 );
       FoodItem item2 = new FoodItem( "Food2" );
       item2.properties().setMacros( 10, 2, 3 );
-      item1.properties().calories().set( 150.0 );
+      item2.properties().calories().set( 150.0 );
       portion2 = new FoodPortion();
       portion2.setFood( item2 );
       FoodItem item3 = new FoodItem( "Food3" );
       item3.properties().setMacros( 50, 10, 40 );
-      item1.properties().calories().set( 50.0 );
+      item3.properties().calories().set( 50.0 );
       portion3 = new FoodPortion();
       portion3.setFood( item3 );
       

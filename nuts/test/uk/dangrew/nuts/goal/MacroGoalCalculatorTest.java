@@ -1,7 +1,9 @@
 package uk.dangrew.nuts.goal;
 
+import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static uk.dangrew.kode.TestCommon.precision;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -55,10 +57,10 @@ public class MacroGoalCalculatorTest {
       shouldCalculateMacros();
       goal.weight().set( 160.0 );
       
-      assertThat( goal.properties().calories().get(), is( 3000.0 ) );
-      assertThat( goal.properties().carbohydrates().get(), is( 446.0 ) );
-      assertThat( goal.properties().fats().get(), is( 64.0 ) );
-      assertThat( goal.properties().protein().get(), is( 160.0 ) );
+      assertThat( goal.properties().calories().get(), is( closeTo( 3303.633, precision() ) ) );
+      assertThat( goal.properties().carbohydrates().get(), is( closeTo( 521.908, precision() ) ) );
+      assertThat( goal.properties().fats().get(), is( closeTo( 64.0, precision() ) ) );
+      assertThat( goal.properties().protein().get(), is( closeTo( 160.0, precision() ) ) );
    }//End Method
    
    @Test public void shouldRespondToProteinPerPoundChange(){

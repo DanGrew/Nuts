@@ -17,7 +17,7 @@ public class GoalCalculationViewTest {
    }//End Method
 
    @Ignore
-   @Test public void maual() throws InterruptedException {
+   @Test public void manual() throws InterruptedException {
       TestApplication.launch( () -> systemUnderTest );
       
       Thread.sleep( 10000000 );
