@@ -58,13 +58,11 @@ public class FoodManagerPaneTest {
       database.meals().store( meal );
       
       assertThat( systemUnderTest.mealsTable().table().getSelectionModel().getSelectedItem(), is( nullValue() ) );
-      assertThat( systemUnderTest.mealView().mealView().table().controller().getShowingMeal(), is( nullValue() ) );
-      assertThat( systemUnderTest.mealView().mealView().mealSummary().getShowingMeal(), is( nullValue() ) );
+      assertThat( systemUnderTest.mealView().mealTable().controller().getShowingMeal(), is( nullValue() ) );
       
       systemUnderTest.mealsTable().table().getSelectionModel().select( 0 );
       
-      assertThat( systemUnderTest.mealView().mealView().table().controller().getShowingMeal(), is( meal ) );
-      assertThat( systemUnderTest.mealView().mealView().mealSummary().getShowingMeal(), is( meal ) );
+      assertThat( systemUnderTest.mealView().mealTable().controller().getShowingMeal(), is( meal ) );
    }//End Method
 
 }//End Class

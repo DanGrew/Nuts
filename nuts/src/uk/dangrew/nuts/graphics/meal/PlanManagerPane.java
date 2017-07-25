@@ -14,7 +14,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.table.food.FoodTableWithControls;
-import uk.dangrew.nuts.table.meal.MealViewWithControls;
+import uk.dangrew.nuts.table.meal.MealTableWithControls;
 
 /**
  * {@link PlanManagerPane} provides the pane for planning {@link Meal}s.
@@ -26,8 +26,8 @@ public class PlanManagerPane extends GridPane {
    static final double MEAL_VIEW_HEIGHT_PROPORTION = 35.0;
 
    private final FoodTableWithControls< Meal > plansTable;
-   private final MealViewWithControls planView;
-   private final MealViewWithControls mealView;
+   private final MealTableWithControls planView;
+   private final MealTableWithControls mealView;
 
    /**
     * Constructs a new {@link PlanManagerPane}.
@@ -52,22 +52,19 @@ public class PlanManagerPane extends GridPane {
       styling.configureConstraintsForEvenColumns( this, 1 );
 
       add( plansTable = new FoodTableWithControls<>( database.plans() ), 0, 0 );
-      add( planView = new MealViewWithControls( database ), 0, 1 );
-      add( mealView = new MealViewWithControls( database ), 0, 2 );
+      add( planView = new MealTableWithControls( database ), 0, 1 );
+      add( mealView = new MealTableWithControls( database ), 0, 2 );
       
       plansTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
-         planView.mealView().table().controller().showMeal( n.food() );
-         planView.mealView().mealSummary().showMeal( n.food() );
+         planView.mealTable().controller().showMeal( n.food() );
       } );
       
-      planView.mealView().table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
+      planView.mealTable().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
          Food food = n.food().food().get();
          if ( food instanceof Meal ) {
-            mealView.mealView().table().controller().showMeal( ( Meal )food );
-            mealView.mealView().mealSummary().showMeal( ( Meal )food );
+            mealView.mealTable().controller().showMeal( ( Meal )food );
          } else {
-            mealView.mealView().table().controller().showMeal( null );
-            mealView.mealView().mealSummary().showMeal( null );
+            mealView.mealTable().controller().showMeal( null );
          }
       } );
    }// End Constructor
@@ -76,7 +73,7 @@ public class PlanManagerPane extends GridPane {
       return plansTable;
    }// End Method
 
-   MealViewWithControls mealView() {
+   MealTableWithControls mealTable() {
       return planView;
    }// End Method
 

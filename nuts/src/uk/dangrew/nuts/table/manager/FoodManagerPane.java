@@ -14,7 +14,7 @@ import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.table.food.FoodTableWithControls;
-import uk.dangrew.nuts.table.meal.MealViewWithControls;
+import uk.dangrew.nuts.table.meal.MealTableWithControls;
 
 /**
  * {@link FoodManagerPane} provides a method of manager the {@link Database} {@link uk.dangrew.nuts.food.Food}s
@@ -28,7 +28,7 @@ public class FoodManagerPane extends GridPane {
    
    private final FoodTableWithControls< FoodItem > foodItemsTable;
    private final FoodTableWithControls< Meal > mealsTable;
-   private final MealViewWithControls mealView;
+   private final MealTableWithControls mealView;
    
    /**
     * Constructs a new {@link FoodManagerPane}.
@@ -54,11 +54,10 @@ public class FoodManagerPane extends GridPane {
       
       add( foodItemsTable = new FoodTableWithControls<>( database.foodItems() ), 0, 0 );
       add( mealsTable = new FoodTableWithControls<>( database.meals() ), 0, 1 );
-      add( mealView = new MealViewWithControls( database ), 0, 2 );
+      add( mealView = new MealTableWithControls( database ), 0, 2 );
       
       mealsTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
-         mealView.mealView().table().controller().showMeal( n.food() );
-         mealView.mealView().mealSummary().showMeal( n.food() );
+         mealView.mealTable().controller().showMeal( n.food() );
       } );
    }//End Constructor
    
@@ -70,7 +69,7 @@ public class FoodManagerPane extends GridPane {
       return mealsTable;
    }//End Method
    
-   MealViewWithControls mealView(){
+   MealTableWithControls mealView(){
       return mealView;
    }//End Method
 
