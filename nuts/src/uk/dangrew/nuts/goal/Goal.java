@@ -22,14 +22,19 @@ public class Goal {
    
    static final double RECOMMENDED_PROTEIN_PER_POUND = 1.0;
    static final double RECOMMENDED_FAT_PER_POUND = 0.4;
+   static final double RECOMMENDED_ACTIVITY_LEVEL = 1.4;
    
    private final CalorieGoalCalculator calorieCalculator;
    private final MacroGoalCalculator macroCalculator;
    
    private final FoodProperties properties;
    private final FoodAnalytics analytics;
-   private final ObjectProperty< Double > mass;
-   private final ObjectProperty< Double > maintenanceCalories;
+   private final ObjectProperty< Double > age;
+   private final ObjectProperty< Double > weight;
+   private final ObjectProperty< Double > height;
+   private final ObjectProperty< Double > bmr;
+   private final ObjectProperty< Double > pal;
+   private final ObjectProperty< Double > tee;
    private final ObjectProperty< Double > exerciseCalories;
    private final ObjectProperty< Double > calorieDeficit;
    private final ObjectProperty< Double > proteinPerPound;
@@ -66,8 +71,12 @@ public class Goal {
    ) {
       this.properties = properties;
       this.analytics = analytics;
-      this.mass = new SimpleObjectProperty<>( 0.0 );
-      this.maintenanceCalories = new SimpleObjectProperty<>( 0.0 );
+      this.age = new SimpleObjectProperty<>( 0.0 );
+      this.weight = new SimpleObjectProperty<>( 0.0 );
+      this.height = new SimpleObjectProperty<>( 0.0 );
+      this.bmr = new SimpleObjectProperty<>( 0.0 );
+      this.pal = new SimpleObjectProperty<>( RECOMMENDED_ACTIVITY_LEVEL );
+      this.tee = new SimpleObjectProperty<>( 0.0 );
       this.exerciseCalories = new SimpleObjectProperty<>( 0.0 );
       this.calorieDeficit = new SimpleObjectProperty<>( 0.0 );
       this.proteinPerPound = new SimpleObjectProperty<>( RECOMMENDED_PROTEIN_PER_POUND );
@@ -97,19 +106,51 @@ public class Goal {
    }//End Method
 
    /**
-    * Access to the mass property, measured in pounds.
+    * Access to the age property, measured in years.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > mass() {
-      return mass;
+   public ObjectProperty< Double > age() {
+      return age;
+   }//End Method
+   
+   /**
+    * Access to the weight property, measured in pounds.
+    * @return the {@link ObjectProperty}.
+    */
+   public ObjectProperty< Double > weight() {
+      return weight;
+   }//End Method
+   
+   /**
+    * Access to the age height, measured in metres.
+    * @return the {@link ObjectProperty}.
+    */
+   public ObjectProperty< Double > height() {
+      return height;
    }//End Method
 
    /**
-    * Access to the maintenance calories property.
+    * Access to the basal metabolic rate property, measured in calories.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > maintenanceCalories() {
-      return maintenanceCalories;
+   public ObjectProperty< Double > bmr() {
+      return bmr;
+   }//End Method
+   
+   /**
+    * Access to the physical activity level property, measured as a percentage of bmr.
+    * @return the {@link ObjectProperty}.
+    */
+   public ObjectProperty< Double > pal() {
+      return pal;
+   }//End Method
+   
+   /**
+    * Access to the total energy expenditure calories property, measured in calories.
+    * @return the {@link ObjectProperty}.
+    */
+   public ObjectProperty< Double > tee() {
+      return tee;
    }//End Method
 
    /**

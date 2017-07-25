@@ -42,14 +42,14 @@ public class GoalTest {
       verify( ratioCalculator ).associate( properties, analytics );
    }//End Method
 
-   @Test public void shouldProvideMass() {
-      assertThat( systemUnderTest.mass(), is( notNullValue() ) );
-      assertThat( systemUnderTest.mass().get(), is( 0.0 ) );
+   @Test public void shouldProvideWeight() {
+      assertThat( systemUnderTest.weight(), is( notNullValue() ) );
+      assertThat( systemUnderTest.weight().get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldProvideMaintenanceCalories() {
-      assertThat( systemUnderTest.maintenanceCalories(), is( notNullValue() ) );
-      assertThat( systemUnderTest.maintenanceCalories().get(), is( 0.0 ) );
+      assertThat( systemUnderTest.tee(), is( notNullValue() ) );
+      assertThat( systemUnderTest.tee().get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldProvideExerciseCalories() {
@@ -78,6 +78,26 @@ public class GoalTest {
    
    @Test public void shouldProvideMacroGoalCalculator(){
       verify( macroCalculator ).associate( systemUnderTest );
+   }//End Method
+   
+   @Test public void shouldProvideAge(){
+      assertThat( systemUnderTest.age(), is( notNullValue() ) );
+      assertThat( systemUnderTest.age().get(), is( 0.0 ) );
+   }//End Method
+   
+   @Test public void shouldProvideHeight(){
+      assertThat( systemUnderTest.height(), is( notNullValue() ) );
+      assertThat( systemUnderTest.height().get(), is( 0.0 ) );
+   }//End Method
+   
+   @Test public void shouldProvideBmr(){
+      assertThat( systemUnderTest.bmr(), is( notNullValue() ) );
+      assertThat( systemUnderTest.bmr().get(), is( 0.0 ) );
+   }//End Method
+   
+   @Test public void shouldProvidePal(){
+      assertThat( systemUnderTest.pal(), is( notNullValue() ) );
+      assertThat( systemUnderTest.pal().get(), is( Goal.RECOMMENDED_ACTIVITY_LEVEL ) );
    }//End Method
    
 }//End Method

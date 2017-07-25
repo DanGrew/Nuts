@@ -25,8 +25,8 @@ public class MacroGoalCalculatorTest {
                new MacroRatioCalculator()
       );
       
-      goal.mass().set( 200.0 );
-      goal.maintenanceCalories().set( 1700.0 );
+      goal.weight().set( 200.0 );
+      goal.tee().set( 1700.0 );
       goal.exerciseCalories().set( 1300.0 );
    }//End Method
 
@@ -53,7 +53,7 @@ public class MacroGoalCalculatorTest {
    
    @Test public void shouldRespondToMassChange(){
       shouldCalculateMacros();
-      goal.mass().set( 160.0 );
+      goal.weight().set( 160.0 );
       
       assertThat( goal.properties().calories().get(), is( 3000.0 ) );
       assertThat( goal.properties().carbohydrates().get(), is( 446.0 ) );

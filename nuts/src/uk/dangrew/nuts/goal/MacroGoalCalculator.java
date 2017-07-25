@@ -35,7 +35,7 @@ class MacroGoalCalculator {
       
       ChangeListener< Double > listener = ( s, o, n ) -> calculate();
       goal.properties().calories().addListener( listener );
-      goal.mass().addListener( listener );
+      goal.weight().addListener( listener );
       goal.proteinPerPound().addListener( listener );
       goal.fatPerPound().addListener( listener );
    }//End Method
@@ -44,10 +44,10 @@ class MacroGoalCalculator {
     * Perform the calculation.
     */
    private void calculate(){
-      double proteinGoal = goal.mass().get() * goal.proteinPerPound().get();
+      double proteinGoal = goal.weight().get() * goal.proteinPerPound().get();
       goal.properties().protein().set( proteinGoal );
       
-      double fatGoal = goal.mass().get() * goal.fatPerPound().get();
+      double fatGoal = goal.weight().get() * goal.fatPerPound().get();
       goal.properties().fats().set( fatGoal );
       
       double proteinCalories = proteinGoal * CALORIES_PER_PROTEIN_GRAM;
