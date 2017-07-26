@@ -2,6 +2,7 @@ package uk.dangrew.nuts.goal;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 
@@ -98,6 +99,11 @@ public class GoalTest {
    @Test public void shouldProvidePal(){
       assertThat( systemUnderTest.pal(), is( notNullValue() ) );
       assertThat( systemUnderTest.pal().get(), is( Goal.RECOMMENDED_ACTIVITY_LEVEL ) );
+   }//End Method
+   
+   @Test public void shouldProvideGender(){
+      assertThat( systemUnderTest.pal(), is( notNullValue() ) );
+      assertThat( systemUnderTest.gender().get(), is( nullValue() ) );
    }//End Method
    
 }//End Method

@@ -28,10 +28,11 @@ class CalorieGoalCalculator {
       }
       this.goal = goal;
       
-      ChangeListener< Double > bmrUpdater = ( s, o, n ) -> calculateBmr();
+      ChangeListener< Object > bmrUpdater = ( s, o, n ) -> calculateBmr();
       this.goal.age().addListener( bmrUpdater );
       this.goal.weight().addListener( bmrUpdater );
       this.goal.height().addListener( bmrUpdater );
+      this.goal.gender().addListener( bmrUpdater );
       
       ChangeListener< Double > teeUpdater = ( s, o, n ) -> calculateTee();
       this.goal.bmr().addListener( teeUpdater );
@@ -47,6 +48,26 @@ class CalorieGoalCalculator {
     * Method to calculate the Bmr in response to value changes.
     */
    private void calculateBmr(){
+      Gender gender = goal.gender().get();
+      if ( gender == null ) {
+         goal.bmr().set( 0.0 );
+         return;
+      }
+      
+      switch ( gender ) {
+         case Male:
+            calculateMaleBmr();
+            return;
+         case Female:
+            calculateFemaleBmr();
+            return;
+      }
+   }//End Method
+   
+   /**
+    * Method to calculate the bmr for a {@link Gender#Male}.
+    */
+   private void calculateMaleBmr(){
       double age = goal.age().get();
       double bmr = 0;
       if ( age < 18 ) {
@@ -57,10 +78,32 @@ class CalorieGoalCalculator {
          bmr = calculateBmr( 14.4, 313, 113 );
       } else if ( age < 60 ) {
 //         11.4 x Weight(kg)  + 541 x Height(m) – 137
-         bmr = calculateBmr( 11.4, 541, 137 );
+         bmr = calculateBmr( 11.4, 541, -137 );
       } else {
 //         11.4 x Weight(kg)  + 541 x Height(m) – 256
-         bmr = calculateBmr( 11.4, 541, 256 );
+         bmr = calculateBmr( 11.4, 541, -256 );
+      }
+      goal.bmr().set( bmr );
+   }//End Method
+   
+   /**
+    * Method to calculate the bmr for a {@link Gender#Female}.
+    */
+   private void calculateFemaleBmr(){
+      double age = goal.age().get();
+      double bmr = 0;
+      if ( age < 18 ) {
+//      9.40 x Weight(kg)  + 249 x Height(m) + 462
+         bmr = calculateBmr( 9.4, 249, 462 );
+      } else if ( age < 30 ) {
+//      10.4 x Weight(kg)  + 615 x Height(m) – 282
+         bmr = calculateBmr( 10.4, 615, -282 );
+      } else if ( age < 60 ) {
+//      8.18 x Weight(kg)  + 502 x Height(m) – 11.6
+         bmr = calculateBmr( 8.18, 502, -11.6 );
+      } else {
+//      8.52 x Weight(kg)  + 421 x Height(m) + 10.7
+         bmr = calculateBmr( 8.52, 421, 10.7 );
       }
       goal.bmr().set( bmr );
    }//End Method

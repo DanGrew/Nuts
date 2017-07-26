@@ -32,6 +32,7 @@ public class Goal {
    private final ObjectProperty< Double > age;
    private final ObjectProperty< Double > weight;
    private final ObjectProperty< Double > height;
+   private final ObjectProperty< Gender > gender;
    private final ObjectProperty< Double > bmr;
    private final ObjectProperty< Double > pal;
    private final ObjectProperty< Double > tee;
@@ -74,6 +75,7 @@ public class Goal {
       this.age = new SimpleObjectProperty<>( 0.0 );
       this.weight = new SimpleObjectProperty<>( 0.0 );
       this.height = new SimpleObjectProperty<>( 0.0 );
+      this.gender = new SimpleObjectProperty<>();
       this.bmr = new SimpleObjectProperty<>( 0.0 );
       this.pal = new SimpleObjectProperty<>( RECOMMENDED_ACTIVITY_LEVEL );
       this.tee = new SimpleObjectProperty<>( 0.0 );
@@ -185,6 +187,14 @@ public class Goal {
     */
    public ObjectProperty< Double > fatPerPound() {
       return fatPerPound;
+   }//End Method
+
+   /**
+    * Access to the {@link Gender} of the user.
+    * @return the {@link ObjectProperty}.
+    */
+   public ObjectProperty< Gender > gender() {
+      return gender;
    }//End Method
 
 }//End Class
