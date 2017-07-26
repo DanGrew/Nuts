@@ -20,17 +20,29 @@ public class FoodTableWithControlsTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       store = new MealStore( new Goal( "Goal" ) );
-      systemUnderTest = new FoodTableWithControls<>( store );
+      systemUnderTest = new FoodTableWithControls<>( "anything", store );
    }//End Method
 
+   @Test public void shouldProvideContent() {
+      assertThat( systemUnderTest.content(), is( systemUnderTest.getContent() ) );
+   }//End Method
+   
+   @Test public void shouldProvideTitle() {
+      assertThat( systemUnderTest.getText(), is( "anything" ) );
+   }//End Method
+   
+   @Test public void shouldNotBeCollapsible() {
+      assertThat( systemUnderTest.isCollapsible(), is( false ) );
+   }//End Method
+   
    @Test public void shouldProvideTable() {
       assertThat( systemUnderTest.table(), is( notNullValue() ) );
-      assertThat( systemUnderTest.getCenter(), is( systemUnderTest.table() ) );
+      assertThat( systemUnderTest.content().getCenter(), is( systemUnderTest.table() ) );
    }//End Method
    
    @Test public void shouldProvideControls() {
       assertThat( systemUnderTest.controls(), is( notNullValue() ) );
-      assertThat( systemUnderTest.getRight(), is( systemUnderTest.controls() ) );
+      assertThat( systemUnderTest.content().getRight(), is( systemUnderTest.controls() ) );
    }//End Method
 
 }//End Class

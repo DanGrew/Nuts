@@ -51,9 +51,9 @@ public class PlanManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
 
-      add( plansTable = new FoodTableWithControls<>( database.plans() ), 0, 0 );
-      add( planView = new MealTableWithControls( database ), 0, 1 );
-      add( mealView = new MealTableWithControls( database ), 0, 2 );
+      add( plansTable = new FoodTableWithControls<>( "Plans", database.plans() ), 0, 0 );
+      add( planView = new MealTableWithControls( "Selected Plan", database ), 0, 1 );
+      add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 2 );
       
       plansTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
          planView.mealTable().controller().showMeal( n.food() );

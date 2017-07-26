@@ -52,9 +52,9 @@ public class FoodManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
       
-      add( foodItemsTable = new FoodTableWithControls<>( database.foodItems() ), 0, 0 );
-      add( mealsTable = new FoodTableWithControls<>( database.meals() ), 0, 1 );
-      add( mealView = new MealTableWithControls( database ), 0, 2 );
+      add( foodItemsTable = new FoodTableWithControls<>( "Foods", database.foodItems() ), 0, 0 );
+      add( mealsTable = new FoodTableWithControls<>( "Meals", database.meals() ), 0, 1 );
+      add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 2 );
       
       mealsTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
          mealView.mealTable().controller().showMeal( n.food() );

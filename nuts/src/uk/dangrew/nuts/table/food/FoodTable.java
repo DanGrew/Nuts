@@ -68,14 +68,14 @@ public class FoodTable< FoodTypeT extends Food > extends TableView< FoodTableRow
       configuration.initialStringColumn( this, COLUMN_TITLE_FOOD, 0.2, FoodProperties::nameProperty );
       
       configuration.initialNutrientColumn( this, COLUMN_TITLE_CALORIES, 0.1, FoodProperties::calories, true );
-      configuration.initialNutrientColumn( this, COLUMN_TITLE_CARBS, 0.1, FoodProperties::carbohydrates, true );
-      configuration.initialNutrientColumn( this, COLUMN_TITLE_FATS, 0.1, FoodProperties::fats, true );
-      configuration.initialNutrientColumn( this, COLUMN_TITLE_PROTEINS, 0.1, FoodProperties::protein, true );
+      configuration.initialNutrientColumn( this, COLUMN_TITLE_CARBS, 0.08, FoodProperties::carbohydrates, true );
+      configuration.initialNutrientColumn( this, COLUMN_TITLE_FATS, 0.08, FoodProperties::fats, true );
+      configuration.initialNutrientColumn( this, COLUMN_TITLE_PROTEINS, 0.08, FoodProperties::protein, true );
       
       configuration.initialRatioColumn( this, COLUMN_TITLE_CALORIES_PROPORTION, 0.1, f -> f.goalAnalytics().caloriesRatioProperty() );
-      configuration.initialRatioColumn( this, COLUMN_TITLE_CARBS_PROPORTION, 0.1, f -> f.goalAnalytics().carbohydratesRatioProperty() );
-      configuration.initialRatioColumn( this, COLUMN_TITLE_FATS_PROPORTION, 0.1, f -> f.goalAnalytics().fatsRatioProperty() );
-      configuration.initialRatioColumn( this, COLUMN_TITLE_PROTEINS_PROPORTION, 0.1, f -> f.goalAnalytics().proteinRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_CARBS_PROPORTION, 0.08, f -> f.goalAnalytics().carbohydratesRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_FATS_PROPORTION, 0.08, f -> f.goalAnalytics().fatsRatioProperty() );
+      configuration.initialRatioColumn( this, COLUMN_TITLE_PROTEINS_PROPORTION, 0.08, f -> f.goalAnalytics().proteinRatioProperty() );
    }//End Method
    
    /**
