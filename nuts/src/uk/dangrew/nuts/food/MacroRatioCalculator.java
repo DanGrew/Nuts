@@ -8,6 +8,7 @@
  */
 package uk.dangrew.nuts.food;
 
+import javafx.beans.value.ChangeListener;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 /**
@@ -32,8 +33,10 @@ public class MacroRatioCalculator {
       this.properties = properties;
       this.analytics = analytics;
       
+      ChangeListener< Object > listener = ( s, o, n ) -> updateRatios();
+      properties.calories().addListener( listener );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         properties.nutritionFor( macro ).addListener( ( s, o, n ) -> updateRatios() );
+         properties.nutritionFor( macro ).addListener( listener );
       }
       updateRatios();
    }//End Method
@@ -50,6 +53,12 @@ public class MacroRatioCalculator {
          double value = properties.nutritionFor( macro ).get();
          double proportion = total == 0 ? 0 : value * 100 / total;
          analytics.nutrientRatioFor( macro ).set( proportion );
+      }
+      if ( properties.calories().get() == 0.0 ) {
+         analytics.calorieDensityProperty().set( 0.0 );
+      } else {
+         double calorieDensity = total * 100.0 / properties.calories().get();
+         analytics.calorieDensityProperty().set( calorieDensity );
       }
    }//End Method
 

@@ -61,18 +61,18 @@ public class FoodTableConfiguration {
             TableView< FoodTableRow< FoodTypeT > > table,
             String title, 
             double widthProportion,
-            Function< FoodProperties, ObjectProperty< Double > > propertyRetriever,
+            Function< Food, ObjectProperty< Double > > propertyRetriever,
             boolean editable
    ){
       TableColumn< FoodTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
       column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().properties() ).asString() );
+      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food() ).asString() );
       column.comparatorProperty().set( Comparators.STRING_AS_NUMBER_ASCENDING );
       
       if ( editable ) {
          column.setCellFactory(TextFieldTableCell.forTableColumn());
          column.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> 
-                  propertyRetriever.apply( r.food().properties() ).set( Double.valueOf( v ) )
+                  propertyRetriever.apply( r.food() ).set( Double.valueOf( v ) )
          ) );
       }
       table.getColumns().add( column );

@@ -80,7 +80,7 @@ public class GoalCalculationView extends VBox {
       );
       
       createPropertiesPane( 
-               "Personal Details", 
+               "Goals", 
                new Pair<>( "Protein per Pound", goal.proteinPerPound() ),
                new Pair<>( "Fat per Pound", goal.fatPerPound() ),
                new Pair<>( "Carbohydrates Goal (g)", goal.properties().carbohydrates() ),

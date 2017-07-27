@@ -71,4 +71,23 @@ public class MacroRatioCalculatorTest {
       assertThat( analytics.proteinRatio(), is( p ) );  
    }//End Method
    
+   @Test public void shouldCalculateCalorieDensity(){
+      assertThat( analytics.calorieDensity(), is( 0.0 ) );
+      
+      properties.setMacros( 50, 50, 50 );
+      assertThat( analytics.calorieDensity(), is( 0.0 ) );
+      
+      properties.calories().set( 300.0 );
+      assertThat( analytics.calorieDensity(), is( 50.0 ) );
+      
+      properties.carbohydrates().set( 200.0 );
+      assertThat( analytics.calorieDensity(), is( 100.0 ) );
+      
+      properties.fats().set( 20.0 );
+      assertThat( analytics.calorieDensity(), is( 90.0 ) );
+      
+      properties.protein().set( 20.0 );
+      assertThat( analytics.calorieDensity(), is( 80.0 ) );
+   }//End Method
+   
 }//End Class

@@ -29,5 +29,11 @@ public class FoodAnalyticsTest {
       assertThat( systemUnderTest.proteinRatio(), is( 54.0 ) );
       assertThat( systemUnderTest.nutrientRatioFor( MacroNutrient.Protein ).get(), is( 54.0 ) );
    }//End Method
+   
+   @Test public void shouldProvideCalorieDensity(){
+      systemUnderTest.calorieDensityProperty().set( 101.0 );
+      assertThat( systemUnderTest.calorieDensity(), is( 101.0 ) );
+      assertThat( systemUnderTest.calorieDensityProperty().get(), is( 101.0 ) );
+   }//End Method
 
 }//End Class
