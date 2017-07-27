@@ -14,6 +14,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import uk.dangrew.nuts.graphics.information.InformationPane;
 import uk.dangrew.nuts.graphics.meal.PlanManagerPane;
 import uk.dangrew.nuts.persistence.fooditems.FoodSessions;
 import uk.dangrew.nuts.store.Database;
@@ -46,6 +47,7 @@ public class GoalTableView extends BorderPane {
       setTop( controls );
       
       this.tabPane = new TabPane();
+      createTab( "Nutrition", new InformationPane() );
       createTab( "Goal", new GoalCalculationView( database.goal() ) );
       createTab( "Database", new FoodManagerPane( database ) );
       createTab( "Plans", new PlanManagerPane( database ) );

@@ -1,7 +1,5 @@
 package uk.dangrew.nuts.table.meal;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 public class MealTableWithControlsTest {

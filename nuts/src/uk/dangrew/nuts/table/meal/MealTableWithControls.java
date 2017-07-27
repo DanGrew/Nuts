@@ -10,6 +10,7 @@ package uk.dangrew.nuts.table.meal;
 
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
+import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.table.food.FoodControls;
 
@@ -31,6 +32,11 @@ public class MealTableWithControls extends TitledPane {
       BorderPane content = ( BorderPane ) getContent();
       content.setCenter( mealTable = new MealTable( database ) );
       content.setRight( new FoodControls( mealTable.controller() ) );
+      
+      JavaFxStyle styling = new JavaFxStyle();
+      mealTable.setPlaceholder( styling.createWrappedTextLabel( 
+               "No Meals to display. Use the '+' and '-' to add and remove. Double click on the meal name to change it." 
+      ) );
    }//End Constructor
 
    /**
