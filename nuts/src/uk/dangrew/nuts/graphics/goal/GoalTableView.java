@@ -33,6 +33,7 @@ public class GoalTableView extends BorderPane {
     */
    public GoalTableView() {
       this.database = new Database();
+      setPrefSize( 800, 600 );
       
       FoodSessions sessions = new FoodSessions( database );
       sessions.read();
