@@ -12,10 +12,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import uk.dangrew.nuts.graphics.information.InformationPane;
 import uk.dangrew.nuts.graphics.meal.PlanManagerPane;
+import uk.dangrew.nuts.graphics.tools.dryweight.DryWeightToolPane;
 import uk.dangrew.nuts.persistence.fooditems.FoodSessions;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.table.manager.FoodManagerPane;
@@ -52,6 +54,7 @@ public class GoalTableView extends BorderPane {
       createTab( "Goal", new GoalCalculationView( database.goal() ) );
       createTab( "Database", new FoodManagerPane( database ) );
       createTab( "Plans", new PlanManagerPane( database ) );
+      createTab( "Tools", new TitledPane( "Dry Weight Conversion", new DryWeightToolPane() ) );
       
       setCenter( tabPane );
    }//End Constructor
@@ -63,6 +66,7 @@ public class GoalTableView extends BorderPane {
     */
    private void createTab( String title, Node content ) {
       Tab tab = new Tab( title );
+      tab.setClosable( false );
       tab.setContent( content );
       tabPane.getTabs().add( tab );
    }//End Method
