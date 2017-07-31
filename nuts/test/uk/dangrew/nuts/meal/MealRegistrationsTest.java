@@ -45,7 +45,8 @@ public class MealRegistrationsTest {
       meal = new Meal( 
                properties, new FoodAnalytics(), new GoalAnalytics(), 
                systemUnderTest, 
-               mock( MealPropertiesCalculator.class ), new MacroRatioCalculator(), new MacroGoalRatioCalculator() 
+               mock( MealPropertiesCalculator.class ), new MacroRatioCalculator(), new MacroGoalRatioCalculator(),
+               new StockUsage()
       );
    }//End Method
    

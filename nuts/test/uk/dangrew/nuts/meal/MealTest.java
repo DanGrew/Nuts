@@ -36,6 +36,7 @@ public class MealTest {
    @Mock private MealRegistrations registrations;
    @Mock private MealPropertiesCalculator propertiesCalculator;
    @Spy private MacroGoalRatioCalculator goalRatioCalculator;
+   @Spy private StockUsage stockUsage;
    private Meal systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -56,7 +57,8 @@ public class MealTest {
                registrations, 
                propertiesCalculator, 
                ratioCalculator,
-               goalRatioCalculator
+               goalRatioCalculator,
+               stockUsage
       );
    }//End Method
    
@@ -101,6 +103,14 @@ public class MealTest {
    
    @Test public void shouldAssociateGoalRatioCalculator(){
       verify( goalRatioCalculator ).associate( properties, goalAnalytics );
+   }//End Method
+   
+   @Test public void shouldProvideStockUsage(){
+      assertThat( systemUnderTest.stockUsage(), is( stockUsage ) );
+   }//End Method
+   
+   @Test public void shouldAsscoiateStockUsage(){
+      verify( stockUsage ).associate( systemUnderTest.portions() );
    }//End Method
 
 }//End Class

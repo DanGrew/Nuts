@@ -14,6 +14,7 @@ import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 public class FoodItemTest {
 
    private FoodProperties properties;
+   private StockProperties stockProperties;
    private FoodAnalytics foodAnalytics;
    private GoalAnalytics goalAnalytics;
    @Spy private MacroRatioCalculator ratioCalculator;
@@ -23,9 +24,17 @@ public class FoodItemTest {
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
       properties = new FoodProperties( "anything" );
+      stockProperties = new StockProperties();
       foodAnalytics = new FoodAnalytics();
       goalAnalytics = new GoalAnalytics();
-      systemUnderTest = new FoodItem( properties, foodAnalytics, goalAnalytics, ratioCalculator, goalRatioCalculator );
+      systemUnderTest = new FoodItem( 
+               properties, 
+               stockProperties,
+               foodAnalytics, 
+               goalAnalytics, 
+               ratioCalculator, 
+               goalRatioCalculator 
+      );
    }//End Method
    
    @Test public void shouldCreateWithId(){
@@ -36,6 +45,10 @@ public class FoodItemTest {
 
    @Test public void shouldProvideProperties(){
       assertThat( systemUnderTest.properties(), is( properties ) );
+   }//End Method
+   
+   @Test public void shouldProvideStockProperties(){
+      assertThat( systemUnderTest.stockProperties(), is( stockProperties ) );
    }//End Method
    
    @Test public void shouldProvideFoodAnalytics(){

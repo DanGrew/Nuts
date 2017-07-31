@@ -54,7 +54,8 @@ public class MealPropertiesCalculatorTest {
                registrations, 
                systemUnderTest, 
                new MacroRatioCalculator(),
-               new MacroGoalRatioCalculator()
+               new MacroGoalRatioCalculator(),
+               new StockUsage()
       );
    }//End Method
 

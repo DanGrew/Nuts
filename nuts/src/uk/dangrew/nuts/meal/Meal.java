@@ -30,6 +30,7 @@ public class Meal implements Food {
    private final MealPropertiesCalculator propertiesCalculator;
    
    private final MealRegistrations registrations;
+   private final StockUsage stockUsage;
    private final ObservableList< FoodPortion > portions;
    
    /**
@@ -61,7 +62,8 @@ public class Meal implements Food {
                new MealRegistrations(), 
                new MealPropertiesCalculator(),
                new MacroRatioCalculator(),
-               new MacroGoalRatioCalculator()
+               new MacroGoalRatioCalculator(),
+               new StockUsage()
       );
    }//End Constructor
    
@@ -74,6 +76,7 @@ public class Meal implements Food {
     * @param propertiesCalculator the {@link MealPropertiesCalculator}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
     * @param goalRatioCalculator the {@link MacroGoalRatioCalculator}.
+    * @param stockUsage the {@link StockUsage}.
     */
    Meal( 
             FoodProperties properties,
@@ -82,7 +85,8 @@ public class Meal implements Food {
             MealRegistrations registrations, 
             MealPropertiesCalculator propertiesCalculator,
             MacroRatioCalculator ratioCalculator,
-            MacroGoalRatioCalculator goalRatioCalculator
+            MacroGoalRatioCalculator goalRatioCalculator,
+            StockUsage stockUsage
    ) {
       this.registrations = registrations;
       this.portions = FXCollections.observableArrayList();
@@ -90,8 +94,11 @@ public class Meal implements Food {
       this.foodAnalytics = foodAnalytics;
       this.goalAnalytics = goalAnalytics;
       this.propertiesCalculator = propertiesCalculator;
+      this.stockUsage = stockUsage;
+      
       this.propertiesCalculator.associate( this );
       this.registrations.associate( this );
+      this.stockUsage.associate( portions );
       ratioCalculator.associate( properties, foodAnalytics );
       goalRatioCalculator.associate( properties, goalAnalytics );
    }//End Constructor
@@ -131,6 +138,14 @@ public class Meal implements Food {
     */
    public MealRegistrations registrations() {
       return registrations;
+   }//End Method
+
+   /**
+    * Access to the {@link StockUsage}.
+    * @return the {@link StockUsage}.
+    */
+   public StockUsage stockUsage() {
+      return stockUsage;
    }//End Method
 
 }//End Class

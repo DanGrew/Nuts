@@ -17,6 +17,7 @@ import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 public class FoodItem implements Food {
 
    private final FoodProperties properties;
+   private final StockProperties stockProperties;
    private final FoodAnalytics foodAnalytics;
    private final GoalAnalytics goalAnalytics;
    
@@ -44,6 +45,7 @@ public class FoodItem implements Food {
    private FoodItem( FoodProperties properties ) {
       this( 
                properties,
+               new StockProperties(),
                new FoodAnalytics(),
                new GoalAnalytics(),
                new MacroRatioCalculator(),
@@ -54,6 +56,7 @@ public class FoodItem implements Food {
    /**
     * Constructs a new {@link FoodItem}.
     * @param properties the {@link FoodProperties}.
+    * @param stockProperties the {@link StockProperties}.
     * @param foodAnalytics the {@link FoodAnalytics}.
     * @param goalAnalytics the {@link GoalAnalytics}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
@@ -61,12 +64,14 @@ public class FoodItem implements Food {
     */
    FoodItem( 
             FoodProperties properties, 
+            StockProperties stockProperties,
             FoodAnalytics foodAnalytics, 
             GoalAnalytics goalAnalytics,
             MacroRatioCalculator ratioCalculator,
             MacroGoalRatioCalculator goalRatioCalculator
    ) {
       this.properties = properties;
+      this.stockProperties = stockProperties;
       this.foodAnalytics = foodAnalytics;
       this.goalAnalytics = goalAnalytics;
       ratioCalculator.associate( properties, foodAnalytics );
@@ -78,6 +83,14 @@ public class FoodItem implements Food {
     */
    @Override public FoodProperties properties() {
       return properties;
+   }//End Method
+   
+   /**
+    * Access to the {@link StockProperties}.
+    * @return the {@link StockProperties}.
+    */
+   public StockProperties stockProperties() {
+      return stockProperties;
    }//End Method
    
    /**

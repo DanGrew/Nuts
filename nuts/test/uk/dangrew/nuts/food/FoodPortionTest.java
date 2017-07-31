@@ -32,7 +32,13 @@ public class FoodPortionTest {
       properties = new FoodProperties( "Food" );
       foodAnalytics = new FoodAnalytics();
       goalAnalytics = new GoalAnalytics();
-      systemUnderTest = new FoodPortion( properties, foodAnalytics, goalAnalytics, ratioCalculator, goalRatioCalculator );
+      systemUnderTest = new FoodPortion( 
+               properties, 
+               foodAnalytics, 
+               goalAnalytics,
+               ratioCalculator, 
+               goalRatioCalculator
+      );
       systemUnderTest.setFood( food );
    }//End Method
 
