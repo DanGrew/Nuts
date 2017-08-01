@@ -72,7 +72,7 @@ public class StockUsage {
     * @return the {@link ObservableMap}.
     */
    public ObservableMap< FoodItem, Double > stock() {
-      return publicStock;
+      return stock;
    }//End Method
    
    /**

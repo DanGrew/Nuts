@@ -112,7 +112,7 @@ public class DayPlans {
     * @return the underlying structure, not modifiable.
     */
    public ObservableMap< LocalDate, DayPlan > dayPlans() {
-      return publicPlans;
+      return dayPlans;
    }//End Method
 
 }//End Class

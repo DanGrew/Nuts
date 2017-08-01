@@ -81,6 +81,10 @@ public class StockUsageE2ETest {
       
       riceAndBeans.portions().add( new FoodPortion( sweetcorn, 200 ) );
       assertThatChickenTikkaHas( sweetcorn, 20.0 );
+      
+      riceAndBeans.portions().remove( 0 );
+      assertThatChickenTikkaHas( rice, null );
+      assertThatChickenTikkaHas( peas, 12.5 );
    }//End Method
    
    @Test public void shouldPopulatePortionsThroughStructure(){

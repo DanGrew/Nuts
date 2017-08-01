@@ -80,5 +80,12 @@ public class DayPlan {
    public void remove( FoodItem food ) {
       stock.remove( food );
    }//End Method
+   
+   /**
+    * {@inheritDoc}
+    */
+   @Override public String toString() {
+      return date.toString();
+   }//End Method
 
 }//End Class
