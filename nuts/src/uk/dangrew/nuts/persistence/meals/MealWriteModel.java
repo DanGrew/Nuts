@@ -14,7 +14,6 @@ import java.util.List;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealStore;
-import uk.dangrew.nuts.store.Database;
 
 /**
  * {@link MealWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}

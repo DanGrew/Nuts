@@ -1,6 +1,5 @@
 package uk.dangrew.nuts.calendar;
 
-import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
@@ -11,7 +10,6 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.kode.observable.PrivatelyModifiableObservableMapImpl;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.goal.Goal;

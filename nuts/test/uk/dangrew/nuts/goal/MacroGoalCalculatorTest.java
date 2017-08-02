@@ -1,9 +1,7 @@
 package uk.dangrew.nuts.goal;
 
-import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static uk.dangrew.kode.TestCommon.precision;
 
 import org.junit.Before;
 import org.junit.Test;

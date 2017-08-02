@@ -87,11 +87,11 @@
          },
          {
             "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
-            "portionValue": 0
+            "portionValue": 200
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
+            "portionValue": 100
          }
       ]
    },
@@ -309,10 +309,18 @@
          },
          {
             "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 100
+            "portionValue": 80
          },
          {
             "foodId": "58680bd8-1ce4-437c-8b57-02b5547856ff",
+            "portionValue": 200
+         },
+         {
+            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
+            "portionValue": 100
+         },
+         {
+            "foodId": "fbe95d98-216d-4534-be62-df0cc1b0590f",
             "portionValue": 100
          }
       ]
@@ -362,6 +370,28 @@
          {
             "foodId": "fbe95d98-216d-4534-be62-df0cc1b0590f",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Chicken Curry",
+      "id": "72a855d5-e86e-4706-b395-aff67323747d",
+      "portions": [
+         {
+            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
+            "portionValue": 220
+         },
+         {
+            "foodId": "0315ab9b-6d5c-4de9-a27f-a6c6242abb79",
+            "portionValue": 200
+         },
+         {
+            "foodId": "382133bb-eba1-4692-a25e-aea25ee534c1",
+            "portionValue": 100
+         },
+         {
+            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
+            "portionValue": 50
          }
       ]
    }

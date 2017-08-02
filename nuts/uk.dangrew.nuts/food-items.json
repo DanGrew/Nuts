@@ -614,5 +614,37 @@
       "name": "Carot Batons (100g)",
       "id": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
       "calories": 43
+   },
+   {
+      "carbohydrates": 16,
+      "fats": 3,
+      "protein": 25,
+      "name": "Cookie (MyProtein, Skinny)",
+      "id": "63a4f8cc-482e-4202-a68b-1516364b294d",
+      "calories": 194
+   },
+   {
+      "carbohydrates": 24,
+      "fats": 6.3,
+      "protein": 30,
+      "name": "Protein Bar (MyProtein, High, Vanilla)",
+      "id": "6983bed5-ba70-4c56-8133-8937710c8a0a",
+      "calories": 263
+   },
+   {
+      "carbohydrates": 31,
+      "fats": 10,
+      "protein": 23,
+      "name": "Brownie (MyProtein)",
+      "id": "97903714-a714-4b22-ab0b-16e3e10b2a86",
+      "calories": 308
+   },
+   {
+      "carbohydrates": 12.4,
+      "fats": 4.4,
+      "protein": 1,
+      "name": "Curry Sauce (125g, 1/4)",
+      "id": "0315ab9b-6d5c-4de9-a27f-a6c6242abb79",
+      "calories": 93
    }
 ]}

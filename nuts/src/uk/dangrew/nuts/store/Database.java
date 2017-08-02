@@ -11,6 +11,7 @@ package uk.dangrew.nuts.store;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.meal.MealStore;
+import uk.dangrew.nuts.shopping.ShoppingList;
 
 /**
  * The {@link Database} provides access to the data for the system such as {@link Food}s.
@@ -18,6 +19,7 @@ import uk.dangrew.nuts.meal.MealStore;
 public class Database {
 
    private final Goal goal;
+   private final ShoppingList shoppingList;
    private final FoodItemStore foodItems;
    private final MealStore meals;
    private final MealStore plans;
@@ -27,6 +29,7 @@ public class Database {
     */
    public Database() {
       this.goal = new Goal( "Goal" );
+      this.shoppingList = new ShoppingList( "Shopping" );
       this.foodItems = new FoodItemStore( goal );
       this.meals = new MealStore( goal );
       this.plans = new MealStore( goal );
@@ -38,6 +41,14 @@ public class Database {
     */
    public Goal goal() {
       return goal;
+   }//End Method
+   
+   /**
+    * Access to the {@link ShoppingList}.
+    * @return the {@link ShoppingList}.
+    */
+   public ShoppingList shoppingList() {
+      return shoppingList;
    }//End Method
    
    /**

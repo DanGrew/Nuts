@@ -1,8 +1,8 @@
-package uk.dangrew.nuts.persistence.meals;
+package uk.dangrew.nuts.graphics.meal;
 
 import org.junit.Test;
 
-public class MealWriteModelTest {
+public class MealTableWithControlsTest {
 
    @Test public void untested() {
       System.out.println( "WARNING: UNTESTED - " + getClass().getName() );

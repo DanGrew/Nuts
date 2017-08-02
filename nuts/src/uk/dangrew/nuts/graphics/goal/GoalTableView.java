@@ -16,11 +16,11 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import uk.dangrew.nuts.graphics.information.InformationPane;
+import uk.dangrew.nuts.graphics.manager.FoodManagerPane;
 import uk.dangrew.nuts.graphics.meal.PlanManagerPane;
 import uk.dangrew.nuts.graphics.tools.dryweight.DryWeightToolPane;
 import uk.dangrew.nuts.persistence.fooditems.FoodSessions;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.table.manager.FoodManagerPane;
 
 /**
  * The {@link GoalTableView} provides the various elements of the system related to a single {@link uk.dangrew.nuts.goal.Goal}.

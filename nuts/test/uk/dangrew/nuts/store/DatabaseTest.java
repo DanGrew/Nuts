@@ -43,6 +43,11 @@ public class DatabaseTest {
       assertThat( systemUnderTest.goal(), is( systemUnderTest.goal() ) );
    }//End Method
    
+   @Test public void shouldProvideShoppingList(){
+      assertThat( systemUnderTest.shoppingList(), is( not( nullValue() ) ) );
+      assertThat( systemUnderTest.shoppingList(), is( systemUnderTest.shoppingList() ) );
+   }//End Method
+   
    @Test public void shouldProvidePlans(){
       assertThat( systemUnderTest.plans(), is( instanceOf( MealStore.class ) ) );
       

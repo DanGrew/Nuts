@@ -304,5 +304,47 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "name": "Chicken Curry & Tuna",
+      "id": "beb140d3-989d-44fe-b68a-ea102a9749ba",
+      "portions": [
+         {
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c0a9d8b7-ae09-4ba7-932d-506cef977083",
+            "portionValue": 100
+         },
+         {
+            "foodId": "72a855d5-e86e-4706-b395-aff67323747d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "63a4f8cc-482e-4202-a68b-1516364b294d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "6983bed5-ba70-4c56-8133-8937710c8a0a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "33623d5c-c53b-4c70-877c-e1a6388261cb",
+            "portionValue": 200
+         },
+         {
+            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "f66a1ac6-93dc-4790-88ab-282159f4141d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
+            "portionValue": 400
+         }
+      ]
    }
 ]}
