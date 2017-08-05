@@ -117,12 +117,12 @@ public class StockManager {
    private void dayPlanMealChanged( Meal old, Meal updated ) {
       Set< FoodItem > foodsAffected = new LinkedHashSet<>();
       if ( old != null ) {
-         old.stockUsage().stock().removeListener( stockChangeListener );
-         foodsAffected.addAll( old.stockUsage().stock().keySet() );
+         old.stockUsage().stockPortionUsed().removeListener( stockChangeListener );
+         foodsAffected.addAll( old.stockUsage().stockPortionUsed().keySet() );
       }
       if ( updated != null ) {
-         updated.stockUsage().stock().addListener( stockChangeListener );
-         foodsAffected.addAll( updated.stockUsage().stock().keySet() );
+         updated.stockUsage().stockPortionUsed().addListener( stockChangeListener );
+         foodsAffected.addAll( updated.stockUsage().stockPortionUsed().keySet() );
       }
       recalculateFor( foodsAffected );
    }//End Method

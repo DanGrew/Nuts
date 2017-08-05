@@ -61,16 +61,16 @@ public class StockCalculatorTest {
    
    @Test public void shouldTakeStockFromMeal() {
       plans.dayPlanFor( calendar.period().get( 4 ) ).plan().set( meal1 );
-      meal1.stockUsage().stock().put( item1, 100.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 100.0 );
       
       systemUnderTest.recalculate( item1 );
       assertStockForItem( item1, 0, 0, 0, 0, -100, -100, -100, -100, -100, -100 );
       
-      meal1.stockUsage().stock().put( item1, 50.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 50.0 );
       systemUnderTest.recalculate( item1 );
       assertStockForItem( item1, 0, 0, 0, 0, -50, -50, -50, -50, -50, -50 );
       
-      meal1.stockUsage().stock().put( item2, 400.0 );
+      meal1.stockUsage().stockPortionUsed().put( item2, 400.0 );
       systemUnderTest.recalculate( item1 );
       systemUnderTest.recalculate( item2 );
       assertStockForItem( item1, 0, 0, 0, 0, -50, -50, -50, -50, -50, -50 );
@@ -79,13 +79,13 @@ public class StockCalculatorTest {
    
    @Test public void shouldTakeStockFromMultipleMeals() {
       plans.dayPlanFor( calendar.period().get( 4 ) ).plan().set( meal1 );
-      meal1.stockUsage().stock().put( item1, 100.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 100.0 );
       
       systemUnderTest.recalculate( item1 );
       assertStockForItem( item1, 0, 0, 0, 0, -100, -100, -100, -100, -100, -100 );
       
       plans.dayPlanFor( calendar.period().get( 6 ) ).plan().set( meal2 );
-      meal2.stockUsage().stock().put( item1, 50.0 );
+      meal2.stockUsage().stockPortionUsed().put( item1, 50.0 );
       
       systemUnderTest.recalculate( item1 );
       assertStockForItem( item1, 0, 0, 0, 0, -100, -100, -150, -150, -150, -150 );
@@ -93,13 +93,13 @@ public class StockCalculatorTest {
    
    @Test public void shouldAccountForMealChange() {
       plans.dayPlanFor( calendar.period().get( 4 ) ).plan().set( meal1 );
-      meal1.stockUsage().stock().put( item1, 100.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 100.0 );
       
       systemUnderTest.recalculate( item1 );
       assertStockForItem( item1, 0, 0, 0, 0, -100, -100, -100, -100, -100, -100 );
       
       plans.dayPlanFor( calendar.period().get( 4 ) ).plan().set( meal2 );
-      meal2.stockUsage().stock().put( item1, 50.0 );
+      meal2.stockUsage().stockPortionUsed().put( item1, 50.0 );
       
       systemUnderTest.recalculate( item1 );
       assertStockForItem( item1, 0, 0, 0, 0, -50, -50, -50, -50, -50, -50 );

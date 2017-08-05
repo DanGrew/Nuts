@@ -12,6 +12,9 @@ import org.mockito.Spy;
 
 import javafx.scene.control.Label;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.food.FoodItemStore;
+import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class FoodTableWithControlsTest {
@@ -23,6 +26,7 @@ public class FoodTableWithControlsTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
+      table = new GeneralFoodTable<>( new FoodItemStore( new Goal( "" ) ) );
       systemUnderTest = new FoodTableWithControls<>( styling, "anything", table );
    }//End Method
 
@@ -52,6 +56,11 @@ public class FoodTableWithControlsTest {
       verify( styling ).createWrappedTextLabel( FoodTableWithControls.NO_CONTENT_INFORMATION );
       Label node = ( Label ) systemUnderTest.table().getPlaceholder();
       assertThat( node.getText(), is( FoodTableWithControls.NO_CONTENT_INFORMATION ) );
+   }//End Method
+   
+   @Test public void shouldMaximizeSize(){
+      assertThat( systemUnderTest.getMaxWidth(), is( Double.MAX_VALUE ) );
+      assertThat( systemUnderTest.getMaxHeight(), is( Double.MAX_VALUE ) );
    }//End Method
 
 }//End Class

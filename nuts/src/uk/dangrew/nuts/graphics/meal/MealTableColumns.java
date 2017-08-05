@@ -57,35 +57,26 @@ public class MealTableColumns implements FoodTableColumnsPopulator< FoodPortion 
     * {@inheritDoc}
     */
    @Override public void populateColumns( FoodTable< FoodPortion > table ) {
-      TableColumn< FoodTableRow< FoodPortion >, Food > nameColumn = new TableColumn<>( COLUMN_TITLE_FOOD );
-      nameColumn.setCellFactory( ComboBoxTableCell.forTableColumn( new StringExtractConverter<>( 
-               object -> object.properties().nameProperty().get(),
-               foodOptions::find,
-               "None"
-      ), foodOptions.options() ) );
-      nameColumn.setCellValueFactory( object -> object.getValue().food().food() );
-      nameColumn.prefWidthProperty().bind( table.widthProperty().multiply( 0.25 ) );
-      nameColumn.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> r.food().setFood( v ) ) );
-      table.getColumns().add( nameColumn );
+      configuration.initialiseFoodDropDownColumn( 
+               table, 
+               COLUMN_TITLE_FOOD, 
+               0.25, 
+               r -> r.food().food(), 
+               ( r, v ) -> r.food().setFood( v ), 
+               foodOptions 
+      );
       
-      TableColumn< FoodTableRow< FoodPortion >, String > portionColumn = new TableColumn<>( COLUMN_TITLE_PORTION );
-      portionColumn.prefWidthProperty().bind( table.widthProperty().multiply( 0.05 ) );
-      portionColumn.setCellValueFactory( object -> object.getValue().food().portion().asString() );
-      table.getColumns().add( portionColumn );
+      configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.05 );
       
-      portionColumn.setEditable( true );
-      portionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-      portionColumn.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> r.food().setPortion( Double.valueOf( v ) ) ) );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.08, f -> f.properties().calories(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.08, f -> f.properties().carbohydrates(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.08, f -> f.properties().fats(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.08, f -> f.properties().protein(), false );
       
-      configuration.initialNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.08, f -> f.properties().calories(), false );
-      configuration.initialNutrientColumn( table, COLUMN_TITLE_CARBS, 0.08, f -> f.properties().carbohydrates(), false );
-      configuration.initialNutrientColumn( table, COLUMN_TITLE_FATS, 0.08, f -> f.properties().fats(), false );
-      configuration.initialNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.08, f -> f.properties().protein(), false );
-      
-      configuration.initialRatioColumn( table, COLUMN_TITLE_CALORIES_PROPORTION, 0.08, f -> f.goalAnalytics().caloriesRatioProperty() );
-      configuration.initialRatioColumn( table, COLUMN_TITLE_CARBS_PROPORTION, 0.08, f -> f.goalAnalytics().carbohydratesRatioProperty() );
-      configuration.initialRatioColumn( table, COLUMN_TITLE_FATS_PROPORTION, 0.08, f -> f.goalAnalytics().fatsRatioProperty() );
-      configuration.initialRatioColumn( table, COLUMN_TITLE_PROTEINS_PROPORTION, 0.08, f -> f.goalAnalytics().proteinRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_CALORIES_PROPORTION, 0.08, f -> f.goalAnalytics().caloriesRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_CARBS_PROPORTION, 0.08, f -> f.goalAnalytics().carbohydratesRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_FATS_PROPORTION, 0.08, f -> f.goalAnalytics().fatsRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_PROTEINS_PROPORTION, 0.08, f -> f.goalAnalytics().proteinRatioProperty() );
    }//End Method
 
 }//End Class

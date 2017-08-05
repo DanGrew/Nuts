@@ -113,7 +113,7 @@ public class StockManagerTest {
       calendar.dayPlans().dayPlanFor( calendar.period().get( 3 ) ).plan().set( meal2 );
       verifyRecalculations( 3, 1, 2, 3, 2 );
       
-      meal1.stockUsage().stock().put( item1, 40.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 40.0 );
       verifyRecalculations( 3, 1, 2, 3, 2 );
    }//End Method
    
@@ -121,13 +121,13 @@ public class StockManagerTest {
       calendar.dayPlans().dayPlanFor( calendar.period().get( 3 ) ).plan().set( meal1 );
       verifyRecalculations( 1, 1, 1, 1, 1 );
       
-      meal1.stockUsage().stock().put( item1, 40.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 40.0 );
       verifyRecalculations( 2, 1, 1, 1, 1 );
       
-      meal1.stockUsage().stock().put( item1, 50.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 50.0 );
       verifyRecalculations( 3, 1, 1, 1, 1 );
       
-      meal1.stockUsage().stock().put( item5, 50.0 );
+      meal1.stockUsage().stockPortionUsed().put( item5, 50.0 );
       verifyRecalculations( 3, 1, 1, 1, 2 );
    }//End Method
    
@@ -141,7 +141,7 @@ public class StockManagerTest {
       insertedPlan.plan().set( meal1 );
       verifyRecalculations( 2, 2, 2, 2, 2 );
       
-      meal1.stockUsage().stock().put( item1, 40.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 40.0 );
       verifyRecalculations( 3, 2, 2, 2, 2 );
    }//End Method
    
@@ -151,7 +151,7 @@ public class StockManagerTest {
       verifyRecalculations( 2, 2, 2, 2, 2 );
       
       removed.plan().set( meal1 );
-      meal1.stockUsage().stock().put( item1, 40.0 );
+      meal1.stockUsage().stockPortionUsed().put( item1, 40.0 );
       verifyRecalculations( 2, 2, 2, 2, 2 );
    }//End Method
    

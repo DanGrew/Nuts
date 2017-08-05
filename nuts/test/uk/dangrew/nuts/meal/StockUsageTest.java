@@ -4,13 +4,20 @@ import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static uk.dangrew.kode.TestCommon.precision;
+
+import java.util.function.Consumer;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import uk.dangrew.kode.observable.FunctionMapAnyKeyChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 
@@ -61,7 +68,7 @@ public class StockUsageTest {
          } else {
             double portionWeight = portion.portion().get() * food.stockProperties().loggedWeight().get();
             double stockPortion = portionWeight / food.stockProperties().soldInWeight().get();
-            assertThat( systemUnderTest.stock().get( food ), is( closeTo( stockPortion, precision() ) ) );
+            assertStockPresentFor( food, stockPortion );
          }
       }
    }//End Method
@@ -78,9 +85,9 @@ public class StockUsageTest {
       portions.add( new FoodPortion( meal1, 100 ) );
       
       systemUnderTest.associate( portions );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 100.0 ) );
-      assertThat( systemUnderTest.stock().get( item2 ), is( 10.0 ) );
-      assertThat( systemUnderTest.stock().get( item3 ), is( closeTo( 41.237, precision() ) ) );
+      assertStockPresentFor( item1, 100 );
+      assertStockPresentFor( item2, 10 );
+      assertStockPresentFor( item3, 41.237 );
    }//End Method
    
    @Test public void shouldProvideStockUsageForPortionedMeal(){
@@ -95,9 +102,9 @@ public class StockUsageTest {
       portions.add( new FoodPortion( meal1, 50 ) );
       
       systemUnderTest.associate( portions );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 50.0 ) );
-      assertThat( systemUnderTest.stock().get( item2 ), is( 5.0 ) );
-      assertThat( systemUnderTest.stock().get( item3 ), is( closeTo( 20.618, precision() ) ) );
+      assertStockPresentFor( item1, 50 );
+      assertStockPresentFor( item2, 5 );
+      assertStockPresentFor( item3, 20.6185 );
    }//End Method
    
    @Test public void shouldUpdateStockUsageWhenNestedMealStockChanges(){
@@ -112,14 +119,14 @@ public class StockUsageTest {
       portions.add( new FoodPortion( meal1, 50 ) );
       
       systemUnderTest.associate( portions );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 50.0 ) );
-      assertThat( systemUnderTest.stock().get( item2 ), is( 5.0 ) );
-      assertThat( systemUnderTest.stock().get( item3 ), is( closeTo( 20.618, precision() ) ) );
+      assertStockPresentFor( item1, 50 );
+      assertStockPresentFor( item2, 5 );
+      assertStockPresentFor( item3, 20.6186 );
       
       meal1.portions().get( 0 ).setPortion( 50.0 );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 25.0 ) );
-      assertThat( systemUnderTest.stock().get( item2 ), is( 5.0 ) );
-      assertThat( systemUnderTest.stock().get( item3 ), is( closeTo( 20.618, precision() ) ) );
+      assertStockPresentFor( item1, 25 );
+      assertStockPresentFor( item2, 5 );
+      assertStockPresentFor( item3, 20.6186 );
    }//End Method
    
    @Test public void shouldProvideStockUsageForNestedDifferentPortions(){
@@ -134,9 +141,9 @@ public class StockUsageTest {
       portions.add( new FoodPortion( meal1, 100 ) );
       
       systemUnderTest.associate( portions );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 20.0 ) );
-      assertThat( systemUnderTest.stock().get( item2 ), is( 3.5 ) );
-      assertThat( systemUnderTest.stock().get( item3 ), is( closeTo( 37.113, precision() ) ) );
+      assertStockPresentFor( item1, 20 );
+      assertStockPresentFor( item2, 3.5 );
+      assertStockPresentFor( item3, 37.1134 );
    }//End Method
    
    @Test public void shouldProvideStockUsageForMultiLayeredNestingPortions(){
@@ -151,7 +158,7 @@ public class StockUsageTest {
       portions.add( new FoodPortion( meal3, 100 ) );
       
       systemUnderTest.associate( portions );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 12.5 ) );
+      assertStockPresentFor( item1, 12.5 );
    }//End Method
 
    @Test public void shouldProvideStockUsageForMultiLayeredNestingPortionsWithRepeatedItems(){
@@ -169,7 +176,7 @@ public class StockUsageTest {
       portions.add( new FoodPortion( meal3, 100 ) );
       
       systemUnderTest.associate( portions );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 112.5 ) );
+      assertStockPresentFor( item1, 112.5 );
    }//End Method
    
    @Test public void shouldCombineStockUsageForReusedItems(){
@@ -180,24 +187,24 @@ public class StockUsageTest {
       );
       systemUnderTest.associate( portions );
       
-      assertThat( systemUnderTest.stock().get( item1 ), is( 250.0 ) );
+      assertStockPresentFor( item1, 250 );
    }//End Method
    
    @Test public void shouldUpdateStockWhenPortionChanges(){
       systemUnderTest.associate( portions );
       
       portions.get( 0 ).setPortion( 70 );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 70.0 ) );
+      assertStockPresentFor( item1, 70 );
    }//End Method
 
    @Test public void shouldUpdateStockWhenPortionFoodChanges(){
       systemUnderTest.associate( portions );
       
-      assertThat( systemUnderTest.stock().get( item1 ), is( 100.0 ) );
-      assertThat( systemUnderTest.stock().get( item2 ), is( 5.0 ) );
+      assertStockPresentFor( item1, 100 );
+      assertStockPresentFor( item2, 5 );
       portions.get( 0 ).setFood( item2 );
-      assertThat( systemUnderTest.stock().get( item1 ), is( nullValue() ) );
-      assertThat( systemUnderTest.stock().get( item2 ), is( 15.0 ) );
+      assertStockPresentFor( item1, 0 );
+      assertStockPresentFor( item2, 15 );
    }//End Method
 
    @Test public void shouldUpdateStockWhenPortionAdded(){
@@ -205,14 +212,14 @@ public class StockUsageTest {
       systemUnderTest.associate( portions );
       
       portions.add( new FoodPortion( item1, 100 ) );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 100.0 ) );
+      assertStockPresentFor( item1, 100 );
    }//End Method
    
    @Test public void shouldUpdateStockWhenPortionRemoved(){
       systemUnderTest.associate( portions );
       
       portions.remove( portions.get( 0 ) );
-      assertThat( systemUnderTest.stock().get( item1 ), is( nullValue() ) );
+      assertStockPresentFor( item1, 0 );
    }//End Method
 
    @Test public void shouldNotUpdateStockWhenRemovedPortionChanged(){
@@ -220,24 +227,86 @@ public class StockUsageTest {
       
       FoodPortion portion = portions.get( 0 );
       portions.remove( portion );
-      assertThat( systemUnderTest.stock().get( item1 ), is( nullValue() ) );
+      assertStockPresentFor( item1, 0 );
       
       portion.setPortion( 34.0 );
-      assertThat( systemUnderTest.stock().get( item1 ), is( nullValue() ) );
+      assertStockPresentFor( item1, 0 );
    }//End Method
    
    @Test public void shouldUpdateStockWhenLoggedWeightChanges(){
       systemUnderTest.associate( portions );
       
       item1.stockProperties().loggedWeight().set( 30.0 );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 30.0 ) );
+      assertStockPresentFor( item1, 30 );
    }//End Method
    
    @Test public void shouldUpdateStockWhenSoldInWeightChanges(){
       systemUnderTest.associate( portions );
       
       item1.stockProperties().soldInWeight().set( 400.0 );
-      assertThat( systemUnderTest.stock().get( item1 ), is( 25.0 ) );
+      assertStockPresentFor( item1, 25 );
+   }//End Method
+   
+   @Test public void shouldNotNotifyForStockUsageClearanceOnlyNotifyIndividually(){
+      systemUnderTest.associate( portions );
+      
+      Consumer< FoodItem > listener = mock( Consumer.class );
+      FunctionMapAnyKeyChangeListenerImpl< FoodItem, Double > adapter = new FunctionMapAnyKeyChangeListenerImpl<>( listener );
+      systemUnderTest.stockPortionUsed().addListener( adapter );
+      
+      item1.stockProperties().soldInWeight().set( 400.0 );
+      verify( listener ).accept( item1 );
+      verifyNoMoreInteractions( listener );
+      
+      item2.stockProperties().soldInWeight().set( 10.0 );
+      verify( listener ).accept( item2 );
+      verifyNoMoreInteractions( listener );
+      
+      portions.clear();
+      verify( listener, times( 2 ) ).accept( item1 );
+      verify( listener, times( 2 ) ).accept( item2 );
+      verify( listener ).accept( item3 );
+      verify( listener ).accept( item4 );
+      verifyNoMoreInteractions( listener );
+   }//End Method
+   
+   @Test public void shouldNotNotifyForTotalWeightClearanceOnlyNotifyIndividually(){
+      systemUnderTest.associate( portions );
+      
+      Consumer< FoodItem > listener = mock( Consumer.class );
+      FunctionMapAnyKeyChangeListenerImpl< FoodItem, Double > adapter = new FunctionMapAnyKeyChangeListenerImpl<>( listener );
+      systemUnderTest.totalWeightUsed().addListener( adapter );
+      
+      item1.stockProperties().loggedWeight().set( 400.0 );
+      verify( listener ).accept( item1 );
+      verifyNoMoreInteractions( listener );
+      
+      item2.stockProperties().loggedWeight().set( 10.0 );
+      verify( listener ).accept( item2 );
+      verifyNoMoreInteractions( listener );
+      
+      portions.clear();
+      verify( listener, times( 2 ) ).accept( item1 );
+      verify( listener, times( 2 ) ).accept( item2 );
+      verify( listener ).accept( item3 );
+      verify( listener ).accept( item4 );
+      verifyNoMoreInteractions( listener );
+   }//End Method
+   
+   /**
+    * Method to assert that the stock properties match for the portion used.
+    * @param item the {@link FoodItem} in question.
+    * @param portionUsed the portion of {@link FoodItem} used.
+    */
+   private void assertStockPresentFor( FoodItem item, double portionUsed ) {
+      if ( portionUsed == 0.0 ) {
+         assertThat( systemUnderTest.stockPortionUsed().get( item ), is( nullValue() ) );
+         assertThat( systemUnderTest.totalWeightUsed().get( item ), is( nullValue() ) );
+      } else {
+         double totalWeight = portionUsed / 100.0 * item.stockProperties().soldInWeight().get();
+         assertThat( systemUnderTest.stockPortionUsed().get( item ), is( closeTo( portionUsed, precision() ) ) );
+         assertThat( systemUnderTest.totalWeightUsed().get( item ), is( closeTo( totalWeight, precision() ) ) );
+      }
    }//End Method
    
 }//End Class

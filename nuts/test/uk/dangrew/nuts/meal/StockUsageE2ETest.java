@@ -63,7 +63,7 @@ public class StockUsageE2ETest {
       assertThatChickenTikkaHas( tikkaSauce, 50.0 );
       assertThatChickenTikkaHas( rice, 5.0 );
       assertThatChickenTikkaHas( edemameBeans, 20.0 );
-      assertThat( chickenTikkaWithRice.stockUsage().stock().size(), is( 4 ) );
+      assertThat( chickenTikkaWithRice.stockUsage().stockPortionUsed().size(), is( 4 ) );
    }//End Method
    
    @Test public void shouldPopulateStockPropertiesThroughStructure(){
@@ -100,7 +100,7 @@ public class StockUsageE2ETest {
    }//End Method
    
    private void assertThatChickenTikkaHas( FoodItem item, Double stock ) {
-      assertThat( chickenTikkaWithRice.stockUsage().stock().get( item ), is( stock ) );
+      assertThat( chickenTikkaWithRice.stockUsage().stockPortionUsed().get( item ), is( stock ) );
    }//End Method
 
 }//End Class

@@ -9,6 +9,9 @@
 package uk.dangrew.nuts.meal;
 
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javafx.beans.value.ChangeListener;
@@ -18,7 +21,6 @@ import javafx.collections.MapChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
-import uk.dangrew.kode.observable.PrivatelyModifiableObservableMapImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -29,8 +31,11 @@ import uk.dangrew.nuts.food.FoodPortion;
  */
 public class StockUsage {
 
-   private final ObservableMap< FoodItem, Double > stock;
-   private final PrivatelyModifiableObservableMapImpl< FoodItem, Double > publicStock;
+   private final ObservableMap< FoodItem, Double > stockPortionUsed;
+   private final ObservableMap< FoodItem, Double > totalWeightUsed;
+   
+   private final Map< FoodItem, Double > stockPortionUsedConstruction;
+   private final Map< FoodItem, Double > totalWeightUsedConstruction;
    
    private final MapChangeListener< FoodItem, Double > subStockChangeListener;
    private final Set< Meal > subStockRegistrations;
@@ -43,8 +48,11 @@ public class StockUsage {
     * Constructs a new {@link StockUsage}.
     */
    public StockUsage() {
-      this.stock = FXCollections.observableHashMap();
-      this.publicStock = new PrivatelyModifiableObservableMapImpl<>( stock );
+      this.stockPortionUsed = FXCollections.observableHashMap();
+      this.totalWeightUsed = FXCollections.observableHashMap();
+      this.stockPortionUsedConstruction = new LinkedHashMap<>();
+      this.totalWeightUsedConstruction = new LinkedHashMap<>();
+      
       this.subStockChangeListener = c -> recalculateStock();
       this.subStockRegistrations = new HashSet<>();
       this.propertyListener = ( s, o, n ) -> recalculateStock();
@@ -71,18 +79,47 @@ public class StockUsage {
     * Access to the stock structure, no modification allowed.
     * @return the {@link ObservableMap}.
     */
-   public ObservableMap< FoodItem, Double > stock() {
-      return stock;
+   public ObservableMap< FoodItem, Double > stockPortionUsed() {
+      return stockPortionUsed;
+   }//End Method
+   
+   
+   /**
+    * Access to the total weight of stock used, no modification allowed.
+    * @return the {@link ObservableMap}.
+    */
+   public ObservableMap< FoodItem, Double > totalWeightUsed() {
+      return totalWeightUsed;
    }//End Method
    
    /**
     * Method to do a blanket recalculation.
     */
    private void recalculateStock(){
-      this.stock.clear();
-      this.subStockRegistrations.forEach( m -> m.stockUsage().stock().removeListener( subStockChangeListener ) );
+      this.stockPortionUsedConstruction.clear();
+      this.totalWeightUsedConstruction.clear();
+      this.subStockRegistrations.forEach( m -> m.stockUsage().stockPortionUsed().removeListener( subStockChangeListener ) );
       this.propertyRegistrations.forEach( p -> p.removeListener( propertyListener ) );
       this.portions.forEach( this::updateFoodItemPortion );
+      this.updateMapFromCalculations( totalWeightUsed, totalWeightUsedConstruction );
+      this.updateMapFromCalculations( stockPortionUsed, stockPortionUsedConstruction );
+   }//End Method
+   
+   /**
+    * Method to update the given data {@link Map} from the construction {@link Map}. This is resolve multiple unnecessary 
+    * notifications of changes to the {@link ObservableMap}.
+    * @param dataMap the {@link Map} providing the notifications.
+    * @param calculationMap the {@link Map} providing the information to populate to the data map.
+    */
+   private void updateMapFromCalculations( Map< FoodItem, Double > dataMap, Map< FoodItem, Double > calculationMap ){
+      Set< FoodItem > previousKeys = new LinkedHashSet<>( dataMap.keySet() );
+      for ( FoodItem item : previousKeys ) {
+         if ( !calculationMap.containsKey( item ) || calculationMap.get( item ) == 0.0 ) {
+            dataMap.remove( item );
+         }
+      }
+      
+      dataMap.putAll( calculationMap );
    }//End Method
    
    /**
@@ -118,14 +155,26 @@ public class StockUsage {
       item.stockProperties().soldInWeight().addListener( propertyListener );
       propertyRegistrations.add( item.stockProperties().soldInWeight() );
       
-      double loggedPortionOfSoldIn = item.stockProperties().loggedWeight().get() / item.stockProperties().soldInWeight().get();
-      double stockUsage = portion * loggedPortionOfSoldIn;
+      double totalPortionUsed = item.stockProperties().loggedWeight().get() * portion;
+      double totalWeightUsedValue = totalPortionUsed / 100;
+      double stockUsage = totalPortionUsed / item.stockProperties().soldInWeight().get();
       
-      Double stockValue = stock.get( item );
-      if ( stockValue == null ) {
-         stockValue = 0.0;
+      putValue( stockPortionUsedConstruction, item, stockUsage );
+      putValue( totalWeightUsedConstruction, item, totalWeightUsedValue );
+   }//End Method
+   
+   /**
+    * Method to put the {@link FoodItem} addition into the {@link Map}.
+    * @param map the {@link Map} to update.
+    * @param item the {@link FoodItem} to add.
+    * @param addition the amount to add for the {@link FoodItem}.
+    */
+   private void putValue( Map< FoodItem, Double > map, FoodItem item, Double addition ) {
+      Double value = map.get( item );
+      if ( value == null ) {
+         value = 0.0;
       }
-      stock.put( item, stockValue + stockUsage );
+      map.put( item, value + addition );
    }//End Method
    
    /**
@@ -134,18 +183,14 @@ public class StockUsage {
     * @param portion the amount of the logged weight used.
     */
    private void updateMealPortion( Meal meal, double portion ) {
-      meal.stockUsage().stock().addListener( subStockChangeListener );
+      meal.stockUsage().stockPortionUsed().addListener( subStockChangeListener );
       subStockRegistrations.add( meal );
       
-      meal.stockUsage().stock().forEach( ( item, usage ) -> {
-         Double stockValue = stock.get( item );
-         if ( stockValue == null ) {
-            stockValue = 0.0;
-         }
-         
-         double currentUsage = stockValue;
+      meal.stockUsage().stockPortionUsed().forEach( ( item, usage ) -> {
          double additionalUsage = usage * ( portion / 100.0 );
-         stock.put( item, currentUsage + additionalUsage );
+         double additionalWeight = ( additionalUsage / 100.0 ) * item.stockProperties().soldInWeight().get();
+         putValue( stockPortionUsedConstruction, item, additionalUsage );
+         putValue( totalWeightUsedConstruction, item, additionalWeight );
       } );
    }//End Method
 

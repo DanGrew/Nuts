@@ -47,6 +47,8 @@ public class FoodTableWithControls< FoodTypeT extends Food > extends TitledPane 
       super( title, new BorderPane() );
       this.table = table;
       this.setCollapsible( false );
+      this.setMaxHeight( Double.MAX_VALUE );
+      this.setMaxWidth( Double.MAX_VALUE );
       
       BorderPane content = ( BorderPane ) getContent();
       content.setCenter( table );

@@ -47,7 +47,7 @@ public class StockCalculator {
       for ( LocalDate date : period ) {
          DayPlan plan = plans.dayPlanFor( date );
          Meal meal = plan.plan().get();
-         double usedStock = meal == null ? 0.0 : meal.stockUsage().stock().get( item );
+         double usedStock = meal == null ? 0.0 : meal.stockUsage().stockPortionUsed().get( item );
          currentStock -= usedStock;
          plan.stockFor( item ).set( currentStock );
       }
