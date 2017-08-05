@@ -217,9 +217,12 @@ public class FoodPortionTest {
       verify( goalRatioCalculator ).associate( properties, goalAnalytics );
    }//End Method
    
-   @Test public void shouldSyncGoalAnalytics(){
+   @Test public void shouldSyncFoodGoalAnalyticsWithPortion(){
       assertThatGoalAnalyticsInSync();
       food.goalAnalytics().goal().set( new Goal( "anything" ) );
+      assertThatGoalAnalyticsInSync();
+//      food.goalAnalytics().goal().get().properties().calories().set( 1000.0 );
+      food.goalAnalytics().caloriesRatioProperty().set( 111.0 );
       assertThatGoalAnalyticsInSync();
       food.goalAnalytics().carbohydratesRatioProperty().set( 23.0 );
       assertThatGoalAnalyticsInSync();
@@ -227,14 +230,25 @@ public class FoodPortionTest {
       assertThatGoalAnalyticsInSync();
       food.goalAnalytics().proteinRatioProperty().set( 23.6 );
       assertThatGoalAnalyticsInSync();
-      
+   }//End Method
+   
+   @Test public void shouldNotSyncPortionGoalsWithFood(){
+//      This is not expected, but should it be?
       systemUnderTest.goalAnalytics().goal().set( new Goal( "anything" ) );
-      assertThatGoalAnalyticsInSync();
       systemUnderTest.goalAnalytics().carbohydratesRatioProperty().set( 3.0 );
-      assertThatGoalAnalyticsInSync();
       systemUnderTest.goalAnalytics().fatsRatioProperty().set( 5.7 );
-      assertThatGoalAnalyticsInSync();
       systemUnderTest.goalAnalytics().proteinRatioProperty().set( 3.6 );
+//      food does not change
+   }//End Method
+   
+   @Test public void shouldSyncGoalAnalyticsAccordingToPortion(){
+      systemUnderTest.setFood( food );
+      food.goalAnalytics().goal().set( new Goal( "" ) );
+      food.goalAnalytics().carbohydratesRatioProperty().set( 34.0 );
+      food.goalAnalytics().fatsRatioProperty().set( 12.0 );
+      food.goalAnalytics().proteinRatioProperty().set( 65.0 );
+      assertThatGoalAnalyticsInSync();
+      systemUnderTest.setPortion( 50.0 );
       assertThatGoalAnalyticsInSync();
    }//End Method
    
@@ -270,10 +284,13 @@ public class FoodPortionTest {
     * Method to assert that the {@link GoalAnalytics} are in sync between {@link Food} and sut.
     */
    private void assertThatGoalAnalyticsInSync(){
+      double portionMultiplier = systemUnderTest.portion().get() / 100.0;
+      
       assertThat( systemUnderTest.goalAnalytics().goal().get(), is( food.goalAnalytics().goal().get() ) );
-      assertThat( systemUnderTest.goalAnalytics().carbohydratesRatio(), is( food.goalAnalytics().carbohydratesRatio() ) );
-      assertThat( systemUnderTest.goalAnalytics().fatsRatio(), is( food.goalAnalytics().fatsRatio() ) );
-      assertThat( systemUnderTest.goalAnalytics().proteinRatio(), is( food.goalAnalytics().proteinRatio() ) );
+      assertThat( systemUnderTest.goalAnalytics().caloriesRatio(), is( food.goalAnalytics().caloriesRatio() ) );
+      assertThat( systemUnderTest.goalAnalytics().carbohydratesRatio(), is( food.goalAnalytics().carbohydratesRatio() * portionMultiplier ) );
+      assertThat( systemUnderTest.goalAnalytics().fatsRatio(), is( food.goalAnalytics().fatsRatio() * portionMultiplier ) );
+      assertThat( systemUnderTest.goalAnalytics().proteinRatio(), is( food.goalAnalytics().proteinRatio() * portionMultiplier ) );
    }//End Method
    
    @Test public void shouldUpdateCaloriesWhenPortionChanges(){

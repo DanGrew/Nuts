@@ -12,7 +12,6 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
-import uk.dangrew.kode.javafx.registrations.ChangeListenerBindingImpl;
 import uk.dangrew.kode.javafx.registrations.RegistrationManager;
 import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
@@ -22,7 +21,7 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
  */
 public class FoodPortion implements Food {
    
-   private final ChangeListener< Double > macroUpdater;
+   private final ChangeListener< Object > macroUpdater;
    private final RegistrationManager registrations;
    
    private final FoodProperties properties;
@@ -76,8 +75,11 @@ public class FoodPortion implements Food {
       this.properties = properties;
       this.analytics = foodAnalytics;
       this.goalAnalytics = goalAnalytics;
+      
+      //TODO think these two calculators should be removed and the logic in this class relocated
       ratioCalculator.associate( properties, foodAnalytics );
       goalRatioCalculator.associate( properties, goalAnalytics );
+      
       //need to bind macros
       this.macroUpdater = ( s, o, n ) -> updateMacros();
       this.portion.addListener( macroUpdater );
@@ -95,11 +97,14 @@ public class FoodPortion implements Food {
          return;
       }
       
+      goalAnalytics.goal().set( food.get().goalAnalytics().goal().get() );
       double proportion = portion.get() / 100.0;
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          properties.nutritionFor( macro ).set( food.get().properties().nutritionFor( macro ).get() * proportion );
+         goalAnalytics.nutrientRatioFor( macro ).set( food.get().goalAnalytics().nutrientRatioFor( macro ).get() * proportion );
       }
       properties.calories().set( food.get().properties().calories().get() * proportion );
+      goalAnalytics.caloriesRatioProperty().set( food.get().goalAnalytics().caloriesRatio() * proportion );
    }//End Method
    
    /**
@@ -168,8 +173,11 @@ public class FoodPortion implements Food {
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          this.food.get().properties().nutritionFor( macro ).removeListener( macroUpdater );
+         this.food.get().goalAnalytics().nutrientRatioFor( macro ).removeListener( macroUpdater );
       }
       this.food.get().properties().calories().removeListener( macroUpdater );
+      this.food.get().goalAnalytics().goal().removeListener( macroUpdater );
+      this.food.get().goalAnalytics().caloriesRatioProperty().removeListener( macroUpdater );
       registrations.shutdown();
    }//End Method
    
@@ -185,12 +193,11 @@ public class FoodPortion implements Food {
       }
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          food.properties().nutritionFor( macro ).addListener( macroUpdater );
+         food.goalAnalytics().nutrientRatioFor( macro ).addListener( macroUpdater );
       }
       food.properties().calories().addListener( macroUpdater );
-      registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().goal(), goalAnalytics.goal() ) );
-      registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().carbohydratesRatioProperty(), goalAnalytics.carbohydratesRatioProperty() ) );
-      registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().fatsRatioProperty(), goalAnalytics.fatsRatioProperty() ) );
-      registrations.apply( new ChangeListenerBindingImpl<>( food.goalAnalytics().proteinRatioProperty(), goalAnalytics.proteinRatioProperty() ) );
+      food.goalAnalytics().goal().addListener( macroUpdater );
+      food.goalAnalytics().caloriesRatioProperty().addListener( macroUpdater );
    }//End Method
 
    /**
