@@ -14,7 +14,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.FoodOptions;
 import uk.dangrew.nuts.graphics.table.FoodTable;
 import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
-import uk.dangrew.nuts.graphics.table.FoodTableConfiguration;
+import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -25,7 +25,7 @@ public class ShoppingNeedsTableColumns implements FoodTableColumnsPopulator< Foo
    static final String COLUMN_TITLE_FOOD = "Food";
    static final String COLUMN_TITLE_PORTION = "Portion %";
    
-   private final FoodTableConfiguration configuration;
+   private final TableConfiguration configuration;
    private final FoodOptions foodOptions;
 
    /**
@@ -34,7 +34,7 @@ public class ShoppingNeedsTableColumns implements FoodTableColumnsPopulator< Foo
     */
    public ShoppingNeedsTableColumns( Database database ) {
       this.foodOptions = new FoodOptions( Arrays.asList( database.plans() ) );
-      this.configuration = new FoodTableConfiguration();
+      this.configuration = new TableConfiguration();
    }//End Constructor
       
    /**

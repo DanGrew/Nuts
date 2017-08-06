@@ -9,7 +9,7 @@
 package uk.dangrew.nuts.graphics.shopping;
 
 import javafx.scene.control.TableColumn;
-import uk.dangrew.nuts.graphics.table.FoodTableConfiguration;
+import uk.dangrew.nuts.graphics.table.TableConfiguration;
 
 /**
  * {@link ShoppingListTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
@@ -24,13 +24,13 @@ public class ShoppingListTableColumns {
    static final String COLUMN_TITLE_REQUIRED = "Required (g/ml)";
    static final String COLUMN_TITLE_TO_BUY = "To Buy";
    
-   private final FoodTableConfiguration configuration;
+   private final TableConfiguration configuration;
 
    /**
     * Constructs a new {@link ShoppingListTableColumns}.
     */
    public ShoppingListTableColumns() {
-      this.configuration = new FoodTableConfiguration();
+      this.configuration = new TableConfiguration();
    }//End Constructor
    
    /**

@@ -20,7 +20,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.FoodOptions;
 import uk.dangrew.nuts.graphics.table.FoodTable;
 import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
-import uk.dangrew.nuts.graphics.table.FoodTableConfiguration;
+import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.graphics.table.FoodTableRow;
 import uk.dangrew.nuts.store.Database;
 
@@ -42,14 +42,14 @@ public class MealTableColumns implements FoodTableColumnsPopulator< FoodPortion 
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
    private final FoodOptions foodOptions;
-   private final FoodTableConfiguration configuration;
+   private final TableConfiguration configuration;
 
    /**
     * Constructs a new {@link MealTableColumns}.
     * @param database the {@link Database} for the {@link uk.dangrew.nuts.meal.Meal} {@link Food}s.
     */
    public MealTableColumns( Database database ) {
-      this.configuration = new FoodTableConfiguration();
+      this.configuration = new TableConfiguration();
       this.foodOptions = new FoodOptions( Arrays.asList( database.foodItems(), database.meals() ) );
    }//End Constructor
    

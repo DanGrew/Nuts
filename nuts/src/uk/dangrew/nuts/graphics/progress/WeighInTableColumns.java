@@ -8,7 +8,7 @@
  */
 package uk.dangrew.nuts.graphics.progress;
 
-import uk.dangrew.nuts.graphics.table.FoodTableConfiguration;
+import uk.dangrew.nuts.graphics.table.TableConfiguration;
 
 /**
  * {@link WeighInTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
@@ -23,13 +23,13 @@ public class WeighInTableColumns {
    protected static final String COLUMN_TITLE_LEAN_MASS = "Lean Mass (lbs)";
    protected static final String COLUMN_TITLE_TYPE = "Type";
    
-   private final FoodTableConfiguration configuration;
+   private final TableConfiguration configuration;
 
    /**
     * Constructs a new {@link WeighInTableColumns}.
     */
    public WeighInTableColumns() {
-      this.configuration = new FoodTableConfiguration();
+      this.configuration = new TableConfiguration();
    }//End Constructor
    
    /**

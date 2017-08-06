@@ -27,9 +27,9 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
 
 /**
- * {@link FoodTableConfiguration} provides configuration for the {@link FoodTable}.
+ * {@link TableConfiguration} provides configuration for the {@link FoodTable}.
  */
-public class FoodTableConfiguration {
+public class TableConfiguration {
    
    /**
     * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.

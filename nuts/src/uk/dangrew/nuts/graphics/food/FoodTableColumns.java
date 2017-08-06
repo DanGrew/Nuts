@@ -12,7 +12,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.graphics.table.FoodTable;
 import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
-import uk.dangrew.nuts.graphics.table.FoodTableConfiguration;
+import uk.dangrew.nuts.graphics.table.TableConfiguration;
 
 /**
  * {@link FoodTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
@@ -31,13 +31,13 @@ public class FoodTableColumns< FoodTypeT extends Food > implements FoodTableColu
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
-   private final FoodTableConfiguration configuration;
+   private final TableConfiguration configuration;
 
    /**
     * Constructs a new {@link FoodTable}.
     */
    public FoodTableColumns() {
-      this.configuration = new FoodTableConfiguration();
+      this.configuration = new TableConfiguration();
    }//End Constructor
    
    /**
