@@ -48,6 +48,11 @@ public class DatabaseTest {
       assertThat( systemUnderTest.shoppingList(), is( systemUnderTest.shoppingList() ) );
    }//End Method
    
+   @Test public void shouldProvideWeightProgress(){
+      assertThat( systemUnderTest.weightProgress(), is( not( nullValue() ) ) );
+      assertThat( systemUnderTest.weightProgress(), is( systemUnderTest.weightProgress() ) );
+   }//End Method
+   
    @Test public void shouldProvidePlans(){
       assertThat( systemUnderTest.plans(), is( instanceOf( MealStore.class ) ) );
       

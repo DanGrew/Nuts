@@ -21,7 +21,7 @@ public enum DayTime {
    Evening( d -> d + ": Evening" ),
    Period( d -> "Average for w/c " + d );
    
-   static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("MMM d yyyy");
+   static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("EEE, MMM d yyyy");
    private final Function< String, String > displayInformationProvider;
    
    /**
