@@ -11,7 +11,7 @@ package uk.dangrew.nuts.graphics.shopping;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import uk.dangrew.nuts.graphics.FriendlyTableView;
-import uk.dangrew.nuts.shopping.ShoppingList;
+import uk.dangrew.nuts.meal.Meal;
 
 /**
  * {@link ShoppingListTable} provides a {@link TableView} for {@link uk.dangrew.nuts.food.FoodItem}s
@@ -27,18 +27,18 @@ public class ShoppingListTable
    
    /**
     * Constructs a new {@link ShoppingListTable}.
-    * @param shoppingList the {@link ShoppingList} to show.
+    * @param shoppingList the {@link Meal} to show.
     */
-   public ShoppingListTable( ShoppingList shoppingList ) {
+   public ShoppingListTable( Meal shoppingList ) {
       this( shoppingList, new ShoppingListViewModel() );
    }//End Constructor
    
    /**
     * Constructs a new {@link ShoppingListTable}.
-    * @param list the {@link ShoppingList} to show.
+    * @param list the {@link Meal} to show.
     * @param model the {@link ShoppingListViewModel}.
     */
-   ShoppingListTable( ShoppingList list, ShoppingListViewModel model ) {
+   ShoppingListTable( Meal list, ShoppingListViewModel model ) {
       this.setEditable( true );
       new ShoppingListTableColumns().populateColumns( this );
       model.associate( this, list );

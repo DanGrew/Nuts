@@ -121,6 +121,41 @@ public class MealPersistenceTest {
       meal = database.meals().objectList().get( 2 );
       assertMealProperties( meal, meal3 );
    }//End Method
+   
+   @Test public void shouldResolvePlans(){
+      Database database = new Database();
+      
+      Meal plan = new Meal( "99987", "plan" );
+      database.plans().store( plan );
+      
+      Meal shoppingList = new Meal( "Shopping" );
+      shoppingList.portions().add( new FoodPortion( plan, 100 ) );
+      database.shoppingLists().store( shoppingList );
+      
+      MealPersistence planPersistence = new MealPersistence( database, database.plans() );
+      JSONObject planJson = new JSONObject();
+      planPersistence.structure().build( planJson );
+      planPersistence.writeHandles().parse( planJson );
+      
+      MealPersistence shoppingPersistence = new MealPersistence( database, database.shoppingLists() );
+      JSONObject shoppingJson = new JSONObject();
+      shoppingPersistence.structure().build( shoppingJson );
+      shoppingPersistence.writeHandles().parse( shoppingJson );
+      
+      database = new Database();
+      planPersistence = new MealPersistence( database, database.plans() );
+      assertThat( database.plans().objectList(), is( empty() ) );
+      planPersistence.readHandles().parse( planJson );
+      assertThat( database.plans().objectList(), hasSize( 1 ) );
+      
+      shoppingPersistence = new MealPersistence( database, database.shoppingLists() );
+      assertThat( database.shoppingLists().objectList(), is( empty() ) );
+      shoppingPersistence.readHandles().parse( shoppingJson );
+      assertThat( database.shoppingLists().objectList(), hasSize( 1 ) );
+      
+      Meal readPlan = database.shoppingLists().objectList().get( 0 );
+      assertThat( readPlan.portions().get( 0 ).food().get(), is( database.plans().objectList().get( 0 ) ) );
+   }//End Method
 
    private void assertMealProperties(
             Meal meal, 

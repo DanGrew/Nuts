@@ -42,6 +42,10 @@ public class GoalTableView extends BorderPane {
       FoodSessions sessions = new FoodSessions( database );
       sessions.read();
       
+      if ( database.shoppingLists().objectList().isEmpty() ) {
+         database.shoppingLists().createFood( "Shopping" );
+      }
+      
       HBox controls = new HBox();
       Button load = new Button( "Load" );
       load.setOnAction( e -> sessions.read() );
@@ -56,7 +60,7 @@ public class GoalTableView extends BorderPane {
       createTab( "Goal", new GoalCalculationView( database.goal() ) );
       createTab( "Database", new FoodManagerPane( database ) );
       createTab( "Plans", new PlanManagerPane( database ) );
-      createTab( "Shopping", new ShoppingPane( database ) );
+      createTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );
       createTab( "Weigh Ins", new WeighInTable( database.weightProgress() ) );
       createTab( "Tools", new TitledPane( "Dry Weight Conversion", new DryWeightToolPane() ) );
       

@@ -111,6 +111,10 @@ class MealParseModel {
          }
          
          if ( food == null ) {
+            food = database.plans().get( foodId );
+         }
+         
+         if ( food == null ) {
             System.out.println( "Can't find food for: " + foodId );
             return;
          }

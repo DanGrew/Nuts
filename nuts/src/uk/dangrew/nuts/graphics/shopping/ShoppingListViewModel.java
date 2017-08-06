@@ -15,7 +15,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.kode.observable.FunctionMapAnyKeyChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.shopping.ShoppingList;
+import uk.dangrew.nuts.meal.Meal;
 
 /**
  * {@link ShoppingListViewModel} provides a model for communicating {@link uk.dangrew.nuts.meal.StockUsage}
@@ -27,7 +27,7 @@ class ShoppingListViewModel {
    private final Map< FoodItem, ObjectProperty< Double > > toBuyProperties;
    
    private ShoppingListTable table;
-   private ShoppingList list;
+   private Meal list;
    
    /**
     * Constructs a new {@link ShoppingListViewModel}.
@@ -38,11 +38,11 @@ class ShoppingListViewModel {
    }//End Constructor
    
    /**
-    * Associates with the given {@link ShoppingListTable} and {@link ShoppingList}.
+    * Associates with the given {@link ShoppingListTable} and {@link Meal}.
     * @param table the {@link ShoppingListTable}.
-    * @param shoppingList the {@link ShoppingList}.
+    * @param shoppingList the {@link Meal}.
     */
-   void associate( ShoppingListTable table, ShoppingList shoppingList ) {
+   void associate( ShoppingListTable table, Meal shoppingList ) {
       if ( this.table != null || this.list != null ) {
          throw new IllegalStateException( "Already associated." );
       }

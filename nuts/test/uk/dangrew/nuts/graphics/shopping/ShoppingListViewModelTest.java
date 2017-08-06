@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.shopping.ShoppingList;
+import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class ShoppingListViewModelTest {
@@ -18,13 +18,13 @@ public class ShoppingListViewModelTest {
    private FoodItem food1;
    private FoodItem food2;
    
-   private ShoppingList list;
+   private Meal list;
    private ShoppingListTable table;
    private ShoppingListViewModel systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
-      list = new ShoppingList( "List" );
+      list = new Meal( "List" );
       list.portions().addAll( 
                new FoodPortion( food1 = new FoodItem( "Belvitas" ), 100 ),
                new FoodPortion( food2 = new FoodItem( "Biscuits" ), 100 )

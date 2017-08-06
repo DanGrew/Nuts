@@ -12,7 +12,6 @@ import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.progress.WeightProgress;
-import uk.dangrew.nuts.shopping.ShoppingList;
 
 /**
  * The {@link Database} provides access to the data for the system such as {@link Food}s.
@@ -20,22 +19,23 @@ import uk.dangrew.nuts.shopping.ShoppingList;
 public class Database {
 
    private final Goal goal;
-   private final ShoppingList shoppingList;
    private final WeightProgress weightProgress;
+   
    private final FoodItemStore foodItems;
    private final MealStore meals;
    private final MealStore plans;
+   private final MealStore shoppingLists;
    
    /**
     * Constructs a new {@link Database}.
     */
    public Database() {
       this.goal = new Goal( "Goal" );
-      this.shoppingList = new ShoppingList( "Shopping" );
       this.weightProgress = new WeightProgress();
       this.foodItems = new FoodItemStore( goal );
       this.meals = new MealStore( goal );
       this.plans = new MealStore( goal );
+      this.shoppingLists = new MealStore( goal );
    }//End Constructor
    
    /**
@@ -44,14 +44,6 @@ public class Database {
     */
    public Goal goal() {
       return goal;
-   }//End Method
-   
-   /**
-    * Access to the {@link ShoppingList}.
-    * @return the {@link ShoppingList}.
-    */
-   public ShoppingList shoppingList() {
-      return shoppingList;
    }//End Method
    
    /**
@@ -87,6 +79,15 @@ public class Database {
     */
    public MealStore plans() {
       return plans;
+   }//End Method
+   
+   /**
+    * Access to the {@link uk.dangrew.nuts.meal.Meal}s stored as shopping lists.
+    * @return the {@link MealStore} of {@link uk.dangrew.nuts.meal.Meal}s against 
+    * their {@link uk.dangrew.nuts.food.FoodProperties#id()}.
+    */
+   public MealStore shoppingLists() {
+      return shoppingLists;
    }//End Method
    
 }//End Class

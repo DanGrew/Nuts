@@ -24,6 +24,7 @@ public class FoodSessions {
    static final String FOOD_ITEM_FILE_NAME = "food-items.json";
    static final String MEAL_FILE_NAME = "meals.json";
    static final String PLAN_FILE_NAME = "plans.json";
+   static final String SHOPPING_LISTS_FILE_NAME = "shoppingLists.json";
    
    private final Database database;
    private final JarJsonPersistingProtocol foodItemFileLocation;
@@ -33,6 +34,7 @@ public class FoodSessions {
    private final ModelMarshaller foodItemMarshaller;
    private final ModelMarshaller mealMarshaller;
    private final ModelMarshaller planMarshaller;
+   private final ModelMarshaller shoppingListMarshaller;
    
    /**
     * Constructs a new {@link FoodSessions}.
@@ -51,6 +53,9 @@ public class FoodSessions {
                ),
                new JarJsonPersistingProtocol( 
                         FOLDER_NAME, PLAN_FILE_NAME, Nuts.class 
+               ),
+               new JarJsonPersistingProtocol( 
+                        FOLDER_NAME, SHOPPING_LISTS_FILE_NAME, Nuts.class 
                )
       );
    }//End Constructor
@@ -65,7 +70,8 @@ public class FoodSessions {
             Database database, 
             JarJsonPersistingProtocol foodItemFileLocation,
             JarJsonPersistingProtocol mealFileLocation,
-            JarJsonPersistingProtocol planFileLocation
+            JarJsonPersistingProtocol planFileLocation,
+            JarJsonPersistingProtocol shoppingListFileLocation
    ) {
       this.database = database;
       this.foodItemFileLocation = foodItemFileLocation;
@@ -75,6 +81,7 @@ public class FoodSessions {
       this.foodItemMarshaller = constructFoodItemMarshaller();
       this.mealMarshaller = constructMealMarshaller( database.meals(), mealFileLocation );
       this.planMarshaller = constructMealMarshaller( database.plans(), planFileLocation );
+      this.shoppingListMarshaller = constructMealMarshaller( database.shoppingLists(), shoppingListFileLocation );
    }//End Constructor
    
    /**
@@ -115,6 +122,7 @@ public class FoodSessions {
       foodItemMarshaller.read();
       mealMarshaller.read();
       planMarshaller.read();
+      shoppingListMarshaller.read();
    }// End Method
 
    /**
@@ -125,5 +133,6 @@ public class FoodSessions {
       foodItemMarshaller.write();
       mealMarshaller.write();
       planMarshaller.write();
+      shoppingListMarshaller.write();
    }// End Method
 }//End Class

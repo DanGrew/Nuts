@@ -32,6 +32,8 @@ public class FoodItemPersistence {
    static final String FATS = "fats";
    static final String PROTEIN = "protein";
    static final String CALORIES = "calories";
+   static final String LOGGED_WEIGHT = "loggedWeight";
+   static final String SOLD_IN_WEIGHT = "soldInWeight";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -76,6 +78,8 @@ public class FoodItemPersistence {
       structure.child( FATS, FOOD_ITEM );
       structure.child( PROTEIN, FOOD_ITEM );
       structure.child( CALORIES, FOOD_ITEM );
+      structure.optionalChild( LOGGED_WEIGHT, FOOD_ITEM );
+      structure.optionalChild( SOLD_IN_WEIGHT, FOOD_ITEM );
    }//End Method
    
    /**
@@ -92,6 +96,8 @@ public class FoodItemPersistence {
       parserWithReadHandles.when( FATS, new DoubleParseHandle( parseModel::setFats ) );
       parserWithReadHandles.when( PROTEIN, new DoubleParseHandle( parseModel::setProtein ) );
       parserWithReadHandles.when( CALORIES, new DoubleParseHandle( parseModel::setCalories ) );
+      parserWithReadHandles.when( LOGGED_WEIGHT, new DoubleParseHandle( parseModel::setLoggedWeight ) );
+      parserWithReadHandles.when( SOLD_IN_WEIGHT, new DoubleParseHandle( parseModel::setSoldInWeight ) );
    }//End Method
    
    /**
@@ -108,6 +114,8 @@ public class FoodItemPersistence {
       parserWithWriteHandles.when( FATS, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFats ) ) );
       parserWithWriteHandles.when( PROTEIN, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProtein ) ) );
       parserWithWriteHandles.when( CALORIES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCalories ) ) );
+      parserWithWriteHandles.when( LOGGED_WEIGHT, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getLoggedWeight ) ) );
+      parserWithWriteHandles.when( SOLD_IN_WEIGHT, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getSoldInWeight ) ) );
    }//End Method
    
    /**

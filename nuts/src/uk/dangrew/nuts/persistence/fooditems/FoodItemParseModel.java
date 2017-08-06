@@ -25,6 +25,8 @@ class FoodItemParseModel {
    private Double fats;
    private Double protein;
    private Double calories;
+   private double loggedWeight;
+   private double soldInWeight;
    
    /**
     * Constructs a new {@link FoodItemParseModel}.
@@ -59,6 +61,7 @@ class FoodItemParseModel {
       }
       item.properties().setMacros( carbohydrates, fats, protein );
       item.properties().calories().set( calories );
+      item.stockProperties().setWeighting( loggedWeight, soldInWeight );
    }//End Method
    
    /**
@@ -113,6 +116,24 @@ class FoodItemParseModel {
     */
    void setCalories( String key, Double value ) {
       this.calories = value;
+   }//End Method
+   
+   /**
+    * Sets the {@link uk.dangrew.nuts.food.StockProperties#loggedWeight()} for the current {@link FoodItem}.
+    * @param key the parsed key.
+    * @param value the parsed value.
+    */
+   void setLoggedWeight( String key, Double value ) {
+      this.loggedWeight = value;
+   }//End Method
+   
+   /**
+    * Sets the {@link uk.dangrew.nuts.food.StockProperties#soldInWeight()} for the current {@link FoodItem}.
+    * @param key the parsed key.
+    * @param value the parsed value.
+    */
+   void setSoldInWeight( String key, Double value ) {
+      this.soldInWeight = value;
    }//End Method
    
 }//End Class

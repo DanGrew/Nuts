@@ -43,11 +43,6 @@ public class DatabaseTest {
       assertThat( systemUnderTest.goal(), is( systemUnderTest.goal() ) );
    }//End Method
    
-   @Test public void shouldProvideShoppingList(){
-      assertThat( systemUnderTest.shoppingList(), is( not( nullValue() ) ) );
-      assertThat( systemUnderTest.shoppingList(), is( systemUnderTest.shoppingList() ) );
-   }//End Method
-   
    @Test public void shouldProvideWeightProgress(){
       assertThat( systemUnderTest.weightProgress(), is( not( nullValue() ) ) );
       assertThat( systemUnderTest.weightProgress(), is( systemUnderTest.weightProgress() ) );
@@ -59,6 +54,14 @@ public class DatabaseTest {
       Meal plan = new Meal( "Plan" );
       systemUnderTest.plans().store( plan );
       assertThat( systemUnderTest.plans().get( plan.properties().id() ), is( plan ) );
+   }//End Method
+   
+   @Test public void shouldProvideShoppingLists(){
+      assertThat( systemUnderTest.shoppingLists(), is( instanceOf( MealStore.class ) ) );
+      
+      Meal list = new Meal( "List" );
+      systemUnderTest.shoppingLists().store( list );
+      assertThat( systemUnderTest.shoppingLists().get( list.properties().id() ), is( list ) );
    }//End Method
 
 }//End Class

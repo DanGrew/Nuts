@@ -5,6 +5,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.dangrew.nuts.manual.data.DataLocation;
+import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
@@ -16,7 +17,7 @@ public class ShoppingPaneTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       database = new Database();
-      systemUnderTest = new ShoppingPane( database );
+      systemUnderTest = new ShoppingPane( database, new Meal( "List" ) );
    }//End Method
 
    @Ignore
