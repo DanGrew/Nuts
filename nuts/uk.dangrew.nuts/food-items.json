@@ -243,7 +243,7 @@
       "carbohydrates": 16,
       "fats": 0.2,
       "protein": 4.9,
-      "name": "Yoghurt Flavoured (100g)",
+      "name": "Yoghurt (Apricot) (100g)",
       "id": "c274dee9-d0b2-4af6-9828-6b47ce94d096",
       "calories": 90
    },
@@ -646,5 +646,21 @@
       "name": "Curry Sauce (125g, 1/4)",
       "id": "0315ab9b-6d5c-4de9-a27f-a6c6242abb79",
       "calories": 93
+   },
+   {
+      "carbohydrates": 14,
+      "fats": 0,
+      "protein": 4.5,
+      "name": "Yoghurt (Strawberry) (100g)",
+      "id": "3b737010-7e70-495e-99c5-2b9d29d9598c",
+      "calories": 80
+   },
+   {
+      "carbohydrates": 14,
+      "fats": 0,
+      "protein": 4.5,
+      "name": "Yoghurt (Vanilla) (100g)",
+      "id": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
+      "calories": 80
    }
 ]}

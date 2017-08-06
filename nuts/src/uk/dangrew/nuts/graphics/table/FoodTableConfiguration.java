@@ -13,6 +13,7 @@ import java.util.function.Function;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -55,6 +56,26 @@ public class FoodTableConfiguration {
       ) );
       column.setEditable( editable );
       table.getColumns().add( column );
+   }//End Method
+   
+   /**
+    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.
+    * @param table the {@link TableView} to configure.
+    * @param title the title of the {@link TableColumn}.
+    * @param width the proportion of the width the {@link TableColumn} should be.
+    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
+    */
+   public < RowTypeT > void initialiseStringColumn(
+            TableView< RowTypeT > table,
+            String title,
+            double width,
+            Function< RowTypeT, String > propertyetriever
+   ){
+      TableColumn< RowTypeT, String > date = new TableColumn<>( title );
+      date.prefWidthProperty().bind( table.widthProperty().multiply( width ) );
+      date.setCellValueFactory( object -> new SimpleObjectProperty<>( propertyetriever.apply( object.getValue() ) ) );
+      date.setEditable( false );
+      table.getColumns().add( date );
    }//End Method
    
    /**

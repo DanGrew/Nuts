@@ -122,7 +122,7 @@
       ]
    },
    {
-      "name": "Sausage & Omelete",
+      "name": "Sandwich & Omelete",
       "id": "b053a912-bafc-4c48-93e1-a9a5f59f6885",
       "portions": [
          {
@@ -134,7 +134,7 @@
             "portionValue": 200
          },
          {
-            "foodId": "2837ef74-bbc6-4267-9210-4ec58a1795b4",
+            "foodId": "c2367e8e-ffbd-445b-8e85-60c7177bf53f",
             "portionValue": 100
          },
          {
@@ -142,16 +142,12 @@
             "portionValue": 100
          },
          {
-            "foodId": "c274dee9-d0b2-4af6-9828-6b47ce94d096",
-            "portionValue": 250
-         },
-         {
-            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "foodId": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
             "portionValue": 200
          },
          {
-            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
-            "portionValue": 10
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
+            "portionValue": 100
          },
          {
             "foodId": "fbe95d98-216d-4534-be62-df0cc1b0590f",
@@ -159,6 +155,10 @@
          },
          {
             "foodId": "64303ce3-d19e-4ed6-b44f-9b59be6ca31d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7bffd233-7880-44c5-a949-a586b7c1f29f",
             "portionValue": 100
          }
       ]
@@ -206,7 +206,7 @@
       ]
    },
    {
-      "name": "Sandwich & Omelette",
+      "name": "Sandwich & Fish Cakes",
       "id": "d5679a10-390e-4e2b-8225-e9e8ce7c5e4a",
       "portions": [
          {
@@ -378,6 +378,10 @@
          {
             "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
             "portionValue": 200
+         },
+         {
+            "foodId": "64303ce3-d19e-4ed6-b44f-9b59be6ca31d",
+            "portionValue": 100
          }
       ]
    }
