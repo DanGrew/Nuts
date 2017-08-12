@@ -1,11 +1,10 @@
 package uk.dangrew.nuts.progress;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -23,14 +22,14 @@ public class WeightProgressTest {
    @Ignore
    @Test public void manual(){
       systemUnderTest.records().forEach( w -> {
-         System.out.println( w.date().toString() + ": " + w.dayTime().name() + ", " + w.recordingType().name() ); 
+         System.out.println( w.date().toString() ); 
       } );
    }//End Method 
 
    @Test public void shouldMorningAndEveningForEveryDaySince24thApril2017() {
       LocalDate now = LocalDate.now();
       LocalDate april = WeightProgress.START_DATE;
-      final LocalDate lastEntry = systemUnderTest.records().get( systemUnderTest.records().size() - 2 ).date();
+      final LocalDate lastEntry = systemUnderTest.records().get( systemUnderTest.records().size() - 1 ).date();
       assertThat( 
                lastEntry.isEqual( now ) ||
                lastEntry.isAfter( now ), 
@@ -38,36 +37,34 @@ public class WeightProgressTest {
       assertThat( systemUnderTest.records().get( 0 ).date(), is( april ) );
    }//End Method
    
-   @Test public void shouldProvideAverageEvery7Days(){
-      DayTime expected = DayTime.Morning;
+   @Test public void shouldProvideRunningAverageForEvery7Days(){
       for ( WeightRecording recording : systemUnderTest.records() ) {
-         if ( recording.dayTime() == DayTime.Period ) {
-            continue;
-         }
-         assertThat( recording.dayTime(), is( expected ) );
-         if ( expected == DayTime.Morning ) {
-            expected = DayTime.Evening;
-         } else {
-            expected = DayTime.Morning;
-         }
+         assertThatDayHasComponents( recording );
+         assertThatDayHasCorrectRunningAverageRecords( recording, systemUnderTest.records() );
       }
    }//End Method
    
-   @Test public void shouldProvideAverages(){
-      int counter = 0;
-      List< WeightRecording > weighIns = new ArrayList<>();
-      for ( WeightRecording recording : systemUnderTest.records() ) {
-         if ( counter == 14 ) {
-            assertThat( recording, is( instanceOf( WeighInAverage.class ) ) );
-            WeighInAverage average = ( WeighInAverage ) recording;
-            assertThat( average.weighIns(), is( weighIns ) );
-            counter = 0;
-            weighIns.clear();
-         } else {
-            weighIns.add( recording );
-            counter++;
-         }
-      }
+   /**
+    * Assert that the {@link WeightRecording} has the correct components.
+    * @param recording the {@link WeightRecording} to assert.
+    */
+   private void assertThatDayHasComponents( WeightRecording recording ){
+      assertThat( recording.morningWeighIn(), is( notNullValue() ) );
+      assertThat( recording.eveningWeighIn(), is( notNullValue() ) );
+      assertThat( recording.runningAverage(), is( notNullValue() ) );
+   }//End Method
+   
+   /**
+    * Assert that the running average is constructed correctly.
+    * @param recording the {@link WeightRecording} to assert.
+    * @param allRecordings the {@link WeightRecording}s in the {@link WeightProgress}.
+    */
+   private void assertThatDayHasCorrectRunningAverageRecords( WeightRecording recording, List< WeightRecording > allRecordings ) {
+      int indexOf = allRecordings.indexOf( recording );
+      int from = Math.max( indexOf - 6, 0 );
+      int to = indexOf + 1;
+      List< WeightRecording > forAverage = allRecordings.subList( from, to );
+      assertThat( recording.runningAverage().weighIns(), is( forAverage ) );
    }//End Method
    
 }//End Class

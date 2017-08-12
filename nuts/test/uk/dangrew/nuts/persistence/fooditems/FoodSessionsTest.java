@@ -30,6 +30,7 @@ public class FoodSessionsTest {
                foodItemsLocation,
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class )
       );
       sessions.read();

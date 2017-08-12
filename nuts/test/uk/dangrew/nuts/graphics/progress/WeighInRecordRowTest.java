@@ -13,11 +13,11 @@ import uk.dangrew.nuts.progress.WeightRecording;
 public class WeighInRecordRowTest {
 
    @Mock private WeightRecording recording;
-   private WeighInRecordRow systemUnderTest;
+   private WeightRecordingRow systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
-      systemUnderTest = new WeighInRecordRow( recording );
+      systemUnderTest = new WeightRecordingRow( recording );
    }//End Method
 
    @Test public void shouldProvideRecording() {

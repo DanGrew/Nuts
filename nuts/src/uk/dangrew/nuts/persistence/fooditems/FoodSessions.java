@@ -13,6 +13,7 @@ import uk.dangrew.jupa.json.marshall.ModelMarshaller;
 import uk.dangrew.nuts.main.Nuts;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
+import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -25,16 +26,19 @@ public class FoodSessions {
    static final String MEAL_FILE_NAME = "meals.json";
    static final String PLAN_FILE_NAME = "plans.json";
    static final String SHOPPING_LISTS_FILE_NAME = "shoppingLists.json";
+   static final String WEIGHT_RECORDING_FILE_NAME = "weightRecordings.json";
    
    private final Database database;
    private final JarJsonPersistingProtocol foodItemFileLocation;
    private final JarJsonPersistingProtocol mealFileLocation;
    private final JarJsonPersistingProtocol planFileLocation;
+   private final JarJsonPersistingProtocol weightRecordingLocation;
    
    private final ModelMarshaller foodItemMarshaller;
    private final ModelMarshaller mealMarshaller;
    private final ModelMarshaller planMarshaller;
    private final ModelMarshaller shoppingListMarshaller;
+   private final ModelMarshaller weightRecordingMarshaller;
    
    /**
     * Constructs a new {@link FoodSessions}.
@@ -56,6 +60,9 @@ public class FoodSessions {
                ),
                new JarJsonPersistingProtocol( 
                         FOLDER_NAME, SHOPPING_LISTS_FILE_NAME, Nuts.class 
+               ),
+               new JarJsonPersistingProtocol( 
+                        FOLDER_NAME, WEIGHT_RECORDING_FILE_NAME, Nuts.class 
                )
       );
    }//End Constructor
@@ -65,23 +72,28 @@ public class FoodSessions {
     * @param database the {@link Database}.
     * @param foodItemFileLocation the {@link JarJsonPersistingProtocol}.
     * @param mealFileLocation the {@link JarJsonPersistingProtocol}.
+    * @param shoppingListFileLocation the {@link JarJsonPersistingProtocol}.
+    * @param weightRecordingFileLocation the {@link JarJsonPersistingProtocol}.
     */
    FoodSessions( 
             Database database, 
             JarJsonPersistingProtocol foodItemFileLocation,
             JarJsonPersistingProtocol mealFileLocation,
             JarJsonPersistingProtocol planFileLocation,
-            JarJsonPersistingProtocol shoppingListFileLocation
+            JarJsonPersistingProtocol shoppingListFileLocation,
+            JarJsonPersistingProtocol weightRecordingFileLocation
    ) {
       this.database = database;
       this.foodItemFileLocation = foodItemFileLocation;
       this.mealFileLocation = mealFileLocation;
       this.planFileLocation = planFileLocation;
+      this.weightRecordingLocation = weightRecordingFileLocation;
       
       this.foodItemMarshaller = constructFoodItemMarshaller();
       this.mealMarshaller = constructMealMarshaller( database.meals(), mealFileLocation );
       this.planMarshaller = constructMealMarshaller( database.plans(), planFileLocation );
       this.shoppingListMarshaller = constructMealMarshaller( database.shoppingLists(), shoppingListFileLocation );
+      this.weightRecordingMarshaller = constructWeightRecordingMarshaller();
    }//End Constructor
    
    /**
@@ -113,6 +125,20 @@ public class FoodSessions {
                fileLocation 
       );
    }//End Method
+   
+   /**
+    * Method to construct the {@link ModelMarshaller}.
+    * @return the {@link ModelMarshaller} constructed for {@link uk.dangrew.nuts.progress.WeightRecording}s.
+    */
+   private ModelMarshaller constructWeightRecordingMarshaller(){
+      WeightRecordingPersistence persistence = new WeightRecordingPersistence( database );
+      return new ModelMarshaller( 
+               persistence.structure(), 
+               persistence.readHandles(), 
+               persistence.writeHandles(), 
+               weightRecordingLocation 
+      );
+   }//End Method
 
    /**
     * Method to read all {@link uk.dangrew.nuts.food.FoodItem}s and {@link uk.dangrew.nuts.meal.Meal}s
@@ -123,6 +149,7 @@ public class FoodSessions {
       mealMarshaller.read();
       planMarshaller.read();
       shoppingListMarshaller.read();
+      weightRecordingMarshaller.read();
    }// End Method
 
    /**
@@ -134,5 +161,6 @@ public class FoodSessions {
       mealMarshaller.write();
       planMarshaller.write();
       shoppingListMarshaller.write();
+      weightRecordingMarshaller.write();
    }// End Method
 }//End Class

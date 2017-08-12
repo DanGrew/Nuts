@@ -10,11 +10,18 @@ package uk.dangrew.nuts.graphics.progress;
 
 import uk.dangrew.nuts.progress.WeightRecording;
 
-public class WeighInRecordRow {
+/**
+ * Provides a {@link WeightRecording} row in the {@link WeighInTable}.
+ */
+public class WeightRecordingRow {
    
    private final WeightRecording recording;
    
-   public WeighInRecordRow( WeightRecording recording ) {
+   /**
+    * Constructs a new {@link WeightRecordingRow}.
+    * @param recording the associated {@link WeightRecording}.
+    */
+   public WeightRecordingRow( WeightRecording recording ) {
       this.recording = recording;
    }//End Constructor
    

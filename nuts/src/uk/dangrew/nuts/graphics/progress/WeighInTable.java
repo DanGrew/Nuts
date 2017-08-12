@@ -21,8 +21,8 @@ import uk.dangrew.nuts.progress.WeightRecording;
 /**
  * {@link WeighInTable} provides a {@link TableView} for {@link uk.dangrew.nuts.progress.WeightRecording}s.
  */
-public class WeighInTable extends TableView< WeighInRecordRow > 
-   implements FriendlyTableView< WeighInRecordRow > 
+public class WeighInTable extends TableView< WeightRecordingRow > 
+   implements FriendlyTableView< WeightRecordingRow > 
 {
 
    /**
@@ -35,14 +35,14 @@ public class WeighInTable extends TableView< WeighInRecordRow >
       
       List< WeightRecording > copy = new ArrayList<>( progress.records() );
       Collections.reverse( copy );
-      copy.forEach( r -> getRows().add( new WeighInRecordRow( r ) ) );
+      copy.forEach( r -> getRows().add( new WeightRecordingRow( r ) ) );
    }//End Constructor
    
    /**
     * Friendly access to the {@link #getItems()}.
     * @return the {@link ObservableList}.
     */
-   public ObservableList< WeighInRecordRow > getRows(){
+   public ObservableList< WeightRecordingRow > getRows(){
       return getItems();
    }//End Method
    
