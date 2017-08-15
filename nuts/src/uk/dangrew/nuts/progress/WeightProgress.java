@@ -20,8 +20,7 @@ import java.util.Queue;
  */
 public class WeightProgress {
 
-   static final LocalDate START_DATE = LocalDate.of( 2017, 4, 24 );
-   
+   private final WeightProgressDateRange dateRange;
    private final List< WeightRecording > records;
    
    /**
@@ -29,19 +28,18 @@ public class WeightProgress {
     */
    public WeightProgress() {
       this.records = new ArrayList<>();
+      this.dateRange = new WeightProgressDateRange();
       
       Queue< WeightRecording > runningAverageWeighIns = new LinkedList<>();
-      int currentOffset = 0;
-      while( !START_DATE.plusDays( currentOffset ).isAfter( LocalDate.now() ) ) {
-         WeightRecording recording = addRecord( START_DATE.plusDays( currentOffset ), runningAverageWeighIns );
+      
+      for ( LocalDate date : dateRange.get() ) {
+         WeightRecording recording = addRecord( date, runningAverageWeighIns );
          records.add( recording );
          
          if ( runningAverageWeighIns.size() == 6 ) {
             runningAverageWeighIns.remove();
          }
          runningAverageWeighIns.add( recording );
-         
-         currentOffset++;
       }
    }//End Constructor
    

@@ -15,7 +15,7 @@ public class ShoppingPlanInteractionTest {
 
    @Test public void shouldNotChangeMealStatsWithinShopppingListWhenListPortionChanges() {
       Database database = new Database();
-      DataLocation.loadSampleData( database );
+      DataLocation.loadSampleFoodData( database );
       
       database.goal().gender().set( Gender.Male );
       database.goal().age().set( 28.0 );

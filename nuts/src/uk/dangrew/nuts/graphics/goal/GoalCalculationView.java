@@ -17,6 +17,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Pair;
+import uk.dangrew.kode.javafx.custom.BoundTextProperty;
 import uk.dangrew.kode.javafx.custom.PropertiesPane;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerMismatchBindingImpl;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerRegistrationImpl;
@@ -59,45 +60,45 @@ public class GoalCalculationView extends VBox {
                "Predictive Equations",
                new PropertyRowBuilder()
                   .withLabelName( "Basal Metabolic Rate (kcal)" )
-                  .withProperty( goal.bmr() ),
+                  .withBinding( new BoundTextProperty( goal.bmr(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Physical Activity Level (%)" )
-                  .withProperty( goal.pal() ),
+                  .withBinding( new BoundTextProperty( goal.pal(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Total Energy Expenditure (kcal)" )
-                  .withProperty( goal.tee() )
+                  .withBinding( new BoundTextProperty( goal.tee(), true ) )
       ) );
       
       getChildren().add( new PropertiesPane( 
                "Calories", 
                new PropertyRowBuilder()
                   .withLabelName( "Exercise (kcal)" )
-                  .withProperty( goal.exerciseCalories() ),
+                  .withBinding( new BoundTextProperty( goal.exerciseCalories(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Deficit (kcal)" )
-                  .withProperty( goal.calorieDeficit() ),
+                  .withBinding( new BoundTextProperty( goal.calorieDeficit(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Calorie Goal (kcal)" )
-                  .withProperty( goal.properties().calories() )
+                  .withBinding( new BoundTextProperty( goal.properties().calories(), true ) )
       ) );
       
       getChildren().add( new PropertiesPane( 
                "Goals", 
                new PropertyRowBuilder()
                   .withLabelName( "Protein per Pound" )
-                  .withProperty( goal.proteinPerPound() ),
+                  .withBinding( new BoundTextProperty( goal.proteinPerPound(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Fat per Pound" )
-                  .withProperty( goal.fatPerPound() ),
+                  .withBinding( new BoundTextProperty( goal.fatPerPound(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Carbohydrates Goal (g)" )
-                  .withProperty( goal.properties().carbohydrates() ),
+                  .withBinding( new BoundTextProperty( goal.properties().carbohydrates(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Fats Goal (g)" )
-                  .withProperty( goal.properties().fats() ),
+                  .withBinding( new BoundTextProperty( goal.properties().fats(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Protein Goal (g)" )
-                  .withProperty( goal.properties().protein() )
+                  .withBinding( new BoundTextProperty( goal.properties().protein(), true ) )
       ) );
    }//End Constructor
    

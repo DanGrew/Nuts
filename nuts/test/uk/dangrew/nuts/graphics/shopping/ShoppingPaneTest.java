@@ -24,7 +24,7 @@ public class ShoppingPaneTest {
    @Test public void manual() throws InterruptedException {
       TestApplication.launch( () -> systemUnderTest );
       
-      DataLocation.loadSampleData( database );
+      DataLocation.loadSampleFoodData( database );
       
       Thread.sleep( 99999999 );
    }//End Method

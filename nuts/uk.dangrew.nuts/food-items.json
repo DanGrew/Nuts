@@ -475,7 +475,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 12,
-      "name": "Turkey Dinos (100g)",
+      "name": "Turkey Dinos (2)",
       "id": "c44be747-a9cc-4943-bf0b-167b89b13646",
       "calories": 258
    },
@@ -948,5 +948,25 @@
       "name": "Seafood Sticks (M) (4)",
       "id": "4f211c53-5aa7-49dc-a619-2135c94a58d0",
       "calories": 58
+   },
+   {
+      "carbohydrates": 3.9,
+      "fats": 11.6,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 21.3,
+      "name": "Burgers (T, Beef Steak) (1)",
+      "id": "47e4a99e-f9b8-45da-bd7d-8950af541d3f",
+      "calories": 206
+   },
+   {
+      "carbohydrates": 21.7,
+      "fats": 0.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1,
+      "name": "Tomato Sauce (100ml)",
+      "id": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+      "calories": 96
    }
 ]}
