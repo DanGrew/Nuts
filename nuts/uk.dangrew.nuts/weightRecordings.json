@@ -1033,5 +1033,14 @@
       "morningWeight": 196.1,
       "morningBodyFat": 18.7,
       "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-17",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
    }
 ]}
