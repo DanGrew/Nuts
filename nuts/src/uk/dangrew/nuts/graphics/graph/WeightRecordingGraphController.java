@@ -32,18 +32,18 @@ public class WeightRecordingGraphController {
    }//End Constructor
 
    /**
-    * Set the lower bound of the weight axis.
+    * Set the lower bound of the recording axis.
     * @param value the bound.
     */
-   public void setWeightLowerBound( double value ) {
+   public void setRecordingLowerBound( double value ) {
       yAxis.setLowerBound( value );
    }//End Method
 
    /**
-    * Set the upper bound of the weight axis.
+    * Set the upper bound of the recording axis.
     * @param value the bound.
     */
-   public void setWeightUpperBound( double value ) {
+   public void setRecordingUpperBound( double value ) {
       yAxis.setUpperBound( value );
    }//End Method
 

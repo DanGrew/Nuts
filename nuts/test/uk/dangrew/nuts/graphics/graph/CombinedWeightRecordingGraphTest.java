@@ -1,6 +1,8 @@
 package uk.dangrew.nuts.graphics.graph;
 
-import static org.mockito.Mockito.mock;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -11,7 +13,7 @@ import uk.dangrew.nuts.graphics.progress.WeighInTable;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.store.Database;
 
-public class WeightRecordingGraphTest {
+public class CombinedWeightRecordingGraphTest {
 
    @Ignore
    @Test public void manual() throws InterruptedException {
@@ -20,16 +22,10 @@ public class WeightRecordingGraphTest {
       Database database = new Database();
       DataLocation.loadSampleWeightRecordings( database );
       
-      WeightRecordingGraph graph = new WeightRecordingGraph( 
-               database.weightProgress(),
-               new WeightRecordingGraphBuilder()
-                  .withXAxisTitle( "Epoch Day" )
-                  .withYAxisTitle( "Weight (lbs)" )
-                  .withChartTitle( "Weight Recordings" )
-      );
+      CombinedWeightRecordingGraph graph = new CombinedWeightRecordingGraph( database.weightProgress() );
+      
       BorderPane pane = new BorderPane( graph );
       pane.setTop( new WeighInTable( database.weightProgress() ) );
-      pane.setRight( new WeightRecordingGraphSettings( graph.controller(), mock( WeightRecordingGraphController.class ) ) );
       
       TestApplication.launch( () -> pane );
       
@@ -38,6 +34,11 @@ public class WeightRecordingGraphTest {
    
    @Test public void untested() {
       System.out.println( "WARNING: UNTESTED - " + getClass().getName() );
+   }//End Method
+   
+   @Test public void shouldHaveStyleSheetsForGraphs(){
+      assertThat( CombinedWeightRecordingGraph.PRIMARY_CHART_STYLE_SHEET, is( notNullValue() ));
+      assertThat( CombinedWeightRecordingGraph.SECONDARY_CHART_STYLE_SHEET, is( notNullValue() ));
    }//End Method
 
 }//End Class

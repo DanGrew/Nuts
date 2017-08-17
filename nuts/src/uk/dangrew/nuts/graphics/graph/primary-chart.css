@@ -1,0 +1,15 @@
+.chart-plot-background {
+	-fx-background-color: transparent;
+}
+.default-color0.chart-series-line {
+	-fx-stroke: red, orange;
+} 
+.default-color0.chart-line-symbol { 
+    -fx-background-color: red, orange;
+}
+
+.chart-legend {
+   -fx-background-color:  transparent;
+   -fx-padding: 0px;
+   -fx-translate-y: -10px
+}

@@ -8,14 +8,10 @@
  */
 package uk.dangrew.nuts.graphics.graph;
 
-import java.util.function.Function;
-
-import javafx.beans.property.ObjectProperty;
+import javafx.beans.binding.DoubleBinding;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart.Series;
 import javafx.scene.layout.BorderPane;
-import uk.dangrew.nuts.progress.WeighIn;
 import uk.dangrew.nuts.progress.WeightProgress;
 
 /**
@@ -23,72 +19,59 @@ import uk.dangrew.nuts.progress.WeightProgress;
  */
 public class WeightRecordingGraph extends BorderPane {
    
-   private final WeightProgress progress;
    private final LineChart< Number, Number > chart;
    private final WeightRecordingGraphController controller;
    
    /**
     * Constructs a new {@link WeightRecordingGraph}.
     * @param progress the {@link WeightProgress}.
+    * @param graphBuilder the {@link WeightRecordingGraphBuilder}.
+    * @param seriesBuilders the {@link WeightRecordingGraphSeriesBuilder}s for the individual
+    * {@link javafx.scene.chart.XYChart.Series} in the graph.
     */
-   public WeightRecordingGraph( WeightProgress progress ) {
-      this.progress = progress;
-      
+   public WeightRecordingGraph( 
+            WeightProgress progress, 
+            WeightRecordingGraphBuilder graphBuilder, 
+            WeightRecordingGraphSeriesBuilder... seriesBuilders
+   ) {
       NumberAxis xAxis = new NumberAxis();
-      xAxis.setLabel( "Epoch Day" );
+      xAxis.setLabel( graphBuilder.xAxisTitle() );
+      if ( !graphBuilder.isXAxisVisible() ) {
+         xAxis.setTickLabelsVisible( false );
+         xAxis.setOpacity( 0 );
+      }
       
       NumberAxis yAxis = new NumberAxis();
+      yAxis.setLabel( graphBuilder.yAxisTitle() );
+      yAxis.setVisible( graphBuilder.isYAxisVisible() );
+      yAxis.setTickUnit( graphBuilder.xAxisTickInterval() );
+      yAxis.setTranslateX( graphBuilder.yAxisTranslation() );
       
       this.controller = new WeightRecordingGraphController( xAxis, yAxis );
       
-      this.chart = new LineChart<>(xAxis,yAxis);
-      this.chart.setTitle( "Weight Recordings" );
+      this.chart = new LineChart<>( xAxis, yAxis );
+      this.chart.setTitle( graphBuilder.chartTitle() );
+      
+      double chartXTranslation = graphBuilder.chartXTranslation();
+      this.chart.setTranslateX( chartXTranslation );
+      
+      DoubleBinding widthAdjuster = this.widthProperty().subtract( chartXTranslation * 2 );
+      this.chart.prefWidthProperty().bind( widthAdjuster );
+      this.chart.minWidthProperty().bind( widthAdjuster );
+      this.chart.maxWidthProperty().bind( widthAdjuster );
+      
+      DoubleBinding heightAdjuster = this.heightProperty().subtract( 40 );
+      this.chart.prefHeightProperty().bind( heightAdjuster );
+      this.chart.minHeightProperty().bind( heightAdjuster );
+      this.chart.maxHeightProperty().bind( heightAdjuster );
+      
       this.setCenter( chart );
       
-      provideSeriesForProperty( "Weight", WeighIn::weight );
-      provideSeriesForProperty( "Lean Mass", WeighIn::leanMass );
+      for ( WeightRecordingGraphSeriesBuilder builder : seriesBuilders ) {
+         new WeightRecordingGraphSeries( progress, chart, builder );
+      }
    }//End Constructor
    
-   /**
-    * Method to provide an individual series for the given property, providing the running average
-    * along side it.
-    * @param propertyName the name of the property for the series name.
-    * @param propertyRetriever the {@link Function} to retrieve the property from the {@link WeighIn}.
-    */
-   private void provideSeriesForProperty( 
-            String propertyName, 
-            Function< WeighIn, ObjectProperty< Double > > propertyRetriever 
-   ){
-      Series< Number, Number > series = new Series<>();
-      series.setName( propertyName );
-      chart.getData().add(series);
-      
-      new WeightRecordingGraphModel(
-               progress, 
-               r -> r.date().toEpochDay() + 0.0,
-               r -> propertyRetriever.apply( r.morningWeighIn() ), 
-               series.getData() 
-      );
-      
-      new WeightRecordingGraphModel(
-               progress,
-               r -> r.date().toEpochDay() + 0.5,
-               r -> propertyRetriever.apply( r.eveningWeighIn() ), 
-               series.getData() 
-      );
-      
-      Series< Number, Number > average = new Series<>();
-      average.setName( propertyName + " Running Average" );
-      chart.getData().add( average );
-      
-      new WeightRecordingGraphModel(
-               progress, 
-               r -> r.date().toEpochDay() + 0.0,
-               r -> propertyRetriever.apply( r.runningAverage() ), 
-               average.getData() 
-      );
-   }//End Method
-
    /**
     * Access to the {@link WeightRecordingGraphController} for making changes to the graph.
     * @return the {@link WeightRecordingGraphController}.

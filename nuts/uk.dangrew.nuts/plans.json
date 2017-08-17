@@ -34,7 +34,7 @@
       ]
    },
    {
-      "name": "Wraps & Spag Bol",
+      "name": "Chicken (Work) & Spag Bol",
       "id": "3c1f715b-770c-496b-9cf0-c7b86bcb41de",
       "portions": [
          {
@@ -46,27 +46,27 @@
             "portionValue": 100
          },
          {
-            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "foodId": "c2367e8e-ffbd-445b-8e85-60c7177bf53f",
             "portionValue": 100
          },
          {
-            "foodId": "63a4f8cc-482e-4202-a68b-1516364b294d",
-            "portionValue": 100
-         },
-         {
-            "foodId": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
-            "portionValue": 200
+            "foodId": "13f6e37f-a363-4902-a5f7-3f8a2b9ecc3a",
+            "portionValue": 40
          },
          {
             "foodId": "fbe95d98-216d-4534-be62-df0cc1b0590f",
             "portionValue": 100
          },
          {
-            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
-            "portionValue": 200
+            "foodId": "33623d5c-c53b-4c70-877c-e1a6388261cb",
+            "portionValue": 100
          },
          {
-            "foodId": "6983bed5-ba70-4c56-8133-8937710c8a0a",
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 100
+         },
+         {
+            "foodId": "e17dc19e-a19b-4647-9e1b-58be498ee542",
             "portionValue": 100
          }
       ]

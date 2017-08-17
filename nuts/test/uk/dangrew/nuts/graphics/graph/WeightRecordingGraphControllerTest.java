@@ -30,13 +30,13 @@ public class WeightRecordingGraphControllerTest {
       assertThat( yAxis.isAutoRanging(), is( false ) );
    }//End Method
    
-   @Test public void shouldSetWeightLowerBound() {
-      systemUnderTest.setWeightLowerBound( 45.6 );
+   @Test public void shouldSetRecordingLowerBound() {
+      systemUnderTest.setRecordingLowerBound( 45.6 );
       assertThat( yAxis.getLowerBound(), is( 45.6 ) );
    }//End Method
    
-   @Test public void shouldSetWeightUpperBound() {
-      systemUnderTest.setWeightUpperBound( 45.6 );
+   @Test public void shouldSetRecordingUpperBound() {
+      systemUnderTest.setRecordingUpperBound( 45.6 );
       assertThat( yAxis.getUpperBound(), is( 45.6 ) );
    }//End Method
    

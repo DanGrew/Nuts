@@ -11,7 +11,10 @@ public class WeightRecordingGraphSettingsTest {
 
    @Ignore
    @Test public void manual() throws InterruptedException {
-      TestApplication.launch( () -> new WeightRecordingGraphSettings( mock( WeightRecordingGraphController.class ) ) );
+      TestApplication.launch( () -> new WeightRecordingGraphSettings( 
+               mock( WeightRecordingGraphController.class ), 
+               mock( WeightRecordingGraphController.class ) 
+      ) );
       
       Thread.sleep( 999999999 );
    }//End Method
