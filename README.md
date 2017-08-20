@@ -5,7 +5,7 @@ I've been spending a lot of time working hard to lose weight and through lots of
 
 # Goals
 
-I've put in the calculation for your base maintenance calories and a few options surrounding that. This is to avoid need to go online, find the calculation, grab a pen and paper and crunching numbers. I've tried to leave it open so you can adjust an part of it as you go along. Calculators do not work the same for everyone! You have to tweak it based on how your body responds.
+I've put in the calculation for your base maintenance calories and a few options surrounding that. This is to avoid the need to go online, find the calculation, grab a pen and paper and crunch some numbers. I've tried to leave it open so you can adjust any part of it as you go along. Calculators do not work the same for everyone! You have to tweak it based on how your body responds.
 
 Here's a screen shot for what the goals tab looks like.
 
