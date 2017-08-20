@@ -48,3 +48,7 @@ Controls, again, hopefully simple. Double click on cells and type straight in to
 A very big frustration of mine... rice! Why do they not jsut tell you the damn calories in an understandable form, why do I need a calculator!?! Here's a simple dry weight tool to do the calculations for you.
 
 ![Tools](/nuts/documentation/images/dry-weight-calculator.png)
+
+# Saving and Loading
+
+I have only implemented what I've needed and I've kept it simple. The system loads from predefined files (located with the jar) on start up, no real need to load after that. Save is NOT automatic and saves EVERYTHING. Every time you make a change and want to keep it, just hit save at the top - easy. All data is stored in json files so you can reuse the data for anything you like. There are tons of random strings in the data, these are just unique ids to separate objects in the system - no name clashes! All data is your own and nothing to do with me :).
