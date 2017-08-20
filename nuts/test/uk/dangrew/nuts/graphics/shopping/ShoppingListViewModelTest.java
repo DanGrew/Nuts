@@ -62,6 +62,13 @@ public class ShoppingListViewModelTest {
       assertRowsMatchStockUsage();
    }//End Method
    
+   @Test public void shouldRepopulateRowThatHasPreviouslyBeenRemoved(){
+      FoodPortion portion = list.portions().remove( 0 );
+      assertRowsMatchStockUsage();
+      list.portions().add( 0, portion );
+      assertRowsMatchStockUsage();
+   }//End Method
+   
    /**
     * Method to assert that the {@link uk.dangrew.nuts.meal.StockUsage} matches the content of the table.
     */

@@ -9,7 +9,7 @@
          },
          {
             "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-            "portionValue": 100
+            "portionValue": 200
          }
       ]
    },
@@ -220,7 +220,7 @@
       ]
    },
    {
-      "name": "Chicken Omelete",
+      "name": "Chicken Omelete (Low Fat)",
       "id": "cd557551-5583-4e26-9fc1-d1f52dad5d8c",
       "portions": [
          {
@@ -228,24 +228,24 @@
             "portionValue": 220
          },
          {
-            "foodId": "de3c984c-f742-4cf7-98fd-501e40fa2291",
-            "portionValue": 300
+            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
+            "portionValue": 400
          },
          {
             "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 35
+            "portionValue": 20
          },
          {
             "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 35
+            "portionValue": 20
          },
          {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 100
+            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
+            "portionValue": 20
          },
          {
             "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 100
+            "portionValue": 50
          }
       ]
    },
@@ -290,20 +290,12 @@
       "id": "c2367e8e-ffbd-445b-8e85-60c7177bf53f",
       "portions": [
          {
-            "foodId": "dc1cbb9a-f433-48b5-98ab-faf32e6488b0",
+            "foodId": "202a886e-5476-4634-a5d6-6f4a57363d09",
             "portionValue": 100
          },
          {
             "foodId": "f1b67d97-0b96-4c75-9413-a6854d4f8eb7",
             "portionValue": 400
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 100
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 100
          },
          {
             "foodId": "4cb19977-c124-4de5-9161-e19f2b35f4f7",
@@ -324,15 +316,23 @@
             "portionValue": 400
          },
          {
-            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 80
-         },
-         {
             "foodId": "58680bd8-1ce4-437c-8b57-02b5547856ff",
             "portionValue": 200
          },
          {
-            "foodId": "fbe95d98-216d-4534-be62-df0cc1b0590f",
+            "foodId": "25537031-a23f-421b-b991-f80104811537",
+            "portionValue": 80
+         },
+         {
+            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
+            "portionValue": 100
+         },
+         {
+            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
+            "portionValue": 100
+         },
+         {
+            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
             "portionValue": 100
          }
       ]
@@ -462,6 +462,36 @@
          {
             "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
             "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Chicken Omelette",
+      "id": "36000569-3640-498a-8911-7abb877c6c89",
+      "portions": [
+         {
+            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
+            "portionValue": 220
+         },
+         {
+            "foodId": "de3c984c-f742-4cf7-98fd-501e40fa2291",
+            "portionValue": 300
+         },
+         {
+            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
+            "portionValue": 35
+         },
+         {
+            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
+            "portionValue": 35
+         },
+         {
+            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
+            "portionValue": 30
+         },
+         {
+            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
+            "portionValue": 50
          }
       ]
    }

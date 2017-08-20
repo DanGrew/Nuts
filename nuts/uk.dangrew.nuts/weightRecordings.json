@@ -1036,11 +1036,38 @@
    },
    {
       "date": "2017-08-17",
+      "eveningBodyFat": 18.5,
+      "eveningWeight": 194.3,
+      "eveningLeanMass": 0,
+      "morningWeight": 194.7,
+      "morningBodyFat": 18.9,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-18",
       "eveningBodyFat": 0,
       "eveningWeight": 0,
       "eveningLeanMass": 0,
-      "morningWeight": 0,
-      "morningBodyFat": 0,
+      "morningWeight": 195.4,
+      "morningBodyFat": 18.6,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-19",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 193.7,
+      "morningBodyFat": 18.5,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-20",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 194.5,
+      "morningBodyFat": 18.6,
       "morningLeanMass": 0
    }
 ]}

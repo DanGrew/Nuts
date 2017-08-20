@@ -968,5 +968,15 @@
       "name": "Tomato Sauce (100ml)",
       "id": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
       "calories": 96
+   },
+   {
+      "carbohydrates": 3.6,
+      "fats": 0.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.7,
+      "name": "Cucumber (100g)",
+      "id": "9688aa69-8c42-4274-9dc5-760335b2ca24",
+      "calories": 16
    }
 ]}

@@ -25,6 +25,7 @@ class ShoppingListViewModel {
 
    private final Map< FoodItem, ObjectProperty< Double > > requiredProperties;
    private final Map< FoodItem, ObjectProperty< Double > > toBuyProperties;
+   private final Map< FoodItem, ShoppingListRow > rows;
    
    private ShoppingListTable table;
    private Meal list;
@@ -35,6 +36,7 @@ class ShoppingListViewModel {
    ShoppingListViewModel() {
       this.requiredProperties = new HashMap<>();
       this.toBuyProperties = new HashMap<>();
+      this.rows = new HashMap<>();
    }//End Constructor
    
    /**
@@ -92,7 +94,12 @@ class ShoppingListViewModel {
                   item, 
                   requiredProperties.get( item ), 
                   toBuyProperties.get( item ) );
-         table.getRows().add( row );
+         rows.put( item, row );
+      }
+      
+      ShoppingListRow itemRow = rows.get( item );
+      if ( !table.getRows().contains( itemRow ) ) {
+         table.getRows().add( itemRow );
       }
    }//End Method
    
