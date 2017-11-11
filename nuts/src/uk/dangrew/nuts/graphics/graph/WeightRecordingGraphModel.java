@@ -27,6 +27,7 @@ import uk.dangrew.nuts.progress.WeightRecording;
  */
 public class WeightRecordingGraphModel {
 
+   private final String modelName;
    private final WeightProgress progress;
    private final Function< WeightRecording, Double > dateRetriever;
    private final Function< WeightRecording, ObjectProperty< Double > > propertyRetriever;
@@ -43,11 +44,13 @@ public class WeightRecordingGraphModel {
     * @param series the {@link ObservableList} of points to manage.
     */
    public WeightRecordingGraphModel( 
+            String modelName,
             WeightProgress progress,
             Function< WeightRecording, Double > dateRetriever,
             Function< WeightRecording, ObjectProperty< Double > > propertyRetriever,
             ObservableList< Data< Number, Number > > series 
    ) {
+      this.modelName = modelName;
       this.progress = progress;
       this.dateRetriever = dateRetriever;
       this.propertyRetriever = propertyRetriever;
@@ -57,6 +60,10 @@ public class WeightRecordingGraphModel {
       this.propertyChangeListener = ( s, o, n ) -> this.updateDataPoint( s );
       this.progress.records().forEach( this::constructDataPoint );
    }//End Constructor
+   
+   public String modelName(){
+      return modelName;
+   }//End Method
    
    /**
     * Method to construct a data point for the given {@link WeightRecording}, automatically added to the series if present.
@@ -86,8 +93,12 @@ public class WeightRecordingGraphModel {
          series.remove( dataPoint );
       } else if ( !series.contains( dataPoint ) ){
          series.add( dataPoint );
-         Collections.sort( series, ( o1, o2 ) -> Double.compare( o1.getXValue().doubleValue(), o2.getXValue().doubleValue() ) );
+         sortSeries();
       }
+   }//End Method
+   
+   private void sortSeries(){
+      Collections.sort( series, ( o1, o2 ) -> Double.compare( o1.getXValue().doubleValue(), o2.getXValue().doubleValue() ) );
    }//End Method
    
    /**
@@ -98,6 +109,15 @@ public class WeightRecordingGraphModel {
     */
    Data< Number, Number > dataFor( WeightRecording record ) {
       return dataPoints.get( propertyRetriever.apply( record ) );
+   }//End Method
+
+   public void hide() {
+      series.clear();
+   }//End Method
+
+   public void show() {
+      series.addAll( dataPoints.values() );
+      sortSeries();
    }//End Method
 
 }//End Class

@@ -30,14 +30,20 @@ public class WeightRecordingGraphModelTest {
       series = FXCollections.observableArrayList();
       progress = new WeightProgress();
       
+      
       dateRetriever = r -> r.date().toEpochDay() + 0.0;
       propertyRetriever = r -> r.morningWeighIn().bodyFat();
       systemUnderTest = new WeightRecordingGraphModel(
+               "The Model",
                progress, 
                dateRetriever, 
                propertyRetriever, 
                series 
       );
+   }//End Method
+   
+   @Test public void shouldProvideModelName(){
+      assertThat( systemUnderTest.modelName(), is( "The Model" ) );
    }//End Method
 
    @Test public void shouldProvideDataForEachDate() {
@@ -83,4 +89,18 @@ public class WeightRecordingGraphModelTest {
       assertThat( series.get( 1 ), is( systemUnderTest.dataFor( first ) ) );
    }//End Method
 
+   @Test public void shouldClearSeriesPoints(){
+      shouldReplaceSeries();
+      systemUnderTest.hide();
+      assertThat( series, is( empty() ) );
+   }//End Method
+   
+   @Test public void shouldReplaceSeries(){
+      assertThat( series, is( empty() ) );
+      systemUnderTest.show();
+      for ( int i = 0; i < progress.records().size(); i++ ) {
+         WeightRecording record = progress.records().get( i );
+         assertThat( series.get( i ), is( systemUnderTest.dataFor( record ) ) );
+      }
+   }//End Method
 }//End Class

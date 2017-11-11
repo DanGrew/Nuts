@@ -73,7 +73,7 @@
          },
          {
             "foodId": "8f76b1b3-8601-456b-a8ae-9e4552263da8",
-            "portionValue": 88
+            "portionValue": 80
          }
       ]
    },
@@ -126,8 +126,8 @@
       "id": "71376593-3eb5-4095-8009-9e88a8ff6da0",
       "portions": [
          {
-            "foodId": "4adf2167-11ad-40d0-8b8e-e81a81ff971f",
-            "portionValue": 300
+            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
+            "portionValue": 220
          },
          {
             "foodId": "da0203e0-1deb-4a5f-9d7c-6d40a1cb393c",
@@ -139,7 +139,7 @@
          },
          {
             "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 50
+            "portionValue": 0
          }
       ]
    },
@@ -148,15 +148,11 @@
       "id": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
       "portions": [
          {
-            "foodId": "a260b804-04c6-425b-9069-2739e0b9e63c",
+            "foodId": "2b897bd8-0502-4b9b-a706-5a6b600a8cae",
             "portionValue": 200
          },
          {
             "foodId": "202a886e-5476-4634-a5d6-6f4a57363d09",
-            "portionValue": 100
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
             "portionValue": 100
          },
          {
@@ -165,11 +161,31 @@
          },
          {
             "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
+            "portionValue": 0
+         },
+         {
+            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
+            "portionValue": 200
+         },
+         {
+            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
+            "portionValue": 100
+         },
+         {
+            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
             "portionValue": 100
          },
          {
             "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
             "portionValue": 100
+         },
+         {
+            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
+            "portionValue": 200
+         },
+         {
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 300
          }
       ]
    },
@@ -258,11 +274,11 @@
             "portionValue": 200
          },
          {
-            "foodId": "fc9142f2-7e9a-4c4d-8a84-67ef136a510b",
-            "portionValue": 66
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+            "portionValue": 300
          },
          {
-            "foodId": "2c2f8a08-8e75-4bbc-8b3b-e4499bf1e2fd",
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
             "portionValue": 100
          }
       ]
@@ -276,12 +292,12 @@
             "portionValue": 200
          },
          {
-            "foodId": "06f43c72-8a98-4724-ac56-518fc1d3babe",
-            "portionValue": 200
+            "foodId": "aa9e464f-79f6-4cb4-ba7f-c39b3cbc36b2",
+            "portionValue": 300
          },
          {
-            "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
-            "portionValue": 300
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 100
          }
       ]
    },
@@ -298,8 +314,16 @@
             "portionValue": 400
          },
          {
-            "foodId": "4cb19977-c124-4de5-9161-e19f2b35f4f7",
-            "portionValue": 200
+            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
+            "portionValue": 80
+         },
+         {
+            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
+            "portionValue": 100
          }
       ]
    },
@@ -391,11 +415,11 @@
       "portions": [
          {
             "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
-            "portionValue": 180
+            "portionValue": 220
          },
          {
             "foodId": "0315ab9b-6d5c-4de9-a27f-a6c6242abb79",
-            "portionValue": 200
+            "portionValue": 250
          },
          {
             "foodId": "382133bb-eba1-4692-a25e-aea25ee534c1",
@@ -408,24 +432,24 @@
       ]
    },
    {
-      "name": "Scottish Burgers Meal",
+      "name": "Pizza Meal",
       "id": "95515894-bd29-440c-9c80-2c396043554f",
       "portions": [
          {
-            "foodId": "40efd720-445c-453c-b0ad-2b427ed7bd69",
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+            "portionValue": 300
+         },
+         {
+            "foodId": "32800b14-6994-4ec0-a094-e6c1b204c9c4",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2c2f8a08-8e75-4bbc-8b3b-e4499bf1e2fd",
+            "portionValue": 100
+         },
+         {
+            "foodId": "62ea16cc-e207-4383-a026-6957007cd5da",
             "portionValue": 200
-         },
-         {
-            "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
-            "portionValue": 200
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 50
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 50
          }
       ]
    },
@@ -475,15 +499,15 @@
          },
          {
             "foodId": "de3c984c-f742-4cf7-98fd-501e40fa2291",
-            "portionValue": 300
+            "portionValue": 400
          },
          {
             "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 35
+            "portionValue": 25
          },
          {
             "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 35
+            "portionValue": 25
          },
          {
             "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
@@ -492,6 +516,586 @@
          {
             "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
             "portionValue": 50
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Chicken Korma",
+      "id": "0416f52a-bb2e-42e1-b95f-f9022cdc634d",
+      "portions": [
+         {
+            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
+            "portionValue": 220
+         },
+         {
+            "foodId": "f6e0b1fa-354f-40d9-be1c-270c011a306c",
+            "portionValue": 200
+         },
+         {
+            "foodId": "da0203e0-1deb-4a5f-9d7c-6d40a1cb393c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
+            "portionValue": 0
+         },
+         {
+            "foodId": "128c5c55-7d83-46dc-a89e-3f22f0adfe50",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Whey Shake (Simple)",
+      "id": "33f14c3a-9c54-4cd5-8760-cb137a9b3c84",
+      "portions": [
+         {
+            "foodId": "98d49c0f-f691-4844-a2ed-88dffb7197d0",
+            "portionValue": 100
+         },
+         {
+            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Gnocchi Tuna Salad ",
+      "id": "01acac3a-a045-4f62-b108-576d70fe3ec3",
+      "portions": [
+         {
+            "foodId": "9ce660c9-c66f-406f-89d4-23c6b98def8d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
+            "portionValue": 102
+         },
+         {
+            "foodId": "58680bd8-1ce4-437c-8b57-02b5547856ff",
+            "portionValue": 100
+         },
+         {
+            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
+            "portionValue": 0
+         },
+         {
+            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
+            "portionValue": 0
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Turkey Sausage Meal",
+      "id": "bab39187-8d92-4bfc-b73b-5f2dba45a519",
+      "portions": [
+         {
+            "foodId": "5a68f255-2092-4ff8-a068-d9aec5a97e58",
+            "portionValue": 200
+         },
+         {
+            "foodId": "4fbf7124-fb94-455e-86e8-9eaa836ab1f3",
+            "portionValue": 0
+         },
+         {
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+            "portionValue": 300
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Gnocchi & Eggs",
+      "id": "9632f3e8-7f9d-428a-bece-c44c776add48",
+      "portions": [
+         {
+            "foodId": "2c1c545a-c10e-485b-9918-f98f5dc69015",
+            "portionValue": 200
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
+            "portionValue": 50
+         },
+         {
+            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
+            "portionValue": 50
+         },
+         {
+            "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
+            "portionValue": 0
+         },
+         {
+            "foodId": "a555cb46-6962-4bea-b408-173862dc6427",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Omelette Plain",
+      "id": "1c4bd566-b8fa-4e2a-ba77-ae6b712e0e77",
+      "portions": [
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
+            "portionValue": 50
+         },
+         {
+            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
+            "portionValue": 50
+         },
+         {
+            "foodId": "a555cb46-6962-4bea-b408-173862dc6427",
+            "portionValue": 100
+         },
+         {
+            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
+            "portionValue": 0
+         },
+         {
+            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
+            "portionValue": 0
+         },
+         {
+            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
+            "portionValue": 0
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Mince Bolognaise",
+      "id": "1ed2364a-946f-465b-b4b7-99466f143adb",
+      "portions": [
+         {
+            "foodId": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
+            "portionValue": 150
+         },
+         {
+            "foodId": "f701d927-96bd-46b6-a9db-90259104f192",
+            "portionValue": 250
+         },
+         {
+            "foodId": "ca71c78d-958e-490a-b184-971223817dfa",
+            "portionValue": 0
+         },
+         {
+            "foodId": "8f76b1b3-8601-456b-a8ae-9e4552263da8",
+            "portionValue": 0
+         },
+         {
+            "foodId": "02ce99af-2cb8-492d-a11c-6bdbc081194c",
+            "portionValue": 0
+         },
+         {
+            "foodId": "44bd1712-53c2-4b4f-bea9-bb762cc87ee8",
+            "portionValue": 0
+         },
+         {
+            "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
+            "portionValue": 0
+         },
+         {
+            "foodId": "b6fbfa6e-dd62-4e4d-b06b-72e00f754028",
+            "portionValue": 0
+         },
+         {
+            "foodId": "7c8ddcdd-e6ea-49fd-8320-1cd0a81ce100",
+            "portionValue": 0
+         },
+         {
+            "foodId": "497b2962-7225-4448-9e44-ef9dd9e50134",
+            "portionValue": 120
+         },
+         {
+            "foodId": "47277f97-b2f8-44ee-bb76-a890bd7a4bda",
+            "portionValue": 0
+         },
+         {
+            "foodId": "47697f0f-8d00-4bf8-a196-6216ad44b938",
+            "portionValue": 0
+         },
+         {
+            "foodId": "c600d153-94a5-4d89-a874-7d7e133e88dd",
+            "portionValue": 0
+         },
+         {
+            "foodId": "44bd1712-53c2-4b4f-bea9-bb762cc87ee8",
+            "portionValue": 0
+         },
+         {
+            "foodId": "fb4b766a-baae-448f-9892-f15fd010ce9a",
+            "portionValue": 0
+         },
+         {
+            "foodId": "7635391d-3975-47cf-921e-5edd06c220d0",
+            "portionValue": 0
+         },
+         {
+            "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
+            "portionValue": 0
+         },
+         {
+            "foodId": "2b4cc1cc-1e50-4876-abaa-98909137a4ec",
+            "portionValue": 120
+         },
+         {
+            "foodId": "e7716114-4adf-4770-b638-315ca8f9fc6a",
+            "portionValue": 120
+         },
+         {
+            "foodId": "bb36c4e8-8a75-4763-a25e-1461bd51f228",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Tuna Jacket",
+      "id": "ccbc57d3-adcb-4e1c-9dbf-96be520dd9b7",
+      "portions": [
+         {
+            "foodId": "60f2a615-ba1e-4b5e-b009-16d0d4089642",
+            "portionValue": 400
+         },
+         {
+            "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
+            "portionValue": 200
+         },
+         {
+            "foodId": "58680bd8-1ce4-437c-8b57-02b5547856ff",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Tuna Omelette",
+      "id": "f758bba2-eabb-4a25-93fc-bf6897dc1576",
+      "portions": [
+         {
+            "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 400
+         },
+         {
+            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
+            "portionValue": 40
+         },
+         {
+            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
+            "portionValue": 25
+         },
+         {
+            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
+            "portionValue": 0
+         },
+         {
+            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
+            "portionValue": 0
+         },
+         {
+            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
+            "portionValue": 40
+         }
+      ]
+   },
+   {
+      "name": "Chicken Nugget Meal",
+      "id": "34094c45-862e-4f3d-ae00-40de2f2e9c50",
+      "portions": [
+         {
+            "foodId": "093c4cce-e195-408b-85af-909a250c7625",
+            "portionValue": 400
+         },
+         {
+            "foodId": "aa9e464f-79f6-4cb4-ba7f-c39b3cbc36b2",
+            "portionValue": 300
+         },
+         {
+            "foodId": "fc9142f2-7e9a-4c4d-8a84-67ef136a510b",
+            "portionValue": 66
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Meatball Meal",
+      "id": "96b2ff99-a40b-4bfa-b0be-31fec6bfa71a",
+      "portions": [
+         {
+            "foodId": "95163ca8-8ee0-45d9-9234-311610c02d78",
+            "portionValue": 200
+         },
+         {
+            "foodId": "93f37599-8bf0-4cc0-8f59-28aec3db3a2e",
+            "portionValue": 100
+         },
+         {
+            "foodId": "f701d927-96bd-46b6-a9db-90259104f192",
+            "portionValue": 250
+         },
+         {
+            "foodId": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
+            "portionValue": 150
+         }
+      ]
+   },
+   {
+      "name": "Quorn Fillet Meal",
+      "id": "678b387e-da1f-4b06-ba53-92d1dc71e563",
+      "portions": [
+         {
+            "foodId": "093c4cce-e195-408b-85af-909a250c7625",
+            "portionValue": 400
+         },
+         {
+            "foodId": "aa9e464f-79f6-4cb4-ba7f-c39b3cbc36b2",
+            "portionValue": 300
+         },
+         {
+            "foodId": "2c2f8a08-8e75-4bbc-8b3b-e4499bf1e2fd",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Salad",
+      "id": "ecb58e83-6187-4fad-838b-43f0c552a772",
+      "portions": [
+         {
+            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
+            "portionValue": 100
+         },
+         {
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 100
+         },
+         {
+            "foodId": "25537031-a23f-421b-b991-f80104811537",
+            "portionValue": 100
+         },
+         {
+            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
+            "portionValue": 100
+         },
+         {
+            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
+            "portionValue": 100
+         },
+         {
+            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
+            "portionValue": 0
+         },
+         {
+            "foodId": "4f4c7ca1-4804-4823-b778-150f76e9dc0d",
+            "portionValue": 0
+         },
+         {
+            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
+            "portionValue": 100
+         },
+         {
+            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Tuna Salad",
+      "id": "955fb8f5-34ec-455a-9688-828b99bbdb81",
+      "portions": [
+         {
+            "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "58680bd8-1ce4-437c-8b57-02b5547856ff",
+            "portionValue": 100
+         },
+         {
+            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
+            "portionValue": 100
+         },
+         {
+            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
+            "portionValue": 100
+         },
+         {
+            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
+            "portionValue": 200
+         },
+         {
+            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
+            "portionValue": 200
+         },
+         {
+            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
+            "portionValue": 0
+         },
+         {
+            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
+            "portionValue": 200
+         },
+         {
+            "foodId": "25537031-a23f-421b-b991-f80104811537",
+            "portionValue": 200
+         },
+         {
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 500
+         }
+      ]
+   },
+   {
+      "name": "Lindas Sausages",
+      "id": "b031b16a-301d-4f53-a230-4198e17085cb",
+      "portions": [
+         {
+            "foodId": "9f3a5f05-d72f-4546-a7ce-070153b8b262",
+            "portionValue": 200
+         },
+         {
+            "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
+            "portionValue": 300
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Tuna & Soya",
+      "id": "42572c74-fe0a-4b10-8ed2-b0f47f564527",
+      "portions": [
+         {
+            "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "204990f0-6bc8-4de7-8e40-1335a59b8a95",
+            "portionValue": 50
+         },
+         {
+            "foodId": "bfde2715-8e4c-4bc8-8a76-c81927313538",
+            "portionValue": 200
+         },
+         {
+            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Meat & Veg",
+      "id": "675f4bb9-35f1-4d49-9ef1-1bc859430a20",
+      "portions": [
+         {
+            "foodId": "21f55b82-4791-4253-90ea-7574b94a210c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
+            "portionValue": 200
+         },
+         {
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+            "portionValue": 300
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Sausage & Mash",
+      "id": "7e6f6482-49fb-4c8e-8779-bb7d886c5e72",
+      "portions": [
+         {
+            "foodId": "17ab1ee6-7fb4-4e80-a388-c1afc135c311",
+            "portionValue": 200
+         },
+         {
+            "foodId": "4fbf7124-fb94-455e-86e8-9eaa836ab1f3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Jacket Potato",
+      "id": "785d916e-b61c-4d76-909f-1fda2b15ef1a",
+      "portions": [
+         {
+            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
+            "portionValue": 350
+         },
+         {
+            "foodId": "a555cb46-6962-4bea-b408-173862dc6427",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4000035b-0c20-471a-9153-76aeb6d26eda",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Something and Veg",
+      "id": "75ca936a-04c3-4ae8-8b24-e3147e6a2068",
+      "portions": [
+         {
+            "foodId": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
+            "portionValue": 200
+         },
+         {
+            "foodId": "7265ad97-8d0e-4e3c-80cb-c6d120153364",
+            "portionValue": 200
+         },
+         {
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+            "portionValue": 300
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 200
          }
       ]
    }

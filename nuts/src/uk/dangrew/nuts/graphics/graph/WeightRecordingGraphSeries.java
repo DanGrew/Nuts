@@ -34,6 +34,7 @@ public class WeightRecordingGraphSeries {
       chart.getData().add( series );
       
       new WeightRecordingGraphModel(
+               "Morning " + builder.seriesName(),
                progress, 
                r -> r.date().toEpochDay() + 0.0,
                r -> builder.propertyRetriever().apply( r.morningWeighIn() ), 
@@ -41,6 +42,7 @@ public class WeightRecordingGraphSeries {
       );
       
       new WeightRecordingGraphModel(
+               "Evening " + builder.seriesName(),
                progress,
                r -> r.date().toEpochDay() + 0.5,
                r -> builder.propertyRetriever().apply( r.eveningWeighIn() ), 
@@ -52,6 +54,7 @@ public class WeightRecordingGraphSeries {
       chart.getData().add( average );
       
       new WeightRecordingGraphModel(
+               average.getName(),
                progress, 
                r -> r.date().toEpochDay() + 0.0,
                r -> builder.propertyRetriever().apply( r.runningAverage() ), 

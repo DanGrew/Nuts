@@ -1,17 +1,17 @@
 {"goal": {
    "gender": "Male",
    "fatPerPound": 0.35,
-   "bmr": 1985.06,
-   "weight": 197,
-   "calorieGoal": 2579.08,
-   "calorieDeficit": 200,
-   "carbohydratesGoal": 292.63,
-   "fatsGoal": 68.95,
-   "tee": 2779.08,
-   "proteinPerPound": 1,
+   "bmr": 1952.4,
+   "weight": 192,
+   "calorieGoal": 2433.36,
+   "calorieDeficit": 300,
+   "carbohydratesGoal": 303.54,
+   "fatsGoal": 67.19999999999999,
+   "tee": 2733.36,
+   "proteinPerPound": 0.8,
    "pal": 1.4,
    "exerciseCalories": 0,
    "age": 28,
    "height": 1.87,
-   "proteinGoal": 197
+   "proteinGoal": 153.60000000000002
 }}

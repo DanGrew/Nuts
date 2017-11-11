@@ -1063,11 +1063,299 @@
    },
    {
       "date": "2017-08-20",
-      "eveningBodyFat": 0,
-      "eveningWeight": 0,
+      "eveningBodyFat": 18.6,
+      "eveningWeight": 193.1,
       "eveningLeanMass": 0,
       "morningWeight": 194.5,
       "morningBodyFat": 18.6,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-21",
+      "eveningBodyFat": 18.4,
+      "eveningWeight": 193,
+      "eveningLeanMass": 0,
+      "morningWeight": 193.4,
+      "morningBodyFat": 18.7,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-22",
+      "eveningBodyFat": 18.1,
+      "eveningWeight": 191.8,
+      "eveningLeanMass": 0,
+      "morningWeight": 193.5,
+      "morningBodyFat": 18.4,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-23",
+      "eveningBodyFat": 17.8,
+      "eveningWeight": 190.5,
+      "eveningLeanMass": 0,
+      "morningWeight": 193.1,
+      "morningBodyFat": 18.2,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-24",
+      "eveningBodyFat": 17,
+      "eveningWeight": 193.6,
+      "eveningLeanMass": 0,
+      "morningWeight": 192.1,
+      "morningBodyFat": 16.6,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-25",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-26",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-27",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-28",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-29",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-30",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-08-31",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-01",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-02",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-03",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-04",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-05",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-06",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-07",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-08",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-09",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-10",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-11",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-12",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-13",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-14",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-15",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-16",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-17",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-18",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-19",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-20",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2017-09-21",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
       "morningLeanMass": 0
    }
 ]}
