@@ -25,9 +25,4 @@ public interface Food {
     */
    public FoodAnalytics foodAnalytics();
    
-   /**
-    * Access to the {@link GoalAnalytics} associated.
-    * @return the {@link GoalAnalytics}.
-    */
-   public GoalAnalytics goalAnalytics();
 }//End Interface

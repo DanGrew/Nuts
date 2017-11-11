@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.meal;
+package uk.dangrew.nuts.template;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -7,25 +7,31 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MealStoreTest {
+import uk.dangrew.nuts.goal.Goal;
 
-   private Meal food;
-   private MealStore systemUnderTest;
+public class TemplateStoreTest {
+
+   private Goal goal;
+   private Template food;
+   private TemplateStore systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      food = new Meal( "Meal" );
-      systemUnderTest = new MealStore();
+      food = new Template( "Meal" );
+      goal = new Goal( "Goal" );
+      systemUnderTest = new TemplateStore( goal );
    }//End Method
 
    @Test public void shouldStoreById() {
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
+      assertThat( food.goalAnalytics().goal().get(), is( goal ) );
    }//End Method
    
    @Test public void shouldCreateNew() {
-      Meal newFood = systemUnderTest.createFood( "NewName" );
+      Template newFood = systemUnderTest.createFood( "NewName" );
       assertThat( systemUnderTest.get( newFood.properties().id() ), is( newFood ) );
+      assertThat( newFood.goalAnalytics().goal().get(), is( goal ) );
    }//End Method
    
    @Test public void shouldRemoveExisting() {
@@ -33,6 +39,7 @@ public class MealStoreTest {
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
       systemUnderTest.removeFood( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
+      assertThat( food.goalAnalytics().goal().get(), is( nullValue() ) );
    }//End Method
 
 }//End Class

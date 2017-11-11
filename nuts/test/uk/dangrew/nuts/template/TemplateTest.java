@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.meal;
+package uk.dangrew.nuts.template;
 
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
@@ -16,9 +16,15 @@ import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
+import uk.dangrew.nuts.meal.MealChangeListener;
+import uk.dangrew.nuts.meal.MealPropertiesCalculator;
+import uk.dangrew.nuts.meal.MealRegistrations;
+import uk.dangrew.nuts.meal.StockUsage;
 
-public class MealTest {
+public class TemplateTest {
 
    @Mock private MealChangeListener listener;
    
@@ -29,11 +35,13 @@ public class MealTest {
    
    private FoodProperties properties;
    private FoodAnalytics foodAnalytics;
+   private GoalAnalytics goalAnalytics;
    @Spy private MacroRatioCalculator ratioCalculator;
    @Mock private MealRegistrations registrations;
    @Mock private MealPropertiesCalculator propertiesCalculator;
+   @Spy private MacroGoalRatioCalculator goalRatioCalculator;
    @Spy private StockUsage stockUsage;
-   private Meal systemUnderTest;
+   private Template systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
@@ -45,18 +53,21 @@ public class MealTest {
       
       properties = new FoodProperties( "anything" );
       foodAnalytics = new FoodAnalytics();
-      systemUnderTest = new Meal(
+      goalAnalytics = new GoalAnalytics();
+      systemUnderTest = new Template(
                properties, 
                foodAnalytics, 
+               goalAnalytics,
                registrations, 
                propertiesCalculator, 
                ratioCalculator,
+               goalRatioCalculator,
                stockUsage
       );
    }//End Method
    
    @Test public void shouldUseName(){
-      systemUnderTest = new Meal( "Name" );
+      systemUnderTest = new Template( "Name" );
       assertThat( systemUnderTest.properties().nameProperty().get(), is( "Name" ) );
    }//End Method
 
@@ -88,6 +99,14 @@ public class MealTest {
    
    @Test public void shouldAssociateRatioCalculator(){
       verify( ratioCalculator ).associate( properties, foodAnalytics );
+   }//End Method
+   
+   @Test public void shouldProvideGoalAnalytics(){
+      assertThat( systemUnderTest.goalAnalytics(), is( goalAnalytics ) );
+   }//End Method
+   
+   @Test public void shouldAssociateGoalRatioCalculator(){
+      verify( goalRatioCalculator ).associate( properties, goalAnalytics );
    }//End Method
    
    @Test public void shouldProvideStockUsage(){

@@ -16,13 +16,14 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.template.Template;
 
 public class MealPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      MealPersistence persistence = new MealPersistence( database, database.meals() );
+      MealPersistence< Meal > persistence = new MealPersistence<>( database, database.meals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
       JSONObject json = new JSONObject( value );
@@ -94,7 +95,7 @@ public class MealPersistenceTest {
       foodItemPersistence.structure().build( foodItemJson );
       foodItemPersistence.writeHandles().parse( foodItemJson );
       
-      MealPersistence persistence = new MealPersistence( database, database.meals() );
+      MealPersistence< Meal > persistence = new MealPersistence<>( database, database.meals() );
       JSONObject mealJson = new JSONObject();
       persistence.structure().build( mealJson );
       persistence.writeHandles().parse( mealJson );
@@ -108,7 +109,7 @@ public class MealPersistenceTest {
       foodItemPersistence.readHandles().parse( foodItemJson );
       assertThat( database.foodItems().objectList(), hasSize( 4 ) );
       
-      persistence = new MealPersistence( database, database.meals() );
+      persistence = new MealPersistence<>( database, database.meals() );
       
       assertThat( database.meals().objectList(), is( empty() ) );
       persistence.readHandles().parse( mealJson );
@@ -125,36 +126,36 @@ public class MealPersistenceTest {
    @Test public void shouldResolvePlans(){
       Database database = new Database();
       
-      Meal plan = new Meal( "99987", "plan" );
-      database.plans().store( plan );
+      Template template = new Template( "99987", "template" );
+      database.templates().store( template );
       
       Meal shoppingList = new Meal( "Shopping" );
-      shoppingList.portions().add( new FoodPortion( plan, 100 ) );
+      shoppingList.portions().add( new FoodPortion( template, 100 ) );
       database.shoppingLists().store( shoppingList );
       
-      MealPersistence planPersistence = new MealPersistence( database, database.plans() );
+      MealPersistence< Template > planPersistence = new MealPersistence<>( database, database.templates() );
       JSONObject planJson = new JSONObject();
       planPersistence.structure().build( planJson );
       planPersistence.writeHandles().parse( planJson );
       
-      MealPersistence shoppingPersistence = new MealPersistence( database, database.shoppingLists() );
+      MealPersistence< Meal > shoppingPersistence = new MealPersistence<>( database, database.shoppingLists() );
       JSONObject shoppingJson = new JSONObject();
       shoppingPersistence.structure().build( shoppingJson );
       shoppingPersistence.writeHandles().parse( shoppingJson );
       
       database = new Database();
-      planPersistence = new MealPersistence( database, database.plans() );
-      assertThat( database.plans().objectList(), is( empty() ) );
+      planPersistence = new MealPersistence<>( database, database.templates() );
+      assertThat( database.templates().objectList(), is( empty() ) );
       planPersistence.readHandles().parse( planJson );
-      assertThat( database.plans().objectList(), hasSize( 1 ) );
+      assertThat( database.templates().objectList(), hasSize( 1 ) );
       
-      shoppingPersistence = new MealPersistence( database, database.shoppingLists() );
+      shoppingPersistence = new MealPersistence<>( database, database.shoppingLists() );
       assertThat( database.shoppingLists().objectList(), is( empty() ) );
       shoppingPersistence.readHandles().parse( shoppingJson );
       assertThat( database.shoppingLists().objectList(), hasSize( 1 ) );
       
       Meal readPlan = database.shoppingLists().objectList().get( 0 );
-      assertThat( readPlan.portions().get( 0 ).food().get(), is( database.plans().objectList().get( 0 ) ) );
+      assertThat( readPlan.portions().get( 0 ).food().get(), is( database.templates().objectList().get( 0 ) ) );
    }//End Method
 
    private void assertMealProperties(

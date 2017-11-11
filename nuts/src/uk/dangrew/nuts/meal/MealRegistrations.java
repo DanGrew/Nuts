@@ -42,7 +42,7 @@ public class MealRegistrations {
     * Associate the registrations with the given {@link Meal}.
     * @param meal the {@link Meal} to associate with, only one allowed.
     */
-   void associate( Meal meal ) {
+   public void associate( Meal meal ) {
       if ( this.meal != null ){
          throw new IllegalStateException( "Already associated." );
       }
@@ -51,9 +51,6 @@ public class MealRegistrations {
       meal.portions().addListener( new FunctionListChangeListenerImpl<>( 
                this::portionAdded, this::portionRemoved 
       ) );
-      meal.goalAnalytics().carbohydratesRatioProperty().addListener( valueNotifier );
-      meal.goalAnalytics().fatsRatioProperty().addListener( valueNotifier );
-      meal.goalAnalytics().proteinRatioProperty().addListener( valueNotifier );
    }//End Method
    
    /**

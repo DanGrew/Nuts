@@ -50,11 +50,9 @@ public class MealPropertiesCalculatorTest {
       meal = new Meal( 
                new FoodProperties( "anything" ), 
                new FoodAnalytics(), 
-               new GoalAnalytics(),
                registrations, 
                systemUnderTest, 
                new MacroRatioCalculator(),
-               new MacroGoalRatioCalculator(),
                new StockUsage()
       );
    }//End Method

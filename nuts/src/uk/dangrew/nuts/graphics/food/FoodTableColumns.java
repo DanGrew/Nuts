@@ -26,10 +26,6 @@ public class FoodTableColumns< FoodTypeT extends Food > implements FoodTableColu
    static final String COLUMN_TITLE_CARBS = "Carbohydrates";
    static final String COLUMN_TITLE_FATS = "Fats";
    static final String COLUMN_TITLE_PROTEINS = "Protein";
-   static final String COLUMN_TITLE_CALORIES_PROPORTION = "Calories %";
-   static final String COLUMN_TITLE_CARBS_PROPORTION = "Carbohydrates %";
-   static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
-   static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
    private final TableConfiguration configuration;
 
@@ -46,15 +42,10 @@ public class FoodTableColumns< FoodTypeT extends Food > implements FoodTableColu
    @Override public void populateColumns( FoodTable< FoodTypeT > table ) {
       configuration.initialiseStringColumn( table, COLUMN_TITLE_FOOD, 0.3, FoodProperties::nameProperty, true );
       
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.08, f -> f.properties().calories(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.08, f -> f.properties().carbohydrates(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.08, f -> f.properties().fats(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.08, f -> f.properties().protein(), true );
-      
-      configuration.initialiseRatioColumn( table, COLUMN_TITLE_CALORIES_PROPORTION, 0.08, f -> f.goalAnalytics().caloriesRatioProperty() );
-      configuration.initialiseRatioColumn( table, COLUMN_TITLE_CARBS_PROPORTION, 0.08, f -> f.goalAnalytics().carbohydratesRatioProperty() );
-      configuration.initialiseRatioColumn( table, COLUMN_TITLE_FATS_PROPORTION, 0.08, f -> f.goalAnalytics().fatsRatioProperty() );
-      configuration.initialiseRatioColumn( table, COLUMN_TITLE_PROTEINS_PROPORTION, 0.08, f -> f.goalAnalytics().proteinRatioProperty() );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.16, f -> f.properties().calories(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.16, f -> f.properties().carbohydrates(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.16, f -> f.properties().fats(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.16, f -> f.properties().protein(), true );
    }//End Method
    
 }//End Class

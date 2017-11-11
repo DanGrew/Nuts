@@ -12,16 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.meal.MealStore;
 
 /**
  * {@link MealWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}
  * when writing {@link Meal}s.
  */
-class MealWriteModel {
+class MealWriteModel< FoodTypeT extends Meal > {
    
-   private final MealStore meals;
+   private final FoodStore< FoodTypeT > meals;
    private final List< Meal > foodBuffer;
    private final List< Meal > foodPortionCoundBuffer;
    private final List< FoodPortion > portionBuffer;
@@ -30,9 +30,9 @@ class MealWriteModel {
    
    /**
     * Constructs a new {@link FoodItemWriteModel}.
-    * @param meals the {@link MealStore}.
+    * @param meals the {@link FoodStore} providing the {@link Meal}s.
     */
-   MealWriteModel( MealStore meals ) {
+   MealWriteModel( FoodStore< FoodTypeT > meals ) {
       this.meals = meals;
       this.foodBuffer = new ArrayList<>();
       this.portionBuffer = new ArrayList<>();

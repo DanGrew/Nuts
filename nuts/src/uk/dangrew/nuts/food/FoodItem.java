@@ -8,8 +8,6 @@
  */
 package uk.dangrew.nuts.food;
 
-import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
-
 /**
  * {@link FoodItem} represents a single item of food and the properties of that food. The {@link Food}
  * has a size, but is not portioned and simply measured in some amount.
@@ -19,7 +17,6 @@ public class FoodItem implements Food {
    private final FoodProperties properties;
    private final StockProperties stockProperties;
    private final FoodAnalytics foodAnalytics;
-   private final GoalAnalytics goalAnalytics;
    
    /**
     * Constructs a new {@link FoodItem}.
@@ -47,9 +44,7 @@ public class FoodItem implements Food {
                properties,
                new StockProperties(),
                new FoodAnalytics(),
-               new GoalAnalytics(),
-               new MacroRatioCalculator(),
-               new MacroGoalRatioCalculator()
+               new MacroRatioCalculator()
       );
    }//End Constructor
    
@@ -58,24 +53,18 @@ public class FoodItem implements Food {
     * @param properties the {@link FoodProperties}.
     * @param stockProperties the {@link StockProperties}.
     * @param foodAnalytics the {@link FoodAnalytics}.
-    * @param goalAnalytics the {@link GoalAnalytics}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
-    * @param goalRatioCalculator the {@link MacroGoalRatioCalculator}.
     */
    FoodItem( 
             FoodProperties properties, 
             StockProperties stockProperties,
             FoodAnalytics foodAnalytics, 
-            GoalAnalytics goalAnalytics,
-            MacroRatioCalculator ratioCalculator,
-            MacroGoalRatioCalculator goalRatioCalculator
+            MacroRatioCalculator ratioCalculator
    ) {
       this.properties = properties;
       this.stockProperties = stockProperties;
       this.foodAnalytics = foodAnalytics;
-      this.goalAnalytics = goalAnalytics;
       ratioCalculator.associate( properties, foodAnalytics );
-      goalRatioCalculator.associate( properties, goalAnalytics );
    }//End Constructor
 
    /**
@@ -98,13 +87,6 @@ public class FoodItem implements Food {
     */
    @Override public FoodAnalytics foodAnalytics() {
       return foodAnalytics;
-   }//End Method
-   
-   /**
-    * {@inheritDoc}
-    */
-   @Override public GoalAnalytics goalAnalytics() {
-      return goalAnalytics;
    }//End Method
    
    /**

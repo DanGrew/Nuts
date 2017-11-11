@@ -23,7 +23,7 @@ public class MealPropertiesCalculator implements MealChangeListener {
     * Associate the given {@link Meal} with this calculator.
     * @param meal the {@link Meal} to associate with, only one allowed.
     */
-   void associate( Meal meal ) {
+   public void associate( Meal meal ) {
       if ( this.meal != null ) {
          throw new IllegalStateException( "Already associated." );
       }

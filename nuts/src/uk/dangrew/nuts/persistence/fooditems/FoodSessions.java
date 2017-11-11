@@ -10,8 +10,9 @@ package uk.dangrew.nuts.persistence.fooditems;
 
 import uk.dangrew.jupa.file.protocol.JarJsonPersistingProtocol;
 import uk.dangrew.jupa.json.marshall.ModelMarshaller;
+import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.main.Nuts;
-import uk.dangrew.nuts.meal.MealStore;
+import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.goal.GoalPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
@@ -25,7 +26,7 @@ public class FoodSessions {
    static final String FOLDER_NAME = "uk.dangrew.nuts";
    static final String FOOD_ITEM_FILE_NAME = "food-items.json";
    static final String MEAL_FILE_NAME = "meals.json";
-   static final String PLAN_FILE_NAME = "plans.json";
+   static final String TEMPLATE_FILE_NAME = "plans.json";
    static final String SHOPPING_LISTS_FILE_NAME = "shoppingLists.json";
    static final String WEIGHT_RECORDING_FILE_NAME = "weightRecordings.json";
    static final String GOAL_FILE_NAME = "goal.json";
@@ -33,13 +34,13 @@ public class FoodSessions {
    private final Database database;
    private final JarJsonPersistingProtocol foodItemFileLocation;
    private final JarJsonPersistingProtocol mealFileLocation;
-   private final JarJsonPersistingProtocol planFileLocation;
+   private final JarJsonPersistingProtocol templateFileLocation;
    private final JarJsonPersistingProtocol weightRecordingLocation;
    private final JarJsonPersistingProtocol goalLocation;
    
    private final ModelMarshaller foodItemMarshaller;
    private final ModelMarshaller mealMarshaller;
-   private final ModelMarshaller planMarshaller;
+   private final ModelMarshaller templatesMarshaller;
    private final ModelMarshaller shoppingListMarshaller;
    private final ModelMarshaller weightRecordingMarshaller;
    private final ModelMarshaller goalMarshaller;
@@ -60,7 +61,7 @@ public class FoodSessions {
                         FOLDER_NAME, MEAL_FILE_NAME, Nuts.class 
                ),
                new JarJsonPersistingProtocol( 
-                        FOLDER_NAME, PLAN_FILE_NAME, Nuts.class 
+                        FOLDER_NAME, TEMPLATE_FILE_NAME, Nuts.class 
                ),
                new JarJsonPersistingProtocol( 
                         FOLDER_NAME, SHOPPING_LISTS_FILE_NAME, Nuts.class 
@@ -96,13 +97,13 @@ public class FoodSessions {
       this.database = database;
       this.foodItemFileLocation = foodItemFileLocation;
       this.mealFileLocation = mealFileLocation;
-      this.planFileLocation = planFileLocation;
+      this.templateFileLocation = planFileLocation;
       this.weightRecordingLocation = weightRecordingFileLocation;
       this.goalLocation = goalFileLocation;
       
       this.foodItemMarshaller = constructFoodItemMarshaller();
       this.mealMarshaller = constructMealMarshaller( database.meals(), mealFileLocation );
-      this.planMarshaller = constructMealMarshaller( database.plans(), planFileLocation );
+      this.templatesMarshaller = constructMealMarshaller( database.templates(), planFileLocation );
       this.shoppingListMarshaller = constructMealMarshaller( database.shoppingLists(), shoppingListFileLocation );
       this.weightRecordingMarshaller = constructWeightRecordingMarshaller();
       this.goalMarshaller = constructGoalMarshaller();
@@ -124,12 +125,12 @@ public class FoodSessions {
    
    /**
     * Method to construct the {@link ModelMarshaller}.
-    * @param store the {@link MealStore} to access data.
+    * @param store the {@link FoodStore} to access data for {@link Meal} types.
     * @param fileLocation the {@link JarJsonPersistingProtocol}.
     * @return the {@link ModelMarshaller} constructed for {@link uk.dangrew.nuts.meal.Meal}s.
     */
-   private ModelMarshaller constructMealMarshaller( MealStore store, JarJsonPersistingProtocol fileLocation ){
-      MealPersistence persistence = new MealPersistence( database, store );
+   private < FoodTypeT extends Meal > ModelMarshaller constructMealMarshaller( FoodStore< FoodTypeT > store, JarJsonPersistingProtocol fileLocation ){
+      MealPersistence< FoodTypeT > persistence = new MealPersistence<>( database, store );
       return new ModelMarshaller( 
                persistence.structure(), 
                persistence.readHandles(), 
@@ -173,7 +174,7 @@ public class FoodSessions {
    public void read() {
       foodItemMarshaller.read();
       mealMarshaller.read();
-      planMarshaller.read();
+      templatesMarshaller.read();
       shoppingListMarshaller.read();
       weightRecordingMarshaller.read();
       goalMarshaller.read();
@@ -186,7 +187,7 @@ public class FoodSessions {
    public void write() {
       foodItemMarshaller.write();
       mealMarshaller.write();
-      planMarshaller.write();
+      templatesMarshaller.write();
       shoppingListMarshaller.write();
       weightRecordingMarshaller.write();
       goalMarshaller.write();

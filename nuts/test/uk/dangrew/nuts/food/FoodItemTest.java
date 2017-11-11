@@ -16,9 +16,7 @@ public class FoodItemTest {
    private FoodProperties properties;
    private StockProperties stockProperties;
    private FoodAnalytics foodAnalytics;
-   private GoalAnalytics goalAnalytics;
    @Spy private MacroRatioCalculator ratioCalculator;
-   @Spy private MacroGoalRatioCalculator goalRatioCalculator;
    private FoodItem systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -26,14 +24,11 @@ public class FoodItemTest {
       properties = new FoodProperties( "anything" );
       stockProperties = new StockProperties();
       foodAnalytics = new FoodAnalytics();
-      goalAnalytics = new GoalAnalytics();
       systemUnderTest = new FoodItem( 
                properties, 
                stockProperties,
                foodAnalytics, 
-               goalAnalytics, 
-               ratioCalculator, 
-               goalRatioCalculator 
+               ratioCalculator 
       );
    }//End Method
    
@@ -59,12 +54,4 @@ public class FoodItemTest {
       verify( ratioCalculator ).associate( properties, foodAnalytics );
    }//End Method
    
-   @Test public void shouldProvideGoalAnalytics(){
-      assertThat( systemUnderTest.goalAnalytics(), is( goalAnalytics ) );
-   }//End Method
-   
-   @Test public void shouldAssociateGoalRatioCalculator(){
-      verify( goalRatioCalculator ).associate( properties, goalAnalytics );
-   }//End Method
-
 }//End Class

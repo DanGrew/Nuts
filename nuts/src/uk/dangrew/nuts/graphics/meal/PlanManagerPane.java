@@ -11,10 +11,11 @@ package uk.dangrew.nuts.graphics.meal;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
 import uk.dangrew.nuts.graphics.table.FoodTableWithControls;
+import uk.dangrew.nuts.graphics.template.TemplateTable;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.template.Template;
 
 /**
  * {@link PlanManagerPane} provides the pane for planning {@link Meal}s.
@@ -25,7 +26,7 @@ public class PlanManagerPane extends GridPane {
    static final double PLAN_VIEW_HEIGHT_PROPORTION = 40.0;
    static final double MEAL_VIEW_HEIGHT_PROPORTION = 35.0;
 
-   private final FoodTableWithControls< Meal > plansTable;
+   private final FoodTableWithControls< Template > templatesTable;
    private final MealTableWithControls planView;
    private final MealTableWithControls mealView;
 
@@ -51,11 +52,11 @@ public class PlanManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
 
-      add( plansTable = new FoodTableWithControls<>( "Plans", new GeneralFoodTable<>( database.plans() ) ), 0, 0 );
-      add( planView = new MealTableWithControls( "Selected Plan", database ), 0, 1 );
+      add( templatesTable = new FoodTableWithControls<>( "Templates", new TemplateTable( database.templates() ) ), 0, 0 );
+      add( planView = new MealTableWithControls( "Selected Template", database ), 0, 1 );
       add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 2 );
       
-      plansTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
+      templatesTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
          planView.table().controller().showMeal( n.food() );
       } );
       
@@ -69,8 +70,8 @@ public class PlanManagerPane extends GridPane {
       } );
    }// End Constructor
 
-   FoodTableWithControls< Meal > mealsTable() {
-      return plansTable;
+   FoodTableWithControls< Template > templatesTable() {
+      return templatesTable;
    }// End Method
 
    MealTableWithControls mealTable() {

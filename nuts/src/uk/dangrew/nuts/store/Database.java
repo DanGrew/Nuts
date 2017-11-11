@@ -12,6 +12,7 @@ import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.progress.WeightProgress;
+import uk.dangrew.nuts.template.TemplateStore;
 
 /**
  * The {@link Database} provides access to the data for the system such as {@link Food}s.
@@ -23,7 +24,7 @@ public class Database {
    
    private final FoodItemStore foodItems;
    private final MealStore meals;
-   private final MealStore plans;
+   private final TemplateStore templates;
    private final MealStore shoppingLists;
    
    /**
@@ -32,10 +33,10 @@ public class Database {
    public Database() {
       this.goal = new Goal( "Goal" );
       this.weightProgress = new WeightProgress();
-      this.foodItems = new FoodItemStore( goal );
-      this.meals = new MealStore( goal );
-      this.plans = new MealStore( goal );
-      this.shoppingLists = new MealStore( goal );
+      this.foodItems = new FoodItemStore();
+      this.meals = new MealStore();
+      this.templates = new TemplateStore( goal );
+      this.shoppingLists = new MealStore();
    }//End Constructor
    
    /**
@@ -73,12 +74,11 @@ public class Database {
    }//End Method
    
    /**
-    * Access to the {@link uk.dangrew.nuts.meal.Meal}s stored as plans.
-    * @return the {@link MealStore} of {@link uk.dangrew.nuts.meal.Meal}s against 
-    * their {@link uk.dangrew.nuts.food.FoodProperties#id()}.
+    * Access to the {@link uk.dangrew.nuts.template.Template}s.
+    * @return the {@link TemplateStore} of {@link uk.dangrew.nuts.template.Template}s. 
     */
-   public MealStore plans() {
-      return plans;
+   public TemplateStore templates() {
+      return templates;
    }//End Method
    
    /**

@@ -13,6 +13,8 @@ import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealStore;
+import uk.dangrew.nuts.template.Template;
+import uk.dangrew.nuts.template.TemplateStore;
 
 public class DatabaseTest {
 
@@ -49,11 +51,11 @@ public class DatabaseTest {
    }//End Method
    
    @Test public void shouldProvidePlans(){
-      assertThat( systemUnderTest.plans(), is( instanceOf( MealStore.class ) ) );
+      assertThat( systemUnderTest.templates(), is( instanceOf( TemplateStore.class ) ) );
       
-      Meal plan = new Meal( "Plan" );
-      systemUnderTest.plans().store( plan );
-      assertThat( systemUnderTest.plans().get( plan.properties().id() ), is( plan ) );
+      Template template = new Template( "Template" );
+      systemUnderTest.templates().store( template );
+      assertThat( systemUnderTest.templates().get( template.properties().id() ), is( template ) );
    }//End Method
    
    @Test public void shouldProvideShoppingLists(){

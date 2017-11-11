@@ -26,7 +26,6 @@ public class FoodPortion implements Food {
    
    private final FoodProperties properties;
    private final FoodAnalytics analytics;
-   private final GoalAnalytics goalAnalytics;
    
    private final ObjectProperty< Food > food;
    private final ObjectProperty< Double > portion;
@@ -49,9 +48,7 @@ public class FoodPortion implements Food {
       this( 
                new FoodProperties( "Portion" ), 
                new FoodAnalytics(),
-               new GoalAnalytics(),
-               new MacroRatioCalculator(),
-               new MacroGoalRatioCalculator()
+               new MacroRatioCalculator()
       );
    }//End Constructor
    
@@ -59,26 +56,20 @@ public class FoodPortion implements Food {
     * Constructs a new {@link FoodPortion}.
     * @param properties the {@link FoodProperties}.
     * @param foodAnalytics the {@link FoodAnalytics}.
-    * @param goalAnalytics the {@link GoalAnalytics}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
-    * @param goalRatioCalculator the {@link MacroGoalRatioCalculator}.
     */
    FoodPortion( 
             FoodProperties properties, 
             FoodAnalytics foodAnalytics, 
-            GoalAnalytics goalAnalytics,
-            MacroRatioCalculator ratioCalculator,
-            MacroGoalRatioCalculator goalRatioCalculator
+            MacroRatioCalculator ratioCalculator
    ) {
       this.food = new SimpleObjectProperty<>();
       this.portion = new SimpleObjectProperty<>( 100.0 );
       this.properties = properties;
       this.analytics = foodAnalytics;
-      this.goalAnalytics = goalAnalytics;
       
       //TODO think these two calculators should be removed and the logic in this class relocated
       ratioCalculator.associate( properties, foodAnalytics );
-      goalRatioCalculator.associate( properties, goalAnalytics );
       
       //need to bind macros
       this.macroUpdater = ( s, o, n ) -> updateMacros();
@@ -97,14 +88,11 @@ public class FoodPortion implements Food {
          return;
       }
       
-      goalAnalytics.goal().set( food.get().goalAnalytics().goal().get() );
       double proportion = portion.get() / 100.0;
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          properties.nutritionFor( macro ).set( food.get().properties().nutritionFor( macro ).get() * proportion );
-         goalAnalytics.nutrientRatioFor( macro ).set( food.get().goalAnalytics().nutrientRatioFor( macro ).get() * proportion );
       }
       properties.calories().set( food.get().properties().calories().get() * proportion );
-      goalAnalytics.caloriesRatioProperty().set( food.get().goalAnalytics().caloriesRatio() * proportion );
    }//End Method
    
    /**
@@ -173,11 +161,8 @@ public class FoodPortion implements Food {
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          this.food.get().properties().nutritionFor( macro ).removeListener( macroUpdater );
-         this.food.get().goalAnalytics().nutrientRatioFor( macro ).removeListener( macroUpdater );
       }
       this.food.get().properties().calories().removeListener( macroUpdater );
-      this.food.get().goalAnalytics().goal().removeListener( macroUpdater );
-      this.food.get().goalAnalytics().caloriesRatioProperty().removeListener( macroUpdater );
       registrations.shutdown();
    }//End Method
    
@@ -193,11 +178,8 @@ public class FoodPortion implements Food {
       }
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          food.properties().nutritionFor( macro ).addListener( macroUpdater );
-         food.goalAnalytics().nutrientRatioFor( macro ).addListener( macroUpdater );
       }
       food.properties().calories().addListener( macroUpdater );
-      food.goalAnalytics().goal().addListener( macroUpdater );
-      food.goalAnalytics().caloriesRatioProperty().addListener( macroUpdater );
    }//End Method
 
    /**
@@ -214,11 +196,4 @@ public class FoodPortion implements Food {
       return analytics;
    }//End Method
    
-   /**
-    * {@inheritDoc}
-    */
-   @Override public GoalAnalytics goalAnalytics() {
-      return goalAnalytics;
-   }//End Method
-
 }//End Class

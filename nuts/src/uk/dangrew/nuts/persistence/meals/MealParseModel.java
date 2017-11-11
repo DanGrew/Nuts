@@ -14,18 +14,18 @@ import java.util.List;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.store.Database;
 
 /**
  * {@link MealParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when
  * parsing {@link Meal}s.
  */
-class MealParseModel {
+class MealParseModel< FoodTypeT extends Meal > {
    
    private final Database database;
-   private final MealStore meals;
+   private final FoodStore< FoodTypeT > meals;
    
    private String id;
    private String name;
@@ -37,9 +37,9 @@ class MealParseModel {
    /**
     * Constructs a new {@link MealParseModel}.
     * @param database the {@link Database}.
-    * @param meals {@link MealStore}.
+    * @param meals {@link FoodStore} providing the {@link Meal}s.
     */
-   MealParseModel( Database database, MealStore meals ) {
+   MealParseModel( Database database, FoodStore< FoodTypeT > meals ) {
       this.database = database;
       this.meals = meals;
       this.portions = new ArrayList<>();
@@ -62,10 +62,9 @@ class MealParseModel {
     * @param key the parsed key.
     */
    void finishMeal( String key ) {
-      Meal meal = meals.get( id );
+      FoodTypeT meal = meals.get( id );
       if ( meal == null ) {
-         meal = new Meal( id, name );
-         meals.store( meal );
+         meal = meals.createFood( id, name );
       }
       meal.portions().clear();
       meal.portions().addAll( portions );
@@ -111,7 +110,7 @@ class MealParseModel {
          }
          
          if ( food == null ) {
-            food = database.plans().get( foodId );
+            food = database.templates().get( foodId );
          }
          
          if ( food == null ) {

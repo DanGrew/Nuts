@@ -11,10 +11,12 @@ package uk.dangrew.nuts.manual.data;
 import org.json.JSONObject;
 
 import uk.dangrew.kode.TestCommon;
+import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.template.Template;
 
 /**
  * Locator for test files.
@@ -27,8 +29,8 @@ public class DataLocation {
     */
    public static void loadSampleFoodData( Database database ) {
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      MealPersistence mealPersistence = new MealPersistence( database, database.meals() );
-      MealPersistence planPersistence = new MealPersistence( database, database.plans() );
+      MealPersistence< Meal > mealPersistence = new MealPersistence<>( database, database.meals() );
+      MealPersistence< Template > planPersistence = new MealPersistence<>( database, database.templates() );
       
       String value = TestCommon.readFileIntoString( DataLocation.class, "food-items.json" );
       JSONObject json = new JSONObject( value );

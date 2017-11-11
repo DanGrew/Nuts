@@ -30,6 +30,21 @@ public interface FoodStore< FoodTypeT extends Food > {
    public FoodTypeT createFood( String name );
    
    /**
+    * Method to create a new {@link Food} of the associated type with the given name.
+    * @param id the fixed id to created with.
+    * @param name the name to create for.
+    * @return the created {@link Food}.
+    */
+   public FoodTypeT createFood( String id, String name );
+   
+   /**
+    * Getter for the {@link Food} with the given id.
+    * @param id the id of te {@link Food}.
+    * @return the matching {@link Food}, can be null.
+    */
+   public FoodTypeT get( String id );
+   
+   /**
     * Method to remove the given {@link Food} from the store.
     * @param food the {@link Food} to remove.
     */

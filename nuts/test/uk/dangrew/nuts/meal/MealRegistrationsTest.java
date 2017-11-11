@@ -43,9 +43,9 @@ public class MealRegistrationsTest {
       properties = new FoodProperties( "anything" );
       systemUnderTest = new MealRegistrations();
       meal = new Meal( 
-               properties, new FoodAnalytics(), new GoalAnalytics(), 
+               properties, new FoodAnalytics(), 
                systemUnderTest, 
-               mock( MealPropertiesCalculator.class ), new MacroRatioCalculator(), new MacroGoalRatioCalculator(),
+               mock( MealPropertiesCalculator.class ), new MacroRatioCalculator(), 
                new StockUsage()
       );
    }//End Method
@@ -104,18 +104,6 @@ public class MealRegistrationsTest {
       
       food1.properties().calories().set( 100.0 );
       verify( listener, times( 2 ) ).mealChanged();
-   }//End Method
-   
-   @Test public void shouldNotifyWhenGoalChanges() {
-      systemUnderTest.listen( listener );
-      meal.goalAnalytics().carbohydratesRatioProperty().set( 50.0 );
-      verify( listener, times( 1 ) ).mealChanged();
-      
-      meal.goalAnalytics().fatsRatioProperty().set( 51.0 );
-      verify( listener, times( 2 ) ).mealChanged();
-      
-      meal.goalAnalytics().proteinRatioProperty().set( 52.0 );
-      verify( listener, times( 3 ) ).mealChanged();
    }//End Method
    
    @Test public void shouldNotNotifyWhenFoodRemoved() {

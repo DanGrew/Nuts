@@ -33,7 +33,7 @@ public class ShoppingNeedsTableColumns implements FoodTableColumnsPopulator< Foo
     * @param database the {@link Database} for access to plans.
     */
    public ShoppingNeedsTableColumns( Database database ) {
-      this.foodOptions = new FoodOptions( Arrays.asList( database.plans() ) );
+      this.foodOptions = new FoodOptions( Arrays.asList( database.templates() ) );
       this.configuration = new TableConfiguration();
    }//End Constructor
       

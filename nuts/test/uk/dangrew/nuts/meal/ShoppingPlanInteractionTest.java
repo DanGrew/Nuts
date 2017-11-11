@@ -10,6 +10,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.template.Template;
 
 public class ShoppingPlanInteractionTest {
 
@@ -22,7 +23,7 @@ public class ShoppingPlanInteractionTest {
       database.goal().weight().set( 197.0 );
       database.goal().height().set( 1.87 );
       
-      Meal plan = database.plans().objectList().get( 0 );
+      Template plan = database.templates().objectList().get( 0 );
       assertThat( plan.goalAnalytics().proteinRatio(), is( lessThan( 200.0 ) ) );
       
       Meal shoppingList = new Meal( "Shopping" );

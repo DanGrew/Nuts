@@ -78,10 +78,10 @@ public class MealSummary extends GridPane {
       double totalFats = meal.properties().fats().get();
       double totalProtein = meal.properties().protein().get();
       
-      double totalCaloriesRatio = meal.goalAnalytics().caloriesRatio();
-      double totalCarbsRatio = meal.goalAnalytics().carbohydratesRatio();
-      double totalFatsRatio = meal.goalAnalytics().fatsRatio();
-      double totalProteinRatio = meal.goalAnalytics().proteinRatio();
+//      double totalCaloriesRatio = meal.goalAnalytics().caloriesRatio();
+//      double totalCarbsRatio = meal.goalAnalytics().carbohydratesRatio();
+//      double totalFatsRatio = meal.goalAnalytics().fatsRatio();
+//      double totalProteinRatio = meal.goalAnalytics().proteinRatio();
       
       double total = totalCarbs + totalFats + totalProtein;
       
@@ -92,10 +92,10 @@ public class MealSummary extends GridPane {
       fatsTotal.setText( totalFats + "g" );
       proteinTotal.setText( totalProtein + "g" );
       
-      caloriesRatio.setText( totalCaloriesRatio + "%" );
-      carbsRatio.setText( totalCarbsRatio + "%" );
-      fatsRatio.setText( totalFatsRatio + "%" );
-      proteinRatio.setText( totalProteinRatio + "%" );
+//      caloriesRatio.setText( totalCaloriesRatio + "%" );
+//      carbsRatio.setText( totalCarbsRatio + "%" );
+//      fatsRatio.setText( totalFatsRatio + "%" );
+//      proteinRatio.setText( totalProteinRatio + "%" );
    }//End Method
    
    /**

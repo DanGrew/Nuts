@@ -16,13 +16,14 @@ import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
-import uk.dangrew.nuts.meal.MealStore;
+import uk.dangrew.nuts.food.FoodStore;
+import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
 /**
  * {@link MealPersistence} provides the architecture for reading and writing {@link uk.dangrew.nuts.meal.Meal}s.
  */
-public class MealPersistence {
+public class MealPersistence< FoodTypeT extends Meal > {
    
    static final String MEALS = "meals";
    static final String MEAL = "meal";
@@ -37,17 +38,17 @@ public class MealPersistence {
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
-   private final MealParseModel parseModel;
+   private final MealParseModel< FoodTypeT > parseModel;
    private final JsonParser parserWithWriteHandles;
-   private final MealWriteModel writeModel;
+   private final MealWriteModel< FoodTypeT > writeModel;
    
   /**
     * Constructs a new {@link MealPersistence}.
     * @param database the {@link Database}.
-    * @param meals the {@link MealStore}.
+    * @param meals the {@link FoodStore} providing the {@link Meal}s.
     */
-   public MealPersistence( Database database, MealStore meals ) {
-      this( new MealParseModel( database, meals ), new MealWriteModel( meals ) );
+   public MealPersistence( Database database, FoodStore< FoodTypeT > meals ) {
+      this( new MealParseModel<>( database, meals ), new MealWriteModel<>( meals ) );
    }//End Constructor
    
    /**
@@ -55,7 +56,7 @@ public class MealPersistence {
     * @param parseModel the {@link MealParseModel}.
     * @param writeModel the {@link MealWriteModel}.
     */
-   MealPersistence( MealParseModel parseModel, MealWriteModel writeModel ) {
+   MealPersistence( MealParseModel< FoodTypeT > parseModel, MealWriteModel< FoodTypeT > writeModel ) {
       this.structure = new JsonStructure();
       this.parseModel = parseModel;
       this.parserWithReadHandles = new JsonParser();

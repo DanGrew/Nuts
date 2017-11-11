@@ -26,7 +26,6 @@ public class Meal implements Food {
 
    private final FoodProperties properties;
    private final FoodAnalytics foodAnalytics;
-   private final GoalAnalytics goalAnalytics;
    private final MealPropertiesCalculator propertiesCalculator;
    
    private final MealRegistrations registrations;
@@ -58,11 +57,9 @@ public class Meal implements Food {
       this( 
                properties, 
                new FoodAnalytics(), 
-               new GoalAnalytics(),
                new MealRegistrations(), 
                new MealPropertiesCalculator(),
                new MacroRatioCalculator(),
-               new MacroGoalRatioCalculator(),
                new StockUsage()
       );
    }//End Constructor
@@ -71,28 +68,23 @@ public class Meal implements Food {
     * Constructs a new {@link Meal}.
     * @param properties the {@link FoodProperties}.
     * @param foodAnalytics the {@link FoodAnalytics}.
-    * @param goalAnalytics the {@link GoalAnalytics}.
     * @param registrations the {@link MealRegistrations}.
     * @param propertiesCalculator the {@link MealPropertiesCalculator}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
-    * @param goalRatioCalculator the {@link MacroGoalRatioCalculator}.
     * @param stockUsage the {@link StockUsage}.
     */
-   Meal( 
+   protected Meal( 
             FoodProperties properties,
             FoodAnalytics foodAnalytics,
-            GoalAnalytics goalAnalytics,
             MealRegistrations registrations, 
             MealPropertiesCalculator propertiesCalculator,
             MacroRatioCalculator ratioCalculator,
-            MacroGoalRatioCalculator goalRatioCalculator,
             StockUsage stockUsage
    ) {
       this.registrations = registrations;
       this.portions = FXCollections.observableArrayList();
       this.properties = properties;
       this.foodAnalytics = foodAnalytics;
-      this.goalAnalytics = goalAnalytics;
       this.propertiesCalculator = propertiesCalculator;
       this.stockUsage = stockUsage;
       
@@ -100,7 +92,6 @@ public class Meal implements Food {
       this.registrations.associate( this );
       this.stockUsage.associate( portions );
       ratioCalculator.associate( properties, foodAnalytics );
-      goalRatioCalculator.associate( properties, goalAnalytics );
    }//End Constructor
    
    /**
@@ -115,13 +106,6 @@ public class Meal implements Food {
     */
    @Override public FoodAnalytics foodAnalytics() {
       return foodAnalytics;
-   }//End Method
-   
-   /**
-    * {@inheritDoc}
-    */
-   @Override public GoalAnalytics goalAnalytics() {
-      return goalAnalytics;
    }//End Method
    
    /**

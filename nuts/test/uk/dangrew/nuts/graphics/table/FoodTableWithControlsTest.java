@@ -13,7 +13,6 @@ import org.mockito.Spy;
 import javafx.scene.control.Label;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.FoodItemStore;
-import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
@@ -26,7 +25,7 @@ public class FoodTableWithControlsTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      table = new GeneralFoodTable<>( new FoodItemStore( new Goal( "" ) ) );
+      table = new GeneralFoodTable<>( new FoodItemStore() );
       systemUnderTest = new FoodTableWithControls<>( styling, "anything", table );
    }//End Method
 
