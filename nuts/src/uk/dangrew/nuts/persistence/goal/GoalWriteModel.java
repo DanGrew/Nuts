@@ -8,8 +8,12 @@
  */
 package uk.dangrew.nuts.persistence.goal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalStore;
 
 /**
  * {@link GoalWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}
@@ -17,15 +21,65 @@ import uk.dangrew.nuts.store.Database;
  */
 class GoalWriteModel {
    
-   private final Database database;
+   private final GoalStore goals;
+   private final List< Goal > buffer;
+   private Goal current; 
    
    /**
     * Constructs a new {@link GoalWriteModel}.
-    * @param database the {@link Database}.
+    * @param goals the {@link GoalStore}.
     */
-   GoalWriteModel( Database database ) {
-      this.database = database;
+   GoalWriteModel( GoalStore goals ) {
+      this.goals = goals;
+      this.buffer = new ArrayList<>();
    }//End Constructor
+   
+   /**
+    * Getter for the number of {@link Goal}s to write.
+    * @param key the key.
+    * @return the number to write.
+    */
+   Integer getNumberOfGoals( String key ){
+      return goals.objectList().size();
+   }//End Method
+   
+   /**
+    * Triggered when starting to write all {@link Goal}s.
+    * @param key the key.
+    */
+   void startWritingGoals( String key ) {
+      buffer.clear();
+      buffer.addAll( goals.objectList() );
+   }//End Method
+   
+   /**
+    * Triggered when starting to write an individual {@link Goal}.
+    * @param key the key.
+    */
+   void startWritingGoal( String key ) {
+      if ( buffer.isEmpty() ) {
+         return;
+      }
+      this.current = buffer.remove( 0 );
+   }//End Method
+   
+   /**
+    * Getter for the property from the {@link uk.dangrew.nuts.goal.Goal}.
+    * @param key the parse key.
+    * @return the value.
+    */
+   String getId( String key ) {
+      return current.properties().id();
+   }//End Method
+   
+   /**
+    * Getter for the property from the {@link uk.dangrew.nuts.goal.Goal}.
+    * @param key the parse key.
+    * @return the value.
+    */
+   String getName( String key ) {
+      return current.properties().nameProperty().get();
+   }//End Method
    
    /**
     * Getter for the property from the {@link uk.dangrew.nuts.goal.Goal}.
@@ -33,7 +87,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getAge( String key ) {
-      return database.goal().age().get();
+      return current.age().get();
    }//End Method
 
    /**
@@ -42,7 +96,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getWeight( String key ) {
-      return database.goal().weight().get();
+      return current.weight().get();
    }//End Method
 
    /**
@@ -51,7 +105,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getHeight( String key ) {
-      return database.goal().height().get();
+      return current.height().get();
    }//End Method
 
    /**
@@ -60,7 +114,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Gender getGender( String key ) {
-      return database.goal().gender().get();
+      return current.gender().get();
    }//End Method
 
    /**
@@ -69,7 +123,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getBmr( String key ) {
-      return database.goal().bmr().get();
+      return current.bmr().get();
    }//End Method
 
    /**
@@ -78,7 +132,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getPal( String key ) {
-      return database.goal().pal().get();
+      return current.pal().get();
    }//End Method
 
    /**
@@ -87,7 +141,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getTee( String key ) {
-      return database.goal().tee().get();
+      return current.tee().get();
    }//End Method
 
    /**
@@ -96,7 +150,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getExerciseCalories( String key ) {
-      return database.goal().exerciseCalories().get();
+      return current.exerciseCalories().get();
    }//End Method
 
    /**
@@ -105,7 +159,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getCalorieDeficit( String key ) {
-      return database.goal().calorieDeficit().get();
+      return current.calorieDeficit().get();
    }//End Method
 
    /**
@@ -114,7 +168,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getProteinPerPound( String key ) {
-      return database.goal().proteinPerPound().get();
+      return current.proteinPerPound().get();
    }//End Method
 
    /**
@@ -123,7 +177,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getFatPerPound( String key ) {
-      return database.goal().fatPerPound().get();
+      return current.fatPerPound().get();
    }//End Method
    
    /**
@@ -132,7 +186,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getCalorieGoal( String key ) {
-      return database.goal().properties().calories().get();
+      return current.properties().calories().get();
    }//End Method
    
    /**
@@ -141,7 +195,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getCarbohydratesGoal( String key ) {
-      return database.goal().properties().carbohydrates().get();
+      return current.properties().carbohydrates().get();
    }//End Method
    
    /**
@@ -150,7 +204,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getFatsGoal( String key ) {
-      return database.goal().properties().fats().get();
+      return current.properties().fats().get();
    }//End Method
    
    /**
@@ -159,7 +213,7 @@ class GoalWriteModel {
     * @return the value.
     */
    Double getProteinGoal( String key ) {
-      return database.goal().properties().protein().get();
+      return current.properties().protein().get();
    }//End Method
    
 }//End Class

@@ -15,6 +15,7 @@ import uk.dangrew.nuts.main.Nuts;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.goal.GoalPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
+import uk.dangrew.nuts.persistence.setup.DataSetup;
 import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
 import uk.dangrew.nuts.store.Database;
 
@@ -29,14 +30,18 @@ public class FoodSessions {
    static final String TEMPLATE_FILE_NAME = "plans.json";
    static final String SHOPPING_LISTS_FILE_NAME = "shoppingLists.json";
    static final String WEIGHT_RECORDING_FILE_NAME = "weightRecordings.json";
-   static final String GOAL_FILE_NAME = "goal.json";
+   static final String GOALS_FILE_NAME = "goals.json";
+   
+   static final String LEGACY_GOAL_FILE_NAME = "goal.json";
    
    private final Database database;
+   private final DataSetup setup;
+   
    private final JarJsonPersistingProtocol foodItemFileLocation;
    private final JarJsonPersistingProtocol mealFileLocation;
    private final JarJsonPersistingProtocol templateFileLocation;
    private final JarJsonPersistingProtocol weightRecordingLocation;
-   private final JarJsonPersistingProtocol goalLocation;
+   private final JarJsonPersistingProtocol goalsLocation;
    
    private final ModelMarshaller foodItemMarshaller;
    private final ModelMarshaller mealMarshaller;
@@ -44,6 +49,8 @@ public class FoodSessions {
    private final ModelMarshaller shoppingListMarshaller;
    private final ModelMarshaller weightRecordingMarshaller;
    private final ModelMarshaller goalMarshaller;
+   
+   private final ModelMarshaller legacyGoalMarshaller;
    
    /**
     * Constructs a new {@link FoodSessions}.
@@ -70,7 +77,10 @@ public class FoodSessions {
                         FOLDER_NAME, WEIGHT_RECORDING_FILE_NAME, Nuts.class 
                ),
                new JarJsonPersistingProtocol( 
-                        FOLDER_NAME, GOAL_FILE_NAME, Nuts.class 
+                        FOLDER_NAME, GOALS_FILE_NAME, Nuts.class 
+               ),
+               new JarJsonPersistingProtocol( 
+                        FOLDER_NAME, LEGACY_GOAL_FILE_NAME, Nuts.class 
                )
       );
    }//End Constructor
@@ -83,7 +93,8 @@ public class FoodSessions {
     * @param planFileLocation the {@link JarJsonPersistingProtocol}.
     * @param shoppingListFileLocation the {@link JarJsonPersistingProtocol}.
     * @param weightRecordingFileLocation the {@link JarJsonPersistingProtocol}.
-    * @param goalFileLocation the {@link JarJsonPersistingProtocol}.
+    * @param goalsFileLocation the {@link JarJsonPersistingProtocol}.
+    * @param legacyGoalFileLocation the {@link JarJsonPersistingProtocol}.
     */
    FoodSessions( 
             Database database, 
@@ -92,21 +103,26 @@ public class FoodSessions {
             JarJsonPersistingProtocol planFileLocation,
             JarJsonPersistingProtocol shoppingListFileLocation,
             JarJsonPersistingProtocol weightRecordingFileLocation,
-            JarJsonPersistingProtocol goalFileLocation
+            JarJsonPersistingProtocol goalsFileLocation,
+            JarJsonPersistingProtocol legacyGoalFileLocation
    ) {
       this.database = database;
+      this.setup = new DataSetup( database );
+      
       this.foodItemFileLocation = foodItemFileLocation;
       this.mealFileLocation = mealFileLocation;
       this.templateFileLocation = planFileLocation;
       this.weightRecordingLocation = weightRecordingFileLocation;
-      this.goalLocation = goalFileLocation;
+      this.goalsLocation = goalsFileLocation;
       
       this.foodItemMarshaller = constructFoodItemMarshaller();
       this.mealMarshaller = constructMealMarshaller( database.meals(), mealFileLocation );
       this.templatesMarshaller = constructMealMarshaller( database.templates(), planFileLocation );
       this.shoppingListMarshaller = constructMealMarshaller( database.shoppingLists(), shoppingListFileLocation );
       this.weightRecordingMarshaller = constructWeightRecordingMarshaller();
-      this.goalMarshaller = constructGoalMarshaller();
+      this.goalMarshaller = constructGoalMarshaller( goalsFileLocation );
+      
+      this.legacyGoalMarshaller = constructGoalMarshaller( legacyGoalFileLocation );
    }//End Constructor
    
    /**
@@ -155,15 +171,16 @@ public class FoodSessions {
    
    /**
     * Method to construct the {@link ModelMarshaller}.
+    * @param protocol the {@link JarJsonPersistingProtocol}.
     * @return the {@link ModelMarshaller} constructed for the {@link uk.dangrew.nuts.goal.Goal}.
     */
-   private ModelMarshaller constructGoalMarshaller(){
-      GoalPersistence persistence = new GoalPersistence( database );
+   private ModelMarshaller constructGoalMarshaller( JarJsonPersistingProtocol protocol ){
+      GoalPersistence persistence = new GoalPersistence( database.goals() );
       return new ModelMarshaller( 
                persistence.structure(), 
                persistence.readHandles(), 
                persistence.writeHandles(), 
-               goalLocation 
+               protocol 
       );
    }//End Method
 
@@ -172,12 +189,18 @@ public class FoodSessions {
     * from known files.
     */
    public void read() {
+      legacyGoalMarshaller.read();
+      goalMarshaller.read();
+      setup.configureDefaultGoal();
+      
       foodItemMarshaller.read();
       mealMarshaller.read();
       templatesMarshaller.read();
+      
       shoppingListMarshaller.read();
+      setup.configureDefaultShoppingList();
+      
       weightRecordingMarshaller.read();
-      goalMarshaller.read();
    }// End Method
 
    /**

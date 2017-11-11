@@ -1,0 +1,42 @@
+{  
+   "goals":[  
+      {  
+      	  "id":"this-is-the-id",
+      	  "name":"some-name",
+	      "gender":"Male",
+	      "fatPerPound":1112,
+	      "bmr":1113,
+	      "weight":1114,
+	      "calorieGoal":1115,
+	      "calorieDeficit":1116,
+	      "carbohydratesGoal":1117,
+	      "fatsGoal":1118,
+	      "tee":1119,
+	      "proteinPerPound":1120,
+	      "pal":1121,
+	      "exerciseCalories":1122,
+	      "age":1123,
+	      "height":1124,
+	      "proteinGoal":1125
+      },
+      {  
+      	  "id":"alwieufh0182347huflsd",
+      	  "name":"Low Cal",
+	      "gender":"Male",
+	      "fatPerPound":4445,
+	      "bmr":4446,
+	      "weight":4447,
+	      "calorieGoal":4448,
+	      "calorieDeficit":4449,
+	      "carbohydratesGoal":4450,
+	      "fatsGoal":4451,
+	      "tee":4452,
+	      "proteinPerPound":4453,
+	      "pal":4454,
+	      "exerciseCalories":4455,
+	      "age":4456,
+	      "height":4457,
+	      "proteinGoal":4457
+      }
+   ]
+}

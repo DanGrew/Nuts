@@ -10,6 +10,7 @@ package uk.dangrew.nuts.goal;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
@@ -18,7 +19,7 @@ import uk.dangrew.nuts.food.MacroRatioCalculator;
  * {@link Goal} represents the properties associated with {@link uk.dangrew.nuts.nutrients.MacroNutrient} targets.
  * It also represents a {@link Food} in that it shares the same properties.
  */
-public class Goal {
+public class Goal implements Food {
    
    static final double RECOMMENDED_PROTEIN_PER_POUND = 1.0;
    static final double RECOMMENDED_FAT_PER_POUND = 0.4;
@@ -48,6 +49,20 @@ public class Goal {
    public Goal( String name ) {
       this( 
                new FoodProperties( name ), 
+               new FoodAnalytics(), 
+               new CalorieGoalCalculator(), 
+               new MacroGoalCalculator(),
+               new MacroRatioCalculator()
+      );
+   }//End Constructor
+   
+   /**
+    * Constructs a new {@link Goal}.
+    * @param name the name of the {@link Goal}.
+    */
+   public Goal( String id, String name ) {
+      this( 
+               new FoodProperties( id, name ), 
                new FoodAnalytics(), 
                new CalorieGoalCalculator(), 
                new MacroGoalCalculator(),

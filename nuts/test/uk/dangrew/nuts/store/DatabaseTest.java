@@ -11,6 +11,8 @@ import org.junit.Test;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalStore;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.template.Template;
@@ -40,11 +42,6 @@ public class DatabaseTest {
       assertThat( systemUnderTest.meals().get( meal.properties().id() ), is( meal ) );
    }//End Method
    
-   @Test public void shouldProvideGoal(){
-      assertThat( systemUnderTest.goal(), is( not( nullValue() ) ) );
-      assertThat( systemUnderTest.goal(), is( systemUnderTest.goal() ) );
-   }//End Method
-   
    @Test public void shouldProvideWeightProgress(){
       assertThat( systemUnderTest.weightProgress(), is( not( nullValue() ) ) );
       assertThat( systemUnderTest.weightProgress(), is( systemUnderTest.weightProgress() ) );
@@ -64,6 +61,14 @@ public class DatabaseTest {
       Meal list = new Meal( "List" );
       systemUnderTest.shoppingLists().store( list );
       assertThat( systemUnderTest.shoppingLists().get( list.properties().id() ), is( list ) );
+   }//End Method
+   
+   @Test public void shouldProvideGoals(){
+      assertThat( systemUnderTest.goals(), is( instanceOf( GoalStore.class ) ) );
+      
+      Goal goal = new Goal( "List" );
+      systemUnderTest.goals().store( goal );
+      assertThat( systemUnderTest.goals().get( goal.properties().id() ), is( goal ) );
    }//End Method
 
 }//End Class

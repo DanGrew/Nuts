@@ -9,23 +9,27 @@
 package uk.dangrew.nuts.persistence.goal;
 
 import uk.dangrew.jupa.json.parse.JsonParser;
-import uk.dangrew.jupa.json.parse.handle.key.JsonObjectParseHandler;
+import uk.dangrew.jupa.json.parse.handle.key.JsonArrayWithObjectParseHandler;
 import uk.dangrew.jupa.json.parse.handle.type.DoubleParseHandle;
 import uk.dangrew.jupa.json.parse.handle.type.EnumParseHandle;
 import uk.dangrew.jupa.json.parse.handle.type.StringParseHandle;
 import uk.dangrew.jupa.json.structure.JsonStructure;
+import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.goal.GoalStore;
 
 /**
  * {@link GoalPersistence} provides the architecture for reading and writing the {@link uk.dangrew.nuts.goal.Goal}.
  */
 public class GoalPersistence {
    
+   static final String GOALS = "goals";
    static final String GOAL = "goal";
    
+   static final String ID = "id";
+   static final String NAME = "name";
    static final String AGE = "age";
    static final String WEIGHT = "weight";
    static final String HEIGHT = "height";
@@ -51,10 +55,10 @@ public class GoalPersistence {
    
   /**
     * Constructs a new {@link GoalPersistence}.
-    * @param database the {@link Database}.
+    * @param goals the {@link GoalStore}.
     */
-   public GoalPersistence( Database database ) {
-      this( new GoalParseModel( database ), new GoalWriteModel( database ) );
+   public GoalPersistence( GoalStore goals ) {
+      this( new GoalParseModel( goals ), new GoalWriteModel( goals ) );
    }//End Constructor
    
    /**
@@ -78,7 +82,11 @@ public class GoalPersistence {
     * Method to construct the {@link JsonStructure}.
     */
    private void constructStructure(){
-      structure.child( GOAL, structure.root() );
+      structure.array( GOALS, structure.root(), writeModel::getNumberOfGoals );
+      structure.optionalChild( GOALS, structure.root() );
+      structure.child( GOAL, GOALS );
+      structure.child( ID, GOAL );
+      structure.child( NAME, GOAL );
       structure.child( AGE, GOAL ); 
       structure.child( WEIGHT, GOAL );
       structure.child( HEIGHT, GOAL );
@@ -100,10 +108,16 @@ public class GoalPersistence {
     * Method to construct the {@link JsonParser} for reading.
     */
    private void constructReadHandles(){
-      parserWithReadHandles.when( GOAL, new StringParseHandle( new JsonObjectParseHandler<>(  
-               parseModel::startGoal, parseModel::finishGoal 
-      ) ) );
+      parserWithReadHandles.when( GOALS, new StringParseHandle( new JsonArrayWithObjectParseHandler<>( 
+               parseModel::startGoal, parseModel::finishGoal, null, null ) 
+      ) );
       
+      parserWithReadHandles.when( GOAL, new StringParseHandle( new JsonArrayWithObjectParseHandler<>( 
+               null, parseModel::finishSingleGoalDefinition, null, null ) 
+      ) );
+      
+      parserWithReadHandles.when( ID, new StringParseHandle( parseModel::setId ) );
+      parserWithReadHandles.when( NAME, new StringParseHandle( parseModel::setName ) );
       parserWithReadHandles.when( AGE, new DoubleParseHandle( parseModel::setAge ) );
       parserWithReadHandles.when( WEIGHT, new DoubleParseHandle( parseModel::setWeight ) );
       parserWithReadHandles.when( HEIGHT, new DoubleParseHandle( parseModel::setHeight ) );
@@ -125,6 +139,12 @@ public class GoalPersistence {
     * Method to construct the {@link JsonParser} for writing.
     */
    private void constructWriteHandles(){
+      parserWithWriteHandles.when( GOALS, new JsonWriteHandleImpl( new JsonArrayWithObjectWriteHandler( 
+               writeModel::startWritingGoal, null, writeModel::startWritingGoals, null 
+      ) ) );
+      
+      parserWithWriteHandles.when( ID, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getId ) ) );
+      parserWithWriteHandles.when( NAME, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getName ) ) );
       parserWithWriteHandles.when( AGE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getAge ) ) );
       parserWithWriteHandles.when( WEIGHT, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getWeight ) ) );
       parserWithWriteHandles.when( HEIGHT, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getHeight ) ) );

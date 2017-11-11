@@ -18,10 +18,12 @@ public class TemplateStoreTest {
    @Before public void initialiseSystemUnderTest() {
       food = new Template( "Meal" );
       goal = new Goal( "Goal" );
-      systemUnderTest = new TemplateStore( goal );
+      systemUnderTest = new TemplateStore();
    }//End Method
 
    @Test public void shouldStoreById() {
+      systemUnderTest.setDefaultGoal( goal );
+      
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
@@ -29,17 +31,27 @@ public class TemplateStoreTest {
    }//End Method
    
    @Test public void shouldCreateNew() {
+      systemUnderTest.setDefaultGoal( goal );
+      
       Template newFood = systemUnderTest.createFood( "NewName" );
       assertThat( systemUnderTest.get( newFood.properties().id() ), is( newFood ) );
       assertThat( newFood.goalAnalytics().goal().get(), is( goal ) );
    }//End Method
    
    @Test public void shouldRemoveExisting() {
+      systemUnderTest.setDefaultGoal( goal );
+      
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
       systemUnderTest.removeFood( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
       assertThat( food.goalAnalytics().goal().get(), is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldProvideDefaultGoal(){
+      assertThat( systemUnderTest.defaultGoal(), is( nullValue() ) );
+      systemUnderTest.setDefaultGoal( goal );
+      assertThat( systemUnderTest.defaultGoal(), is( goal ) );
    }//End Method
 
 }//End Class

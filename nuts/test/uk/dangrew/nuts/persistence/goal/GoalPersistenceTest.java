@@ -10,53 +10,74 @@ import org.junit.Test;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalStore;
 import uk.dangrew.nuts.store.Database;
 
 public class GoalPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      GoalPersistence persistence = new GoalPersistence( database );
+      GoalPersistence persistence = new GoalPersistence( database.goals() );
       
-      String value = TestCommon.readFileIntoString( getClass(), "goal.txt" );
+      String value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
       JSONObject json = new JSONObject( value );
       persistence.readHandles().parse( json );
 
-      assertGoalsAreParsed( database.goal() );
+      assertGoal1IsParsed( database.goals().objectList().get( 0 ), true );
+      assertGoal2IsParsed( database.goals().objectList().get( 1 ) );
+   }//End Method
+   
+   @Test public void shouldReadFirstVersionData() {
+      Database database = new Database();
+      GoalPersistence persistence = new GoalPersistence( database.goals() );
+      
+      String value = TestCommon.readFileIntoString( getClass(), "goal-no-id-name.txt" );
+      JSONObject json = new JSONObject( value );
+      persistence.readHandles().parse( json );
+
+      assertGoal1IsParsed( database.goals().objectList().get( 0 ), false );
    }//End Method
    
    @Test public void shouldWriteData(){
-      Database database = new Database();
+      GoalStore goals = new GoalStore();
+      Goal goal = goals.createFood( "this-is-the-id", "some-name" );
       
-      database.goal().gender().set( Gender.Male );
-      database.goal().age().set( 28.0 );
-      database.goal().weight().set( 197.0 );
-      database.goal().height().set( 1.87 );
-      database.goal().exerciseCalories().set( 500.0 );
-      database.goal().calorieDeficit().set( 700.0 );
-      database.goal().fatPerPound().set( 0.35 );
+      goal.gender().set( Gender.Male );
+      goal.age().set( 28.0 );
+      goal.weight().set( 197.0 );
+      goal.height().set( 1.87 );
+      goal.exerciseCalories().set( 500.0 );
+      goal.calorieDeficit().set( 700.0 );
+      goal.fatPerPound().set( 0.35 );
       
-      assertGoalsAreRealistic( database.goal() );
+      assertGoalsAreRealistic( goal );
       
-      GoalPersistence persistence = new GoalPersistence( database );
+      GoalPersistence persistence = new GoalPersistence( goals );
       JSONObject json = new JSONObject();
       persistence.structure().build( json );
       persistence.writeHandles().parse( json );
       
       System.out.println( json.toString() );
       
-      database = new Database();
-      persistence = new GoalPersistence( database );
+      goals = new GoalStore();
+      persistence = new GoalPersistence( goals );
       
       persistence.readHandles().parse( json );
-      assertGoalsAreRealistic( database.goal() );
+      assertThat( goals.objectList().size(), is( 1 ) );
+      
+      assertGoalsAreRealistic( goals.objectList().get( 0 ) );
    }//End Method
    
    /**
     * Method to assert the {@link Goal} values as defined in the file.
     * @param goal the {@link Goal} to test.
+    * @param expectMatchingIdName whether the id and name are expected.
     */
-   private void assertGoalsAreParsed( Goal goal ) {
+   private void assertGoal1IsParsed( Goal goal, boolean expectMatchingIdName ) {
+      if ( expectMatchingIdName ) {
+         assertThat( goal.properties().id(), is( "this-is-the-id" ) );
+         assertThat( goal.properties().nameProperty().get(), is( "some-name" ) );
+      }
       assertThat( goal.gender().get(), is( Gender.Male ) );
       assertThat( goal.fatPerPound().get(), is( closeTo( 1112, TestCommon.precision() ) ) );
       assertThat( goal.bmr().get(), is( closeTo( 1113, TestCommon.precision() ) ) );
@@ -72,6 +93,30 @@ public class GoalPersistenceTest {
       assertThat( goal.exerciseCalories().get(), is( closeTo( 1122, TestCommon.precision() ) ) );
       assertThat( goal.age().get(), is( closeTo( 1123, TestCommon.precision() ) ) );
       assertThat( goal.height().get(), is( closeTo( 1124, TestCommon.precision() ) ) );
+   }//End Method
+   
+   /**
+    * Method to assert the {@link Goal} values as defined in the file.
+    * @param goal the {@link Goal} to test.
+    */
+   private void assertGoal2IsParsed( Goal goal ) {
+      assertThat( goal.properties().id(), is( "alwieufh0182347huflsd" ) );
+      assertThat( goal.properties().nameProperty().get(), is( "Low Cal" ) );
+      assertThat( goal.gender().get(), is( Gender.Male ) );
+      assertThat( goal.fatPerPound().get(), is( closeTo( 4445, TestCommon.precision() ) ) );
+      assertThat( goal.bmr().get(), is( closeTo( 4446, TestCommon.precision() ) ) );
+      assertThat( goal.weight().get(), is( closeTo( 4447, TestCommon.precision() ) ) );
+      assertThat( goal.properties().calories().get(), is( closeTo( 4448, TestCommon.precision() ) ) );
+      assertThat( goal.properties().carbohydrates().get(), is( closeTo( 4450, TestCommon.precision() ) ) );
+      assertThat( goal.properties().fats().get(), is( closeTo( 4451, TestCommon.precision() ) ) );
+      assertThat( goal.properties().protein().get(), is( closeTo( 4457, TestCommon.precision() ) ) );
+      assertThat( goal.calorieDeficit().get(), is( closeTo( 4449, TestCommon.precision() ) ) );
+      assertThat( goal.tee().get(), is( closeTo( 4452, TestCommon.precision() ) ) );
+      assertThat( goal.proteinPerPound().get(), is( closeTo( 4453, TestCommon.precision() ) ) );
+      assertThat( goal.pal().get(), is( closeTo( 4454, TestCommon.precision() ) ) );
+      assertThat( goal.exerciseCalories().get(), is( closeTo( 4455, TestCommon.precision() ) ) );
+      assertThat( goal.age().get(), is( closeTo( 4456, TestCommon.precision() ) ) );
+      assertThat( goal.height().get(), is( closeTo( 4457, TestCommon.precision() ) ) );
    }//End Method
    
    /**

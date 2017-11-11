@@ -10,7 +10,7 @@ package uk.dangrew.nuts.persistence.goal;
 
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.goal.GoalStore;
 
 /**
  * {@link GoalParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when
@@ -18,8 +18,10 @@ import uk.dangrew.nuts.store.Database;
  */
 class GoalParseModel {
    
-   private final Database database;
+   private final GoalStore goals;
    
+   private String id;
+   private String name;
    private Double age;
    private Double weight;
    private Double height;
@@ -38,10 +40,10 @@ class GoalParseModel {
    
    /**
     * Constructs a new {@link GoalParseModel}.
-    * @param database the {@link Database}.
+    * @param goals the {@link GoalStore}.
     */
-   GoalParseModel( Database database ) {
-      this.database = database;
+   GoalParseModel( GoalStore goals ) {
+      this.goals = goals;
    }//End Constructor
    
    /**
@@ -49,6 +51,8 @@ class GoalParseModel {
     * @param key the parsed key.
     */
    void startGoal( String key ) {
+      id = null;
+      name = null;
       age = null;
       weight = null;
       height = null;
@@ -67,8 +71,26 @@ class GoalParseModel {
     * @param key the parsed key.
     */
    void finishGoal( String key ) {
-      Goal goal = database.goal();
+      Goal goal = goals.get( id );
+      if ( goal == null ) {
+         goal = goals.createFood( id, name );
+      }
       
+      setGoalProperties( goal );
+   }//End Method
+   
+   void finishSingleGoalDefinition( String key ) {
+      id = "single-goal-no-id-provided-unique";
+      name = "Singleton Goal"; 
+      Goal singleton = goals.createFood( id, name );
+      setGoalProperties( singleton );
+   }//End Method
+   
+   /**
+    * Setter for the properties of a {@link Goal} from the parsed values.
+    * @param goal the {@link Goal} to set on.
+    */
+   private void setGoalProperties( Goal goal ) {
       goal.age().set( age );
       goal.weight().set( weight );
       goal.height().set( height );
@@ -86,6 +108,24 @@ class GoalParseModel {
       goal.properties().protein().set( proteinGoal );
    }//End Method
 
+   /**
+    * Setter for the property.
+    * @param key the parse key.
+    * @param value the value.
+    */
+   void setId( String key, String value ) {
+      this.id = value;
+   }//End Method
+   
+   /**
+    * Setter for the property.
+    * @param key the parse key.
+    * @param value the value.
+    */
+   void setName( String key, String value ) {
+      this.name = value;
+   }//End Method
+   
    /**
     * Setter for the property.
     * @param key the parse key.

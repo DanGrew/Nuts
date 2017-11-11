@@ -42,10 +42,6 @@ public class GoalTableView extends BorderPane {
       FoodSessions sessions = new FoodSessions( database );
       sessions.read();
       
-      if ( database.shoppingLists().objectList().isEmpty() ) {
-         database.shoppingLists().createFood( "Shopping" );
-      }
-      
       HBox controls = new HBox();
       Button load = new Button( "Load" );
       load.setOnAction( e -> sessions.read() );
@@ -57,7 +53,7 @@ public class GoalTableView extends BorderPane {
       
       this.tabPane = new TabPane();
       createTab( "Nutrition", new InformationPane() );
-      createTab( "Goal", new GoalCalculationView( database.goal() ) );
+      createTab( "Goal", new GoalCalculationView( database.templates().defaultGoal() ) );
       createTab( "Database", new FoodManagerPane( database ) );
       createTab( "Plans", new PlanManagerPane( database ) );
       createTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );

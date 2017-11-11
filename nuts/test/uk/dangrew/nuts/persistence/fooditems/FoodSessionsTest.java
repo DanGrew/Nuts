@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import uk.dangrew.jupa.file.protocol.JarJsonPersistingProtocol;
 import uk.dangrew.jupa.json.io.JsonIO;
+import uk.dangrew.nuts.persistence.goal.GoalParseModelTest;
 import uk.dangrew.nuts.store.Database;
 
 public class FoodSessionsTest {
@@ -32,10 +33,33 @@ public class FoodSessionsTest {
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class )
       );
       sessions.read();
       assertThat( database.foodItems().objectList(), is( not( empty() ) ) );
+   }//End Method
+   
+   @Test public void shouldReadSingleGoalData() throws URISyntaxException{
+      Database database = new Database();
+      JarJsonPersistingProtocol goalLocation = mock( JarJsonPersistingProtocol.class );
+      when( goalLocation.readFromLocation() ).thenReturn( 
+               new JsonIO().read( new File( getClass().getResource( "goal-no-id-name.txt" ).toURI() ) 
+      ) );
+      
+      FoodSessions sessions = new FoodSessions( 
+               database,
+               mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
+               goalLocation
+      );
+      sessions.read();
+      assertThat( database.goals().objectList(), is( not( empty() ) ) );
+      assertThat( database.templates().defaultGoal().properties().nameProperty().get(), is( GoalParseModelTest.SINGLETON_GOAL_DEFAULT_NAME ) );
    }//End Method
    
    @Test public void untested() {

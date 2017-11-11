@@ -18,16 +18,31 @@ import uk.dangrew.nuts.goal.Goal;
  */
 public class TemplateStore extends MappedObservableStoreManagerImpl< String, Template > implements FoodStore< Template > {
 
-   private final Goal defaultGoal;
+   private Goal defaultGoal;
    
    /**
     * Constructs a new {@link TemplateStore}.
     * @param defaultGoal the default {@link Goal} to associate.
     */
-   public TemplateStore( Goal defaultGoal ) {
+   public TemplateStore() {
       super( m -> m.properties().id() );
-      this.defaultGoal = defaultGoal;
    }//End Constructor
+   
+   /**
+    * Setter for the {@link Goal} applied to all new {@link Template}s.
+    * @param goal the {@link Goal} to apply.
+    */
+   public void setDefaultGoal( Goal goal ) {
+      this.defaultGoal = goal;
+   }//End Method
+   
+   /**
+    * Access to the default {@link Goal} to apply to all {@link Template}s newly created.
+    * @return the {@link Goal}.
+    */
+   public Goal defaultGoal() {
+      return defaultGoal;
+   }//End Method
 
    /**
     * {@inheritDoc}
