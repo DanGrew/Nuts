@@ -38,6 +38,22 @@ public class GoalPersistenceTest {
       assertGoal1IsParsed( database.goals().objectList().get( 0 ), false );
    }//End Method
    
+   @Test public void shouldRetainNewNameOfOriginalGoal() {
+      Database database = new Database();
+      GoalPersistence persistence = new GoalPersistence( database.goals() );
+      
+      String value = TestCommon.readFileIntoString( getClass(), "goal-no-id-name.txt" );
+      JSONObject json = new JSONObject( value );
+      persistence.readHandles().parse( json );
+      
+      value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
+      json = new JSONObject( value );
+      persistence.readHandles().parse( json );
+
+      assertGoal1IsParsed( database.goals().objectList().get( 0 ), false );
+      assertThat( database.goals().objectList().get( 0 ).properties().nameProperty().get(), is( "some-name" ) );
+   }//End Method
+   
    @Test public void shouldWriteData(){
       GoalStore goals = new GoalStore();
       Goal goal = goals.createFood( "this-is-the-id", "some-name" );
@@ -75,7 +91,7 @@ public class GoalPersistenceTest {
     */
    private void assertGoal1IsParsed( Goal goal, boolean expectMatchingIdName ) {
       if ( expectMatchingIdName ) {
-         assertThat( goal.properties().id(), is( "this-is-the-id" ) );
+         assertThat( goal.properties().id(), is( "single-goal-no-id-provided-unique" ) );
          assertThat( goal.properties().nameProperty().get(), is( "some-name" ) );
       }
       assertThat( goal.gender().get(), is( Gender.Male ) );

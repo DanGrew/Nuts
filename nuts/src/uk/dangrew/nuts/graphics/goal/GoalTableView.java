@@ -53,7 +53,7 @@ public class GoalTableView extends BorderPane {
       
       this.tabPane = new TabPane();
       createTab( "Nutrition", new InformationPane() );
-      createTab( "Goal", new GoalCalculationView( database.templates().defaultGoal() ) );
+      createTab( "Goals", new GoalManagerPane( database ) );
       createTab( "Database", new FoodManagerPane( database ) );
       createTab( "Plans", new PlanManagerPane( database ) );
       createTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );

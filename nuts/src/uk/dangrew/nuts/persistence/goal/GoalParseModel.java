@@ -91,6 +91,7 @@ class GoalParseModel {
     * @param goal the {@link Goal} to set on.
     */
    private void setGoalProperties( Goal goal ) {
+      goal.properties().nameProperty().set( name );
       goal.age().set( age );
       goal.weight().set( weight );
       goal.height().set( height );

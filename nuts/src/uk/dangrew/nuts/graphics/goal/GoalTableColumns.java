@@ -6,23 +6,22 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.graphics.food;
+package uk.dangrew.nuts.graphics.goal;
 
-import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.graphics.table.FoodTable;
 import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 
 /**
- * {@link FoodTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
- * for a {@link FoodTable}.
+ * {@link GoalTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
+ * for a {@link GoalTable}.
  */
-public class FoodTableColumns< FoodTypeT extends Food > implements FoodTableColumnsPopulator< FoodTypeT > {
+public class GoalTableColumns implements FoodTableColumnsPopulator< Goal > {
 
-   static final String COLUMN_TITLE_FOOD = "Food";
+   static final String COLUMN_TITLE_FOOD = "Goal";
    static final String COLUMN_TITLE_CALORIES = "Calories";
-   static final String COLUMN_TITLE_CALORIE_DENSITY = "Density";
    static final String COLUMN_TITLE_CARBS = "Carbohydrates";
    static final String COLUMN_TITLE_FATS = "Fats";
    static final String COLUMN_TITLE_PROTEINS = "Protein";
@@ -30,16 +29,16 @@ public class FoodTableColumns< FoodTypeT extends Food > implements FoodTableColu
    private final TableConfiguration configuration;
 
    /**
-    * Constructs a new {@link FoodTable}.
+    * Constructs a new {@link GoalTableColumns}.
     */
-   public FoodTableColumns() {
+   public GoalTableColumns() {
       this.configuration = new TableConfiguration();
    }//End Constructor
    
    /**
     * {@inheritDoc}
     */
-   @Override public void populateColumns( FoodTable< FoodTypeT > table ) {
+   @Override public void populateColumns( FoodTable< Goal > table ) {
       configuration.initialiseFoodProperyStringColumn( table, COLUMN_TITLE_FOOD, 0.3, FoodProperties::nameProperty, true );
       
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.16, f -> f.properties().calories(), true );

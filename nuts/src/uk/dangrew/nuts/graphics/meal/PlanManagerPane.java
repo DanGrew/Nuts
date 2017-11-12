@@ -52,7 +52,7 @@ public class PlanManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
 
-      add( templatesTable = new FoodTableWithControls<>( "Templates", new TemplateTable( database.templates() ) ), 0, 0 );
+      add( templatesTable = new FoodTableWithControls<>( "Templates", new TemplateTable( database ) ), 0, 0 );
       add( planView = new MealTableWithControls( "Selected Template", database ), 0, 1 );
       add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 2 );
       

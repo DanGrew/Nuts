@@ -12,8 +12,8 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.table.FoodOptions;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
@@ -25,7 +25,7 @@ public class FoodOptionsTest {
    private Meal meal2;
    
    private Database database;
-   private FoodOptions systemUnderTest;
+   private FoodOptions< Food > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       foodItem1 = new FoodItem( "Item1" );
@@ -34,7 +34,7 @@ public class FoodOptionsTest {
       meal2 = new Meal( "Meal2" );
       
       database = new Database();
-      systemUnderTest = new FoodOptions( Arrays.asList( database.foodItems(), database.meals() ) );
+      systemUnderTest = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
    }//End Method
 
    @Test public void shouldProvideCombinedFoods() {

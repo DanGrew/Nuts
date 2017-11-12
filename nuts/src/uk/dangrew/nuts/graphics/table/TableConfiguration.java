@@ -39,20 +39,42 @@ public class TableConfiguration {
     * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
     * @param editable whether the column should be editable.
     */
-   public < FoodTypeT extends Food > void initialiseStringColumn( 
+   public < FoodTypeT extends Food > void initialiseFoodProperyStringColumn( 
             TableView< FoodTableRow< FoodTypeT > > table,
             String title, 
             double widthProportion,
             Function< FoodProperties, ObjectProperty< String > > propertyRetriever, 
             boolean editable
    ){
+      initialiseStringColumn( 
+               table, title, widthProportion, 
+               f -> propertyRetriever.apply( f.properties() ), 
+               editable 
+      );
+   }//End Method
+   
+   /**
+    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.
+    * @param table the {@link TableView} to configure.
+    * @param title the title of the {@link TableColumn}.
+    * @param widthProportion the proportion of the width the {@link TableColumn} should be.
+    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
+    * @param editable whether the column should be editable.
+    */
+   public < FoodTypeT extends Food > void initialiseStringColumn( 
+            TableView< FoodTableRow< FoodTypeT > > table,
+            String title, 
+            double widthProportion,
+            Function< FoodTypeT, ObjectProperty< String > > propertyRetriever, 
+            boolean editable
+   ){
       TableColumn< FoodTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
       column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food().properties() ) );
+      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().food() ) );
       
       column.setCellFactory(TextFieldTableCell.forTableColumn());
       column.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> 
-               propertyRetriever.apply( r.food().properties() ).set( v )
+               propertyRetriever.apply( r.food() ).set( v )
       ) );
       column.setEditable( editable );
       table.getColumns().add( column );
@@ -160,15 +182,15 @@ public class TableConfiguration {
     * @param propertySetter the {@link BiConsumer} to set the {@link Food} when selected.
     * @param foodOptions the {@link FoodOptions} for the {@link javafx.scene.control.ComboBox}.
     */
-   public < RowTypeT > void initialiseFoodDropDownColumn(
+   public < RowTypeT, FoodTypeT extends Food > void initialiseFoodDropDownColumn(
             TableView< RowTypeT > table,
             String title, 
             double widthProportion,
-            Function< RowTypeT, ObservableValue< Food > > propertyRetriever,
-            BiConsumer< RowTypeT, Food > propertySetter,
-            FoodOptions foodOptions
+            Function< RowTypeT, ObservableValue< FoodTypeT > > propertyRetriever,
+            BiConsumer< RowTypeT, FoodTypeT > propertySetter,
+            FoodOptions< FoodTypeT > foodOptions
    ){
-      TableColumn< RowTypeT, Food > nameColumn = new TableColumn<>( title );
+      TableColumn< RowTypeT, FoodTypeT > nameColumn = new TableColumn<>( title );
       nameColumn.setCellFactory( ComboBoxTableCell.forTableColumn( new StringExtractConverter<>( 
                object -> object.properties().nameProperty().get(),
                foodOptions::find,

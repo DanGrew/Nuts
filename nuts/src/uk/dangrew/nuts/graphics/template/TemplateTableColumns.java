@@ -8,7 +8,12 @@
  */
 package uk.dangrew.nuts.graphics.template;
 
+import java.util.Arrays;
+
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.graphics.table.FoodOptions;
 import uk.dangrew.nuts.graphics.table.FoodTable;
 import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
@@ -18,9 +23,10 @@ import uk.dangrew.nuts.template.Template;
  * {@link TemplateTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
  * for a {@link TemplateTable}.
  */
-public class TemplateTableColumns< FoodTypeT extends Template > implements FoodTableColumnsPopulator< FoodTypeT > {
+public class TemplateTableColumns< FoodTypeT extends Template > implements FoodTableColumnsPopulator< Template > {
 
-   static final String COLUMN_TITLE_FOOD = "Food";
+   static final String COLUMN_TITLE_TEMPLATE = "Template";
+   static final String COLUMN_TITLE_GOAL = "Goal";
    static final String COLUMN_TITLE_CALORIES = "Calories";
    static final String COLUMN_TITLE_CALORIE_DENSITY = "Density";
    static final String COLUMN_TITLE_CARBS = "Carbohydrates";
@@ -31,21 +37,32 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements FoodT
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
+   private final GoalStore goals;
    private final TableConfiguration configuration;
 
    /**
     * Constructs a new {@link FoodTable}.
+    * @param goals the {@link GoalStore}.
     */
-   public TemplateTableColumns() {
+   public TemplateTableColumns( GoalStore goals ) {
+      this.goals = goals;
       this.configuration = new TableConfiguration();
    }//End Constructor
    
    /**
     * {@inheritDoc}
     */
-   @Override public void populateColumns( FoodTable< FoodTypeT > table ) {
-      configuration.initialiseStringColumn( table, COLUMN_TITLE_FOOD, 0.3, FoodProperties::nameProperty, true );
-      
+   @Override public void populateColumns( FoodTable< Template > table ) {
+      configuration.initialiseFoodProperyStringColumn( table, COLUMN_TITLE_TEMPLATE, 0.2, FoodProperties::nameProperty, true );
+      configuration.initialiseFoodDropDownColumn( 
+               table, 
+               COLUMN_TITLE_GOAL, 
+               0.1, 
+               r -> r.food().goalAnalytics().goal(), 
+               ( r, v ) -> r.food().goalAnalytics().goal().set( v ),
+               new FoodOptions<>( Arrays.asList( goals ) )
+      );
+
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.08, f -> f.properties().calories(), true );
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.08, f -> f.properties().carbohydrates(), true );
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.08, f -> f.properties().fats(), true );

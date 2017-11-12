@@ -41,7 +41,7 @@ public class MealTableColumns implements FoodTableColumnsPopulator< FoodPortion 
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
-   private final FoodOptions foodOptions;
+   private final FoodOptions< Food > foodOptions;
    private final TableConfiguration configuration;
 
    /**
@@ -50,7 +50,7 @@ public class MealTableColumns implements FoodTableColumnsPopulator< FoodPortion 
     */
    public MealTableColumns( Database database ) {
       this.configuration = new TableConfiguration();
-      this.foodOptions = new FoodOptions( Arrays.asList( database.foodItems(), database.meals() ) );
+      this.foodOptions = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
    }//End Constructor
    
    /**

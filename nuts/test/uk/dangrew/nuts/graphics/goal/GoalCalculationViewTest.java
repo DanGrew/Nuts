@@ -13,7 +13,8 @@ public class GoalCalculationViewTest {
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
-      systemUnderTest = new GoalCalculationView( new Goal( "Goal" ) );
+      systemUnderTest = new GoalCalculationView();
+      systemUnderTest.show(  new Goal( "Goal" )  );
    }//End Method
 
    @Ignore

@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Pair;
 import uk.dangrew.kode.javafx.custom.BoundTextProperty;
 import uk.dangrew.kode.javafx.custom.PropertiesPane;
+import uk.dangrew.kode.javafx.registrations.ChangeListenerBindingImpl;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerMismatchBindingImpl;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerRegistrationImpl;
 import uk.dangrew.kode.javafx.registrations.ReadOnlyChangeListenerRegistrationImpl;
@@ -33,74 +34,104 @@ import uk.dangrew.nuts.goal.Goal;
  * {@link GoalCalculationView} provides a pane of settable, and autocalculating, properties to configure
  * for setting the user's {@link Goal}.
  */
-public class GoalCalculationView extends VBox {
+public class GoalCalculationView extends TitledPane {
    
    private final JavaFxStyle styling;
    private final Conversions conversions;
-   private final RegistrationManager registrations;
+   private final RegistrationManager uiRegistrations;
+   private final RegistrationManager modelRegistrations;
+
+   private final VBox layout;
+   private final Goal viewModel; 
    
    /**
     * Constructs a new {@link GoalCalculationView}.
-    * @param goal the {@link Goal}.
     */
-   public GoalCalculationView( Goal goal ) {
+   public GoalCalculationView() {
+      super.setText( "Selected Goal" );
+      this.layout = new VBox();
+      this.setContent( layout );
+      
       this.styling = new JavaFxStyle();
       this.conversions = new Conversions();
-      this.registrations = new RegistrationManager();
+      this.uiRegistrations = new RegistrationManager();
+      this.modelRegistrations = new RegistrationManager();
+      this.viewModel = new Goal( "Selected" );
+
+      createGoalDetails();
       
       createPersonalDetailsPane( 
-               "Personal Details", 
-               goal.gender(),
-               new Pair<>( "Age (years)", goal.age() ),
-               new Pair<>( "Weight (lb)", goal.weight() ),
-               new Pair<>( "Height (m)", goal.height() )
+               "Personal Details",
+               viewModel.gender(),
+               new Pair<>( "Age (years)", viewModel.age() ),
+               new Pair<>( "Weight (lb)", viewModel.weight() ),
+               new Pair<>( "Height (m)", viewModel.height() )
       );
 
-      getChildren().add( new PropertiesPane( 
+      layout.getChildren().add( new PropertiesPane( 
                "Predictive Equations",
                new PropertyRowBuilder()
                   .withLabelName( "Basal Metabolic Rate (kcal)" )
-                  .withBinding( new BoundTextProperty( goal.bmr(), true ) ),
+                  .withBinding( new BoundTextProperty( viewModel.bmr(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Physical Activity Level (%)" )
-                  .withBinding( new BoundTextProperty( goal.pal(), true ) ),
+                  .withBinding( new BoundTextProperty( viewModel.pal(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Total Energy Expenditure (kcal)" )
-                  .withBinding( new BoundTextProperty( goal.tee(), true ) )
+                  .withBinding( new BoundTextProperty( viewModel.tee(), true ) )
       ) );
       
-      getChildren().add( new PropertiesPane( 
+      layout.getChildren().add( new PropertiesPane( 
                "Calories", 
                new PropertyRowBuilder()
                   .withLabelName( "Exercise (kcal)" )
-                  .withBinding( new BoundTextProperty( goal.exerciseCalories(), true ) ),
+                  .withBinding( new BoundTextProperty( viewModel.exerciseCalories(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Deficit (kcal)" )
-                  .withBinding( new BoundTextProperty( goal.calorieDeficit(), true ) ),
+                  .withBinding( new BoundTextProperty( viewModel.calorieDeficit(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Calorie Goal (kcal)" )
-                  .withBinding( new BoundTextProperty( goal.properties().calories(), true ) )
+                  .withBinding( new BoundTextProperty( viewModel.properties().calories(), true ) )
       ) );
       
-      getChildren().add( new PropertiesPane( 
+      layout.getChildren().add( new PropertiesPane( 
                "Goals", 
                new PropertyRowBuilder()
                   .withLabelName( "Protein per Pound" )
-                  .withBinding( new BoundTextProperty( goal.proteinPerPound(), true ) ),
+                  .withBinding( new BoundTextProperty( viewModel.proteinPerPound(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Fat per Pound" )
-                  .withBinding( new BoundTextProperty( goal.fatPerPound(), true ) ),
+                  .withBinding( new BoundTextProperty( viewModel.fatPerPound(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Carbohydrates Goal (g)" )
-                  .withBinding( new BoundTextProperty( goal.properties().carbohydrates(), true ) ),
+                  .withBinding( new BoundTextProperty( viewModel.properties().carbohydrates(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Fats Goal (g)" )
-                  .withBinding( new BoundTextProperty( goal.properties().fats(), true ) ),
+                  .withBinding( new BoundTextProperty( viewModel.properties().fats(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Protein Goal (g)" )
-                  .withBinding( new BoundTextProperty( goal.properties().protein(), true ) )
+                  .withBinding( new BoundTextProperty( viewModel.properties().protein(), true ) )
       ) );
    }//End Constructor
+   
+   /**
+    * Method to create the details of the {@link Goal}.
+    */
+   private void createGoalDetails(){
+      GridPane wrapper = new GridPane();
+      styling.configureConstraintsForEvenColumns( wrapper, 2 );
+      styling.configureConstraintsForEvenRows( wrapper, 1 );
+      Label nameLabel = new Label( "Goal Name" );
+      wrapper.add( nameLabel, 0, 0 );
+      TextField name = new TextField();
+      wrapper.add( name, 1, 0 );
+      viewModel.properties().nameProperty().addListener( ( s, o, n ) -> name.setText( n ) );
+      name.textProperty().addListener( ( s, o, n ) -> viewModel.properties().nameProperty().set( n ) );
+      
+      TitledPane goalDetails = new TitledPane( "Goal Details", wrapper );
+      goalDetails.setCollapsible( false );
+      layout.getChildren().add( goalDetails );
+   }//End Method
    
    /**
     * Method to create a {@link GridPane} of the personal details.
@@ -121,8 +152,8 @@ public class GoalCalculationView extends VBox {
       pane.add( new Label( "Gender" ), 0, 0 );
       pane.add( gender, 1, 0 );
       
-      registrations.apply( new ChangeListenerRegistrationImpl<>( genderProperty, ( s, o, n ) -> gender.getSelectionModel().select( n ) ) );
-      registrations.apply( new ReadOnlyChangeListenerRegistrationImpl<>( gender.getSelectionModel().selectedItemProperty(), ( s, o, n ) -> genderProperty.set( n ) ) );
+      uiRegistrations.apply( new ChangeListenerRegistrationImpl<>( genderProperty, ( s, o, n ) -> gender.getSelectionModel().select( n ) ) );
+      uiRegistrations.apply( new ReadOnlyChangeListenerRegistrationImpl<>( gender.getSelectionModel().selectedItemProperty(), ( s, o, n ) -> genderProperty.set( n ) ) );
       
       for ( int i = 1; i < properties.length + 1; i++ ) {
          pane.add( new Label( properties[ i - 1 ].getKey() ), 0, i );
@@ -130,7 +161,7 @@ public class GoalCalculationView extends VBox {
          TextField field = new TextField();
          pane.add( field, 1, i );
          
-         registrations.apply( new ChangeListenerMismatchBindingImpl<>( 
+         uiRegistrations.apply( new ChangeListenerMismatchBindingImpl<>( 
                   properties[ i - 1 ].getValue(), field.textProperty(), 
                   conversions.stringToDoubleFunction(), conversions.doubleToStringFunction()
          ) );
@@ -138,9 +169,38 @@ public class GoalCalculationView extends VBox {
       
       TitledPane title = new TitledPane( paneName, pane );
       title.setCollapsible( false );
-      getChildren().add( title );
+      layout.getChildren().add( title );
       
       return pane;
    }//End Method
+   
+   /**
+    * Method to show the {@link Goal} in the view.
+    * This will decouple the view from the previous.
+    * @param goal the {@link Goal} to show.
+    */
+   public void show( Goal goal ) {
+      modelRegistrations.shutdown();
+      
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().nameProperty(), viewModel.properties().nameProperty() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.gender(), viewModel.gender() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.age(), viewModel.age() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.height(), viewModel.height() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.weight(), viewModel.weight() ) );
+      
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.bmr(), viewModel.bmr() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.pal(), viewModel.pal() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.tee(), viewModel.tee() ) );
+      
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.exerciseCalories(), viewModel.exerciseCalories() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.calorieDeficit(), viewModel.calorieDeficit() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().calories(), viewModel.properties().calories() ) );
+      
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.proteinPerPound(), viewModel.proteinPerPound() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.fatPerPound(), viewModel.fatPerPound() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().carbohydrates(), viewModel.properties().carbohydrates() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().fats(), viewModel.properties().fats() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().protein(), viewModel.properties().protein() ) );
+   }//End Method 
    
 }//End Class
