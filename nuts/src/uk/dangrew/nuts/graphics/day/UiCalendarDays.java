@@ -24,7 +24,7 @@ public class UiCalendarDays extends GridPane {
       styling.configureConstraintsForEvenRows( this, 1 );
       
       for ( int i = 0; i < DAYS_IN_WEEK; i++ ) {
-         add( styling.createLabel( DayOfWeek.of( i + 1 ).name(), 20, Color.WHITE ), i, 0 );
+         add( styling.createBoldLabel( DayOfWeek.of( i + 1 ).name(), 20, Color.WHITE ), i, 0 );
       }
    }//End Class
    
