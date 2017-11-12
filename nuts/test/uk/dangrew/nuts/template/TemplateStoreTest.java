@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.template;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
@@ -28,6 +29,16 @@ public class TemplateStoreTest {
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
       assertThat( food.goalAnalytics().goal().get(), is( goal ) );
+   }//End Method
+   
+   @Test public void shouldNotOverwriteGoalWhenStored() {
+      systemUnderTest.setDefaultGoal( goal );
+      
+      food.goalAnalytics().goal().set( new Goal( "anything" ) );
+      assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
+      systemUnderTest.store( food );
+      assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
+      assertThat( food.goalAnalytics().goal().get(), is( not( goal ) ) );
    }//End Method
    
    @Test public void shouldCreateNew() {

@@ -19,20 +19,20 @@ import uk.dangrew.nuts.meal.Meal;
  * {@link MealWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}
  * when writing {@link Meal}s.
  */
-class MealWriteModel< FoodTypeT extends Meal > {
+public class MealWriteModel< FoodTypeT extends Meal > {
    
    private final FoodStore< FoodTypeT > meals;
-   private final List< Meal > foodBuffer;
-   private final List< Meal > foodPortionCoundBuffer;
+   private final List< FoodTypeT > foodBuffer;
+   private final List< FoodTypeT > foodPortionCoundBuffer;
    private final List< FoodPortion > portionBuffer;
-   private Meal currentFood;
+   private FoodTypeT currentFood;
    private FoodPortion currentPortion; 
    
    /**
     * Constructs a new {@link FoodItemWriteModel}.
     * @param meals the {@link FoodStore} providing the {@link Meal}s.
     */
-   MealWriteModel( FoodStore< FoodTypeT > meals ) {
+   protected MealWriteModel( FoodStore< FoodTypeT > meals ) {
       this.meals = meals;
       this.foodBuffer = new ArrayList<>();
       this.portionBuffer = new ArrayList<>();
@@ -41,6 +41,14 @@ class MealWriteModel< FoodTypeT extends Meal > {
       foodBuffer.clear();
       foodPortionCoundBuffer.clear();
    }//End Constructor
+   
+   /**
+    * Access to the current {@link Meal} being written.
+    * @return the current.
+    */
+   protected FoodTypeT current(){
+      return currentFood;
+   }//End Method
    
    /**
     * Provides the number of {@link Meal}s to write.

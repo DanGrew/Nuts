@@ -26,7 +26,7 @@ import uk.dangrew.nuts.store.Database;
 public class MealPersistence< FoodTypeT extends Meal > {
    
    static final String MEALS = "meals";
-   static final String MEAL = "meal";
+   public static final String MEAL = "meal";
    
    static final String ID = "id";
    static final String NAME = "name";
@@ -56,7 +56,7 @@ public class MealPersistence< FoodTypeT extends Meal > {
     * @param parseModel the {@link MealParseModel}.
     * @param writeModel the {@link MealWriteModel}.
     */
-   MealPersistence( MealParseModel< FoodTypeT > parseModel, MealWriteModel< FoodTypeT > writeModel ) {
+   public MealPersistence( MealParseModel< FoodTypeT > parseModel, MealWriteModel< FoodTypeT > writeModel ) {
       this.structure = new JsonStructure();
       this.parseModel = parseModel;
       this.parserWithReadHandles = new JsonParser();

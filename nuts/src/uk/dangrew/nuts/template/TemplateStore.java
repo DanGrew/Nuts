@@ -69,7 +69,9 @@ public class TemplateStore extends MappedObservableStoreManagerImpl< String, Tem
     */
    @Override public void store( Template object ) {
       super.store( object );
-      object.goalAnalytics().goal().set( defaultGoal );
+      if ( object.goalAnalytics().goal().get() == null ) {
+         object.goalAnalytics().goal().set( defaultGoal );
+      }
    }//End Method
    
    /**

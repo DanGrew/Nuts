@@ -22,7 +22,7 @@ import uk.dangrew.nuts.store.Database;
  * {@link MealParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when
  * parsing {@link Meal}s.
  */
-class MealParseModel< FoodTypeT extends Meal > {
+public class MealParseModel< FoodTypeT extends Meal > {
    
    private final Database database;
    private final FoodStore< FoodTypeT > meals;
@@ -39,17 +39,41 @@ class MealParseModel< FoodTypeT extends Meal > {
     * @param database the {@link Database}.
     * @param meals {@link FoodStore} providing the {@link Meal}s.
     */
-   MealParseModel( Database database, FoodStore< FoodTypeT > meals ) {
+   protected MealParseModel( Database database, FoodStore< FoodTypeT > meals ) {
       this.database = database;
       this.meals = meals;
       this.portions = new ArrayList<>();
    }//End Constructor
    
    /**
+    * Access to the {@link Database}.
+    * @return the {@link Database}.
+    */
+   protected Database database(){
+      return database;
+   }//End Method
+   
+   /**
+    * Access to the {@link FoodStore}.
+    * @return the {@link FoodStore}.
+    */
+   protected FoodStore< FoodTypeT > meals(){
+      return meals;
+   }//End Method
+   
+   /**
+    * Access to the currently parsed id.
+    * @return the id.
+    */
+   protected String id(){
+      return id;
+   }//End Method
+   
+   /**
     * Triggered when starting a new {@link Meal}.
     * @param key the parsed key.
     */
-   void startMeal( String key ) {
+   protected void startMeal( String key ) {
       this.id = null;
       this.name = null;
       this.portions.clear();;
@@ -61,7 +85,7 @@ class MealParseModel< FoodTypeT extends Meal > {
     * Triggered when all values of a {@link Meal} have been parsed.
     * @param key the parsed key.
     */
-   void finishMeal( String key ) {
+   protected void finishMeal( String key ) {
       FoodTypeT meal = meals.get( id );
       if ( meal == null ) {
          meal = meals.createFood( id, name );

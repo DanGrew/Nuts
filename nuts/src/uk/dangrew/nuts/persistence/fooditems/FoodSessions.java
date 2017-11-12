@@ -16,6 +16,7 @@ import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.goal.GoalPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.persistence.setup.DataSetup;
+import uk.dangrew.nuts.persistence.template.TemplatePersistence;
 import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
 import uk.dangrew.nuts.store.Database;
 
@@ -117,7 +118,7 @@ public class FoodSessions {
       
       this.foodItemMarshaller = constructFoodItemMarshaller();
       this.mealMarshaller = constructMealMarshaller( database.meals(), mealFileLocation );
-      this.templatesMarshaller = constructMealMarshaller( database.templates(), planFileLocation );
+      this.templatesMarshaller = constructTemplateMarshaller( planFileLocation );
       this.shoppingListMarshaller = constructMealMarshaller( database.shoppingLists(), shoppingListFileLocation );
       this.weightRecordingMarshaller = constructWeightRecordingMarshaller();
       this.goalMarshaller = constructGoalMarshaller( goalsFileLocation );
@@ -147,6 +148,21 @@ public class FoodSessions {
     */
    private < FoodTypeT extends Meal > ModelMarshaller constructMealMarshaller( FoodStore< FoodTypeT > store, JarJsonPersistingProtocol fileLocation ){
       MealPersistence< FoodTypeT > persistence = new MealPersistence<>( database, store );
+      return new ModelMarshaller( 
+               persistence.structure(), 
+               persistence.readHandles(), 
+               persistence.writeHandles(), 
+               fileLocation 
+      );
+   }//End Method
+   
+   /**
+    * Method to construct the {@link ModelMarshaller}.
+    * @param fileLocation the {@link JarJsonPersistingProtocol}.
+    * @return the {@link ModelMarshaller} constructed for {@link uk.dangrew.nuts.template.Template}s.
+    */
+   private ModelMarshaller constructTemplateMarshaller( JarJsonPersistingProtocol fileLocation ){
+      TemplatePersistence persistence = new TemplatePersistence( database, database.templates() );
       return new ModelMarshaller( 
                persistence.structure(), 
                persistence.readHandles(), 
