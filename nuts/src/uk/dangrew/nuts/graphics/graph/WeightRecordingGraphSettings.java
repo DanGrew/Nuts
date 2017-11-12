@@ -16,7 +16,7 @@ import uk.dangrew.kode.javafx.custom.ResponsiveComboLocalDateProperty;
 import uk.dangrew.kode.javafx.custom.ResponsiveDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
-import uk.dangrew.nuts.progress.WeightProgressDateRange;
+import uk.dangrew.nuts.progress.SystemDateRange;
 
 /**
  * {@link WeightRecordingGraphSettings} is responsible for providing settings and configuration
@@ -42,7 +42,7 @@ public class WeightRecordingGraphSettings extends GridPane {
    ) {
       new JavaFxStyle().configureConstraintsForEvenColumns( this, 1 );
       new JavaFxStyle().configureConstraintsForEvenRows( this, 1 );
-      WeightProgressDateRange dataRange = new WeightProgressDateRange();
+      SystemDateRange dataRange = new SystemDateRange();
       
       getChildren().add( new PropertiesPane( "Graph Range", 
           new PropertyRowBuilder()

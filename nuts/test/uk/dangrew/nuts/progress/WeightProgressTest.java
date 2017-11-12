@@ -28,7 +28,7 @@ public class WeightProgressTest {
 
    @Test public void shouldMorningAndEveningForEveryDaySince24thApril2017() {
       LocalDate now = LocalDate.now();
-      LocalDate april = WeightProgressDateRange.START_DATE;
+      LocalDate april = SystemDateRange.START_DATE;
       final LocalDate lastEntry = systemUnderTest.records().get( systemUnderTest.records().size() - 1 ).date();
       assertThat( 
                lastEntry.isEqual( now ) ||

@@ -8,17 +8,17 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-public class WeightProgressDateRangeTest {
+public class SystemDateRangeTest {
 
-   private WeightProgressDateRange systemUnderTest;
+   private SystemDateRange systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      systemUnderTest = new WeightProgressDateRange();
+      systemUnderTest = new SystemDateRange();
    }//End Method
 
    @Test public void shouldMorningAndEveningForEveryDaySince24thApril2017() {
       LocalDate now = LocalDate.now();
-      LocalDate april = WeightProgressDateRange.START_DATE;
+      LocalDate april = SystemDateRange.START_DATE;
       final LocalDate lastEntry = systemUnderTest.get().get( systemUnderTest.get().size() - 1 );
       assertThat( 
                lastEntry.isEqual( now ) ||

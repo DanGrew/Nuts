@@ -20,7 +20,7 @@ import java.util.Queue;
  */
 public class WeightProgress {
 
-   private final WeightProgressDateRange dateRange;
+   private final SystemDateRange dateRange;
    private final List< WeightRecording > records;
    
    /**
@@ -28,7 +28,7 @@ public class WeightProgress {
     */
    public WeightProgress() {
       this.records = new ArrayList<>();
-      this.dateRange = new WeightProgressDateRange();
+      this.dateRange = new SystemDateRange();
       
       Queue< WeightRecording > runningAverageWeighIns = new LinkedList<>();
       

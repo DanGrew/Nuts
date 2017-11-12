@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.store;
 
+import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItemStore;
-import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalStore;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.progress.WeightProgress;
@@ -26,6 +26,7 @@ public class Database {
    private final FoodItemStore foodItems;
    private final MealStore meals;
    private final TemplateStore templates;
+   private final DayPlanStore dayPlans;
    private final MealStore shoppingLists;
    
    /**
@@ -37,6 +38,7 @@ public class Database {
       this.foodItems = new FoodItemStore();
       this.meals = new MealStore();
       this.templates = new TemplateStore();
+      this.dayPlans = new DayPlanStore();
       this.shoppingLists = new MealStore();
    }//End Constructor
    
@@ -80,6 +82,14 @@ public class Database {
     */
    public TemplateStore templates() {
       return templates;
+   }//End Method
+   
+   /**
+    * Access to the {@link uk.dangrew.nuts.day.DayPlan}s.
+    * @return the {@link DayPlanStore} of {@link uk.dangrew.nuts.day.DayPlan}s. 
+    */
+   public DayPlanStore dayPlans() {
+      return dayPlans;
    }//End Method
    
    /**

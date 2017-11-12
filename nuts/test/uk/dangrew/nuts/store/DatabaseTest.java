@@ -6,10 +6,14 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import java.time.LocalDate;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalStore;
@@ -69,6 +73,14 @@ public class DatabaseTest {
       Goal goal = new Goal( "List" );
       systemUnderTest.goals().store( goal );
       assertThat( systemUnderTest.goals().get( goal.properties().id() ), is( goal ) );
+   }//End Method
+   
+   @Test public void shouldProvideDayPlans(){
+      assertThat( systemUnderTest.dayPlans(), is( instanceOf( DayPlanStore.class ) ) );
+      
+      DayPlan plan = new DayPlan( LocalDate.now().plusDays( 1000 ) );
+      systemUnderTest.dayPlans().store( plan );
+      assertThat( systemUnderTest.dayPlans().get( plan.date() ), is( plan ) );
    }//End Method
 
 }//End Class
