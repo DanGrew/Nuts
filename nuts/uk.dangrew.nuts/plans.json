@@ -1,6 +1,5 @@
 {"meals": [
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Wraps & Tikka",
       "id": "37fed05f-8fa4-46e6-a915-a9c86660da67",
       "portions": [
@@ -35,7 +34,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Chicken (Work) & Spag Bol",
       "id": "3c1f715b-770c-496b-9cf0-c7b86bcb41de",
       "portions": [
@@ -70,7 +68,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Burgers & Rat",
       "id": "5228a673-25d3-4af8-bc88-2a851a5984bf",
       "portions": [
@@ -117,7 +114,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Sandwich & Omelete",
       "id": "b053a912-bafc-4c48-93e1-a9a5f59f6885",
       "portions": [
@@ -156,7 +152,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Sandwich & Spag Bol",
       "id": "b59dc7c5-a146-45cf-8ba9-ebee6b9e0cdb",
       "portions": [
@@ -199,7 +194,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Sandwich & Fish Cakes",
       "id": "d5679a10-390e-4e2b-8225-e9e8ce7c5e4a",
       "portions": [
@@ -234,7 +228,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Unbalanced Diet",
       "id": "a5662777-6279-4ef5-a0cc-9344e22fd1e4",
       "portions": [
@@ -301,7 +294,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Chicken Curry & Tuna",
       "id": "beb140d3-989d-44fe-b68a-ea102a9749ba",
       "portions": [
@@ -348,7 +340,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Sandwich & Burgers",
       "id": "794e7e7d-bc04-4769-aa35-4e8c9ff42d62",
       "portions": [
@@ -387,7 +378,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Fat Burgers",
       "id": "0b09315d-7298-4a69-a495-f283a933917c",
       "portions": [
@@ -434,7 +424,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Wraps & Sausages",
       "id": "58759db0-e113-4dcb-bc7e-e1f5a3c37a71",
       "portions": [
@@ -473,7 +462,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Beer Festival",
       "id": "f47b263f-5540-458c-9929-f0791e605ee0",
       "portions": [
@@ -508,7 +496,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Fasting Day",
       "id": "8feac213-0d8e-463e-99d9-0479540653c9",
       "portions": [
@@ -543,7 +530,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Turkey Slice Wraps & Freezer",
       "id": "d52c305d-b92f-4bc3-86c5-193dd7c6d19f",
       "portions": [
@@ -594,7 +580,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Gnocchi + Tuna Salad",
       "id": "b926443b-2644-49d6-a8ea-6f3ea0aada92",
       "portions": [
@@ -625,7 +610,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "2x Dinner (Tuna, Bolognaise, Icecream)",
       "id": "d2a1c47e-b157-46da-a9b5-5fa099c096c7",
       "portions": [
@@ -656,7 +640,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "2x Dinner (Gnocchi + Sausages)",
       "id": "0289cf5b-d7e6-4106-8169-d7edf72a204c",
       "portions": [
@@ -691,7 +674,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "2x Dinner (Spag Bol + Dinos)",
       "id": "ca0718c9-26e0-49b4-84b0-1d97a324b3a6",
       "portions": [
@@ -730,7 +712,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "2x Dinner (Tikka + Omelette)",
       "id": "4a529f6a-897f-491c-a373-05cad20cddd3",
       "portions": [
@@ -761,7 +742,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Tikka with Naan",
       "id": "ae08a063-de3a-4498-ac32-cb31edeba8ee",
       "portions": [
@@ -796,7 +776,6 @@
       ]
    },
    {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Day to Day",
       "id": "0bfb99dd-8034-4304-acab-39bc3b894e47",
       "portions": [
@@ -827,7 +806,6 @@
       ]
    },
    {
-      "goalId": "369b6651-633a-420b-b560-b1c1d3dfe1cb",
       "name": "Day to Day 2",
       "id": "229c7911-2294-48b8-bbb8-9d0610cbcadd",
       "portions": [
@@ -836,32 +814,32 @@
             "portionValue": 100
          },
          {
-            "foodId": "bbe7affa-9988-459a-bfd3-61d22168f281",
-            "portionValue": 200
+            "foodId": "aab7c8af-0c46-41df-81c0-bb4469f19991",
+            "portionValue": 50
          },
          {
-            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
-            "portionValue": 200
+            "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
+            "portionValue": 50
          },
          {
-            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
-            "portionValue": 200
-         },
-         {
-            "foodId": "e5689d20-d244-415e-90f3-ff2e3c68ee9d",
-            "portionValue": 0
-         },
-         {
-            "foodId": "07521ee0-5a59-40b9-bf46-0f717ce3b65c",
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
             "portionValue": 100
          },
          {
-            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
-            "portionValue": 0
+            "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
+            "portionValue": 200
+         },
+         {
+            "foodId": "f758bba2-eabb-4a25-93fc-bf6897dc1576",
+            "portionValue": 100
          },
          {
             "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
-            "portionValue": 0
+            "portionValue": 100
+         },
+         {
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "portionValue": 200
          }
       ]
    }

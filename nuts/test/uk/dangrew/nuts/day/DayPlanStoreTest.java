@@ -1,10 +1,8 @@
 package uk.dangrew.nuts.day;
 
-import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import java.time.LocalDate;
 
@@ -23,45 +21,29 @@ public class DayPlanStoreTest {
       systemUnderTest = new DayPlanStore();
    }//End Method
 
-   @Test public void shouldStoreByDate() {
-      assertThat( systemUnderTest.get( plan.date() ), is( nullValue() ) );
+   @Test public void shouldStoreById() {
+      assertThat( systemUnderTest.get( plan.properties().id() ), is( nullValue() ) );
       systemUnderTest.store( plan );
-      assertThat( systemUnderTest.get( plan.date() ), is( plan ) );
+      assertThat( systemUnderTest.get( plan.properties().id() ), is( plan ) );
    }//End Method
    
-   @Test public void shouldNotSupportIdFunctions(){
-      try {
-         systemUnderTest.createFood( "anything" );
-         fail( "Should exception" );
-      } catch ( UnsupportedOperationException e ) {
-         //continue;
-      }
-      
-      try {
-         systemUnderTest.createFood( "anything", "else" );
-         fail( "Should exception" );
-      } catch ( UnsupportedOperationException e ) {
-         //continue;
-      }
-      
-      try {
-         systemUnderTest.get( "anything" );
-         fail( "Should exception" );
-      } catch ( UnsupportedOperationException e ) {
-         //continue;
-      }
+   @Test public void shouldCreateNew() {
+      DayPlan newFood = systemUnderTest.createFood( "NewName" );
+      assertThat( systemUnderTest.get( newFood.properties().id() ), is( newFood ) );
    }//End Method
    
    @Test public void shouldRemoveExisting() {
       systemUnderTest.store( plan );
+      assertThat( systemUnderTest.get( plan.properties().id() ), is( plan ) );
       systemUnderTest.removeFood( plan );
-      assertThat( systemUnderTest.get( plan.date() ), is( nullValue() ) );
+      assertThat( systemUnderTest.get( plan.properties().id() ), is( nullValue() ) );
+      assertThat( plan.goalAnalytics().goal().get(), is( nullValue() ) );
    }//End Method
    
    @Test public void shouldInitialisePlansForDateRange(){
-      for ( LocalDate date : new SystemDateRange().get() ) {
-         assertThat( systemUnderTest.get( date ), is( notNullValue() ) );
-         assertThat( systemUnderTest.get( date ).date(), is( date ) );
+      assertThat( new SystemDateRange().get().size(), is( systemUnderTest.objectList().size() ) );
+      for ( DayPlan plan : systemUnderTest.objectList() ) {
+         assertThat( new SystemDateRange().get().contains( plan.date() ), is( true ) );
       }
    }//End Method
    

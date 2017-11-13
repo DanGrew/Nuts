@@ -14,35 +14,47 @@ import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
 import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.progress.SystemDateRange;
 
-public class DayPlanStore extends MappedObservableStoreManagerImpl< LocalDate, DayPlan > implements FoodStore< DayPlan > {
+public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayPlan > implements FoodStore< DayPlan > {
 
    public DayPlanStore() {
-      super( DayPlan::date );
+      super( f -> f.properties().id() );
       SystemDateRange dateRange = new SystemDateRange();
       for ( LocalDate date : dateRange.get() ) {
-         DayPlan plan = new DayPlan( date );
+         DayPlan plan = new DayPlan( date.toString() );
+         plan.setDate( date );
          store( plan );
       }
    }//End Constructor
-
+   
+   /**
+    * {@inheritDoc}
+    */
    @Override public DayPlan createFood( String name ) {
-      throw new UnsupportedOperationException( "Not creatable yet." );
+      DayPlan food = new DayPlan( name );
+      store( food );
+      return food;
    }//End Method
    
+   /**
+    * {@inheritDoc}
+    */
    @Override public DayPlan createFood( String id, String name ) {
-      throw new UnsupportedOperationException( "Not creatable yet." );
+      DayPlan food = new DayPlan( id, name );
+      store( food );
+      return food;
    }//End Method
    
-   @Override public DayPlan get( String id ) {
-      throw new UnsupportedOperationException( "Not indexed by id." );
+   /**
+    * {@inheritDoc}
+    */
+   @Override public void store( DayPlan object ) {
+      super.store( object );
    }//End Method
    
-   @Override public void store( DayPlan food ) {
-      super.store( food );
-   }//End Method
-   
+   /**
+    * {@inheritDoc}
+    */
    @Override public void removeFood( DayPlan food ) {
-      remove( food.date() );
+      remove( food.properties().id() );
    }//End Method
-
 }//End Class

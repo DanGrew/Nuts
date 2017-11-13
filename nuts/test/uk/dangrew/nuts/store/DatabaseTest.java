@@ -80,7 +80,7 @@ public class DatabaseTest {
       
       DayPlan plan = new DayPlan( LocalDate.now().plusDays( 1000 ) );
       systemUnderTest.dayPlans().store( plan );
-      assertThat( systemUnderTest.dayPlans().get( plan.date() ), is( plan ) );
+      assertThat( systemUnderTest.dayPlans().get( plan.properties().id() ), is( plan ) );
    }//End Method
 
 }//End Class

@@ -60,9 +60,9 @@ public class UiCalendarPane extends GridPane {
       } );
       
       this.uiCalendar.controller().selector().selection().addListener( ( s, o, n ) -> {
-         templateView.table().controller().showMeal( n.template() );
+         templateView.table().controller().showMeal( n );
          templatesTable.getRows().clear();
-         templatesTable.getRows().add( new FoodTableRow<>( n.template() ) );
+         templatesTable.getRows().add( new FoodTableRow<>( n ) );
       } );
    }// End Constructor
    

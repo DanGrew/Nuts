@@ -1808,5 +1808,15 @@
       "name": "Easter Egg (Cadburys) (100g)",
       "id": "d8f31390-3317-4477-a189-33eee04266c8",
       "calories": 530
+   },
+   {
+      "carbohydrates": 12.5,
+      "fats": 7.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.2,
+      "name": "Chocolate (M, Dark, Fruit & Nut) (4 squares = 25g)",
+      "id": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
+      "calories": 129
    }
 ]}
