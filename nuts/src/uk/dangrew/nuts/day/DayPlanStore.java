@@ -8,22 +8,13 @@
  */
 package uk.dangrew.nuts.day;
 
-import java.time.LocalDate;
-
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
 import uk.dangrew.nuts.food.FoodStore;
-import uk.dangrew.nuts.progress.SystemDateRange;
 
 public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayPlan > implements FoodStore< DayPlan > {
 
    public DayPlanStore() {
       super( f -> f.properties().id() );
-      SystemDateRange dateRange = new SystemDateRange();
-      for ( LocalDate date : dateRange.get() ) {
-         DayPlan plan = new DayPlan( date.toString() );
-         plan.setDate( date );
-         store( plan );
-      }
    }//End Constructor
    
    /**

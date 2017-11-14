@@ -8,7 +8,9 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.progress.SystemDateRange;
 import uk.dangrew.nuts.store.Database;
 
 public class DataSetupTest {
@@ -51,6 +53,28 @@ public class DataSetupTest {
       database.shoppingLists().createFood( "Anything" );
       systemUnderTest.configureDefaultShoppingList();
       assertThat( database.shoppingLists().objectList(), hasSize( 1 ) );
+   }//End Method
+   
+   @Test public void shouldCreateDayPlansForDateRange(){
+      SystemDateRange range = new SystemDateRange();
+      
+      DayPlan existing1 = new DayPlan( range.get().get( 0 ) );
+      DayPlan existing2 = new DayPlan( range.get().get( 1 ) );
+      DayPlan existing3 = new DayPlan( range.get().get( 5 ) );
+      
+      database.dayPlans().store( existing1 );
+      database.dayPlans().store( existing2 );
+      database.dayPlans().store( existing3 );
+      
+      systemUnderTest.configureDefaultDayPlans();
+      assertThat( database.dayPlans().objectList(), hasSize( range.get().size() ) );
+      assertThat( database.dayPlans().get( existing1.properties().id() ), is( existing1 ) );
+      assertThat( database.dayPlans().get( existing2.properties().id() ), is( existing2 ) );
+      assertThat( database.dayPlans().get( existing3.properties().id() ), is( existing3 ) );
+      
+      for ( DayPlan dayPlan : database.dayPlans().objectList() ) {
+         assertThat( range.get().contains( dayPlan.date() ), is( true ) );
+      }
    }//End Method
 
 }//End Class

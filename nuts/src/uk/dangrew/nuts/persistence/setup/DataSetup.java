@@ -8,6 +8,13 @@
  */
 package uk.dangrew.nuts.persistence.setup;
 
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.progress.SystemDateRange;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -45,6 +52,21 @@ public class DataSetup {
    public void configureDefaultShoppingList() {
       if ( database.shoppingLists().objectList().isEmpty() ) {
          database.shoppingLists().createFood( "Shopping" );
+      }
+   }//End Method
+   
+   public void configureDefaultDayPlans(){
+      SystemDateRange dateRange = new SystemDateRange();
+      Set< LocalDate > existingDates = database.dayPlans().objectList().stream()
+               .map( DayPlan::date )
+               .collect( Collectors.toSet() );
+      Set< LocalDate > notCreatedDates = new HashSet<>( dateRange.get() );
+      notCreatedDates.removeAll( existingDates );
+      
+      for ( LocalDate date : notCreatedDates ) {
+         DayPlan plan = new DayPlan( date.toString() );
+         plan.setDate( date );
+         database.dayPlans().store( plan );
       }
    }//End Method
    

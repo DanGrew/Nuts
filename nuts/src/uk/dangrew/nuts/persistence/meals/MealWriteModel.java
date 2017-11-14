@@ -23,7 +23,6 @@ public class MealWriteModel< FoodTypeT extends Meal > {
    
    private final FoodStore< FoodTypeT > meals;
    private final List< FoodTypeT > foodBuffer;
-   private final List< FoodTypeT > foodPortionCoundBuffer;
    private final List< FoodPortion > portionBuffer;
    private FoodTypeT currentFood;
    private FoodPortion currentPortion; 
@@ -36,11 +35,14 @@ public class MealWriteModel< FoodTypeT extends Meal > {
       this.meals = meals;
       this.foodBuffer = new ArrayList<>();
       this.portionBuffer = new ArrayList<>();
-      this.foodPortionCoundBuffer = new ArrayList<>();
       
       foodBuffer.clear();
-      foodPortionCoundBuffer.clear();
+      portionBuffer.clear();
    }//End Constructor
+   
+   protected FoodStore< FoodTypeT > meals(){
+      return meals;
+   }//End Method
    
    /**
     * Access to the current {@link Meal} being written.
@@ -50,15 +52,19 @@ public class MealWriteModel< FoodTypeT extends Meal > {
       return currentFood;
    }//End Method
    
+   protected List< FoodTypeT > buffer(){
+      return foodBuffer;
+   }//End Method
+   
    /**
     * Provides the number of {@link Meal}s to write.
     * @param key the parsed key.
     * @return the number of items.
     */
-   Integer getNumberOfMeals( String key ){
-      foodPortionCoundBuffer.clear();
-      foodPortionCoundBuffer.addAll( meals.objectList() );
-      return meals.objectList().size();
+   protected Integer getNumberOfMeals( String key ){
+      foodBuffer.clear();
+      foodBuffer.addAll( meals.objectList() );
+      return foodBuffer.size();
    }//End Method
    
    /**
@@ -67,14 +73,14 @@ public class MealWriteModel< FoodTypeT extends Meal > {
     * @return the number of items.
     */
    Integer getNumberOfPortions( String key ){
-      return foodPortionCoundBuffer.remove( 0 ).portions().size();
+      return foodBuffer.remove( 0 ).portions().size();
    }//End Method
    
    /**
     * Triggered when starting to write all {@link Meal}, identifying which to write.
     * @param key the parsed key.
     */
-   void startWritingMeals( String key ) {
+   protected void startWritingMeals( String key ) {
       foodBuffer.clear();
       foodBuffer.addAll( meals.objectList() );
    }//End Method

@@ -40,11 +40,4 @@ public class DayPlanStoreTest {
       assertThat( plan.goalAnalytics().goal().get(), is( nullValue() ) );
    }//End Method
    
-   @Test public void shouldInitialisePlansForDateRange(){
-      assertThat( new SystemDateRange().get().size(), is( systemUnderTest.objectList().size() ) );
-      for ( DayPlan plan : systemUnderTest.objectList() ) {
-         assertThat( new SystemDateRange().get().contains( plan.date() ), is( true ) );
-      }
-   }//End Method
-   
 }//End Class

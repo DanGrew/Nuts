@@ -6,48 +6,39 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.persistence.template;
+package uk.dangrew.nuts.persistence.dayplan;
 
 import uk.dangrew.jupa.json.parse.JsonParser;
 import uk.dangrew.jupa.json.parse.handle.type.StringParseHandle;
 import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
-import uk.dangrew.nuts.food.FoodStore;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
+import uk.dangrew.nuts.persistence.template.TemplatePersistence;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.template.Template;
 
 /**
- * {@link TemplatePersistence} provides the architecture for reading and writing {@link Template}s.
+ * {@link DayPlanPersistence} provides the architecture for reading and writing {@link DayPlan}s.
  */
-public class TemplatePersistence< FoodTypeT extends Template > {
+public class DayPlanPersistence {
    
    static final String MEAL = MealPersistence.MEAL;
-   static final String GOAL = "goalId";
+   static final String DATE = "date";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
-   private final TemplateParseModel< FoodTypeT > parseModel;
+   private final DayPlanParseModel parseModel;
    private final JsonParser parserWithWriteHandles;
-   private final TemplateWriteModel< FoodTypeT > writeModel;
+   private final DayPlanWriteModel writeModel;
    
-  /**
-    * Constructs a new {@link TemplatePersistence}.
-    * @param database the {@link Database}.
-    * @param templates the {@link FoodStore} providing the {@link Template}s.
-    */
-   public TemplatePersistence( Database database, FoodStore< FoodTypeT > templates ) {
-      this( new TemplateParseModel<>( database, templates ), new TemplateWriteModel<>( templates ) );
+   public DayPlanPersistence( Database database, DayPlanStore dayPlans ) {
+      this( new DayPlanParseModel( database, dayPlans ), new DayPlanWriteModel( dayPlans ) );
    }//End Constructor
    
-   /**
-    * Constructs a new {@link TemplatePersistence}.
-    * @param parseModel the {@link TemplateParseModel}.
-    * @param writeModel the {@link TemplateWriteModel}.
-    */
-   public TemplatePersistence( TemplateParseModel< FoodTypeT > parseModel, TemplateWriteModel< FoodTypeT > writeModel ) {
-      MealPersistence< FoodTypeT > mealPersistence = new MealPersistence<>( parseModel, writeModel );
+   DayPlanPersistence( DayPlanParseModel parseModel, DayPlanWriteModel writeModel ) {
+      TemplatePersistence< DayPlan > mealPersistence = new TemplatePersistence<>( parseModel, writeModel );
       
       this.structure = mealPersistence.structure();
       this.parseModel = parseModel;
@@ -64,21 +55,21 @@ public class TemplatePersistence< FoodTypeT extends Template > {
     * Method to construct the {@link JsonStructure}.
     */
    private void modifyStructure(){
-      structure.optionalChild( GOAL, MEAL );
+      structure.optionalChild( DATE, MEAL );
    }//End Method
    
    /**
     * Method to construct the {@link JsonParser} for reading.
     */
    private void modifyReadHandles(){
-      parserWithReadHandles.when( GOAL, new StringParseHandle( parseModel::setGoalId ) );
+      parserWithReadHandles.when( DATE, new StringParseHandle( parseModel::setDateString ) );
    }//End Method
    
    /**
     * Method to construct the {@link JsonParser} for writing.
     */
    private void modifyWriteHandles(){
-      parserWithWriteHandles.when( GOAL, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getGoalId ) ) );
+      parserWithWriteHandles.when( DATE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getDateString ) ) );
    }//End Method
    
    /**
