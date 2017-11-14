@@ -18,9 +18,9 @@ import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
 /**
- * {@link PlanManagerPane} provides the pane for planning {@link Meal}s.
+ * {@link TemplateManagerPane} provides the pane for planning {@link Meal}s.
  */
-public class PlanManagerPane extends GridPane {
+public class TemplateManagerPane extends GridPane {
 
    static final double PLANS_HEIGHT_PROPORTION = 25.0;
    static final double PLAN_VIEW_HEIGHT_PROPORTION = 40.0;
@@ -30,11 +30,7 @@ public class PlanManagerPane extends GridPane {
    private final MealTableWithControls planView;
    private final MealTableWithControls mealView;
 
-   /**
-    * Constructs a new {@link PlanManagerPane}.
-    * @param database the {@link Database}.
-    */
-   public PlanManagerPane( Database database ) {
+   public TemplateManagerPane( Database database ) {
       this( new JavaFxStyle(), database );
    }// End Constructor
 
@@ -43,7 +39,7 @@ public class PlanManagerPane extends GridPane {
     * @param styling the {@link JavaFxStyle}.
     * @param database the {@link Database}.
     */
-   PlanManagerPane( JavaFxStyle styling, Database database ) {
+   TemplateManagerPane( JavaFxStyle styling, Database database ) {
       styling.configureConstraintsForRowPercentages( 
                this, 
                PLANS_HEIGHT_PROPORTION,

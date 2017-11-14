@@ -59,7 +59,8 @@ public class UiCalendarPane extends GridPane {
          }
       } );
       
-      this.uiCalendar.controller().selector().selection().addListener( ( s, o, n ) -> {
+      templatesTable.getRows().clear();
+      uiCalendar.controller().selector().selection().addListener( ( s, o, n ) -> {
          templateView.table().controller().showMeal( n );
          templatesTable.getRows().clear();
          templatesTable.getRows().add( new FoodTableRow<>( n ) );
