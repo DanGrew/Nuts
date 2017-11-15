@@ -2,8 +2,12 @@ package uk.dangrew.nuts.meal;
 
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -96,6 +100,56 @@ public class MealTest {
    
    @Test public void shouldAsscoiateStockUsage(){
       verify( stockUsage ).associate( systemUnderTest.portions() );
+   }//End Method
+   
+   @Test public void shouldPerformDeepDuplicate(){
+      Meal level3Meal1 = new Meal( "l3m1" );
+      level3Meal1.portions().add( new FoodPortion( food1, 31 ) );
+      level3Meal1.portions().add( new FoodPortion( food2, 31.5 ) );
+      Meal level3Meal2 = new Meal( "l3m2" );
+      level3Meal2.portions().add( new FoodPortion( food2, 32 ) );
+      
+      Meal level2Meal1 = new Meal( "l2m1" );
+      level2Meal1.portions().add( new FoodPortion( level3Meal1, 21 ) );
+      level2Meal1.portions().add( new FoodPortion( level3Meal2, 21 ) );
+      Meal level2Meal2 = new Meal( "l2m2" );
+      level2Meal2.portions().add( new FoodPortion( food1, 22 ) );
+      
+      Meal level1Meal1 = new Meal( "l1m1" );
+      level1Meal1.portions().add( new FoodPortion( level2Meal1, 11 ) );
+      level1Meal1.portions().add( new FoodPortion( level2Meal2, 11 ) );
+      Meal level1Meal2 = new Meal( "l1m2" );
+      level1Meal2.portions().add( new FoodPortion( food1, 12 ) );
+      
+      systemUnderTest.portions().add( new FoodPortion( level1Meal1, 1 ) );
+      systemUnderTest.portions().add( new FoodPortion( level1Meal2, 2 ) );
+      
+      String ref = "-ref";
+      Meal duplicate = systemUnderTest.duplicate( ref );
+      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + ref ) );
+      assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
+      
+      assertThat( duplicate.portions(), hasSize( systemUnderTest.portions().size() ) );
+      for ( int i  = 0; i < duplicate.portions().size(); i++ ) {
+         assertThatPortionsAreDuplicate( duplicate.portions().get( i ), systemUnderTest.portions().get( i ) );
+      }
+   }//End Method
+   
+   private void assertThatPortionsAreDuplicate( FoodPortion portion1, FoodPortion portion2 ) {
+      assertFalse( portion1 == portion2 );
+      assertThat( portion1.portion().get(), is( portion2.portion().get() ) );
+      if ( portion1.food().get() instanceof FoodItem ) {
+         assertTrue( portion1.food().get() == portion2.food().get() );
+      } else {
+         assertFalse( portion1.food().get() == portion2.food().get() );
+         Meal meal1 = ( Meal )portion1.food().get();
+         Meal meal2 = ( Meal )portion2.food().get();
+         assertThat( meal1.portions(), hasSize( meal2.portions().size() ) );
+         
+         for ( int i = 0; i < meal1.portions().size(); i++ ) {
+            assertThatPortionsAreDuplicate( meal1.portions().get( i ), meal2.portions().get( i ) );
+         }
+      }
    }//End Method
 
 }//End Class

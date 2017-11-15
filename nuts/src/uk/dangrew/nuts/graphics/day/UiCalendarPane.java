@@ -34,7 +34,7 @@ public class UiCalendarPane extends GridPane {
    }// End Constructor
 
    UiCalendarPane( JavaFxStyle styling, Database database ) {
-      this.uiCalendar = new UiCalendar( database.dayPlans() );
+      this.uiCalendar = new UiCalendar( database );
       
       styling.configureConstraintsForRowPercentages( 
                this, 

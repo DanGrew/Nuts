@@ -1,12 +1,9 @@
 package uk.dangrew.nuts.graphics.day;
 
-import static org.junit.Assert.*;
-
 import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.store.Database;
 
 public class UiCalendarPaneTest {

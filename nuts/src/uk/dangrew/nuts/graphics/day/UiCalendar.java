@@ -11,21 +11,21 @@ package uk.dangrew.nuts.graphics.day;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.day.DayPlanStore;
+import uk.dangrew.nuts.store.Database;
 
 public class UiCalendar extends BorderPane {
 
    private final JavaFxStyle styling;
    private final UiCalendarController controller;
    
-   public UiCalendar( DayPlanStore dayPlans ) {
+   public UiCalendar( Database database ) {
       this.styling = new JavaFxStyle();
-      this.controller = new UiCalendarController();
+      this.controller = new UiCalendarController( database );
       
       setBackground( styling.backgroundFor( Color.BLACK ) );
       
       setTop( new UiCalendarDays() );
-      setCenter( new UiCalendarDates( dayPlans, controller ) );
+      setCenter( new UiCalendarDates( database.dayPlans(), controller ) );
 //      setBottom( new UiCalendarControls() );
    }//End Constructor
 

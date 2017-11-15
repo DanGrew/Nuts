@@ -211,5 +211,9 @@ public class Goal implements Food {
    public ObjectProperty< Gender > gender() {
       return gender;
    }//End Method
+   
+   @Override public Food duplicate( String referenceId ) {
+      return this;
+   }//End Method
 
 }//End Class

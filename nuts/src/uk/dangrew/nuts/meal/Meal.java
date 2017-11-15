@@ -131,5 +131,15 @@ public class Meal implements Food {
    public StockUsage stockUsage() {
       return stockUsage;
    }//End Method
+   
+   @Override public Meal duplicate( String referenceId ) {
+      Meal duplicate = new Meal( properties().nameProperty().get() + referenceId );
+      portions().forEach( p -> duplicate.portions().add( p.duplicate( referenceId ) ) );
+      return duplicate;
+   }//End Method
+   
+   @Override public String toString() {
+      return properties.nameProperty().get();
+   }//End Method
 
 }//End Class

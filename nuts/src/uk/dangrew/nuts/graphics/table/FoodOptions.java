@@ -26,6 +26,14 @@ public class FoodOptions< FoodTypeT extends Food > {
 
    private final Comparator< FoodTypeT > comparator;
    private final ObservableList< FoodTypeT > options;
+
+   /**
+    * Constructs a new {@link FoodOptions}.
+    * @param foodStore the {@link FoodStore} to consider.
+    */
+   public FoodOptions( FoodStore< ? extends FoodTypeT > foodStore ) {
+      this( Collections.singletonList( foodStore ) );
+   }//End Constructor
    
    /**
     * Constructs a new {@link FoodOptions}.
@@ -77,6 +85,14 @@ public class FoodOptions< FoodTypeT extends Food > {
       return options().stream().filter( 
                f -> f.properties().nameProperty().get().equals( name ) 
       ).findFirst().orElse( null );
+   }//End Method
+
+   public FoodTypeT first() {
+      if ( options.isEmpty() ) {
+         return null;
+      }
+      
+      return options.get( 0 );
    }//End Method
 
 }//End Class

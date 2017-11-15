@@ -139,8 +139,17 @@ public class FoodOptionsTest {
    @Test public void shouldPopulateFoodsInitially(){
       database.foodItems().store( foodItem1 );
       database.meals().store( meal1 );
-      systemUnderTest = new FoodOptions( Arrays.asList( database.foodItems(), database.meals() ) );
+      systemUnderTest = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
       assertThat( systemUnderTest.options(), contains( foodItem1, meal1 ) );
+   }//End Method
+   
+   @Test public void shouldProvideFirst(){
+      assertThat( systemUnderTest.first(), is( nullValue() ) );
+      
+      database.foodItems().store( foodItem1 );
+      database.meals().store( meal1 );
+      systemUnderTest = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      assertThat( systemUnderTest.first(), is( foodItem1 ) );
    }//End Method
 
 }//End Class

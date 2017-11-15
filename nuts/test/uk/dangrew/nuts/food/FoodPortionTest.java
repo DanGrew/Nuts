@@ -3,16 +3,17 @@ package uk.dangrew.nuts.food;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodPortionTest {
@@ -229,6 +230,30 @@ public class FoodPortionTest {
       assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
       food.properties().calories().set( 250.0 );
       assertThat( systemUnderTest.properties().calories().get(), is( 125.0 ) );
+   }//End Method
+   
+   @Test public void shouldDuplicatePortion(){
+      String ref = "ref";
+      
+      food = spy( new FoodItem( "FoodItem1" ) );
+      Food duplicatedFood = spy( new FoodItem( "FoodItem2" ) );
+      when( food.duplicate( ref ) ).thenReturn( duplicatedFood );
+      
+      systemUnderTest.setFood( food );
+      FoodPortion duplicate = systemUnderTest.duplicate( ref );
+      assertFalse( duplicate == systemUnderTest );
+      assertThat( duplicate.portion().get(), is( systemUnderTest.portion().get() ) );
+      assertThat( duplicate.food().get(), is( duplicatedFood ) );
+   }//End Method
+   
+   @Test public void shouldDuplicatePortionWithNoFood(){
+      String ref = "ref";
+      
+      systemUnderTest.setFood( null );
+      FoodPortion duplicate = systemUnderTest.duplicate( ref );
+      assertFalse( duplicate == systemUnderTest );
+      assertThat( duplicate.portion().get(), is( systemUnderTest.portion().get() ) );
+      assertThat( duplicate.food().get(), is( nullValue() ) );
    }//End Method
    
 }//End Class

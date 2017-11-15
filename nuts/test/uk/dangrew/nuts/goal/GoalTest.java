@@ -106,4 +106,8 @@ public class GoalTest {
       assertThat( systemUnderTest.gender().get(), is( nullValue() ) );
    }//End Method
    
+   @Test public void shouldNotDuplicate(){
+      assertThat( systemUnderTest.duplicate( "anythign" ), is( systemUnderTest ) );
+   }//End Method
+   
 }//End Method

@@ -196,4 +196,13 @@ public class FoodPortion implements Food {
       return analytics;
    }//End Method
    
+   @Override public FoodPortion duplicate( String referenceId ) {
+      if ( food().get() == null ) {
+         return new FoodPortion( null, portion().get() );
+      } else {
+         Food duplicatedFood = food().get().duplicate( referenceId );
+         return new FoodPortion( duplicatedFood, portion().get() );
+      }
+   }//End Method
+   
 }//End Class

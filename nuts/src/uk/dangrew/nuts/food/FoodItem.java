@@ -92,6 +92,13 @@ public class FoodItem implements Food {
    /**
     * {@inheritDoc}
     */
+   @Override public Food duplicate( String referenceId ) {
+      return this;
+   }//End Method
+   
+   /**
+    * {@inheritDoc}
+    */
    @Override public String toString() {
       return properties.id() + ": " + properties.nameProperty().get();
    }//End Method

@@ -25,4 +25,11 @@ public interface Food {
     */
    public FoodAnalytics foodAnalytics();
    
+   /**
+    * Method to duplicate the {@link Food}.
+    * @param referenceId the reference to append to the name.
+    * @return the duplicatred {@link Food}.
+    */
+   public Food duplicate( String referenceId );
+   
 }//End Interface
