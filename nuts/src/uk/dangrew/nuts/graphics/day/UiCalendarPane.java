@@ -11,6 +11,7 @@ package uk.dangrew.nuts.graphics.day;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.graphics.food.UnresponsiveFoodTableController;
 import uk.dangrew.nuts.graphics.meal.MealTableWithControls;
 import uk.dangrew.nuts.graphics.table.FoodTableRow;
 import uk.dangrew.nuts.graphics.template.TemplateTable;
@@ -46,7 +47,7 @@ public class UiCalendarPane extends GridPane {
       styling.configureConstraintsForEvenColumns( this, 1 );
 
       add( uiCalendar, 0, 0 );
-      add( templatesTable = new TemplateTable( database ), 0, 1 );
+      add( templatesTable = new TemplateTable( database, new UnresponsiveFoodTableController<>() ), 0, 1 );
       add( templateView = new MealTableWithControls( "Selected Day", database ), 0, 2 );
       add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 3 );
       

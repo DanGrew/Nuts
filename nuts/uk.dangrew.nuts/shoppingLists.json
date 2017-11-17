@@ -1,14 +1,5 @@
 {"meals": [{
    "name": "Shopping",
    "id": "56e7c93b-dd32-47df-81aa-c6fa6e6b133a",
-   "portions": [
-      {
-         "foodId": "37fed05f-8fa4-46e6-a915-a9c86660da67",
-         "portionValue": 200
-      },
-      {
-         "foodId": "58759db0-e113-4dcb-bc7e-e1f5a3c37a71",
-         "portionValue": 400
-      }
-   ]
+   "portions": []
 }]}

@@ -70,5 +70,48 @@ public class UiCalendarControllerTest {
       systemUnderTest.applyTemplate( template );
       verify( operations, never() ).applyTemplate( Mockito.any(), Mockito.any() );
    }//End Method
+   
+   @Test public void shouldAddFromTemplateToSelection(){
+      Template template = new Template( "Template" );
+      
+      selector.select( uiDay );
+      assertThat( selector.selection().get(), is( day ) );
+      systemUnderTest.addFromTemplate( template );
+      verify( operations ).addFromTemplate( day, template );
+   }//End Method
+   
+   @Test public void shouldIgnoreAddFromTemplateWhenNoSelection(){
+      Template template = new Template( "Template" );
+      
+      assertThat( selector.selection().get(), is( nullValue() ) );
+      systemUnderTest.addFromTemplate( template );
+      verify( operations, never() ).addFromTemplate( Mockito.any(), Mockito.any() );
+   }//End Method
+   
+   @Test public void shouldSaveAsTemplateToSelection(){
+      selector.select( uiDay );
+      assertThat( selector.selection().get(), is( day ) );
+      systemUnderTest.saveAsTemplate( "saving" );
+      verify( operations ).saveAsTemplate( "saving", day );
+   }//End Method
+   
+   @Test public void shouldIgnoreSaveAsTemplateWhenNoSelection(){
+      assertThat( selector.selection().get(), is( nullValue() ) );
+      systemUnderTest.saveAsTemplate( "anything" );
+      verify( operations, never() ).saveAsTemplate( Mockito.any(), Mockito.any() );
+   }//End Method
+   
+   @Test public void shouldClearTemplateSelection(){
+      selector.select( uiDay );
+      assertThat( selector.selection().get(), is( day ) );
+      systemUnderTest.clearSelection();
+      verify( operations ).clearDayPlan( day );
+   }//End Method
+   
+   @Test public void shouldIgnoreClearTemplateWhenNoSelection(){
+      assertThat( selector.selection().get(), is( nullValue() ) );
+      systemUnderTest.clearSelection();
+      verify( operations, never() ).clearDayPlan( Mockito.any() );
+   }//End Method
 
 }//End Class

@@ -1,21 +1,5 @@
 {"meals": [
    {
-      "date": "2017-11-18",
-      "goalId": "java.lang.Object@2fb7f34d",
-      "name": "2017-11-18",
-      "id": "eb790b7f-21d6-48fa-b6a6-2bb8814da57d",
-      "portions": [
-         {
-            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
-            "portionValue": 100
-         },
-         {
-            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
       "date": "2017-11-15",
       "goalId": "single-goal-no-id-provided-unique",
       "name": "2017-11-15",
@@ -48,6 +32,46 @@
       ]
    },
    {
+      "date": "2017-11-19",
+      "goalId": "java.lang.Object@1ab14a78",
+      "name": "2017-11-19",
+      "id": "1549ef0e-5daa-4cf0-bf04-d9ad7d7b8772",
+      "portions": [
+         {
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "aab7c8af-0c46-41df-81c0-bb4469f19991",
+            "portionValue": 50
+         },
+         {
+            "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
+            "portionValue": 50
+         },
+         {
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "portionValue": 100
+         },
+         {
+            "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
+            "portionValue": 200
+         },
+         {
+            "foodId": "f758bba2-eabb-4a25-93fc-bf6897dc1576",
+            "portionValue": 100
+         },
+         {
+            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
       "date": "2017-11-16",
       "goalId": "single-goal-no-id-provided-unique",
       "name": "2017-11-16",
@@ -66,32 +90,8 @@
             "portionValue": 1500
          },
          {
-            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
             "portionValue": 200
-         }
-      ]
-   },
-   {
-      "date": "2017-11-14",
-      "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-14",
-      "id": "78b2038f-cfae-4c1d-abaa-da14f069de5e",
-      "portions": [
-         {
-            "foodId": "07521ee0-5a59-40b9-bf46-0f717ce3b65c",
-            "portionValue": 100
-         },
-         {
-            "foodId": "",
-            "portionValue": 300
-         },
-         {
-            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
-            "portionValue": 250
-         },
-         {
-            "foodId": "",
-            "portionValue": 100
          }
       ]
    },
@@ -118,8 +118,24 @@
             "portionValue": 200
          },
          {
-            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
             "portionValue": 200
+         }
+      ]
+   },
+   {
+      "date": "2017-11-18",
+      "goalId": "java.lang.Object@1ab14a78",
+      "name": "2017-11-18",
+      "id": "eb790b7f-21d6-48fa-b6a6-2bb8814da57d",
+      "portions": [
+         {
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 100
+         },
+         {
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
+            "portionValue": 100
          }
       ]
    }
