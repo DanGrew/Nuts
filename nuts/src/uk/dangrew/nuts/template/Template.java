@@ -48,7 +48,7 @@ public class Template extends Meal implements Food {
     * Constructs a new {@link Meal}.
     * @param properties the {@link FoodProperties}.
     */
-   private Template( FoodProperties properties ) {
+   protected Template( FoodProperties properties ) {
       this( 
                properties, 
                new FoodAnalytics(), 

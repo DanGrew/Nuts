@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.food.UnresponsiveFoodTableController;
+import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.meal.MealTableWithControls;
 import uk.dangrew.nuts.graphics.table.FoodTableRow;
 import uk.dangrew.nuts.graphics.template.TemplateTable;
@@ -29,6 +30,7 @@ public class UiCalendarPane extends GridPane {
    private final TemplateTable templatesTable;
    private final MealTableWithControls templateView;
    private final MealTableWithControls mealView;
+   private final ConsumptionProperties consumptionProperties;
 
    public UiCalendarPane( Database database ) {
       this( new JavaFxStyle(), database );
@@ -36,6 +38,7 @@ public class UiCalendarPane extends GridPane {
 
    UiCalendarPane( JavaFxStyle styling, Database database ) {
       this.uiCalendar = new UiCalendar( database );
+      this.consumptionProperties = new ConsumptionProperties();
       
       styling.configureConstraintsForRowPercentages( 
                this, 
@@ -48,7 +51,8 @@ public class UiCalendarPane extends GridPane {
 
       add( uiCalendar, 0, 0 );
       add( templatesTable = new TemplateTable( database, new UnresponsiveFoodTableController<>() ), 0, 1 );
-      add( templateView = new MealTableWithControls( "Selected Day", database ), 0, 2 );
+      MealTable tableWithConsumption = new MealTable( new UiDayPlanMealTableColumns( database, consumptionProperties ) );
+      add( templateView = new MealTableWithControls( "Selected Day", tableWithConsumption ), 0, 2 );
       add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 3 );
       
       templateView.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
@@ -65,6 +69,7 @@ public class UiCalendarPane extends GridPane {
          templateView.table().controller().showMeal( n );
          templatesTable.getRows().clear();
          templatesTable.getRows().add( new FoodTableRow<>( n ) );
+         consumptionProperties.setDayPlan( n );
       } );
    }// End Constructor
    

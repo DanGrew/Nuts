@@ -72,5 +72,36 @@
             "portionValue": 200
          }
       ]
+   },
+   {
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "Something & Veg Day",
+      "id": "321f8c8f-68d3-43cc-a569-d6cd8bbd3adb",
+      "portions": [
+         {
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "75ca936a-04c3-4ae8-8b24-e3147e6a2068",
+            "portionValue": 100
+         },
+         {
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "portionValue": 200
+         },
+         {
+            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+            "portionValue": 200
+         },
+         {
+            "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
+            "portionValue": 100
+         },
+         {
+            "foodId": "07521ee0-5a59-40b9-bf46-0f717ce3b65c",
+            "portionValue": 100
+         }
+      ]
    }
 ]}

@@ -9,6 +9,13 @@
 package uk.dangrew.nuts.day;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableSet;
+import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
+import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.template.Template;
 
 /**
@@ -16,6 +23,7 @@ import uk.dangrew.nuts.template.Template;
  */
 public class DayPlan extends Template {
 
+   private final ObservableSet< FoodPortion > consumed; 
    private LocalDate date;
    
    public DayPlan( LocalDate date ) {
@@ -24,11 +32,17 @@ public class DayPlan extends Template {
    }//End Constructor
    
    public DayPlan( String name ) {
-      super( name );
+      this( new FoodProperties( name ) );
    }//End Constructor
    
    public DayPlan( String id, String name ) {
-      super( id, name );
+      this( new FoodProperties( id, name ) );
+   }//End Constructor
+   
+   DayPlan( FoodProperties properties ) {
+      super( properties );
+      this.consumed = FXCollections.observableSet( new LinkedHashSet<>() );
+      portions().addListener( new FunctionListChangeListenerImpl<>( null, consumed::remove ) );
    }//End Constructor
 
    public void setDate( LocalDate date ) {
@@ -40,6 +54,10 @@ public class DayPlan extends Template {
    
    public LocalDate date() {
       return date;
+   }//End Method
+
+   public ObservableSet< FoodPortion > consumed() {
+      return consumed;
    }//End Method
 
 }//End Class

@@ -10,18 +10,12 @@ package uk.dangrew.nuts.graphics.meal;
 
 import java.util.Arrays;
 
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.cell.ComboBoxTableCell;
-import javafx.scene.control.cell.TextFieldTableCell;
-import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
-import uk.dangrew.kode.javafx.table.EditCommitHandler;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.FoodOptions;
 import uk.dangrew.nuts.graphics.table.FoodTable;
 import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
-import uk.dangrew.nuts.graphics.table.FoodTableRow;
 import uk.dangrew.nuts.store.Database;
 
 /**

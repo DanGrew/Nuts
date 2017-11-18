@@ -25,6 +25,10 @@ public class MealTable extends FoodTable< FoodPortion > {
       super( new MealTableColumns( database ), new MealTableController() );
    }//End Constructor
    
+   public MealTable( MealTableColumns columns ) {
+      super( columns, new MealTableController() );
+   }//End Constructor
+   
    /**
     * {@inheritDoc}
     */

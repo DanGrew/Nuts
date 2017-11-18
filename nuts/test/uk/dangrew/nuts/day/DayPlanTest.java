@@ -1,13 +1,17 @@
 package uk.dangrew.nuts.day;
 
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 
 import java.time.LocalDate;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import uk.dangrew.nuts.food.FoodPortion;
 
 public class DayPlanTest {
 
@@ -28,6 +32,24 @@ public class DayPlanTest {
    @Test( expected = IllegalStateException.class ) public void shouldSetDateOnlyOnce(){
       systemUnderTest.setDate( date );
       systemUnderTest.setDate( date );
+   }//End Method
+   
+   @Test public void shouldTrackConsumption(){
+      FoodPortion portion1 = mock( FoodPortion.class );
+      
+      systemUnderTest.portions().add( portion1 );
+      
+      assertThat( systemUnderTest.consumed(), is( empty() ) );
+      systemUnderTest.consumed().add( portion1 );
+   }//End Method
+   
+   @Test public void shouldRemoveConsumptionWhenRemovedFromPortions(){
+      FoodPortion portion1 = mock( FoodPortion.class );
+      systemUnderTest.portions().add( portion1 );
+      systemUnderTest.consumed().add( portion1 );
+      
+      systemUnderTest.portions().remove( portion1 );
+      assertThat( systemUnderTest.consumed(), is( empty() ) );
    }//End Method
    
 }//End Class

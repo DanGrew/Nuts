@@ -26,6 +26,10 @@ public class MealTableWithControls extends FoodTableWithControls< FoodPortion > 
       super( title, new MealTable( database ) );
    }//End Constructor
    
+   public MealTableWithControls( String title, MealTable table ) {
+      super( title, table );
+   }//End Constructor
+   
    /**
     * {@inheritDoc}
     */
