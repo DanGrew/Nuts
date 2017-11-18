@@ -27,6 +27,18 @@ import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
 public class DayPlanPersistenceTest {
+   
+   private class ExpectedFoodPortion {
+      private final String id;
+      private final double portion;
+      private final boolean consumed;
+      
+      public ExpectedFoodPortion( String id, double portion, boolean consumed ) {
+         this.id = id;
+         this.portion = portion;
+         this.consumed = consumed;
+      }//End Constructor
+   }//End Class
 
    @Test public void shouldReadData() {
       Database database = new Database();
@@ -51,18 +63,18 @@ public class DayPlanPersistenceTest {
                meal, "99987", "Meal1", 
                "single-goal-no-id-provided-unique",
                LocalDate.parse( "2017-08-19" ),
-               new Pair<>( "12345", 100.0 ),
-               new Pair<>( "67890", 90.0 ),
-               new Pair<>( "3421", 50.0 ) 
+               new ExpectedFoodPortion( "12345", 100.0, false ),
+               new ExpectedFoodPortion( "67890", 90.0, true ),
+               new ExpectedFoodPortion( "3421", 50.0, false ) 
       );
       meal = database.dayPlans().objectList().get( 1 );
       assertMealProperties( 
                meal, "556676", "Meal2",
                "369b6651-633a-420b-b560-b1c1d3dfe1cb",
                LocalDate.parse( "2017-01-01" ),
-               new Pair<>( "67890", 40.0 ),
-               new Pair<>( "3421", 90.0 ),
-               new Pair<>( "1324", 100.0 )
+               new ExpectedFoodPortion( "67890", 40.0, false ),
+               new ExpectedFoodPortion( "3421", 90.0, false ),
+               new ExpectedFoodPortion( "1324", 100.0, false )
       );
       
       //removed plan with no date
@@ -109,6 +121,9 @@ public class DayPlanPersistenceTest {
       meal2.portions().add( new FoodPortion() );
       meal2.goalAnalytics().goal().set( goal2 );
       meal2.setDate( LocalDate.now() );
+      meal2.consumed().add( meal2.portions().get( 1 ) );
+      meal2.consumed().add( meal2.portions().get( 2 ) );
+      meal2.consumed().add( meal2.portions().get( 3 ) );
       database.dayPlans().store( meal2 );
       
       DayPlan meal3 = new DayPlan( "8878886", "Meal3" );
@@ -170,7 +185,7 @@ public class DayPlanPersistenceTest {
    private void assertMealProperties(
             DayPlan meal, 
             String id, String name, String goalId, LocalDate date, 
-            Pair< String, Double >... portions
+            ExpectedFoodPortion... portions
    ){
       assertThat( meal.properties().id(), is( id ) );
       assertThat( meal.properties().nameProperty().get(), is( name ) );
@@ -179,17 +194,18 @@ public class DayPlanPersistenceTest {
       assertThat( meal.portions(), hasSize( portions.length ) );
       
       for ( int i = 0; i < portions.length; i++ ) {
-         Pair< String, Double > expectedPortion = portions[ i ];
+         ExpectedFoodPortion expectedPortion = portions[ i ];
          FoodPortion portion = meal.portions().get( i );
-         assertThat( expectedPortion.getKey(), is( portion.food().get().properties().id() ) );
-         assertThat( expectedPortion.getValue(), is( portion.portion().get() ) );
+         assertThat( expectedPortion.id, is( portion.food().get().properties().id() ) );
+         assertThat( expectedPortion.portion, is( portion.portion().get() ) );
+         assertThat( meal.consumed().contains( portion ), is( expectedPortion.consumed ) );
       }
    }//End Method
    
    private void assertMealProperties(
             DayPlan meal, DayPlan expected
    ){
-//      assertThat( meal.goalAnalytics().goal().get().properties().id(), is( expected.goalAnalytics().goal().get().properties().id() ) );
+      assertThat( meal.goalAnalytics().goal().get().properties().id(), is( expected.goalAnalytics().goal().get().properties().id() ) );
       assertThat( meal.date(), is( expected.date() ) );
       assertThat( meal.properties().id(), is( expected.properties().id() ) );
       assertThat( meal.properties().nameProperty().get(), is( expected.properties().nameProperty().get() ) );
@@ -204,6 +220,7 @@ public class DayPlanPersistenceTest {
             assertThat( expectedPortion.food().get().properties().id(), is( portion.food().get().properties().id() ) );
          }
          assertThat( expectedPortion.portion().get(), is( portion.portion().get() ) );
+         assertThat( expected.consumed().contains( expectedPortion ), is( meal.consumed().contains( portion ) ) );
       }
    }//End Method
 

@@ -116,7 +116,7 @@ public class MealParseModel< FoodTypeT extends Meal > {
     * Triggered when starting to parse a new {@link FoodPortion}.
     * @param key the parsed key.
     */
-   void startPortion( String key ) {
+   protected void startPortion( String key ) {
       this.foodId = null;
       this.portionValue = null;
    }//End Method
@@ -124,8 +124,9 @@ public class MealParseModel< FoodTypeT extends Meal > {
    /**
     * Triggered when finished to parsing a new {@link FoodPortion}.
     * @param key the parsed key.
+    * @return the finished {@link FoodPortion}.
     */
-   void finishPortion( String key ){
+   protected FoodPortion finishPortion( String key ){
       Food food = null;
       if ( !foodId.isEmpty() ) {
          food = database.foodItems().get( foodId );
@@ -139,11 +140,12 @@ public class MealParseModel< FoodTypeT extends Meal > {
          
          if ( food == null ) {
             System.out.println( "Can't find food for: " + foodId );
-            return;
+            return null;
          }
       }
       FoodPortion portion = new FoodPortion( food, portionValue );
       portions.add( portion );
+      return portion;
    }//End Method
    
    /**

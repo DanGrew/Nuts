@@ -33,7 +33,7 @@ public class TemplateWriteModel< FoodTypeT extends Template > extends MealWriteM
     * @return the value.
     */
    String getGoalId( String key ) {
-      Goal goal = current().goalAnalytics().goal().get();
+      Goal goal = currentFood().goalAnalytics().goal().get();
       if ( goal == null ) {
          return null;
       }

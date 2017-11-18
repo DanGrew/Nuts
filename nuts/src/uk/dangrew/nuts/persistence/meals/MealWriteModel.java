@@ -48,8 +48,12 @@ public class MealWriteModel< FoodTypeT extends Meal > {
     * Access to the current {@link Meal} being written.
     * @return the current.
     */
-   protected FoodTypeT current(){
+   protected FoodTypeT currentFood(){
       return currentFood;
+   }//End Method
+   
+   protected FoodPortion currentFoodPortion(){
+      return currentPortion;
    }//End Method
    
    protected List< FoodTypeT > buffer(){

@@ -32,7 +32,7 @@ public class MealPersistence< FoodTypeT extends Meal > {
    static final String NAME = "name";
    
    static final String PORTIONS = "portions";
-   static final String PORTION = "portion";
+   public static final String PORTION = "portion";
    static final String PORTION_VALUE = "portionValue";
    static final String FOOD_ID = "foodId";
    

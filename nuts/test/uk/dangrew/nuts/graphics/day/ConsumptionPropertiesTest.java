@@ -3,6 +3,7 @@ package uk.dangrew.nuts.graphics.day;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
@@ -74,6 +75,24 @@ public class ConsumptionPropertiesTest {
       
       systemUnderTest.propertyFor( dayPlan.portions().get( 1 ) ).set( true );;
       assertThat( dayPlan.consumed(), contains( dayPlan.portions().get( 1 ) ) );
+   }//End Method
+   
+   @Test public void shouldProvidePropertyForNewFoodPortion(){
+      systemUnderTest.setDayPlan( dayPlan );
+      dayPlan.portions().add( mock( FoodPortion.class ) );
+      assertThat( systemUnderTest.propertyFor( dayPlan.portions().get( 3 ) ), is( notNullValue() ) );
+      
+      systemUnderTest.propertyFor( dayPlan.portions().get( 3 ) ).set( true );
+      assertThat( dayPlan.consumed().contains( dayPlan.portions().get( 3 ) ), is( true ) );
+      
+      FoodPortion portion = dayPlan.portions().remove( 3 );
+      assertThat( systemUnderTest.propertyFor( portion ), is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldRemovePropertyForRemovedFoodPortion(){
+      systemUnderTest.setDayPlan( dayPlan );
+      FoodPortion portion = dayPlan.portions().remove( 1 );
+      assertThat( systemUnderTest.propertyFor( portion ), is( nullValue() ) );
    }//End Method
    
 }//End Class

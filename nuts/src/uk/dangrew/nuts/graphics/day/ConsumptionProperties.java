@@ -7,6 +7,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.kode.observable.FunctionSetChangeListenerImpl;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -16,7 +17,8 @@ public class ConsumptionProperties {
    private final Map< FoodPortion, BooleanProperty > consumption;
    private final Map< BooleanProperty, FoodPortion > properties;
    private final ChangeListener< Boolean > propertyListener;
-   private final FunctionSetChangeListenerImpl< FoodPortion > synchronizer;
+   private final FunctionSetChangeListenerImpl< FoodPortion > setSynchronizer;
+   private final FunctionListChangeListenerImpl< FoodPortion > listSynchronizer;
    
    private DayPlan dayPlan;
    
@@ -24,12 +26,19 @@ public class ConsumptionProperties {
       this.consumption = new HashMap<>();
       this.properties = new HashMap<>();
       this.propertyListener = ( s, o, n ) -> propertyChangedFor( s );
-      this.synchronizer = new FunctionSetChangeListenerImpl<>( 
+      this.setSynchronizer = new FunctionSetChangeListenerImpl<>( 
+               this::updateConsumption, this::updateConsumption 
+      );
+      this.listSynchronizer = new FunctionListChangeListenerImpl<>( 
                this::updateConsumption, this::updateConsumption 
       );
    }//End Constructor
    
    private void updateConsumption( FoodPortion portion ) {
+      if ( !dayPlan.portions().contains( portion ) ) {
+         properties.remove( consumption.remove( portion ) );
+         return;
+      }
       if ( !consumption.containsKey( portion ) ) {
          BooleanProperty property = new SimpleBooleanProperty( false );
          consumption.put( portion, property );
@@ -41,11 +50,14 @@ public class ConsumptionProperties {
    
    public void setDayPlan( DayPlan dayPlan ) {
       if ( this.dayPlan != null ) {
-         this.dayPlan.consumed().removeListener( synchronizer );
+         this.dayPlan.portions().removeListener( listSynchronizer );;
+         this.dayPlan.consumed().removeListener( setSynchronizer );
       }
       this.dayPlan = dayPlan;
-      this.dayPlan.consumed().addListener( synchronizer );
+      this.dayPlan.portions().addListener( listSynchronizer );;
+      this.dayPlan.consumed().addListener( setSynchronizer );
       this.consumption.clear();
+      this.properties.clear();
       this.dayPlan.portions().forEach( this::updateConsumption );
    }//End Method
    

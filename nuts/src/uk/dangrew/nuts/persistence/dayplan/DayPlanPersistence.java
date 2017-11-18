@@ -9,6 +9,7 @@
 package uk.dangrew.nuts.persistence.dayplan;
 
 import uk.dangrew.jupa.json.parse.JsonParser;
+import uk.dangrew.jupa.json.parse.handle.type.BooleanParseHandle;
 import uk.dangrew.jupa.json.parse.handle.type.StringParseHandle;
 import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
@@ -25,7 +26,9 @@ import uk.dangrew.nuts.store.Database;
 public class DayPlanPersistence {
    
    static final String MEAL = MealPersistence.MEAL;
+   static final String PORTION = MealPersistence.PORTION;
    static final String DATE = "date";
+   static final String CONSUMED = "consumed";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -56,6 +59,7 @@ public class DayPlanPersistence {
     */
    private void modifyStructure(){
       structure.optionalChild( DATE, MEAL );
+      structure.optionalChild( CONSUMED, PORTION );
    }//End Method
    
    /**
@@ -63,6 +67,7 @@ public class DayPlanPersistence {
     */
    private void modifyReadHandles(){
       parserWithReadHandles.when( DATE, new StringParseHandle( parseModel::setDateString ) );
+      parserWithReadHandles.when( CONSUMED, new BooleanParseHandle( parseModel::setConsumed ) );
    }//End Method
    
    /**
@@ -70,6 +75,7 @@ public class DayPlanPersistence {
     */
    private void modifyWriteHandles(){
       parserWithWriteHandles.when( DATE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getDateString ) ) );
+      parserWithWriteHandles.when( CONSUMED, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::isConsumed ) ) );
    }//End Method
    
    /**

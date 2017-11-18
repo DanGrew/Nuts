@@ -242,12 +242,12 @@
             "portionValue": 200
          },
          {
-            "foodId": "aa9e464f-79f6-4cb4-ba7f-c39b3cbc36b2",
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
             "portionValue": 300
          },
          {
             "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 100
+            "portionValue": 0
          }
       ]
    },

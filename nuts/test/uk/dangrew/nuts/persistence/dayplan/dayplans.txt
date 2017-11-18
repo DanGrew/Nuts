@@ -12,11 +12,13 @@
             },
             {  
                "foodId":"67890",
-               "portionValue":90
+               "portionValue":90,
+               "consumed":true
             },
             {  
                "foodId":"3421",
-               "portionValue":50
+               "portionValue":50,
+               "consumed":false
             }
          ]
       },
