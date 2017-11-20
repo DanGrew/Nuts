@@ -23,11 +23,11 @@ public class MealTableWithControls extends FoodTableWithControls< FoodPortion > 
     * @param database the {@link Database}.
     */
    public MealTableWithControls( String title, Database database ) {
-      super( title, new MealTable( database ) );
+      this( title, new MealTable( database ) );
    }//End Constructor
    
    public MealTableWithControls( String title, MealTable table ) {
-      super( title, table );
+      super( title, table, new MealControls( table.controller() ) );
    }//End Constructor
    
    /**

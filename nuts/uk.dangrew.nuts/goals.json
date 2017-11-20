@@ -36,5 +36,24 @@
       "age": 29,
       "height": 1.87,
       "proteinGoal": 153.60000000000002
+   },
+   {
+      "gender": "Male",
+      "fatPerPound": 0.5,
+      "bmr": 1952.4021845760003,
+      "weight": 192,
+      "calorieGoal": 2433.3630584064003,
+      "calorieDeficit": 300,
+      "carbohydratesGoal": 238.74076460160006,
+      "fatsGoal": 96,
+      "tee": 2733.3630584064003,
+      "name": "Higher Fat",
+      "proteinPerPound": 0.8,
+      "pal": 1.4,
+      "id": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
+      "exerciseCalories": 0,
+      "age": 29,
+      "height": 1.87,
+      "proteinGoal": 153.60000000000002
    }
 ]}

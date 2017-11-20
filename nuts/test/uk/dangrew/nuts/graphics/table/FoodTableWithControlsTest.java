@@ -7,6 +7,7 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
@@ -19,6 +20,7 @@ import uk.dangrew.sd.graphics.launch.TestApplication;
 public class FoodTableWithControlsTest {
 
    @Spy private JavaFxStyle styling;
+   @Mock private FoodControls controls;
    private FoodTable< ? > table;
    private FoodTableWithControls< ? > systemUnderTest;
 
@@ -26,7 +28,7 @@ public class FoodTableWithControlsTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       table = new GeneralFoodTable<>( new FoodItemStore() );
-      systemUnderTest = new FoodTableWithControls<>( styling, "anything", table );
+      systemUnderTest = new FoodTableWithControls<>( styling, "anything", table, controls );
    }//End Method
 
    @Test public void shouldProvideContent() {

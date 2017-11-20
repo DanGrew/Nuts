@@ -132,6 +132,19 @@ public class Meal implements Food {
       return stockUsage;
    }//End Method
    
+   public void swap( FoodPortion portion1, FoodPortion portion2 ) {
+      if ( !portions().contains( portion1 ) || !portions().contains( portion2 ) ) {
+         return;
+      }
+      
+      int firstIndex = portions().indexOf( portion1 );
+      int secondIndex = portions().indexOf( portion2 );
+      portions().remove( portion1 );
+      portions().remove( portion2 );
+      portions().add( firstIndex, portion2 );
+      portions().add( secondIndex, portion1 );
+   }//End Method
+   
    @Override public Meal duplicate( String referenceId ) {
       Meal duplicate = new Meal( properties().nameProperty().get() + referenceId );
       portions().forEach( p -> duplicate.portions().add( p.duplicate( referenceId ) ) );

@@ -1818,5 +1818,15 @@
       "name": "Chocolate (M, Dark, Fruit & Nut) (4 squares = 25g)",
       "id": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
       "calories": 129
+   },
+   {
+      "carbohydrates": 5.82,
+      "fats": 1.87,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.61,
+      "name": "Biscuit (Malted Milk) (1)",
+      "id": "3750c935-69af-46e9-9298-7085d02ec7bf",
+      "calories": 43
    }
 ]}

@@ -21,8 +21,8 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
  */
 public class FoodControls extends VBox {
    
-   static final double BUTTON_WIDTH = 40.0;
-   static final double INSETS = 4.0;
+   protected static final double BUTTON_WIDTH = 40.0;
+   protected static final double INSETS = 4.0;
    
    private final Button add;
    private final Button remove;
@@ -40,7 +40,7 @@ public class FoodControls extends VBox {
     * @param styling the {@link JavaFxStyle}.
     * @param callBack the {@link FoodControlsInterface} to call back to.
     */
-   FoodControls( JavaFxStyle styling, FoodTableController< ? > controller ) {
+   protected FoodControls( JavaFxStyle styling, FoodTableController< ? > controller ) {
       setAlignment( Pos.CENTER );
       setPadding( new Insets( INSETS ) );
       
@@ -57,11 +57,11 @@ public class FoodControls extends VBox {
       remove.setOnAction( e -> controller.removeSelectedFood() );
    }//End Constructor
    
-   Button addButton(){
+   protected Button addButton(){
       return add;
    }//End Method
    
-   Button removeButton(){
+   protected Button removeButton(){
       return remove;
    }//End Method
 

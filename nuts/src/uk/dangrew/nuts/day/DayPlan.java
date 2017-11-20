@@ -59,5 +59,13 @@ public class DayPlan extends Template {
    public ObservableSet< FoodPortion > consumed() {
       return consumed;
    }//End Method
+   
+   @Override public void swap( FoodPortion portion1, FoodPortion portion2 ) {
+      boolean consumedFirst = consumed().contains( portion1 );
+      boolean consumedSecond = consumed().contains( portion2 );
+      super.swap( portion1, portion2 );
+      if ( consumedFirst ) consumed().add( portion1 );
+      if ( consumedSecond ) consumed().add( portion2 );
+   }//End Method
 
 }//End Class

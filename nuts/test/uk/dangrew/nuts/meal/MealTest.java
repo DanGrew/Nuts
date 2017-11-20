@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -150,6 +151,27 @@ public class MealTest {
             assertThatPortionsAreDuplicate( meal1.portions().get( i ), meal2.portions().get( i ) );
          }
       }
+   }//End Method
+   
+   @Test public void shouldSwapPortions(){
+      systemUnderTest.portions().add( portion1 );
+      systemUnderTest.portions().add( portion2 );
+      assertThat( systemUnderTest.portions(), contains( portion1, portion2 ) );
+      
+      systemUnderTest.swap( portion1, portion2 );
+      assertThat( systemUnderTest.portions(), contains( portion2, portion1 ) );
+   }//End Method
+   
+   @Test public void shouldNotSwapIfNotPresent(){
+      systemUnderTest.portions().add( portion1 );
+      systemUnderTest.portions().add( portion2 );
+      assertThat( systemUnderTest.portions(), contains( portion1, portion2 ) );
+      
+      systemUnderTest.swap( portion1, mock( FoodPortion.class ) );
+      assertThat( systemUnderTest.portions(), contains( portion1, portion2 ) );
+      
+      systemUnderTest.swap( portion2, mock( FoodPortion.class ) );
+      assertThat( systemUnderTest.portions(), contains( portion1, portion2 ) );
    }//End Method
 
 }//End Class

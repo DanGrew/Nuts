@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.day;
 
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -11,14 +12,25 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 
 public class DayPlanTest {
 
+   private FoodItem food1;
+   private FoodItem food2;
+   private FoodPortion portion1;
+   private FoodPortion portion2;
+   
    private LocalDate date;
    private DayPlan systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
+      food1 = new FoodItem( "Food1" );
+      food2 = new FoodItem( "Food2" );
+      portion1 = new FoodPortion();
+      portion2 = new FoodPortion();
+      
       date = LocalDate.now();
       systemUnderTest = new DayPlan( "Plan" );
    }//End Method
@@ -50,6 +62,19 @@ public class DayPlanTest {
       
       systemUnderTest.portions().remove( portion1 );
       assertThat( systemUnderTest.consumed(), is( empty() ) );
+   }//End Method
+   
+   @Test public void shouldPreserveConsumedWhenSwapped(){
+      systemUnderTest.portions().add( portion1 );
+      systemUnderTest.portions().add( portion2 );
+      systemUnderTest.consumed().add( portion1 );
+      systemUnderTest.consumed().add( portion2 );
+      assertThat( systemUnderTest.portions(), contains( portion1, portion2 ) );
+      assertThat( systemUnderTest.consumed(), contains( portion1, portion2 ) );
+      
+      systemUnderTest.swap( portion1, portion2 );
+      assertThat( systemUnderTest.portions(), contains( portion2, portion1 ) );
+      assertThat( systemUnderTest.consumed(), contains( portion1, portion2 ) );
    }//End Method
    
 }//End Class

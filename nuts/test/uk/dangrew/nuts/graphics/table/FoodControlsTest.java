@@ -51,7 +51,10 @@ public class FoodControlsTest {
    }//End Method
    
    @Test public void shouldProvideButtons() {
-      assertThat( systemUnderTest.getChildren(), contains( systemUnderTest.addButton(), systemUnderTest.removeButton() ) );
+      assertThat( systemUnderTest.getChildren(), contains(
+               systemUnderTest.addButton(), 
+               systemUnderTest.removeButton()
+      ) );
       
       Node addGraphic = systemUnderTest.addButton().getGraphic();
       MaterialDesignIconView addGlyph = ( MaterialDesignIconView ) addGraphic;

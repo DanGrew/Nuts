@@ -66,6 +66,8 @@ public class MealTableColumns implements FoodTableColumnsPopulator< FoodPortion 
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.16, f -> f.properties().carbohydrates(), false );
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.16, f -> f.properties().fats(), false );
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.16, f -> f.properties().protein(), false );
+      
+      table.getColumns().forEach( c -> c.setSortable( false ) );
    }//End Method
 
 }//End Class

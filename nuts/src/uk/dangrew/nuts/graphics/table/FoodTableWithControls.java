@@ -30,7 +30,11 @@ public class FoodTableWithControls< FoodTypeT extends Food > extends TitledPane 
     * @param table the {@link FoodTable} to hold.
     */
    public FoodTableWithControls( String title, FoodTable< FoodTypeT > table ) {
-      this( new JavaFxStyle(), title, table );
+      this( new JavaFxStyle(), title, table, new FoodControls( table.controller() ) );
+   }//End Constructor
+   
+   public FoodTableWithControls( String title, FoodTable< FoodTypeT > table, FoodControls controls ) {
+      this( new JavaFxStyle(), title, table, controls );
    }//End Constructor
    
    /**
@@ -42,17 +46,19 @@ public class FoodTableWithControls< FoodTypeT extends Food > extends TitledPane 
    public FoodTableWithControls( 
             JavaFxStyle styling, 
             String title, 
-            FoodTable< FoodTypeT > table 
+            FoodTable< FoodTypeT > table,
+            FoodControls controls
    ) {
       super( title, new BorderPane() );
       this.table = table;
+      this.controls = controls;
       this.setCollapsible( false );
       this.setMaxHeight( Double.MAX_VALUE );
       this.setMaxWidth( Double.MAX_VALUE );
       
       BorderPane content = ( BorderPane ) getContent();
       content.setCenter( table );
-      content.setRight( controls = new FoodControls( table.controller() ) );
+      content.setRight( controls );
       
       table.setPlaceholder( styling.createWrappedTextLabel( NO_CONTENT_INFORMATION ) );
    }//End Constructor
