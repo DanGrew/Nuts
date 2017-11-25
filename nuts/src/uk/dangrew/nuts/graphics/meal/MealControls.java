@@ -54,6 +54,10 @@ public class MealControls extends FoodControls {
       return super.addButton();
    }//End Method
    
+   @Override protected Button copyButton() {
+      return super.copyButton();
+   }//End Method
+   
    @Override protected Button removeButton() {
       return super.removeButton();
    }//End Method

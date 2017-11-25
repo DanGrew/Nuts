@@ -25,6 +25,7 @@ public class FoodControls extends VBox {
    protected static final double INSETS = 4.0;
    
    private final Button add;
+   private final Button copy;
    private final Button remove;
    
    /**
@@ -45,20 +46,29 @@ public class FoodControls extends VBox {
       setPadding( new Insets( INSETS ) );
       
       MaterialDesignIconView addGlyph = new MaterialDesignIconView( MaterialDesignIcon.PLUS );
+      MaterialDesignIconView copyGlyph = new MaterialDesignIconView( MaterialDesignIcon.CONTENT_COPY );
       MaterialDesignIconView removeGlyph = new MaterialDesignIconView( MaterialDesignIcon.MINUS );
       
+      
       getChildren().add( add = styling.createGlyphButton( addGlyph ) );
+      getChildren().add( copy = styling.createGlyphButton( copyGlyph ) );
       getChildren().add( remove = styling.createGlyphButton( removeGlyph ) );
       
       add.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
+      copy.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
       remove.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
       
       add.setOnAction( e -> controller.createFood() );
+      copy.setOnAction( e -> controller.copySelectedFood() );
       remove.setOnAction( e -> controller.removeSelectedFood() );
    }//End Constructor
    
    protected Button addButton(){
       return add;
+   }//End Method
+   
+   protected Button copyButton(){
+      return copy;
    }//End Method
    
    protected Button removeButton(){

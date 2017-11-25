@@ -67,5 +67,9 @@ public class DayPlan extends Template {
       if ( consumedFirst ) consumed().add( portion1 );
       if ( consumedSecond ) consumed().add( portion2 );
    }//End Method
+   
+   @Override public Template duplicate( String referenceId ) {
+      return this;
+   }//End Method
 
 }//End Class

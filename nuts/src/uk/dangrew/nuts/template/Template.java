@@ -95,4 +95,11 @@ public class Template extends Meal implements Food {
       return goalAnalytics;
    }//End Method
    
+   @Override public Template duplicate( String referenceId ) {
+      Template duplicate = new Template( properties().nameProperty().get() + referenceId );
+      super.duplicateProperties( duplicate, referenceId );
+      duplicate.goalAnalytics().goal().set( goalAnalytics().goal().get() );
+      return duplicate;
+   }//End Method 
+   
 }//End Class

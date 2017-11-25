@@ -93,4 +93,17 @@ public class GeneralFoodTableController< FoodTypeT extends Food > implements Foo
       foods.removeFood( selection.food() );
    }//End Method
    
+   /**
+    * {@inheritDoc}
+    */
+   @Override public void copySelectedFood() {
+      FoodTableRow< FoodTypeT > selection = table.getSelectionModel().getSelectedItem();
+      if ( selection == null ) {
+         return;
+      }
+      
+      FoodTypeT copy = ( FoodTypeT )selection.food().duplicate( "-copy" );
+      foods.store( copy );
+   }//End Method
+   
 }//End Class

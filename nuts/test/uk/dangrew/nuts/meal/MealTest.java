@@ -139,18 +139,7 @@ public class MealTest {
    private void assertThatPortionsAreDuplicate( FoodPortion portion1, FoodPortion portion2 ) {
       assertFalse( portion1 == portion2 );
       assertThat( portion1.portion().get(), is( portion2.portion().get() ) );
-      if ( portion1.food().get() instanceof FoodItem ) {
-         assertTrue( portion1.food().get() == portion2.food().get() );
-      } else {
-         assertFalse( portion1.food().get() == portion2.food().get() );
-         Meal meal1 = ( Meal )portion1.food().get();
-         Meal meal2 = ( Meal )portion2.food().get();
-         assertThat( meal1.portions(), hasSize( meal2.portions().size() ) );
-         
-         for ( int i = 0; i < meal1.portions().size(); i++ ) {
-            assertThatPortionsAreDuplicate( meal1.portions().get( i ), meal2.portions().get( i ) );
-         }
-      }
+      assertTrue( portion1.food().get() == portion2.food().get() );
    }//End Method
    
    @Test public void shouldSwapPortions(){

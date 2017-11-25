@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.food;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
@@ -53,8 +54,20 @@ public class FoodItemTest {
       verify( ratioCalculator ).associate( properties, foodAnalytics );
    }//End Method
    
-   @Test public void shouldNotDuplicate(){
-      assertTrue( systemUnderTest.duplicate( "anything" ) == systemUnderTest );
+   @Test public void shouldDuplicate(){
+      systemUnderTest.properties().calories().set( 100.0 );
+      systemUnderTest.properties().carbohydrates().set( 101.0 );
+      systemUnderTest.properties().fats().set( 102.0 );
+      systemUnderTest.properties().protein().set( 103.0 );
+      
+      FoodItem duplicate = systemUnderTest.duplicate( "-anything" );
+      assertTrue( duplicate != systemUnderTest );
+      assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
+      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "-anything" ) );
+      assertThat( duplicate.properties().calories().get(), is( systemUnderTest.properties().calories().get() ) );
+      assertThat( duplicate.properties().carbohydrates().get(), is( systemUnderTest.properties().carbohydrates().get() ) );
+      assertThat( duplicate.properties().fats().get(), is( systemUnderTest.properties().fats().get() ) );
+      assertThat( duplicate.properties().protein().get(), is( systemUnderTest.properties().protein().get() ) );
    }//End Method
    
 }//End Class

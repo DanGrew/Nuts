@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -18,6 +19,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.meal.MealChangeListener;
 import uk.dangrew.nuts.meal.MealPropertiesCalculator;
@@ -115,6 +117,18 @@ public class TemplateTest {
    
    @Test public void shouldAsscoiateStockUsage(){
       verify( stockUsage ).associate( systemUnderTest.portions() );
+   }//End Method
+   
+   @Test public void shouldDuplicate(){
+      systemUnderTest.portions().add( portion1 );
+      systemUnderTest.portions().add( portion2 );
+      systemUnderTest.goalAnalytics().goal().set( new Goal( "Goal" ) );
+      Template duplicate = systemUnderTest.duplicate( "anything" );
+      assertThat( duplicate.portions().get( 0 ).portion().get(), is( portion1.portion().get() ) );
+      assertThat( duplicate.portions().get( 1 ).portion().get(), is( portion2.portion().get() ) );
+      assertTrue( duplicate.portions().get( 0 ).food().get() == portion1.food().get() );
+      assertTrue( duplicate.portions().get( 1 ).food().get() == portion2.food().get() );
+      assertTrue( duplicate.goalAnalytics().goal().get() == systemUnderTest.goalAnalytics().goal().get()  );
    }//End Method
 
 }//End Class

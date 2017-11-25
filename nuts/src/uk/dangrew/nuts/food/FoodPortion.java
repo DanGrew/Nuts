@@ -200,8 +200,7 @@ public class FoodPortion implements Food {
       if ( food().get() == null ) {
          return new FoodPortion( null, portion().get() );
       } else {
-         Food duplicatedFood = food().get().duplicate( referenceId );
-         return new FoodPortion( duplicatedFood, portion().get() );
+         return new FoodPortion( food().get(), portion().get() );
       }
    }//End Method
    

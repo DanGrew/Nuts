@@ -77,4 +77,8 @@ public class DayPlanTest {
       assertThat( systemUnderTest.consumed(), contains( portion1, portion2 ) );
    }//End Method
    
+   @Test public void shouldNotDuplicate(){
+      assertThat( systemUnderTest.duplicate( "anything" ), is( systemUnderTest ) );
+   }//End Method
+   
 }//End Class

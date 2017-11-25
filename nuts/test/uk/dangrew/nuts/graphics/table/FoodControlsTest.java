@@ -52,7 +52,8 @@ public class FoodControlsTest {
    
    @Test public void shouldProvideButtons() {
       assertThat( systemUnderTest.getChildren(), contains(
-               systemUnderTest.addButton(), 
+               systemUnderTest.addButton(),
+               systemUnderTest.copyButton(), 
                systemUnderTest.removeButton()
       ) );
       
@@ -60,14 +61,20 @@ public class FoodControlsTest {
       MaterialDesignIconView addGlyph = ( MaterialDesignIconView ) addGraphic;
       assertThat( addGlyph.getGlyphName(), is( MaterialDesignIcon.PLUS.name() ) );
       
+      Node copyGraphic = systemUnderTest.copyButton().getGraphic();
+      MaterialDesignIconView copyGlyph = ( MaterialDesignIconView ) copyGraphic;
+      assertThat( copyGlyph.getGlyphName(), is( MaterialDesignIcon.CONTENT_COPY.name() ) );
+      
       Node removeGraphic = systemUnderTest.removeButton().getGraphic();
       MaterialDesignIconView removeGlyph = ( MaterialDesignIconView ) removeGraphic;
       assertThat( removeGlyph.getGlyphName(), is( MaterialDesignIcon.MINUS.name() ) );
       
-      verify( styling, times( 2 ) ).createGlyphButton( Mockito.any() );
+      verify( styling, times( 3 ) ).createGlyphButton( Mockito.any() );
       
       assertThat( systemUnderTest.addButton().getPrefHeight(), is( FoodControls.BUTTON_WIDTH ) );
       assertThat( systemUnderTest.addButton().getPrefWidth(), is( FoodControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.copyButton().getPrefHeight(), is( FoodControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.copyButton().getPrefWidth(), is( FoodControls.BUTTON_WIDTH ) );
       assertThat( systemUnderTest.removeButton().getPrefHeight(), is( FoodControls.BUTTON_WIDTH ) );
       assertThat( systemUnderTest.removeButton().getPrefWidth(), is( FoodControls.BUTTON_WIDTH ) );
    }//End Method
@@ -75,6 +82,9 @@ public class FoodControlsTest {
    @Test public void shouldDirectCallsToCallBack() {
       systemUnderTest.addButton().fire();
       verify( callBack ).createFood();
+      
+      systemUnderTest.copyButton().fire();
+      verify( callBack ).copySelectedFood();
       
       systemUnderTest.removeButton().fire();
       verify( callBack ).removeSelectedFood();

@@ -11,11 +11,10 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralFoodTableController;
-import uk.dangrew.nuts.graphics.table.FoodTable;
-import uk.dangrew.nuts.graphics.table.FoodTableRow;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
@@ -56,6 +55,16 @@ public class GeneralFoodTableControllerTest {
       systemUnderTest.removeSelectedFood();
       assertThat( database.foodItems().get( eggs.properties().id() ), is( nullValue() ) );
       assertThat( table.getItems(), is( empty() ) );
+   }//End Method
+   
+   @Test public void shouldDuplicateSelection() {
+      assertThat( database.foodItems().get( eggs.properties().id() ), is( eggs ) );
+      table.getSelectionModel().select( 0 );
+      systemUnderTest.copySelectedFood();
+      assertThat( database.foodItems().objectList().get( 0 ), is( eggs ) );
+      assertThat( database.foodItems().objectList().get( 1 ).properties().nameProperty().get(), is( "Eggs-copy" ) );
+      assertThat( table.getItems().get( 0 ).food(), is( eggs ) );
+      assertThat( table.getItems().get( 1 ).food(), is( database.foodItems().objectList().get( 1 ) ) );
    }//End Method
    
    @Test public void shouldIgnoreRemovalWithNoSelection() {

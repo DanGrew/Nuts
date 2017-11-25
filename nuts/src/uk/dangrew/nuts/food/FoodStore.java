@@ -38,6 +38,12 @@ public interface FoodStore< FoodTypeT extends Food > {
    public FoodTypeT createFood( String id, String name );
    
    /**
+    * Method to store the {@link Food} in the {@link FoodStore}.
+    * @param food the {@link Food} to store.
+    */
+   public void store( FoodTypeT food );
+   
+   /**
     * Getter for the {@link Food} with the given id.
     * @param id the id of te {@link Food}.
     * @return the matching {@link Food}, can be null.

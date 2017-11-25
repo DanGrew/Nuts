@@ -31,6 +31,11 @@ public interface FoodTableController< FoodTypeT extends Food > {
     * Instruction to remove the currently selected {@link Food}.
     */
    public void removeSelectedFood();
+
+   /**
+    * Method to copy the selected {@link Food} in the {@link uk.dangrew.nuts.food.FoodStore}.
+    */
+   public void copySelectedFood();
    
 }//End Interface
 

@@ -22,4 +22,6 @@ public class UnresponsiveFoodTableController< FoodTypeT extends Food > implement
 
    @Override public void removeSelectedFood() {}//End Method
    
+   @Override public void copySelectedFood() {}//End Method
+   
 }//End Class

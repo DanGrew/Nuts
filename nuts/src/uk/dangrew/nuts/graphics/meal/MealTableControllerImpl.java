@@ -114,6 +114,16 @@ public class MealTableControllerImpl implements MealTableController {
          meal.portions().remove( selection.food() );
       }
    }//End Method
+   
+   @Override public void copySelectedFood() {
+      FoodTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
+      if ( selection == null ) {
+         return;
+      }
+      
+      FoodPortion copy = selection.food().duplicate( "" );
+      meal.portions().add( copy );
+   }//End Method 
 
    @Override public void moveUp() {
       FoodTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();

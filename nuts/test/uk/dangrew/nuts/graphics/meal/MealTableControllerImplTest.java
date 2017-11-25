@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.graphics.meal;
 
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -10,7 +11,6 @@ import org.junit.Test;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.FoodTable;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
@@ -84,6 +84,18 @@ public class MealTableControllerImplTest {
       systemUnderTest.moveDown();
       assertThat( meal.portions(), contains( portion1, portion2, portion3 ) );
       assertTablePositions( portion1, portion2, portion3 );
+   }//End Method
+   
+   @Test public void shouldCopySelection() {
+      table.getSelectionModel().select( 1 );
+      systemUnderTest.copySelectedFood();
+      assertThat( meal.portions(), hasSize( 4 ) );
+      assertThat( meal.portions().get( 1 ).properties().nameProperty().get(), is( meal.portions().get( 3 ).properties().nameProperty().get() ) );
+   }//End Method
+   
+   @Test public void shouldNotCopyWhenNoSelection() {
+      systemUnderTest.copySelectedFood();
+      assertThat( meal.portions(), hasSize( 3 ) );
    }//End Method
    
    private void assertTablePositions( FoodPortion... foodPortions ) {

@@ -147,8 +147,12 @@ public class Meal implements Food {
    
    @Override public Meal duplicate( String referenceId ) {
       Meal duplicate = new Meal( properties().nameProperty().get() + referenceId );
-      portions().forEach( p -> duplicate.portions().add( p.duplicate( referenceId ) ) );
+      duplicateProperties( duplicate, referenceId );
       return duplicate;
+   }//End Method
+   
+   protected void duplicateProperties( Meal duplicate, String referenceId ){
+      portions().forEach( p -> duplicate.portions().add( p.duplicate( referenceId ) ) );
    }//End Method
    
    @Override public String toString() {

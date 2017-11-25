@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -235,15 +236,11 @@ public class FoodPortionTest {
    @Test public void shouldDuplicatePortion(){
       String ref = "ref";
       
-      food = spy( new FoodItem( "FoodItem1" ) );
-      Food duplicatedFood = spy( new FoodItem( "FoodItem2" ) );
-      when( food.duplicate( ref ) ).thenReturn( duplicatedFood );
-      
       systemUnderTest.setFood( food );
       FoodPortion duplicate = systemUnderTest.duplicate( ref );
       assertFalse( duplicate == systemUnderTest );
       assertThat( duplicate.portion().get(), is( systemUnderTest.portion().get() ) );
-      assertThat( duplicate.food().get(), is( duplicatedFood ) );
+      assertTrue( duplicate.food().get() == food );
    }//End Method
    
    @Test public void shouldDuplicatePortionWithNoFood(){

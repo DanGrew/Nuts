@@ -12,16 +12,6 @@ public class DayPlanOperations {
       this.templates = templates;
    }//End Constructor
 
-   public void applyTemplateAndDuplicate( DayPlan day, Template template ) {
-      day.portions().clear();
-      
-      for ( FoodPortion portion : template.portions() ) {
-         day.portions().add( portion.duplicate( 
-                  " ( " + day.properties().nameProperty().get() + " )" 
-         ) );
-      }
-   }//End Method
-   
    public void applyTemplate( DayPlan day, Template template ) {
       clearDayPlan( day );
       addFromTemplate( day, template );

@@ -64,40 +64,6 @@ public class DayPlanOperationsTest {
          assertThat( expected.portion().get(), is( copied.portion().get() ) );
       }
    }//End Method
-
-   @Test public void shouldCopyAllPortionsFromTemplate() {
-      dayPlan.portions().add( mock( FoodPortion.class ) );
-      
-      template.portions().add( new FoodPortion( food1, 100 ) );
-      template.portions().add( new FoodPortion( food2, 125 ) );
-      template.portions().add( new FoodPortion( food3, 40 ) );
-      
-      systemUnderTest.applyTemplateAndDuplicate( dayPlan, template );
-      assertThat( dayPlan.portions(), hasSize( template.portions().size() ) );
-      
-      for( int i = 0; i < dayPlan.portions().size(); i++ ) {
-         FoodPortion copied = dayPlan.portions().get( i );
-         FoodPortion expected = template.portions().get( i );
-         assertFalse( copied == expected );
-         
-         assertThat( expected.food().get(), is( copied.food().get() ) );
-         assertThat( expected.portion().get(), is( copied.portion().get() ) );
-      }
-   }//End Method
-   
-   @Test public void shouldPerformDeepCopyDuplicatingMealsAndSubMeals(){
-      template.portions().add( new FoodPortion( new Meal( "Meal1" ), 100 ) );
-      
-      systemUnderTest.applyTemplateAndDuplicate( dayPlan, template );
-      assertFalse( dayPlan.portions().get( 0 ).food().get() == template.portions().get( 0 ).food().get() );
-   }//End Method
-   
-   @Test public void shouldUseDayPlanAsReference(){
-      template.portions().add( new FoodPortion( new Meal( "Meal1" ), 100 ) );
-      
-      systemUnderTest.applyTemplateAndDuplicate( dayPlan, template );
-      assertThat( dayPlan.portions().get( 0 ).food().get().properties().nameProperty().get().contains( dayPlan.properties().nameProperty().get() ), is( true ) );
-   }//End Method
    
    @Test public void shouldAddFromTemplate(){
       dayPlan.portions().add( mock( FoodPortion.class ) );

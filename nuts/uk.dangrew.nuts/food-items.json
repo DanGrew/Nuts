@@ -1828,5 +1828,55 @@
       "name": "Biscuit (Malted Milk) (1)",
       "id": "3750c935-69af-46e9-9298-7085d02ec7bf",
       "calories": 43
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 5.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 25.9,
+      "name": "Chicken (T, Joint, 800g) (100g) ",
+      "id": "95f64e61-6420-4b36-b85a-4dfa52d84241",
+      "calories": 156
+   },
+   {
+      "carbohydrates": 23,
+      "fats": 11,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.6,
+      "name": "Icecream (Cornetto, Honeycomb)",
+      "id": "66778091-f03f-4be9-a124-d1915120876d",
+      "calories": 200
+   },
+   {
+      "carbohydrates": 20,
+      "fats": 5.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 20,
+      "name": "Diet Whey Bar (Triple Choc)",
+      "id": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
+      "calories": 199
+   },
+   {
+      "carbohydrates": 8.4,
+      "fats": 2.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 14.3,
+      "name": "Quorn (BBQ Strips) (100g)",
+      "id": "ad810e1c-b0ce-4ad9-a4ed-1b2360b51210",
+      "calories": 131
+   },
+   {
+      "carbohydrates": 2.3,
+      "fats": 0.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 3,
+      "name": "Broccoli/Cauliflower (T, Frozen) (100g)",
+      "id": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+      "calories": 34
    }
 ]}
