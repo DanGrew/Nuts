@@ -130,8 +130,8 @@
             "portionValue": 200
          },
          {
-            "foodId": "95f64e61-6420-4b36-b85a-4dfa52d84241",
-            "portionValue": 150
+            "foodId": "daca222c-88bf-4c56-b532-b66cce0772ae",
+            "portionValue": 100
          },
          {
             "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
@@ -143,7 +143,7 @@
          },
          {
             "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 300
+            "portionValue": 200
          },
          {
             "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
@@ -754,6 +754,24 @@
          {
             "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
             "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Quorn Bbg & Nuggets",
+      "id": "c2a1fde9-cd81-4b4f-bfe6-87f784166d79",
+      "portions": [
+         {
+            "foodId": "ad810e1c-b0ce-4ad9-a4ed-1b2360b51210",
+            "portionValue": 140
+         },
+         {
+            "foodId": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
+            "portionValue": 200
+         },
+         {
+            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+            "portionValue": 300
          }
       ]
    }

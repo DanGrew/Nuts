@@ -151,5 +151,30 @@ public class FoodOptionsTest {
       systemUnderTest = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
       assertThat( systemUnderTest.first(), is( foodItem1 ) );
    }//End Method
+   
+   @Test public void shouldRespondToNameChange(){
+      database.foodItems().store( foodItem1 );
+      database.foodItems().store( foodItem2 );
+      
+      FoodItem alphaItem = new FoodItem( "zzz" );
+      database.foodItems().store( alphaItem );
+      
+      assertThat( systemUnderTest.options().get( 2 ), is( alphaItem ) );
+      alphaItem.properties().nameProperty().set( "AAA" );
+      assertThat( systemUnderTest.options().get( 0 ), is( alphaItem ) );
+   }//End Method
+   
+   @Test public void shouldNotRespondToNameChangeWhenRemoved(){
+      database.foodItems().store( foodItem1 );
+      database.foodItems().store( foodItem2 );
+      
+      FoodItem alphaItem = new FoodItem( "zzz" );
+      database.foodItems().store( alphaItem );
+      
+      assertThat( systemUnderTest.options().get( 2 ), is( alphaItem ) );
+      database.foodItems().remove( alphaItem.properties().id() );
+      alphaItem.properties().nameProperty().set( "AAA" );
+      assertThat( systemUnderTest.options().contains( alphaItem ), is( false ) );
+   }//End Method
 
 }//End Class

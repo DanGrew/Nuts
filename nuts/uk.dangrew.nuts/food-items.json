@@ -1878,5 +1878,45 @@
       "name": "Broccoli/Cauliflower (T, Frozen) (100g)",
       "id": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
       "calories": 34
+   },
+   {
+      "carbohydrates": 9.2,
+      "fats": 4.7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.3,
+      "name": "Chocolate (Dark, ASDA) (4 Squares)",
+      "id": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
+      "calories": 86
+   },
+   {
+      "carbohydrates": 11.2,
+      "fats": 4.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 6.2,
+      "name": "Protein Bites (30g)",
+      "id": "645e15f9-180a-4513-aa16-ce7f642c52cd",
+      "calories": 120
+   },
+   {
+      "carbohydrates": 2,
+      "fats": 2.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 40,
+      "name": "Chicken (ASDA, Tin) (200g)",
+      "id": "daca222c-88bf-4c56-b532-b66cce0772ae",
+      "calories": 194
+   },
+   {
+      "carbohydrates": 10.4,
+      "fats": 3.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.1,
+      "name": "Biscuit (McVities, Milk) (1)",
+      "id": "24532823-a4bd-444a-8ae2-d1eab6179ff3",
+      "calories": 83
    }
 ]}

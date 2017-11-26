@@ -103,5 +103,24 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "Nandos",
+      "id": "d78edaa2-ef09-4d46-8fd8-8a92479b3fa3",
+      "portions": [
+         {
+            "foodId": "1ca49134-a6ef-4071-8b5e-f7d12fd2e4fd",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4a122978-2051-4487-94f3-e00af1932d3b",
+            "portionValue": 100
+         },
+         {
+            "foodId": "292a50bd-2424-4479-bafa-e6f4f3cc24a6",
+            "portionValue": 100
+         }
+      ]
    }
 ]}

@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.comparator.Comparators;
@@ -26,6 +27,7 @@ public class FoodOptions< FoodTypeT extends Food > {
 
    private final Comparator< FoodTypeT > comparator;
    private final ObservableList< FoodTypeT > options;
+   private final ChangeListener< String > nameResponder;
 
    /**
     * Constructs a new {@link FoodOptions}.
@@ -42,6 +44,7 @@ public class FoodOptions< FoodTypeT extends Food > {
    public FoodOptions( Collection< FoodStore< ? extends FoodTypeT > > foodStores ) {
       this.options = FXCollections.observableArrayList();
       this.comparator = Comparators.stringExtractionComparater( f -> f.properties().nameProperty().get() );
+      this.nameResponder = ( s, o, n ) -> sort();
       
       for ( FoodStore< ? extends FoodTypeT > store : foodStores ) {
          store.objectList().forEach( this::add );
@@ -57,6 +60,11 @@ public class FoodOptions< FoodTypeT extends Food > {
     */
    private void add( FoodTypeT food ) {
       options.add( food );
+      food.properties().nameProperty().addListener( nameResponder );
+      sort();
+   }//End Method
+   
+   private void sort(){
       Collections.sort( options, comparator );
    }//End Method
 
@@ -66,6 +74,7 @@ public class FoodOptions< FoodTypeT extends Food > {
     */
    private void remove( FoodTypeT food ) {
       options.remove( food );
+      food.properties().nameProperty().removeListener( nameResponder );
    }//End Method
 
    /**
