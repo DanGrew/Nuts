@@ -1918,5 +1918,55 @@
       "name": "Biscuit (McVities, Milk) (1)",
       "id": "24532823-a4bd-444a-8ae2-d1eab6179ff3",
       "calories": 83
+   },
+   {
+      "carbohydrates": 17,
+      "fats": 4.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.3,
+      "name": "Oreo Thins (4)",
+      "id": "ec57dd53-b5d0-4c5e-9319-0254fe820868",
+      "calories": 117
+   },
+   {
+      "carbohydrates": 0.5,
+      "fats": 16.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 22.2,
+      "name": "Salmon (Frozen, 2for220g) (100g)",
+      "id": "25b9d7de-8d7f-4ab5-85ea-087023d4ed90",
+      "calories": 237
+   },
+   {
+      "carbohydrates": 28.2,
+      "fats": 7.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.3,
+      "name": "Cookie (T, White Choc) (1 of 5)",
+      "id": "1be48296-f27a-44d8-99c8-150f9d75e450",
+      "calories": 187
+   },
+   {
+      "carbohydrates": 39.1,
+      "fats": 15,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 4,
+      "name": "Cookie (T, Triple Choc) (1 of 4)",
+      "id": "20c91d82-fb9c-45f0-885c-e8ac04827e75",
+      "calories": 310
+   },
+   {
+      "carbohydrates": 12.2,
+      "fats": 2.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.9,
+      "name": "Biscuit (Cornish Fairings) (1)",
+      "id": "bb18c739-6e93-46a8-9585-87b471c41ef7",
+      "calories": 75
    }
 ]}

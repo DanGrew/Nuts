@@ -130,7 +130,7 @@
             "portionValue": 200
          },
          {
-            "foodId": "daca222c-88bf-4c56-b532-b66cce0772ae",
+            "foodId": "202a886e-5476-4634-a5d6-6f4a57363d09",
             "portionValue": 100
          },
          {
@@ -163,7 +163,7 @@
          },
          {
             "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 250
+            "portionValue": 300
          }
       ]
    },
@@ -483,15 +483,15 @@
          },
          {
             "foodId": "b6fbfa6e-dd62-4e4d-b06b-72e00f754028",
-            "portionValue": 100
+            "portionValue": 0
          },
          {
             "foodId": "7c8ddcdd-e6ea-49fd-8320-1cd0a81ce100",
-            "portionValue": 100
+            "portionValue": 0
          },
          {
             "foodId": "497b2962-7225-4448-9e44-ef9dd9e50134",
-            "portionValue": 0
+            "portionValue": 120
          },
          {
             "foodId": "47277f97-b2f8-44ee-bb76-a890bd7a4bda",
@@ -499,11 +499,11 @@
          },
          {
             "foodId": "47697f0f-8d00-4bf8-a196-6216ad44b938",
-            "portionValue": 0
+            "portionValue": 120
          },
          {
             "foodId": "c600d153-94a5-4d89-a874-7d7e133e88dd",
-            "portionValue": 100
+            "portionValue": 0
          },
          {
             "foodId": "44bd1712-53c2-4b4f-bea9-bb762cc87ee8",
@@ -713,7 +713,7 @@
          },
          {
             "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
-            "portionValue": 200
+            "portionValue": 300
          }
       ]
    },
@@ -771,6 +771,80 @@
          },
          {
             "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Belvita 4-Pack",
+      "id": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+      "portions": [{
+         "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
+         "portionValue": 400
+      }]
+   },
+   {
+      "name": "Belvita Duo Pack",
+      "id": "ffcf6c10-dd14-47b5-962a-df61ab677f16",
+      "portions": [{
+         "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+         "portionValue": 200
+      }]
+   },
+   {
+      "name": "Tuna & Soya Clean",
+      "id": "76e3cab8-568a-4f41-b3ac-67021cab3293",
+      "portions": [
+         {
+            "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "204990f0-6bc8-4de7-8e40-1335a59b8a95",
+            "portionValue": 0
+         },
+         {
+            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
+            "portionValue": 400
+         }
+      ]
+   },
+   {
+      "name": "Fry Up",
+      "id": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
+      "portions": [
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 400
+         },
+         {
+            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
+            "portionValue": 50
+         },
+         {
+            "foodId": "17ab1ee6-7fb4-4e80-a388-c1afc135c311",
+            "portionValue": 200
+         },
+         {
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 300
+         },
+         {
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Salmon and Veg",
+      "id": "e6ccf087-e2f5-45b9-b58a-518c2981e6da",
+      "portions": [
+         {
+            "foodId": "25b9d7de-8d7f-4ab5-85ea-087023d4ed90",
+            "portionValue": 220
+         },
+         {
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
             "portionValue": 300
          }
       ]

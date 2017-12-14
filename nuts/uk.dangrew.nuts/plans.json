@@ -122,5 +122,59 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "Sweets Day",
+      "id": "ebd05828-a134-4234-9cb4-d2d140a84295",
+      "portions": [
+         {
+            "foodId": "76e3cab8-568a-4f41-b3ac-67021cab3293",
+            "portionValue": 100
+         },
+         {
+            "foodId": "ffcf6c10-dd14-47b5-962a-df61ab677f16",
+            "portionValue": 600
+         },
+         {
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 200
+         },
+         {
+            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "3750c935-69af-46e9-9298-7085d02ec7bf",
+            "portionValue": 0
+         },
+         {
+            "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
+            "portionValue": 0
+         },
+         {
+            "foodId": "24532823-a4bd-444a-8ae2-d1eab6179ff3",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "Cookies on Standard",
+      "id": "f2d81744-98f7-41fc-84cf-369ddd33f684",
+      "portions": [
+         {
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 900
+         },
+         {
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
+            "portionValue": 100
+         },
+         {
+            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
+            "portionValue": 100
+         }
+      ]
    }
 ]}
