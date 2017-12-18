@@ -24,14 +24,14 @@ public class MealStoreTest {
    }//End Method
    
    @Test public void shouldCreateNew() {
-      Meal newFood = systemUnderTest.createFood( "NewName" );
+      Meal newFood = systemUnderTest.createConcept( "NewName" );
       assertThat( systemUnderTest.get( newFood.properties().id() ), is( newFood ) );
    }//End Method
    
    @Test public void shouldRemoveExisting() {
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
-      systemUnderTest.removeFood( food );
+      systemUnderTest.removeConcept( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
    }//End Method
 

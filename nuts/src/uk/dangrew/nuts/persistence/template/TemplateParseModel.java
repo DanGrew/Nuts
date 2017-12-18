@@ -9,10 +9,10 @@
 package uk.dangrew.nuts.persistence.template;
 
 
-import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.persistence.meals.MealParseModel;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
 
 /**
@@ -26,9 +26,9 @@ public class TemplateParseModel< FoodTypeT extends Template > extends MealParseM
    /**
     * Constructs a new {@link TemplateParseModel}.
     * @param database the {@link Database}.
-    * @param templates {@link FoodStore} providing the {@link Template}s.
+    * @param templates {@link ConceptStore} providing the {@link Template}s.
     */
-   protected TemplateParseModel( Database database, FoodStore< FoodTypeT > templates ) {
+   protected TemplateParseModel( Database database, ConceptStore< FoodTypeT > templates ) {
       super( database, templates );
    }//End Constructor
    

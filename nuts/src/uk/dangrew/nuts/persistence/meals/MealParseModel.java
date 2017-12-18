@@ -14,9 +14,9 @@ import java.util.List;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link MealParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when
@@ -25,7 +25,7 @@ import uk.dangrew.nuts.store.Database;
 public class MealParseModel< FoodTypeT extends Meal > {
    
    private final Database database;
-   private final FoodStore< FoodTypeT > meals;
+   private final ConceptStore< FoodTypeT > meals;
    
    private String id;
    private String name;
@@ -37,9 +37,9 @@ public class MealParseModel< FoodTypeT extends Meal > {
    /**
     * Constructs a new {@link MealParseModel}.
     * @param database the {@link Database}.
-    * @param meals {@link FoodStore} providing the {@link Meal}s.
+    * @param meals {@link ConceptStore} providing the {@link Meal}s.
     */
-   protected MealParseModel( Database database, FoodStore< FoodTypeT > meals ) {
+   protected MealParseModel( Database database, ConceptStore< FoodTypeT > meals ) {
       this.database = database;
       this.meals = meals;
       this.portions = new ArrayList<>();
@@ -54,10 +54,10 @@ public class MealParseModel< FoodTypeT extends Meal > {
    }//End Method
    
    /**
-    * Access to the {@link FoodStore}.
-    * @return the {@link FoodStore}.
+    * Access to the {@link ConceptStore}.
+    * @return the {@link ConceptStore}.
     */
-   protected FoodStore< FoodTypeT > meals(){
+   protected ConceptStore< FoodTypeT > meals(){
       return meals;
    }//End Method
    
@@ -88,7 +88,7 @@ public class MealParseModel< FoodTypeT extends Meal > {
    protected void finishMeal( String key ) {
       FoodTypeT meal = meals.get( id );
       if ( meal == null ) {
-         meal = meals.createFood( id, name );
+         meal = meals.createConcept( id, name );
       }
       meal.portions().clear();
       meal.portions().addAll( portions );

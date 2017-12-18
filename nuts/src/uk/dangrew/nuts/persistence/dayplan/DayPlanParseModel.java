@@ -59,7 +59,7 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
          template.setDate( date );
          template.consumed().addAll( consumedPortions );
       } catch ( NullPointerException | DateTimeParseException e ) {
-         meals().removeFood( template );
+         meals().removeConcept( template );
          System.out.println( "Removed day plan with invalid date: " + dateString );
          return;
       }

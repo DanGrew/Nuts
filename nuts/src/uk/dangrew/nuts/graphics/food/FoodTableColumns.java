@@ -10,15 +10,15 @@ package uk.dangrew.nuts.graphics.food;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodProperties;
-import uk.dangrew.nuts.graphics.table.FoodTable;
-import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 
 /**
  * {@link FoodTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
  * for a {@link FoodTable}.
  */
-public class FoodTableColumns< FoodTypeT extends Food > implements FoodTableColumnsPopulator< FoodTypeT > {
+public class FoodTableColumns< FoodTypeT extends Food > implements ConceptTableColumnsPopulator< FoodTypeT > {
 
    static final String COLUMN_TITLE_FOOD = "Food";
    static final String COLUMN_TITLE_CALORIES = "Calories";
@@ -30,7 +30,7 @@ public class FoodTableColumns< FoodTypeT extends Food > implements FoodTableColu
    private final TableConfiguration configuration;
 
    /**
-    * Constructs a new {@link FoodTable}.
+    * Constructs a new {@link FoodTableColumns}.
     */
    public FoodTableColumns() {
       this.configuration = new TableConfiguration();
@@ -39,8 +39,8 @@ public class FoodTableColumns< FoodTypeT extends Food > implements FoodTableColu
    /**
     * {@inheritDoc}
     */
-   @Override public void populateColumns( FoodTable< FoodTypeT > table ) {
-      configuration.initialiseFoodProperyStringColumn( table, COLUMN_TITLE_FOOD, 0.3, FoodProperties::nameProperty, true );
+   @Override public void populateColumns( ConceptTable< FoodTypeT > table ) {
+      configuration.initialiseFoodPropertyStringColumn( table, COLUMN_TITLE_FOOD, 0.3, FoodProperties::nameProperty, true );
       
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.16, f -> f.properties().calories(), true );
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.16, f -> f.properties().carbohydrates(), true );

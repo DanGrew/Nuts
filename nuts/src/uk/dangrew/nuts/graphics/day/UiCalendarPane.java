@@ -14,7 +14,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.food.UnresponsiveFoodTableController;
 import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.meal.MealTableWithControls;
-import uk.dangrew.nuts.graphics.table.FoodTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.template.TemplateTable;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
@@ -56,7 +56,7 @@ public class UiCalendarPane extends GridPane {
       add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 3 );
       
       templateView.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
-         Food food = n.food().food().get();
+         Food food = n.concept().food().get();
          if ( food instanceof Meal ) {
             mealView.table().controller().showMeal( ( Meal )food );
          } else {
@@ -68,7 +68,7 @@ public class UiCalendarPane extends GridPane {
       uiCalendar.controller().selector().selection().addListener( ( s, o, n ) -> {
          templateView.table().controller().showMeal( n );
          templatesTable.getRows().clear();
-         templatesTable.getRows().add( new FoodTableRow<>( n ) );
+         templatesTable.getRows().add( new ConceptTableRow<>( n ) );
          consumptionProperties.setDayPlan( n );
       } );
    }// End Constructor

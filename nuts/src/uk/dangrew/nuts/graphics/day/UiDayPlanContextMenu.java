@@ -16,7 +16,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import uk.dangrew.kode.javafx.contextmenu.ContextMenuWithCancel;
-import uk.dangrew.nuts.graphics.table.FoodOptions;
+import uk.dangrew.nuts.graphics.table.ConceptOptions;
 import uk.dangrew.nuts.template.Template;
 
 public class UiDayPlanContextMenu extends ContextMenuWithCancel {
@@ -54,7 +54,7 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
       this( 
                controller, 
                new UiTemplateSelectionDialog( 
-                        new FoodOptions<>( controller.database().templates() ) 
+                        new ConceptOptions<>( controller.database().templates() ) 
                ),
                new UiTemplateNameInputDialog(),
                new UiConfirmAlert()

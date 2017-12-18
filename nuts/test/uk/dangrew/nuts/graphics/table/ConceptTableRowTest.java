@@ -6,21 +6,21 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.graphics.table.FoodTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.meal.Meal;
 
-public class FoodTableRowTest {
+public class ConceptTableRowTest {
 
    private Meal meal;
-   private FoodTableRow< Meal > systemUnderTest;
+   private ConceptTableRow< Meal > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       meal = new Meal( "Meal" );
-      systemUnderTest = new FoodTableRow<>( meal );
+      systemUnderTest = new ConceptTableRow<>( meal );
    }//End Method
 
    @Test public void shouldProvideFood() {
-      assertThat( systemUnderTest.food(), is( meal ) );
+      assertThat( systemUnderTest.concept(), is( meal ) );
    }//End Method
 
 }//End Class

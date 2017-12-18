@@ -3,14 +3,14 @@ package uk.dangrew.nuts.graphics.day;
 import java.util.Optional;
 
 import javafx.scene.control.ChoiceDialog;
-import uk.dangrew.nuts.graphics.table.FoodOptions;
+import uk.dangrew.nuts.graphics.table.ConceptOptions;
 import uk.dangrew.nuts.template.Template;
 
 public class UiTemplateSelectionDialog extends ChoiceDialog< Template > {
 
-   private final FoodOptions< Template > options;
+   private final ConceptOptions< Template > options;
    
-   public UiTemplateSelectionDialog( FoodOptions< Template > options ) {
+   public UiTemplateSelectionDialog( ConceptOptions< Template > options ) {
       super( options.first(), options.options() );
       this.options = options;
       setTitle( "Template Selection" );

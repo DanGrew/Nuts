@@ -9,20 +9,20 @@
 
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalStore;
-import uk.dangrew.nuts.graphics.food.GeneralFoodTableController;
-import uk.dangrew.nuts.graphics.table.FoodTable;
+import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
 
 /**
  * Provides a custom {@link GoalTable} for {@link Goal}s.
  */
-public class GoalTable extends FoodTable< Goal > {
+public class GoalTable extends ConceptTable< Goal > {
 
    /**
     * Constructs a new {@link GoalTable}.
     * @param database the {@link Database}.
     */
    public GoalTable( GoalStore store ) {
-      super( new GoalTableColumns(), new GeneralFoodTableController<>( store ) );
+      super( new GoalTableColumns(), new GeneralConceptTableController<>( store ) );
    }//End Constructor
    
 }//End Class

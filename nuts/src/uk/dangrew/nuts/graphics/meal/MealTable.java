@@ -8,14 +8,14 @@
  */package uk.dangrew.nuts.graphics.meal;
 
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.FoodTable;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.store.Database;
 
 /**
- * Provides a custom {@link FoodTable} for {@link uk.dangrew.nuts.meal.Meal}s that can be selected
+ * Provides a custom {@link ConceptTable} for {@link uk.dangrew.nuts.meal.Meal}s that can be selected
  * using the {@link MealTableController}.
  */
-public class MealTable extends FoodTable< FoodPortion > {
+public class MealTable extends ConceptTable< FoodPortion > {
 
    /**
     * Constructs a new {@link MealTable}.

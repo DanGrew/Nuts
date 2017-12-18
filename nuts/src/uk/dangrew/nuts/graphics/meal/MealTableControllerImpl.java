@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.FriendlyTableView;
-import uk.dangrew.nuts.graphics.table.FoodTable;
-import uk.dangrew.nuts.graphics.table.FoodTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.meal.Meal;
 
 /**
@@ -25,7 +25,7 @@ public class MealTableControllerImpl implements MealTableController {
 
    private final FunctionListChangeListenerImpl< FoodPortion > mealListener;
    
-   private FriendlyTableView< FoodTableRow< FoodPortion > > table;
+   private FriendlyTableView< ConceptTableRow< FoodPortion > > table;
    private Meal meal;
    
    /**
@@ -40,7 +40,7 @@ public class MealTableControllerImpl implements MealTableController {
    /**
     * {@inheritDoc}
     */
-   @Override public void associate( FoodTable< FoodPortion > table ) {
+   @Override public void associate( ConceptTable< FoodPortion > table ) {
       this.table = table;
    }//End Method
    
@@ -73,7 +73,7 @@ public class MealTableControllerImpl implements MealTableController {
     * @param portion the {@link FoodPortion} added.
     */
    private void portionAddedToMeal( FoodPortion portion ) {
-      table.getRows().add( meal.portions().indexOf( portion ), new FoodTableRow<>( portion ) );
+      table.getRows().add( meal.portions().indexOf( portion ), new ConceptTableRow<>( portion ) );
    }//End Method
 
    /**
@@ -81,9 +81,9 @@ public class MealTableControllerImpl implements MealTableController {
     * @param portion the {@link FoodPortion} removed.
     */
    private void portionRemovedFromMeal( FoodPortion portion ) {
-      Set< FoodTableRow< FoodPortion > > toRemove = table.getRows()
+      Set< ConceptTableRow< FoodPortion > > toRemove = table.getRows()
                .stream()
-               .filter( r -> r.food() == portion )
+               .filter( r -> r.concept() == portion )
                .collect( Collectors.toSet() );
       table.getRows().removeAll( toRemove );
    }//End Method
@@ -91,7 +91,7 @@ public class MealTableControllerImpl implements MealTableController {
    /**
     * {@inheritDoc}
     */
-   @Override public FoodPortion createFood() {
+   @Override public FoodPortion createConcept() {
       if ( meal != null ) {
          FoodPortion portion = new FoodPortion();
          meal.portions().add( portion );
@@ -104,29 +104,29 @@ public class MealTableControllerImpl implements MealTableController {
    /**
     * {@inheritDoc}
     */
-   @Override public void removeSelectedFood() {
-      FoodTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
+   @Override public void removeSelectedConcept() {
+      ConceptTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
       
       if ( meal != null ) {
-         meal.portions().remove( selection.food() );
+         meal.portions().remove( selection.concept() );
       }
    }//End Method
    
-   @Override public void copySelectedFood() {
-      FoodTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
+   @Override public void copySelectedConcept() {
+      ConceptTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
       
-      FoodPortion copy = selection.food().duplicate( "" );
+      FoodPortion copy = selection.concept().duplicate( "" );
       meal.portions().add( copy );
    }//End Method 
 
    @Override public void moveUp() {
-      FoodTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
+      ConceptTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -136,15 +136,15 @@ public class MealTableControllerImpl implements MealTableController {
          return;
       }
       
-      FoodPortion first = selection.food();
-      FoodPortion second = table.getRows().get( rowIndex - 1 ).food();
+      FoodPortion first = selection.concept();
+      FoodPortion second = table.getRows().get( rowIndex - 1 ).concept();
       meal.swap( second, first );
       
       table.getSelectionModel().select( rowIndex - 1 );
    }//End Method
    
    @Override public void moveDown() {
-      FoodTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
+      ConceptTableRow< FoodPortion > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -154,8 +154,8 @@ public class MealTableControllerImpl implements MealTableController {
          return;
       }
       
-      FoodPortion first = selection.food();
-      FoodPortion second = table.getRows().get( rowIndex + 1 ).food();
+      FoodPortion first = selection.concept();
+      FoodPortion second = table.getRows().get( rowIndex + 1 ).concept();
       meal.swap( first, second );
       
       table.getSelectionModel().select( rowIndex + 1 );

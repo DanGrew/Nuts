@@ -12,12 +12,12 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.control.Button;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.table.FoodControls;
+import uk.dangrew.nuts.graphics.table.ConceptControls;
 
-public class MealControls extends FoodControls {
+public class MealControls extends ConceptControls {
    
-   static final double INSETS = FoodControls.INSETS;
-   static final double BUTTON_WIDTH = FoodControls.BUTTON_WIDTH;
+   static final double INSETS = ConceptControls.INSETS;
+   static final double BUTTON_WIDTH = ConceptControls.BUTTON_WIDTH;
    
    private final Button up;
    private final Button down;

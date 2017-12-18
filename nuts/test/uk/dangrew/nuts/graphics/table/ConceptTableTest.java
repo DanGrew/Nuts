@@ -13,7 +13,7 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
-public class FoodTableTest {
+public class ConceptTableTest {
 
    private Database database;
    
@@ -53,7 +53,7 @@ public class FoodTableTest {
    }//End Method
    
    private Food addNewFood( String name, double c, double f, double p ) {
-      FoodItem foodItem = database.foodItems().createFood( name );
+      FoodItem foodItem = database.foodItems().createConcept( name );
       foodItem.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( c );
       foodItem.properties().nutritionFor( MacroNutrient.Fats ).set( f );
       foodItem.properties().nutritionFor( MacroNutrient.Protein ).set( p );
@@ -61,7 +61,7 @@ public class FoodTableTest {
    }//End Method
    
    private void addNewMeal( String name, FoodPortion... portions ) {
-      Meal meal = database.meals().createFood( name );
+      Meal meal = database.meals().createConcept( name );
       meal.portions().addAll( portions );
    }//End Method
    

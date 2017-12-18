@@ -88,19 +88,19 @@ public class MealTableControllerImplTest {
    
    @Test public void shouldCopySelection() {
       table.getSelectionModel().select( 1 );
-      systemUnderTest.copySelectedFood();
+      systemUnderTest.copySelectedConcept();
       assertThat( meal.portions(), hasSize( 4 ) );
       assertThat( meal.portions().get( 1 ).properties().nameProperty().get(), is( meal.portions().get( 3 ).properties().nameProperty().get() ) );
    }//End Method
    
    @Test public void shouldNotCopyWhenNoSelection() {
-      systemUnderTest.copySelectedFood();
+      systemUnderTest.copySelectedConcept();
       assertThat( meal.portions(), hasSize( 3 ) );
    }//End Method
    
    private void assertTablePositions( FoodPortion... foodPortions ) {
       for ( int i = 0; i < foodPortions.length; i++ ) {
-         assertThat( table.getRows().get( i ).food(), is( foodPortions[ i ] ) );
+         assertThat( table.getRows().get( i ).concept(), is( foodPortions[ i ] ) );
       }
    }//End Method
 

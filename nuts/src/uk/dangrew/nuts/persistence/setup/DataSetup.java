@@ -40,7 +40,7 @@ public class DataSetup {
    public void configureDefaultGoal(){
       if ( database.templates().defaultGoal() == null ) {
          if ( database.goals().objectList().isEmpty() ) {
-            database.goals().createFood( "Default Goal" );
+            database.goals().createConcept( "Default Goal" );
          }
          database.templates().setDefaultGoal( database.goals().objectList().get( 0 ) );
       }
@@ -51,7 +51,7 @@ public class DataSetup {
     */
    public void configureDefaultShoppingList() {
       if ( database.shoppingLists().objectList().isEmpty() ) {
-         database.shoppingLists().createFood( "Shopping" );
+         database.shoppingLists().createConcept( "Shopping" );
       }
    }//End Method
    

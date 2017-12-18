@@ -9,30 +9,30 @@
 package uk.dangrew.nuts.graphics.food;
 
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.food.FoodStore;
-import uk.dangrew.nuts.graphics.table.FoodTable;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link GeneralFoodTable} provides a {@link FoodTable} with a {@link GeneralFoodTableController}.
  */
-public class GeneralFoodTable< FoodTypeT extends Food > extends FoodTable< FoodTypeT >{
+public class GeneralFoodTable< FoodTypeT extends Food > extends ConceptTable< FoodTypeT >{
 
    /**
     * Constructs a new {@link GeneralFoodTable}.
-    * @param foods the {@link FoodStore} to display.
+    * @param foods the {@link ConceptStore} to display.
     */
-   public GeneralFoodTable( FoodStore< FoodTypeT > foods ) {
+   public GeneralFoodTable( ConceptStore< FoodTypeT > foods ) {
       super( 
                new FoodTableColumns<>(),
-               new GeneralFoodTableController<>( foods )
+               new GeneralConceptTableController<>( foods )
       );
    }//End Constructor
    
    /**
     * {@inheritDoc}
     */
-   @Override public GeneralFoodTableController< FoodTypeT > controller() {
-      return ( GeneralFoodTableController< FoodTypeT > ) super.controller();
+   @Override public GeneralConceptTableController< FoodTypeT > controller() {
+      return ( GeneralConceptTableController< FoodTypeT > ) super.controller();
    }//End Method
 
 }//End Class

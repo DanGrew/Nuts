@@ -10,7 +10,6 @@ package uk.dangrew.nuts.persistence.fooditems;
 
 import uk.dangrew.jupa.file.protocol.JarJsonPersistingProtocol;
 import uk.dangrew.jupa.json.marshall.ModelMarshaller;
-import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.main.Nuts;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.dayplan.DayPlanPersistence;
@@ -20,6 +19,7 @@ import uk.dangrew.nuts.persistence.setup.DataSetup;
 import uk.dangrew.nuts.persistence.template.TemplatePersistence;
 import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
 
 /**
@@ -140,11 +140,11 @@ public class FoodSessions {
    
    /**
     * Method to construct the {@link ModelMarshaller}.
-    * @param store the {@link FoodStore} to access data for {@link Meal} types.
+    * @param store the {@link ConceptStore} to access data for {@link Meal} types.
     * @param fileLocation the {@link JarJsonPersistingProtocol}.
     * @return the {@link ModelMarshaller} constructed for {@link uk.dangrew.nuts.meal.Meal}s.
     */
-   private < FoodTypeT extends Meal > ModelMarshaller constructMealMarshaller( FoodStore< FoodTypeT > store, JarJsonPersistingProtocol fileLocation ){
+   private < FoodTypeT extends Meal > ModelMarshaller constructMealMarshaller( ConceptStore< FoodTypeT > store, JarJsonPersistingProtocol fileLocation ){
       MealPersistence< FoodTypeT > persistence = new MealPersistence<>( database, store );
       return new ModelMarshaller( 
                persistence.structure(), 

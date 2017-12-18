@@ -16,9 +16,9 @@ import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
-import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link MealPersistence} provides the architecture for reading and writing {@link uk.dangrew.nuts.meal.Meal}s.
@@ -45,9 +45,9 @@ public class MealPersistence< FoodTypeT extends Meal > {
   /**
     * Constructs a new {@link MealPersistence}.
     * @param database the {@link Database}.
-    * @param meals the {@link FoodStore} providing the {@link Meal}s.
+    * @param meals the {@link ConceptStore} providing the {@link Meal}s.
     */
-   public MealPersistence( Database database, FoodStore< FoodTypeT > meals ) {
+   public MealPersistence( Database database, ConceptStore< FoodTypeT > meals ) {
       this( new MealParseModel<>( database, meals ), new MealWriteModel<>( meals ) );
    }//End Constructor
    

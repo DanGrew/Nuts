@@ -12,8 +12,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.meal.MealTableColumns;
-import uk.dangrew.nuts.graphics.table.FoodTable;
-import uk.dangrew.nuts.graphics.table.FoodTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.store.Database;
 
 public class UiDayPlanMealTableColumns extends MealTableColumns {
@@ -25,9 +25,9 @@ public class UiDayPlanMealTableColumns extends MealTableColumns {
       this.consumptionProperties = consumptionProperties;
    }//End Constructor
    
-   @Override public void populateColumns( FoodTable< FoodPortion > table ) {
-      TableColumn< FoodTableRow< FoodPortion >, Boolean > column = new TableColumn<>();
-      column.setCellValueFactory( param -> consumptionProperties.propertyFor( param.getValue().food() ) );
+   @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
+      TableColumn< ConceptTableRow< FoodPortion >, Boolean > column = new TableColumn<>();
+      column.setCellValueFactory( param -> consumptionProperties.propertyFor( param.getValue().concept() ) );
       column.setCellFactory( CheckBoxTableCell.forTableColumn( column ) );
       column.setEditable( true );
       table.getColumns().add( column );

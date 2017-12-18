@@ -1,10 +1,10 @@
 package uk.dangrew.nuts.graphics.meal;
 
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.FoodTableController;
+import uk.dangrew.nuts.graphics.table.ConceptTableController;
 import uk.dangrew.nuts.meal.Meal;
 
-public interface MealTableController extends FoodTableController< FoodPortion >{
+public interface MealTableController extends ConceptTableController< FoodPortion >{
    
    /**
     * Method to show the given {@link Meal} in the {@link MealTable}.

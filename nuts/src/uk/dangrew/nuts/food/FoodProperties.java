@@ -14,15 +14,14 @@ import java.util.UUID;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.system.Properties;
 
 /**
  * {@link FoodProperties} the properties of a single food. The {@link FoodProperties}
  * has a size, but is not portioned and simply measured in some amount.
  */
-public class FoodProperties {
+public class FoodProperties extends Properties {
 
-   private final String id;
-   private final ObjectProperty< String > nameProperty;
    private final ObjectProperty< Double > calories;
    private final EnumMap< MacroNutrient, ObjectProperty< Double > > macros;
    
@@ -41,30 +40,13 @@ public class FoodProperties {
     * @param analytics the {@link FoodAnalytics} supporting the properties.
     */
    public FoodProperties( String id, String name ) {
-      this.id = id;
-      this.nameProperty = new SimpleObjectProperty<>( name );
+      super( id, name );
       this.calories = new SimpleObjectProperty<>( 0.0 );
       this.macros = new EnumMap<>( MacroNutrient.class );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          this.macros.put( macro, new SimpleObjectProperty<>( 0.0 ) );
       }
    }//End Constructor
-   
-   /**
-    * Access to the unique id.
-    * @return the id.
-    */
-   public String id(){
-      return id;
-   }//End Method
-
-   /**
-    * Access to the name property.
-    * @return the {@link ObjectProperty}.
-    */
-   public ObjectProperty< String > nameProperty() {
-      return nameProperty;
-   }//End Method
    
    /**
     * Access to the calories.

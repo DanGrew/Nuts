@@ -17,18 +17,18 @@ import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
-public class FoodTableWithControlsTest {
+public class ConceptTableWithControlsTest {
 
    @Spy private JavaFxStyle styling;
-   @Mock private FoodControls controls;
-   private FoodTable< ? > table;
-   private FoodTableWithControls< ? > systemUnderTest;
+   @Mock private ConceptControls controls;
+   private ConceptTable< ? > table;
+   private ConceptTableWithControls< ? > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       table = new GeneralFoodTable<>( new FoodItemStore() );
-      systemUnderTest = new FoodTableWithControls<>( styling, "anything", table, controls );
+      systemUnderTest = new ConceptTableWithControls<>( styling, "anything", table, controls );
    }//End Method
 
    @Test public void shouldProvideContent() {
@@ -54,9 +54,9 @@ public class FoodTableWithControlsTest {
    }//End Method
    
    @Test public void shouldProvideInstructionsWhenEmpty(){
-      verify( styling ).createWrappedTextLabel( FoodTableWithControls.NO_CONTENT_INFORMATION );
+      verify( styling ).createWrappedTextLabel( ConceptTableWithControls.NO_CONTENT_INFORMATION );
       Label node = ( Label ) systemUnderTest.table().getPlaceholder();
-      assertThat( node.getText(), is( FoodTableWithControls.NO_CONTENT_INFORMATION ) );
+      assertThat( node.getText(), is( ConceptTableWithControls.NO_CONTENT_INFORMATION ) );
    }//End Method
    
    @Test public void shouldMaximizeSize(){

@@ -9,9 +9,9 @@
 package uk.dangrew.nuts.day;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.food.FoodStore;
+import uk.dangrew.nuts.system.ConceptStore;
 
-public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayPlan > implements FoodStore< DayPlan > {
+public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayPlan > implements ConceptStore< DayPlan > {
 
    public DayPlanStore() {
       super( f -> f.properties().id() );
@@ -20,7 +20,7 @@ public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayP
    /**
     * {@inheritDoc}
     */
-   @Override public DayPlan createFood( String name ) {
+   @Override public DayPlan createConcept( String name ) {
       DayPlan food = new DayPlan( name );
       store( food );
       return food;
@@ -29,7 +29,7 @@ public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayP
    /**
     * {@inheritDoc}
     */
-   @Override public DayPlan createFood( String id, String name ) {
+   @Override public DayPlan createConcept( String id, String name ) {
       DayPlan food = new DayPlan( id, name );
       store( food );
       return food;
@@ -45,7 +45,7 @@ public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayP
    /**
     * {@inheritDoc}
     */
-   @Override public void removeFood( DayPlan food ) {
+   @Override public void removeConcept( DayPlan food ) {
       remove( food.properties().id() );
    }//End Method
 }//End Class

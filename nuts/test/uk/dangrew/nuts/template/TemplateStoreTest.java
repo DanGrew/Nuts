@@ -44,7 +44,7 @@ public class TemplateStoreTest {
    @Test public void shouldCreateNew() {
       systemUnderTest.setDefaultGoal( goal );
       
-      Template newFood = systemUnderTest.createFood( "NewName" );
+      Template newFood = systemUnderTest.createConcept( "NewName" );
       assertThat( systemUnderTest.get( newFood.properties().id() ), is( newFood ) );
       assertThat( newFood.goalAnalytics().goal().get(), is( goal ) );
    }//End Method
@@ -54,7 +54,7 @@ public class TemplateStoreTest {
       
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
-      systemUnderTest.removeFood( food );
+      systemUnderTest.removeConcept( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
       assertThat( food.goalAnalytics().goal().get(), is( nullValue() ) );
    }//End Method

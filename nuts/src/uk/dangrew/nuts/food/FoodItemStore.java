@@ -9,12 +9,13 @@
 package uk.dangrew.nuts.food;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
+import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link FoodItemStore} provides an {@link uk.dangrew.kode.storage.structure.ObjectStoreManager}
  * for {@link FoodItem}s.
  */
-public class FoodItemStore extends MappedObservableStoreManagerImpl< String, FoodItem > implements FoodStore< FoodItem > {
+public class FoodItemStore extends MappedObservableStoreManagerImpl< String, FoodItem > implements ConceptStore< FoodItem > {
 
    /**
     * Constructs a new {@link FoodItemStore}.
@@ -26,7 +27,7 @@ public class FoodItemStore extends MappedObservableStoreManagerImpl< String, Foo
    /**
     * {@inheritDoc}
     */
-   @Override public FoodItem createFood( String name ) {
+   @Override public FoodItem createConcept( String name ) {
       FoodItem food = new FoodItem( name );
       store( food );
       return food;
@@ -35,7 +36,7 @@ public class FoodItemStore extends MappedObservableStoreManagerImpl< String, Foo
    /**
     * {@inheritDoc}
     */
-   @Override public FoodItem createFood( String id, String name ) {
+   @Override public FoodItem createConcept( String id, String name ) {
       FoodItem food = new FoodItem( id, name );
       store( food );
       return food;
@@ -51,7 +52,7 @@ public class FoodItemStore extends MappedObservableStoreManagerImpl< String, Foo
    /**
     * {@inheritDoc}
     */
-   @Override public void removeFood( FoodItem food ) {
+   @Override public void removeConcept( FoodItem food ) {
       remove( food.properties().id() );
    }//End Method
 

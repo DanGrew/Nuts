@@ -50,7 +50,7 @@ public class DataSetupTest {
    }//End Method
    
    @Test public void shouldIgnoreShoppingListIfPResent() {
-      database.shoppingLists().createFood( "Anything" );
+      database.shoppingLists().createConcept( "Anything" );
       systemUnderTest.configureDefaultShoppingList();
       assertThat( database.shoppingLists().objectList(), hasSize( 1 ) );
    }//End Method

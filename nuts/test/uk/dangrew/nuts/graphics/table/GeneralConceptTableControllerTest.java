@@ -14,17 +14,17 @@ import org.junit.Test;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.food.GeneralFoodTableController;
+import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
-public class GeneralFoodTableControllerTest {
+public class GeneralConceptTableControllerTest {
 
    private FoodItem eggs;
    private Database database;
    
-   private FoodTable< FoodItem > table;
-   private GeneralFoodTableController< FoodItem > systemUnderTest;
+   private ConceptTable< FoodItem > table;
+   private GeneralConceptTableController< FoodItem > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
@@ -33,16 +33,16 @@ public class GeneralFoodTableControllerTest {
       eggs = new FoodItem( "Eggs" );
       database.foodItems().store( eggs );
       
-      systemUnderTest = new GeneralFoodTableController<>( database.foodItems() );
-      table = new FoodTable<>( new FoodTableColumns<>(), systemUnderTest );
+      systemUnderTest = new GeneralConceptTableController<>( database.foodItems() );
+      table = new ConceptTable<>( new FoodTableColumns<>(), systemUnderTest );
    }//End Method
 
    @Test public void shouldCreateFoodInDatabase() {
-      FoodItem foodItem = systemUnderTest.createFood();
+      FoodItem foodItem = systemUnderTest.createConcept();
       assertThat( foodItem, is( notNullValue() ) );
       assertThat( database.foodItems().get( foodItem.properties().id() ), is( foodItem ) );
       
-      FoodItem food2 = systemUnderTest.createFood();
+      FoodItem food2 = systemUnderTest.createConcept();
       assertThat( foodItem, is( not( food2 ) ) );
       assertThat( foodItem.properties().id(), is( not( food2.properties().id() ) ) );
       assertThat( food2, is( notNullValue() ) );
@@ -52,7 +52,7 @@ public class GeneralFoodTableControllerTest {
    @Test public void shouldRemoveSelectedFoodFromDatabaseAndTable() {
       assertThat( database.foodItems().get( eggs.properties().id() ), is( eggs ) );
       table.getSelectionModel().select( 0 );
-      systemUnderTest.removeSelectedFood();
+      systemUnderTest.removeSelectedConcept();
       assertThat( database.foodItems().get( eggs.properties().id() ), is( nullValue() ) );
       assertThat( table.getItems(), is( empty() ) );
    }//End Method
@@ -60,24 +60,24 @@ public class GeneralFoodTableControllerTest {
    @Test public void shouldDuplicateSelection() {
       assertThat( database.foodItems().get( eggs.properties().id() ), is( eggs ) );
       table.getSelectionModel().select( 0 );
-      systemUnderTest.copySelectedFood();
+      systemUnderTest.copySelectedConcept();
       assertThat( database.foodItems().objectList().get( 0 ), is( eggs ) );
       assertThat( database.foodItems().objectList().get( 1 ).properties().nameProperty().get(), is( "Eggs-copy" ) );
-      assertThat( table.getItems().get( 0 ).food(), is( eggs ) );
-      assertThat( table.getItems().get( 1 ).food(), is( database.foodItems().objectList().get( 1 ) ) );
+      assertThat( table.getItems().get( 0 ).concept(), is( eggs ) );
+      assertThat( table.getItems().get( 1 ).concept(), is( database.foodItems().objectList().get( 1 ) ) );
    }//End Method
    
    @Test public void shouldIgnoreRemovalWithNoSelection() {
       assertThat( database.foodItems().get( eggs.properties().id() ), is( eggs ) );
-      systemUnderTest.removeSelectedFood();
-      FoodTableRow< FoodItem > row = table.getItems().get( 0 );
-      assertThat( row.food().properties().nameProperty().get(), is( eggs.properties().nameProperty().get() ) );
+      systemUnderTest.removeSelectedConcept();
+      ConceptTableRow< FoodItem > row = table.getItems().get( 0 );
+      assertThat( row.concept().properties().nameProperty().get(), is( eggs.properties().nameProperty().get() ) );
    }//End Method
    
    @Test public void shouldPopulateTableWithDatabaseFoods(){
       assertThat( table.getItems(), hasSize( 1 ) );
-      FoodTableRow< FoodItem > row = table.getItems().get( 0 );
-      assertThat( row.food().properties().nameProperty().get(), is( eggs.properties().nameProperty().get() ) );
+      ConceptTableRow< FoodItem > row = table.getItems().get( 0 );
+      assertThat( row.concept().properties().nameProperty().get(), is( eggs.properties().nameProperty().get() ) );
    }//End Method
    
    @Test public void shouldRemoveFromTableWhenRemovedFromDatabase(){
@@ -92,7 +92,7 @@ public class GeneralFoodTableControllerTest {
       FoodItem bacon = new FoodItem( "Bacon" );
       database.foodItems().store( bacon );
       assertThat( table.getItems(), hasSize( 2 ) );
-      assertThat( table.getItems().get( 1 ).food().properties().nameProperty().get(), is( bacon.properties().nameProperty().get() ) );
+      assertThat( table.getItems().get( 1 ).concept().properties().nameProperty().get(), is( bacon.properties().nameProperty().get() ) );
    }//End Method
 
 }//End Class

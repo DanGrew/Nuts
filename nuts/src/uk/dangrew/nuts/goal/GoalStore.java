@@ -9,13 +9,13 @@
 package uk.dangrew.nuts.goal;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.food.FoodStore;
+import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link GoalStore} provides an {@link uk.dangrew.kode.storage.structure.ObjectStoreManager}
  * for {@link Goal}s.
  */
-public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > implements FoodStore< Goal > {
+public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > implements ConceptStore< Goal > {
 
    /**
     * Constructs a new {@link GoalStore}.
@@ -27,7 +27,7 @@ public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > 
    /**
     * {@inheritDoc}
     */
-   @Override public Goal createFood( String name ) {
+   @Override public Goal createConcept( String name ) {
       Goal food = new Goal( name );
       store( food );
       return food;
@@ -36,7 +36,7 @@ public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > 
    /**
     * {@inheritDoc}
     */
-   @Override public Goal createFood( String id, String name ) {
+   @Override public Goal createConcept( String id, String name ) {
       Goal goal = new Goal( id, name );
       store( goal );
       return goal;
@@ -52,7 +52,7 @@ public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > 
    /**
     * {@inheritDoc}
     */
-   @Override public void removeFood( Goal goal ) {
+   @Override public void removeConcept( Goal goal ) {
       remove( goal.properties().id() );
    }//End Method
 

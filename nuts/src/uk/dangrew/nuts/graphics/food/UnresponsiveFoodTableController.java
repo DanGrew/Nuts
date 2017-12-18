@@ -9,19 +9,19 @@
 package uk.dangrew.nuts.graphics.food;
 
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.table.FoodTable;
-import uk.dangrew.nuts.graphics.table.FoodTableController;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.ConceptTableController;
 
-public class UnresponsiveFoodTableController< FoodTypeT extends Food > implements FoodTableController< FoodTypeT > {
+public class UnresponsiveFoodTableController< FoodTypeT extends Food > implements ConceptTableController< FoodTypeT > {
 
-   @Override public void associate( FoodTable< FoodTypeT > table ) {}//End Method
+   @Override public void associate( ConceptTable< FoodTypeT > table ) {}//End Method
    
-   @Override public FoodTypeT createFood() {
+   @Override public FoodTypeT createConcept() {
       return null;
    }//End Method
 
-   @Override public void removeSelectedFood() {}//End Method
+   @Override public void removeSelectedConcept() {}//End Method
    
-   @Override public void copySelectedFood() {}//End Method
+   @Override public void copySelectedConcept() {}//End Method
    
 }//End Class

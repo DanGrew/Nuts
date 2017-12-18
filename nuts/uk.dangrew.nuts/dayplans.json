@@ -1,23 +1,43 @@
 {"meals": [
    {
-      "date": "2017-12-09",
-      "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-12-09",
-      "id": "4ba82b78-2098-41e5-8698-2ccae65ca17e",
+      "date": "2017-12-04",
+      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
+      "name": "2017-12-04",
+      "id": "4782358d-86e0-43a3-89f8-9bcd6d07ce17",
       "portions": [
          {
             "consumed": true,
             "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
-            "portionValue": 900
+            "portionValue": 300
          },
          {
             "consumed": true,
-            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
+            "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
             "portionValue": 100
          },
          {
             "consumed": true,
-            "foodId": "bb18c739-6e93-46a8-9585-87b471c41ef7",
+            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "9b55c0ab-b67e-4edf-a398-34f79426a07f",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "ec57dd53-b5d0-4c5e-9319-0254fe820868",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
             "portionValue": 100
          }
       ]
@@ -61,192 +81,30 @@
       ]
    },
    {
-      "date": "2017-11-27",
+      "date": "2017-11-16",
       "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-27",
-      "id": "abfe1bea-2d3f-45e3-a4dd-e7bbd997802d",
+      "name": "2017-11-16",
+      "id": "30cb448b-9268-4030-ad4d-f17dbbe1934e",
       "portions": [
          {
-            "consumed": true,
-            "foodId": "645e15f9-180a-4513-aa16-ce7f642c52cd",
-            "portionValue": 300
-         },
-         {
-            "consumed": true,
-            "foodId": "1ca49134-a6ef-4071-8b5e-f7d12fd2e4fd",
+            "consumed": false,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
             "portionValue": 100
          },
          {
-            "consumed": true,
-            "foodId": "4a122978-2051-4487-94f3-e00af1932d3b",
+            "consumed": false,
+            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
             "portionValue": 100
          },
          {
-            "consumed": true,
-            "foodId": "292a50bd-2424-4479-bafa-e6f4f3cc24a6",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
-            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
-            "portionValue": 175
-         }
-      ]
-   },
-   {
-      "date": "2017-11-19",
-      "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-19",
-      "id": "1549ef0e-5daa-4cf0-bf04-d9ad7d7b8772",
-      "portions": [
-         {
-            "consumed": true,
-            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
+            "consumed": false,
             "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-            "portionValue": 1000
-         },
-         {
-            "consumed": true,
-            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
-            "portionValue": 100
+            "portionValue": 1500
          },
          {
             "consumed": false,
-            "foodId": "ccbc57d3-adcb-4e1c-9dbf-96be520dd9b7",
-            "portionValue": 100
-         },
-         {
-            "consumed": false,
-            "foodId": "07521ee0-5a59-40b9-bf46-0f717ce3b65c",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "date": "2017-11-15",
-      "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-15",
-      "id": "2c99f2aa-9b22-408b-b345-df3da8d9a2e2",
-      "portions": [
-         {
-            "consumed": false,
-            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
-            "portionValue": 100
-         },
-         {
-            "consumed": false,
-            "foodId": "7e6f6482-49fb-4c8e-8779-bb7d886c5e72",
-            "portionValue": 100
-         },
-         {
-            "consumed": false,
-            "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
+            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
             "portionValue": 200
-         },
-         {
-            "consumed": false,
-            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-            "portionValue": 200
-         },
-         {
-            "consumed": false,
-            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
-            "portionValue": 200
-         },
-         {
-            "consumed": false,
-            "foodId": "6983bed5-ba70-4c56-8133-8937710c8a0a",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "date": "2017-11-25",
-      "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-25",
-      "id": "39e8472d-ed59-4261-b622-1d761228cac5",
-      "portions": [
-         {
-            "consumed": true,
-            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "66778091-f03f-4be9-a124-d1915120876d",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "c2a1fde9-cd81-4b4f-bfe6-87f784166d79",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-            "portionValue": 400
-         },
-         {
-            "consumed": true,
-            "foodId": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "date": "2017-11-21",
-      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
-      "name": "2017-11-21",
-      "id": "b0ec28af-840c-4a5e-b516-84b98ad5a283",
-      "portions": [
-         {
-            "consumed": true,
-            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
-            "portionValue": 600
-         },
-         {
-            "consumed": true,
-            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "71376593-3eb5-4095-8009-9e88a8ff6da0",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
-            "portionValue": 20
          }
       ]
    },
@@ -289,10 +147,119 @@
       ]
    },
    {
-      "date": "2017-12-10",
+      "date": "2017-12-20",
+      "goalId": "91eaa35f-db4e-40e6-91ad-98c35596e296",
+      "name": "2017-12-20",
+      "id": "0c521e73-ddd1-4e1b-90d0-928390c9689f",
+      "portions": [
+         {
+            "consumed": false,
+            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "a7c80e4b-8b2a-4810-a89c-d1273ebac40d",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "8e794aa8-883f-479d-980c-aa2fe47047b7",
+            "portionValue": 25
+         }
+      ]
+   },
+   {
+      "date": "2017-11-21",
+      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
+      "name": "2017-11-21",
+      "id": "b0ec28af-840c-4a5e-b516-84b98ad5a283",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "portionValue": 600
+         },
+         {
+            "consumed": true,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "71376593-3eb5-4095-8009-9e88a8ff6da0",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
+            "portionValue": 20
+         }
+      ]
+   },
+   {
+      "date": "2017-12-14",
+      "goalId": "91eaa35f-db4e-40e6-91ad-98c35596e296",
+      "name": "2017-12-14",
+      "id": "475a0105-9a42-4277-894e-39e4e48b1607",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "714e2db6-a459-40f7-b256-68d8171856a2",
+            "portionValue": 150
+         },
+         {
+            "consumed": true,
+            "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "36d03f4e-7aeb-46b9-8bf8-2052ffe79e2d",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "3b737010-7e70-495e-99c5-2b9d29d9598c",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-11-18",
       "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-12-10",
-      "id": "19102e02-2c1b-4e31-95f2-92bd540a5f9e",
+      "name": "2017-11-18",
+      "id": "eb790b7f-21d6-48fa-b6a6-2bb8814da57d",
       "portions": [
          {
             "consumed": true,
@@ -301,12 +268,75 @@
          },
          {
             "consumed": true,
-            "foodId": "1be48296-f27a-44d8-99c8-150f9d75e450",
-            "portionValue": 500
+            "foodId": "75ca936a-04c3-4ae8-8b24-e3147e6a2068",
+            "portionValue": 100
          },
          {
             "consumed": true,
-            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
+            "portionValue": 400
+         },
+         {
+            "consumed": true,
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-11-23",
+      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
+      "name": "2017-11-23",
+      "id": "4bcef0f4-b20e-45fe-97ed-c3874bba4ac4",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "3750c935-69af-46e9-9298-7085d02ec7bf",
+            "portionValue": 1200
+         },
+         {
+            "consumed": true,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "deb143d1-62fe-4efe-821b-a3ea480d4551",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "6af05571-23e3-407e-bb42-d65cfbc95045",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
+            "portionValue": 30
+         },
+         {
+            "consumed": true,
+            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
             "portionValue": 100
          }
       ]
@@ -383,82 +413,34 @@
       ]
    },
    {
-      "date": "2017-11-16",
+      "date": "2017-12-09",
       "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-16",
-      "id": "30cb448b-9268-4030-ad4d-f17dbbe1934e",
-      "portions": [
-         {
-            "consumed": false,
-            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
-            "portionValue": 100
-         },
-         {
-            "consumed": false,
-            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
-            "portionValue": 100
-         },
-         {
-            "consumed": false,
-            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-            "portionValue": 1500
-         },
-         {
-            "consumed": false,
-            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "date": "2017-11-22",
-      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
-      "name": "2017-11-22",
-      "id": "226eb5b3-5672-4523-a9c7-7ac2b949a6e4",
-      "portions": [
-         {
-            "consumed": true,
-            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-            "portionValue": 1200
-         },
-         {
-            "consumed": true,
-            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "9e8bd6d5-b3c4-4260-8dd8-89ec96b844a7",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
-            "portionValue": 30
-         },
-         {
-            "consumed": true,
-            "foodId": "6af05571-23e3-407e-bb42-d65cfbc95045",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "date": "2017-12-08",
-      "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-12-08",
-      "id": "0918aa43-3558-41ae-9fcd-4a80495c5649",
+      "name": "2017-12-09",
+      "id": "4ba82b78-2098-41e5-8698-2ccae65ca17e",
       "portions": [
          {
             "consumed": true,
             "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 900
+         },
+         {
+            "consumed": true,
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
             "portionValue": 100
          },
+         {
+            "consumed": true,
+            "foodId": "bb18c739-6e93-46a8-9585-87b471c41ef7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-12-17",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-12-17",
+      "id": "0a6de521-40e8-4332-ab2f-6f950c14ecc9",
+      "portions": [
          {
             "consumed": true,
             "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
@@ -466,88 +448,98 @@
          },
          {
             "consumed": true,
-            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
+            "foodId": "c2a1fde9-cd81-4b4f-bfe6-87f784166d79",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
             "portionValue": 100
          },
          {
             "consumed": true,
             "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
             "portionValue": 100
-         }
-      ]
-   },
-   {
-      "date": "2017-12-03",
-      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
-      "name": "2017-12-03",
-      "id": "880e714d-93b2-487a-a028-e9c03fc0be97",
-      "portions": [
-         {
-            "consumed": true,
-            "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
-            "portionValue": 300
          },
          {
             "consumed": true,
-            "foodId": "1ca49134-a6ef-4071-8b5e-f7d12fd2e4fd",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "4a122978-2051-4487-94f3-e00af1932d3b",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "292a50bd-2424-4479-bafa-e6f4f3cc24a6",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+            "foodId": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
             "portionValue": 200
-         }
-      ]
-   },
-   {
-      "date": "2017-12-04",
-      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
-      "name": "2017-12-04",
-      "id": "4782358d-86e0-43a3-89f8-9bcd6d07ce17",
-      "portions": [
+         },
+         {
+            "consumed": true,
+            "foodId": "66778091-f03f-4be9-a124-d1915120876d",
+            "portionValue": 100
+         },
          {
             "consumed": true,
             "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
-            "portionValue": 300
-         },
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-11-19",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-11-19",
+      "id": "1549ef0e-5daa-4cf0-bf04-d9ad7d7b8772",
+      "portions": [
          {
             "consumed": true,
-            "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
             "portionValue": 200
          },
          {
             "consumed": true,
-            "foodId": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
+            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
+            "portionValue": 1000
+         },
+         {
+            "consumed": true,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "ccbc57d3-adcb-4e1c-9dbf-96be520dd9b7",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "07521ee0-5a59-40b9-bf46-0f717ce3b65c",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-11-20",
+      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
+      "name": "2017-11-20",
+      "id": "713f171f-ec58-45c1-9306-37db43f35ca1",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
+            "portionValue": 1000
+         },
+         {
+            "consumed": true,
+            "foodId": "3750c935-69af-46e9-9298-7085d02ec7bf",
+            "portionValue": 1300
+         },
+         {
+            "consumed": true,
+            "foodId": "71376593-3eb5-4095-8009-9e88a8ff6da0",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
             "portionValue": 100
          },
          {
             "consumed": true,
             "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
-            "foodId": "9b55c0ab-b67e-4edf-a398-34f79426a07f",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "ec57dd53-b5d0-4c5e-9319-0254fe820868",
             "portionValue": 200
          },
          {
@@ -596,126 +588,67 @@
       ]
    },
    {
-      "date": "2017-11-30",
+      "date": "2017-11-25",
       "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-30",
-      "id": "638f78ae-f145-4787-9b71-6ec6cfcc309f",
+      "name": "2017-11-25",
+      "id": "39e8472d-ed59-4261-b622-1d761228cac5",
       "portions": [
-         {
-            "consumed": true,
-            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
-            "portionValue": 200
-         },
          {
             "consumed": true,
             "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
             "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "66778091-f03f-4be9-a124-d1915120876d",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "c2a1fde9-cd81-4b4f-bfe6-87f784166d79",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
+            "portionValue": 400
+         },
+         {
+            "consumed": true,
+            "foodId": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "date": "2017-12-10",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-12-10",
+      "id": "19102e02-2c1b-4e31-95f2-92bd540a5f9e",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "1be48296-f27a-44d8-99c8-150f9d75e450",
+            "portionValue": 500
          },
          {
             "consumed": true,
             "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "date": "2017-11-23",
-      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
-      "name": "2017-11-23",
-      "id": "4bcef0f4-b20e-45fe-97ed-c3874bba4ac4",
-      "portions": [
-         {
-            "consumed": true,
-            "foodId": "3750c935-69af-46e9-9298-7085d02ec7bf",
-            "portionValue": 1200
-         },
-         {
-            "consumed": true,
-            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "deb143d1-62fe-4efe-821b-a3ea480d4551",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "6af05571-23e3-407e-bb42-d65cfbc95045",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
-            "portionValue": 30
-         },
-         {
-            "consumed": true,
-            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "date": "2017-12-17",
-      "goalId": "037368ba-87e5-4b91-ad5b-c2f27bb7525a",
-      "name": "2017-12-17",
-      "id": "0a6de521-40e8-4332-ab2f-6f950c14ecc9",
-      "portions": [{
-         "consumed": true,
-         "foodId": "20c91d82-fb9c-45f0-885c-e8ac04827e75",
-         "portionValue": 400
-      }]
-   },
-   {
-      "date": "2017-12-14",
-      "goalId": "91eaa35f-db4e-40e6-91ad-98c35596e296",
-      "name": "2017-12-14",
-      "id": "475a0105-9a42-4277-894e-39e4e48b1607",
-      "portions": [
-         {
-            "consumed": true,
-            "foodId": "714e2db6-a459-40f7-b256-68d8171856a2",
-            "portionValue": 150
-         },
-         {
-            "consumed": true,
-            "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "36d03f4e-7aeb-46b9-8bf8-2052ffe79e2d",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "3b737010-7e70-495e-99c5-2b9d29d9598c",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
-            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
             "portionValue": 100
          }
       ]
@@ -774,44 +707,6 @@
       ]
    },
    {
-      "date": "2017-12-11",
-      "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-12-11",
-      "id": "f59d71bf-842b-4bd8-8926-de3d945f7574",
-      "portions": [
-         {
-            "consumed": true,
-            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "bb18c739-6e93-46a8-9585-87b471c41ef7",
-            "portionValue": 1100
-         },
-         {
-            "consumed": true,
-            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
-            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
-            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
       "date": "2017-12-01",
       "goalId": "single-goal-no-id-provided-unique",
       "name": "2017-12-01",
@@ -846,6 +741,143 @@
             "consumed": true,
             "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
             "portionValue": 200
+         }
+      ]
+   },
+   {
+      "date": "2017-12-03",
+      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
+      "name": "2017-12-03",
+      "id": "880e714d-93b2-487a-a028-e9c03fc0be97",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
+            "portionValue": 300
+         },
+         {
+            "consumed": true,
+            "foodId": "1ca49134-a6ef-4071-8b5e-f7d12fd2e4fd",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "4a122978-2051-4487-94f3-e00af1932d3b",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "292a50bd-2424-4479-bafa-e6f4f3cc24a6",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "date": "2017-12-19",
+      "goalId": "037368ba-87e5-4b91-ad5b-c2f27bb7525a",
+      "name": "2017-12-19",
+      "id": "e0a131b3-f319-4998-b30a-f0d0c5b3f61e",
+      "portions": [
+         {
+            "consumed": false,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 400
+         },
+         {
+            "consumed": false,
+            "foodId": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "date": "2017-12-08",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-12-08",
+      "id": "0918aa43-3558-41ae-9fcd-4a80495c5649",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-11-28",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-11-28",
+      "id": "bb2d7874-971a-4379-b314-31a0b0574cbb",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "24532823-a4bd-444a-8ae2-d1eab6179ff3",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
+            "portionValue": 800
+         },
+         {
+            "consumed": true,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "75ca936a-04c3-4ae8-8b24-e3147e6a2068",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 100
          }
       ]
    },
@@ -893,20 +925,15 @@
       ]
    },
    {
-      "date": "2017-11-28",
-      "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-28",
-      "id": "bb2d7874-971a-4379-b314-31a0b0574cbb",
+      "date": "2017-11-22",
+      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
+      "name": "2017-11-22",
+      "id": "226eb5b3-5672-4523-a9c7-7ac2b949a6e4",
       "portions": [
          {
             "consumed": true,
-            "foodId": "24532823-a4bd-444a-8ae2-d1eab6179ff3",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
             "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-            "portionValue": 800
+            "portionValue": 1200
          },
          {
             "consumed": true,
@@ -915,40 +942,35 @@
          },
          {
             "consumed": true,
-            "foodId": "75ca936a-04c3-4ae8-8b24-e3147e6a2068",
+            "foodId": "9e8bd6d5-b3c4-4260-8dd8-89ec96b844a7",
             "portionValue": 100
          },
          {
             "consumed": true,
-            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
-            "portionValue": 200
+            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
+            "portionValue": 100
          },
          {
             "consumed": true,
-            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
+            "portionValue": 30
+         },
+         {
+            "consumed": true,
+            "foodId": "6af05571-23e3-407e-bb42-d65cfbc95045",
             "portionValue": 100
          }
       ]
    },
    {
-      "date": "2017-11-20",
-      "goalId": "b121850e-5e23-46e6-a40a-9f7918c2b58d",
-      "name": "2017-11-20",
-      "id": "713f171f-ec58-45c1-9306-37db43f35ca1",
+      "date": "2017-12-15",
+      "goalId": "037368ba-87e5-4b91-ad5b-c2f27bb7525a",
+      "name": "2017-12-15",
+      "id": "f45b3f7b-84fa-486c-8528-a79cc7c10edd",
       "portions": [
          {
             "consumed": true,
-            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-            "portionValue": 1000
-         },
-         {
-            "consumed": true,
-            "foodId": "3750c935-69af-46e9-9298-7085d02ec7bf",
-            "portionValue": 1300
-         },
-         {
-            "consumed": true,
-            "foodId": "71376593-3eb5-4095-8009-9e88a8ff6da0",
+            "foodId": "36d03f4e-7aeb-46b9-8bf8-2052ffe79e2d",
             "portionValue": 100
          },
          {
@@ -958,7 +980,27 @@
          },
          {
             "consumed": true,
-            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+            "foodId": "1be48296-f27a-44d8-99c8-150f9d75e450",
+            "portionValue": 500
+         },
+         {
+            "consumed": true,
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "3b737010-7e70-495e-99c5-2b9d29d9598c",
             "portionValue": 200
          },
          {
@@ -969,11 +1011,92 @@
       ]
    },
    {
-      "date": "2017-11-18",
+      "date": "2017-11-15",
       "goalId": "single-goal-no-id-provided-unique",
-      "name": "2017-11-18",
-      "id": "eb790b7f-21d6-48fa-b6a6-2bb8814da57d",
+      "name": "2017-11-15",
+      "id": "2c99f2aa-9b22-408b-b345-df3da8d9a2e2",
       "portions": [
+         {
+            "consumed": false,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "7e6f6482-49fb-4c8e-8779-bb7d886c5e72",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
+            "portionValue": 200
+         },
+         {
+            "consumed": false,
+            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
+            "portionValue": 200
+         },
+         {
+            "consumed": false,
+            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "portionValue": 200
+         },
+         {
+            "consumed": false,
+            "foodId": "6983bed5-ba70-4c56-8133-8937710c8a0a",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-12-11",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-12-11",
+      "id": "f59d71bf-842b-4bd8-8926-de3d945f7574",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "bb18c739-6e93-46a8-9585-87b471c41ef7",
+            "portionValue": 1100
+         },
+         {
+            "consumed": true,
+            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-11-30",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-11-30",
+      "id": "638f78ae-f145-4787-9b71-6ec6cfcc309f",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 200
+         },
          {
             "consumed": true,
             "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
@@ -981,33 +1104,61 @@
          },
          {
             "consumed": true,
-            "foodId": "75ca936a-04c3-4ae8-8b24-e3147e6a2068",
+            "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
             "portionValue": 100
          },
          {
             "consumed": true,
-            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "date": "2017-11-27",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-11-27",
+      "id": "abfe1bea-2d3f-45e3-a4dd-e7bbd997802d",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "645e15f9-180a-4513-aa16-ce7f642c52cd",
+            "portionValue": 300
+         },
+         {
+            "consumed": true,
+            "foodId": "1ca49134-a6ef-4071-8b5e-f7d12fd2e4fd",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "4a122978-2051-4487-94f3-e00af1932d3b",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "292a50bd-2424-4479-bafa-e6f4f3cc24a6",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
             "portionValue": 200
          },
          {
             "consumed": true,
-            "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
-            "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
             "portionValue": 100
          },
          {
             "consumed": true,
-            "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-            "portionValue": 400
-         },
-         {
-            "consumed": true,
-            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
-            "portionValue": 100
+            "foodId": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
+            "portionValue": 175
          }
       ]
    },
@@ -1050,25 +1201,30 @@
       ]
    },
    {
-      "date": "2017-12-16",
+      "date": "2017-12-18",
       "goalId": "91eaa35f-db4e-40e6-91ad-98c35596e296",
-      "name": "2017-12-16",
-      "id": "d2194e66-0905-4ac9-9b97-9d669078d20e",
+      "name": "2017-12-18",
+      "id": "fcbef06e-df87-4ac3-a2f4-8f5ad1a1a988",
       "portions": [
          {
-            "consumed": true,
-            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
+            "consumed": false,
+            "foodId": "874f7549-5723-4fc1-be30-ed776250cfed",
             "portionValue": 100
          },
          {
-            "consumed": true,
-            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "consumed": false,
+            "foodId": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
             "portionValue": 100
          },
          {
-            "consumed": true,
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "consumed": false,
+            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
             "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "8e794aa8-883f-479d-980c-aa2fe47047b7",
+            "portionValue": 25
          }
       ]
    },
@@ -1111,54 +1267,6 @@
       ]
    },
    {
-      "date": "2017-12-15",
-      "goalId": "037368ba-87e5-4b91-ad5b-c2f27bb7525a",
-      "name": "2017-12-15",
-      "id": "f45b3f7b-84fa-486c-8528-a79cc7c10edd",
-      "portions": [
-         {
-            "consumed": false,
-            "foodId": "36d03f4e-7aeb-46b9-8bf8-2052ffe79e2d",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "1be48296-f27a-44d8-99c8-150f9d75e450",
-            "portionValue": 500
-         },
-         {
-            "consumed": true,
-            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
-            "portionValue": 100
-         },
-         {
-            "consumed": true,
-            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
-            "portionValue": 100
-         },
-         {
-            "consumed": false,
-            "foodId": "3b737010-7e70-495e-99c5-2b9d29d9598c",
-            "portionValue": 200
-         },
-         {
-            "consumed": true,
-            "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
       "date": "2017-12-12",
       "goalId": "91eaa35f-db4e-40e6-91ad-98c35596e296",
       "name": "2017-12-12",
@@ -1188,6 +1296,107 @@
             "consumed": true,
             "foodId": "ffcf6c10-dd14-47b5-962a-df61ab677f16",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-12-21",
+      "goalId": "037368ba-87e5-4b91-ad5b-c2f27bb7525a",
+      "name": "2017-12-21",
+      "id": "96eca590-0f13-40dd-8192-42808ca5cd71",
+      "portions": [
+         {
+            "consumed": false,
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "1af439ec-050b-4719-a4e6-ca3faf62c4d3",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+            "portionValue": 300
+         },
+         {
+            "consumed": false,
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "a7c80e4b-8b2a-4810-a89c-d1273ebac40d",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 300
+         },
+         {
+            "consumed": false,
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "date": "2017-12-16",
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "2017-12-16",
+      "id": "d2194e66-0905-4ac9-9b97-9d669078d20e",
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
+            "portionValue": 300
+         },
+         {
+            "consumed": true,
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "60f2a615-ba1e-4b5e-b009-16d0d4089642",
+            "portionValue": 400
+         },
+         {
+            "consumed": true,
+            "foodId": "dd129609-cbd8-4420-81ce-74b909b72dd6",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 66
          }
       ]
    }

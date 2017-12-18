@@ -13,9 +13,9 @@ import java.util.Arrays;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalStore;
-import uk.dangrew.nuts.graphics.table.FoodOptions;
-import uk.dangrew.nuts.graphics.table.FoodTable;
-import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
+import uk.dangrew.nuts.graphics.table.ConceptOptions;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.template.Template;
 
@@ -23,7 +23,7 @@ import uk.dangrew.nuts.template.Template;
  * {@link TemplateTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
  * for a {@link TemplateTable}.
  */
-public class TemplateTableColumns< FoodTypeT extends Template > implements FoodTableColumnsPopulator< Template > {
+public class TemplateTableColumns< FoodTypeT extends Template > implements ConceptTableColumnsPopulator< Template > {
 
    static final String COLUMN_TITLE_TEMPLATE = "Template";
    static final String COLUMN_TITLE_GOAL = "Goal";
@@ -52,15 +52,15 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements FoodT
    /**
     * {@inheritDoc}
     */
-   @Override public void populateColumns( FoodTable< Template > table ) {
-      configuration.initialiseFoodProperyStringColumn( table, COLUMN_TITLE_TEMPLATE, 0.2, FoodProperties::nameProperty, true );
+   @Override public void populateColumns( ConceptTable< Template > table ) {
+      configuration.initialiseFoodPropertyStringColumn( table, COLUMN_TITLE_TEMPLATE, 0.2, FoodProperties::nameProperty, true );
       configuration.initialiseFoodDropDownColumn( 
                table, 
                COLUMN_TITLE_GOAL, 
                0.1, 
-               r -> r.food().goalAnalytics().goal(), 
-               ( r, v ) -> r.food().goalAnalytics().goal().set( v ),
-               new FoodOptions<>( Arrays.asList( goals ) )
+               r -> r.concept().goalAnalytics().goal(), 
+               ( r, v ) -> r.concept().goalAnalytics().goal().set( v ),
+               new ConceptOptions<>( Arrays.asList( goals ) )
       );
 
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.08, f -> f.properties().calories(), true );

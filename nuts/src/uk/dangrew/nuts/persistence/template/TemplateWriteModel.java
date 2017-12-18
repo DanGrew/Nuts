@@ -8,9 +8,9 @@
  */
 package uk.dangrew.nuts.persistence.template;
 
-import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.persistence.meals.MealWriteModel;
+import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
 
 /**
@@ -21,9 +21,9 @@ public class TemplateWriteModel< FoodTypeT extends Template > extends MealWriteM
    
    /**
     * Constructs a new {@link TemplateWriteModel}.
-    * @param templates the {@link FoodStore} providing the {@link Template}s.
+    * @param templates the {@link ConceptStore} providing the {@link Template}s.
     */
-   protected TemplateWriteModel( FoodStore< FoodTypeT > templates ) {
+   protected TemplateWriteModel( ConceptStore< FoodTypeT > templates ) {
       super( templates );
    }//End Constructor
    

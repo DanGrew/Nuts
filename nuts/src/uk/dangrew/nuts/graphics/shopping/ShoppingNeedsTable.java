@@ -11,14 +11,14 @@ package uk.dangrew.nuts.graphics.shopping;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.meal.MealTableController;
 import uk.dangrew.nuts.graphics.meal.MealTableControllerImpl;
-import uk.dangrew.nuts.graphics.table.FoodTable;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
 /**
- * {@link ShoppingNeedsTable} provides a {@link FoodTable} for selecting plans for the {@link uk.dangrew.nuts.shopping.ShoppingList}.
+ * {@link ShoppingNeedsTable} provides a {@link ConceptStore} for selecting plans for the {@link uk.dangrew.nuts.shopping.ShoppingList}.
  */
-public class ShoppingNeedsTable extends FoodTable< FoodPortion > {
+public class ShoppingNeedsTable extends ConceptTable< FoodPortion > {
 
    /**
     * Constructs a new {@link ShoppingNeedsTable}.

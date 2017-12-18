@@ -10,7 +10,7 @@ package uk.dangrew.nuts.graphics.shopping;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.table.FoodTableWithControls;
+import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
@@ -29,7 +29,7 @@ public class ShoppingPane extends GridPane {
       new JavaFxStyle().configureConstraintsForEvenRows( this, 1 );
       
       add( new ShoppingListTable( shoppingList ), 0, 0 );
-      add( new FoodTableWithControls<>( 
+      add( new ConceptTableWithControls<>( 
                "Plans to shop for", 
                new ShoppingNeedsTable( database, shoppingList )
       ), 1, 0 );

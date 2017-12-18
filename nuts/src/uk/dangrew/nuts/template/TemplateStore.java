@@ -9,14 +9,14 @@
 package uk.dangrew.nuts.template;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link TemplateStore} provides an {@link uk.dangrew.kode.storage.structure.ObjectStoreManager} for 
  * {@link Template}s.
  */
-public class TemplateStore extends MappedObservableStoreManagerImpl< String, Template > implements FoodStore< Template > {
+public class TemplateStore extends MappedObservableStoreManagerImpl< String, Template > implements ConceptStore< Template > {
 
    private Goal defaultGoal;
    
@@ -47,7 +47,7 @@ public class TemplateStore extends MappedObservableStoreManagerImpl< String, Tem
    /**
     * {@inheritDoc}
     */
-   @Override public Template createFood( String name ) {
+   @Override public Template createConcept( String name ) {
       Template food = new Template( name );
       food.goalAnalytics().goal().set( defaultGoal );
       store( food );
@@ -57,7 +57,7 @@ public class TemplateStore extends MappedObservableStoreManagerImpl< String, Tem
    /**
     * {@inheritDoc}
     */
-   @Override public Template createFood( String id, String name ) {
+   @Override public Template createConcept( String id, String name ) {
       Template food = new Template( id, name );
       food.goalAnalytics().goal().set( defaultGoal );
       store( food );
@@ -77,7 +77,7 @@ public class TemplateStore extends MappedObservableStoreManagerImpl< String, Tem
    /**
     * {@inheritDoc}
     */
-   @Override public void removeFood( Template food ) {
+   @Override public void removeConcept( Template food ) {
       food.goalAnalytics().goal().set( null );
       remove( food.properties().id() );
    }//End Method

@@ -13,9 +13,9 @@ import uk.dangrew.jupa.json.parse.handle.type.StringParseHandle;
 import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
-import uk.dangrew.nuts.food.FoodStore;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
 
 /**
@@ -35,9 +35,9 @@ public class TemplatePersistence< FoodTypeT extends Template > {
   /**
     * Constructs a new {@link TemplatePersistence}.
     * @param database the {@link Database}.
-    * @param templates the {@link FoodStore} providing the {@link Template}s.
+    * @param templates the {@link ConceptStore} providing the {@link Template}s.
     */
-   public TemplatePersistence( Database database, FoodStore< FoodTypeT > templates ) {
+   public TemplatePersistence( Database database, ConceptStore< FoodTypeT > templates ) {
       this( new TemplateParseModel<>( database, templates ), new TemplateWriteModel<>( templates ) );
    }//End Constructor
    

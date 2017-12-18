@@ -12,7 +12,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.graphics.table.FoodTableWithControls;
+import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -23,7 +23,7 @@ public class GoalManagerPane extends GridPane {
    static final double GOALS_HEIGHT_PROPORTION = 25.0;
    static final double CALCULATION_VIEW_HEIGHT_PROPORTION = 75.0;
 
-   private final FoodTableWithControls< Goal > goalsTable;
+   private final ConceptTableWithControls< Goal > goalsTable;
    private final GoalCalculationView goalView;
 
    /**
@@ -47,17 +47,17 @@ public class GoalManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
 
-      add( goalsTable = new FoodTableWithControls<>( "Goals", new GoalTable( database.goals() ) ), 0, 0 );
+      add( goalsTable = new ConceptTableWithControls<>( "Goals", new GoalTable( database.goals() ) ), 0, 0 );
       ScrollPane scroller = new ScrollPane( goalView = new GoalCalculationView() );
       scroller.setFitToWidth( true );
       add( scroller, 0, 1 );
       
       goalsTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
-         goalView.show( n.food() );
+         goalView.show( n.concept() );
       } );
    }// End Constructor
 
-   FoodTableWithControls< Goal > templatesTable() {
+   ConceptTableWithControls< Goal > templatesTable() {
       return goalsTable;
    }// End Method
 

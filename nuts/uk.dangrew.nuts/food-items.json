@@ -1968,5 +1968,65 @@
       "name": "Biscuit (Cornish Fairings) (1)",
       "id": "bb18c739-6e93-46a8-9585-87b471c41ef7",
       "calories": 75
+   },
+   {
+      "carbohydrates": 47.8,
+      "fats": 15.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 27.3,
+      "name": "Beans & Burgers (Hunger Breaks)",
+      "id": "dd129609-cbd8-4420-81ce-74b909b72dd6",
+      "calories": 474
+   },
+   {
+      "carbohydrates": 1.1,
+      "fats": 13.7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 7.9,
+      "name": "Flaxseed (30g)",
+      "id": "ba6f9d73-940e-440c-9199-87a898832b33",
+      "calories": 168
+   },
+   {
+      "carbohydrates": 9.5,
+      "fats": 8.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 19.4,
+      "name": "Sausages (T, Chicken) (2)",
+      "id": "e7b80746-5fab-4fad-a172-5196d1b8b9d0",
+      "calories": 197
+   },
+   {
+      "carbohydrates": 10.8,
+      "fats": 4.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 15.6,
+      "name": "Burgers (Linda Mc Veg) (1)",
+      "id": "6a54db24-d940-4aa8-a38f-0db8aeed2d11",
+      "calories": 150
+   },
+   {
+      "carbohydrates": 49,
+      "fats": 18,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 17,
+      "name": "Pizza (Chicago Town, Four Cheese)",
+      "id": "1af439ec-050b-4719-a4e6-ca3faf62c4d3",
+      "calories": 433
+   },
+   {
+      "carbohydrates": 27,
+      "fats": 48,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 7.1,
+      "name": "Chocolate (Heidi, 75%) (100g)",
+      "id": "8e794aa8-883f-479d-980c-aa2fe47047b7",
+      "calories": 590
    }
 ]}

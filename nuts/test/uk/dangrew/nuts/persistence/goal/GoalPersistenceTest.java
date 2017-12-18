@@ -56,7 +56,7 @@ public class GoalPersistenceTest {
    
    @Test public void shouldWriteData(){
       GoalStore goals = new GoalStore();
-      Goal goal = goals.createFood( "this-is-the-id", "some-name" );
+      Goal goal = goals.createConcept( "this-is-the-id", "some-name" );
       
       goal.gender().set( Gender.Male );
       goal.age().set( 28.0 );

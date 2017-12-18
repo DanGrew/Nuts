@@ -17,7 +17,7 @@ import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
-public class FoodOptionsTest {
+public class ConceptOptionsTest {
 
    private FoodItem foodItem1;
    private FoodItem foodItem2;
@@ -25,7 +25,7 @@ public class FoodOptionsTest {
    private Meal meal2;
    
    private Database database;
-   private FoodOptions< Food > systemUnderTest;
+   private ConceptOptions< Food > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       foodItem1 = new FoodItem( "Item1" );
@@ -34,7 +34,7 @@ public class FoodOptionsTest {
       meal2 = new Meal( "Meal2" );
       
       database = new Database();
-      systemUnderTest = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      systemUnderTest = new ConceptOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
    }//End Method
 
    @Test public void shouldProvideCombinedFoods() {
@@ -60,9 +60,9 @@ public class FoodOptionsTest {
       database.foodItems().store( foodItem1 );
       database.foodItems().store( foodItem2 );
       assertThat( systemUnderTest.options(), contains( foodItem1, foodItem2 ) );
-      database.foodItems().removeFood( foodItem1 );
+      database.foodItems().removeConcept( foodItem1 );
       assertThat( systemUnderTest.options(), contains( foodItem2 ) );
-      database.foodItems().removeFood( foodItem2 );
+      database.foodItems().removeConcept( foodItem2 );
       assertThat( systemUnderTest.options(), is( empty() ) );
    }//End Method
    
@@ -84,9 +84,9 @@ public class FoodOptionsTest {
       database.meals().store( meal1 );
       database.meals().store( meal2 );
       assertThat( systemUnderTest.options(), contains( meal1, meal2 ) );
-      database.meals().removeFood( meal1 );
+      database.meals().removeConcept( meal1 );
       assertThat( systemUnderTest.options(), contains( meal2 ) );
-      database.meals().removeFood( meal2 );
+      database.meals().removeConcept( meal2 );
       assertThat( systemUnderTest.options(), is( empty() ) );
    }//End Method
    
@@ -139,7 +139,7 @@ public class FoodOptionsTest {
    @Test public void shouldPopulateFoodsInitially(){
       database.foodItems().store( foodItem1 );
       database.meals().store( meal1 );
-      systemUnderTest = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      systemUnderTest = new ConceptOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
       assertThat( systemUnderTest.options(), contains( foodItem1, meal1 ) );
    }//End Method
    
@@ -148,7 +148,7 @@ public class FoodOptionsTest {
       
       database.foodItems().store( foodItem1 );
       database.meals().store( meal1 );
-      systemUnderTest = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      systemUnderTest = new ConceptOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
       assertThat( systemUnderTest.first(), is( foodItem1 ) );
    }//End Method
    

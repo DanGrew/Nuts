@@ -9,13 +9,13 @@
 package uk.dangrew.nuts.graphics.meal;
 
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.FoodTableWithControls;
+import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.store.Database;
 
 /**
- * {@link MealTableWithControls} provides a {@link MealTable} with {@link FoodControls}.
+ * {@link MealTableWithControls} provides a {@link MealTable} with {@link ConceptControls}.
  */
-public class MealTableWithControls extends FoodTableWithControls< FoodPortion > {
+public class MealTableWithControls extends ConceptTableWithControls< FoodPortion > {
 
    /**
     * Constructs a new {@link MealTableWithControls}.

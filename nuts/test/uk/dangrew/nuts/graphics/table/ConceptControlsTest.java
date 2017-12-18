@@ -25,18 +25,18 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
-public class FoodControlsTest {
+public class ConceptControlsTest {
 
    @Captor private ArgumentCaptor< Button > buttonCaptor;
    
    @Spy private JavaFxStyle styling;
-   @Mock private FoodTableController< Food > callBack;
-   private FoodControls systemUnderTest;
+   @Mock private ConceptTableController< Food > callBack;
+   private ConceptControls systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      systemUnderTest = new FoodControls( styling, callBack );
+      systemUnderTest = new ConceptControls( styling, callBack );
    }//End Method
 
    @Test public void shouldProvideAlignment() {
@@ -44,10 +44,10 @@ public class FoodControlsTest {
    }//End Method
    
    @Test public void shouldProvideInsets() {
-      assertThat( systemUnderTest.getInsets().getBottom(), is( FoodControls.INSETS ) );
-      assertThat( systemUnderTest.getInsets().getTop(), is( FoodControls.INSETS ) );
-      assertThat( systemUnderTest.getInsets().getRight(), is( FoodControls.INSETS ) );
-      assertThat( systemUnderTest.getInsets().getLeft(), is( FoodControls.INSETS ) );
+      assertThat( systemUnderTest.getInsets().getBottom(), is( ConceptControls.INSETS ) );
+      assertThat( systemUnderTest.getInsets().getTop(), is( ConceptControls.INSETS ) );
+      assertThat( systemUnderTest.getInsets().getRight(), is( ConceptControls.INSETS ) );
+      assertThat( systemUnderTest.getInsets().getLeft(), is( ConceptControls.INSETS ) );
    }//End Method
    
    @Test public void shouldProvideButtons() {
@@ -71,23 +71,23 @@ public class FoodControlsTest {
       
       verify( styling, times( 3 ) ).createGlyphButton( Mockito.any() );
       
-      assertThat( systemUnderTest.addButton().getPrefHeight(), is( FoodControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.addButton().getPrefWidth(), is( FoodControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.copyButton().getPrefHeight(), is( FoodControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.copyButton().getPrefWidth(), is( FoodControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.removeButton().getPrefHeight(), is( FoodControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.removeButton().getPrefWidth(), is( FoodControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.addButton().getPrefHeight(), is( ConceptControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.addButton().getPrefWidth(), is( ConceptControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.copyButton().getPrefHeight(), is( ConceptControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.copyButton().getPrefWidth(), is( ConceptControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.removeButton().getPrefHeight(), is( ConceptControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.removeButton().getPrefWidth(), is( ConceptControls.BUTTON_WIDTH ) );
    }//End Method
    
    @Test public void shouldDirectCallsToCallBack() {
       systemUnderTest.addButton().fire();
-      verify( callBack ).createFood();
+      verify( callBack ).createConcept();
       
       systemUnderTest.copyButton().fire();
-      verify( callBack ).copySelectedFood();
+      verify( callBack ).copySelectedConcept();
       
       systemUnderTest.removeButton().fire();
-      verify( callBack ).removeSelectedFood();
+      verify( callBack ).removeSelectedConcept();
    }//End Method
 
 }//End Class

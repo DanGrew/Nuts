@@ -12,16 +12,16 @@ import java.util.Arrays;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.FoodOptions;
-import uk.dangrew.nuts.graphics.table.FoodTable;
-import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
+import uk.dangrew.nuts.graphics.table.ConceptOptions;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.store.Database;
 
 /**
  * {@link MealTableColumns} provides the {@link TableColumn} configuration for a {@link MealTable}.
  */
-public class MealTableColumns implements FoodTableColumnsPopulator< FoodPortion > {
+public class MealTableColumns implements ConceptTableColumnsPopulator< FoodPortion > {
 
    static final String COLUMN_TITLE_FOOD = "Food";
    static final String COLUMN_TITLE_CALORIES = "Calories";
@@ -35,29 +35,29 @@ public class MealTableColumns implements FoodTableColumnsPopulator< FoodPortion 
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
-   private final FoodOptions< Food > foodOptions;
+   private final ConceptOptions< Food > conceptOptions;
    private final TableConfiguration configuration;
 
    /**
     * Constructs a new {@link MealTableColumns}.
-    * @param database the {@link Database} for the {@link uk.dangrew.nuts.meal.Meal} {@link Food}s.
+    * @param database the {@link Database} for the {@link uk.dangrew.nuts.meal.Meal} {@link uk.dangrew.nuts.system.Concept}s.
     */
    public MealTableColumns( Database database ) {
       this.configuration = new TableConfiguration();
-      this.foodOptions = new FoodOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      this.conceptOptions = new ConceptOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
    }//End Constructor
    
    /**
     * {@inheritDoc}
     */
-   @Override public void populateColumns( FoodTable< FoodPortion > table ) {
+   @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
       configuration.initialiseFoodDropDownColumn( 
                table, 
                COLUMN_TITLE_FOOD, 
                0.25, 
-               r -> r.food().food(), 
-               ( r, v ) -> r.food().setFood( v ), 
-               foodOptions 
+               r -> r.concept().food(), 
+               ( r, v ) -> r.concept().setFood( v ), 
+               conceptOptions 
       );
       
       configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.05 );

@@ -94,10 +94,10 @@ public class MealControlsTest {
    
    @Test public void shouldDirectCallsToCallBack() {
       systemUnderTest.addButton().fire();
-      verify( callBack ).createFood();
+      verify( callBack ).createConcept();
       
       systemUnderTest.removeButton().fire();
-      verify( callBack ).removeSelectedFood();
+      verify( callBack ).removeSelectedConcept();
       
       systemUnderTest.upButton().fire();
       verify( callBack ).moveUp();

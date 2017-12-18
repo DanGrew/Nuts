@@ -28,14 +28,14 @@ public class DayPlanStoreTest {
    }//End Method
    
    @Test public void shouldCreateNew() {
-      DayPlan newFood = systemUnderTest.createFood( "NewName" );
+      DayPlan newFood = systemUnderTest.createConcept( "NewName" );
       assertThat( systemUnderTest.get( newFood.properties().id() ), is( newFood ) );
    }//End Method
    
    @Test public void shouldRemoveExisting() {
       systemUnderTest.store( plan );
       assertThat( systemUnderTest.get( plan.properties().id() ), is( plan ) );
-      systemUnderTest.removeFood( plan );
+      systemUnderTest.removeConcept( plan );
       assertThat( systemUnderTest.get( plan.properties().id() ), is( nullValue() ) );
       assertThat( plan.goalAnalytics().goal().get(), is( nullValue() ) );
    }//End Method

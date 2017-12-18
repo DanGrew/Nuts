@@ -17,36 +17,36 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
-import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.food.FoodStore;
+import uk.dangrew.nuts.system.Concept;
+import uk.dangrew.nuts.system.ConceptStore;
 
 /**
- * {@link FoodOptions} provides the combined {@link Food}s available in the {@link Database}.
+ * {@link ConceptOptions} provides the combined {@link Concept}s available in the {@link Database}.
  */
-public class FoodOptions< FoodTypeT extends Food > {
+public class ConceptOptions< TypeT extends Concept > {
 
-   private final Comparator< FoodTypeT > comparator;
-   private final ObservableList< FoodTypeT > options;
+   private final Comparator< TypeT > comparator;
+   private final ObservableList< TypeT > options;
    private final ChangeListener< String > nameResponder;
 
    /**
-    * Constructs a new {@link FoodOptions}.
-    * @param foodStore the {@link FoodStore} to consider.
+    * Constructs a new {@link ConceptOptions}.
+    * @param store the {@link ConceptStore} to consider.
     */
-   public FoodOptions( FoodStore< ? extends FoodTypeT > foodStore ) {
-      this( Collections.singletonList( foodStore ) );
+   public ConceptOptions( ConceptStore< ? extends TypeT > store ) {
+      this( Collections.singletonList( store ) );
    }//End Constructor
    
    /**
-    * Constructs a new {@link FoodOptions}.
-    * @param foodStores the {@link Collection} of {@link FoodStore}s to consider.
+    * Constructs a new {@link ConceptOptions}.
+    * @param stores the {@link Collection} of {@link ConceptStore}s to consider.
     */
-   public FoodOptions( Collection< FoodStore< ? extends FoodTypeT > > foodStores ) {
+   public ConceptOptions( Collection< ConceptStore< ? extends TypeT > > stores ) {
       this.options = FXCollections.observableArrayList();
       this.comparator = Comparators.stringExtractionComparater( f -> f.properties().nameProperty().get() );
       this.nameResponder = ( s, o, n ) -> sort();
       
-      for ( FoodStore< ? extends FoodTypeT > store : foodStores ) {
+      for ( ConceptStore< ? extends TypeT > store : stores ) {
          store.objectList().forEach( this::add );
          store.objectList().addListener( new FunctionListChangeListenerImpl<>( 
                   this::add, this::remove 
@@ -55,12 +55,12 @@ public class FoodOptions< FoodTypeT extends Food > {
    }//End Constructor
    
    /**
-    * Method to add a {@link Food} to the options.
-    * @param food the {@link Food} to add.
+    * Method to add a {@link Concept} to the options.
+    * @param concept the {@link Concept} to add.
     */
-   private void add( FoodTypeT food ) {
-      options.add( food );
-      food.properties().nameProperty().addListener( nameResponder );
+   private void add( TypeT concept ) {
+      options.add( concept );
+      concept.properties().nameProperty().addListener( nameResponder );
       sort();
    }//End Method
    
@@ -69,34 +69,34 @@ public class FoodOptions< FoodTypeT extends Food > {
    }//End Method
 
    /**
-    * Method to remove a {@link Food} to the options.
-    * @param food the {@link Food} to remove.
+    * Method to remove a {@link Concept} to the options.
+    * @param concept the {@link Concept} to remove.
     */
-   private void remove( FoodTypeT food ) {
-      options.remove( food );
-      food.properties().nameProperty().removeListener( nameResponder );
+   private void remove( TypeT concept ) {
+      options.remove( concept );
+      concept.properties().nameProperty().removeListener( nameResponder );
    }//End Method
 
    /**
     * Access to the {@link ObservableList} options.
     * @return the {@link ObservableList}.
     */
-   public ObservableList< FoodTypeT > options() {
+   public ObservableList< TypeT > options() {
       return options;
    }//End Method
 
    /**
-    * Method to find the first {@link Food} with the given name.
+    * Method to find the first {@link Concept} with the given name.
     * @param name the name to look for.
-    * @return the found {@link Food}.
+    * @return the found {@link Concept}.
     */
-   public FoodTypeT find( String name ) {
+   public TypeT find( String name ) {
       return options().stream().filter( 
                f -> f.properties().nameProperty().get().equals( name ) 
       ).findFirst().orElse( null );
    }//End Method
 
-   public FoodTypeT first() {
+   public TypeT first() {
       if ( options.isEmpty() ) {
          return null;
       }

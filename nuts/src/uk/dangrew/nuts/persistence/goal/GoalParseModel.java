@@ -73,7 +73,7 @@ class GoalParseModel {
    void finishGoal( String key ) {
       Goal goal = goals.get( id );
       if ( goal == null ) {
-         goal = goals.createFood( id, name );
+         goal = goals.createConcept( id, name );
       }
       
       setGoalProperties( goal );
@@ -82,7 +82,7 @@ class GoalParseModel {
    void finishSingleGoalDefinition( String key ) {
       id = "single-goal-no-id-provided-unique";
       name = "Singleton Goal"; 
-      Goal singleton = goals.createFood( id, name );
+      Goal singleton = goals.createConcept( id, name );
       setGoalProperties( singleton );
    }//End Method
    

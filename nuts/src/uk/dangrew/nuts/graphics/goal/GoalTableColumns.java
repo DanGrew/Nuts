@@ -10,15 +10,15 @@ package uk.dangrew.nuts.graphics.goal;
 
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.graphics.table.FoodTable;
-import uk.dangrew.nuts.graphics.table.FoodTableColumnsPopulator;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 
 /**
  * {@link GoalTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
  * for a {@link GoalTable}.
  */
-public class GoalTableColumns implements FoodTableColumnsPopulator< Goal > {
+public class GoalTableColumns implements ConceptTableColumnsPopulator< Goal > {
 
    static final String COLUMN_TITLE_FOOD = "Goal";
    static final String COLUMN_TITLE_CALORIES = "Calories";
@@ -38,8 +38,8 @@ public class GoalTableColumns implements FoodTableColumnsPopulator< Goal > {
    /**
     * {@inheritDoc}
     */
-   @Override public void populateColumns( FoodTable< Goal > table ) {
-      configuration.initialiseFoodProperyStringColumn( table, COLUMN_TITLE_FOOD, 0.3, FoodProperties::nameProperty, true );
+   @Override public void populateColumns( ConceptTable< Goal > table ) {
+      configuration.initialiseFoodPropertyStringColumn( table, COLUMN_TITLE_FOOD, 0.3, FoodProperties::nameProperty, true );
       
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.16, f -> f.properties().calories(), true );
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.16, f -> f.properties().carbohydrates(), true );

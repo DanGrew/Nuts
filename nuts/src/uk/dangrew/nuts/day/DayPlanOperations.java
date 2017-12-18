@@ -29,7 +29,7 @@ public class DayPlanOperations {
    }//End Method
 
    public void saveAsTemplate( String name, DayPlan dayPlan ) {
-      Template template = templates.createFood( name );
+      Template template = templates.createConcept( name );
       template.portions().addAll( dayPlan.portions() );
    }//End Method
    
