@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.cycle;
+package uk.dangrew.nuts.cycle.alternating;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -7,6 +7,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.cycle.alternating.AlternatingCycleGoalCalculator;
+import uk.dangrew.nuts.cycle.alternating.AlternatingCycle;
 import uk.dangrew.nuts.goal.Goal;
 
 public class AlternatingCycleGoalCalculatorTest {
@@ -17,7 +19,7 @@ public class AlternatingCycleGoalCalculatorTest {
 
    @Before public void initialiseSystemUnderTest() {
       baseGoal = new Goal( "Base" );
-      cycle = new AlternatingCycle( baseGoal );
+      cycle = new AlternatingCycle( "Cycle" );
       systemUnderTest = new AlternatingCycleGoalCalculator();
    }//End Method
 

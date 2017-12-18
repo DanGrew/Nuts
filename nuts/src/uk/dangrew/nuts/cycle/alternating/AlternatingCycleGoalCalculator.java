@@ -1,6 +1,4 @@
-package uk.dangrew.nuts.cycle;
-
-import java.util.List;
+package uk.dangrew.nuts.cycle.alternating;
 
 import uk.dangrew.nuts.goal.Goal;
 
@@ -10,14 +8,12 @@ public class AlternatingCycleGoalCalculator {
    
    public void initialiseGoals( AlternatingCycle cycle ) {
       this.cycle = cycle;
-      
-      Goal baseGoal = cycle.baseGoal();
       cycle.goals().clear();
       
-      Goal lowDay = new Goal( baseGoal.properties().nameProperty().get() + "-Low" );
+      Goal lowDay = new Goal( cycle.properties().nameProperty().get() + "-Low" );
       cycle.goals().add( lowDay );
       
-      Goal highDay = new Goal( baseGoal.properties().nameProperty().get() + "-High" );
+      Goal highDay = new Goal( cycle.properties().nameProperty().get() + "-High" );
       cycle.goals().add( highDay );
       
       updateGoals();
@@ -28,6 +24,9 @@ public class AlternatingCycleGoalCalculator {
    
    private void updateGoals(){
       Goal baseGoal = cycle.baseGoal();
+      if ( baseGoal == null ) {
+         return;
+      }
       Goal lowDay = cycle.goals().get( 0 );
       Goal highDay = cycle.goals().get( 1 );
       
