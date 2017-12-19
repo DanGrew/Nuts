@@ -12,8 +12,8 @@ public class ConceptTableRow< TypeT > {
 
    private final TypeT concept;
    
-   public ConceptTableRow( TypeT food ) {
-      this.concept = food;
+   public ConceptTableRow( TypeT concept ) {
+      this.concept = concept;
    }//End Constructor
    
    public TypeT concept(){

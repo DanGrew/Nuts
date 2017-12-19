@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import uk.dangrew.nuts.cycle.CycleType;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.system.Properties;
 
@@ -48,6 +49,10 @@ public class AlternatingCycleTest {
       AlternatingCycle duplicate = systemUnderTest.duplicate( "-copy" );
       assertThat( duplicate.baseGoal(), is( systemUnderTest.baseGoal() ) );
       assertThat( duplicate.numberOfDeficits().get(), is( systemUnderTest.numberOfDeficits().get() ) );
+   }//End Method
+   
+   @Test public void shouldProvideType(){
+      assertThat( systemUnderTest.type(), is( CycleType.Alternating ) );
    }//End Method
    
 }//End Class

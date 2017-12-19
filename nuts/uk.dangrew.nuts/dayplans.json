@@ -805,13 +805,13 @@
          },
          {
             "consumed": false,
-            "foodId": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
+            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
             "portionValue": 100
          },
          {
             "consumed": false,
-            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-            "portionValue": 200
+            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
+            "portionValue": 100
          }
       ]
    },
@@ -1207,22 +1207,22 @@
       "id": "fcbef06e-df87-4ac3-a2f4-8f5ad1a1a988",
       "portions": [
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "874f7549-5723-4fc1-be30-ed776250cfed",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "8e794aa8-883f-479d-980c-aa2fe47047b7",
             "portionValue": 25
          }

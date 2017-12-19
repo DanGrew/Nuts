@@ -5,6 +5,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.nuts.cycle.AbstractCycle;
 import uk.dangrew.nuts.cycle.Cycle;
+import uk.dangrew.nuts.cycle.CycleType;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.system.Properties;
 
@@ -29,6 +30,10 @@ public class AlternatingCycle extends AbstractCycle implements Cycle {
       this.numberOfDeficits = new SimpleObjectProperty<>( DEFAULT_NUMBER_OF_DEFICITS );
       this.calculator = calculator;
    }//End Constructor
+   
+   @Override public CycleType type() {
+      return CycleType.Alternating;
+   }//End Method
    
    @Override public void setBaseGoal( Goal baseGoal ) {
       super.setBaseGoal( baseGoal );

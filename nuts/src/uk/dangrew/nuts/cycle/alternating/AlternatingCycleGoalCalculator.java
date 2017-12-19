@@ -20,6 +20,14 @@ public class AlternatingCycleGoalCalculator {
       
       cycle.numberOfDeficits().addListener( ( s, o, n ) -> updateGoals() );
       cycle.baseGoal().calorieDeficit().addListener( ( s, o, n ) -> updateGoals() );
+      cycle.properties().nameProperty().addListener( ( s, o, n ) -> renameGoals( o, n ) );
+   }//End Method
+   
+   private void renameGoals( String originalCycleName, String newCycleName ) {
+      cycle.goals().forEach( g -> {
+         String newName = g.properties().nameProperty().get().replaceFirst( originalCycleName, newCycleName );
+         g.properties().nameProperty().set( newName );
+      } );
    }//End Method
    
    private void updateGoals(){

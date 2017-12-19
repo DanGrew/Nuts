@@ -216,4 +216,7 @@ public class Goal implements Food {
       return this;
    }//End Method
 
+   @Override public String toString() {
+      return properties.nameProperty().get();
+   }//End Method
 }//End Class

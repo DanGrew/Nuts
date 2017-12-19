@@ -7,9 +7,15 @@ import uk.dangrew.nuts.system.Concept;
 
 public interface Cycle extends Concept {
 
+   public CycleType type();
+   
+   public void setBaseGoal( Goal baseGoal );
+   
    public Goal baseGoal();
    
    public List< Goal > goals();
+   
+   @Override public Cycle duplicate( String referenceId );
    
 }//End Interface
 

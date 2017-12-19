@@ -20,6 +20,7 @@ public class AlternatingCycleGoalCalculatorTest {
    @Before public void initialiseSystemUnderTest() {
       baseGoal = new Goal( "Base" );
       cycle = new AlternatingCycle( "Cycle" );
+      cycle.setBaseGoal( baseGoal );
       systemUnderTest = new AlternatingCycleGoalCalculator();
    }//End Method
 
@@ -31,7 +32,7 @@ public class AlternatingCycleGoalCalculatorTest {
       assertThat( cycle.goals(), hasSize( 2 ) );
       
       assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 0 ), 2*deficit );
-      assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 1 ), 0 );
+      assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 1 ), -0.0 );
    }//End Method
    
    @Test public void shouldRespondToNumberOfDeficitsAndResetGoals(){
@@ -56,7 +57,7 @@ public class AlternatingCycleGoalCalculatorTest {
       baseGoal.calorieDeficit().set( deficit );
       
       assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 0 ), 2*deficit );
-      assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 1 ), 0 );
+      assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 1 ), -0.0 );
    }//End Method
    
    private void assertThatBaseGoalIsFollowedWithDeficit( Goal goal, double deficit ){
@@ -72,6 +73,15 @@ public class AlternatingCycleGoalCalculatorTest {
       assertThat( goal.weight().get(), is( baseGoal.weight().get() ) );
       
       assertThat( goal.calorieDeficit().get(), is( deficit ) );
+   }//End Method
+   
+   @Test public void shouldUpdateGoalNamesWithCycleName(){
+      assertThat( cycle.goals().get( 0 ).properties().nameProperty().get(), is( cycle.properties().nameProperty().get() + "-Low" ) );
+      assertThat( cycle.goals().get( 1 ).properties().nameProperty().get(), is( cycle.properties().nameProperty().get() + "-High" ) );
+      
+      cycle.properties().nameProperty().set( "Alternate" );
+      assertThat( cycle.goals().get( 0 ).properties().nameProperty().get(), is( cycle.properties().nameProperty().get() + "-Low" ) );
+      assertThat( cycle.goals().get( 1 ).properties().nameProperty().get(), is( cycle.properties().nameProperty().get() + "-High" ) );
    }//End Method
    
 }//End Class

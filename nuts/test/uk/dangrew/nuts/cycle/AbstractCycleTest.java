@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +23,10 @@ public class AbstractCycleTest {
       protected TestAbstractCycle( Properties properties ) {
          super( properties );
       }//End Constructor
+      
+      @Override public CycleType type() {
+         return null;
+      }//End Method
 
       @Override public AbstractCycle duplicate( String referenceId ) {
          AbstractCycle duplicate = new TestAbstractCycle( new Properties( properties().nameProperty().get() + referenceId ) );
@@ -66,6 +71,12 @@ public class AbstractCycleTest {
       assertThat( duplicate.properties().nameProperty().get(), is( "name-copy" ) );
       assertThat( duplicate.properties().id(), is( not( "id" ) ) );
       assertThat( duplicate.baseGoal(), is( systemUnderTest.baseGoal() ) );
+   }//End Method
+   
+   @Test public void shouldProvidePropertyForOrderingOfGoals(){
+      assertThat( systemUnderTest.approach().get(), is( AbstractCycle.DEFAULT_APPROACH ) );
+      systemUnderTest.approach().set( CycleApproach.HighThenLow );
+      assertThat( systemUnderTest.approach().get(), is( CycleApproach.HighThenLow ) );
    }//End Method
 
 }//End Class
