@@ -38,13 +38,13 @@ public class AlternatingCycleGoalCalculatorTest {
    @Test public void shouldRespondToNumberOfDeficitsAndResetGoals(){
       double deficit = 400;
       baseGoal.calorieDeficit().set( deficit );
-      cycle.numberOfDeficits().set( 3 );
+      cycle.numberOfDeficits().set( 3.0 );
       
       systemUnderTest.initialiseGoals( cycle );
       assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 0 ), 4*deficit );
       assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 1 ), -2*deficit );
       
-      cycle.numberOfDeficits().set( 5 );
+      cycle.numberOfDeficits().set( 5.0 );
       assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 0 ), 6*deficit );
       assertThatBaseGoalIsFollowedWithDeficit( cycle.goals().get( 1 ), -4*deficit );
    }//End Method

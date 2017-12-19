@@ -11,11 +11,11 @@ import uk.dangrew.nuts.system.Properties;
 
 public class AlternatingCycle extends AbstractCycle implements Cycle {
 
-   static final int DEFAULT_NUMBER_OF_DEFICITS = 1;
+   static final double DEFAULT_NUMBER_OF_DEFICITS = 1;
    
    private final AlternatingCycleGoalCalculator calculator;
    
-   private final ObjectProperty< Integer > numberOfDeficits;
+   private final ObjectProperty< Double > numberOfDeficits;
 
    public AlternatingCycle( String name ) {
       this( new Properties( name ), new AlternatingCycleGoalCalculator() );
@@ -42,7 +42,7 @@ public class AlternatingCycle extends AbstractCycle implements Cycle {
       }
    }//End Method
    
-   public ObjectProperty< Integer > numberOfDeficits() {
+   public ObjectProperty< Double > numberOfDeficits() {
       return numberOfDeficits;
    }//End Method
    
