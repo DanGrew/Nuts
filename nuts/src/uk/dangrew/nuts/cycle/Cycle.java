@@ -1,7 +1,6 @@
 package uk.dangrew.nuts.cycle;
 
-import java.util.List;
-
+import javafx.collections.ObservableList;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.system.Concept;
 
@@ -13,7 +12,7 @@ public interface Cycle extends Concept {
    
    public Goal baseGoal();
    
-   public List< Goal > goals();
+   public ObservableList< Goal > goals();
    
    @Override public Cycle duplicate( String referenceId );
    

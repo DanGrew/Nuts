@@ -2,13 +2,13 @@ package uk.dangrew.nuts.cycle.alternating;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.lessThan;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.cycle.alternating.AlternatingCycleGoalCalculator;
-import uk.dangrew.nuts.cycle.alternating.AlternatingCycle;
+import uk.dangrew.nuts.cycle.CycleApproach;
 import uk.dangrew.nuts.goal.Goal;
 
 public class AlternatingCycleGoalCalculatorTest {
@@ -82,6 +82,23 @@ public class AlternatingCycleGoalCalculatorTest {
       cycle.properties().nameProperty().set( "Alternate" );
       assertThat( cycle.goals().get( 0 ).properties().nameProperty().get(), is( cycle.properties().nameProperty().get() + "-Low" ) );
       assertThat( cycle.goals().get( 1 ).properties().nameProperty().get(), is( cycle.properties().nameProperty().get() + "-High" ) );
+   }//End Method
+   
+   @Test public void shouldOrderGoalsBasedOnApproach(){
+      baseGoal.calorieDeficit().set( 100.0 );
+      systemUnderTest.initialiseGoals( cycle );
+      
+      Goal low = cycle.goals().get( 0 );
+      Goal high = cycle.goals().get( 1 );
+      assertThat( low.properties().calories().get(), is( lessThan( high.properties().calories().get()  ) ) );
+      
+      cycle.approach().set( CycleApproach.HighThenLow );
+      assertThat( cycle.goals().get( 0 ), is( high ) );
+      assertThat( cycle.goals().get( 1 ), is( low ) );
+      
+      cycle.approach().set( CycleApproach.LowThenHigh );
+      assertThat( cycle.goals().get( 0 ), is( low ) );
+      assertThat( cycle.goals().get( 1 ), is( high ) );
    }//End Method
    
 }//End Class

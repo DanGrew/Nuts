@@ -789,27 +789,27 @@
       "id": "e0a131b3-f319-4998-b30a-f0d0c5b3f61e",
       "portions": [
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "1ed2364a-946f-465b-b4b7-99466f143adb",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
             "portionValue": 400
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
             "portionValue": 100
          }

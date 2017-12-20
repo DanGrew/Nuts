@@ -1,10 +1,11 @@
 package uk.dangrew.nuts.cycle;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.system.Properties;
 
@@ -14,13 +15,13 @@ public abstract class AbstractCycle implements Cycle {
    
    private final Properties properties;
    private final ObjectProperty< CycleApproach > approach;
-   private final List< Goal > goals;
+   private final ObservableList< Goal > goals;
    
    private Goal baseGoal;
    
    protected AbstractCycle( Properties properties ) {
       this.properties = properties;
-      this.goals = new ArrayList<>();
+      this.goals = FXCollections.observableArrayList();
       this.approach = new SimpleObjectProperty<>( DEFAULT_APPROACH );
    }//End Constructor
    
@@ -45,7 +46,7 @@ public abstract class AbstractCycle implements Cycle {
       return baseGoal;
    }//End Method
    
-   public List< Goal > goals() {
+   public ObservableList< Goal > goals() {
       return goals;
    }//End Method
 
