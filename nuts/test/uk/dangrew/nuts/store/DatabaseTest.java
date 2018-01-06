@@ -16,6 +16,7 @@ import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalImpl;
 import uk.dangrew.nuts.goal.GoalStore;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealStore;
@@ -70,7 +71,7 @@ public class DatabaseTest {
    @Test public void shouldProvideGoals(){
       assertThat( systemUnderTest.goals(), is( instanceOf( GoalStore.class ) ) );
       
-      Goal goal = new Goal( "List" );
+      Goal goal = new GoalImpl( "List" );
       systemUnderTest.goals().store( goal );
       assertThat( systemUnderTest.goals().get( goal.properties().id() ), is( goal ) );
    }//End Method

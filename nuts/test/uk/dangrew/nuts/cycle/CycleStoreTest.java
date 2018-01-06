@@ -1,63 +1,38 @@
 package uk.dangrew.nuts.cycle;
 
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.cycle.alternating.AlternatingCycle;
-import uk.dangrew.nuts.cycle.alternating.AlternatingCycleStore;
-
 public class CycleStoreTest {
 
-   private AlternatingCycleStore alternatingCycles;
+   private Cycle cycle;
    private CycleStore systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      alternatingCycles = new AlternatingCycleStore();
-      systemUnderTest = new CycleStore( alternatingCycles );
+      cycle = new Cycle( "Food" );
+      systemUnderTest = new CycleStore();
    }//End Method
 
-   @Test public void shouldProvideAlternatingCycles() {
-      assertThat( systemUnderTest.alternatingCycleStore(), is( alternatingCycles ) );
-   }//End Method
-   
-   @Test public void shouldProvideCombinedCycles(){
-      AlternatingCycle first = alternatingCycles.createConcept( "First" );
-      alternatingCycles.createConcept( "Second" );
-      alternatingCycles.createConcept( "Third" );
-      alternatingCycles.objectList().forEach( i -> assertThat( systemUnderTest.objectList().contains( i ), is( true ) ) );
-      
-      alternatingCycles.createConcept( "Fourth" );
-      alternatingCycles.objectList().forEach( i -> assertThat( systemUnderTest.objectList().contains( i ), is( true ) ) );
-      
-      alternatingCycles.removeConcept( first );
-      alternatingCycles.objectList().forEach( i -> assertThat( systemUnderTest.objectList().contains( i ), is( true ) ) );
-   }//End Method
-   
-   @Test( expected = UnsupportedOperationException.class ) public void shouldNotCreateNewConceptWithName(){
-      systemUnderTest.createConcept( "name" );
-   }//End Method
-   
-   @Test( expected = UnsupportedOperationException.class ) public void shouldNotCreateNewConceptWithNameAndId(){
-      systemUnderTest.createConcept( "id", "name" );
-   }//End Method
-   
-   @Test( expected = UnsupportedOperationException.class ) public void shouldNotStore(){
-      systemUnderTest.store( new AlternatingCycle( "cycle" ) );
-   }//End Method
-   
-   @Test public void shouldGetFromId(){
-      AlternatingCycle cycle = alternatingCycles.createConcept( "First" );
+   @Test public void shouldStoreById() {
+      assertThat( systemUnderTest.get( cycle.properties().id() ), is( nullValue() ) );
+      systemUnderTest.store( cycle );
       assertThat( systemUnderTest.get( cycle.properties().id() ), is( cycle ) );
    }//End Method
    
-   @Test( expected = UnsupportedOperationException.class ) public void shouldNotRemove(){
-      systemUnderTest.removeConcept( new AlternatingCycle( "cycle" ) );
+   @Test public void shouldCreateNew() {
+      Cycle newCycle = systemUnderTest.createConcept( "NewName" );
+      assertThat( systemUnderTest.get( newCycle.properties().id() ), is( newCycle ) );
+   }//End Method
+   
+   @Test public void shouldRemoveExisting() {
+      systemUnderTest.store( cycle );
+      assertThat( systemUnderTest.get( cycle.properties().id() ), is( cycle ) );
+      systemUnderTest.removeConcept( cycle );
+      assertThat( systemUnderTest.get( cycle.properties().id() ), is( nullValue() ) );
    }//End Method
 
 }//End Class

@@ -33,9 +33,9 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
       this.creationDialog = creationDialog;
       this.cycles = cycles;
       
-      this.cycles.objectList().addListener( new FunctionListChangeListenerImpl<>( 
-               this::addRow, this::removeRow
-      ) );
+//      this.cycles.objectList().addListener( new FunctionListChangeListenerImpl<>( 
+//               this::addRow, this::removeRow
+//      ) );
    }//End Constructor
 
    /**
@@ -44,7 +44,7 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
    @Override public void associate( ConceptTable< Cycle > table ) {
       this.table = table;
       
-      this.cycles.objectList().forEach( this::addRow );
+//      this.cycles.objectList().forEach( this::addRow );
    }//End Method
    
    private void addRow( Cycle concept ) {
@@ -75,9 +75,10 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
    }//End Method
    
    private Cycle createCycle( CycleCreationResult result ) {
-      Cycle cycle = result.type().getStoreFrom( cycles ).createConcept( "Unnamed" );
-      cycle.setBaseGoal( result.baseGoal() );
-      return cycle;
+//      Cycle cycle = result.type().getStoreFrom( cycles ).createConcept( "Unnamed" );
+//      cycle.setBaseGoal( result.baseGoal() );
+//      return cycle;
+      return null;
    }//End Method
 
    /**
@@ -89,7 +90,7 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
          return;
       }
       
-      selection.concept().type().getStoreFrom( cycles ).removeConcept( selection.concept() );
+//      selection.concept().type().getStoreFrom( cycles ).removeConcept( selection.concept() );
    }//End Method
    
    /**
@@ -101,8 +102,8 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
          return;
       }
       
-      Cycle copy = selection.concept().duplicate( "-copy" );
-      selection.concept().type().getStoreFrom( cycles ).store( copy );
+//      Cycle copy = selection.concept().duplicate( "-copy" );
+//      selection.concept().type().getStoreFrom( cycles ).store( copy );
    }//End Method
 
 }//End Class

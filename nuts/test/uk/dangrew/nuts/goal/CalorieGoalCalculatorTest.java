@@ -19,7 +19,7 @@ public class CalorieGoalCalculatorTest {
 
    @Before public void initialiseSystemUnderTest() {
       systemUnderTest = new CalorieGoalCalculator();
-      goal = new Goal( 
+      goal = new GoalImpl( 
                new FoodProperties( "Goal" ), 
                new FoodAnalytics(),
                systemUnderTest,

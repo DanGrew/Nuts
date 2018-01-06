@@ -29,6 +29,7 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalImpl;
 
 /**
  * {@link GoalCalculationView} provides a pane of settable, and autocalculating, properties to configure
@@ -56,7 +57,7 @@ public class GoalCalculationView extends TitledPane {
       this.conversions = new Conversions();
       this.uiRegistrations = new RegistrationManager();
       this.modelRegistrations = new RegistrationManager();
-      this.viewModel = new Goal( "Selected" );
+      this.viewModel = new GoalImpl( "Selected" );
 
       createGoalDetails();
       

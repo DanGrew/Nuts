@@ -15,20 +15,20 @@ import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 
-public class GoalTest {
+public class GoalImplTest {
    
    private FoodProperties properties;
    private FoodAnalytics analytics;
    @Spy private CalorieGoalCalculator calorieCalculator;
    @Spy private MacroGoalCalculator macroCalculator;
    @Spy private MacroRatioCalculator ratioCalculator;
-   private Goal systemUnderTest;
+   private GoalImpl systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
       properties = new FoodProperties( "Goal" );
       analytics = new FoodAnalytics();
-      systemUnderTest = new Goal( properties, analytics, calorieCalculator, macroCalculator, ratioCalculator );
+      systemUnderTest = new GoalImpl( properties, analytics, calorieCalculator, macroCalculator, ratioCalculator );
    }//End Method
 
    @Test public void shouldProvideProperties(){
@@ -65,12 +65,12 @@ public class GoalTest {
    
    @Test public void shouldProvideProteinPerPound(){
       assertThat( systemUnderTest.proteinPerPound(), is( notNullValue() ) );
-      assertThat( systemUnderTest.proteinPerPound().get(), is( Goal.RECOMMENDED_PROTEIN_PER_POUND ) );
+      assertThat( systemUnderTest.proteinPerPound().get(), is( GoalImpl.RECOMMENDED_PROTEIN_PER_POUND ) );
    }//End Method
    
    @Test public void shouldProvideFatPerPound(){
       assertThat( systemUnderTest.fatPerPound(), is( notNullValue() ) );
-      assertThat( systemUnderTest.fatPerPound().get(), is( Goal.RECOMMENDED_FAT_PER_POUND ) );
+      assertThat( systemUnderTest.fatPerPound().get(), is( GoalImpl.RECOMMENDED_FAT_PER_POUND ) );
    }//End Method
    
    @Test public void shouldProvideCalorieGoalCalculator(){
@@ -98,7 +98,7 @@ public class GoalTest {
    
    @Test public void shouldProvidePal(){
       assertThat( systemUnderTest.pal(), is( notNullValue() ) );
-      assertThat( systemUnderTest.pal().get(), is( Goal.RECOMMENDED_ACTIVITY_LEVEL ) );
+      assertThat( systemUnderTest.pal().get(), is( GoalImpl.RECOMMENDED_ACTIVITY_LEVEL ) );
    }//End Method
    
    @Test public void shouldProvideGender(){

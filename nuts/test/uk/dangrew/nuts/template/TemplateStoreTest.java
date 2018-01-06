@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalImpl;
 
 public class TemplateStoreTest {
 
@@ -18,7 +19,7 @@ public class TemplateStoreTest {
 
    @Before public void initialiseSystemUnderTest() {
       food = new Template( "Meal" );
-      goal = new Goal( "Goal" );
+      goal = new GoalImpl( "Goal" );
       systemUnderTest = new TemplateStore();
    }//End Method
 
@@ -34,7 +35,7 @@ public class TemplateStoreTest {
    @Test public void shouldNotOverwriteGoalWhenStored() {
       systemUnderTest.setDefaultGoal( goal );
       
-      food.goalAnalytics().goal().set( new Goal( "anything" ) );
+      food.goalAnalytics().goal().set( new GoalImpl( "anything" ) );
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );

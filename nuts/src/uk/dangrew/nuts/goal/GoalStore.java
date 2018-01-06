@@ -28,7 +28,7 @@ public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > 
     * {@inheritDoc}
     */
    @Override public Goal createConcept( String name ) {
-      Goal food = new Goal( name );
+      Goal food = new GoalImpl( name );
       store( food );
       return food;
    }//End Method
@@ -37,7 +37,7 @@ public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > 
     * {@inheritDoc}
     */
    @Override public Goal createConcept( String id, String name ) {
-      Goal goal = new Goal( id, name );
+      Goal goal = new GoalImpl( id, name );
       store( goal );
       return goal;
    }//End Method

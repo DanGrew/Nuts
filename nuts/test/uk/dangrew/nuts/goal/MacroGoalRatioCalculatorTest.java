@@ -20,7 +20,7 @@ public class MacroGoalRatioCalculatorTest {
    @Before public void initialiseSystemUnderTest() {
       properties = new FoodProperties( "Props" );
       analytics = new GoalAnalytics();
-      goal = new Goal( "Goal" );
+      goal = new GoalImpl( "Goal" );
       
       systemUnderTest = new MacroGoalRatioCalculator();
       systemUnderTest.associate( properties, analytics );
@@ -157,7 +157,7 @@ public class MacroGoalRatioCalculatorTest {
       properties.calories().set( 150.0 );
       assertThat( analytics.caloriesRatio(), is( 25.0 ) );
       
-      analytics.goal().set( new Goal( "anything" ) );
+      analytics.goal().set( new GoalImpl( "anything" ) );
       assertThat( analytics.caloriesRatio(), is( 0.0 ) );
       
       goal.properties().calories().set( 1000.0 );

@@ -1,20 +1,15 @@
 package uk.dangrew.nuts.graphics.cycle;
 
-import java.util.Arrays;
 import java.util.Optional;
 
-import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextFlow;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.TextFlowBuilder;
-import uk.dangrew.nuts.cycle.CycleType;
-import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalStore;
 
 public class UiCycleCreationDialog extends Dialog< CycleCreationResult > {
@@ -50,19 +45,19 @@ public class UiCycleCreationDialog extends Dialog< CycleCreationResult > {
       
       content.add( CYCLE_DESCRIPTION, 0, 0 );
       
-      ComboBox< CycleType > types = new ComboBox<>( FXCollections.observableArrayList( Arrays.asList( CycleType.values() ) ) );
-      types.setMaxWidth( Double.MAX_VALUE );
-      content.add( types, 0, 1 );
-      
-      content.add( BASE_GOAL_DESCRIPTION, 0, 3 );
-      
-      ComboBox< Goal > goals = new ComboBox<>( goalStore.objectList() );
-      goals.setMaxWidth( Double.MAX_VALUE );
-      content.add( goals, 0, 4 );
-      
-      getDialogPane().setContent( content );
-      
-      setResultConverter( new UiCycleCreationDialogResultConverter( createButtonType, types, goals ) );
+//      ComboBox< CycleType > types = new ComboBox<>( FXCollections.observableArrayList( Arrays.asList( CycleType.values() ) ) );
+//      types.setMaxWidth( Double.MAX_VALUE );
+//      content.add( types, 0, 1 );
+//      
+//      content.add( BASE_GOAL_DESCRIPTION, 0, 3 );
+//      
+//      ComboBox< GoalImpl > goalImpls = new ComboBox<>( goalStore.objectList() );
+//      goalImpls.setMaxWidth( Double.MAX_VALUE );
+//      content.add( goalImpls, 0, 4 );
+//      
+//      getDialogPane().setContent( content );
+//      
+//      setResultConverter( new UiCycleCreationDialogResultConverter( createButtonType, types, goalImpls ) );
    }// End Constructor
    
    public Optional< CycleCreationResult > friendly_showAndWait(){

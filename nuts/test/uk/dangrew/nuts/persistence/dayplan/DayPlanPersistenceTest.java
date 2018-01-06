@@ -7,24 +7,19 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
-import java.util.Collections;
 
 import org.json.JSONObject;
 import org.junit.Test;
 
-import javafx.util.Pair;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.goal.GoalImpl;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.goal.GoalPersistence;
-import uk.dangrew.nuts.persistence.meals.MealPersistence;
-import uk.dangrew.nuts.persistence.template.TemplatePersistence;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.template.Template;
 
 public class DayPlanPersistenceTest {
    
@@ -100,10 +95,10 @@ public class DayPlanPersistenceTest {
       item4.properties().setMacros( 0.1, 1.1, 0.3 );
       database.foodItems().store( item4 );
       
-      Goal goal1 = new Goal( "Goal 1" );
+      Goal goal1 = new GoalImpl( "Goal 1" );
       database.goals().store( goal1 );
       
-      Goal goal2 = new Goal( "Goal 2" );
+      Goal goal2 = new GoalImpl( "Goal 2" );
       database.goals().store( goal2 );
       
       DayPlan meal1 = new DayPlan( "99987", "Meal1" );

@@ -71,12 +71,12 @@ class GoalParseModel {
     * @param key the parsed key.
     */
    void finishGoal( String key ) {
-      Goal goal = goals.get( id );
-      if ( goal == null ) {
-         goal = goals.createConcept( id, name );
+      Goal goalImpl = goals.get( id );
+      if ( goalImpl == null ) {
+         goalImpl = goals.createConcept( id, name );
       }
       
-      setGoalProperties( goal );
+      setGoalProperties( goalImpl );
    }//End Method
    
    void finishSingleGoalDefinition( String key ) {
@@ -90,23 +90,23 @@ class GoalParseModel {
     * Setter for the properties of a {@link Goal} from the parsed values.
     * @param goal the {@link Goal} to set on.
     */
-   private void setGoalProperties( Goal goal ) {
-      goal.properties().nameProperty().set( name );
-      goal.age().set( age );
-      goal.weight().set( weight );
-      goal.height().set( height );
-      goal.gender().set( gender );
-      goal.bmr().set( bmr );
-      goal.pal().set( pal );
-      goal.tee().set( tee );
-      goal.exerciseCalories().set( exerciseCalories );
-      goal.calorieDeficit().set( calorieDeficit );
-      goal.proteinPerPound().set( proteinPerPound );
-      goal.fatPerPound().set( fatPerPound );
-      goal.properties().calories().set( calorieGoal );
-      goal.properties().carbohydrates().set( carbohydratesGoal );
-      goal.properties().fats().set( fatGoal );
-      goal.properties().protein().set( proteinGoal );
+   private void setGoalProperties( Goal goalImpl ) {
+      goalImpl.properties().nameProperty().set( name );
+      goalImpl.age().set( age );
+      goalImpl.weight().set( weight );
+      goalImpl.height().set( height );
+      goalImpl.gender().set( gender );
+      goalImpl.bmr().set( bmr );
+      goalImpl.pal().set( pal );
+      goalImpl.tee().set( tee );
+      goalImpl.exerciseCalories().set( exerciseCalories );
+      goalImpl.calorieDeficit().set( calorieDeficit );
+      goalImpl.proteinPerPound().set( proteinPerPound );
+      goalImpl.fatPerPound().set( fatPerPound );
+      goalImpl.properties().calories().set( calorieGoal );
+      goalImpl.properties().carbohydrates().set( carbohydratesGoal );
+      goalImpl.properties().fats().set( fatGoal );
+      goalImpl.properties().protein().set( proteinGoal );
    }//End Method
 
    /**

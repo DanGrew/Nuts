@@ -14,6 +14,7 @@ import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalImpl;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.goal.GoalPersistence;
@@ -84,10 +85,10 @@ public class TemplatePersistenceTest {
       item4.properties().setMacros( 0.1, 1.1, 0.3 );
       database.foodItems().store( item4 );
       
-      Goal goal1 = new Goal( "Goal 1" );
+      Goal goal1 = new GoalImpl( "Goal 1" );
       database.goals().store( goal1 );
       
-      Goal goal2 = new Goal( "Goal 2" );
+      Goal goal2 = new GoalImpl( "Goal 2" );
       database.goals().store( goal2 );
       
       Template meal1 = new Template( "99987", "Meal1" );

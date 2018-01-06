@@ -13,7 +13,7 @@ public class GoalStoreTest {
    private GoalStore systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      goal = new Goal( "Goal" );
+      goal = new GoalImpl( "Goal" );
       systemUnderTest = new GoalStore();
    }//End Method
 

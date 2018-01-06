@@ -11,6 +11,8 @@ package uk.dangrew.nuts.manual.data;
 import org.json.JSONObject;
 
 import uk.dangrew.kode.TestCommon;
+import uk.dangrew.nuts.goal.Gender;
+import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
@@ -55,6 +57,16 @@ public class DataLocation {
       String value = TestCommon.readFileIntoString( DataLocation.class, "weightRecordings.json" );
       JSONObject json = new JSONObject( value );
       persistence.readHandles().parse( json );
+   }//End Method
+   
+   public static void configureExampleGoal( Goal goal ) {
+      goal.gender().set( Gender.Male );
+      goal.age().set( 28.0 );
+      goal.weight().set( 197.0 );
+      goal.height().set( 1.87 );
+      goal.exerciseCalories().set( 500.0 );
+      goal.calorieDeficit().set( 700.0 );
+      goal.fatPerPound().set( 0.35 );
    }//End Method
    
 }//End Class

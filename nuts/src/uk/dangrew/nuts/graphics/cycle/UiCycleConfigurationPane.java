@@ -7,7 +7,5 @@ import uk.dangrew.nuts.cycle.Cycle;
 public class UiCycleConfigurationPane extends BorderPane {
 
    public void setCycle( Cycle cycle ) {
-      Node configurationPane = cycle.type().constructConfigurationPane( cycle );
-      setCenter( configurationPane );
    }//End Method
 }//End Class

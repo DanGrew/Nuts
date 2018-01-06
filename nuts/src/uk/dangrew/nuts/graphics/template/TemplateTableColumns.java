@@ -11,7 +11,6 @@ package uk.dangrew.nuts.graphics.template;
 import java.util.Arrays;
 
 import uk.dangrew.nuts.food.FoodProperties;
-import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptOptions;
 import uk.dangrew.nuts.graphics.table.ConceptTable;

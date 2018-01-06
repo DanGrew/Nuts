@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalImpl;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class GoalCalculationViewTest {
@@ -14,7 +14,7 @@ public class GoalCalculationViewTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       systemUnderTest = new GoalCalculationView();
-      systemUnderTest.show(  new Goal( "Goal" )  );
+      systemUnderTest.show(  new GoalImpl( "Goal" )  );
    }//End Method
 
    @Ignore

@@ -17,7 +17,7 @@ public class MacroGoalCalculatorTest {
 
    @Before public void initialiseSystemUnderTest() {
       systemUnderTest = new MacroGoalCalculator();
-      goal = new Goal( 
+      goal = new GoalImpl( 
                new FoodProperties( "Goal" ), 
                new FoodAnalytics(),
                new CalorieGoalCalculator(), 

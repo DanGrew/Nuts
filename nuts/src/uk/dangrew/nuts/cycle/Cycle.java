@@ -1,20 +1,52 @@
 package uk.dangrew.nuts.cycle;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.system.Concept;
+import uk.dangrew.nuts.system.Properties;
 
-public interface Cycle extends Concept {
+public class Cycle implements Concept {
 
-   public CycleType type();
+   private final Properties properties;
+   private final ObservableList< Goal > goals;
    
-   public void setBaseGoal( Goal baseGoal );
+   private Goal baseGoal;
    
-   public Goal baseGoal();
+   public Cycle( String name ) {
+      this( new Properties( name ) );
+   }//End Constructor
    
-   public ObservableList< Goal > goals();
+   public Cycle( String id, String name ) {
+      this( new Properties( id, name ) );
+   }//End Constructor
    
-   @Override public Cycle duplicate( String referenceId );
+   Cycle( Properties properties ) {
+      this.properties = properties;
+      this.goals = FXCollections.observableArrayList();
+   }//End Constructor
    
-}//End Interface
+   @Override public Properties properties() {
+      return properties;
+   }//End Method
+   
+   public void setBaseGoal( Goal baseGoal ) {
+      if ( this.baseGoal != null ) {
+         throw new IllegalStateException( "Base Goal Already Set." );
+      }
+      this.baseGoal = baseGoal;
+   }//End Method
+   
+   public Goal baseGoal() {
+      return baseGoal;
+   }//End Method
+   
+   public ObservableList< Goal > goals() {
+      return goals;
+   }//End Method
 
+   @Override public Concept duplicate( String referenceId ) {
+      return this;
+   }//End Method
+
+}//End Class

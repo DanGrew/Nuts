@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalImpl;
 import uk.dangrew.nuts.progress.SystemDateRange;
 import uk.dangrew.nuts.store.Database;
 
@@ -20,7 +21,7 @@ public class DataSetupTest {
    private DataSetup systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      goal = new Goal( "Goal" );
+      goal = new GoalImpl( "Goal" );
       database = new Database();
       systemUnderTest = new DataSetup( database );
    }//End Method

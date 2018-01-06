@@ -35,7 +35,7 @@
       "loggedWeight": 1,
       "soldInWeight": 12,
       "protein": 22.7,
-      "name": "Carb Killa - Banana",
+      "name": "Protein: Carb Killa - Banana",
       "id": "21224fdc-7444-465e-a425-e4423c935d3d",
       "calories": 217
    },
@@ -55,7 +55,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 23.3,
-      "name": "Carb Killa - Cookies & Cream",
+      "name": "Protein: Carb Killa - Cookies & Cream",
       "id": "e17dc19e-a19b-4647-9e1b-58be498ee542",
       "calories": 217
    },
@@ -295,7 +295,7 @@
       "loggedWeight": 1,
       "soldInWeight": 12,
       "protein": 38,
-      "name": "MyProtein - Cookie",
+      "name": "Protein: MyProtein - Cookie",
       "id": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
       "calories": 319
    },
@@ -775,7 +775,7 @@
       "loggedWeight": 1,
       "soldInWeight": 12,
       "protein": 25,
-      "name": "MyProtein - Cookie (Skinny)",
+      "name": "Protein: MyProtein - Cookie (Skinny)",
       "id": "63a4f8cc-482e-4202-a68b-1516364b294d",
       "calories": 194
    },
@@ -785,7 +785,7 @@
       "loggedWeight": 1,
       "soldInWeight": 12,
       "protein": 30,
-      "name": "MyProtein - Protein Bar (High, Vanilla/Mint)",
+      "name": "Protein: MyProtein - Protein Bar (High, Vanilla/Mint)",
       "id": "6983bed5-ba70-4c56-8133-8937710c8a0a",
       "calories": 263
    },
@@ -795,7 +795,7 @@
       "loggedWeight": 1,
       "soldInWeight": 12,
       "protein": 23,
-      "name": "MyProtein - Brownie",
+      "name": "Protein: MyProtein - Brownie",
       "id": "97903714-a714-4b22-ab0b-16e3e10b2a86",
       "calories": 308
    },
@@ -815,7 +815,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 4.5,
-      "name": "Yoghurt (Strawberry) (100g)",
+      "name": "Yoghurt (Low Fat) (100g)",
       "id": "3b737010-7e70-495e-99c5-2b9d29d9598c",
       "calories": 80
    },
@@ -825,7 +825,7 @@
       "loggedWeight": 100,
       "soldInWeight": 450,
       "protein": 4.5,
-      "name": "Yoghurt (Vanilla) (100g)",
+      "name": "Yoghurt (Low Fat Vanilla) (100g)",
       "id": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
       "calories": 80
    },
@@ -1005,7 +1005,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 20,
-      "name": "MyProtein - Flapjack",
+      "name": "Protein: MyProtein - Flapjack",
       "id": "e5689d20-d244-415e-90f3-ff2e3c68ee9d",
       "calories": 329
    },
@@ -1015,7 +1015,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 20,
-      "name": "MyProtein - Zero Bar (Lemon)",
+      "name": "Protein: MyProtein - Zero Bar (Lemon)",
       "id": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
       "calories": 198
    },
@@ -1025,7 +1025,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 25,
-      "name": "MyProtein - Whey (30g)",
+      "name": "Protein: MyProtein - Whey (30g)",
       "id": "98d49c0f-f691-4844-a2ed-88dffb7197d0",
       "calories": 114
    },
@@ -1545,7 +1545,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 6.8,
-      "name": "Burgers (Quorn, Southern) (1)",
+      "name": "Quorn Burgers (Quorn, Southern) (1)",
       "id": "7265ad97-8d0e-4e3c-80cb-c6d120153364",
       "calories": 122
    },
@@ -1555,7 +1555,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 7.19,
-      "name": "Burgers (Quorn, Hot & Spicy) (1)",
+      "name": "Quorn Burgers (Quorn, Hot & Spicy) (1)",
       "id": "ab28e4a3-cd1a-41c5-93bb-ce8c105d20c7",
       "calories": 118
    },
@@ -1855,7 +1855,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 20,
-      "name": "Diet Whey Bar (Triple Choc)",
+      "name": "Protein: Diet Whey Bar (Triple Choc)",
       "id": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
       "calories": 199
    },
@@ -1890,14 +1890,14 @@
       "calories": 86
    },
    {
-      "carbohydrates": 11.2,
-      "fats": 4.9,
+      "carbohydrates": 12,
+      "fats": 6.3,
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 6.2,
       "name": "Protein Bites (30g)",
       "id": "645e15f9-180a-4513-aa16-ce7f642c52cd",
-      "calories": 120
+      "calories": 129
    },
    {
       "carbohydrates": 2,
@@ -2028,5 +2028,255 @@
       "name": "Chocolate (Heidi, 75%) (100g)",
       "id": "8e794aa8-883f-479d-980c-aa2fe47047b7",
       "calories": 590
+   },
+   {
+      "carbohydrates": 5.9,
+      "fats": 1.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 23,
+      "name": "Chicken (ASDA, Chinese) (100g)",
+      "id": "c53eaf9a-94de-404c-9720-e194a242f16f",
+      "calories": 128
+   },
+   {
+      "carbohydrates": 40,
+      "fats": 22,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 17,
+      "name": "Almond Bites (100g)",
+      "id": "06f1fa21-7514-4de8-b2d0-ae1391dfdbda",
+      "calories": 440
+   },
+   {
+      "carbohydrates": 23,
+      "fats": 11,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 19,
+      "name": "Protein: Diet Whey Crunch (Caramel)",
+      "id": "ab0bf94a-6202-4d82-817a-044d9156f49d",
+      "calories": 238
+   },
+   {
+      "carbohydrates": 7.2,
+      "fats": 1.7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.6,
+      "name": "Biscuit (Ginger Crunch)",
+      "id": "9bcfbf72-8810-4a8c-9b4f-9d0666f1a9a3",
+      "calories": 47
+   },
+   {
+      "carbohydrates": 0.3,
+      "fats": 1.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 23.3,
+      "name": "Turkey (T, Slices) (100g)",
+      "id": "e0a9b801-a8dd-4812-a5f6-a6723972c659",
+      "calories": 109
+   },
+   {
+      "carbohydrates": 28,
+      "fats": 7.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.4,
+      "name": "Ice Cream (T, Cone, S&V)",
+      "id": "949b7096-441a-4d30-96c9-2e2d0ca1f1b4",
+      "calories": 193
+   },
+   {
+      "carbohydrates": 20.2,
+      "fats": 8.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 10.5,
+      "name": "Quorn Bites (Southern Fried) (3)",
+      "id": "ab5462a4-3ee0-4ced-a9bf-247ce7b54ef3",
+      "calories": 203
+   },
+   {
+      "carbohydrates": 1.3,
+      "fats": 2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 10.4,
+      "name": "Quorn Bites (Chicken Style) (75g)",
+      "id": "24b70103-402e-44ca-ab45-68a27d467346",
+      "calories": 75
+   },
+   {
+      "carbohydrates": 8.3,
+      "fats": 8.7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 8.7,
+      "name": "Quorn Sausages (2)",
+      "id": "60953535-145f-47f2-a286-592ffc061628",
+      "calories": 154
+   },
+   {
+      "carbohydrates": 13.6,
+      "fats": 3.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 4.7,
+      "name": "Yoghurt (Yeo Valley) (100g)",
+      "id": "be4c1b41-8eac-48ed-a5d8-d747659a50fa",
+      "calories": 108
+   },
+   {
+      "carbohydrates": 16,
+      "fats": 2.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 4.1,
+      "name": "Yoghurt (Onken, Wholegrain) (100g)",
+      "id": "f19d8b07-998f-437e-ac52-47132c12929a",
+      "calories": 110
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 12,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 25.3,
+      "name": "Salmon (T, 2 for 240g) (100g)",
+      "id": "9a54c335-7836-4765-83b8-fe9cc661394b",
+      "calories": 209
+   },
+   {
+      "carbohydrates": 0.7,
+      "fats": 1.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 14.8,
+      "name": "Chicken (T, Tikka, Sliced, 240g) (60g)",
+      "id": "b41fb665-62b1-4caa-bb1c-f8a2c427bbdc",
+      "calories": 74
+   },
+   {
+      "carbohydrates": 24.1,
+      "fats": 7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 13.8,
+      "name": "Fish Cake (T, Cod & Parsley) (1)",
+      "id": "2fc47522-538f-4c44-943e-63866257d267",
+      "calories": 218
+   },
+   {
+      "carbohydrates": 2.8,
+      "fats": 2.7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 21.5,
+      "name": "Turkey Meatballs (T) (3)",
+      "id": "8b877326-70c2-4795-9b47-70373e173f62",
+      "calories": 126
+   },
+   {
+      "carbohydrates": 7.9,
+      "fats": 0.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.2,
+      "name": "Frozen Onions (100g)",
+      "id": "f99f4d94-630a-4cbe-b4f1-92d66d173c1e",
+      "calories": 41
+   },
+   {
+      "carbohydrates": 12.5,
+      "fats": 1.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.8,
+      "name": "Parsnips (100g)",
+      "id": "811ba02f-5d2f-4163-adac-3b80de40e027",
+      "calories": 76
+   },
+   {
+      "carbohydrates": 8.3,
+      "fats": 0.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.1,
+      "name": "Butternut Squash (100g)",
+      "id": "32e5288e-459b-4818-a8ac-4bb950fac859",
+      "calories": 42
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 18,
+      "name": "Chicken (T, Tin) (1/2)",
+      "id": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
+      "calories": 81
+   },
+   {
+      "carbohydrates": 9.3,
+      "fats": 0.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.1,
+      "name": "Frozen Peppers (100g)",
+      "id": "643be751-5956-4e52-9324-d12a191519a6",
+      "calories": 49
+   },
+   {
+      "carbohydrates": 65,
+      "fats": 26,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 7,
+      "name": "Kitkat Bites",
+      "id": "313c1be6-8c6a-409b-a98a-a449ee67d7c0",
+      "calories": 518
+   },
+   {
+      "carbohydrates": 70.6,
+      "fats": 1.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 10.3,
+      "name": "Flour (Plain) (100g)",
+      "id": "a2cd09d5-9a89-4ca5-b89c-adc1367c3728",
+      "calories": 341
+   },
+   {
+      "carbohydrates": 99.95,
+      "fats": 0,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0,
+      "name": "Sugar (100g)",
+      "id": "b47f3188-38c9-463f-b76d-9f5b891e7b13",
+      "calories": 400
+   },
+   {
+      "carbohydrates": 1.5,
+      "fats": 45,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.3,
+      "name": "Butter (T, Butter me up) (100g)",
+      "id": "fa8c75e2-c36e-4f18-9843-2442d6c7eac5",
+      "calories": 414
+   },
+   {
+      "carbohydrates": 68.7,
+      "fats": 1.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 9.8,
+      "name": "Flour (Self Raising) (100g)",
+      "id": "001d4ee1-fa56-4041-bcdd-b59fd1c46c0b",
+      "calories": 331
    }
 ]}
