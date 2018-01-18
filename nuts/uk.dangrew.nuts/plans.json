@@ -176,5 +176,44 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "Wraps, Fry Up, Cookies",
+      "id": "e38ed83c-7ae3-477f-92bf-0edd25e501db",
+      "portions": [
+         {
+            "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
+            "portionValue": 100
+         },
+         {
+            "foodId": "69cf0e4f-ae96-491a-b5c0-8b79ffa425df",
+            "portionValue": 200
+         },
+         {
+            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
+            "portionValue": 200
+         },
+         {
+            "foodId": "949b7096-441a-4d30-96c9-2e2d0ca1f1b4",
+            "portionValue": 100
+         },
+         {
+            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
+            "portionValue": 100
+         },
+         {
+            "foodId": "5b7d4f9f-5ef1-4d91-993e-60342610fa14",
+            "portionValue": 200
+         },
+         {
+            "foodId": "3b737010-7e70-495e-99c5-2b9d29d9598c",
+            "portionValue": 200
+         }
+      ]
    }
 ]}

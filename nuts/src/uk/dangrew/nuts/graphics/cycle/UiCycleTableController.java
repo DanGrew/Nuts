@@ -33,9 +33,9 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
       this.creationDialog = creationDialog;
       this.cycles = cycles;
       
-//      this.cycles.objectList().addListener( new FunctionListChangeListenerImpl<>( 
-//               this::addRow, this::removeRow
-//      ) );
+      this.cycles.objectList().addListener( new FunctionListChangeListenerImpl<>( 
+               this::addRow, this::removeRow
+      ) );
    }//End Constructor
 
    /**
@@ -44,7 +44,7 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
    @Override public void associate( ConceptTable< Cycle > table ) {
       this.table = table;
       
-//      this.cycles.objectList().forEach( this::addRow );
+      this.cycles.objectList().forEach( this::addRow );
    }//End Method
    
    private void addRow( Cycle concept ) {
@@ -62,9 +62,6 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
       table.getItems().removeAll( rowsToRemove );
    }//End Method
 
-   /**
-    * {@inheritDoc}
-    */
    @Override public Cycle createConcept() {
       Optional< CycleCreationResult > result = creationDialog.friendly_showAndWait();
       if ( result.isPresent() ) {
@@ -75,35 +72,22 @@ public class UiCycleTableController implements ConceptTableController< Cycle >{
    }//End Method
    
    private Cycle createCycle( CycleCreationResult result ) {
-//      Cycle cycle = result.type().getStoreFrom( cycles ).createConcept( "Unnamed" );
-//      cycle.setBaseGoal( result.baseGoal() );
-//      return cycle;
-      return null;
+      Cycle cycle = cycles.createConcept( "Unnamed" );
+      cycle.setBaseGoal( result.baseGoal() );
+      return cycle;
    }//End Method
 
-   /**
-    * {@inheritDoc}
-    */
    @Override public void removeSelectedConcept() {
       ConceptTableRow< Cycle > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
       
-//      selection.concept().type().getStoreFrom( cycles ).removeConcept( selection.concept() );
+      cycles.removeConcept( selection.concept() );
    }//End Method
    
-   /**
-    * {@inheritDoc}
-    */
    @Override public void copySelectedConcept() {
-      ConceptTableRow< Cycle > selection = table.getSelectionModel().getSelectedItem();
-      if ( selection == null ) {
-         return;
-      }
-      
-//      Cycle copy = selection.concept().duplicate( "-copy" );
-//      selection.concept().type().getStoreFrom( cycles ).store( copy );
+      //Do nothing
    }//End Method
 
 }//End Class

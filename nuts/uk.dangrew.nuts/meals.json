@@ -127,10 +127,10 @@
       "portions": [
          {
             "foodId": "2b897bd8-0502-4b9b-a706-5a6b600a8cae",
-            "portionValue": 200
+            "portionValue": 100
          },
          {
-            "foodId": "c53eaf9a-94de-404c-9720-e194a242f16f",
+            "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
             "portionValue": 200
          },
          {
@@ -159,11 +159,11 @@
          },
          {
             "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-            "portionValue": 0
+            "portionValue": 100
          },
          {
             "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 300
+            "portionValue": 0
          }
       ]
    },
@@ -238,8 +238,12 @@
       "id": "9e8bd6d5-b3c4-4260-8dd8-89ec96b844a7",
       "portions": [
          {
-            "foodId": "136d287c-d08f-47e4-aa48-f675b2da20a2",
+            "foodId": "2fc47522-538f-4c44-943e-63866257d267",
             "portionValue": 200
+         },
+         {
+            "foodId": "ab28e4a3-cd1a-41c5-93bb-ce8c105d20c7",
+            "portionValue": 0
          },
          {
             "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
@@ -247,7 +251,7 @@
          },
          {
             "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 0
+            "portionValue": 200
          }
       ]
    },
@@ -491,7 +495,7 @@
          },
          {
             "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
-            "portionValue": 0
+            "portionValue": 100
          },
          {
             "foodId": "b6fbfa6e-dd62-4e4d-b06b-72e00f754028",
@@ -499,7 +503,7 @@
          },
          {
             "foodId": "7c8ddcdd-e6ea-49fd-8320-1cd0a81ce100",
-            "portionValue": 100
+            "portionValue": 0
          },
          {
             "foodId": "c600d153-94a5-4d89-a874-7d7e133e88dd",
@@ -511,7 +515,7 @@
          },
          {
             "foodId": "fb4b766a-baae-448f-9892-f15fd010ce9a",
-            "portionValue": 100
+            "portionValue": 0
          },
          {
             "foodId": "7635391d-3975-47cf-921e-5edd06c220d0",
@@ -531,7 +535,7 @@
          },
          {
             "foodId": "bb36c4e8-8a75-4763-a25e-1461bd51f228",
-            "portionValue": 0
+            "portionValue": 100
          }
       ]
    },
@@ -748,12 +752,12 @@
             "portionValue": 200
          },
          {
-            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
             "portionValue": 300
          },
          {
             "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 0
+            "portionValue": 100
          }
       ]
    },
@@ -826,7 +830,7 @@
             "portionValue": 50
          },
          {
-            "foodId": "e7b80746-5fab-4fad-a172-5196d1b8b9d0",
+            "foodId": "17ab1ee6-7fb4-4e80-a388-c1afc135c311",
             "portionValue": 200
          },
          {
@@ -913,11 +917,11 @@
          },
          {
             "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
-            "portionValue": 140
+            "portionValue": 0
          },
          {
             "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 150
+            "portionValue": 0
          },
          {
             "foodId": "643be751-5956-4e52-9324-d12a191519a6",
@@ -929,7 +933,7 @@
          },
          {
             "foodId": "32e5288e-459b-4818-a8ac-4bb950fac859",
-            "portionValue": 260
+            "portionValue": 170
          },
          {
             "foodId": "811ba02f-5d2f-4163-adac-3b80de40e027",
@@ -937,11 +941,11 @@
          },
          {
             "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
-            "portionValue": 100
+            "portionValue": 140
          },
          {
             "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-            "portionValue": 150
+            "portionValue": 0
          }
       ]
    },
@@ -1007,15 +1011,15 @@
       "portions": [
          {
             "foodId": "fa8c75e2-c36e-4f18-9843-2442d6c7eac5",
-            "portionValue": 125
+            "portionValue": 110
          },
          {
             "foodId": "001d4ee1-fa56-4041-bcdd-b59fd1c46c0b",
-            "portionValue": 125
+            "portionValue": 110
          },
          {
             "foodId": "b47f3188-38c9-463f-b76d-9f5b891e7b13",
-            "portionValue": 125
+            "portionValue": 110
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
@@ -1046,6 +1050,60 @@
          {
             "foodId": "98d49c0f-f691-4844-a2ed-88dffb7197d0",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Fairy Cake (Homemade)",
+      "id": "76e67258-633b-4b41-90e2-0220bb58d683",
+      "portions": [{
+         "foodId": "d66da25b-f0f3-4d13-bda3-a601a5da3c3c",
+         "portionValue": 8.33
+      }]
+   },
+   {
+      "name": "Chicken with Potatoes + Salad",
+      "id": "299d884a-7574-4014-a8f8-ad10000cca46",
+      "portions": [
+         {
+            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
+            "portionValue": 400
+         },
+         {
+            "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
+            "portionValue": 200
+         },
+         {
+            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
+            "portionValue": 100
+         },
+         {
+            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
+            "portionValue": 200
+         },
+         {
+            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
+            "portionValue": 100
+         },
+         {
+            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
+            "portionValue": 100
+         },
+         {
+            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
+            "portionValue": 100
+         },
+         {
+            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
+            "portionValue": 100
+         },
+         {
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 300
          }
       ]
    }

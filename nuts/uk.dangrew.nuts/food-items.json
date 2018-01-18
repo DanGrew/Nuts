@@ -2278,5 +2278,85 @@
       "name": "Flour (Self Raising) (100g)",
       "id": "001d4ee1-fa56-4041-bcdd-b59fd1c46c0b",
       "calories": 331
+   },
+   {
+      "carbohydrates": 22.1,
+      "fats": 8.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 10,
+      "name": "Protein: Balls",
+      "id": "bbc6c185-b0fd-45fc-b0db-98714bf3caef",
+      "calories": 176
+   },
+   {
+      "carbohydrates": 43.7,
+      "fats": 11.6,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 3.4,
+      "name": "Cookie (T, Honeycomb) (1 of 4)",
+      "id": "5b7d4f9f-5ef1-4d91-993e-60342610fa14",
+      "calories": 294
+   },
+   {
+      "carbohydrates": 12,
+      "fats": 4.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.2,
+      "name": "Cookie (ASDA, Chunky) (1)",
+      "id": "52b70281-3533-43cc-8aa7-4e13c710b413",
+      "calories": 99
+   },
+   {
+      "carbohydrates": 12.2,
+      "fats": 24.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.2,
+      "name": "Nando's (Coleslaw)",
+      "id": "9d992f48-c270-4228-b39b-fab34e4ce1ee",
+      "calories": 268
+   },
+   {
+      "carbohydrates": 29.7,
+      "fats": 9.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.4,
+      "name": "Cookie (Malteaser) (1)",
+      "id": "9c64ecf7-f750-4253-a71d-85c27f605d28",
+      "calories": 212
+   },
+   {
+      "carbohydrates": 61.3,
+      "fats": 25.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 7.1,
+      "name": "Hobnob Nibbles (100g)",
+      "id": "08f5d4fe-3a52-415f-865e-173899da51d3",
+      "calories": 508
+   },
+   {
+      "carbohydrates": 26.2,
+      "fats": 10.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.2,
+      "name": "Kitkat Chunky",
+      "id": "b12638bd-e260-4e3a-834c-9caac22154ef",
+      "calories": 207
+   },
+   {
+      "carbohydrates": 22.7,
+      "fats": 11.6,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 4,
+      "name": "Snickers",
+      "id": "77bf24dd-c233-4c70-bd8f-942a1f35112d",
+      "calories": 213
    }
 ]}

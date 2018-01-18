@@ -3,6 +3,7 @@ package uk.dangrew.nuts.goal;
 import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 
@@ -100,8 +101,23 @@ public class DerivedGoalTest {
       assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
    }//End Method
    
-   @Test public void shouldNotDuplicate(){
-      assertThat( systemUnderTest.duplicate( "anything" ), is( systemUnderTest ) );
+   @Test public void shouldDuplicateWithBaseGoal(){
+      DerivedGoal duplicate = systemUnderTest.duplicate( "anything" );
+      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "anything" ) );
+      assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
+      assertThat( duplicate.baseGoal(), is( systemUnderTest.baseGoal() ) );
+      assertThat( duplicate.calorieOffset().get(), is( systemUnderTest.calorieOffset().get() ) );
+      assertThat( duplicate.calorieDeficit().get(), is( systemUnderTest.calorieDeficit().get() ) );
+   }//End Method
+   
+   @Test public void shouldDuplicateWithoutBaseGoal(){
+      systemUnderTest = new DerivedGoal( "No Base" );
+      DerivedGoal duplicate = systemUnderTest.duplicate( "anything" );
+      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "anything" ) );
+      assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
+      assertThat( duplicate.baseGoal(), is( nullValue() ) );
+      assertThat( duplicate.calorieOffset().get(), is( systemUnderTest.calorieOffset().get() ) );
+      assertThat( duplicate.calorieDeficit().get(), is( systemUnderTest.calorieDeficit().get() ) );
    }//End Method
 
 }//End Class

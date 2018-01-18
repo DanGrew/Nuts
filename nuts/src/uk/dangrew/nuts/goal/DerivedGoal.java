@@ -68,8 +68,13 @@ public class DerivedGoal implements Goal {
       return analytics;
    }//End Method
 
-   @Override public Food duplicate( String referenceId ) {
-      return this;
+   @Override public DerivedGoal duplicate( String referenceId ) {
+      DerivedGoal duplicate = new DerivedGoal( properties().nameProperty().get() + referenceId );
+      if ( baseGoal != null ) {
+         duplicate.setBaseGoal( baseGoal );
+      }
+      duplicate.calorieOffset.set( calorieOffset.get() );
+      return duplicate;
    }//End Method
 
    @Override public ObjectProperty< Double > age() {

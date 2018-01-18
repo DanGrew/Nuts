@@ -2,6 +2,7 @@ package uk.dangrew.nuts.cycle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import uk.dangrew.nuts.goal.DerivedGoal;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.Properties;
@@ -9,7 +10,7 @@ import uk.dangrew.nuts.system.Properties;
 public class Cycle implements Concept {
 
    private final Properties properties;
-   private final ObservableList< Goal > goals;
+   private final ObservableList< DerivedGoal > goals;
    
    private Goal baseGoal;
    
@@ -41,11 +42,11 @@ public class Cycle implements Concept {
       return baseGoal;
    }//End Method
    
-   public ObservableList< Goal > goals() {
+   public ObservableList< DerivedGoal > goals() {
       return goals;
    }//End Method
 
-   @Override public Concept duplicate( String referenceId ) {
+   @Override public Cycle duplicate( String referenceId ) {
       return this;
    }//End Method
 
