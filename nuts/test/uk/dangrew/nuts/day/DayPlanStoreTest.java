@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.day;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
@@ -8,8 +9,6 @@ import java.time.LocalDate;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import uk.dangrew.nuts.progress.SystemDateRange;
 
 public class DayPlanStoreTest {
 
@@ -38,6 +37,10 @@ public class DayPlanStoreTest {
       systemUnderTest.removeConcept( plan );
       assertThat( systemUnderTest.get( plan.properties().id() ), is( nullValue() ) );
       assertThat( plan.goalAnalytics().goal().get(), is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldProvideBalancer(){
+      assertThat( systemUnderTest.calorieBalance(), is( notNullValue() ) );
    }//End Method
    
 }//End Class

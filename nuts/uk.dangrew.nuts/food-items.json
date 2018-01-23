@@ -1245,7 +1245,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 8.2,
-      "name": "Chicken Nuggets (Quorn) (4)",
+      "name": "Quorn Chicken Nuggets (4)",
       "id": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
       "calories": 129
    },
@@ -2358,5 +2358,45 @@
       "name": "Snickers",
       "id": "77bf24dd-c233-4c70-bd8f-942a1f35112d",
       "calories": 213
+   },
+   {
+      "carbohydrates": 30.5,
+      "fats": 9.6,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 23,
+      "name": "Protein: Pro2Go Cookie",
+      "id": "85e535c1-1a88-4279-a814-c91a36e76cd1",
+      "calories": 303
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 0,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0,
+      "name": "Mince Pie (T)",
+      "id": "6d6ef1b9-c401-45b2-952c-ff9dff943457",
+      "calories": 217
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 0,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0,
+      "name": "Shortbread (@Moms) (1)",
+      "id": "f25158e4-836c-4ac9-964f-f146a3d21d0b",
+      "calories": 101
+   },
+   {
+      "carbohydrates": 10,
+      "fats": 0.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.6,
+      "name": "Beetroot (100g)",
+      "id": "0581f76a-4067-4535-b9f3-3e126327aa1c",
+      "calories": 43
    }
 ]}

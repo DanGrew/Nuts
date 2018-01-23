@@ -11,6 +11,8 @@ package uk.dangrew.nuts.day;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
@@ -23,7 +25,16 @@ import uk.dangrew.nuts.template.Template;
  */
 public class DayPlan extends Template {
 
+   static final double DEFAULT_CONSUMED_CALORIES = 0.0;
+   static final double DEFAULT_ALLOWED_CALORIES = 0.0;
+   static final double DEFAULT_CALORIE_BALANCE = 0.0;
+   static final boolean DEFAULT_BALANCE_IS_RESET = false;
+   
    private final ObservableSet< FoodPortion > consumed; 
+   private final ObjectProperty< Double > consumedCalories;
+   private final ObjectProperty< Double > allowedCalories;
+   private final ObjectProperty< Double > calorieBalance;
+   private final ObjectProperty< Boolean > isBalanceReset;
    private LocalDate date;
    
    public DayPlan( LocalDate date ) {
@@ -41,6 +52,10 @@ public class DayPlan extends Template {
    
    DayPlan( FoodProperties properties ) {
       super( properties );
+      this.consumedCalories = new SimpleObjectProperty<>( DEFAULT_CONSUMED_CALORIES );
+      this.allowedCalories = new SimpleObjectProperty<>( DEFAULT_ALLOWED_CALORIES );
+      this.calorieBalance = new SimpleObjectProperty<>( DEFAULT_CALORIE_BALANCE );
+      this.isBalanceReset = new SimpleObjectProperty<>( DEFAULT_BALANCE_IS_RESET );
       this.consumed = FXCollections.observableSet( new LinkedHashSet<>() );
       portions().addListener( new FunctionListChangeListenerImpl<>( null, consumed::remove ) );
    }//End Constructor
@@ -58,6 +73,22 @@ public class DayPlan extends Template {
 
    public ObservableSet< FoodPortion > consumed() {
       return consumed;
+   }//End Method
+   
+   public ObjectProperty< Double > consumedCalories() {
+      return consumedCalories;
+   }//End Method
+   
+   public ObjectProperty< Double > allowedCalories() {
+      return allowedCalories;
+   }//End Method
+   
+   public ObjectProperty< Double > calorieBalance() {
+      return calorieBalance;
+   }//End Method
+   
+   public ObjectProperty< Boolean > isBalanceReset() {
+      return isBalanceReset;
    }//End Method
    
    @Override public void swap( FoodPortion portion1, FoodPortion portion2 ) {

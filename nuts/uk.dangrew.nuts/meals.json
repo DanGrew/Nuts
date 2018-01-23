@@ -1106,5 +1106,91 @@
             "portionValue": 300
          }
       ]
+   },
+   {
+      "name": "Chicken with Toast + Salad",
+      "id": "24d2337c-3678-40ba-8051-725767ddcb7b",
+      "portions": [
+         {
+            "foodId": "f1b67d97-0b96-4c75-9413-a6854d4f8eb7",
+            "portionValue": 400
+         },
+         {
+            "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
+            "portionValue": 200
+         },
+         {
+            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
+            "portionValue": 0
+         },
+         {
+            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
+            "portionValue": 200
+         },
+         {
+            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
+            "portionValue": 0
+         },
+         {
+            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
+            "portionValue": 0
+         },
+         {
+            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
+            "portionValue": 0
+         },
+         {
+            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
+            "portionValue": 0
+         },
+         {
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Sausage & Mash (Chicken Sausages)",
+      "id": "80bc6978-2e3c-4518-a497-37dfd93e943f",
+      "portions": [
+         {
+            "foodId": "e7b80746-5fab-4fad-a172-5196d1b8b9d0",
+            "portionValue": 200
+         },
+         {
+            "foodId": "60f2a615-ba1e-4b5e-b009-16d0d4089642",
+            "portionValue": 400
+         },
+         {
+            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Fish Cake Homemade",
+      "id": "10cc36fe-db1a-4f11-b751-6e1fde431593",
+      "portions": [
+         {
+            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
+            "portionValue": 400
+         },
+         {
+            "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
+            "portionValue": 200
+         },
+         {
+            "foodId": "a2cd09d5-9a89-4ca5-b89c-adc1367c3728",
+            "portionValue": 10
+         },
+         {
+            "foodId": "0581f76a-4067-4535-b9f3-3e126327aa1c",
+            "portionValue": 100
+         }
+      ]
    }
 ]}

@@ -16,6 +16,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import uk.dangrew.nuts.graphics.day.UiCalendarPane;
+import uk.dangrew.nuts.graphics.day.balance.UiBalanceSummary;
 import uk.dangrew.nuts.graphics.graph.WeightRecordingsPane;
 import uk.dangrew.nuts.graphics.information.InformationPane;
 import uk.dangrew.nuts.graphics.manager.FoodManagerPane;
@@ -58,6 +59,7 @@ public class GoalTableView extends BorderPane {
       createTab( "Database", new FoodManagerPane( database ) );
       createTab( "Templates", new TemplateManagerPane( database ) );
       createTab( "Day Plans", new UiCalendarPane( database ) );
+      createTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );
       createTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );
       createTab( "Weigh Ins", new WeightRecordingsPane( database.weightProgress() ) );
       createTab( "Tools", new TitledPane( "Dry Weight Conversion", new DryWeightToolPane() ) );
