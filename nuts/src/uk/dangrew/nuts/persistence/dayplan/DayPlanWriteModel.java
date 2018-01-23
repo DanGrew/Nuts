@@ -20,8 +20,6 @@ import uk.dangrew.nuts.persistence.template.TemplateWriteModel;
  */
 class DayPlanWriteModel extends TemplateWriteModel< DayPlan > {
    
-   
-   
    /**
     * Constructs a new {@link DayPlanWriteModel}.
     * @param dayPlans the {@link FoodStore} providing the {@link DayPlan}s.
@@ -38,7 +36,7 @@ class DayPlanWriteModel extends TemplateWriteModel< DayPlan > {
    @Override protected void startWritingMeals( String key ) {
       buffer().clear();
       buffer().addAll( meals().objectList().stream()
-               .filter( d -> !d.portions().isEmpty() )
+               .filter( d -> d.date() != null )
                .collect( Collectors.toSet() ) 
       );
    }//End Method
@@ -48,6 +46,22 @@ class DayPlanWriteModel extends TemplateWriteModel< DayPlan > {
          return null;
       }
       return currentFood().date().toString();
+   }//End Method
+   
+   Double getConsumedCalories( String key ) {
+      return currentFood().consumedCalories().get();
+   }//End Method
+   
+   Double getAllowedCalories( String key ) {
+      return currentFood().allowedCalories().get();
+   }//End Method
+   
+   Double getCalorieBalance( String key ) {
+      return currentFood().calorieBalance().get();
+   }//End Method
+   
+   Boolean isBalanceReset( String key ) {
+      return currentFood().isBalanceReset().get();
    }//End Method
    
    Boolean isConsumed( String key ) {

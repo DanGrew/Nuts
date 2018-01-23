@@ -5,6 +5,10 @@
          "id":"99987",
          "goalId":"single-goal-no-id-provided-unique",
          "date":"2017-08-19",
+         "consumedCalories":2400,
+         "allowedCalories":2700,
+         "calorieBalance":300,
+         "isBalanceReset":false,
          "portions":[  
             {  
                "foodId":"12345",
@@ -27,6 +31,7 @@
          "id":"556676",
          "goalId":"369b6651-633a-420b-b560-b1c1d3dfe1cb",
          "date":"2017-01-01",
+         "isBalanceReset":true,
          "portions":[  
             {  
                "foodId":"67890",
@@ -46,6 +51,17 @@
          "name":"Meal3",
          "id":"8878886",
          "goalId":"single-goal-no-id-provided-unique",
+         "portions":[  
+            {  
+               "foodId":"3421",
+               "portionValue":100
+            }
+         ]
+      },      {  
+         "name":"Meal4",
+         "id":"88788861",
+         "goalId":"single-goal-no-id-provided-unique",
+         "date":"2018-01-23",
          "portions":[  
             {  
                "foodId":"3421",

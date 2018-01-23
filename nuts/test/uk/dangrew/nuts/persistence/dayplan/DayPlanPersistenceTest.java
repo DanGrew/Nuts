@@ -58,6 +58,7 @@ public class DayPlanPersistenceTest {
                meal, "99987", "Meal1", 
                "single-goal-no-id-provided-unique",
                LocalDate.parse( "2017-08-19" ),
+               2400, 2700, 300, false,
                new ExpectedFoodPortion( "12345", 100.0, false ),
                new ExpectedFoodPortion( "67890", 90.0, true ),
                new ExpectedFoodPortion( "3421", 50.0, false ) 
@@ -67,13 +68,22 @@ public class DayPlanPersistenceTest {
                meal, "556676", "Meal2",
                "369b6651-633a-420b-b560-b1c1d3dfe1cb",
                LocalDate.parse( "2017-01-01" ),
+               0, 0, 0, true,
                new ExpectedFoodPortion( "67890", 40.0, false ),
                new ExpectedFoodPortion( "3421", 90.0, false ),
                new ExpectedFoodPortion( "1324", 100.0, false )
       );
+      meal = database.dayPlans().objectList().get( 2 );
+      assertMealProperties( 
+               meal, "88788861", "Meal4",
+               "single-goal-no-id-provided-unique",
+               LocalDate.parse( "2018-01-23" ),
+               0, 0, 0, false,
+               new ExpectedFoodPortion( "3421", 100.0, false )
+      );
       
       //removed plan with no date
-      assertThat( database.dayPlans().objectList(), hasSize( 2 ) );
+      assertThat( database.dayPlans().objectList(), hasSize( 3 ) );
    }//End Method
    
    @Test public void shouldWriteData(){
@@ -107,6 +117,9 @@ public class DayPlanPersistenceTest {
       meal1.portions().add( new FoodPortion( item3, 50.0 ) );
       meal1.goalAnalytics().goal().set( goal1 );
       meal1.setDate( LocalDate.now() );
+      meal1.consumedCalories().set( 2400.0 );
+      meal1.allowedCalories().set( 2700.0 );
+      meal1.calorieBalance().set( 300.0 );
       database.dayPlans().store( meal1 );
       
       DayPlan meal2 = new DayPlan( "556676", "Meal2" );
@@ -119,6 +132,7 @@ public class DayPlanPersistenceTest {
       meal2.consumed().add( meal2.portions().get( 1 ) );
       meal2.consumed().add( meal2.portions().get( 2 ) );
       meal2.consumed().add( meal2.portions().get( 3 ) );
+      meal2.isBalanceReset().set( true );
       database.dayPlans().store( meal2 );
       
       DayPlan meal3 = new DayPlan( "8878886", "Meal3" );
@@ -166,20 +180,23 @@ public class DayPlanPersistenceTest {
       
       assertThat( database.dayPlans().objectList(), is( empty() ) );
       persistence.readHandles().parse( mealJson );
-      assertThat( database.dayPlans().objectList(), hasSize( 2 ) );
+      assertThat( database.dayPlans().objectList(), hasSize( 3 ) );
       
       DayPlan meal = database.dayPlans().get( meal1.properties().id() );
       assertMealProperties( meal, meal1 );
       meal = database.dayPlans().get( meal2.properties().id() );
       assertMealProperties( meal, meal2 );
+      meal = database.dayPlans().get( meal4.properties().id() );
+      assertMealProperties( meal, meal4 );
       
-      //Remove plans with missing date and no portions
-      assertThat( database.dayPlans().objectList(), hasSize( 2 ) );
+      //Remove plans with missing date
+      assertThat( database.dayPlans().objectList(), hasSize( 3 ) );
    }//End Method
 
    private void assertMealProperties(
             DayPlan meal, 
-            String id, String name, String goalId, LocalDate date, 
+            String id, String name, String goalId, LocalDate date,
+            double consumed, double allowed, double balance, boolean reset,
             ExpectedFoodPortion... portions
    ){
       assertThat( meal.properties().id(), is( id ) );
@@ -187,6 +204,10 @@ public class DayPlanPersistenceTest {
       assertThat( meal.goalAnalytics().goal().get().properties().id(), is( goalId ) );
       assertThat( meal.date(), is( date ) );
       assertThat( meal.portions(), hasSize( portions.length ) );
+      assertThat( meal.consumedCalories().get(), is( consumed ) );
+      assertThat( meal.allowedCalories().get(), is( allowed ) );
+      assertThat( meal.calorieBalance().get(), is( balance ) );
+      assertThat( meal.isBalanceReset().get(), is( reset ) );
       
       for ( int i = 0; i < portions.length; i++ ) {
          ExpectedFoodPortion expectedPortion = portions[ i ];
@@ -200,11 +221,19 @@ public class DayPlanPersistenceTest {
    private void assertMealProperties(
             DayPlan meal, DayPlan expected
    ){
-      assertThat( meal.goalAnalytics().goal().get().properties().id(), is( expected.goalAnalytics().goal().get().properties().id() ) );
+      if ( expected.goalAnalytics().goal().get() != null ) {
+         assertThat( meal.goalAnalytics().goal().get().properties().id(), is( expected.goalAnalytics().goal().get().properties().id() ) );
+      } else {
+         assertThat( meal.goalAnalytics().goal().get(), is( nullValue() ) );
+      }
       assertThat( meal.date(), is( expected.date() ) );
       assertThat( meal.properties().id(), is( expected.properties().id() ) );
       assertThat( meal.properties().nameProperty().get(), is( expected.properties().nameProperty().get() ) );
       assertThat( meal.portions(), hasSize( expected.portions().size() ) );
+      assertThat( meal.consumedCalories().get(), is( expected.consumedCalories().get() ) );
+      assertThat( meal.allowedCalories().get(), is( expected.allowedCalories().get() ) );
+      assertThat( meal.calorieBalance().get(), is( expected.calorieBalance().get() ) );
+      assertThat( meal.isBalanceReset().get(), is( expected.isBalanceReset().get() ) );
       
       for ( int i = 0; i < expected.portions().size(); i++ ) {
          FoodPortion expectedPortion = expected.portions().get( i );

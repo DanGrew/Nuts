@@ -27,6 +27,10 @@ import uk.dangrew.nuts.store.Database;
 class DayPlanParseModel extends TemplateParseModel< DayPlan > {
    
    private String dateString;
+   private double consumedCalories;
+   private double allowedCalories;
+   private double calorieBalance;
+   private boolean isBalanceReset;
    private boolean consumed;
    
    private Set< FoodPortion > consumedPortions;
@@ -43,6 +47,10 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
    @Override protected void startMeal( String key ) {
       super.startMeal( key );
       this.dateString = null;
+      this.consumedCalories = 0;
+      this.allowedCalories = 0;
+      this.calorieBalance = 0;
+      this.isBalanceReset = false;
       this.consumedPortions.clear();
    }//End Method
    
@@ -57,6 +65,10 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
       try {
          LocalDate date = LocalDate.parse( dateString );
          template.setDate( date );
+         template.consumedCalories().set( consumedCalories );
+         template.allowedCalories().set( allowedCalories );
+         template.calorieBalance().set( calorieBalance );
+         template.isBalanceReset().set( isBalanceReset );
          template.consumed().addAll( consumedPortions );
       } catch ( NullPointerException | DateTimeParseException e ) {
          meals().removeConcept( template );
@@ -85,6 +97,22 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
    
    void setDateString( String key, String value ) {
       this.dateString = value;
+   }//End Method
+   
+   void setConsumedCalories( String key, Double value ) {
+      this.consumedCalories = value;
+   }//End Method
+   
+   void setAllowedCalories( String key, Double value ) {
+      this.allowedCalories = value;
+   }//End Method
+   
+   void setCalorieBalance( String key, Double value ) {
+      this.calorieBalance = value;
+   }//End Method
+   
+   void setIsBalanceReset( String key, Boolean value ) {
+      this.isBalanceReset = value;
    }//End Method
    
    void setConsumed( String key, Boolean value ) {
