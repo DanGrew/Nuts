@@ -13,11 +13,8 @@ import uk.dangrew.nuts.system.ConceptStore;
 
 public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayPlan > implements ConceptStore< DayPlan > {
 
-   private final CalorieBalance calorieBalance;
-   
    public DayPlanStore() {
       super( f -> f.properties().id() );
-      this.calorieBalance = new CalorieBalance( this );
    }//End Constructor
    
    /**
@@ -52,7 +49,4 @@ public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayP
       remove( food.properties().id() );
    }//End Method
 
-   public CalorieBalance calorieBalance() {
-      return calorieBalance;
-   }//End Method
 }//End Class

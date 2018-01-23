@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import uk.dangrew.nuts.day.CalorieBalance;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.progress.SystemDateRange;
 import uk.dangrew.nuts.store.Database;
@@ -68,6 +69,8 @@ public class DataSetup {
          plan.setDate( date );
          database.dayPlans().store( plan );
       }
+      
+      new CalorieBalance( database.dayPlans() );
    }//End Method
    
 }//End Class

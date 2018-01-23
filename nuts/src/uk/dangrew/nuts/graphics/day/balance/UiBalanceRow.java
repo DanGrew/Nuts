@@ -23,15 +23,17 @@ public class UiBalanceRow extends GridPane {
    private final TextField spentLabel;
    private final TextField balanceLabel;
    
-   private final Button increaseDates;
-   private final Button decreaseDates;
+   private final Button sync;
+   private final Button reset;
    
    private final JavaFxStyle styling;
    private final Conversions conversions;
    private final DateTimeFormats dateTimeFormats;
    private final RegistrationManager registrations;
+   private final UiBalanceController controller;
    
-   public UiBalanceRow() {
+   public UiBalanceRow( UiBalanceController controller ) {
+      this.controller = controller;
       this.registrations = new RegistrationManager();
       this.conversions = new Conversions();
       this.dateTimeFormats = new DateTimeFormats();
@@ -44,8 +46,8 @@ public class UiBalanceRow extends GridPane {
       add( allowedLabel = new TextField(), 2, 0 );
       add( spentLabel = new TextField(), 3, 0 );
       add( balanceLabel = new TextField(), 4, 0 );
-      add( wrapButton( increaseDates = new Button( "Sync" ) ), 5, 0 );
-      add( wrapButton( decreaseDates = new Button( "Reset" ) ), 6, 0 );
+      add( wrapButton( sync = new Button( "Sync" ) ), 5, 0 );
+      add( wrapButton( reset = new Button( "Reset" ) ), 6, 0 );
       
       dateLabel.setEditable( false );
       consumedLabel.setEditable( true );
@@ -53,8 +55,9 @@ public class UiBalanceRow extends GridPane {
       spentLabel.setEditable( false );
       balanceLabel.setEditable( false );
       
-      increaseDates.setMaxWidth( Double.MAX_VALUE );
-      decreaseDates.setMaxWidth( Double.MAX_VALUE );
+      sync.setMaxWidth( Double.MAX_VALUE );
+      reset.setMaxWidth( Double.MAX_VALUE );
+      
    }//End Constructor
    
    private final Node wrapButton( Button button ) {
@@ -65,6 +68,10 @@ public class UiBalanceRow extends GridPane {
       if ( plan == null ) {
          return;
       }
+      
+      sync.setOnAction( e -> controller.syncCalories( plan ) );
+      reset.setOnAction( e -> controller.resetBalance( plan ) );
+      
       registrations.shutdown();
       registrations.apply( new ChangeListenerMismatchBindingImpl<>( 
                plan.consumedCalories(), consumedLabel.textProperty(), 
@@ -121,6 +128,14 @@ public class UiBalanceRow extends GridPane {
 
    TextField calorieBalanceField() {
       return balanceLabel;
+   }//End Method
+
+   Button syncButton() {
+      return sync;
+   }//End Method
+
+   Button resetButton() {
+      return reset;
    }//End Method
    
 }//End Class

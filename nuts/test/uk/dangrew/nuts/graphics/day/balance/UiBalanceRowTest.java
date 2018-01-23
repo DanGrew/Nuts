@@ -3,24 +3,31 @@ package uk.dangrew.nuts.graphics.day.balance;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
+import javafx.event.ActionEvent;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.day.DayPlan;
 
 public class UiBalanceRowTest {
 
+   @Mock private UiBalanceController controller;
    private DayPlan plan;
    private UiBalanceRow systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
+      MockitoAnnotations.initMocks( this );
+      
       plan = new DayPlan( LocalDate.now() );
-      systemUnderTest = new UiBalanceRow();
+      systemUnderTest = new UiBalanceRow( controller );
       
       systemUnderTest.setDayPlan( plan );
    }//End Method
@@ -88,6 +95,14 @@ public class UiBalanceRowTest {
       
       alternate.allowedCalories().set( 65.0 );
       assertThat( systemUnderTest.allowedCaloriesField().getText(), is( "65" ) );
+   }//End Method
+   
+   @Test public void shouldUseController(){
+      systemUnderTest.syncButton().getOnAction().handle( new ActionEvent() );
+      verify( controller ).syncCalories( plan );
+      
+      systemUnderTest.resetButton().getOnAction().handle( new ActionEvent() );
+      verify( controller ).resetBalance( plan );
    }//End Method
    
 }//End Class

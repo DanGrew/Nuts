@@ -24,6 +24,7 @@ public class UiBalanceSummary extends BorderPane {
    
    private final GridPane content;
    private final ScrollPane scroller;
+   private final UiBalanceController controller;
    
    private final List< UiBalanceRow > rows;
    
@@ -34,6 +35,7 @@ public class UiBalanceSummary extends BorderPane {
       this.scroller.setFitToWidth( true );
       this.setCenter( scroller );
       
+      this.controller = new UiBalanceController();
       this.dayPlans = dayPlans;
       this.rows = new ArrayList<>();
 
@@ -43,7 +45,7 @@ public class UiBalanceSummary extends BorderPane {
       
       content.add( new UiBalanceHeader(), 0, 0 );
       for ( int i = 0; i < NUMBER_OF_DAYS; i++ ) {
-         UiBalanceRow row = new UiBalanceRow();
+         UiBalanceRow row = new UiBalanceRow( controller );
          rows.add( row );
          content.add( row, 0, i + 1 );   
       }
