@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.graphics.day.balance;
 
 import java.time.LocalDate;
+import java.util.function.Function;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -72,15 +73,20 @@ public class UiBalanceRow extends GridPane {
       sync.setOnAction( e -> controller.syncCalories( plan ) );
       reset.setOnAction( e -> controller.resetBalance( plan ) );
       
+      Function< String, Double > propertyUpdater = input -> {
+         updateSpent( plan );
+         return conversions.stringToDoubleFunction().apply( input );
+      };
+      
       registrations.shutdown();
       registrations.apply( new ChangeListenerMismatchBindingImpl<>( 
                plan.consumedCalories(), consumedLabel.textProperty(), 
-               conversions.stringToDoubleFunction(), conversions.doubleToStringFunction()
+               propertyUpdater, conversions.doubleToStringFunction()
       ) );
       
       registrations.apply( new ChangeListenerMismatchBindingImpl<>( 
                plan.allowedCalories(), allowedLabel.textProperty(), 
-               conversions.stringToDoubleFunction(), conversions.doubleToStringFunction()
+               propertyUpdater, conversions.doubleToStringFunction()
       ) );
       
       registrations.apply( new ChangeListenerMismatchBindingImpl<>( 
@@ -98,6 +104,8 @@ public class UiBalanceRow extends GridPane {
       allowedLabel.setText( Double.toString( allowed ) );
       spentLabel.setText( Double.toString( spent ) );
       balanceLabel.setText( Double.toString( balance ) );
+      
+      updateSpent( plan );
       
       if ( plan.date().isEqual( LocalDate.now() ) ) {
          dateLabel.setBackground( styling.backgroundFor( Color.LIGHTGREEN ) );
@@ -117,6 +125,14 @@ public class UiBalanceRow extends GridPane {
          balanceLabel.setBackground( styling.backgroundFor( Color.WHITE ) );
       }
    }//End Method
+   
+   private void updateSpent( DayPlan plan ){
+      double consumed = plan.consumedCalories().get();
+      double allowed = plan.allowedCalories().get();
+      double spent = consumed - allowed;
+      
+      spentLabel.setText( Double.toString( spent ) );
+   }//End Method
 
    TextField consumedCaloriesField() {
       return consumedLabel;
@@ -128,6 +144,10 @@ public class UiBalanceRow extends GridPane {
 
    TextField calorieBalanceField() {
       return balanceLabel;
+   }//End Method
+   
+   TextField spentField() {
+      return spentLabel;
    }//End Method
 
    Button syncButton() {

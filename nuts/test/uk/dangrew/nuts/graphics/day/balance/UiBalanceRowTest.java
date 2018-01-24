@@ -105,4 +105,20 @@ public class UiBalanceRowTest {
       verify( controller ).resetBalance( plan );
    }//End Method
    
+   @Test public void shouldUpdateSpentWhenPropertiesChange(){
+      assertThat( systemUnderTest.spentField().getText(), is( "0.0" ) );
+      
+      plan.consumedCalories().set( 2000.0 );
+      assertThat( systemUnderTest.spentField().getText(), is( "2000.0" ) );
+      
+      plan.allowedCalories().set( 1500.0 );
+      assertThat( systemUnderTest.spentField().getText(), is( "500.0" ) );
+      
+      systemUnderTest.consumedCaloriesField().setText( "1000.0" );
+      assertThat( systemUnderTest.spentField().getText(), is( "-500.0" ) );
+      
+      systemUnderTest.allowedCaloriesField().setText( "2000.0" );
+      assertThat( systemUnderTest.spentField().getText(), is( "-1000.0" ) );
+   }//End Method
+   
 }//End Class
