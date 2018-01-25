@@ -25,9 +25,10 @@ import uk.dangrew.nuts.system.ConceptStore;
  */
 public class ConceptOptions< TypeT extends Concept > {
 
-   private final Comparator< TypeT > comparator;
    private final ObservableList< TypeT > options;
    private final ChangeListener< String > nameResponder;
+   
+   private Comparator< TypeT > comparator;
 
    /**
     * Constructs a new {@link ConceptOptions}.
@@ -61,6 +62,11 @@ public class ConceptOptions< TypeT extends Concept > {
    private void add( TypeT concept ) {
       options.add( concept );
       concept.properties().nameProperty().addListener( nameResponder );
+      sort();
+   }//End Method
+   
+   public void customSort( Comparator< TypeT > comparator ) {
+      this.comparator = comparator;
       sort();
    }//End Method
    

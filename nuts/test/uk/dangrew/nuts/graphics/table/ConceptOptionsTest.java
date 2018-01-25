@@ -12,6 +12,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
@@ -112,6 +113,36 @@ public class ConceptOptionsTest {
       assertThat( systemUnderTest.options(), contains( meal1, item3, item1, meal2, item2 ) );
       database.meals().store( meal3 );
       assertThat( systemUnderTest.options(), contains( meal1, item3, item1, meal2, meal3, item2 ) );
+   }//End Method
+   
+   @Test public void shouldCustomSortFood(){
+      systemUnderTest.customSort( ( a, b ) -> 
+         Comparators.reverseComparator( Comparators.STRING_ALPHABETICAL ).compare( 
+                     a.properties().nameProperty().get(), 
+                     b.properties().nameProperty().get() 
+      ) );
+      
+      FoodItem item1 = new FoodItem( "My Food" );
+      FoodItem item2 = new FoodItem( "Your Food" );
+      FoodItem item3 = new FoodItem( "His Food" );
+      
+      Meal meal1 = new Meal( "Her Food" );
+      Meal meal2 = new Meal( "Our Food" );
+      Meal meal3 = new Meal( "World Food" );
+      
+      database.foodItems().store( item1 );
+      assertThat( systemUnderTest.options(), contains( item1 ) );
+      database.foodItems().store( item2 );
+      assertThat( systemUnderTest.options(), contains( item2, item1 ) );
+      database.foodItems().store( item3 );
+      assertThat( systemUnderTest.options(), contains( item2, item1, item3  ) );
+      
+      database.meals().store( meal1 );
+      assertThat( systemUnderTest.options(), contains( item2, item1, item3, meal1 ) );
+      database.meals().store( meal2 );
+      assertThat( systemUnderTest.options(), contains( item2, meal2, item1, item3, meal1 ) );
+      database.meals().store( meal3 );
+      assertThat( systemUnderTest.options(), contains( item2, meal3, meal2, item1, item3, meal1 ) );
    }//End Method
    
    @Test public void shouldFindFirstMatch(){
