@@ -71,7 +71,7 @@
       "name": "2018-02-12",
       "id": "7a1e9e1b-9a90-4555-a7f5-768686f94701",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -417,7 +417,7 @@
       "name": "2018-01-31",
       "id": "12599cad-2a44-4a0c-8fbe-2b18210826c9",
       "consumedCalories": 0,
-      "calorieBalance": -6672,
+      "calorieBalance": -6134,
       "portions": []
    },
    {
@@ -524,7 +524,7 @@
       "name": "2018-02-14",
       "id": "61bd3359-9149-4e5d-a2a6-07249b98b48f",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -657,7 +657,7 @@
       "name": "2018-01-30",
       "id": "2702d9cb-8940-4e31-b312-832ceffb90e8",
       "consumedCalories": 2700,
-      "calorieBalance": -4372,
+      "calorieBalance": -3834,
       "portions": []
    },
    {
@@ -1092,7 +1092,7 @@
       "name": "2018-02-11",
       "id": "2df6db0c-20d1-4efb-9ec1-d0f4c12f900f",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -1191,7 +1191,7 @@
       "name": "2018-02-20",
       "id": "ae341163-6d4f-4c81-ac79-68f52e1ab6c3",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -1235,7 +1235,7 @@
       "name": "2018-02-07",
       "id": "bc279204-7825-41c3-b37a-7ad555f14867",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -1639,7 +1639,7 @@
       "name": "2018-02-18",
       "id": "0359a6e8-2ef3-48fc-b465-fe78cfca3057",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -1888,7 +1888,7 @@
       "name": "2018-02-10",
       "id": "2352159a-842c-4649-a85a-b421dde2e990",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -2070,7 +2070,7 @@
       "name": "2018-02-21",
       "id": "729fe2c5-9d8e-424d-a703-1c5d833b5bba",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -2220,7 +2220,7 @@
       "name": "2018-02-06",
       "id": "884af104-1804-45c8-a1a6-8b6fffd999f8",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -2388,13 +2388,44 @@
    {
       "date": "2018-01-27",
       "allowedCalories": 2300,
-      "goalId": "java.lang.Object@671c40e8",
+      "goalId": "0c82dd9f-1dc3-44dd-a7f0-e0ebba2fa8c6",
       "isBalanceReset": false,
       "name": "2018-01-27",
       "id": "75b09217-0884-49df-9789-7b37b8ea8d38",
-      "consumedCalories": 0,
-      "calorieBalance": -2872,
-      "portions": []
+      "consumedCalories": 2900,
+      "calorieBalance": 366,
+      "portions": [
+         {
+            "consumed": false,
+            "foodId": "e122657d-45fa-4c21-b82c-91241b2fce0e",
+            "portionValue": 1000
+         },
+         {
+            "consumed": false,
+            "foodId": "bb18c739-6e93-46a8-9585-87b471c41ef7",
+            "portionValue": 1000
+         },
+         {
+            "consumed": false,
+            "foodId": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
+            "portionValue": 200
+         },
+         {
+            "consumed": false,
+            "foodId": "77bf24dd-c233-4c70-bd8f-942a1f35112d",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "f66a1ac6-93dc-4790-88ab-282159f4141d",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "b5cf3432-a72a-4d3d-9d49-577a4a0f2796",
+            "portionValue": 100
+         }
+      ]
    },
    {
       "date": "2018-01-10",
@@ -2478,7 +2509,7 @@
       "name": "2018-02-23",
       "id": "12cdfa11-2c34-4da9-94c3-0b3a2a1daf7c",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -2679,7 +2710,7 @@
       "name": "2018-02-15",
       "id": "4532270a-a648-435a-9f1c-bbda3aa21453",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -3109,7 +3140,7 @@
       "name": "2018-02-13",
       "id": "8e69feb0-208d-49ab-af7d-701efe9ff0de",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -3198,7 +3229,7 @@
       "name": "2018-02-04",
       "id": "b883aba3-85ec-441d-84f5-312e5560b65a",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -3291,7 +3322,7 @@
       "name": "2018-01-29",
       "id": "18723ffe-f9a8-456c-936b-314991eef835",
       "consumedCalories": 0,
-      "calorieBalance": -4772,
+      "calorieBalance": -4234,
       "portions": []
    },
    {
@@ -3421,7 +3452,7 @@
       "name": "2018-01-26",
       "id": "c16e7d6c-71a9-41b2-84b6-66d37e65b315",
       "consumedCalories": 1466,
-      "calorieBalance": -572,
+      "calorieBalance": -234,
       "portions": [
          {
             "consumed": false,
@@ -3464,7 +3495,7 @@
       "name": "2018-02-16",
       "id": "4446ffd5-042e-4e09-9d4b-c1c5a5461574",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -3475,7 +3506,7 @@
       "name": "2018-02-02",
       "id": "548049eb-60ae-4bd0-8ef3-15832bf3075b",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -3778,7 +3809,7 @@
       "name": "2018-02-19",
       "id": "a9ec14d0-3f95-40c6-a31e-fb50a4d12558",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -4063,7 +4094,7 @@
       "name": "2018-02-05",
       "id": "d489710c-c6b7-4005-9084-7d3d3592f402",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -4107,7 +4138,7 @@
       "name": "2018-02-22",
       "id": "39b18a1a-fbf0-4ee6-a7a9-1a3604b911c6",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -4205,7 +4236,7 @@
       "name": "2018-02-08",
       "id": "af20c20a-f557-46b8-9cc3-9818ef8b4a93",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -4412,7 +4443,7 @@
       "name": "2018-02-09",
       "id": "b5424f43-bf2a-4737-820c-c3384e0d3d13",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -4574,7 +4605,7 @@
       "name": "2018-02-01",
       "id": "c12471be-95dc-4bec-8afa-2de617f02188",
       "consumedCalories": 2700,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -4585,7 +4616,7 @@
       "name": "2018-02-03",
       "id": "f99734a2-341a-47cd-94d3-ab6d02d467e3",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
@@ -4780,8 +4811,8 @@
       "isBalanceReset": false,
       "name": "2018-01-28",
       "id": "63315c91-b650-44e2-b30b-049d01e1df45",
-      "consumedCalories": 2700,
-      "calorieBalance": -2472,
+      "consumedCalories": 0,
+      "calorieBalance": -1934,
       "portions": []
    },
    {
@@ -4980,8 +5011,8 @@
       "isBalanceReset": false,
       "name": "2018-01-25",
       "id": "367412af-8a86-410d-a7b7-372217f6b1bf",
-      "consumedCalories": 3262,
-      "calorieBalance": 262,
+      "consumedCalories": 3600,
+      "calorieBalance": 600,
       "portions": [
          {
             "consumed": true,
@@ -5004,29 +5035,39 @@
             "portionValue": 200
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
             "portionValue": 200
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "4f799448-1364-4ac8-a047-4d950565fae9",
             "portionValue": 200
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "20c91d82-fb9c-45f0-885c-e8ac04827e75",
             "portionValue": 400
+         },
+         {
+            "consumed": true,
+            "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "949b7096-441a-4d30-96c9-2e2d0ca1f1b4",
+            "portionValue": 100
          }
       ]
    },
@@ -5183,7 +5224,7 @@
       "name": "2018-02-17",
       "id": "4aec7bbf-2f81-4bd4-8bff-14efd57fe8f4",
       "consumedCalories": 0,
-      "calorieBalance": -6272,
+      "calorieBalance": -5734,
       "portions": []
    },
    {
