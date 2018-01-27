@@ -69,6 +69,7 @@ public class UiFoodSelectionPaneTest {
    
    @Test public void shouldDetachTileWhenRemoved(){
       UiFoodTile tile = ( UiFoodTile ) systemUnderTest.grid().getChildren().get( 0 );
+      foods.remove( 0 );
       assertThat( tile.food(), is( nullValue() ) );
    }//End Method
 }//End Class
