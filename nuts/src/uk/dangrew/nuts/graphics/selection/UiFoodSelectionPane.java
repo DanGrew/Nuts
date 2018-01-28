@@ -1,11 +1,13 @@
 package uk.dangrew.nuts.graphics.selection;
 
-import javafx.collections.ObservableList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 
@@ -16,14 +18,14 @@ public class UiFoodSelectionPane extends BorderPane {
    private final ScrollPane scrollPane;
    private final GridPane grid;
    
-   private final ObservableList< Food > foods;
+   private final Map< Food, UiFoodTile > tiles;
    private final UiFoodSelectionController controller;
    
-   public UiFoodSelectionPane( ObservableList< Food > foods, UiFoodSelectionController controller ) {
+   public UiFoodSelectionPane( UiFoodSelectionController controller ) {
       JavaFxStyle styling = new JavaFxStyle();
       
-      this.foods = foods;
       this.controller = controller;
+      this.tiles = new HashMap<>();
       
       this.grid = new GridPane();
       this.grid.setHgap( 5 );
@@ -33,16 +35,9 @@ public class UiFoodSelectionPane extends BorderPane {
       
       styling.configureConstraintsForEvenColumns( grid, 5 );
       styling.configureConstraintsForEvenRows( grid, 10 );
-      
-      layoutTiles();
-      
-      foods.addListener( new FunctionListChangeListenerImpl<>( 
-               a -> layoutTiles(), r -> layoutTiles()  
-      ) );
    }//End Constructor
    
-   private void layoutTiles(){
-      grid.getChildren().forEach( n -> ( ( UiFoodTile )n ).detach() );
+   public void layoutTiles( List< Food > foods ){
       grid.getChildren().clear();
       grid.getRowConstraints().clear();
       
@@ -50,10 +45,16 @@ public class UiFoodSelectionPane extends BorderPane {
       int row = 0;
       
       for ( Food food : foods ) {
-         UiFoodTile tile = new UiFoodTile( new FoodPortion( food, 100 ), controller );
+         UiFoodTile tile = tiles.get( food );
+         if ( tile == null ) {
+            tile = new UiFoodTile( new FoodPortion( food, 100 ), controller );
+            tiles.put( food, tile );
+         }
+         //there is a memory leak here by not clearing the map, but it will be minimal
          grid.add( tile, column, row );
          
-         if ( column++ > COLUMN_NUMBER ) {
+         column++;
+         if ( column == COLUMN_NUMBER ) {
             row++;
             column = 0;
          }

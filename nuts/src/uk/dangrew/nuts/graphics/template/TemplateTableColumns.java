@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.goal.GoalStore;
-import uk.dangrew.nuts.graphics.table.ConceptOptions;
+import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
@@ -59,7 +59,7 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements Conce
                0.1, 
                r -> r.concept().goalAnalytics().goal(), 
                ( r, v ) -> r.concept().goalAnalytics().goal().set( v ),
-               new ConceptOptions<>( Arrays.asList( goals ) )
+               new ConceptOptionsImpl<>( Arrays.asList( goals ) )
       );
 
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.08, f -> f.properties().calories(), true );

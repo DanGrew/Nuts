@@ -12,13 +12,13 @@ public class UiMealFoodSelectionPane extends GridPane {
    
    public UiMealFoodSelectionPane( Meal meal, Database database ) {
       JavaFxStyle styling = new JavaFxStyle();
-      styling.configureConstraintsForRowPercentages( this, 20, 80 );
+      styling.configureConstraintsForRowPercentages( this, 30, 70 );
       styling.configureConstraintsForEvenColumns( this, 1 );
       
-      UiFoodSelectionController controller = new UiFoodSelectionController( meal );
+      UiFoodSelectionController controller = new UiFoodSelectionController( meal, database );
       
       add( table = new MealTableWithControls( "Meal", database ), 0, 0 );
-      add( new UiFoodSelectionTabs( database, controller ), 0, 1 );
+      add( new UiFoodSelectionView( database, controller ), 0, 1 );
       
       table.table().controller().showMeal( meal );
    }//End Constructor

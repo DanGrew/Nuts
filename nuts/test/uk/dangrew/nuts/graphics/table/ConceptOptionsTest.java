@@ -35,7 +35,7 @@ public class ConceptOptionsTest {
       meal2 = new Meal( "Meal2" );
       
       database = new Database();
-      systemUnderTest = new ConceptOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      systemUnderTest = new ConceptOptionsImpl<>( Arrays.asList( database.foodItems(), database.meals() ) );
    }//End Method
 
    @Test public void shouldProvideCombinedFoods() {
@@ -170,7 +170,7 @@ public class ConceptOptionsTest {
    @Test public void shouldPopulateFoodsInitially(){
       database.foodItems().store( foodItem1 );
       database.meals().store( meal1 );
-      systemUnderTest = new ConceptOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      systemUnderTest = new ConceptOptionsImpl<>( Arrays.asList( database.foodItems(), database.meals() ) );
       assertThat( systemUnderTest.options(), contains( foodItem1, meal1 ) );
    }//End Method
    
@@ -179,7 +179,7 @@ public class ConceptOptionsTest {
       
       database.foodItems().store( foodItem1 );
       database.meals().store( meal1 );
-      systemUnderTest = new ConceptOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      systemUnderTest = new ConceptOptionsImpl<>( Arrays.asList( database.foodItems(), database.meals() ) );
       assertThat( systemUnderTest.first(), is( foodItem1 ) );
    }//End Method
    

@@ -2408,5 +2408,15 @@
       "name": "Calories (100)",
       "id": "e122657d-45fa-4c21-b82c-91241b2fce0e",
       "calories": 100
+   },
+   {
+      "carbohydrates": 14,
+      "fats": 16.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 8.4,
+      "name": "Eat Natural Bar",
+      "id": "e160d4b8-bc39-403a-a057-c9781520d7c9",
+      "calories": 238
    }
 ]}

@@ -13,6 +13,7 @@ import java.util.Arrays;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.ConceptOptions;
+import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
@@ -44,7 +45,7 @@ public class MealTableColumns implements ConceptTableColumnsPopulator< FoodPorti
     */
    public MealTableColumns( Database database ) {
       this.configuration = new TableConfiguration();
-      this.conceptOptions = new ConceptOptions<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      this.conceptOptions = new ConceptOptionsImpl<>( Arrays.asList( database.foodItems(), database.meals() ) );
    }//End Constructor
    
    /**
