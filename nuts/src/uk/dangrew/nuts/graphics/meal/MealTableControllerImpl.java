@@ -11,27 +11,37 @@ package uk.dangrew.nuts.graphics.meal;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.FriendlyTableView;
+import uk.dangrew.nuts.graphics.main.OpenTabEvent;
+import uk.dangrew.nuts.graphics.main.TabDefinition;
+import uk.dangrew.nuts.graphics.selection.UiMealFoodSelectionPane;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.store.Database;
 
 /**
  * The {@link MealTableController} is responsible for controlling and updating the {@link MealTable}.
  */
 public class MealTableControllerImpl implements MealTableController {
 
+   private final Database database;
    private final FunctionListChangeListenerImpl< FoodPortion > mealListener;
+   private final OpenTabEvent openTabEvents;
    
    private FriendlyTableView< ConceptTableRow< FoodPortion > > table;
    private Meal meal;
    
-   /**
-    * Constructs a new {@link MealTableController}.
-    */
-   public MealTableControllerImpl() {
+   public MealTableControllerImpl( Database database ) {
+      this( database, new OpenTabEvent() );
+   }//End Constructor
+   
+   MealTableControllerImpl( Database database, OpenTabEvent openTabEvents ) {
+      this.database = database;
+      this.openTabEvents = openTabEvents;
       this.mealListener = new FunctionListChangeListenerImpl<>( 
                this::portionAddedToMeal, this::portionRemovedFromMeal 
       );
@@ -159,6 +169,16 @@ public class MealTableControllerImpl implements MealTableController {
       meal.swap( first, second );
       
       table.getSelectionModel().select( rowIndex + 1 );
+   }//End Method
+   
+   @Override public void openTab() {
+      if ( getShowingMeal() == null ) {
+         return;
+      }
+      openTabEvents.fire( new Event<>( new TabDefinition( 
+               meal.properties().nameProperty().get(), 
+               new UiMealFoodSelectionPane( meal, database ) 
+      ) ) );
    }//End Method
    
 }//End Class

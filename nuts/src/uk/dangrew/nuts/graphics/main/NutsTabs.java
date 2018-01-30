@@ -18,27 +18,33 @@ import uk.dangrew.nuts.store.Database;
 public class NutsTabs extends TabPane {
 
    public NutsTabs( Database database ) {
-      createTab( "Nutrition", new InformationPane() );
-      createTab( "Goals", new GoalManagerPane( database ) );
-      createTab( "Database", new FoodManagerPane( database ) );
-      createTab( "Templates", new TemplateManagerPane( database ) );
-      createTab( "Day Plans", new UiCalendarPane( database ) );
-      createTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );
-      createTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );
-      createTab( "Weigh Ins", new WeightRecordingsPane( database.weightProgress() ) );
-      createTab( "Tools", new TitledPane( "Dry Weight Conversion", new DryWeightToolPane() ) );
+      createConcreteTab( "Nutrition", new InformationPane() );
+      createConcreteTab( "Goals", new GoalManagerPane( database ) );
+      createConcreteTab( "Database", new FoodManagerPane( database ) );
+      createConcreteTab( "Templates", new TemplateManagerPane( database ) );
+      createConcreteTab( "Day Plans", new UiCalendarPane( database ) );
+      createConcreteTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );
+      createConcreteTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );
+      createConcreteTab( "Weigh Ins", new WeightRecordingsPane( database.weightProgress() ) );
+      createConcreteTab( "Tools", new TitledPane( "Dry Weight Conversion", new DryWeightToolPane() ) );
+      
+      new OpenTabEvent().register( e -> open( e.getValue() ) );
    }//End Constructor
    
-   /**
-    * Creates a {@link Tab} and adds it to the {@link TabPane}.
-    * @param title the title of the {@link Tab}.
-    * @param content the {@link Node} content.
-    */
-   private void createTab( String title, Node content ) {
+   private void createConcreteTab( String title, Node content ) {
+      createTab( title, content, false );
+   }//End Method
+   
+   private void createTab( String title, Node content, boolean closeable ) {
       Tab tab = new Tab( title );
-      tab.setClosable( false );
+      tab.setClosable( closeable );
       tab.setContent( content );
       getTabs().add( tab );
+      getSelectionModel().select( tab );
+   }//End Method
+   
+   private void open( TabDefinition tab ) {
+      createTab( tab.title(), tab.node(), true );
    }//End Method
    
 }//End Class

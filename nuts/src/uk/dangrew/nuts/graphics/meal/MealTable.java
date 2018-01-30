@@ -22,11 +22,11 @@ public class MealTable extends ConceptTable< FoodPortion > {
     * @param database the {@link Database}.
     */
    public MealTable( Database database ) {
-      super( new MealTableColumns( database ), new MealTableControllerImpl() );
+      super( new MealTableColumns( database ), new MealTableControllerImpl( database ) );
    }//End Constructor
    
-   public MealTable( MealTableColumns columns ) {
-      super( columns, new MealTableControllerImpl() );
+   public MealTable( Database database, MealTableColumns columns ) {
+      super( columns, new MealTableControllerImpl( database ) );
    }//End Constructor
    
    /**

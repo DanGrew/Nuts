@@ -51,7 +51,7 @@ public class UiCalendarPane extends GridPane {
 
       add( uiCalendar, 0, 0 );
       add( templatesTable = new TemplateTable( database, new UnresponsiveConceptTableController<>() ), 0, 1 );
-      MealTable tableWithConsumption = new MealTable( new UiDayPlanMealTableColumns( database, consumptionProperties ) );
+      MealTable tableWithConsumption = new MealTable( database, new UiDayPlanMealTableColumns( database, consumptionProperties ) );
       add( templateView = new MealTableWithControls( "Selected Day", tableWithConsumption ), 0, 2 );
       add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 3 );
       

@@ -2,15 +2,27 @@ package uk.dangrew.nuts.graphics.meal;
 
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
+import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.main.OpenTabEvent;
+import uk.dangrew.nuts.graphics.main.TabDefinition;
+import uk.dangrew.nuts.graphics.selection.UiMealFoodSelectionPane;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
@@ -20,20 +32,25 @@ public class MealTableControllerImplTest {
    private FoodPortion portion2;
    private FoodPortion portion3;
    
+   @Mock private OpenTabEvent openTabEvents;
+   @Captor private ArgumentCaptor< Event< TabDefinition > > eventCaptor;
+   
    private Meal meal;
    private MealTable table; 
    private MealTableControllerImpl systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
+      MockitoAnnotations.initMocks( this );
       
       meal = new Meal( "Meal" );
       meal.portions().add( portion1 = new FoodPortion( new FoodItem( "Food1" ), 100 ) );
       meal.portions().add( portion2 = new FoodPortion( new FoodItem( "Food2" ), 200 ) );
       meal.portions().add( portion3 = new FoodPortion( new FoodItem( "Food3" ), 50 ) );
       
-      table = new MealTable( new Database() );
-      systemUnderTest = new MealTableControllerImpl();
+      Database database = new Database();
+      table = new MealTable( database );
+      systemUnderTest = new MealTableControllerImpl( database, openTabEvents );
       systemUnderTest.associate( table );
       
       systemUnderTest.showMeal( meal );
@@ -102,6 +119,19 @@ public class MealTableControllerImplTest {
       for ( int i = 0; i < foodPortions.length; i++ ) {
          assertThat( table.getRows().get( i ).concept(), is( foodPortions[ i ] ) );
       }
+   }//End Method
+   
+   @Test public void shouldOpenTab() {
+      systemUnderTest.openTab();
+      verify( openTabEvents ).fire( eventCaptor.capture() );
+      assertThat( eventCaptor.getValue().getValue().title(), is( meal.properties().nameProperty().get() ) );
+      assertThat( eventCaptor.getValue().getValue().node(), is( instanceOf( UiMealFoodSelectionPane.class ) ) );
+   }//End Method
+   
+   @Test public void shouldNotOpenTabWhenNoSelection() {
+      systemUnderTest.showMeal( null );
+      systemUnderTest.openTab();
+      verify( openTabEvents, never() ).fire( Mockito.any() );
    }//End Method
 
 }//End Class

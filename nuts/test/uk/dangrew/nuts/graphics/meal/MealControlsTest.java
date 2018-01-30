@@ -52,6 +52,7 @@ public class MealControlsTest {
    @Test public void shouldProvideButtons() {
       assertThat( systemUnderTest.getChildren(), contains(
                systemUnderTest.upButton(),
+               systemUnderTest.openButton(),
                systemUnderTest.addButton(), 
                systemUnderTest.copyButton(),
                systemUnderTest.removeButton(),
@@ -61,6 +62,10 @@ public class MealControlsTest {
       Node addGraphic = systemUnderTest.addButton().getGraphic();
       MaterialDesignIconView addGlyph = ( MaterialDesignIconView ) addGraphic;
       assertThat( addGlyph.getGlyphName(), is( MaterialDesignIcon.PLUS.name() ) );
+      
+      Node openGraphic = systemUnderTest.openButton().getGraphic();
+      MaterialDesignIconView openGlyph = ( MaterialDesignIconView ) openGraphic;
+      assertThat( openGlyph.getGlyphName(), is( MaterialDesignIcon.VIEW_GRID.name() ) );
       
       Node removeGraphic = systemUnderTest.removeButton().getGraphic();
       MaterialDesignIconView removeGlyph = ( MaterialDesignIconView ) removeGraphic;
@@ -78,10 +83,12 @@ public class MealControlsTest {
       MaterialDesignIconView downGlyph = ( MaterialDesignIconView ) downGraphic;
       assertThat( downGlyph.getGlyphName(), is( MaterialDesignIcon.CHEVRON_DOWN.name() ) );
       
-      verify( styling, times( 5 ) ).createGlyphButton( Mockito.any() );
+      verify( styling, times( 6 ) ).createGlyphButton( Mockito.any() );
       
       assertThat( systemUnderTest.addButton().getPrefHeight(), is( MealControls.BUTTON_WIDTH ) );
       assertThat( systemUnderTest.addButton().getPrefWidth(), is( MealControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.openButton().getPrefHeight(), is( MealControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.openButton().getPrefWidth(), is( MealControls.BUTTON_WIDTH ) );
       assertThat( systemUnderTest.removeButton().getPrefHeight(), is( MealControls.BUTTON_WIDTH ) );
       assertThat( systemUnderTest.removeButton().getPrefWidth(), is( MealControls.BUTTON_WIDTH ) );
       assertThat( systemUnderTest.copyButton().getPrefHeight(), is( MealControls.BUTTON_WIDTH ) );
@@ -95,6 +102,9 @@ public class MealControlsTest {
    @Test public void shouldDirectCallsToCallBack() {
       systemUnderTest.addButton().fire();
       verify( callBack ).createConcept();
+      
+      systemUnderTest.openButton().fire();
+      verify( callBack ).openTab();
       
       systemUnderTest.removeButton().fire();
       verify( callBack ).removeSelectedConcept();
