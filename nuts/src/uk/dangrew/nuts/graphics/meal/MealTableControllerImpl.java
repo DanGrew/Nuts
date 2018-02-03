@@ -15,33 +15,28 @@ import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.FriendlyTableView;
-import uk.dangrew.nuts.graphics.main.OpenTabEvent;
-import uk.dangrew.nuts.graphics.main.TabDefinition;
-import uk.dangrew.nuts.graphics.selection.UiMealFoodSelectionPane;
+import uk.dangrew.nuts.graphics.selection.FoodSelectionForMealEvent;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.store.Database;
 
 /**
  * The {@link MealTableController} is responsible for controlling and updating the {@link MealTable}.
  */
 public class MealTableControllerImpl implements MealTableController {
 
-   private final Database database;
    private final FunctionListChangeListenerImpl< FoodPortion > mealListener;
-   private final OpenTabEvent openTabEvents;
+   private final FoodSelectionForMealEvent mealSelectionEvents;
    
    private FriendlyTableView< ConceptTableRow< FoodPortion > > table;
    private Meal meal;
    
-   public MealTableControllerImpl( Database database ) {
-      this( database, new OpenTabEvent() );
+   public MealTableControllerImpl() {
+      this( new FoodSelectionForMealEvent() );
    }//End Constructor
    
-   MealTableControllerImpl( Database database, OpenTabEvent openTabEvents ) {
-      this.database = database;
-      this.openTabEvents = openTabEvents;
+   MealTableControllerImpl( FoodSelectionForMealEvent selectionEvents ) {
+      this.mealSelectionEvents = selectionEvents;
       this.mealListener = new FunctionListChangeListenerImpl<>( 
                this::portionAddedToMeal, this::portionRemovedFromMeal 
       );
@@ -103,9 +98,7 @@ public class MealTableControllerImpl implements MealTableController {
     */
    @Override public FoodPortion createConcept() {
       if ( meal != null ) {
-         FoodPortion portion = new FoodPortion();
-         meal.portions().add( portion );
-         return portion;
+         mealSelectionEvents.fire( new Event<>( getShowingMeal() ) );
       }
       
       return null;
@@ -169,16 +162,6 @@ public class MealTableControllerImpl implements MealTableController {
       meal.swap( first, second );
       
       table.getSelectionModel().select( rowIndex + 1 );
-   }//End Method
-   
-   @Override public void openTab() {
-      if ( getShowingMeal() == null ) {
-         return;
-      }
-      openTabEvents.fire( new Event<>( new TabDefinition( 
-               meal.properties().nameProperty().get(), 
-               new UiMealFoodSelectionPane( meal, database ) 
-      ) ) );
    }//End Method
    
 }//End Class

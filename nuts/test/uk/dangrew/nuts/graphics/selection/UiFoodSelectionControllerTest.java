@@ -1,13 +1,14 @@
 package uk.dangrew.nuts.graphics.selection;
 
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,8 +17,8 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.template.Template;
 
 public class UiFoodSelectionControllerTest {
 
@@ -26,7 +27,7 @@ public class UiFoodSelectionControllerTest {
    private FoodItem beans;
    private FoodItem sausages;
    
-   private Meal meal;
+   private Template liveSelection;
    @Mock private UiFoodSelectionPane pane;
    
    private UiFoodSelectionController systemUnderTest;
@@ -34,7 +35,7 @@ public class UiFoodSelectionControllerTest {
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
       
-      meal = new Meal( "Meal" );
+      liveSelection = new Template( "Live Selection" );
       
       database = new Database();
       chicken = database.foodItems().createConcept( "Chicken" );
@@ -44,19 +45,10 @@ public class UiFoodSelectionControllerTest {
       sausages = database.foodItems().createConcept( "Sausages" );
       sausages.foodAnalytics().proteinRatioProperty().set( 20.0 );
       
-      systemUnderTest = new UiFoodSelectionController( meal, database );
+      systemUnderTest = new UiFoodSelectionController( database, liveSelection );
       systemUnderTest.controlSelection( pane );
    }//End Method
 
-   @Test public void shouldAddPortionToMealByDuplicating() {
-      FoodPortion portion = new FoodPortion( new FoodItem( "anything" ), 134.4 );
-      systemUnderTest.addPortion( portion );
-      assertThat( meal.portions(), hasSize( 1 ) );
-      assertThat( meal.portions().get( 0 ), is( not( portion ) ) );
-      assertThat( meal.portions().get( 0 ).food().get(), is( portion.food().get() ) );
-      assertThat( meal.portions().get( 0 ).portion().get(), is( portion.portion().get() ) );
-   }//End Method
-   
    @Test public void shouldInvertSortingOnOptions(){
       verify( pane ).layoutTiles( Arrays.asList( beans, chicken, sausages ) );
       
@@ -95,6 +87,50 @@ public class UiFoodSelectionControllerTest {
       
       database.foodItems().removeConcept( chicken );
       verify( pane, times( 3 ) ).layoutTiles( Arrays.asList( beans, sausages, xyz ) );
+   }//End Method
+   
+   @Test public void shouldProvideSelection(){
+      FoodPortion portion = new FoodPortion();
+      assertThat( systemUnderTest.isSelected( portion ), is( false ) );
+      assertThat( liveSelection.portions().contains( portion ), is( false ) );
+      
+      systemUnderTest.select( portion );
+      verify( pane ).setSelected( portion, true );
+      assertThat( systemUnderTest.isSelected( portion ), is( true ) );
+      assertThat( liveSelection.portions().contains( portion ), is( true ) );
+      
+      systemUnderTest.deselect( portion );
+      verify( pane ).setSelected( portion, false );
+      assertThat( systemUnderTest.isSelected( portion ), is( false ) );
+      assertThat( liveSelection.portions().contains( portion ), is( false ) );
+   }//End Method
+   
+   @Test public void shouldAvoidUnnecessaryPaneCalls(){
+      FoodPortion portion = new FoodPortion();
+      systemUnderTest.select( portion );
+      systemUnderTest.select( portion );
+      verify( pane, times( 1 ) ).setSelected( portion, true );
+      
+      systemUnderTest.deselect( portion );
+      systemUnderTest.deselect( portion );
+      verify( pane, times( 1 ) ).setSelected( portion, false );
+   }//End Method
+   
+   @Test public void shouldGetAndClearSelection(){
+      FoodPortion portion1 = new FoodPortion( chicken, 100 );
+      FoodPortion portion2 = new FoodPortion( sausages, 125 );
+      FoodPortion portion3 = new FoodPortion( beans, 75 );
+      
+      systemUnderTest.select( portion1 );
+      systemUnderTest.select( portion2 );
+      systemUnderTest.select( portion3 );
+      
+      Set< FoodPortion > selected = systemUnderTest.getAndClearSelection();
+      assertThat( selected, contains( portion1, portion2, portion3 ) );
+      assertThat( systemUnderTest.isSelected( portion1 ), is( false ) );
+      assertThat( systemUnderTest.isSelected( portion2 ), is( false ) );
+      assertThat( systemUnderTest.isSelected( portion3 ), is( false ) );
+      assertThat( systemUnderTest.getAndClearSelection(), is( empty() ) );
    }//End Method
    
 }//End Class

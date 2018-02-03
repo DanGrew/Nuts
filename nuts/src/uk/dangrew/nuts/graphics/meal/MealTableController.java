@@ -22,7 +22,5 @@ public interface MealTableController extends ConceptTableController< FoodPortion
 
    public void moveDown();
    
-   public void openTab();
-
 }//End Interface
 

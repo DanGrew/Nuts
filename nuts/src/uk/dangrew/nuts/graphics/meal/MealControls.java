@@ -20,7 +20,6 @@ public class MealControls extends ConceptControls {
    static final double BUTTON_WIDTH = ConceptControls.BUTTON_WIDTH;
    
    private final Button up;
-   private final Button open;
    private final Button down;
    
    public MealControls( MealTableController controller ) {
@@ -31,19 +30,15 @@ public class MealControls extends ConceptControls {
       super( styling, controller );
       
       MaterialDesignIconView upGlyph = new MaterialDesignIconView( MaterialDesignIcon.CHEVRON_UP );
-      MaterialDesignIconView openGlyph = new MaterialDesignIconView( MaterialDesignIcon.VIEW_GRID );
       MaterialDesignIconView downGlyph = new MaterialDesignIconView( MaterialDesignIcon.CHEVRON_DOWN );
       
       getChildren().add( 0, up = styling.createGlyphButton( upGlyph ) );
-      getChildren().add( 1, open = styling.createGlyphButton( openGlyph ) );
       getChildren().add( down = styling.createGlyphButton( downGlyph ) );
       
       up.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
-      open.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
       down.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
       
       up.setOnAction( e -> controller.moveUp() );
-      open.setOnAction( e -> controller.openTab() );
       down.setOnAction( e -> controller.moveDown() );
    }//End Constructor
    
@@ -51,10 +46,6 @@ public class MealControls extends ConceptControls {
       return up;
    }//End Method
    
-   Button openButton() {
-      return open;
-   }//End Method
-
    Button downButton() {
       return down;
    }//End Method

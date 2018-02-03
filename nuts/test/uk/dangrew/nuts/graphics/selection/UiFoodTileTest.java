@@ -1,10 +1,10 @@
 package uk.dangrew.nuts.graphics.selection;
 
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.kode.utility.mouse.TestMouseEvent;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 
@@ -34,18 +35,24 @@ public class UiFoodTileTest {
       systemUnderTest = new UiFoodTile( food, controller, title, macros, control );
    }//End Method
 
-   @Test public void shouldDetachListeners() {
-      assertThat( systemUnderTest.food(), is( food ) );
-      systemUnderTest.detach();
-      verify( title ).detach();
-      verify( macros ).detach();
-      verify( control ).detach();
-      assertThat( systemUnderTest.food(), is( nullValue() ) );
+   @Test public void shouldSelectPortion(){
+      systemUnderTest.getOnMouseClicked().handle( new TestMouseEvent() );
+      verify( controller ).select( food );
+      
+      when( controller.isSelected( food ) ).thenReturn( true );
+      
+      systemUnderTest.getOnMouseClicked().handle( new TestMouseEvent() );
+      verify( controller ).deselect( food );
    }//End Method
    
-   @Test public void shouldAddPortion(){
-      systemUnderTest.addButton().fire();
-      verify( controller ).addPortion( food );
+   @Test public void shouldShowSelection(){
+      assertThat( systemUnderTest.getBackground().getFills().get( 0 ).getFill(), is( UiFoodTile.DESELECTED_BACKGROUND ) );
+      
+      systemUnderTest.setSelected( true );
+      assertThat( systemUnderTest.getBackground().getFills().get( 0 ).getFill(), is( UiFoodTile.SELECTED_BACKGROUND ) );
+      
+      systemUnderTest.setSelected( false );
+      assertThat( systemUnderTest.getBackground().getFills().get( 0 ).getFill(), is( UiFoodTile.DESELECTED_BACKGROUND ) );
    }//End Method
 
 }//End Class

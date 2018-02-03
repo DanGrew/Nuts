@@ -27,8 +27,6 @@ public class NutsTabs extends TabPane {
       createConcreteTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );
       createConcreteTab( "Weigh Ins", new WeightRecordingsPane( database.weightProgress() ) );
       createConcreteTab( "Tools", new TitledPane( "Dry Weight Conversion", new DryWeightToolPane() ) );
-      
-      new OpenTabEvent().register( e -> open( e.getValue() ) );
    }//End Constructor
    
    private void createConcreteTab( String title, Node content ) {
@@ -40,11 +38,5 @@ public class NutsTabs extends TabPane {
       tab.setClosable( closeable );
       tab.setContent( content );
       getTabs().add( tab );
-      getSelectionModel().select( tab );
    }//End Method
-   
-   private void open( TabDefinition tab ) {
-      createTab( tab.title(), tab.node(), true );
-   }//End Method
-   
 }//End Class

@@ -15,9 +15,6 @@ import javafx.collections.ObservableList;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.manual.data.DataLocation;
-import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.store.Database;
 
 public class UiFoodSelectionPaneTest {
 
@@ -62,5 +59,9 @@ public class UiFoodSelectionPaneTest {
       UiFoodTile tile = ( UiFoodTile ) systemUnderTest.grid().getChildren().get( 0 );
       foods.remove( 0 );
       assertThat( tile.food(), is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldSelectAppropriateTile(){
+      //should really test this but trivial operation and not so trivial test
    }//End Method
 }//End Class

@@ -60,7 +60,15 @@ public class UiFoodSelectionPane extends BorderPane {
          }
       }
    }//End Method
-   
+
+   public void setSelected( FoodPortion portion, boolean selected ) {
+      UiFoodTile tile = tiles.get( portion.food().get() );
+      if ( tile == null ) {
+         return;
+      }
+      tile.setSelected( selected );
+   }//End Method
+
    GridPane grid(){
       return grid;
    }//End Method

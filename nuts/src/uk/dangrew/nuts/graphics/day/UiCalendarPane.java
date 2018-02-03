@@ -16,6 +16,7 @@ import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.meal.MealTableWithControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.template.TemplateTable;
+import uk.dangrew.nuts.graphics.template.TemplateTableController;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
@@ -51,7 +52,10 @@ public class UiCalendarPane extends GridPane {
 
       add( uiCalendar, 0, 0 );
       add( templatesTable = new TemplateTable( database, new UnresponsiveConceptTableController<>() ), 0, 1 );
-      MealTable tableWithConsumption = new MealTable( database, new UiDayPlanMealTableColumns( database, consumptionProperties ) );
+      MealTable tableWithConsumption = new MealTable( 
+               new UiDayPlanMealTableColumns( database, consumptionProperties ), 
+               new TemplateTableController() 
+      );
       add( templateView = new MealTableWithControls( "Selected Day", tableWithConsumption ), 0, 2 );
       add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 3 );
       

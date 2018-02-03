@@ -266,5 +266,24 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "goalId": "single-goal-no-id-provided-unique",
+      "name": "Coming Off Fast",
+      "id": "0c35b6e9-ea92-4f13-a253-eb819c7afe0a",
+      "portions": [
+         {
+            "foodId": "e6ccf087-e2f5-45b9-b58a-518c2981e6da",
+            "portionValue": 100
+         },
+         {
+            "foodId": "71376593-3eb5-4095-8009-9e88a8ff6da0",
+            "portionValue": 100
+         },
+         {
+            "foodId": "20c91d82-fb9c-45f0-885c-e8ac04827e75",
+            "portionValue": 400
+         }
+      ]
    }
 ]}

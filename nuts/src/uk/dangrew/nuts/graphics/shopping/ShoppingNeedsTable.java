@@ -26,7 +26,7 @@ public class ShoppingNeedsTable extends ConceptTable< FoodPortion > {
     * @param shoppingList the shopping list to show.
     */
    public ShoppingNeedsTable( Database database, Meal shoppingList ) {
-      super( new ShoppingNeedsTableColumns( database ), new MealTableControllerImpl( database ) );
+      super( new ShoppingNeedsTableColumns( database ), new MealTableControllerImpl() );
       controller().showMeal( shoppingList );
    }//End Constructor
    

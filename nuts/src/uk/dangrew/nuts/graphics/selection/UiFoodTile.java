@@ -1,22 +1,23 @@
 package uk.dangrew.nuts.graphics.selection;
 
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.FoodPortion;
 
 public class UiFoodTile extends GridPane {
    
-   private FoodPortion food;
+   static final Color DESELECTED_BACKGROUND = Color.WHITE;
+   static final Color SELECTED_BACKGROUND = Color.YELLOW;
    
+   private final JavaFxStyle styling;
+   private final FoodPortion food;
+   private final UiFoodSelectionController controller;
    private final UiFoodTileTitle title;
    private final UiFoodTileMacros macros;
    private final UiFoodTilePortionControl control;
-   private final Button add;
    
    public UiFoodTile( FoodPortion food, UiFoodSelectionController controller ) {
       this( 
@@ -36,44 +37,46 @@ public class UiFoodTile extends GridPane {
             UiFoodTilePortionControl control 
    ) {
       this.food = food;
+      this.controller = controller;
       this.title = title;
       this.macros = macros;
       this.control = control;
       
+      this.styling = new JavaFxStyle();
+      this.styling.configureConstraintsForRowPercentages( this, 40, 30, 10, 20 );
+      this.styling.configureConstraintsForEvenColumns( this, 1 );
+      
       this.setPadding( new Insets( 20 ) );
       this.setPrefHeight( 20 );
-      
-      JavaFxStyle styling = new JavaFxStyle();
-      styling.configureConstraintsForRowPercentages( this, 20, 30, 20, 10, 20 );
-      styling.configureConstraintsForEvenColumns( this, 1 );
-      
-      this.setBackground( styling.backgroundFor( Color.WHITE ) );
+
+      this.setSelected( false );
       this.setBorder( styling.borderFor( Color.BLACK, 2 ) );
       
-      this.add = new Button( "+" );
-      this.add.setOnAction( e -> controller.addPortion( food ) );
-      this.add.setShape( new Circle( 20 ) );
-      this.add( add, 0, 0 );
-      GridPane.setHalignment( add, HPos.RIGHT );
+      this.add( title, 0, 0 );
+      this.add( macros, 0, 1 );
+      this.add( control, 0, 3 );
       
-      this.add( title, 0, 1 );
-      this.add( macros, 0, 2 );
-      this.add( control, 0, 4 );
+      this.setOnMouseClicked( this::clicked );
    }//End Constructor
+   
+   private void clicked( MouseEvent event ) {
+      if ( controller.isSelected( food ) ) {
+         controller.deselect( food );
+      } else {
+         controller.select( food );
+      }
+   }//End Method
+   
+   public void setSelected( boolean selected ) {
+      if ( selected ) {
+         setBackground( styling.backgroundFor( SELECTED_BACKGROUND ) );
+      } else {
+         setBackground( styling.backgroundFor( DESELECTED_BACKGROUND ) );
+      }
+   }//End Method
 
    public FoodPortion food() {
       return food;
-   }//End Method
-
-   public void detach() {
-      food = null;
-      title.detach();
-      macros.detach();
-      control.detach();
-   }//End Method
-   
-   Button addButton(){
-      return add;
    }//End Method
 
 }//End Class

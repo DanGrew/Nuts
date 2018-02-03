@@ -2418,5 +2418,35 @@
       "name": "Eat Natural Bar",
       "id": "e160d4b8-bc39-403a-a057-c9781520d7c9",
       "calories": 238
+   },
+   {
+      "carbohydrates": 21.2,
+      "fats": 17.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 3.8,
+      "name": "Cheeseacke (T, New York) (1/6)",
+      "id": "6db26e55-4a64-4e61-ad33-de234e56d480",
+      "calories": 262
+   },
+   {
+      "carbohydrates": 25.8,
+      "fats": 7.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 4.1,
+      "name": "Gateaux (T, Double Choc) (1/8)",
+      "id": "ead28dfc-ed65-4185-9067-7ad145c90e2a",
+      "calories": 191
+   },
+   {
+      "carbohydrates": 63.3,
+      "fats": 27.7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 5.2,
+      "name": "Easter Egg (Smarties) (100g)",
+      "id": "7047848e-b0d0-4dd7-a9bb-99eb94a73fef",
+      "calories": 526
    }
 ]}

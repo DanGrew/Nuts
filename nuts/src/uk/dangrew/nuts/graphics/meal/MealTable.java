@@ -17,16 +17,16 @@ import uk.dangrew.nuts.store.Database;
  */
 public class MealTable extends ConceptTable< FoodPortion > {
 
-   /**
-    * Constructs a new {@link MealTable}.
-    * @param database the {@link Database}.
-    */
    public MealTable( Database database ) {
-      super( new MealTableColumns( database ), new MealTableControllerImpl( database ) );
+      super( new MealTableColumns( database ), new MealTableControllerImpl() );
    }//End Constructor
    
-   public MealTable( Database database, MealTableColumns columns ) {
-      super( columns, new MealTableControllerImpl( database ) );
+   public MealTable( MealTableColumns columns ) {
+      super( columns, new MealTableControllerImpl() );
+   }//End Constructor
+   
+   public MealTable( MealTableColumns columns, MealTableController controller ) {
+      super( columns, controller );
    }//End Constructor
    
    /**
