@@ -33,6 +33,7 @@ public class FoodSessions {
    static final String TEMPLATE_FILE_NAME = "plans.json";
    static final String DAY_PLANS_FILE_NAME = "dayplans.json";
    static final String SHOPPING_LISTS_FILE_NAME = "shoppingLists.json";
+   static final String STOCK_LISTS_FILE_NAME = "stockLists.json";
    static final String WEIGHT_RECORDING_FILE_NAME = "weightRecordings.json";
    static final String GOALS_FILE_NAME = "goals.json";
    
@@ -52,6 +53,7 @@ public class FoodSessions {
    private final ModelMarshaller templatesMarshaller;
    private final ModelMarshaller dayPlansMarshaller;
    private final ModelMarshaller shoppingListMarshaller;
+   private final ModelMarshaller stockListMarshaller;
    private final ModelMarshaller weightRecordingMarshaller;
    private final ModelMarshaller goalMarshaller;
    
@@ -82,6 +84,9 @@ public class FoodSessions {
                         FOLDER_NAME, SHOPPING_LISTS_FILE_NAME, Nuts.class 
                ),
                new JarJsonPersistingProtocol( 
+                        FOLDER_NAME, STOCK_LISTS_FILE_NAME, Nuts.class 
+               ),
+               new JarJsonPersistingProtocol( 
                         FOLDER_NAME, WEIGHT_RECORDING_FILE_NAME, Nuts.class 
                ),
                new JarJsonPersistingProtocol( 
@@ -100,6 +105,7 @@ public class FoodSessions {
             JarJsonPersistingProtocol planFileLocation,
             JarJsonPersistingProtocol dayPlanFileLocation,
             JarJsonPersistingProtocol shoppingListFileLocation,
+            JarJsonPersistingProtocol stockListFileLocation,
             JarJsonPersistingProtocol weightRecordingFileLocation,
             JarJsonPersistingProtocol goalsFileLocation,
             JarJsonPersistingProtocol legacyGoalFileLocation
@@ -118,6 +124,7 @@ public class FoodSessions {
       this.templatesMarshaller = constructTemplateMarshaller( planFileLocation );
       this.dayPlansMarshaller = constructDayPlanMarshaller( dayPlanFileLocation );
       this.shoppingListMarshaller = constructMealMarshaller( database.shoppingLists(), shoppingListFileLocation );
+      this.stockListMarshaller = constructMealMarshaller( database.stockLists(), stockListFileLocation );
       this.weightRecordingMarshaller = constructWeightRecordingMarshaller();
       this.goalMarshaller = constructGoalMarshaller( goalsFileLocation );
       
@@ -227,6 +234,9 @@ public class FoodSessions {
       shoppingListMarshaller.read();
       setup.configureDefaultShoppingList();
       
+      stockListMarshaller.read();
+      setup.configureDefaultStockListAndConnect();
+      
       weightRecordingMarshaller.read();
    }// End Method
 
@@ -240,6 +250,7 @@ public class FoodSessions {
       templatesMarshaller.write();
       dayPlansMarshaller.write();
       shoppingListMarshaller.write();
+      stockListMarshaller.write();
       weightRecordingMarshaller.write();
       goalMarshaller.write();
    }// End Method

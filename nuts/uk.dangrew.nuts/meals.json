@@ -495,7 +495,7 @@
          },
          {
             "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
-            "portionValue": 100
+            "portionValue": 0
          },
          {
             "foodId": "b6fbfa6e-dd62-4e4d-b06b-72e00f754028",
@@ -531,11 +531,11 @@
          },
          {
             "foodId": "e7716114-4adf-4770-b638-315ca8f9fc6a",
-            "portionValue": 0
+            "portionValue": 120
          },
          {
             "foodId": "bb36c4e8-8a75-4763-a25e-1461bd51f228",
-            "portionValue": 100
+            "portionValue": 120
          }
       ]
    },
@@ -1181,7 +1181,7 @@
       "portions": [
          {
             "foodId": "6f606511-3499-4712-92da-faa40594ad11",
-            "portionValue": 400
+            "portionValue": 500
          },
          {
             "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
@@ -1194,6 +1194,28 @@
          {
             "foodId": "0581f76a-4067-4535-b9f3-3e126327aa1c",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Fishcakes Homemade Meal",
+      "id": "e9d234c2-8854-4a07-b1ce-53ef186c62c8",
+      "portions": [
+         {
+            "foodId": "10cc36fe-db1a-4f11-b751-6e1fde431593",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+            "portionValue": 300
+         },
+         {
+            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
+            "portionValue": 50
+         },
+         {
+            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
+            "portionValue": 50
          }
       ]
    }

@@ -2815,5 +2815,32 @@
       "morningWeight": 0,
       "morningBodyFat": 0,
       "morningLeanMass": 0
+   },
+   {
+      "date": "2018-03-03",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2018-03-04",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
+   },
+   {
+      "date": "2018-03-05",
+      "eveningBodyFat": 0,
+      "eveningWeight": 0,
+      "eveningLeanMass": 0,
+      "morningWeight": 0,
+      "morningBodyFat": 0,
+      "morningLeanMass": 0
    }
 ]}

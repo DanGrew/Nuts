@@ -23,11 +23,12 @@ public class NutsTabsTest {
       
       database = new Database();
       database.shoppingLists().createConcept( "anything" );
+      database.stockLists().createConcept( "anything" );
       PlatformImpl.runAndWait( () -> systemUnderTest = new NutsTabs( database ) );
    }//End Method
 
    @Test public void shouldProvideConcreteTabs() {
-      assertThat( systemUnderTest.getTabs(), hasSize( 9 ) );
+      assertThat( systemUnderTest.getTabs(), hasSize( 10 ) );
    }//End Method
    
 }//End Class

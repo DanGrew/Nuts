@@ -53,7 +53,7 @@ public class Meal implements Food {
     * Constructs a new {@link Meal}.
     * @param properties the {@link FoodProperties}.
     */
-   private Meal( FoodProperties properties ) {
+   protected Meal( FoodProperties properties ) {
       this( 
                properties, 
                new FoodAnalytics(), 

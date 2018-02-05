@@ -56,6 +56,16 @@ public class DataSetup {
       }
    }//End Method
    
+   /**
+    * Ensures there is a default ShoppingList provided.
+    */
+   public void configureDefaultStockListAndConnect() {
+      if ( database.stockLists().objectList().isEmpty() ) {
+         database.stockLists().createConcept( "Stock List" );
+      }
+      database.stockLists().objectList().get( 0 ).linkWithFoodItems( database.foodItems() );
+   }//End Method
+   
    public void configureDefaultDayPlans(){
       SystemDateRange dateRange = new SystemDateRange();
       Set< LocalDate > existingDates = database.dayPlans().objectList().stream()

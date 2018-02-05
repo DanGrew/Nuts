@@ -13,6 +13,7 @@ import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.goal.GoalStore;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.progress.WeightProgress;
+import uk.dangrew.nuts.stock.StockStore;
 import uk.dangrew.nuts.template.TemplateStore;
 
 /**
@@ -28,6 +29,7 @@ public class Database {
    private final TemplateStore templates;
    private final DayPlanStore dayPlans;
    private final MealStore shoppingLists;
+   private final StockStore stockLists;
    
    /**
     * Constructs a new {@link Database}.
@@ -40,6 +42,7 @@ public class Database {
       this.templates = new TemplateStore();
       this.dayPlans = new DayPlanStore();
       this.shoppingLists = new MealStore();
+      this.stockLists = new StockStore();
    }//End Constructor
    
    /**
@@ -99,6 +102,10 @@ public class Database {
     */
    public MealStore shoppingLists() {
       return shoppingLists;
+   }//End Method
+
+   public StockStore stockLists() {
+      return stockLists;
    }//End Method
    
 }//End Class

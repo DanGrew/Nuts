@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalImpl;
 import uk.dangrew.nuts.progress.SystemDateRange;
@@ -54,6 +55,24 @@ public class DataSetupTest {
       database.shoppingLists().createConcept( "Anything" );
       systemUnderTest.configureDefaultShoppingList();
       assertThat( database.shoppingLists().objectList(), hasSize( 1 ) );
+   }//End Method
+   
+   @Test public void shouldCreateDefaultStockList() {
+      systemUnderTest.configureDefaultStockListAndConnect();
+      assertThat( database.stockLists().objectList(), hasSize( 1 ) );
+   }//End Method
+   
+   @Test public void shouldIgnoreStockListIfPResent() {
+      database.stockLists().createConcept( "Anything" );
+      systemUnderTest.configureDefaultStockListAndConnect();
+      assertThat( database.stockLists().objectList(), hasSize( 1 ) );
+   }//End Method
+   
+   @Test public void shouldConnectStockToDatabase(){
+      FoodItem item = database.foodItems().createConcept( "Food1" );
+      database.stockLists().createConcept( "Anything" );
+      systemUnderTest.configureDefaultStockListAndConnect();
+      assertThat( database.stockLists().objectList().get( 0 ).portionFor( item ), is( notNullValue() ) );
    }//End Method
    
    @Test public void shouldCreateDayPlansForDateRange(){

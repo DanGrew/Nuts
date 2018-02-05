@@ -9,6 +9,7 @@
 
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -21,7 +22,7 @@ public class MealTable extends ConceptTable< FoodPortion > {
       super( new MealTableColumns( database ), new MealTableControllerImpl() );
    }//End Constructor
    
-   public MealTable( MealTableColumns columns ) {
+   public MealTable( ConceptTableColumnsPopulator< FoodPortion > columns ) {
       super( columns, new MealTableControllerImpl() );
    }//End Constructor
    

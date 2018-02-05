@@ -3,6 +3,7 @@ package uk.dangrew.nuts.store;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
@@ -82,6 +83,11 @@ public class DatabaseTest {
       DayPlan plan = new DayPlan( LocalDate.now().plusDays( 1000 ) );
       systemUnderTest.dayPlans().store( plan );
       assertThat( systemUnderTest.dayPlans().get( plan.properties().id() ), is( plan ) );
+   }//End Method
+   
+   @Test public void shouldProvideStockList(){
+      assertThat( systemUnderTest.stockLists(), is( notNullValue() ) );
+      assertThat( systemUnderTest.stockLists(), is( systemUnderTest.stockLists() ) );
    }//End Method
 
 }//End Class

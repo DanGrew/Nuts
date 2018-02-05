@@ -1,0 +1,22 @@
+{"meals": [{
+   "name": "Stock List",
+   "id": "ac003adb-30fa-47d6-9a00-96283b47b70a",
+   "portions": [
+      {
+         "foodId": "12345",
+         "portionValue": 0
+      },
+      {
+         "foodId": "67890",
+         "portionValue": 1000
+      },
+      {
+         "foodId": "3421",
+         "portionValue": 20
+      },
+      {
+         "foodId": "1324",
+         "portionValue": 100
+      }
+   ]
+}]}
