@@ -13,6 +13,7 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.template.TemplateTable;
+import uk.dangrew.nuts.graphics.template.TemplateTableController;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -49,7 +50,7 @@ public class TemplateManagerPane extends GridPane {
       styling.configureConstraintsForEvenColumns( this, 1 );
 
       add( templatesTable = new ConceptTableWithControls<>( "Templates", new TemplateTable( database ) ), 0, 0 );
-      add( planView = new MealTableWithControls( "Selected Template", database ), 0, 1 );
+      add( planView = new MealTableWithControls( "Selected Template", new MealTable( new MealTableColumns( database ), new TemplateTableController() ) ), 0, 1 );
       add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 2 );
       
       templatesTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
