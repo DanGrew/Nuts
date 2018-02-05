@@ -16,7 +16,7 @@ public class UiFoodTile extends GridPane {
    private final FoodPortion food;
    private final UiFoodSelectionController controller;
    private final UiFoodTileTitle title;
-   private final UiFoodTileMacros macros;
+   private final UiFoodTileProperties macros;
    private final UiFoodTilePortionControl control;
    
    public UiFoodTile( FoodPortion food, UiFoodSelectionController controller ) {
@@ -24,7 +24,7 @@ public class UiFoodTile extends GridPane {
                food, 
                controller, 
                new UiFoodTileTitle( food.food().get() ), 
-               new UiFoodTileMacros( food ), 
+               new UiFoodTileProperties( food ), 
                new UiFoodTilePortionControl( food )
       );
    }//End Constructor
@@ -33,7 +33,7 @@ public class UiFoodTile extends GridPane {
             FoodPortion food,
             UiFoodSelectionController controller, 
             UiFoodTileTitle title,
-            UiFoodTileMacros macros,
+            UiFoodTileProperties macros,
             UiFoodTilePortionControl control 
    ) {
       this.food = food;

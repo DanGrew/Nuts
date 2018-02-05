@@ -20,7 +20,7 @@ public class UiFoodTileTest {
   
    private FoodPortion food;
    private UiFoodTileTitle title;
-   private UiFoodTileMacros macros;
+   private UiFoodTileProperties macros;
    private UiFoodTilePortionControl control;
    @Mock private UiFoodSelectionController controller;
    private UiFoodTile systemUnderTest;
@@ -30,7 +30,7 @@ public class UiFoodTileTest {
       MockitoAnnotations.initMocks( this );
       food = new FoodPortion( new FoodItem( "Food" ), 100.0 );
       title = spy( new UiFoodTileTitle( food.food().get() ) );
-      macros = spy( new UiFoodTileMacros( food ) );
+      macros = spy( new UiFoodTileProperties( food ) );
       control = spy( new UiFoodTilePortionControl( food ) );
       systemUnderTest = new UiFoodTile( food, controller, title, macros, control );
    }//End Method

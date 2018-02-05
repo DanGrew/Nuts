@@ -5,6 +5,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
@@ -12,7 +13,7 @@ import uk.dangrew.kode.number.NumberFormats;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
-public class UiFoodTileMacros extends GridPane {
+public class UiFoodTileProperties extends GridPane {
    
    private final JavaFxStyle styling;
    
@@ -32,6 +33,9 @@ public class UiFoodTileMacros extends GridPane {
    private final Label proteinRatio;
    private final PropertyTextSetter proteinValueSetter;
    private final PropertyTextSetter proteinRatioSetter;
+   
+   private final Label calorieValue;
+   private final PropertyTextSetter calorieValueSetter;
    
    private static class PropertyTextSetter implements ChangeListener< Double > {
       
@@ -55,16 +59,16 @@ public class UiFoodTileMacros extends GridPane {
       }//End Constructor
       
       private void update( double value ) {
-         label.setText( prefix + " " + numberFormatter.twoDecimalPlace( value ) + suffix );
+         label.setText( prefix + numberFormatter.twoDecimalPlace( value ) + suffix );
       }//End Method
       
    }//End Class
    
-   public UiFoodTileMacros( Food food ) {
+   public UiFoodTileProperties( Food food ) {
       this.food = food;
       this.styling = new JavaFxStyle();
       this.styling.configureConstraintsForEvenColumns( this, 3 );
-      this.styling.configureConstraintsForEvenRows( this, 2 );
+      this.styling.configureConstraintsForEvenRows( this, 3 );
       
       this.add( this.carbsValue = createMacroLabel( Color.SKYBLUE ), 0, 0 );
       this.add( this.fatsValue = createMacroLabel( Color.ORANGE ), 1, 0 );
@@ -74,12 +78,17 @@ public class UiFoodTileMacros extends GridPane {
       this.add( this.fatsRatio = createMacroLabel( Color.ORANGE ), 1, 1 );
       this.add( this.proteinRatio = createMacroLabel( Color.LIGHTGREEN ), 2, 1 );
       
-      this.carbsValueSetter = new PropertyTextSetter( carbsValue, food.properties().carbohydrates(), "C:", "g" );
-      this.carbsRatioSetter = new PropertyTextSetter( carbsRatio, food.foodAnalytics().carbohydratesRatioProperty(), "C:", "%" );
-      this.fatsValueSetter = new PropertyTextSetter( fatsValue, food.properties().fats(), "F:", "g" );
-      this.fatsRatioSetter = new PropertyTextSetter( fatsRatio, food.foodAnalytics().fatsRatioProperty(), "F:", "%" );
-      this.proteinValueSetter = new PropertyTextSetter( proteinValue, food.properties().protein(), "P:", "g" );
-      this.proteinRatioSetter = new PropertyTextSetter( proteinRatio, food.foodAnalytics().proteinRatioProperty(), "P:", "%" );
+      this.add( this.calorieValue = createMacroLabel( Color.PINK ), 0, 2 );
+      GridPane.setColumnSpan( calorieValue, 3 );
+      
+      this.carbsValueSetter = new PropertyTextSetter( carbsValue, food.properties().carbohydrates(), "C: ", "g" );
+      this.carbsRatioSetter = new PropertyTextSetter( carbsRatio, food.foodAnalytics().carbohydratesRatioProperty(), "C: ", "%" );
+      this.fatsValueSetter = new PropertyTextSetter( fatsValue, food.properties().fats(), "F: ", "g" );
+      this.fatsRatioSetter = new PropertyTextSetter( fatsRatio, food.foodAnalytics().fatsRatioProperty(), "F: ", "%" );
+      this.proteinValueSetter = new PropertyTextSetter( proteinValue, food.properties().protein(), "P: ", "g" );
+      this.proteinRatioSetter = new PropertyTextSetter( proteinRatio, food.foodAnalytics().proteinRatioProperty(), "P: ", "%" );
+      
+      this.calorieValueSetter = new PropertyTextSetter( calorieValue, food.properties().calories(), "", "kcal" );
    }//End Constructor
    
    private Label createMacroLabel( Color background ) {
@@ -95,6 +104,7 @@ public class UiFoodTileMacros extends GridPane {
       food.properties().carbohydrates().removeListener( carbsValueSetter );
       food.properties().fats().removeListener( fatsValueSetter );
       food.properties().protein().removeListener( proteinValueSetter );
+      food.properties().calories().removeListener( calorieValueSetter );
       
       food.foodAnalytics().carbohydratesRatioProperty().removeListener( carbsRatioSetter );
       food.foodAnalytics().fatsRatioProperty().removeListener( fatsRatioSetter );
@@ -123,6 +133,10 @@ public class UiFoodTileMacros extends GridPane {
             return proteinRatio;
       }
       return null;
+   }//End Method
+
+   Labeled calorieValueLabel() {
+      return calorieValue;
    }//End Method
 
 }//End Class
