@@ -1,6 +1,9 @@
 package uk.dangrew.nuts.graphics.selection;
 
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
+
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,4 +49,8 @@ public class UiFoodSelectionControlsTest {
       verify( controller ).useSelectionType( FoodSelectionTypes.Fats );
    }//End Method
 
+   @Test public void shouldApplyFiltersWhenSelected(){
+      systemUnderTest.filterBox().getCheckModel().checkAll();
+      verify( controller, atLeastOnce() ).applyFilters( Arrays.asList( FoodSelectionFilters.values() ) );
+   }//End Method
 }//End Class

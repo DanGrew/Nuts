@@ -15,6 +15,7 @@ import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalImpl;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
@@ -31,7 +32,11 @@ public class FoodSelectionWindowTest {
     Database sample = new Database();
     DataLocation.loadSampleFoodData( sample );
     foods.addAll( sample.foodItems().objectList() );
-    
+    Stock stock = sample.stockLists().createConcept( "Stock" );
+    stock.linkWithFoodItems( sample.foodItems() );
+    for ( int i = 0; i < 10; i++ ) {
+       stock.portionFor( sample.foodItems().objectList().get( i ) ).setPortion( 100 );
+    }
     
     PlatformImpl.runAndWait( () -> {
        window = new FoodSelectionWindow( sample );

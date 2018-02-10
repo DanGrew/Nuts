@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
@@ -120,5 +122,22 @@ public class FilteredConceptOptionsTest {
    @Test public void shouldRefreshWhenSorted(){
       options.customSort( Comparators.reverseComparator( options.comparator() ) );
       assertThat( systemUnderTest.options(), is( options.options() ) );
+   }//End Method
+   
+   @Test public void shouldApplyFilter(){
+      systemUnderTest.applyFilter( f -> f == chicken );
+      assertThat( systemUnderTest.options(), is( Arrays.asList( beans, sausages ) ) );
+      
+      systemUnderTest.clearFilters();
+      systemUnderTest.applyFilter( f -> f.properties().nameProperty().get().contains( "s" ) );
+      assertThat( systemUnderTest.options(), is( Arrays.asList( chicken ) ) );
+   }//End Method
+   
+   @Test public void shouldApplyMultipleFilters(){
+      systemUnderTest.applyFilter( f -> f == chicken );
+      assertThat( systemUnderTest.options(), is( Arrays.asList( beans, sausages ) ) );
+
+      systemUnderTest.applyFilter( f -> f.properties().nameProperty().get().contains( "g" ) );
+      assertThat( systemUnderTest.options(), is( Arrays.asList( beans ) ) );
    }//End Method
 }//End Class

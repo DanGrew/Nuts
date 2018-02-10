@@ -981,6 +981,10 @@
       {
          "foodId": "7047848e-b0d0-4dd7-a9bb-99eb94a73fef",
          "portionValue": 0
+      },
+      {
+         "foodId": "579e6691-0451-4069-9f42-557914ca85c9",
+         "portionValue": 0
       }
    ]
 }]}

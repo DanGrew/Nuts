@@ -30,11 +30,11 @@ public class GoalTableView extends BorderPane {
     */
    public GoalTableView() {
       this.database = new Database();
-      new FoodSelectionWindow( database );
       setPrefSize( 800, 600 );
       
       FoodSessions sessions = new FoodSessions( database );
       sessions.read();
+      new FoodSelectionWindow( database );
       
       HBox controls = new HBox();
       Button load = new Button( "Load" );

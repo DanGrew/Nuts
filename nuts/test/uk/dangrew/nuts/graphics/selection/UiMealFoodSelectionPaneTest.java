@@ -29,6 +29,8 @@ public class UiMealFoodSelectionPaneTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       database = new Database();
+      database.stockLists().createConcept( "Stock" );
+      
       systemUnderTest = new UiMealFoodSelectionPane( database, stageControls );
    }//End Method
 

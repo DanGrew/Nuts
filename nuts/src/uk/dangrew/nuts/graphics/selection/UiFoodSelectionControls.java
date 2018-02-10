@@ -1,5 +1,8 @@
 package uk.dangrew.nuts.graphics.selection;
 
+import java.util.function.Consumer;
+
+import org.controlsfx.control.CheckComboBox;
 import org.controlsfx.control.textfield.TextFields;
 
 import impl.org.controlsfx.autocompletion.SuggestionProvider;
@@ -12,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.LabelBuilder;
+import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.food.FoodStringConverter;
 
@@ -20,6 +24,7 @@ public class UiFoodSelectionControls extends BorderPane {
    private final GridPane filterWrapper;
    private final ComboBox< Food > filterBox;
    private final ComboBox< FoodSelectionTypes > sortBox;
+   private final CheckComboBox< FoodSelectionFilters > filterOptionsBox;
    private final CheckBox invertSorting;
    
    public UiFoodSelectionControls( ObservableList< Food > foods, UiFoodSelectionController controller ) {
@@ -29,7 +34,7 @@ public class UiFoodSelectionControls extends BorderPane {
       this.filterWrapper = new GridPane();
       JavaFxStyle stying = new JavaFxStyle();
       stying.configureConstraintsForEvenRows( filterWrapper, 1 );
-      stying.configureConstraintsForColumnPercentages( filterWrapper, 10, 40, 5, 10, 35 );
+      stying.configureConstraintsForColumnPercentages( filterWrapper, 5, 20, 5, 5, 10, 5, 5, 10, 25, 10 );
       this.filterWrapper.add( 
                new LabelBuilder()
                   .withText( "Filter:" )
@@ -57,9 +62,23 @@ public class UiFoodSelectionControls extends BorderPane {
       this.sortBox.getSelectionModel().select( FoodSelectionTypes.All );
       this.filterWrapper.add( sortBox, 4, 0 );
       
+      this.filterWrapper.add( 
+               new LabelBuilder()
+                  .withText( "Filters:" )
+                  .asBold()
+                  .build(), 
+      6, 0 );
+      this.filterOptionsBox = new CheckComboBox<>( FXCollections.observableArrayList( FoodSelectionFilters.values() ) );
+      Consumer< FoodSelectionFilters > filterApplier = f -> controller.applyFilters( filterOptionsBox.getCheckModel().getCheckedItems() );
+      this.filterOptionsBox.getCheckModel().getCheckedItems().addListener( new FunctionListChangeListenerImpl<>( 
+                filterApplier, filterApplier
+      ) );
+      this.filterWrapper.add( filterOptionsBox, 7, 0 );
+      
+      this.filterWrapper.add( invertSorting, 9, 0 );
+      
       this.setPadding( new Insets( 10 ) );
-      this.setLeft( filterWrapper );
-      this.setRight( invertSorting );
+      this.setCenter( filterWrapper );
    }//End Constructor
 
    CheckBox sortingBox() {
@@ -72,6 +91,10 @@ public class UiFoodSelectionControls extends BorderPane {
 
    ComboBox< FoodSelectionTypes > sortBox() {
       return sortBox;
+   }//End Method
+   
+   CheckComboBox< FoodSelectionFilters > filterBox() {
+      return filterOptionsBox;
    }//End Method
    
 }//End Class

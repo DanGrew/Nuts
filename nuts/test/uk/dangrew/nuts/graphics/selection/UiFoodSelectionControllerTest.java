@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -17,6 +18,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
@@ -27,6 +29,7 @@ public class UiFoodSelectionControllerTest {
    private FoodItem beans;
    private FoodItem sausages;
    
+   private Stock stock;
    private Template liveSelection;
    @Mock private UiFoodSelectionPane pane;
    
@@ -44,6 +47,8 @@ public class UiFoodSelectionControllerTest {
       beans.foodAnalytics().proteinRatioProperty().set( 10.0 );
       sausages = database.foodItems().createConcept( "Sausages" );
       sausages.foodAnalytics().proteinRatioProperty().set( 20.0 );
+      stock = database.stockLists().createConcept( "Stock" );
+      stock.linkWithFoodItems( database.foodItems() );
       
       systemUnderTest = new UiFoodSelectionController( database, liveSelection );
       systemUnderTest.controlSelection( pane );
@@ -90,18 +95,21 @@ public class UiFoodSelectionControllerTest {
    }//End Method
    
    @Test public void shouldProvideSelection(){
-      FoodPortion portion = new FoodPortion();
+      FoodPortion portion = new FoodPortion( chicken, 100 );
       assertThat( systemUnderTest.isSelected( portion ), is( false ) );
+      assertThat( systemUnderTest.isSelected( chicken ), is( false ) );
       assertThat( liveSelection.portions().contains( portion ), is( false ) );
       
       systemUnderTest.select( portion );
       verify( pane ).setSelected( portion, true );
       assertThat( systemUnderTest.isSelected( portion ), is( true ) );
+      assertThat( systemUnderTest.isSelected( chicken ), is( true ) );
       assertThat( liveSelection.portions().contains( portion ), is( true ) );
       
       systemUnderTest.deselect( portion );
       verify( pane ).setSelected( portion, false );
       assertThat( systemUnderTest.isSelected( portion ), is( false ) );
+      assertThat( systemUnderTest.isSelected( chicken ), is( false ) );
       assertThat( liveSelection.portions().contains( portion ), is( false ) );
    }//End Method
    
@@ -131,6 +139,16 @@ public class UiFoodSelectionControllerTest {
       assertThat( systemUnderTest.isSelected( portion2 ), is( false ) );
       assertThat( systemUnderTest.isSelected( portion3 ), is( false ) );
       assertThat( systemUnderTest.getAndClearSelection(), is( empty() ) );
+   }//End Method
+   
+   @Test public void shouldApplyFilters(){
+      stock.portionFor( beans ).setPortion( 100 );
+      stock.portionFor( sausages ).setPortion( 200 );
+      systemUnderTest.select( new FoodPortion( chicken, 100 ) );
+      systemUnderTest.select( new FoodPortion( sausages, 100 ) );
+      
+      systemUnderTest.applyFilters( Arrays.asList( FoodSelectionFilters.Selection, FoodSelectionFilters.Stock ) );
+      verify( pane, atLeastOnce() ).layoutTiles( Arrays.asList( sausages ) );
    }//End Method
    
 }//End Class

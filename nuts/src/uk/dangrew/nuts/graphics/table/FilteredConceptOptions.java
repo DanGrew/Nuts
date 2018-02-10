@@ -1,7 +1,10 @@
 package uk.dangrew.nuts.graphics.table;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import javafx.beans.property.ObjectProperty;
@@ -20,6 +23,8 @@ public class FilteredConceptOptions< TypeT extends Concept > {
    
    private final ObjectProperty< Boolean > invertSorting;
    private final ObjectProperty< String > filterString;
+   
+   private final Set< Predicate< TypeT > > filters;
 
    public FilteredConceptOptions( ConceptStore< ? extends TypeT > store ) {
       this( new ConceptOptionsImpl<>( store ) );
@@ -31,6 +36,8 @@ public class FilteredConceptOptions< TypeT extends Concept > {
       
       this.invertSorting = new SimpleObjectProperty<>( false );
       this.filterString = new SimpleObjectProperty<>( null );
+      
+      this.filters = new HashSet<>();
       this.refresh();
       
       this.backingOptions.options().addListener( new FunctionListChangeListenerImpl<>( 
@@ -64,7 +71,9 @@ public class FilteredConceptOptions< TypeT extends Concept > {
       } else {
          filteredItems = new ArrayList<>( backingOptions.options() );
       }
+      
       filtered.addAll( filteredItems );
+      filters.forEach( filtered::removeIf );
       
       if ( invertSorting.get() ) {
          filtered.sort( Comparators.reverseComparator( backingOptions.comparator() ) );
@@ -76,6 +85,16 @@ public class FilteredConceptOptions< TypeT extends Concept > {
    private boolean filter( TypeT food ) {
       String name = food.properties().nameProperty().get();
       return name.toLowerCase().contains( filterString.get().toLowerCase() );
+   }//End Method
+
+   public void applyFilter( Predicate< TypeT > filterIf ) {
+      filters.add( filterIf );
+      refresh();
+   }//End Method
+
+   public void clearFilters() {
+      filters.clear();
+      refresh();
    }//End Method
 
 }//End Class

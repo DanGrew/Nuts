@@ -2430,14 +2430,14 @@
       "calories": 262
    },
    {
-      "carbohydrates": 25.8,
-      "fats": 7.4,
+      "carbohydrates": 24,
+      "fats": 6.9,
       "loggedWeight": 0,
       "soldInWeight": 0,
-      "protein": 4.1,
-      "name": "Gateaux (T, Double Choc) (1/8)",
+      "protein": 3.8,
+      "name": "Gateaux (T, Double Choc) (1/5)",
       "id": "ead28dfc-ed65-4185-9067-7ad145c90e2a",
-      "calories": 191
+      "calories": 178
    },
    {
       "carbohydrates": 63.3,
@@ -2448,5 +2448,15 @@
       "name": "Easter Egg (Smarties|Rolo) (100g)",
       "id": "7047848e-b0d0-4dd7-a9bb-99eb94a73fef",
       "calories": 526
+   },
+   {
+      "carbohydrates": 50.3,
+      "fats": 21.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 12,
+      "name": "Quorn Chicken Pie",
+      "id": "579e6691-0451-4069-9f42-557914ca85c9",
+      "calories": 457
    }
 ]}

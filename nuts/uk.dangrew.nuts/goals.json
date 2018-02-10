@@ -188,5 +188,24 @@
       "age": 29,
       "height": 1.87,
       "proteinGoal": 167.4
+   },
+   {
+      "gender": "Male",
+      "fatPerPound": 0.5,
+      "bmr": 1887.084883296,
+      "weight": 182,
+      "calorieGoal": 2341.9188366144,
+      "calorieDeficit": 300,
+      "carbohydratesGoal": 216.92970915359996,
+      "fatsGoal": 91,
+      "tee": 2641.9188366144,
+      "name": "Reduced Non-Fast",
+      "proteinPerPound": 0.9,
+      "pal": 1.4,
+      "id": "1e728cda-c134-445d-a0da-d377dc8a3ee1",
+      "exerciseCalories": 0,
+      "age": 29,
+      "height": 1.87,
+      "proteinGoal": 163.8
    }
 ]}
