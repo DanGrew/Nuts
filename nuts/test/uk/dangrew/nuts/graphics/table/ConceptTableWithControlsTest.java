@@ -11,10 +11,13 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import com.sun.javafx.application.PlatformImpl;
+
 import javafx.scene.control.Label;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
+import uk.dangrew.nuts.store.Database;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class ConceptTableWithControlsTest {
@@ -27,7 +30,7 @@ public class ConceptTableWithControlsTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      table = new GeneralFoodTable<>( new FoodItemStore() );
+      PlatformImpl.runAndWait( () -> table = new GeneralFoodTable<>( new Database(), new FoodItemStore() ) );
       systemUnderTest = new ConceptTableWithControls<>( styling, "anything", table, controls );
    }//End Method
 

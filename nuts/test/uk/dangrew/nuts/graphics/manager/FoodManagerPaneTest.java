@@ -12,6 +12,8 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import com.sun.javafx.application.PlatformImpl;
+
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
@@ -27,7 +29,7 @@ public class FoodManagerPaneTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       database = new Database();
-      systemUnderTest = new FoodManagerPane( styling, database );
+      PlatformImpl.runAndWait( () -> systemUnderTest = new FoodManagerPane( styling, database ) );
    }//End Method
 
    @Test public void shouldConfigureRowsAndColumns() {

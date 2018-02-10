@@ -47,6 +47,10 @@ public class GeneralConceptTableController< TypeT extends Concept > implements C
       this.concepts.objectList().forEach( this::addRow );
    }//End Method
    
+   protected ConceptTable< TypeT > table() {
+      return table;
+   }//End Method
+   
    private void addRow( TypeT concept ) {
       table.getItems().add( new ConceptTableRow<>( concept ) );
    }//End Method

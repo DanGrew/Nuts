@@ -4980,37 +4980,37 @@
       "calorieBalance": -10300,
       "portions": [
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "579e6691-0451-4069-9f42-557914ca85c9",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
             "portionValue": 300
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "ead28dfc-ed65-4185-9067-7ad145c90e2a",
             "portionValue": 250
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
             "portionValue": 200
          }

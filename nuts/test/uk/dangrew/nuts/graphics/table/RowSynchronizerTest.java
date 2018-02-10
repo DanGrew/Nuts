@@ -8,12 +8,15 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.javafx.application.PlatformImpl;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
+import uk.dangrew.nuts.store.Database;
 
 public class RowSynchronizerTest {
 
@@ -23,7 +26,7 @@ public class RowSynchronizerTest {
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
-      table = new GeneralFoodTable<>( new FoodItemStore() );
+      PlatformImpl.runAndWait( () -> table = new GeneralFoodTable<>( new Database(), new FoodItemStore() ) );
       items = FXCollections.observableArrayList();
       systemUnderTest = new RowSynchronizer<>( table, items );
    }//End Method

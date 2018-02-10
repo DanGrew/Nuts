@@ -13,8 +13,8 @@ public class UiDateSelectionDialog extends ChoiceDialog< LocalDate > {
    public UiDateSelectionDialog( ObservableList< LocalDate > options ) {
       super( LocalDate.now(), options );
       this.options = options;
-      setTitle( "Template Selection" );
-      setContentText( "Choose your Template:" );
+      setTitle( "Date Selection" );
+      setContentText( "Choose your Date:" );
    }//End Constructor
    
    public Optional< LocalDate > friendly_showAndWait(){

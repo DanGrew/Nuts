@@ -10,6 +10,7 @@ package uk.dangrew.nuts.graphics.food;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.ConceptStore;
 
 /**
@@ -17,22 +18,15 @@ import uk.dangrew.nuts.system.ConceptStore;
  */
 public class GeneralFoodTable< FoodTypeT extends Food > extends ConceptTable< FoodTypeT >{
 
-   /**
-    * Constructs a new {@link GeneralFoodTable}.
-    * @param foods the {@link ConceptStore} to display.
-    */
-   public GeneralFoodTable( ConceptStore< FoodTypeT > foods ) {
+   public GeneralFoodTable( Database database, ConceptStore< FoodTypeT > foods ) {
       super( 
                new FoodTableColumns<>(),
-               new GeneralConceptTableController<>( foods )
+               new GeneralFoodTableController<>( database, foods )
       );
    }//End Constructor
    
-   /**
-    * {@inheritDoc}
-    */
-   @Override public GeneralConceptTableController< FoodTypeT > controller() {
-      return ( GeneralConceptTableController< FoodTypeT > ) super.controller();
+   @Override public GeneralFoodTableController< FoodTypeT > controller() {
+      return ( GeneralFoodTableController< FoodTypeT > ) super.controller();
    }//End Method
 
 }//End Class
