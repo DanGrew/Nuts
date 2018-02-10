@@ -26,13 +26,11 @@ public class UiCalendarDates extends GridPane {
    private static final int DAYS_IN_WEEK = 7;
    private static final int ROWS_IN_CALENDAR = 5;
    
-   private final DayPlanStore dayPlans;
    private final Map< LocalDate, DayPlan > mappedPlans;
    private final UiCalendarController controller;
    
    public UiCalendarDates( DayPlanStore dayPlans, UiCalendarController controller ) {
       this.controller = controller;
-      this.dayPlans = dayPlans;
       
       JavaFxStyle styling = new JavaFxStyle();
       styling.configureConstraintsForEvenColumns( this, DAYS_IN_WEEK );

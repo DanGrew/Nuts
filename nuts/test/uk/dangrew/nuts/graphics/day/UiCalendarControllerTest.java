@@ -4,7 +4,6 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
@@ -26,6 +25,8 @@ import uk.dangrew.nuts.template.Template;
 
 public class UiCalendarControllerTest {
 
+   private static final int OTHER_DAY_OFFSET = 13;
+   
    private UiDay uiDay;
    private DayPlan day;
    private UiCalendarDatesSelector selector;
@@ -42,6 +43,7 @@ public class UiCalendarControllerTest {
       database = new Database();
       PlatformImpl.runAndWait( () -> selector = new UiCalendarDatesSelector( new UiCalendarController( database ) ) );
       uiDay = new UiDay( day = new DayPlan( LocalDate.now() ) );
+      
       
       systemUnderTest = new UiCalendarController( database, operations, selector );
    }//End Method
@@ -112,6 +114,18 @@ public class UiCalendarControllerTest {
       assertThat( selector.selection().get(), is( nullValue() ) );
       systemUnderTest.clearSelection();
       verify( operations, never() ).clearDayPlan( Mockito.any() );
+   }//End Method
+   
+   @Test public void shouldCopyTemplateToDay(){
+      selector.select( uiDay );
+      systemUnderTest.copyToDay( LocalDate.now().plusDays( OTHER_DAY_OFFSET ) );
+      verify( operations ).copyToDay( day, LocalDate.now().plusDays( OTHER_DAY_OFFSET ) );
+   }//End Method
+   
+   @Test public void shouldIgnoreCopyTemplateToDayWhenNoSelection(){
+      assertThat( selector.selection().get(), is( nullValue() ) );
+      systemUnderTest.copyToDay( LocalDate.now().plusDays( OTHER_DAY_OFFSET ) );
+      verify( operations, never() ).copyToDay( Mockito.any(), Mockito.any() );
    }//End Method
 
 }//End Class

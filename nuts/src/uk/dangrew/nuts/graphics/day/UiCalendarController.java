@@ -8,6 +8,8 @@
  */
 package uk.dangrew.nuts.graphics.day;
 
+import java.time.LocalDate;
+
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanOperations;
 import uk.dangrew.nuts.store.Database;
@@ -16,12 +18,13 @@ import uk.dangrew.nuts.template.Template;
 public class UiCalendarController {
 
    private final Database database;
+   
    private final DayPlanOperations operations;
    private final UiCalendarDatesSelector selector;
    
    public UiCalendarController( Database database ) {
       this.database = database;
-      this.operations = new DayPlanOperations( database.templates() );
+      this.operations = new DayPlanOperations( database.templates(), database.dayPlans() );
       this.selector = new UiCalendarDatesSelector( this );
    }//End Constructor
    
@@ -73,6 +76,15 @@ public class UiCalendarController {
       }
       
       operations.clearDayPlan( selection );
+   }//End Method
+
+   public void copyToDay( LocalDate toDate ) {
+      DayPlan selection = selector.selection().get();
+      if ( selection == null ) {
+         return;
+      }
+      
+      operations.copyToDay( selection, toDate );
    }//End Method
 
 }//End Class

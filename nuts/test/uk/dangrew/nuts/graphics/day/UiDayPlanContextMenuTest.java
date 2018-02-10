@@ -6,6 +6,7 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.Before;
@@ -27,8 +28,10 @@ public class UiDayPlanContextMenuTest {
    private static final String NAME_INPUT = "ThisIsTheName";
    
    private Template selection;
+   private LocalDate dateSelection;
    private UiCalendarController controller;
    @Mock private UiTemplateSelectionDialog templateSelection;
+   @Mock private UiDateSelectionDialog dateSelectionDialog;
    @Mock private UiTemplateNameInputDialog nameInput;
    @Mock private UiConfirmAlert confirmAlert;
    private UiDayPlanContextMenu systemUnderTest;
@@ -37,10 +40,11 @@ public class UiDayPlanContextMenuTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       selection = new Template( "Template" );
+      dateSelection = LocalDate.now().plusDays( 100 );
       
       PlatformImpl.runAndWait( () -> {
          controller = spy( new UiCalendarController( new Database() ) );
-         systemUnderTest = new UiDayPlanContextMenu( controller, templateSelection, nameInput, confirmAlert );  
+         systemUnderTest = new UiDayPlanContextMenu( controller, templateSelection, nameInput, dateSelectionDialog, confirmAlert );  
       } );
    }//End Method
 
@@ -95,6 +99,19 @@ public class UiDayPlanContextMenuTest {
       systemUnderTest.clearMenu().getOnAction().handle( new ActionEvent() );
       systemUnderTest.clearMenu().getOnAction().handle( new ActionEvent() );
       verify( controller, never() ).clearSelection();
+   }//End Method
+   
+   @Test public void shouldChooseDateToCopyAndSendToController() {
+      when( dateSelectionDialog.friendly_showAndWait() ).thenReturn( Optional.of( dateSelection ) );
+      systemUnderTest.copyToDateMenu().getOnAction().handle( new ActionEvent() );
+      verify( controller ).copyToDay( dateSelection );
+      verify( dateSelectionDialog ).friendly_setHeaderText( UiDayPlanContextMenu.COPY_TO_DATE_DESCRIPTION );
+   }//End Method
+   
+   @Test public void shouldCancelChooseDateToCopyAndNotSendToController() {
+      when( dateSelectionDialog.friendly_showAndWait() ).thenReturn( Optional.empty() );
+      systemUnderTest.copyToDateMenu().getOnAction().handle( new ActionEvent() );
+      verify( controller, never() ).copyToDay( Mockito.any() );
    }//End Method
 
 }//End Class
