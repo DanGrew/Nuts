@@ -7,19 +7,19 @@ import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.FoodPortion;
 
-public class UiFoodTile extends GridPane {
+public class UiFoodTile extends UiFoodSelectionTile {
    
    static final Color DESELECTED_BACKGROUND = Color.WHITE;
    static final Color SELECTED_BACKGROUND = Color.YELLOW;
    
    private final JavaFxStyle styling;
    private final FoodPortion food;
-   private final UiFoodSelectionController controller;
+   private final UiFoodSelector controller;
    private final UiFoodTileTitle title;
    private final UiFoodTileProperties macros;
    private final UiFoodTilePortionControl control;
    
-   public UiFoodTile( FoodPortion food, UiFoodSelectionController controller ) {
+   public UiFoodTile( FoodPortion food, UiFoodSelector controller ) {
       this( 
                food, 
                controller, 
@@ -31,7 +31,7 @@ public class UiFoodTile extends GridPane {
    
    UiFoodTile(
             FoodPortion food,
-            UiFoodSelectionController controller, 
+            UiFoodSelector controller, 
             UiFoodTileTitle title,
             UiFoodTileProperties macros,
             UiFoodTilePortionControl control 
@@ -67,7 +67,7 @@ public class UiFoodTile extends GridPane {
       }
    }//End Method
    
-   public void setSelected( boolean selected ) {
+   @Override public void setSelected( boolean selected ) {
       if ( selected ) {
          setBackground( styling.backgroundFor( SELECTED_BACKGROUND ) );
       } else {

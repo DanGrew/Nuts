@@ -13,7 +13,7 @@ import uk.dangrew.nuts.graphics.table.FilteredConceptOptions;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
-public class UiFoodSelectionController {
+public class UiFoodSelectionController implements UiFoodSelector {
 
    private final ConceptOptions< Food > backingConcepts;
    private final FilteredConceptOptions< Food > filteredConcepts;
@@ -22,7 +22,7 @@ public class UiFoodSelectionController {
    private final FoodSelectionManager selectionManager;
    private final FoodSelectionFilterApplier filterApplier;
    
-   private UiFoodSelectionPane selectionPane;
+   private FoodSelectionPaneManager selectionPane;
    
    public UiFoodSelectionController( Database database, Template liveSelectionProperties ) {
       this.liveSelectionProperties = liveSelectionProperties;
@@ -35,7 +35,7 @@ public class UiFoodSelectionController {
       this.filterApplier = new FoodSelectionFilterApplier( selectionManager, filteredConcepts, database.stockLists().objectList().get( 0 ) );
    }//End Constructor
    
-   public void controlSelection( UiFoodSelectionPane pane ) {
+   public void controlSelection( FoodSelectionPaneManager pane ) {
       this.selectionPane = pane;
       fireLayoutChanges();
    }//End Method
@@ -72,7 +72,7 @@ public class UiFoodSelectionController {
       selectionPane.layoutTiles( filteredConcepts.options() );
    }//End Method
 
-   public boolean isSelected( FoodPortion portion ) {
+   @Override public boolean isSelected( FoodPortion portion ) {
       return selectionManager.isSelected( portion );
    }//End Method
    
@@ -80,14 +80,14 @@ public class UiFoodSelectionController {
       return selectionManager.isSelected( food );
    }//End Method
 
-   public void select( FoodPortion portion ) {
+   @Override public void select( FoodPortion portion ) {
       if ( selectionManager.select( portion ) ) {
          selectionPane.setSelected( portion, true );
          addPortionToLive( portion );
       }
    }//End Method
 
-   public void deselect( FoodPortion portion ) {
+   @Override public void deselect( FoodPortion portion ) {
       if ( selectionManager.deselect( portion ) ) {
          selectionPane.setSelected( portion, false );
          removePortionFromLive( portion );

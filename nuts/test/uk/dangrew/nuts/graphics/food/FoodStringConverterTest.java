@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.graphics.food;
 
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -35,6 +36,10 @@ public class FoodStringConverterTest {
       for ( Food food : foods ) {
          assertThat( systemUnderTest.toString( food ), is( food.properties().nameProperty().get() ) );
       }
+   }//End Method
+   
+   @Test public void shouldHandleNotPresent() {
+      assertThat( systemUnderTest.fromString( "anything" ), is( nullValue() ) );
    }//End Method
 
 }//End Class

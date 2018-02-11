@@ -31,7 +31,7 @@ public class UiFoodSelectionControllerTest {
    
    private Stock stock;
    private Template liveSelection;
-   @Mock private UiFoodSelectionPane pane;
+   @Mock private FoodSelectionPaneManager pane;
    
    private UiFoodSelectionController systemUnderTest;
 

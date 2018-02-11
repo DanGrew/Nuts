@@ -11,10 +11,10 @@ import uk.dangrew.nuts.store.Database;
 public class UiFoodSelectionView extends TitledPane {
 
    public UiFoodSelectionView( Database database, UiFoodSelectionController controller ) {
-      UiFoodSelectionPane selectionPane = new UiFoodSelectionPane( controller );
-      controller.controlSelection( selectionPane );
-      GridPane wrapper = new GridPane();
+      FoodSelectionPaneManager paneManager = new FoodSelectionPaneManager( controller ); 
+      controller.controlSelection( paneManager );
       
+      GridPane wrapper = new GridPane();
       JavaFxStyle styling = new JavaFxStyle();
       styling.configureConstraintsForEvenColumns( wrapper, 1 );
       styling.configureConstraintsForRowPercentages( wrapper, 10, 90 );
@@ -25,7 +25,7 @@ public class UiFoodSelectionView extends TitledPane {
                         database.meals() 
                ) ).options(), controller 
       ), 0, 0 );
-      wrapper.add( selectionPane, 0, 1 );
+      wrapper.add( paneManager.selectionPane(), 0, 1 );
       
       this.setText( "Selection" );
       this.setCollapsible( false );

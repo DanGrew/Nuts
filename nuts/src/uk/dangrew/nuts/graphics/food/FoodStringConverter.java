@@ -9,7 +9,7 @@ public class FoodStringConverter extends StringExtractConverter< Food >{
    public FoodStringConverter( ObservableList< Food > foods ) {
       super( 
                f -> f.properties().nameProperty().get(), 
-               name -> foods.stream().filter( f -> f.properties().nameProperty().get().equals( name ) ).findFirst().get(), 
+               name -> foods.stream().filter( f -> f.properties().nameProperty().get().equals( name ) ).findFirst().orElse( null ), 
                null
       );
    }
