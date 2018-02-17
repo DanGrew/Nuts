@@ -130,7 +130,7 @@
             "portionValue": 200
          },
          {
-            "foodId": "95f64e61-6420-4b36-b85a-4dfa52d84241",
+            "foodId": "c53eaf9a-94de-404c-9720-e194a242f16f",
             "portionValue": 200
          },
          {
@@ -1218,5 +1218,83 @@
             "portionValue": 50
          }
       ]
+   },
+   {
+      "name": "Almond Cookie Batch",
+      "id": "0ffeec3c-24eb-4eec-9d0a-fb4858fe463f",
+      "portions": [
+         {
+            "foodId": "91ee770d-15cc-477f-9dcc-cab14f63819f",
+            "portionValue": 170
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Almond Cookie (1) (1/12th)",
+      "id": "b8ddfe42-9403-4de1-9404-343ad77ab06c",
+      "portions": [{
+         "foodId": "0ffeec3c-24eb-4eec-9d0a-fb4858fe463f",
+         "portionValue": 8.33
+      }]
+   },
+   {
+      "name": "Peanut Cookie Batch",
+      "id": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
+      "portions": [
+         {
+            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "portionValue": 170
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Peanut Cookie (1) (1/12th)",
+      "id": "33d6cd07-137e-4fc3-9dfc-d1a72181d962",
+      "portions": [{
+         "foodId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
+         "portionValue": 8.33
+      }]
+   },
+   {
+      "name": "Brownie Cheesecake Batch",
+      "id": "5fa5c54d-a814-49c8-88ba-98b2490dbe12",
+      "portions": [
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 100
+         },
+         {
+            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
+            "portionValue": 500
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 30
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Brownie Cheesecake (1) (1/10)",
+      "id": "ca073b0c-36cd-4e59-85f2-77ebd52d1be2",
+      "portions": [{
+         "foodId": "5fa5c54d-a814-49c8-88ba-98b2490dbe12",
+         "portionValue": 10
+      }]
    }
 ]}

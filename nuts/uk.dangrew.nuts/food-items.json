@@ -2458,5 +2458,95 @@
       "name": "Quorn Chicken Pie",
       "id": "579e6691-0451-4069-9f42-557914ca85c9",
       "calories": 457
+   },
+   {
+      "carbohydrates": 19.6,
+      "fats": 10.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 12.6,
+      "name": "Fish (T, Battered Fillets, 500g) (1)",
+      "id": "262dd8a5-c89e-4a90-9cd8-aa85e59c5a29",
+      "calories": 234
+   },
+   {
+      "carbohydrates": 18.1,
+      "fats": 11.7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 12.2,
+      "name": "Quorn (Escalopes, Cheese) (1)",
+      "id": "0270e872-43b7-4e84-9032-a9896ede6252",
+      "calories": 234
+   },
+   {
+      "carbohydrates": 8.2,
+      "fats": 9.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 20,
+      "name": "Protein: Fulfill",
+      "id": "7ce52ee3-5ccc-4570-957b-e1b389961801",
+      "calories": 208
+   },
+   {
+      "carbohydrates": 11,
+      "fats": 49,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 30,
+      "name": "Seeds: Pumkin (100g)",
+      "id": "08837f76-afd9-4ca0-b715-5f1bb384f2fe",
+      "calories": 559
+   },
+   {
+      "carbohydrates": 16,
+      "fats": 12,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 18,
+      "name": "Coconut Flour (100g)",
+      "id": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+      "calories": 352
+   },
+   {
+      "carbohydrates": 1.2,
+      "fats": 6.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.7,
+      "name": "Soft Cheese (Philadelphia, Full Fat) (30g)",
+      "id": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+      "calories": 70
+   },
+   {
+      "carbohydrates": 4.4,
+      "fats": 56.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 25.6,
+      "name": "Almond Butter (T, 100g)",
+      "id": "91ee770d-15cc-477f-9dcc-cab14f63819f",
+      "calories": 645
+   },
+   {
+      "carbohydrates": 10.9,
+      "fats": 52.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 23.8,
+      "name": "Peanut Butter (T, 100g)",
+      "id": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+      "calories": 628
+   },
+   {
+      "carbohydrates": 0.6,
+      "fats": 82.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.6,
+      "name": "Butter (T, Unsalted) (100g)",
+      "id": "7e90c589-40eb-4f3f-a221-c86beae13899",
+      "calories": 744
    }
 ]}

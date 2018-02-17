@@ -40,7 +40,7 @@ public class UiFoodSelectionControlsTest {
    }//End Method
    
    @Test public void shouldFilterOptionsWhenTextEntered() {
-      systemUnderTest.filterTextField().getEditor().setText( "this" );
+      systemUnderTest.filterTextField().setText( "this" );
       verify( controller ).filterOptions( "this" );
    }//End Method
    
