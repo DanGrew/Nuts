@@ -16,6 +16,10 @@ public class FoodSelectionPaneManager implements SelectionPaneManager {
       this( new FoodTileFactory(), new UiFoodSelectionPane(), selector );
    }//End Constructor
    
+   public FoodSelectionPaneManager( UiFoodSelector selector, UiFoodSelectionPane selectionPane ) {
+      this( new FoodTileFactory(), selectionPane, selector );
+   }//End Constructor
+   
    FoodSelectionPaneManager( TileFactory tileFactory, UiFoodSelectionPane selectionPane, UiFoodSelector selector ) {
       this.tileFactory = tileFactory;
       this.selectionPane = selectionPane;

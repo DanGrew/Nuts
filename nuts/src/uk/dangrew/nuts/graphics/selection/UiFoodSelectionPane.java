@@ -9,12 +9,18 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 
 public class UiFoodSelectionPane extends BorderPane implements SelectionPane {
 
-   private static final int COLUMN_NUMBER = 5; 
-   
+   private final int columns;
+   private final int rows;
    private final ScrollPane scrollPane;
    private final GridPane grid;
    
    public UiFoodSelectionPane() {
+      this( 5, 10 );
+   }//End Constructor
+      
+   public UiFoodSelectionPane( int columns, int rows ) {
+      this.columns = columns;
+      this.rows = rows;
       JavaFxStyle styling = new JavaFxStyle();
       
       this.grid = new GridPane();
@@ -23,8 +29,8 @@ public class UiFoodSelectionPane extends BorderPane implements SelectionPane {
       this.scrollPane = styling.scrollPaneToFitFor( grid ); 
       this.setCenter( scrollPane );
       
-      styling.configureConstraintsForEvenColumns( grid, 5 );
-      styling.configureConstraintsForEvenRows( grid, 10 );
+      styling.configureConstraintsForEvenColumns( grid, columns );
+      styling.configureConstraintsForEvenRows( grid, rows );
    }//End Constructor
    
    @Override public void layoutTiles( List< UiFoodSelectionTile > tiles ){
@@ -39,7 +45,7 @@ public class UiFoodSelectionPane extends BorderPane implements SelectionPane {
          grid.add( tile, column, row );
          
          column++;
-         if ( column == COLUMN_NUMBER ) {
+         if ( column == columns ) {
             row++;
             column = 0;
          }

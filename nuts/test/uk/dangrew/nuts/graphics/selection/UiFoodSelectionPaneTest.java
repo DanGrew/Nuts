@@ -12,8 +12,8 @@ import org.mockito.MockitoAnnotations;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 
@@ -62,5 +62,28 @@ public class UiFoodSelectionPaneTest {
    
    @Test public void shouldSelectAppropriateTile(){
       //should really test this but trivial operation and not so trivial test
+   }//End Method
+   
+   @Test public void shouldDisplayInRowsAndColumns(){
+      tiles.clear();
+      
+      int r = 3;
+      int c = 4;
+      for ( int i = 0; i < r; i++ ) {
+         for ( int j = 0; j < c; j++ ) {
+            tiles.add( new UiFoodTile( new FoodPortion( new FoodItem( "Food4" ), 100.0 ), controller ) );
+         }
+      }
+      
+      systemUnderTest = new UiFoodSelectionPane( c, r );
+      systemUnderTest.layoutTiles( tiles );
+      
+      for ( int i = 0; i < r; i++ ) {
+         for ( int j = 0; j < c; j++ ) {
+            UiFoodSelectionTile tile = tiles.get( i * c + j );
+            assertThat( GridPane.getColumnIndex( tile ), is( j ) );
+            assertThat( GridPane.getRowIndex( tile ), is( i ) );
+         }
+      }
    }//End Method
 }//End Class

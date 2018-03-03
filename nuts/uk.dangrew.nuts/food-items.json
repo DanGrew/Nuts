@@ -2548,5 +2548,255 @@
       "name": "Butter (T, Unsalted) (100g)",
       "id": "7e90c589-40eb-4f3f-a221-c86beae13899",
       "calories": 744
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 1.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.4,
+      "name": "Almond Milk (100ml)",
+      "id": "ec492174-9557-4cf2-859a-98cafb1e3cad",
+      "calories": 13
+   },
+   {
+      "carbohydrates": 3.9,
+      "fats": 36,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.4,
+      "name": "Cream (Double, Long Life) (100)",
+      "id": "27acbb7c-5b19-411d-bfec-9659de41d31e",
+      "calories": 351
+   },
+   {
+      "carbohydrates": 76.4,
+      "fats": 0,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.4,
+      "name": "Honey (M, Clear, Squeezy) (100)",
+      "id": "bff3cfa2-116d-4684-9ba4-dba2b9c07b75",
+      "calories": 307
+   },
+   {
+      "carbohydrates": 2.9,
+      "fats": 9.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 13.6,
+      "name": "Beef Meatballs (M) (3)",
+      "id": "d8e8ef74-605a-4489-9b6c-6f59879fee5e",
+      "calories": 152
+   },
+   {
+      "carbohydrates": 0.9,
+      "fats": 2.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 11.2,
+      "name": "Quorn: Steak Strips (1/4)",
+      "id": "283160b3-0677-48ca-b881-f7782e8a53c2",
+      "calories": 79
+   },
+   {
+      "carbohydrates": 0.1,
+      "fats": 34.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 25.4,
+      "name": "Cheese (Cathedral) (100g)",
+      "id": "93fa4c74-c884-45a9-9803-478c83948829",
+      "calories": 416
+   },
+   {
+      "carbohydrates": 0.6,
+      "fats": 78,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.5,
+      "name": "Butter (Lurpak) (100g)",
+      "id": "cc81c071-18f9-4ade-b749-56c61a04f70b",
+      "calories": 706
+   },
+   {
+      "carbohydrates": 1.4,
+      "fats": 79,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.1,
+      "name": "Mayonnaise (T, Hellmans) (100g)",
+      "id": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+      "calories": 726
+   },
+   {
+      "carbohydrates": 19,
+      "fats": 55,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 10,
+      "name": "Chocolate (Lindt, 90%) (100g)",
+      "id": "91d9afe3-2453-43df-9d97-9277bcce6167",
+      "calories": 592
+   },
+   {
+      "carbohydrates": 2,
+      "fats": 21.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 21.6,
+      "name": "Cheese (T, Mozzarella) (100g)",
+      "id": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+      "calories": 285
+   },
+   {
+      "carbohydrates": 2.3,
+      "fats": 39.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 24.3,
+      "name": "Chorizo (T) (100g)",
+      "id": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
+      "calories": 461
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 15,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0,
+      "name": "Olive Oil (T) (15g)",
+      "id": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
+      "calories": 135
+   },
+   {
+      "carbohydrates": 8,
+      "fats": 0.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.8,
+      "name": "Tomatoes (Tin, Plum) (1/2 tin)",
+      "id": "059e3fe6-8a66-4736-b5b5-e2e982aaf123",
+      "calories": 50
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 13.6,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.5,
+      "name": "Olives (Black Pitted, Crespo) (100g)",
+      "id": "65fe90f4-79c7-4d14-a0ee-bf36efcc478f",
+      "calories": 133
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 18,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1,
+      "name": "Olives (Green Pitted, Crespo) (100g)",
+      "id": "88733e90-c7fa-40a3-a8ea-97053d702ec5",
+      "calories": 169
+   },
+   {
+      "carbohydrates": 2,
+      "fats": 0.6,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.9,
+      "name": "Asparagus (100g)",
+      "id": "898c2ac7-5a6f-4df1-8567-bf6e3eb64d50",
+      "calories": 29.2
+   },
+   {
+      "carbohydrates": 4.4,
+      "fats": 0.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.8,
+      "name": "Cabbage (T, Sweetheart) (100g)",
+      "id": "62f0cc0b-ee6a-4aa3-b5b4-9b1032506b8c",
+      "calories": 31.2
+   },
+   {
+      "carbohydrates": 6.1,
+      "fats": 0.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 3,
+      "name": "Parsley (100g)",
+      "id": "ba0b26c6-42e4-42c3-ab28-3f40357b564e",
+      "calories": 50
+   },
+   {
+      "carbohydrates": 1.9,
+      "fats": 19.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.9,
+      "name": "Avacado (100g)",
+      "id": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
+      "calories": 198
+   },
+   {
+      "carbohydrates": 3,
+      "fats": 0.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 3.6,
+      "name": "Cauliflower (100g)",
+      "id": "23889b9d-6ad8-48d9-8f73-f91e858719a8",
+      "calories": 38
+   },
+   {
+      "carbohydrates": 0.5,
+      "fats": 9.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 5.4,
+      "name": "Pepperami",
+      "id": "2b4c3925-0612-48d8-a8e5-5e882da87680",
+      "calories": 113
+   },
+   {
+      "carbohydrates": 0.1,
+      "fats": 99.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.1,
+      "name": "Coconut Oil (100g)",
+      "id": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+      "calories": 902
+   },
+   {
+      "carbohydrates": 14.9,
+      "fats": 15.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 3.1,
+      "name": "Korma Paste (Pataks) (100g)",
+      "id": "8e025392-8f94-4a0e-87bd-73af37cad86e",
+      "calories": 229
+   },
+   {
+      "carbohydrates": 7,
+      "fats": 23.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 4.4,
+      "name": "Madras Paste (Pataks) (100g)",
+      "id": "a824158e-35b2-4610-9b23-cb36e8674df5",
+      "calories": 229
+   },
+   {
+      "carbohydrates": 1.5,
+      "fats": 0.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.8,
+      "name": "Spinach (T) (100g)",
+      "id": "89d94399-75ed-40cf-a517-25fe039661f2",
+      "calories": 30
    }
 ]}

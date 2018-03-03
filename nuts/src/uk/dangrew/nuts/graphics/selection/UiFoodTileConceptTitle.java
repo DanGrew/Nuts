@@ -5,18 +5,18 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import uk.dangrew.kode.javafx.style.LabelBuilder;
-import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.system.Concept;
 
-public class UiFoodTileTitle extends BorderPane {
+public class UiFoodTileConceptTitle extends BorderPane {
 
-   private final Food food;
+   private final Concept concept;
    private final Label label;
    private final ChangeListener< String > nameListener;
    
-   public UiFoodTileTitle( Food food ) {
-      this.food = food;
+   public UiFoodTileConceptTitle( Concept concept ) {
+      this.concept = concept;
       this.label = new LabelBuilder()
-               .withText( food.properties().nameProperty().get() )
+               .withText( concept.properties().nameProperty().get() )
                .withFont( 16, true )
                .withWrappedText()
                .positioned( Pos.CENTER )
@@ -24,11 +24,11 @@ public class UiFoodTileTitle extends BorderPane {
       this.setCenter( label );
       
       this.nameListener = ( s, o, n ) -> label.setText( n );
-      this.food.properties().nameProperty().addListener( nameListener );
+      this.concept.properties().nameProperty().addListener( nameListener );
    }//End Constructor
 
    public void detach() {
-      food.properties().nameProperty().removeListener( nameListener );
+      concept.properties().nameProperty().removeListener( nameListener );
    }//End Method
 
    Label label() {

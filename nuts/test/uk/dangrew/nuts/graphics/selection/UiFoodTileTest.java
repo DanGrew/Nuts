@@ -19,7 +19,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 public class UiFoodTileTest {
   
    private FoodPortion food;
-   private UiFoodTileTitle title;
+   private UiFoodTileConceptTitle title;
    private UiFoodTileProperties macros;
    private UiFoodTilePortionControl control;
    @Mock private UiFoodSelectionController controller;
@@ -29,7 +29,7 @@ public class UiFoodTileTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       food = new FoodPortion( new FoodItem( "Food" ), 100.0 );
-      title = spy( new UiFoodTileTitle( food.food().get() ) );
+      title = spy( new UiFoodTileConceptTitle( food.food().get() ) );
       macros = spy( new UiFoodTileProperties( food ) );
       control = spy( new UiFoodTilePortionControl( food ) );
       systemUnderTest = new UiFoodTile( food, controller, title, macros, control );

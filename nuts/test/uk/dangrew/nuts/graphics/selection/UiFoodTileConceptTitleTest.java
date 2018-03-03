@@ -11,16 +11,16 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 
-public class UiFoodTileTitleTest {
+public class UiFoodTileConceptTitleTest {
 
    private Food food;
-   private UiFoodTileTitle systemUnderTest;
+   private UiFoodTileConceptTitle systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       food = new FoodItem( "Food Item" );
-      systemUnderTest = new UiFoodTileTitle( food );
+      systemUnderTest = new UiFoodTileConceptTitle( food );
    }//End Method
 
    @Test public void shouldUpdateTextWhenNameChanges() {

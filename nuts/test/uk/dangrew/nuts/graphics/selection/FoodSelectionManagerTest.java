@@ -4,8 +4,6 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.verify;
 
 import java.util.Set;
 
@@ -16,7 +14,6 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.store.Database;
 
 public class FoodSelectionManagerTest {
 
@@ -64,5 +61,5 @@ public class FoodSelectionManagerTest {
       assertThat( systemUnderTest.isSelected( portion3 ), is( false ) );
       assertThat( systemUnderTest.getAndClearSelection(), is( empty() ) );
    }//End Method
-
+  
 }//End Class

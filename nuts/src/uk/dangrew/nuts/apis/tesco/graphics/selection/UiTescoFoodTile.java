@@ -1,49 +1,43 @@
-package uk.dangrew.nuts.graphics.selection;
+package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.apis.tesco.item.TescoFoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
+import uk.dangrew.nuts.graphics.selection.UiFoodTileConceptTitle;
 
-public class UiFoodTile extends UiFoodSelectionTile {
-   
+public class UiTescoFoodTile extends UiFoodSelectionTile {
+
    static final Color DESELECTED_BACKGROUND = Color.WHITE;
-   static final Color SELECTED_BACKGROUND = Color.YELLOW;
+   static final Color SELECTED_BACKGROUND = Color.ORANGE;
    
    private final JavaFxStyle styling;
-   private final FoodPortion food;
-   private final UiFoodSelector controller;
+   private final TescoFoodItem food;
+   private final UiTescoFoodSelector controller;
    private final UiFoodTileConceptTitle title;
-   private final UiFoodTileProperties macros;
-   private final UiFoodTilePortionControl control;
    
-   public UiFoodTile( FoodPortion food, UiFoodSelector controller ) {
+   public UiTescoFoodTile( TescoFoodItem food, UiTescoFoodSelector controller ) {
       this( 
                food, 
                controller, 
-               new UiFoodTileConceptTitle( food.food().get() ), 
-               new UiFoodTileProperties( food ), 
-               new UiFoodTilePortionControl( food )
+               new UiFoodTileConceptTitle( food ) 
       );
    }//End Constructor
    
-   UiFoodTile(
-            FoodPortion food,
-            UiFoodSelector controller, 
-            UiFoodTileConceptTitle title,
-            UiFoodTileProperties macros,
-            UiFoodTilePortionControl control 
+   UiTescoFoodTile(
+            TescoFoodItem food,
+            UiTescoFoodSelector controller, 
+            UiFoodTileConceptTitle title
    ) {
       this.food = food;
       this.controller = controller;
       this.title = title;
-      this.macros = macros;
-      this.control = control;
       
       this.styling = new JavaFxStyle();
-      this.styling.configureConstraintsForRowPercentages( this, 40, 30, 10, 20 );
+      this.styling.configureConstraintsForRowPercentages( this, 100 );
       this.styling.configureConstraintsForEvenColumns( this, 1 );
       
       this.setPadding( new Insets( 20 ) );
@@ -53,8 +47,6 @@ public class UiFoodTile extends UiFoodSelectionTile {
       this.setBorder( styling.borderFor( Color.BLACK, 2 ) );
       
       this.add( title, 0, 0 );
-      this.add( macros, 0, 1 );
-      this.add( control, 0, 3 );
       
       this.setOnMouseClicked( this::clicked );
    }//End Constructor
@@ -74,9 +66,9 @@ public class UiFoodTile extends UiFoodSelectionTile {
          setBackground( styling.backgroundFor( DESELECTED_BACKGROUND ) );
       }
    }//End Method
-
-   public FoodPortion food() {
-      return food;
+   
+   @Override public FoodPortion food() {
+      return null;
    }//End Method
-
+   
 }//End Class
