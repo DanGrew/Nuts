@@ -54,5 +54,14 @@ public class TescoGrocerySearchModelTest {
       assertThat( description.tpnb().get(), is( SAMPLE_TPNB ) );
       assertThat( description.image().get(), is( "image" ) );
    }//End Method
+   
+   @Test public void shouldFixImageLinkIssueWithHttps(){
+      systemUnderTest.setTpnb( null, SAMPLE_TPNB );
+      systemUnderTest.setImageLink( null, "http://anything" );
+      systemUnderTest.finishResult( null );
+      
+      TescoFoodDescription description = store.get( SAMPLE_TPNB );
+      assertThat( description.image().get(), is( "https://anything" ) );
+   }//End Method
 
 }//End Class

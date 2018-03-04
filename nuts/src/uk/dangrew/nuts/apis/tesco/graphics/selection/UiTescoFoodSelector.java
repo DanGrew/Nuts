@@ -1,16 +1,16 @@
 package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodReference;
+import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 
 public interface UiTescoFoodSelector {
 
-   public boolean isSelected( TescoFoodReference food );
+   public boolean isSelected( TescoFoodDescription food );
    
 //   public boolean isSelected( Food food );
 
-   public void deselect( TescoFoodReference food );
+   public void deselect( TescoFoodDescription food );
 
-   public void select( TescoFoodReference food );
+   public void select( TescoFoodDescription food );
 
 }//End Interface
 

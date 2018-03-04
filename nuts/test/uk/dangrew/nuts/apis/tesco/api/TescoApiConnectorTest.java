@@ -1,7 +1,8 @@
 package uk.dangrew.nuts.apis.tesco.api;
 
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -39,6 +40,18 @@ public class TescoApiConnectorTest {
    @Test public void shouldReturnValidResultForSimpleProductQuery(){
       String result = systemUnderTest.retrieveProduct( "76274694" );
       assertThat( result, containsString( "Coconut" ) );
+   }//End Method
+   
+   @Test public void shouldHandleInvalidSearchCriteria(){
+      String result = systemUnderTest.searchProducts( "", 1, 10 );
+      assertThat( result, is( nullValue() ) );
+      result = systemUnderTest.searchProducts( null, 1, 10 );
+      assertThat( result, is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldCatchSpacesInSearchCriteria(){
+      String result = systemUnderTest.searchProducts( "coconut flour", 1, 10 );
+      assertThat( result, containsString( "coconut" ) );
    }//End Method
 
 }//End Class

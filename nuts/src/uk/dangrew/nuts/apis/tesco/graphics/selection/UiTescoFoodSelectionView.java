@@ -14,7 +14,7 @@ public class UiTescoFoodSelectionView extends BorderPane {
       TescoFoodSelectionPaneManager paneManager = new TescoFoodSelectionPaneManager( controller );
       controller.controlSelection( paneManager );
       
-      setTop( new UiTescoFoodSelectionControls() );
+      setTop( new UiTescoFoodSelectionControls( controller ) );
       setCenter( paneManager.selectionPane() );
       setRight( options );
    }//End Constructor

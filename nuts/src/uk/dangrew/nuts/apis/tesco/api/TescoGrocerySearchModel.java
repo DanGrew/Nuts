@@ -82,7 +82,7 @@ public class TescoGrocerySearchModel {
    }//End Method
    
    public void setImageLink( String key, String value ) {
-      this.image = value;
+      this.image = value.replaceFirst( "http:", "https:" );
    }//End Method
    
    public void setSuperDepartment( String key, String value ) {

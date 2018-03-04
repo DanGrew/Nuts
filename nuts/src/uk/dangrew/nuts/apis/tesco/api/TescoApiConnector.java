@@ -54,6 +54,9 @@ public class TescoApiConnector {
    }
 
    public String searchProducts( String criteria, int pageNumber, int countPerPage ) {
+      if ( criteria == null || criteria.isEmpty() ) {
+         return null;
+      }
       try {
          URIBuilder builder = new URIBuilder( query( criteria, pageNumber, countPerPage ) );
          return request( builder );
@@ -95,7 +98,11 @@ public class TescoApiConnector {
       String offsetConcat = "&offset=";
       int offset = ( pageNumber - 1 ) * countPerPage;
       String limitConcat = "&limit=";
-      return TESCO_LABS_GROCERY_QUERY + criteria + offsetConcat + offset + limitConcat + countPerPage;
+      return TESCO_LABS_GROCERY_QUERY + handleSpaces( criteria ) + offsetConcat + offset + limitConcat + countPerPage;
+   }//End Method
+   
+   private String handleSpaces( String value ) {
+      return value.replaceAll( " ", "%20" );
    }//End Method
 
 }//End Class

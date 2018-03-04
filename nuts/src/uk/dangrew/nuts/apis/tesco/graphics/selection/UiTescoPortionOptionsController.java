@@ -1,35 +1,42 @@
 package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
-import uk.dangrew.nuts.apis.tesco.api.TescoFoodItemCache;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodReference;
+import java.util.ArrayList;
+import java.util.List;
+
+import uk.dangrew.nuts.apis.tesco.api.Tesco;
+import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 
 public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
 
    private final UiTescoFoodPortionOptions options;
-   private final TescoFoodItemCache itemsCache;
+   private final Tesco tesco;
    
    private TescoSelectionPaneManager selectionPane;
-   private TescoFoodReference selected;
+   private TescoFoodDescription selected;
    
    public UiTescoPortionOptionsController( UiTescoFoodPortionOptions options ) {
+      this( new Tesco(), options );
+   }//End Constructor
+   
+   UiTescoPortionOptionsController( Tesco tesco, UiTescoFoodPortionOptions options ) {
       this.options = options;
-      this.itemsCache = new TescoFoodItemCache();
+      this.tesco = tesco;
    }//End Constructor
    
    public void controlSelection( TescoSelectionPaneManager pane ) {
       this.selectionPane = pane;
-      fireLayoutChanges();
+      fireLayoutChanges( new ArrayList<>() );
    }//End Method
    
-   private void fireLayoutChanges(){
-      selectionPane.layoutTiles( itemsCache.getFoodItems() );
+   private void fireLayoutChanges( List< TescoFoodDescription > descriptions ){
+      selectionPane.layoutTiles( descriptions );
    }//End Method
 
-   @Override public boolean isSelected( TescoFoodReference food ) {
+   @Override public boolean isSelected( TescoFoodDescription food ) {
       return food == selected;
    }//End Method
 
-   @Override public void deselect( TescoFoodReference food ) {
+   @Override public void deselect( TescoFoodDescription food ) {
       if ( selected == null ) {
          return;
       } else if ( selected == food ) {
@@ -39,11 +46,15 @@ public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
       }
    }//End Method
 
-   @Override public void select( TescoFoodReference food ) {
+   @Override public void select( TescoFoodDescription food ) {
       deselect( selected );
       this.selected = food;
       this.selectionPane.setSelected( food, true );
-      this.options.showOptions( itemsCache.getOptionsFor( food ) );
+//      this.options.showOptions( itemsCache.getOptionsFor( food ) );
+   }//End Method
+   
+   public void search( String criteria ) {
+      fireLayoutChanges( tesco.search( criteria ) );
    }//End Method
 
 }//End Class
