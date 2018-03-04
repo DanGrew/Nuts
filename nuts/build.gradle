@@ -64,11 +64,11 @@ repositories {
 dependencies {
     compile group: 'org.controlsfx', name: 'controlsfx', version:'8.40.11'
     compile group: 'dom4j', name: 'dom4j', version:'1.6.1'
-    compile group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.1.2'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.5.4'
     compile group: 'org.json', name: 'json', version:'20151123'
     compile group: 'uk.dangrew', name: 'dag-kode', version: '1.0.18'
     compile group: 'SystemDigest', name: 'SystemDigest', version: '1.2.52'
-    compile group: 'jupa', name: 'JsonUpgradingPersistenceArchitecture', version: '1.1.57'
+    compile group: 'jupa', name: 'JsonUpgradingPersistenceArchitecture', version: '1.1.59'
     compile group: 'de.jensd', name: 'fontawesomefx', version: '8.9'
     
     testCompile group: 'junit', name: 'junit', version:'4.12'

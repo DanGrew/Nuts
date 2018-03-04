@@ -1370,11 +1370,11 @@
       "calories": 350
    },
    {
-      "carbohydrates": 0,
-      "fats": 0,
+      "carbohydrates": 3.1,
+      "fats": 0.3,
       "loggedWeight": 0,
       "soldInWeight": 0,
-      "protein": 0,
+      "protein": 1.2,
       "name": "Courgette (100g)",
       "id": "abae526a-7c34-42f0-91e6-d07de9773ba4",
       "calories": 20

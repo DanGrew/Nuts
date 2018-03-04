@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import uk.dangrew.nuts.apis.tesco.api.TescoFoodItemCache;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodItem;
+import uk.dangrew.nuts.apis.tesco.item.TescoFoodReference;
 
 public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
 
@@ -9,7 +9,7 @@ public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
    private final TescoFoodItemCache itemsCache;
    
    private TescoSelectionPaneManager selectionPane;
-   private TescoFoodItem selected;
+   private TescoFoodReference selected;
    
    public UiTescoPortionOptionsController( UiTescoFoodPortionOptions options ) {
       this.options = options;
@@ -25,11 +25,11 @@ public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
       selectionPane.layoutTiles( itemsCache.getFoodItems() );
    }//End Method
 
-   @Override public boolean isSelected( TescoFoodItem food ) {
+   @Override public boolean isSelected( TescoFoodReference food ) {
       return food == selected;
    }//End Method
 
-   @Override public void deselect( TescoFoodItem food ) {
+   @Override public void deselect( TescoFoodReference food ) {
       if ( selected == null ) {
          return;
       } else if ( selected == food ) {
@@ -39,7 +39,7 @@ public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
       }
    }//End Method
 
-   @Override public void select( TescoFoodItem food ) {
+   @Override public void select( TescoFoodReference food ) {
       deselect( selected );
       this.selected = food;
       this.selectionPane.setSelected( food, true );

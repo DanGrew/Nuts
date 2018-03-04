@@ -9,11 +9,9 @@ import uk.dangrew.nuts.system.Properties;
 public class TescoFoodItem implements Concept {
    
    private final Properties properties;
-   private final ObjectProperty< String > productNumberForBaseProduct;
-   private final ObjectProperty< String > productNumberForConsumerUnit;
-   private final ObjectProperty< String > catalogueNumber;
-   private final ObjectProperty< FoodItem > associatedFoodItem;
-
+   private final ObjectProperty< TescoFoodDescription > descriptionProperty;
+   private final ObjectProperty< FoodItem > foodItemProperty;
+   
    public TescoFoodItem( String name ) {
       this( new Properties( name ) );
    }//End Constructor
@@ -24,10 +22,9 @@ public class TescoFoodItem implements Concept {
    
    private TescoFoodItem( Properties properties ) {
       this.properties = properties;
-      this.productNumberForBaseProduct = new SimpleObjectProperty<>();
-      this.productNumberForConsumerUnit = new SimpleObjectProperty<>();
-      this.catalogueNumber = new SimpleObjectProperty<>();
-      this.associatedFoodItem = new SimpleObjectProperty<>();
+      
+      this.descriptionProperty = new SimpleObjectProperty<>();
+      this.foodItemProperty = new SimpleObjectProperty<>();
    }//End Constructor
 
    @Override public Properties properties() {
@@ -38,20 +35,12 @@ public class TescoFoodItem implements Concept {
       return this;
    }//End Method
 
-   public ObjectProperty< String > productNumberForBaseProduct() {
-      return productNumberForBaseProduct;
+   public ObjectProperty< TescoFoodDescription > description() {
+      return descriptionProperty;
    }//End Method
-
-   public ObjectProperty< String > productNumberForConsumerUnit() {
-      return productNumberForConsumerUnit;
-   }//End Method
-
-   public ObjectProperty< String > catalogueNumber() {
-      return catalogueNumber;
-   }//End Method
-
-   public ObjectProperty< FoodItem > association() {
-      return associatedFoodItem;
+   
+   public ObjectProperty< FoodItem > foodItem() {
+      return foodItemProperty;
    }//End Method
 
 }//End Class

@@ -4,7 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodItem;
+import uk.dangrew.nuts.apis.tesco.item.TescoFoodReference;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
 import uk.dangrew.nuts.graphics.selection.UiFoodTileConceptTitle;
@@ -15,11 +15,11 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
    static final Color SELECTED_BACKGROUND = Color.ORANGE;
    
    private final JavaFxStyle styling;
-   private final TescoFoodItem food;
+   private final TescoFoodReference food;
    private final UiTescoFoodSelector controller;
    private final UiFoodTileConceptTitle title;
    
-   public UiTescoFoodTile( TescoFoodItem food, UiTescoFoodSelector controller ) {
+   public UiTescoFoodTile( TescoFoodReference food, UiTescoFoodSelector controller ) {
       this( 
                food, 
                controller, 
@@ -28,7 +28,7 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
    }//End Constructor
    
    UiTescoFoodTile(
-            TescoFoodItem food,
+            TescoFoodReference food,
             UiTescoFoodSelector controller, 
             UiFoodTileConceptTitle title
    ) {
