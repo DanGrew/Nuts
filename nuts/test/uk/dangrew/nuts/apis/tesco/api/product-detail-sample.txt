@@ -1,0 +1,134 @@
+{
+  "products": [{
+    "gtin": "05054775980437",
+    "tpnb": "081232414",
+    "tpnc": "292718570",
+    "description": "Tesco Virgin Organic Coconut Oil 300Ml",
+    "brand": "TESCO",
+    "qtyContents": {
+      "quantity": 300.0,
+      "totalQuantity": 301.0,
+      "quantityUom": "ml",
+      "netContents": "300ml ℮",
+      "avgMeasure": "Average Measure (e)"
+    },
+    "productCharacteristics": {
+      "isFood": true,
+      "isDrink": false,
+      "healthScore": 30,
+      "isHazardous": false,
+      "storageType": "Ambient",
+      "isNonLiquidAnalgesic": false,
+      "containsLoperamide": true
+    },
+    "gda": {
+      "gdaRefs": [{
+        "gdaDescription": "Guideline Amounts Per Serv",
+        "headers": [
+          "Each tablespoon contains"
+        ],
+        "footers": [
+          "*Reference intake of an average adult (8400 kJ / 2000 kcal)",
+          "Typical values per 100g: Energy 3700.00kJ(900.00kcal)"
+        ],
+        "values": [{
+            "name": "Energy",
+            "values": [
+              "555kJ",
+              "135kcal"
+            ],
+            "percent": "7"
+          },
+          {
+            "name": "Fat",
+            "values": [
+              "15.0g"
+            ],
+            "percent": "21",
+            "rating": "high"
+          },
+          {
+            "name": "Saturates",
+            "values": [
+              "13.1g"
+            ],
+            "percent": "66",
+            "rating": "high"
+          },
+          {
+            "name": "Sugars",
+            "values": [
+              "0gg"
+            ],
+            "percent": "0",
+            "rating": "low"
+          },
+          {
+            "name": "Salt",
+            "values": [
+              "0gg"
+            ],
+            "percent": "0",
+            "rating": "low"
+          }
+        ]
+      }]
+    },
+    "calcNutrition": {
+      "per100Header": "100g contains",
+      "perServingHeader": "Each tablespoon (15g) contains",
+      "calcNutrients": [{
+          "name": "Energy (kJ)",
+          "valuePer100": "3700",
+          "valuePerServing": "555"
+        },
+        {
+          "name": "Energy (kcal)",
+          "valuePer100": "3700.00kj900.",
+          "valuePerServing": "555.00kj135."
+        },
+        {
+          "name": "Fat (g)",
+          "valuePer100": "100",
+          "valuePerServing": "15"
+        },
+        {
+          "name": "Saturates (g)",
+          "valuePer100": "87",
+          "valuePerServing": "13.05"
+        },
+        {
+          "name": "Carbohydrate (g)"
+        },
+        {
+          "name": "Sugars (g)"
+        },
+        {
+          "name": "Fibre (g)"
+        },
+        {
+          "name": "Protein (g)"
+        },
+        {
+          "name": "Salt (g)"
+        }
+      ]
+    },
+    "storage": [
+      "Store in a cool, dry place. This product is solid when refrigerated or kept below 24oC."
+    ],
+    "marketingText": "Organic virgin coconut oil (Cocos nucifera) is cold pressed using fresh organic coconuts, this produces a mild and aromatic flavour of fresh coconuts.\nOrganic virgin coconut oil (Cocos nucifera) is cold pressed using fresh organic coconuts, this produces a mild and aromatic flavour of fresh coconuts.",
+    "pkgDimensions": [{
+      "no": 1,
+      "height": 8.3,
+      "width": 8.0,
+      "depth": 8.0,
+      "dimensionUom": "cm",
+      "weight": 484.0,
+      "weightUom": "g",
+      "volume": 531.2,
+      "volumeUom": "cc"
+    }],
+    "productAttributes": []
+  }]
+}

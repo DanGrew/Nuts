@@ -24,7 +24,7 @@ public class TescoParseRecorder {
    public List< TescoFoodDescription > getAndClearRecordedDescriptions() {
       List< TescoFoodDescription > result = tpnbsParsed.stream().map( tpnb -> store.objectList()
                .stream()
-               .filter( f -> f.tpnb().get().equalsIgnoreCase( tpnb ) )
+               .filter( f -> f.groceryProperties().tpnb().get().equalsIgnoreCase( tpnb ) )
                .findFirst().orElse( null ) 
       ).filter( Objects::nonNull ).collect( Collectors.toList() );
       

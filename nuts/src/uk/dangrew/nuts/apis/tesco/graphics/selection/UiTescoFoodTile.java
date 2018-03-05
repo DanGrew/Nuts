@@ -53,10 +53,10 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
       
       this.add( imageView = new ImageView(), 0, row++ );
       this.add( title, 0, row++ );
-      this.add( new Label( "Quantity: " + food.contentsQuantity().get() ), 0, row++ );
-      this.add( new Label( "Measurement: " + food.contentsMeasureType().get() ), 0, row++ );
-      this.add( new Label( "Price: £" + food.price().get() ), 0, row++ );
-      this.add( new Label( "Department: " + food.department().get() ), 0, row++ );
+      this.add( new Label( "Quantity: " + food.groceryProperties().contentsQuantity().get() ), 0, row++ );
+      this.add( new Label( "Measurement: " + food.groceryProperties().contentsMeasureType().get() ), 0, row++ );
+      this.add( new Label( "Price: £" + food.groceryProperties().price().get() ), 0, row++ );
+      this.add( new Label( "Department: " + food.groceryProperties().department().get() ), 0, row++ );
       
       this.setOnMouseClicked( this::clicked );
       

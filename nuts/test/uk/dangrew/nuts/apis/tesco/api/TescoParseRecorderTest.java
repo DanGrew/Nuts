@@ -38,10 +38,10 @@ public class TescoParseRecorderTest {
       json = new JSONObject();
       
       descriptionStore = new TescoFoodDescriptionStore();
-      descriptionStore.createConcept( "a" ).tpnb().set( "a" );
-      descriptionStore.createConcept( "b" ).tpnb().set( "b" );
-      descriptionStore.createConcept( "c" ).tpnb().set( "c" );
-      descriptionStore.createConcept( "d" ).tpnb().set( "d" );
+      descriptionStore.createConcept( "a" ).groceryProperties().tpnb().set( "a" );
+      descriptionStore.createConcept( "b" ).groceryProperties().tpnb().set( "b" );
+      descriptionStore.createConcept( "c" ).groceryProperties().tpnb().set( "c" );
+      descriptionStore.createConcept( "d" ).groceryProperties().tpnb().set( "d" );
       
       systemUnderTest = new TescoParseRecorder( descriptionStore, groceryParser );
       

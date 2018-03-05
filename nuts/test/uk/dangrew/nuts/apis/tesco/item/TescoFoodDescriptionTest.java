@@ -31,25 +31,25 @@ public class TescoFoodDescriptionTest {
    }//End Method
    
    @Test public void shouldProvideDescriptionProperties(){
-      shouldProvideProperty( systemUnderTest.image(), "anything" );
-      shouldProvideProperty( systemUnderTest.superDepartment(),"anything" ); 
-      shouldProvideProperty( systemUnderTest.tpnb(), "anything" );
-      shouldProvideProperty( systemUnderTest.unitOfSale(), 101.2 );
-      shouldProvideProperty( systemUnderTest.unitQuantity(), "anything" );
-      shouldProvideProperty( systemUnderTest.promotionDescription(), "anything" );
-      shouldProvideProperty( systemUnderTest.contentsMeasureType(), "anything" );
-      shouldProvideProperty( systemUnderTest.name(), "anything" );
-      shouldProvideProperty( systemUnderTest.averageSellingUnitWeight(), 101.2 ); 
-      shouldProvideProperty( systemUnderTest.id(), "anything" );
-      shouldProvideProperty( systemUnderTest.contentsQuantity(), 101.2 );
-      shouldProvideProperty( systemUnderTest.department(), "anything" );
-      shouldProvideProperty( systemUnderTest.price(), 101.2 );
-      shouldProvideProperty( systemUnderTest.unitPrice(), 101.2 );
-      shouldProvideProperty( systemUnderTest.isSpecialOffer(), true );
+      shouldProvideProperty( systemUnderTest.groceryProperties().image(), "anything" );
+      shouldProvideProperty( systemUnderTest.groceryProperties().superDepartment(),"anything" ); 
+      shouldProvideProperty( systemUnderTest.groceryProperties().tpnb(), "anything" );
+      shouldProvideProperty( systemUnderTest.groceryProperties().unitOfSale(), 101.2 );
+      shouldProvideProperty( systemUnderTest.groceryProperties().unitQuantity(), "anything" );
+      shouldProvideProperty( systemUnderTest.groceryProperties().promotionDescription(), "anything" );
+      shouldProvideProperty( systemUnderTest.groceryProperties().contentsMeasureType(), "anything" );
+      shouldProvideProperty( systemUnderTest.groceryProperties().name(), "anything" );
+      shouldProvideProperty( systemUnderTest.groceryProperties().averageSellingUnitWeight(), 101.2 ); 
+      shouldProvideProperty( systemUnderTest.groceryProperties().id(), "anything" );
+      shouldProvideProperty( systemUnderTest.groceryProperties().contentsQuantity(), 101.2 );
+      shouldProvideProperty( systemUnderTest.groceryProperties().department(), "anything" );
+      shouldProvideProperty( systemUnderTest.groceryProperties().price(), 101.2 );
+      shouldProvideProperty( systemUnderTest.groceryProperties().unitPrice(), 101.2 );
+      shouldProvideProperty( systemUnderTest.groceryProperties().isSpecialOffer(), true );
       
-      assertThat( systemUnderTest.description(), is( empty() ) );
-      systemUnderTest.description().add( "anything" );
-      assertThat( systemUnderTest.description().contains( "anything" ), is( true ) );
+      assertThat( systemUnderTest.groceryProperties().description(), is( empty() ) );
+      systemUnderTest.groceryProperties().description().add( "anything" );
+      assertThat( systemUnderTest.groceryProperties().description().contains( "anything" ), is( true ) );
    }//End Method
    
    private < TypeT > void shouldProvideProperty( ObjectProperty< TypeT > property, TypeT value ) {

@@ -35,7 +35,7 @@ public class TescoGrocerySearchParserTest {
       JSONObject json = new ApiResponseToJsonConverter().convert( products );
       
       systemUnderTest.parse( json );
-      recorder.getAndClearRecordedDescriptions().forEach( f -> System.out.println( f.name().get() ) );
+      recorder.getAndClearRecordedDescriptions().forEach( f -> System.out.println( f.groceryProperties().name().get() ) );
    }//End Method
    
    @Test public void shouldParseSampleFile(){
@@ -45,22 +45,22 @@ public class TescoGrocerySearchParserTest {
       List< TescoFoodDescription > descriptions = recorder.getAndClearRecordedDescriptions();
       
       TescoFoodDescription sampleTest = descriptions.get( 2 );
-      assertThat( sampleTest.image().get(), is( "http://img.tesco.com/Groceries/pi/231/5052109963231/IDShot_90x90.jpg" ) );
-      assertThat( sampleTest.superDepartment().get(), is( "Fresh Food" ) );
-      assertThat( sampleTest.tpnb().get(), is( "70819043" ) );
-      assertThat( sampleTest.unitOfSale().get(), is( 1.0 ) );
-      assertThat( sampleTest.unitQuantity().get(), is( "100G" ) );
-      assertThat( sampleTest.promotionDescription().get(), is( "25 extra points on any yoghurt Includes dairy free" ) );
-      assertThat( sampleTest.contentsMeasureType().get(), is( "G" ) );
-      assertThat( sampleTest.name().get(), is( "Tesco Low Fat Coconut Yogurt 450G" ) );
-      assertThat( sampleTest.averageSellingUnitWeight().get(), is( 0.505 ) );
-      assertThat( sampleTest.id().get(), is( "271656356" ) );
-      assertThat( sampleTest.contentsQuantity().get(), is( 450.0 ) );
-      assertThat( sampleTest.department().get(), is( "Yoghurts" ) );
-      assertThat( sampleTest.price().get(), is( 0.9 ) );
-      assertThat( sampleTest.unitPrice().get(), is( 0.2 ) );
+      assertThat( sampleTest.groceryProperties().image().get(), is( "https://img.tesco.com/Groceries/pi/231/5052109963231/IDShot_90x90.jpg" ) );
+      assertThat( sampleTest.groceryProperties().superDepartment().get(), is( "Fresh Food" ) );
+      assertThat( sampleTest.groceryProperties().tpnb().get(), is( "70819043" ) );
+      assertThat( sampleTest.groceryProperties().unitOfSale().get(), is( 1.0 ) );
+      assertThat( sampleTest.groceryProperties().unitQuantity().get(), is( "100G" ) );
+      assertThat( sampleTest.groceryProperties().promotionDescription().get(), is( "25 extra points on any yoghurt Includes dairy free" ) );
+      assertThat( sampleTest.groceryProperties().contentsMeasureType().get(), is( "G" ) );
+      assertThat( sampleTest.groceryProperties().name().get(), is( "Tesco Low Fat Coconut Yogurt 450G" ) );
+      assertThat( sampleTest.groceryProperties().averageSellingUnitWeight().get(), is( 0.505 ) );
+      assertThat( sampleTest.groceryProperties().id().get(), is( "271656356" ) );
+      assertThat( sampleTest.groceryProperties().contentsQuantity().get(), is( 450.0 ) );
+      assertThat( sampleTest.groceryProperties().department().get(), is( "Yoghurts" ) );
+      assertThat( sampleTest.groceryProperties().price().get(), is( 0.9 ) );
+      assertThat( sampleTest.groceryProperties().unitPrice().get(), is( 0.2 ) );
       
-      assertThat( sampleTest.description(), contains( 
+      assertThat( sampleTest.groceryProperties().description(), contains( 
                "Low fat coconut yogurt.", 
                "low fat coconut yogurt made with British milk, bursting with flavour"
       ) );

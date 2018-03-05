@@ -32,7 +32,7 @@ public class TescoTest {
    @Ignore
    @Test public void manual(){
       //over 2000 results
-      new Tesco().search( "chi" ).forEach( d -> System.out.println( d.name().get() ) );
+      new Tesco().search( "chi" ).forEach( d -> System.out.println( d.groceryProperties().name().get() ) );
    }//End Method
    
    @Test public void shouldProvideFoodDescriptionsForSearch() {

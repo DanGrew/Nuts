@@ -62,23 +62,23 @@ public class TescoGrocerySearchModel {
          store.store( item );
       }
       
-      item.image().set( image );
-      item.superDepartment().set( superDepartment );
-      item.tpnb().set( tpnb );
-      item.unitOfSale().set( unitOfSale );
-      item.description().clear();
-      item.description().addAll( description );
-      item.unitQuantity().set( unitQuantity );
-      item.promotionDescription().set( promotionDescription );
-      item.contentsMeasureType().set( contentsMeasureType );
-      item.name().set( name );
-      item.averageSellingUnitWeight().set( averageSellingUnitWeight );
-      item.id().set( id );
-      item.contentsQuantity().set( contentsQuantity );
-      item.department().set( department );
-      item.price().set( price );
-      item.unitPrice().set( unitPrice );
-      item.isSpecialOffer().set( isSpecialOffer );
+      item.groceryProperties().image().set( image );
+      item.groceryProperties().superDepartment().set( superDepartment );
+      item.groceryProperties().tpnb().set( tpnb );
+      item.groceryProperties().unitOfSale().set( unitOfSale );
+      item.groceryProperties().description().clear();
+      item.groceryProperties().description().addAll( description );
+      item.groceryProperties().unitQuantity().set( unitQuantity );
+      item.groceryProperties().promotionDescription().set( promotionDescription );
+      item.groceryProperties().contentsMeasureType().set( contentsMeasureType );
+      item.groceryProperties().name().set( name );
+      item.groceryProperties().averageSellingUnitWeight().set( averageSellingUnitWeight );
+      item.groceryProperties().id().set( id );
+      item.groceryProperties().contentsQuantity().set( contentsQuantity );
+      item.groceryProperties().department().set( department );
+      item.groceryProperties().price().set( price );
+      item.groceryProperties().unitPrice().set( unitPrice );
+      item.groceryProperties().isSpecialOffer().set( isSpecialOffer );
    }//End Method
    
    public void setImageLink( String key, String value ) {

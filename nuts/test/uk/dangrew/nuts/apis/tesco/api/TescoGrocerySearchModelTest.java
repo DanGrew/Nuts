@@ -29,7 +29,7 @@ public class TescoGrocerySearchModelTest {
    }//End Method
 
    @Test public void shouldFindExistingDescriptionAndUpdate() {
-      store.createConcept( SAMPLE_TPNB, "anything" ).image().set( "anything" );
+      store.createConcept( SAMPLE_TPNB, "anything" ).groceryProperties().image().set( "anything" );
       
       systemUnderTest.setTpnb( null, SAMPLE_TPNB );
       systemUnderTest.setImageLink( null, "image" );
@@ -39,8 +39,8 @@ public class TescoGrocerySearchModelTest {
       TescoFoodDescription description = store.get( SAMPLE_TPNB );
       assertThat( description, is( notNullValue() ) );
       assertThat( description.properties().id(), is( SAMPLE_TPNB ) );
-      assertThat( description.tpnb().get(), is( SAMPLE_TPNB ) );
-      assertThat( description.image().get(), is( "image" ) );
+      assertThat( description.groceryProperties().tpnb().get(), is( SAMPLE_TPNB ) );
+      assertThat( description.groceryProperties().image().get(), is( "image" ) );
    }//End Method
    
    @Test public void shouldCreateNewDescription() {
@@ -51,8 +51,8 @@ public class TescoGrocerySearchModelTest {
       TescoFoodDescription description = store.get( SAMPLE_TPNB );
       assertThat( description, is( notNullValue() ) );
       assertThat( description.properties().id(), is( SAMPLE_TPNB ) );
-      assertThat( description.tpnb().get(), is( SAMPLE_TPNB ) );
-      assertThat( description.image().get(), is( "image" ) );
+      assertThat( description.groceryProperties().tpnb().get(), is( SAMPLE_TPNB ) );
+      assertThat( description.groceryProperties().image().get(), is( "image" ) );
    }//End Method
    
    @Test public void shouldFixImageLinkIssueWithHttps(){
@@ -61,7 +61,7 @@ public class TescoGrocerySearchModelTest {
       systemUnderTest.finishResult( null );
       
       TescoFoodDescription description = store.get( SAMPLE_TPNB );
-      assertThat( description.image().get(), is( "https://anything" ) );
+      assertThat( description.groceryProperties().image().get(), is( "https://anything" ) );
    }//End Method
 
 }//End Class

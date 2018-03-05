@@ -30,10 +30,10 @@ public class TescoGrocerySearchParser extends JsonParser {
    private static final String IS_SPECIAL_OFFER = "IsSpecialOffer";
    
    public TescoGrocerySearchParser( TescoFoodDescriptionStore descriptionStore ) {
-      this( descriptionStore, new TescoGrocerySearchModel( descriptionStore ) );
+      this( new TescoGrocerySearchModel( descriptionStore ) );
    }//End Constructor
    
-   TescoGrocerySearchParser( TescoFoodDescriptionStore store, TescoGrocerySearchModel model ) {
+   TescoGrocerySearchParser( TescoGrocerySearchModel model ) {
       when( ARRAY_RESULTS, new StringParseHandle( new JsonArrayWithObjectParseHandler<>( 
                model::startResult, model::finishResult, null, null 
       ) ) );
