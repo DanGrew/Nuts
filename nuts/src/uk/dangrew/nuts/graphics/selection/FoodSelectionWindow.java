@@ -16,7 +16,7 @@ public class FoodSelectionWindow {
    
    public FoodSelectionWindow( Database database ) {
       this.stage = new Stage();
-      this.selectionApplier = new FoodSelectionApplier( stage );
+      this.selectionApplier = new FoodSelectionApplier( stage, database.foodItems() );
       this.stage.setScene( new Scene( selectionPane = new UiMealFoodSelectionPane( database, selectionApplier ) ) );
       this.stage.setAlwaysOnTop( true );
       this.stage.hide();

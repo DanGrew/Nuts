@@ -39,7 +39,7 @@ public class FoodItem implements Food {
     * Constructs a new {@link FoodItem} with the given {@link FoodProperties}.
     * @param properties the {@link FoodProperties}.
     */
-   private FoodItem( FoodProperties properties ) {
+   protected FoodItem( FoodProperties properties ) {
       this( 
                properties,
                new StockProperties(),

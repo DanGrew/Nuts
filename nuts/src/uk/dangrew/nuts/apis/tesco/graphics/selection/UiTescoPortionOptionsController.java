@@ -50,7 +50,8 @@ public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
       deselect( selected );
       this.selected = food;
       this.selectionPane.setSelected( food, true );
-//      this.options.showOptions( itemsCache.getOptionsFor( food ) );
+      this.tesco.downloadProductDetail( food );
+      this.options.showOptions( food );
    }//End Method
    
    public void search( String criteria ) {

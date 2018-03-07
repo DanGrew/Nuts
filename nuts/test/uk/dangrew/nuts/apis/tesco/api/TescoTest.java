@@ -3,6 +3,8 @@ package uk.dangrew.nuts.apis.tesco.api;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -51,9 +53,24 @@ public class TescoTest {
       assertThat( systemUnderTest.search( "coconut" ), is( fourth ) );
    }//End Method
    
-   @Ignore
-   @Test public void shouldProvideFoodItemsDescription() {
-      fail( "Not yet implemented" );
+   @Test public void shouldDownloadProductDetailFromDescription() {
+      TescoFoodDescription description = new TescoFoodDescription( "a" );
+      description.groceryProperties().tpnb().set( "anything" );
+      
+      systemUnderTest.downloadProductDetail( description );
+      verify( controller ).downloadProductDetail( description.groceryProperties().tpnb().get() );
+   }//End Method
+   
+   @Test public void shouldNotDownloadProductDetailIfDescriptionHasNoTpnb() {
+      TescoFoodDescription description = new TescoFoodDescription( "a" );
+      
+      systemUnderTest.downloadProductDetail( description );
+      verify( controller, never() ).downloadProductDetail( Mockito.anyString() );
+   }//End Method
+   
+   @Test public void shouldDownloadProductDetailFromTpnb() {
+      systemUnderTest.downloadProductDetail( "anyTpnb" );
+      verify( controller ).downloadProductDetail( "anyTpnb" );
    }//End Method
 
 }//End Class

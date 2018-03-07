@@ -10,7 +10,7 @@ public class UiFoodSelectionTabs extends TabPane {
 
    public UiFoodSelectionTabs( Database database, UiFoodSelectionController controller ) {
       getTabs().add( createTab( "Local", new UiFoodSelectionView( database, controller ) ) );
-      getTabs().add( createTab( "Tesco", new UiTescoFoodSelectionView() ) );
+      getTabs().add( createTab( "Tesco", new UiTescoFoodSelectionView( controller ) ) );
    }//End Constructor
    
    private Tab createTab( String name, Node content ) {

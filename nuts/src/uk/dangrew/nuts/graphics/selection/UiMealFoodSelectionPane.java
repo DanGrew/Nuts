@@ -27,7 +27,7 @@ public class UiMealFoodSelectionPane extends GridPane {
       this.controller = new UiFoodSelectionController( database, liveSelectionProperties );
       
       add( table = new TemplateTable( database, new UnresponsiveConceptTableController<>() ), 0, 0 );
-      add( new UiFoodSelectionView( database, controller ), 0, 1 );
+      add( new UiFoodSelectionTabs( database, controller ), 0, 1 );
       add( new UiFoodSelectionWindowControls( controller, stageControls ), 0, 2 );
       
       table.getRows().clear();

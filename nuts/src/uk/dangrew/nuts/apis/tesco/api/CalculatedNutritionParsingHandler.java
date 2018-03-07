@@ -40,20 +40,29 @@ public class CalculatedNutritionParsingHandler {
       if ( name.equalsIgnoreCase( "Energy (kJ)" ) ) {
          setNutritionValues( currentNutrition.energyInKj() );
       } else if ( name.equalsIgnoreCase( "Energy (kcal)" ) ) {
-         setNutritionValues( currentNutrition.energyInKcal() );
+         if ( valuePer100.contains( "kj" ) ) {
+            currentNutrition.energyInKcal().valuePer100().set( valuePer100.split( "kj" )[ 1 ] );
+         } else {
+            currentNutrition.energyInKcal().valuePer100().set( valuePer100 );
+         }
+         if ( valuePerServing.contains( "kj" ) ) {
+            currentNutrition.energyInKcal().valuePerServing().set( valuePerServing.split( "kj" )[ 1 ] );
+         } else {
+            currentNutrition.energyInKcal().valuePerServing().set( valuePerServing );
+         }
       } else if ( name.equalsIgnoreCase( "Fat (g)" ) ) {
          setNutritionValues( currentNutrition.fat() );
       } else if ( name.equalsIgnoreCase( "Saturates (g)" ) ) {
          setNutritionValues( currentNutrition.saturates() );
-      } else if ( name.equalsIgnoreCase( "Carbohydrate (g)" ) ) {
+      } else if ( name.equalsIgnoreCase( "Carbohydrate (g)" ) || name.equalsIgnoreCase( "Carbohydrate" ) ) {
          setNutritionValues( currentNutrition.carbohydrates() );
-      } else if ( name.equalsIgnoreCase( "Sugars (g)" ) ) {
+      } else if ( name.equalsIgnoreCase( "Sugars (g)" ) || name.equalsIgnoreCase( "Sugars" ) ) {
          setNutritionValues( currentNutrition.sugars() );
-      } else if ( name.equalsIgnoreCase( "Fibre (g)" ) ) {
+      } else if ( name.equalsIgnoreCase( "Fibre (g)" ) || name.equalsIgnoreCase( "Fibre" ) ) {
          setNutritionValues( currentNutrition.fibre() );
-      } else if ( name.equalsIgnoreCase( "Protein (g)" ) ) {
+      } else if ( name.equalsIgnoreCase( "Protein (g)" ) || name.equalsIgnoreCase( "Protein" ) ) {
          setNutritionValues( currentNutrition.protein() );
-      } else if ( name.equalsIgnoreCase( "Salt (g)" ) ) {
+      } else if ( name.equalsIgnoreCase( "Salt (g)" ) || name.equalsIgnoreCase( "Salt" ) ) {
          setNutritionValues( currentNutrition.salt() );
       } else {
          System.out.println( "Found new nutritional value: " + name );

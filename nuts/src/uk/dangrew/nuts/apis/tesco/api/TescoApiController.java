@@ -36,13 +36,18 @@ public class TescoApiController {
       List< TescoFoodDescription > searchResults = new ArrayList<>();
       while ( lastResponseCount == pageSize && pageNumber < PAGE_LIMIT ) {
          String response = connector.searchProducts( criteria, pageNumber, pageSize );
-         List< TescoFoodDescription > descriptionsFound = converter.convertDescriptions( response );
+         List< TescoFoodDescription > descriptionsFound = converter.importGrocerySearchResponse( response );
          searchResults.addAll( descriptionsFound );
          
          lastResponseCount = descriptionsFound.size();
          pageNumber++;
       }
       return searchResults;
+   }//End Method
+
+   public void downloadProductDetail( String tpnb ) {
+      String response = connector.retrieveProduct( tpnb );
+      converter.importProductDetailResponse( response );
    }//End Method
 
 }//End Class

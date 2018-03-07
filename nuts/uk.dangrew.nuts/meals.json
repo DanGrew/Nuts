@@ -1767,7 +1767,25 @@
          },
          {
             "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
-            "portionValue": 50
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Flax Muffin",
+      "id": "bf43a4eb-bb25-45a6-bb10-6c2ab71da972",
+      "portions": [
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 133
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
+            "portionValue": 33
          }
       ]
    }

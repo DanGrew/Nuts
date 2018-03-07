@@ -55,11 +55,11 @@ public class TescoApiControllerTest {
       when( connector.searchProducts( searchCriteria, 4, PAGE_SIZE ) ).thenReturn( fourthResult );
       when( connector.searchProducts( searchCriteria, 5, PAGE_SIZE ) ).thenReturn( fifthResult );
       
-      when( converter.convertDescriptions( firstResult ) ).thenReturn( firstPage );
-      when( converter.convertDescriptions( secondResult ) ).thenReturn( secondPage );
-      when( converter.convertDescriptions( thirdResult ) ).thenReturn( thirdPage );
-      when( converter.convertDescriptions( fourthResult ) ).thenReturn( fourthPage );
-      when( converter.convertDescriptions( fifthResult ) ).thenReturn( fifthPage );
+      when( converter.importGrocerySearchResponse( firstResult ) ).thenReturn( firstPage );
+      when( converter.importGrocerySearchResponse( secondResult ) ).thenReturn( secondPage );
+      when( converter.importGrocerySearchResponse( thirdResult ) ).thenReturn( thirdPage );
+      when( converter.importGrocerySearchResponse( fourthResult ) ).thenReturn( fourthPage );
+      when( converter.importGrocerySearchResponse( fifthResult ) ).thenReturn( fifthPage );
       
       List< TescoFoodDescription > expectedSearchResult = new ArrayList<>();
       expectedSearchResult.addAll( firstPage );
@@ -85,7 +85,7 @@ public class TescoApiControllerTest {
       String firstResult = "firstResult";
       
       when( connector.searchProducts( Mockito.anyString(), Mockito.anyInt(), Mockito.anyInt() ) ).thenReturn( firstResult );
-      when( converter.convertDescriptions( firstResult ) ).thenReturn( page );
+      when( converter.importGrocerySearchResponse( firstResult ) ).thenReturn( page );
       
       systemUnderTest.search( searchCriteria );
       verify( connector, never() ).searchProducts( "coconut", 0, PAGE_SIZE );
@@ -93,6 +93,14 @@ public class TescoApiControllerTest {
          verify( connector ).searchProducts( searchCriteria, i, PAGE_SIZE );
       }
       verify( connector, never() ).searchProducts( searchCriteria, TescoApiController.PAGE_LIMIT, PAGE_SIZE );
+   }//End Method
+   
+   @Test public void shouldDownloadAndParseProductDetail(){
+      String result = "some result";
+      when( connector.retrieveProduct( "anything" ) ).thenReturn( result );
+      
+      systemUnderTest.downloadProductDetail( "anything" );
+      verify( converter ).importProductDetailResponse( result );
    }//End Method
 
 }//End Class

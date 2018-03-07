@@ -47,7 +47,10 @@ public class UiTescoPortionOptionsControllerTest {
       systemUnderTest.select( description );
       assertThat( systemUnderTest.isSelected( description ), is( true ) );
       
-      verify( paneManager ).setSelected( description, true );
+      InOrder verifier = inOrder( paneManager, tesco, options );
+      verifier.verify( paneManager ).setSelected( description, true );
+      verifier.verify( tesco ).downloadProductDetail( description );
+      verifier.verify( options ).showOptions( description );
    }//End Method
    
    @Test public void shouldDeselectDescriptionTile() {

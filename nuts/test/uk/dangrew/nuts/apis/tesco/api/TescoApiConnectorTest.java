@@ -25,6 +25,9 @@ public class TescoApiConnectorTest {
    @Ignore
    @Test public void manualProduct() {
       System.out.println( systemUnderTest.retrieveProduct( "76274694" ) );
+      
+      //not own brand, has no nutritional info 
+      System.out.println( systemUnderTest.retrieveProduct( "083266152" ) );
    }//End Method
    
    @Ignore

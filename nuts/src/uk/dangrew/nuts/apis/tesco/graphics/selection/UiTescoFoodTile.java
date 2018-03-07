@@ -10,6 +10,7 @@ import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
 import uk.dangrew.nuts.graphics.selection.UiFoodTileConceptTitle;
+import uk.dangrew.nuts.graphics.system.ImageLoaderService;
 
 public class UiTescoFoodTile extends UiFoodSelectionTile {
 
@@ -19,24 +20,28 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
    private final JavaFxStyle styling;
    private final TescoFoodDescription food;
    private final UiTescoFoodSelector controller;
+   private final ImageLoaderService imageLoader;
    private final UiFoodTileConceptTitle title;
    private final ImageView imageView;
    
-   public UiTescoFoodTile( TescoFoodDescription food, UiTescoFoodSelector controller ) {
+   public UiTescoFoodTile( TescoFoodDescription food, UiTescoFoodSelector controller, ImageLoaderService imageLoader ) {
       this( 
                food, 
-               controller, 
+               controller,
+               imageLoader, 
                new UiFoodTileConceptTitle( food ) 
       );
    }//End Constructor
    
    UiTescoFoodTile(
             TescoFoodDescription food,
-            UiTescoFoodSelector controller, 
+            UiTescoFoodSelector controller,
+            ImageLoaderService imageLoader,
             UiFoodTileConceptTitle title
    ) {
       this.food = food;
       this.controller = controller;
+      this.imageLoader = imageLoader;
       this.title = title;
       
       this.styling = new JavaFxStyle();
@@ -60,7 +65,7 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
       
       this.setOnMouseClicked( this::clicked );
       
-//      new Thread( () -> imageView.setImage( new Image( food.image().get() ) ) ).start();
+//      imageLoader.loadImage( imageView, food.groceryProperties().image().get() );
    }//End Constructor
    
    private void clicked( MouseEvent event ) {

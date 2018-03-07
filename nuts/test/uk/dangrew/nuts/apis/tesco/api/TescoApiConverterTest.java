@@ -3,6 +3,7 @@ package uk.dangrew.nuts.apis.tesco.api;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class TescoApiConverterTest {
    private List< TescoFoodDescription > resultingDescriptions;
    
    @Mock private TescoGrocerySearchParser groceryParser;
+   @Mock private TescoProductDetailParser productDetailParser;
    @Mock private TescoParseRecorder parseRecorder;
    @Mock private ApiResponseToJsonConverter converter;
    private TescoApiConverter systemUnderTest;
@@ -37,14 +39,19 @@ public class TescoApiConverterTest {
       MockitoAnnotations.initMocks( this );
       
       resultingDescriptions = Arrays.asList( new TescoFoodDescription( "a" ), new TescoFoodDescription( "b" ) );
-      systemUnderTest = new TescoApiConverter( converter, parseRecorder, groceryParser );
+      systemUnderTest = new TescoApiConverter( 
+               converter, 
+               parseRecorder, 
+               groceryParser,
+               productDetailParser
+      );
    }//End Method
 
    @Test public void shouldParseSearchIntoStore() {
       when( converter.convert( RESULT ) ).thenReturn( json );
       when( parseRecorder.getAndClearRecordedDescriptions() ).thenReturn( resultingDescriptions );
       
-      assertThat( systemUnderTest.convertDescriptions( RESULT ), is( resultingDescriptions ) );
+      assertThat( systemUnderTest.importGrocerySearchResponse( RESULT ), is( resultingDescriptions ) );
       
       InOrder verifier = inOrder( groceryParser, parseRecorder );
       verifier.verify( groceryParser ).parse( json );
@@ -52,7 +59,14 @@ public class TescoApiConverterTest {
    }//End Method
    
    @Test public void shouldIgnoreInvalidConversion() {
-      assertThat( systemUnderTest.convertDescriptions( RESULT ), is( new ArrayList<>() ) );
+      assertThat( systemUnderTest.importGrocerySearchResponse( RESULT ), is( new ArrayList<>() ) );
+   }//End Method
+   
+   @Test public void shouldParseProductDetailIntoDescriptions(){
+      when( converter.convert( RESULT ) ).thenReturn( json );
+      
+      systemUnderTest.importProductDetailResponse( RESULT );
+      verify( productDetailParser ).parse( json );
    }//End Method
    
 }//End Class

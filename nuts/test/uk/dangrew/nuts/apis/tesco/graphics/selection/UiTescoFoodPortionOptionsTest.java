@@ -20,6 +20,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -32,8 +33,10 @@ public class UiTescoFoodPortionOptionsTest {
 
    @Captor private ArgumentCaptor< List< UiFoodSelectionTile > > tilesCaptor;
    @Captor private ArgumentCaptor< FoodPortion > portionCaptor;
+   private TescoFoodDescription description;
    private List< Food > foods;
    
+   @Mock private TescoFoodItemGenerator itemGenerator;
    @Mock private UiFoodSelector selectionController;
    @Mock private FoodSelectionManager selectionManager;
    @Mock private UiFoodSelectionPane selectionPane;
@@ -42,11 +45,16 @@ public class UiTescoFoodPortionOptionsTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
+      
+      description = new TescoFoodDescription( "Tesco Food" );
       foods = Arrays.asList( new FoodItem( "A" ), new FoodItem( "B" ), new FoodItem( "C" ) );
+      when( itemGenerator.generateFoodItemsFor( description ) ).thenReturn( foods );
+      
       systemUnderTest = new UiTescoFoodPortionOptions( 
                selectionController, 
                selectionManager,
-               selectionPane
+               selectionPane,
+               itemGenerator
       );
    }//End Method
 
@@ -56,7 +64,7 @@ public class UiTescoFoodPortionOptionsTest {
    }//End Method
    
    @Test public void shouldShowOptions() {
-      systemUnderTest.showOptions( foods );
+      systemUnderTest.showOptions( description );
       verify( selectionPane ).layoutTiles( tilesCaptor.capture() );
       
       for ( int i = 0; i < 3; i++ ) {
@@ -72,7 +80,7 @@ public class UiTescoFoodPortionOptionsTest {
    }//End Method
    
    @Test public void shouldDeselect() {
-      systemUnderTest.showOptions( foods );
+      systemUnderTest.showOptions( description );
       verify( selectionPane ).layoutTiles( tilesCaptor.capture() );
       assertThat( tilesCaptor.getValue().get( 0 ).isSelected(), is( false ) );
       
@@ -87,7 +95,7 @@ public class UiTescoFoodPortionOptionsTest {
    }//End Method
    
    @Test public void shouldSelect() {
-      systemUnderTest.showOptions( foods );
+      systemUnderTest.showOptions( description );
       verify( selectionPane ).layoutTiles( tilesCaptor.capture() );
       assertThat( tilesCaptor.getValue().get( 0 ).isSelected(), is( false ) );
       

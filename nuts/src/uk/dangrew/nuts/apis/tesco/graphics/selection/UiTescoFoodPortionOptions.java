@@ -2,10 +2,9 @@ package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import javafx.scene.layout.BorderPane;
-import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.FoodSelectionManager;
 import uk.dangrew.nuts.graphics.selection.FoodSelectionPaneManager;
@@ -17,19 +16,27 @@ public class UiTescoFoodPortionOptions extends BorderPane implements UiFoodSelec
    private final UiFoodSelector selectionController;
    private final FoodSelectionPaneManager selectionPaneManager;
    private final FoodSelectionManager selectionManager;
+   private final TescoFoodItemGenerator tescoFoodItemGenerator;
    
    public UiTescoFoodPortionOptions( UiFoodSelector selectionController ) {
-      this( selectionController, new FoodSelectionManager(), new UiFoodSelectionPane( 1, 5 ) );
+      this( 
+               selectionController, 
+               new FoodSelectionManager(), 
+               new UiFoodSelectionPane( 1, 5 ),
+               new TescoFoodItemGenerator()
+      );
    }//End Constructor
    
    UiTescoFoodPortionOptions( 
             UiFoodSelector selectionController, 
             FoodSelectionManager selectionManager, 
-            UiFoodSelectionPane selectionPane
+            UiFoodSelectionPane selectionPane,
+            TescoFoodItemGenerator tescoFoodItemGenerator
    ) {
       this.selectionController = selectionController;
       this.selectionPaneManager = new FoodSelectionPaneManager( this, selectionPane );
       this.selectionManager = selectionManager;
+      this.tescoFoodItemGenerator = tescoFoodItemGenerator;
       this.setCenter( selectionPaneManager.selectionPane() );
    }//End Constructor
 
@@ -37,9 +44,9 @@ public class UiTescoFoodPortionOptions extends BorderPane implements UiFoodSelec
       selectionPaneManager.layoutTiles( Collections.emptyList() );
    }//End Method
 
-   public void showOptions( List< Food > foods ) {
+   public void showOptions( TescoFoodDescription description ) {
       resetSelection();
-      selectionPaneManager.layoutTiles( foods );
+      selectionPaneManager.layoutTiles( tescoFoodItemGenerator.generateFoodItemsFor( description ) );
    }//End Method
 
    @Override public boolean isSelected( FoodPortion food ) {

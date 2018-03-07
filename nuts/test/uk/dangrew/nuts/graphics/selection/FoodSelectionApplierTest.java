@@ -1,11 +1,11 @@
 package uk.dangrew.nuts.graphics.selection;
 
 import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
@@ -17,12 +17,15 @@ import org.mockito.MockitoAnnotations;
 
 import javafx.stage.Stage;
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
 
 public class FoodSelectionApplierTest {
 
+   private FoodItemStore foodItems;
    private Meal focus;
    @Mock private Stage stage;
    private FoodSelectionApplier systemUnderTest;
@@ -30,8 +33,9 @@ public class FoodSelectionApplierTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
+      foodItems = new FoodItemStore();
       focus = new Meal( "Focus" );
-      systemUnderTest = new FoodSelectionApplier( stage );
+      systemUnderTest = new FoodSelectionApplier( stage, foodItems );
       
       systemUnderTest.focus( focus );
    }//End Method
@@ -82,6 +86,45 @@ public class FoodSelectionApplierTest {
       systemUnderTest.apply( Arrays.asList( portion1 ) );
       
       assertThat( focus.portions(), hasSize( 3 ) );
+   }//End Method
+   
+   @Test public void shouldAddFoodItemNotPresentInDatabase(){
+      FoodPortion portion1 = new FoodPortion( new FoodItem( "Food1" ), 100 );
+      FoodPortion portion2 = new FoodPortion( new FoodItem( "Food2" ), 34 );
+      FoodPortion portion3 = new FoodPortion( new FoodItem( "Food3" ), 132 );
+      systemUnderTest.apply( Arrays.asList( portion1, portion2, portion3 ) );
+      
+      assertThatFoodStoreHasFoodItem( portion1.food().get() );
+      assertThatFoodStoreHasFoodItem( portion2.food().get() );
+      assertThatFoodStoreHasFoodItem( portion3.food().get() );
+   }//End Method
+   
+   @Test public void shouldNotDuplicateFoodWithSameExactName(){
+      FoodPortion portion1 = new FoodPortion( new FoodItem( "Food1" ), 100 );
+      FoodPortion portion2 = new FoodPortion( new FoodItem( "Food2" ), 34 );
+      FoodPortion portion3 = new FoodPortion( new FoodItem( "Food3" ), 132 );
+      
+      foodItems.createConcept( "Food2" );
+      systemUnderTest.apply( Arrays.asList( portion1, portion2, portion3 ) );
+      
+      assertThat( foodItems.objectList(), hasSize( 3 ) );
+      assertThatFoodStoreHasFoodItem( portion1.food().get() );
+      assertThatFoodStoreHasFoodItem( portion2.food().get() );
+      assertThatFoodStoreHasFoodItem( portion3.food().get() );
+   }//End Method
+   
+   private void assertThatFoodStoreHasFoodItem( Food item ) {
+      assertThat( foodItems.objectList().stream().anyMatch( 
+               f -> f.properties().nameProperty().get().equals( 
+                        item.properties().nameProperty().get() 
+               )
+      ), is( true ) );
+   }//End Method
+   
+   @Test public void shouldIgnoreCopyOnNoneFoodItems(){
+      FoodPortion portion = new FoodPortion( new Meal( "Meal" ), 100 );
+      systemUnderTest.apply( Arrays.asList( portion ) );
+      assertThat( foodItems.objectList(), is( empty() ) );
    }//End Method
 
 }//End Class

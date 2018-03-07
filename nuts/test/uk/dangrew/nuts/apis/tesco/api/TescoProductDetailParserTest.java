@@ -86,8 +86,11 @@ public class TescoProductDetailParserTest {
       assertThat( detail.nutrition().energyInKj().valuePerServing().get(), is( "555" ) );
       
       assertThat( detail.nutrition().energyInKcal().name(), is( "Energy (kcal)" ) );
-      assertThat( detail.nutrition().energyInKcal().valuePer100().get(), is( "3700.00kj900." ) );
-      assertThat( detail.nutrition().energyInKcal().valuePerServing().get(), is( "555.00kj135." ) );
+//      assertThat( detail.nutrition().energyInKcal().valuePer100().get(), is( "3700.00kj900." ) );
+//      assertThat( detail.nutrition().energyInKcal().valuePerServing().get(), is( "555.00kj135." ) );
+      
+      assertThat( detail.nutrition().energyInKcal().valuePer100().get(), is( "900." ) );
+      assertThat( detail.nutrition().energyInKcal().valuePerServing().get(), is( "135." ) );
       
       assertThat( detail.nutrition().fat().name(), is( "Fat (g)" ) );
       assertThat( detail.nutrition().fat().valuePer100().get(), is( "100" ) );
