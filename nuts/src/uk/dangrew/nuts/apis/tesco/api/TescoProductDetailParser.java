@@ -103,12 +103,15 @@ public class TescoProductDetailParser extends JsonParser {
    }//End Constructor
    
    TescoProductDetailParser( TescoProductDetailModel model ) {
+      GdaValuesParsingHandler gdaValueParser = model.gdaHandler();
+      CalculatedNutritionParsingHandler nutritionParser = model.nutritionHandler();
+      
       when( REUSED_VALUES, new StringParseHandle( new JsonKeyParseHandler<>( 
-               model::addValueForArrayValue, 
-               model::handleValuesStartObject, 
-               model::handleValuesEndObject,
-               model::handleValuesStartArray, 
-               model::handleValuesEndArray
+               gdaValueParser::addValueForArrayValue, 
+               gdaValueParser::handleValuesStartObject, 
+               gdaValueParser::handleValuesEndObject,
+               gdaValueParser::handleValuesStartArray, 
+               gdaValueParser::handleValuesEndArray
       ) ) );
       
       when( REUSED_NAME         , new StringParseHandle( model::setName ) );
@@ -161,23 +164,23 @@ public class TescoProductDetailParser extends JsonParser {
                model::addFooter, null, null
       ) ) );
 
-      when( PERCENT             , new StringParseHandle( model::setPercent ) );
-      when( RATING              , new StringParseHandle( model::setRating ) );
+      when( PERCENT             , new StringParseHandle( gdaValueParser::setPercent ) );
+      when( RATING              , new StringParseHandle( gdaValueParser::setRating ) );
       
       when( CALCULATED_NUTRITION , new StringParseHandle( new JsonObjectParseHandler<>( 
-               model::startedCalculatedNutrition, model::finishedCalculatedNutrition
+               nutritionParser::startedCalculatedNutrition, nutritionParser::finishedCalculatedNutrition
       ) ) );
-      when( PER_100_HEADER       , new StringParseHandle( model::setPer100Header ) );
-      when( PER_SERVING_HEADER   , new StringParseHandle( model::setPerServingHeader ) );
+      when( PER_100_HEADER       , new StringParseHandle( nutritionParser::setPer100Header ) );
+      when( PER_SERVING_HEADER   , new StringParseHandle( nutritionParser::setPerServingHeader ) );
       
       when( ARRAY_CALCULATED_NUTRIENTS, new StringParseHandle( new JsonArrayWithObjectParseHandler<>(
-               model::startedCalculatedNutrientsObject, 
-               model::finishedCalculatedNutrientsObject, 
-               model::startedCalculatedNutrientsArray, 
-               model::finishedCalculatedNutrientsArray 
+               nutritionParser::startedCalculatedNutrientsObject, 
+               nutritionParser::finishedCalculatedNutrientsObject, 
+               nutritionParser::startedCalculatedNutrientsArray, 
+               nutritionParser::finishedCalculatedNutrientsArray 
       ) ) );
-      when( VALUE_PER_100     , new StringParseHandle( model::setValuePer100 ) );
-      when( VALUE_PER_SERVING , new StringParseHandle( model::setValuePerServing ) );
+      when( VALUE_PER_100     , new StringParseHandle( nutritionParser::setValuePer100 ) );
+      when( VALUE_PER_SERVING , new StringParseHandle( nutritionParser::setValuePerServing ) );
       
       when( STORAGE, new StringParseHandle( new JsonArrayParseHandler<>( 
                model::addStorage, null, null 

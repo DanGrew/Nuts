@@ -71,7 +71,7 @@ public class CalculatedNutrition {
       return protein;
    }//End Method
 
-   public CalculatedNutrientValue salts() {
+   public CalculatedNutrientValue salt() {
       return salts;
    }//End Method
    

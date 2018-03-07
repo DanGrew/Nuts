@@ -18,7 +18,7 @@ public class CalculatedNutrientValue {
    public String name() {
       return name;
    }//End Method
-
+   
    public ObjectProperty< String > valuePer100() {
       return valuePer100Property;
    }//End Method

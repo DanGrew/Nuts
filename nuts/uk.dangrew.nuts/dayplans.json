@@ -4888,34 +4888,29 @@
       "calorieBalance": -14300,
       "portions": [
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "a5331ce2-36d7-4874-afe2-29e52d2645a0",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
             "portionValue": 80
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "d69c3c47-a682-449e-ae6f-2a1756193326",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
             "portionValue": 40
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 40
-         },
-         {
-            "consumed": false,
-            "foodId": "c85e6959-00d1-448e-8333-70b627128695",
-            "portionValue": 0
+            "portionValue": 50
          }
       ]
    },
@@ -6135,13 +6130,44 @@
    {
       "date": "2018-03-07",
       "allowedCalories": 0,
-      "goalId": "java.lang.Object@69228756",
+      "goalId": "03e84328-3d1b-4de5-b043-b48fd40f8ee0",
       "isBalanceReset": false,
       "name": "2018-03-07",
       "id": "3280fd44-a7d5-4400-94f1-7264b3835d1e",
       "consumedCalories": 0,
       "calorieBalance": -14300,
-      "portions": []
+      "portions": [
+         {
+            "consumed": false,
+            "foodId": "555ae532-2d24-4e88-929f-e56dccca3258",
+            "portionValue": 50
+         },
+         {
+            "consumed": false,
+            "foodId": "8e457881-5430-4783-894e-c3a1a5e317d2",
+            "portionValue": 150
+         },
+         {
+            "consumed": false,
+            "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+            "portionValue": 50
+         },
+         {
+            "consumed": false,
+            "foodId": "338fe815-9197-43f8-a6d1-af93601e2c36",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "9b97ad88-5199-488f-b99b-2b7546e2a7c3",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "733d2c90-b261-4b3a-95fd-9ad781f6863d",
+            "portionValue": 25
+         }
+      ]
    },
    {
       "date": "2017-06-23",

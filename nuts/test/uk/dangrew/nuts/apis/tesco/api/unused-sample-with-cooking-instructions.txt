@@ -1,0 +1,159 @@
+{
+  "products": [{
+    "gtin": "05054269362978",
+    "tpnb": "074567783",
+    "tpnc": "288661225",
+    "description": "Tesco British Chicken Thigh Fillets 600G",
+    "brand": "TESCO",
+    "qtyContents": {
+      "quantity": 600.0,
+      "totalQuantity": 600.0,
+      "quantityUom": "g",
+      "netContents": "600g"
+    },
+    "productCharacteristics": {
+      "isFood": true,
+      "isDrink": false,
+      "healthScore": 70,
+      "isHazardous": false,
+      "storageType": "Chilled",
+      "isNonLiquidAnalgesic": false,
+      "containsLoperamide": false
+    },
+    "gda": {
+      "gdaRefs": [{
+        "gdaDescription": "Guideline Amounts Per Serv",
+        "footers": [
+          "*Reference intake of an average adult (8400 kJ / 2000 kcal)",
+          "Typical values per 100g: Energy 674kJ  (161kcal) "
+        ],
+        "values": [{
+            "name": "Energy",
+            "values": [
+              "202kcal",
+              "842kJ"
+            ],
+            "percent": "10"
+          },
+          {
+            "name": "Fat",
+            "values": [
+              "12.3g"
+            ],
+            "percent": "18"
+          },
+          {
+            "name": "Saturates",
+            "values": [
+              "3.3g"
+            ],
+            "percent": "17"
+          },
+          {
+            "name": "Salt",
+            "values": [
+              "0.4g"
+            ],
+            "percent": "7"
+          }
+        ]
+      }]
+    },
+    "calcNutrition": {
+      "per100Header": "100g as sold",
+      "perServingHeader": "125g serving as sold",
+      "calcNutrients": [{
+          "name": "Energy (kJ)",
+          "valuePer100": "674",
+          "valuePerServing": "842"
+        },
+        {
+          "name": "Energy (kcal)",
+          "valuePer100": "161",
+          "valuePerServing": "202"
+        },
+        {
+          "name": "Fat (g)",
+          "valuePer100": "9.8",
+          "valuePerServing": "12.3"
+        },
+        {
+          "name": "saturates (g)",
+          "valuePer100": "2.6",
+          "valuePerServing": "3.3"
+        },
+        {
+          "name": "Carbohydrate (g)",
+          "valuePer100": "0",
+          "valuePerServing": "0"
+        },
+        {
+          "name": "sugars (g)",
+          "valuePer100": "0",
+          "valuePerServing": "0"
+        },
+        {
+          "name": "Fibre (g)",
+          "valuePer100": "0",
+          "valuePerServing": "0"
+        },
+        {
+          "name": "Protein (g)",
+          "valuePer100": "18.3",
+          "valuePerServing": "22.9"
+        },
+        {
+          "name": "Salt (g)",
+          "valuePer100": "0.3",
+          "valuePerServing": "0.4"
+        }
+      ]
+    },
+    "storage": [
+      "Defrost thoroughly before use. Once defrosted - do not refreeze.Follow the preparation guidelines above."
+    ],
+    "marketingText": "For midweek meals that won’t break the budget, our succulent boneless, skinless \nchicken thigh fillets are a tasty option. Our succulent chicken thighs are \ndelicious in a curry sauce with a naan, pilau rice and chutney. Or try slow \ncooked in a stew, casserole or in pies. \nClick on the Recipes tab at the top of this page to find Real Food recipes with \ningredients to add straight to your basket. \nExpertly selected for freshness and quality. We care about welfare, that's why \nthese Tesco chickens are reared by British farmers and enjoy an enriched \nenvironment with natural daylight and bales to improve the activity and \nwellbeing of the birds. Our chicken meets Red Tractor standards, as well as our \nown strict agricultural requirements.\nSucculent boneless, skinless fillets\nFresh Class A\nDelicious in curries",
+    "pkgDimensions": [{
+      "no": 1,
+      "height": 5.5,
+      "width": 17.0,
+      "depth": 22.0,
+      "dimensionUom": "cm",
+      "weight": 664.0,
+      "weightUom": "g",
+      "volume": 2057.0,
+      "volumeUom": "cc"
+    }],
+    "productAttributes": [{
+      "category": [{
+        "storage_info": {
+          "prep_and_usage": {
+            "name": "Preparation and Usage",
+            "value": "Remove from packaging. Wash hands, utensils and all surfaces after touching raw \nchicken. "
+          }
+        },
+        "cooking_instructions": [{
+            "cooking_method": {
+              "name": "Cooking Method",
+              "value": "General"
+            },
+            "cooking_instructions": {
+              "name": "Cooking Instructions",
+              "value": "Not suitable for microwave cooking.Not suitable for cooking from frozen."
+            }
+          },
+          {
+            "cooking_method": {
+              "name": "Cooking Method",
+              "value": "Other Instructions"
+            },
+            "cooking_instructions": {
+              "name": "Cooking Instructions",
+              "value": "Pan Fry\nHeat a little oil in a frying pan until hot. Place fillet into the pan and if \nit sizzles, the pan is ready, if not, heat for a little longer. Fry for 10-12 \nminutes, turning frequently.\n\nThe chicken is cooked if the juices run clear when the deepest part of the \nflesh is pierced with a thin skewer and piping hot throughout. If the juices \nare pink continue cooking until they run clear. "
+            }
+          }
+        ]
+      }]
+    }]
+  }]
+}

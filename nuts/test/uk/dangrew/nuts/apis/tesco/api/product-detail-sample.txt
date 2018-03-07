@@ -98,19 +98,29 @@
           "valuePerServing": "13.05"
         },
         {
-          "name": "Carbohydrate (g)"
+          "name": "Carbohydrate (g)",
+          "valuePer100": "a",
+          "valuePerServing": "b"
         },
         {
-          "name": "Sugars (g)"
+          "name": "Sugars (g)",
+          "valuePer100": "c",
+          "valuePerServing": "d"
         },
         {
-          "name": "Fibre (g)"
+          "name": "Fibre (g)",
+          "valuePer100": "e",
+          "valuePerServing": "f"
         },
         {
-          "name": "Protein (g)"
+          "name": "Protein (g)",
+          "valuePer100": "g",
+          "valuePerServing": "h"
         },
         {
-          "name": "Salt (g)"
+          "name": "Salt (g)",
+          "valuePer100": "i",
+          "valuePerServing": "j"
         }
       ]
     },
@@ -122,7 +132,7 @@
       "no": 1,
       "height": 8.3,
       "width": 8.0,
-      "depth": 8.0,
+      "depth": 8.1,
       "dimensionUom": "cm",
       "weight": 484.0,
       "weightUom": "g",
