@@ -2,32 +2,82 @@ package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import javafx.beans.property.ObjectProperty;
+import uk.dangrew.nuts.apis.tesco.item.CalculatedNutrition;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 
 public class TescoFoodItemGenerator {
+   
+   private final TescoStringParser parser;
+   
+   public TescoFoodItemGenerator() {
+      this( new TescoStringParser() );
+   }//End Constructor
 
-   static final String PER_100_SUFFIX = " (per 100)";
+   TescoFoodItemGenerator( TescoStringParser parser ) {
+      this.parser = parser;
+   }//End Constructor
 
    public List< Food > generateFoodItemsFor( TescoFoodDescription description ) {
       List< Food > tescoItems = new ArrayList<>();
+      if ( !sufficientDataFor( description, d -> d.groceryProperties().name() ) ) {
+         return tescoItems;
+      }
+      
       applyPer100Item( description, tescoItems );
+      applyPerServingItem( description, tescoItems );
       return tescoItems;
    }//End Method
    
    private void applyPer100Item( TescoFoodDescription description, List< Food > items ) {
-      if ( description.groceryProperties().name().get() == null ) {
+      if ( !sufficientDataFor( description, d -> d.productDetail().nutrition().per100Header() ) ) {
          return;
       }
-      FoodItem item = new FoodItem( description.groceryProperties().name().get() + PER_100_SUFFIX );
-      convertAndSetProperty( description.productDetail().nutrition().energyInKcal().valuePer100(), item.properties().calories() );
-      convertAndSetProperty( description.productDetail().nutrition().carbohydrates().valuePer100(), item.properties().carbohydrates() );
-      convertAndSetProperty( description.productDetail().nutrition().fat().valuePer100(), item.properties().fats() );
-      convertAndSetProperty( description.productDetail().nutrition().protein().valuePer100(), item.properties().protein() );
+      
+      CalculatedNutrition nutrition = description.productDetail().nutrition();
+      
+      String header = parser.parsePer100Header( nutrition.per100Header().get() );
+      FoodItem item = generateFoodItem( description.groceryProperties().name().get(), header );
+      convertAndSetProperty( nutrition.energyInKcal().valuePer100(), item.properties().calories() );
+      convertAndSetProperty( nutrition.carbohydrates().valuePer100(), item.properties().carbohydrates() );
+      convertAndSetProperty( nutrition.fat().valuePer100(), item.properties().fats() );
+      convertAndSetProperty( nutrition.protein().valuePer100(), item.properties().protein() );
       items.add( item );
+   }//End Method
+   
+   private void applyPerServingItem( TescoFoodDescription description, List< Food > items ) {
+      if ( !sufficientDataFor( description, d -> d.productDetail().nutrition().perServingHeader() ) ) {
+         return;
+      }
+      CalculatedNutrition nutrition = description.productDetail().nutrition();
+      
+      String header = parser.parsePerServingHeader( nutrition.perServingHeader().get() );
+      FoodItem item = generateFoodItem( description.groceryProperties().name().get(), header );
+      convertAndSetProperty( nutrition.energyInKcal().valuePerServing(), item.properties().calories() );
+      convertAndSetProperty( nutrition.carbohydrates().valuePerServing(), item.properties().carbohydrates() );
+      convertAndSetProperty( nutrition.fat().valuePerServing(), item.properties().fats() );
+      convertAndSetProperty( nutrition.protein().valuePerServing(), item.properties().protein() );
+      items.add( item );
+   }//End Method
+   
+   private boolean sufficientDataFor( 
+            TescoFoodDescription description, 
+            Function< TescoFoodDescription, ObjectProperty< ?  > > propertyRetriever 
+   ) {
+      return propertyRetriever.apply( description ).get() != null;
+   }//End Method
+   
+   private FoodItem generateFoodItem( String name, String header ) {
+      return new FoodItem( 
+               new StringBuilder()
+                  .append( name )
+                  .append( " (" ).append( header ).append( ")" )
+                  .toString() 
+      );
    }//End Method
    
    private void convertAndSetProperty( ObjectProperty< String > nutrition, ObjectProperty< Double > value ) {

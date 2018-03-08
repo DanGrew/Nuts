@@ -30,7 +30,7 @@ public class TescoApiConnector {
       return retrieveProduct( null, productNumberForBaseProduct, null, null );
    }//End Method
    
-   private String retrieveProduct( String gtin, String tpnb, String tpnc, String catid ) {
+   String retrieveProduct( String gtin, String tpnb, String tpnc, String catid ) {
       try {
          URIBuilder builder = new URIBuilder( TESCO_LABS_PRODUCT_QUERY );
          if ( gtin != null ) {

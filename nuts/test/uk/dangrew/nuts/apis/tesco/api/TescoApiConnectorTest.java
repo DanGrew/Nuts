@@ -28,6 +28,9 @@ public class TescoApiConnectorTest {
       
       //not own brand, has no nutritional info 
       System.out.println( systemUnderTest.retrieveProduct( "083266152" ) );
+      
+      //tesco milk
+      System.out.println( systemUnderTest.retrieveProduct( null, null, "254656543", null ) );
    }//End Method
    
    @Ignore

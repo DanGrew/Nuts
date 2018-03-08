@@ -1,14 +1,15 @@
 package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
@@ -32,6 +33,8 @@ public class TescoFoodItemGeneratorTest {
 
    @Test public void shouldConstructPer100ItemIfDataPresent() {
       String groceryName = "Some elaborate name";
+      String per100Header = "per (100g) of product";
+      
       double kcal = 101.3;
       double carbs = 20.7;
       double fat = 1.3;
@@ -39,16 +42,18 @@ public class TescoFoodItemGeneratorTest {
       
       description.groceryProperties().name().set( groceryName );
       CalculatedNutrition nutrition = description.productDetail().nutrition();
+      nutrition.per100Header().set( per100Header );
       nutrition.energyInKcal().valuePer100().set( Double.toString( kcal ) );
       nutrition.carbohydrates().valuePer100().set( Double.toString( carbs ) );
       nutrition.fat().valuePer100().set( Double.toString( fat ) );
       nutrition.protein().valuePer100().set( Double.toString( protein ) );
       
       List< Food > items = systemUnderTest.generateFoodItemsFor( description );
+      assertThat( items, hasSize( 1 ) );
       
       FoodItem first = ( FoodItem )items.get( 0 );
       assertThat( first.properties().nameProperty().get(), is( 
-               groceryName + TescoFoodItemGenerator.PER_100_SUFFIX 
+               groceryName + " (100g)" 
       ) );
       assertThat( first.properties().calories().get(), is( kcal ) );
       assertThat( first.properties().carbohydrates().get(), is( carbs ) );
@@ -56,18 +61,42 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().protein().get(), is( protein ) );
    }//End Method
    
-   @Test public void shouldNotConstructPer100ItemIfNameNotPresent() {
+   @Test public void shouldConstructPerServingItemIfDataPresent() {
+      String groceryName = "Some elaborate name";
+      String perServingHeader = "per (15g) serving";
+      
+      double kcal = 101.3;
+      double carbs = 20.7;
+      double fat = 1.3;
+      double protein = 35.9;
+      
+      description.groceryProperties().name().set( groceryName );
+      CalculatedNutrition nutrition = description.productDetail().nutrition();
+      nutrition.perServingHeader().set( perServingHeader );
+      nutrition.energyInKcal().valuePerServing().set( Double.toString( kcal ) );
+      nutrition.carbohydrates().valuePerServing().set( Double.toString( carbs ) );
+      nutrition.fat().valuePerServing().set( Double.toString( fat ) );
+      nutrition.protein().valuePerServing().set( Double.toString( protein ) );
+      
+      List< Food > items = systemUnderTest.generateFoodItemsFor( description );
+      assertThat( items, hasSize( 1 ) );
+      
+      FoodItem first = ( FoodItem )items.get( 0 );
+      assertThat( first.properties().nameProperty().get(), is( 
+               groceryName + " (15g)" 
+      ) );
+      assertThat( first.properties().calories().get(), is( kcal ) );
+      assertThat( first.properties().carbohydrates().get(), is( carbs ) );
+      assertThat( first.properties().fats().get(), is( fat ) );
+      assertThat( first.properties().protein().get(), is( protein ) );
+   }//End Method
+   
+   @Test public void shouldNotConstructIfNameNotPresent() {
       assertThat( systemUnderTest.generateFoodItemsFor( description ), is( empty() ) );
       
       description.groceryProperties().name().set( "anything" );
       List< Food > items = systemUnderTest.generateFoodItemsFor( description );
-      assertThat( items, is( not( empty() ) ) );
-      
-      FoodItem first = ( FoodItem )items.get( 0 );
-      assertThat( first.properties().calories().get(), is( 0.0 ) );
-      assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
-      assertThat( first.properties().fats().get(), is( 0.0 ) );
-      assertThat( first.properties().protein().get(), is( 0.0 ) );
+      assertThat( items, hasSize( 0 ) );
    }//End Method
    
    @Test public void shouldConstructPer100ItemEvenIfDataInvalid() {
@@ -75,6 +104,7 @@ public class TescoFoodItemGeneratorTest {
       description.groceryProperties().name().set( groceryName );
       
       CalculatedNutrition nutrition = description.productDetail().nutrition();
+      nutrition.per100Header().set( "unparsable" );
       nutrition.energyInKcal().valuePer100().set( "unparsable" );
       nutrition.carbohydrates().valuePer100().set( "unparsable" );
       nutrition.fat().valuePer100().set( "unparsable" );
@@ -83,6 +113,28 @@ public class TescoFoodItemGeneratorTest {
       List< Food > items = systemUnderTest.generateFoodItemsFor( description );
       
       FoodItem first = ( FoodItem )items.get( 0 );
+      assertThat( first.properties().nameProperty().get(), is( groceryName + " (unparsable)" ) );
+      assertThat( first.properties().calories().get(), is( 0.0 ) );
+      assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
+      assertThat( first.properties().fats().get(), is( 0.0 ) );
+      assertThat( first.properties().protein().get(), is( 0.0 ) );
+   }//End Method
+   
+   @Test public void shouldConstructPerServingItemEvenIfDataInvalid() {
+      String groceryName = "Some elaborate name";
+      description.groceryProperties().name().set( groceryName );
+      
+      CalculatedNutrition nutrition = description.productDetail().nutrition();
+      nutrition.perServingHeader().set( "unparsable" );
+      nutrition.energyInKcal().valuePerServing().set( "unparsable" );
+      nutrition.carbohydrates().valuePerServing().set( "unparsable" );
+      nutrition.fat().valuePerServing().set( "unparsable" );
+      nutrition.protein().valuePerServing().set( "unparsable" );
+      
+      List< Food > items = systemUnderTest.generateFoodItemsFor( description );
+      
+      FoodItem first = ( FoodItem )items.get( 0 );
+      assertThat( first.properties().nameProperty().get(), is( groceryName + " (unparsable)" ) );
       assertThat( first.properties().calories().get(), is( 0.0 ) );
       assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
       assertThat( first.properties().fats().get(), is( 0.0 ) );
