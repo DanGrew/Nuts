@@ -1,14 +1,25 @@
 package uk.dangrew.nuts.apis.tesco.api;
 
+import uk.dangrew.nuts.apis.tesco.graphics.selection.TescoStringParser;
 import uk.dangrew.nuts.apis.tesco.item.CalculatedNutrientValue;
 import uk.dangrew.nuts.apis.tesco.item.CalculatedNutrition;
 
 public class CalculatedNutritionParsingHandler {
 
+   private final TescoStringParser stringParser;
+   
    private CalculatedNutrition currentNutrition;
    private String name;
    private String valuePer100;
    private String valuePerServing;
+   
+   public CalculatedNutritionParsingHandler() {
+      this( new TescoStringParser() );
+   }//End Constructor
+   
+   CalculatedNutritionParsingHandler( TescoStringParser stringParser ) {
+      this.stringParser = stringParser;
+   }//End Constructor
    
    public void setCurrentNutrition( CalculatedNutrition nutrition ) {
       this.currentNutrition = nutrition;
@@ -37,36 +48,15 @@ public class CalculatedNutritionParsingHandler {
    }//End Method
    
    public void finishedCalculatedNutrientsObject( String key ) {
-      if ( name.equalsIgnoreCase( "Energy (kJ)" ) ) {
-         setNutritionValues( currentNutrition.energyInKj() );
-      } else if ( name.equalsIgnoreCase( "Energy (kcal)" ) ) {
-         if ( valuePer100.contains( "kj" ) ) {
-            currentNutrition.energyInKcal().valuePer100().set( valuePer100.split( "kj" )[ 1 ] );
-         } else {
-            currentNutrition.energyInKcal().valuePer100().set( valuePer100 );
-         }
-         if ( valuePerServing.contains( "kj" ) ) {
-            currentNutrition.energyInKcal().valuePerServing().set( valuePerServing.split( "kj" )[ 1 ] );
-         } else {
-            currentNutrition.energyInKcal().valuePerServing().set( valuePerServing );
-         }
-      } else if ( name.equalsIgnoreCase( "Fat (g)" ) ) {
-         setNutritionValues( currentNutrition.fat() );
-      } else if ( name.equalsIgnoreCase( "Saturates (g)" ) ) {
-         setNutritionValues( currentNutrition.saturates() );
-      } else if ( name.equalsIgnoreCase( "Carbohydrate (g)" ) || name.equalsIgnoreCase( "Carbohydrate" ) ) {
-         setNutritionValues( currentNutrition.carbohydrates() );
-      } else if ( name.equalsIgnoreCase( "Sugars (g)" ) || name.equalsIgnoreCase( "Sugars" ) ) {
-         setNutritionValues( currentNutrition.sugars() );
-      } else if ( name.equalsIgnoreCase( "Fibre (g)" ) || name.equalsIgnoreCase( "Fibre" ) ) {
-         setNutritionValues( currentNutrition.fibre() );
-      } else if ( name.equalsIgnoreCase( "Protein (g)" ) || name.equalsIgnoreCase( "Protein" ) ) {
-         setNutritionValues( currentNutrition.protein() );
-      } else if ( name.equalsIgnoreCase( "Salt (g)" ) || name.equalsIgnoreCase( "Salt" ) ) {
-         setNutritionValues( currentNutrition.salt() );
-      } else {
-         System.out.println( "Found new nutritional value: " + name );
+      CalculatedNutritionType nutritionType = stringParser.parseNutritionType( name );
+      if ( nutritionType == null ) {
+         return;
       }
+      if ( nutritionType == CalculatedNutritionType.EnergyInKcal ) {
+         valuePer100 = stringParser.extractKcalFrom( valuePer100 );
+         valuePerServing = stringParser.extractKcalFrom( valuePerServing );
+      }
+      setNutritionValues( nutritionType.redirect( currentNutrition ) );
    }//End Method
    
    private void setNutritionValues( CalculatedNutrientValue value ) {
@@ -75,11 +65,11 @@ public class CalculatedNutritionParsingHandler {
    }//End Method
    
    public void startedCalculatedNutrientsArray( String key ) {
-      
+      //do nothing
    }//End Method
    
    public void finishedCalculatedNutrientsArray( String key ) {
-      
+      //do nothing
    }//End Method
    
    public void setValuePer100( String key, String value ) {

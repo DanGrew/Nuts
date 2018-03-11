@@ -1133,6 +1133,14 @@
       {
          "foodId": "9b97ad88-5199-488f-b99b-2b7546e2a7c3",
          "portionValue": 0
+      },
+      {
+         "foodId": "7157f3d0-f279-4bee-b24f-0987d0e913f2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "3ce31af9-07e8-4a26-b00d-83486fd35f75",
+         "portionValue": 0
       }
    ]
 }]}

@@ -2828,5 +2828,25 @@
       "name": "Protein: Fulfill (Strawberry & Vanilla)",
       "id": "9b97ad88-5199-488f-b99b-2b7546e2a7c3",
       "calories": 185
+   },
+   {
+      "carbohydrates": 1.4,
+      "fats": 22.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 16.7,
+      "name": "Bacon (Woodside Fars) (100g)",
+      "id": "7157f3d0-f279-4bee-b24f-0987d0e913f2",
+      "calories": 275
+   },
+   {
+      "carbohydrates": 6.9,
+      "fats": 56,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 21,
+      "name": "Almond Flour (100g)",
+      "id": "3ce31af9-07e8-4a26-b00d-83486fd35f75",
+      "calories": 612
    }
 ]}

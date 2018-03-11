@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -8,6 +9,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.apis.tesco.api.CalculatedNutritionType;
 
 public class TescoStringParserTest {
 
@@ -39,5 +41,92 @@ public class TescoStringParserTest {
       assertThat( systemUnderTest.parsePer100Header( null ), is( TescoStringParser.UNKNOWN_PER_100 ) );
       assertThat( systemUnderTest.parsePerServingHeader( null ), is( TescoStringParser.UNKNOWN_PER_SERVING ) );
    }//End Method
+   
+   @Test public void shouldNotParseValues(){
+      assertThat( systemUnderTest.parseNutritionType( "Energy" ), is( nullValue() ) );
+      assertThat( systemUnderTest.parseNutritionType( "anything" ), is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldParseEnergyInKcalName() {
+      assertThat( systemUnderTest.parseNutritionType( "Energy (kcal)" ), is( CalculatedNutritionType.EnergyInKcal ) );
+      assertThat( systemUnderTest.parseNutritionType( "Energy kcal" ), is( CalculatedNutritionType.EnergyInKcal ) );
+      assertThat( systemUnderTest.parseNutritionType( "Energy Kcal" ), is( CalculatedNutritionType.EnergyInKcal ) );
+      assertThat( systemUnderTest.parseNutritionType( "Energy in kcal" ), is( CalculatedNutritionType.EnergyInKcal ) );
+   }//End Method
+   
+   @Test public void shouldParseEnergyInKjName() {
+      assertThat( systemUnderTest.parseNutritionType( "Energy (kj)" ), is( CalculatedNutritionType.EnergyInKj ) );
+      assertThat( systemUnderTest.parseNutritionType( "Energy kj" ), is( CalculatedNutritionType.EnergyInKj ) );
+      assertThat( systemUnderTest.parseNutritionType( "Energy kJ" ), is( CalculatedNutritionType.EnergyInKj ) );
+      assertThat( systemUnderTest.parseNutritionType( "Energy Kj" ), is( CalculatedNutritionType.EnergyInKj ) );
+      assertThat( systemUnderTest.parseNutritionType( "Energy in kj" ), is( CalculatedNutritionType.EnergyInKj ) );
+   }//End Method
+   
+   @Test public void shouldParseFatName() {
+      assertThat( systemUnderTest.parseNutritionType( "Fat" ), is( CalculatedNutritionType.Fats ) );
+      assertThat( systemUnderTest.parseNutritionType( "Fats" ), is( CalculatedNutritionType.Fats ) );
+      assertThat( systemUnderTest.parseNutritionType( "fat" ), is( CalculatedNutritionType.Fats ) );
+      assertThat( systemUnderTest.parseNutritionType( " Fat " ), is( CalculatedNutritionType.Fats ) );
+      assertThat( systemUnderTest.parseNutritionType( "fat (g)" ), is( CalculatedNutritionType.Fats ) );
+   }//End Method
+   
+   @Test public void shouldParseSaturatesName() {
+      assertThat( systemUnderTest.parseNutritionType( "Saturates" ), is( CalculatedNutritionType.Saturates ) );
+      assertThat( systemUnderTest.parseNutritionType( "Saturate" ), is( CalculatedNutritionType.Saturates ) );
+      assertThat( systemUnderTest.parseNutritionType( "saturate" ), is( CalculatedNutritionType.Saturates ) );
+      assertThat( systemUnderTest.parseNutritionType( " of which saturates " ), is( CalculatedNutritionType.Saturates ) );
+      assertThat( systemUnderTest.parseNutritionType( "Saturates (g)" ), is( CalculatedNutritionType.Saturates ) );
+   }//End Method
+   
+   @Test public void shouldParseCarbohydratesName() {
+      assertThat( systemUnderTest.parseNutritionType( "Carbohydrates" ), is( CalculatedNutritionType.Carbohydrate ) );
+      assertThat( systemUnderTest.parseNutritionType( "Carbohydrate" ), is( CalculatedNutritionType.Carbohydrate ) );
+      assertThat( systemUnderTest.parseNutritionType( "carbohydrates" ), is( CalculatedNutritionType.Carbohydrate ) );
+      assertThat( systemUnderTest.parseNutritionType( " Carbohydrates " ), is( CalculatedNutritionType.Carbohydrate ) );
+      assertThat( systemUnderTest.parseNutritionType( "Carbohydrates (g)" ), is( CalculatedNutritionType.Carbohydrate ) );
+   }//End Method
+   
+   @Test public void shouldParseSugarsName() {
+      assertThat( systemUnderTest.parseNutritionType( "Sugars" ), is( CalculatedNutritionType.Sugars ) );
+      assertThat( systemUnderTest.parseNutritionType( "Sugar" ), is( CalculatedNutritionType.Sugars ) );
+      assertThat( systemUnderTest.parseNutritionType( "sugar" ), is( CalculatedNutritionType.Sugars ) );
+      assertThat( systemUnderTest.parseNutritionType( " Sugars " ), is( CalculatedNutritionType.Sugars ) );
+      assertThat( systemUnderTest.parseNutritionType( "Sugars (g)" ), is( CalculatedNutritionType.Sugars ) );
+   }//End Method
+   
+   @Test public void shouldParseFibreName() {
+      assertThat( systemUnderTest.parseNutritionType( "Fibre" ), is( CalculatedNutritionType.Fibre ) );
+      assertThat( systemUnderTest.parseNutritionType( "Fibres" ), is( CalculatedNutritionType.Fibre ) );
+      assertThat( systemUnderTest.parseNutritionType( "fibre" ), is( CalculatedNutritionType.Fibre ) );
+      assertThat( systemUnderTest.parseNutritionType( " Fibre " ), is( CalculatedNutritionType.Fibre ) );
+      assertThat( systemUnderTest.parseNutritionType( "Fibre (g)" ), is( CalculatedNutritionType.Fibre ) );
+   }//End Method
+   
+   @Test public void shouldParseProteinName() {
+      assertThat( systemUnderTest.parseNutritionType( "Protein" ), is( CalculatedNutritionType.Protein ) );
+      assertThat( systemUnderTest.parseNutritionType( "Proteins" ), is( CalculatedNutritionType.Protein ) );
+      assertThat( systemUnderTest.parseNutritionType( "protein" ), is( CalculatedNutritionType.Protein ) );
+      assertThat( systemUnderTest.parseNutritionType( " Protein " ), is( CalculatedNutritionType.Protein ) );
+      assertThat( systemUnderTest.parseNutritionType( "Protein (g)" ), is( CalculatedNutritionType.Protein ) );
+   }//End Method
+   
+   @Test public void shouldParseSaltName() {
+      assertThat( systemUnderTest.parseNutritionType( "Salt" ), is( CalculatedNutritionType.Salt ) );
+      assertThat( systemUnderTest.parseNutritionType( "Salts" ), is( CalculatedNutritionType.Salt ) );
+      assertThat( systemUnderTest.parseNutritionType( "salt" ), is( CalculatedNutritionType.Salt ) );
+      assertThat( systemUnderTest.parseNutritionType( " Salt " ), is( CalculatedNutritionType.Salt ) );
+      assertThat( systemUnderTest.parseNutritionType( "Salt (g)" ), is( CalculatedNutritionType.Salt ) );
+   }//End Method
 
+   @Test public void shouldExtractKcalFromEnergyString(){
+      assertThat( systemUnderTest.extractKcalFrom( "100kcal" ), is( "100" ) );
+      assertThat( systemUnderTest.extractKcalFrom( "100Kcal" ), is( "100" ) );
+      assertThat( systemUnderTest.extractKcalFrom( "100 kcal" ), is( "100" ) );
+      assertThat( systemUnderTest.extractKcalFrom( "100" ), is( "100" ) );
+      assertThat( systemUnderTest.extractKcalFrom( "3700.00kj900." ), is( "900" ) );
+      assertThat( systemUnderTest.extractKcalFrom( "555.00kj135." ), is( "135" ) );
+      assertThat( systemUnderTest.extractKcalFrom( "anything" ), is( "anything" ) );
+      assertThat( systemUnderTest.extractKcalFrom( null ), is( TescoStringParser.UNKNOWN_KCAL ) );
+   }//End Method
+   
 }//End Class
