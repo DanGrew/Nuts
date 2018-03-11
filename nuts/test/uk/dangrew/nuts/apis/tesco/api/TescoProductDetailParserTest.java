@@ -30,7 +30,8 @@ public class TescoProductDetailParserTest {
       
       assertThat( detail.gtin().get(), is( "05054775980437" ) );
       assertThat( detail.tpnb().get(), is( "081232414" ) );
-      assertThat( detail.tpnc().get(), is( "292718570" ) );
+      assertThat( detail.tpncs().get( 0 ), is( "292718570-extra" ) );
+      assertThat( detail.tpncs().get( 1 ), is( "292718570" ) );
       assertThat( detail.description().get(), is( "Tesco Virgin Organic Coconut Oil 300Ml" ) );
       assertThat( detail.brand().get(), is( "TESCO" ) );
       

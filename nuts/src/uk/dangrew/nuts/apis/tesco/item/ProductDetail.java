@@ -10,7 +10,7 @@ public class ProductDetail {
    
    private final ObjectProperty< String > gtinProperty;
    private final ObjectProperty< String > tpnbProperty;
-   private final ObjectProperty< String > tpncProperty;
+   private final ObservableList< String > tpncs;
    private final ObjectProperty< String > descriptionProperty;
    private final ObjectProperty< String > brandProperty;
    private final QuantityContents quantityContents;
@@ -24,7 +24,7 @@ public class ProductDetail {
    public ProductDetail() {
       this.gtinProperty = new SimpleObjectProperty<>();
       this.tpnbProperty = new SimpleObjectProperty<>();
-      this.tpncProperty = new SimpleObjectProperty<>();
+      this.tpncs = FXCollections.observableArrayList();
       this.descriptionProperty = new SimpleObjectProperty<>();
       this.brandProperty = new SimpleObjectProperty<>();
       this.quantityContents = new QuantityContents();
@@ -44,8 +44,8 @@ public class ProductDetail {
       return tpnbProperty;
    }//End Method
 
-   public ObjectProperty< String > tpnc() {
-      return tpncProperty;
+   public ObservableList< String > tpncs() {
+      return tpncs;
    }//End Method
 
    public ObjectProperty< String > description() {

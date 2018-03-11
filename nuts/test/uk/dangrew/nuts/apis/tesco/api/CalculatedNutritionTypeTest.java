@@ -100,14 +100,14 @@ public class CalculatedNutritionTypeTest {
    
    @Test public void shouldRedirectToNutrientValue(){
       assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
-      assertThat( CalculatedNutritionType.EnergyInKj.redirect( nutrition ), is( nutrition.energyInKcal() ) );
-      assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
-      assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
-      assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
-      assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
-      assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
-      assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
-      assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
+      assertThat( CalculatedNutritionType.EnergyInKj.redirect( nutrition ), is( nutrition.energyInKj() ) );
+      assertThat( CalculatedNutritionType.Fats.redirect( nutrition ), is( nutrition.fat() ) );
+      assertThat( CalculatedNutritionType.Saturates.redirect( nutrition ), is( nutrition.saturates() ) );
+      assertThat( CalculatedNutritionType.Carbohydrate.redirect( nutrition ), is( nutrition.carbohydrates() ) );
+      assertThat( CalculatedNutritionType.Sugars.redirect( nutrition ), is( nutrition.sugars() ) );
+      assertThat( CalculatedNutritionType.Fibre.redirect( nutrition ), is( nutrition.fibre() ) );
+      assertThat( CalculatedNutritionType.Protein.redirect( nutrition ), is( nutrition.protein() ) );
+      assertThat( CalculatedNutritionType.Salt.redirect( nutrition ), is( nutrition.salt() ) );
    }//End Method
 
 }//End Class

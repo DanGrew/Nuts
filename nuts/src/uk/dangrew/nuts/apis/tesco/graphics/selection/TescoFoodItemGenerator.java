@@ -28,6 +28,10 @@ public class TescoFoodItemGenerator {
          return tescoItems;
       }
       
+//      if ( !sufficientDataFor( description, d -> d.productDetail().nutrition().per100Header() ) ) {
+//         new TescoWebsiteParser().parseNutritionFor( description );
+//      }
+      
       applyPer100Item( description, tescoItems );
       applyPerServingItem( description, tescoItems );
       return tescoItems;
@@ -88,6 +92,7 @@ public class TescoFoodItemGenerator {
       }
       
       try {
+         //trim string down to value only
          double conversion = Double.parseDouble( nutritionString );
          value.set( conversion );
       } catch ( NumberFormatException exception ) {

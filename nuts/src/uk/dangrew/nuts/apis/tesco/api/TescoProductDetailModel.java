@@ -24,10 +24,14 @@ public class TescoProductDetailModel {
       this.nutritionHandler = new CalculatedNutritionParsingHandler();
    }//End Constructor
    
+   public void startProductArray( String key ) {
+      productDetail.tpncs().clear();
+   }//End Method
+   
    public void startProduct( String key ) {
       productDetail.gtin().set( null );
       productDetail.tpnb().set( null );
-      productDetail.tpnc().set( null );
+//      productDetail.tpncs().clear();
       productDetail.description().set( null );
       productDetail.brand().set( null );
       
@@ -97,7 +101,8 @@ public class TescoProductDetailModel {
       
       convenienceSet( ProductDetail::gtin, description.productDetail() );
       convenienceSet( ProductDetail::tpnb, description.productDetail() );
-      convenienceSet( ProductDetail::tpnc, description.productDetail() );
+//      convenienceSet( ProductDetail::tpnc, description.productDetail() );
+      description.productDetail().tpncs().addAll( productDetail.tpncs() );
       convenienceSet( ProductDetail::description, description.productDetail() );
       convenienceSet( ProductDetail::brand, description.productDetail() );
 
@@ -195,7 +200,7 @@ public class TescoProductDetailModel {
    }//End Method
    
    public void setTpnc( String key, String value ) {
-      productDetail.tpnc().set( value );
+      productDetail.tpncs().add( value );
    }//End Method
    
    public void setDescription( String key, String value ) {

@@ -48,20 +48,36 @@ public class CalculatedNutritionParsingHandler {
    }//End Method
    
    public void finishedCalculatedNutrientsObject( String key ) {
-      CalculatedNutritionType nutritionType = stringParser.parseNutritionType( name );
-      if ( nutritionType == null ) {
+      if ( stringParser.isNonParseableRow( name ) ) {
          return;
       }
-      if ( nutritionType == CalculatedNutritionType.EnergyInKcal ) {
-         valuePer100 = stringParser.extractKcalFrom( valuePer100 );
-         valuePerServing = stringParser.extractKcalFrom( valuePerServing );
+      if ( stringParser.isCombinedEnergy( name ) ) {
+         String parsedValuePer100 = valuePer100;
+         String parsedValuePerServing = valuePerServing;
+         
+         valuePer100 = stringParser.extractKcalFrom( parsedValuePer100 );
+         valuePerServing = stringParser.extractKcalFrom( parsedValuePerServing );
+         setNutritionValues( CalculatedNutritionType.EnergyInKcal.redirect( currentNutrition ) );
+         
+         valuePer100 = stringParser.extractKjFrom( parsedValuePer100 );
+         valuePerServing = stringParser.extractKjFrom( parsedValuePerServing );
+         setNutritionValues( CalculatedNutritionType.EnergyInKj.redirect( currentNutrition ) );
+      } else {
+         CalculatedNutritionType nutritionType = stringParser.parseNutritionType( name );
+         if ( nutritionType == null ) {
+            return;
+         }
+         if ( nutritionType == CalculatedNutritionType.EnergyInKcal ) {
+            valuePer100 = stringParser.extractKcalFrom( valuePer100 );
+            valuePerServing = stringParser.extractKcalFrom( valuePerServing );
+         }
+         setNutritionValues( nutritionType.redirect( currentNutrition ) );
       }
-      setNutritionValues( nutritionType.redirect( currentNutrition ) );
    }//End Method
    
    private void setNutritionValues( CalculatedNutrientValue value ) {
-      value.valuePer100().set( valuePer100 );
-      value.valuePerServing().set( valuePerServing );
+      value.valuePer100().set( stringParser.extractNumber( valuePer100 ) );
+      value.valuePerServing().set( stringParser.extractNumber( valuePerServing ) );
    }//End Method
    
    public void startedCalculatedNutrientsArray( String key ) {

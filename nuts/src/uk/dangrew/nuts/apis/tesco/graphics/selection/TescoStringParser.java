@@ -10,14 +10,19 @@ public class TescoStringParser {
    static final String UNKNOWN_PER_100 = "Per 100-Unknown";
    static final String UNKNOWN_PER_SERVING = "Per Serving-Unknown";
    static final String UNKNOWN_KCAL = "??kcal";
+   static final String UNKNOWN_KJ = "??kj";
    
-   private static final Pattern NUMBER_MATCHER = Pattern.compile( "\\d+" );
+   private static final Pattern NUMBER_MATCHER = Pattern.compile( "\\d+(\\.\\d*)*" );
    
    private static final Pattern GRAM_MATCHER = Pattern.compile( "\\d+g" );
    private static final Pattern MILLILITRE_MATCHER = Pattern.compile( "\\d+ml" );
    
-   private static final Pattern KCAL_MATCHER = Pattern.compile( "\\d+.*kcal" );
+   private static final Pattern KCAL_MATCHER = Pattern.compile( "\\d+ *kcal" );
+   private static final Pattern KJ_MATCHER = Pattern.compile( "\\d+ *kj" );
    private static final Pattern KJ_SPLIT_MATCHER = Pattern.compile( "kj\\d+" );
+   private static final Pattern COMBINED_ENERGY_KJ_KCAL_MATCHER = Pattern.compile( "kj.*kcal" );
+   private static final Pattern COMBINED_ENERGY_KCAL_KJ_MATCHER = Pattern.compile( "kcal.*kj" );
+   private static final Pattern COMBINED_ENERGY_EXACT_MATCHER = Pattern.compile( "energy" );
    
    public String parsePer100Header( String header ) {
       if ( header == null ) {
@@ -76,7 +81,52 @@ public class TescoStringParser {
       return parseable;
    }//End Method
    
-   private String extractNumber( String string ) {
+   public String extractKjFrom( String string ) {
+      if ( string == null ) {
+         return UNKNOWN_KJ;
+      }
+      
+      String parseable = string.toLowerCase();
+      
+      Matcher matcher = KJ_MATCHER.matcher( parseable );
+      if ( matcher.find() ) {
+         return extractNumber( matcher.group() );
+      }
+      
+      return parseable;
+   }//End Method
+   
+   public boolean isCombinedEnergy( String string ) {
+      if ( string == null ) {
+         return false;
+      }
+      
+      String parseable = string.toLowerCase();
+      
+      Matcher matcher = COMBINED_ENERGY_KJ_KCAL_MATCHER.matcher( parseable );
+      if ( matcher.find() ){
+         return true;
+      }
+      
+      matcher = COMBINED_ENERGY_KCAL_KJ_MATCHER.matcher( parseable );
+      if ( matcher.find() ) {
+         return true;
+      }
+      
+      matcher = COMBINED_ENERGY_EXACT_MATCHER.matcher( parseable );
+      if ( matcher.find() ){
+         boolean containsKcal = string.contains( "kcal" );
+         boolean containsKj = string.contains( "kj" );
+         return containsKcal == containsKj;
+      }
+      
+      return false;
+   }//End Method
+   
+   public String extractNumber( String string ) {
+      if ( string == null ) {
+         return null;
+      }
       Matcher matcher = NUMBER_MATCHER.matcher( string );
       if ( matcher.find() ) {
          return matcher.group();
@@ -84,4 +134,13 @@ public class TescoStringParser {
       
       return string;
    }//End Method
+   
+   //not tested to remove
+   public boolean isNonParseableRow( String string ) {
+      String parseable = string.toLowerCase();
+      if ( parseable.contains( "reference intake" ) ) {
+         return true;
+      }
+      return false;
+   }
 }//End Class

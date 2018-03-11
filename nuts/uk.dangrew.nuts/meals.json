@@ -1874,5 +1874,41 @@
             "portionValue": 130
          }
       ]
+   },
+   {
+      "name": "Sausage & Bacon Wellington",
+      "id": "c0b5363a-2dd7-46b7-b100-3c8d46d1753d",
+      "portions": [
+         {
+            "foodId": "8e457881-5430-4783-894e-c3a1a5e317d2",
+            "portionValue": 200
+         },
+         {
+            "foodId": "7157f3d0-f279-4bee-b24f-0987d0e913f2",
+            "portionValue": 100
+         },
+         {
+            "foodId": "555ae532-2d24-4e88-929f-e56dccca3258",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter Mousse",
+      "id": "ab66e672-0cfb-4501-b356-01176c30d88b",
+      "portions": [
+         {
+            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
+            "portionValue": 120
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 400
+         },
+         {
+            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "portionValue": 30
+         }
+      ]
    }
 ]}

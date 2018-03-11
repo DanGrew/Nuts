@@ -129,4 +129,27 @@ public class TescoStringParserTest {
       assertThat( systemUnderTest.extractKcalFrom( null ), is( TescoStringParser.UNKNOWN_KCAL ) );
    }//End Method
    
+   @Test public void shoudlExtractNumbers(){
+      assertThat( systemUnderTest.extractNumber( "3.6" ), is( "3.6" ) );
+      assertThat( systemUnderTest.extractNumber( "3" ), is( "3" ) );
+      assertThat( systemUnderTest.extractNumber( "help3.6" ), is( "3.6" ) );
+      assertThat( systemUnderTest.extractNumber( "3.6help" ), is( "3.6" ) );
+      assertThat( systemUnderTest.extractNumber( "65kcal" ), is( "65" ) );
+   }//End Method
+   
+   @Test public void shouldIdentifyCombinedEnergyStrings(){
+      assertThat( systemUnderTest.isCombinedEnergy( "kj/kcal" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "kj kcal" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "2000kj 100kcal" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "kcalkj" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "kcal/kj" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "100kcal2000kj" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "energy" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "Energy" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "100Energyanything" ), is( true ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "Energy (kcal)" ), is( false ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "Energy (kj)" ), is( false ) );
+      assertThat( systemUnderTest.isCombinedEnergy( "Energy (kj/kcal)" ), is( true ) );
+   }//End Method
+   
 }//End Class

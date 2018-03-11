@@ -9,11 +9,11 @@ import uk.dangrew.nuts.apis.tesco.item.CalculatedNutrition;
 public enum CalculatedNutritionType {
 
    EnergyInKcal( 
-            Pattern.compile( ".*energy.*kcal.*" ),
+            Pattern.compile( ".*kcal.*" ),
             CalculatedNutrition::energyInKcal
    ),
    EnergyInKj( 
-            Pattern.compile( ".*energy.*kj.*" ),
+            Pattern.compile( ".*kj.*" ),
             CalculatedNutrition::energyInKj
    ),
    Fats( 
