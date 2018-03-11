@@ -3,6 +3,7 @@ package uk.dangrew.nuts.apis.tesco.api;
 import java.util.function.Function;
 
 import javafx.beans.property.ObjectProperty;
+import javafx.collections.ObservableList;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 import uk.dangrew.nuts.apis.tesco.item.GuidelineDailyAmountReference;
 import uk.dangrew.nuts.apis.tesco.item.ProductDetail;
@@ -25,13 +26,9 @@ public class TescoProductDetailModel {
    }//End Constructor
    
    public void startProductArray( String key ) {
-      productDetail.tpncs().clear();
-   }//End Method
-   
-   public void startProduct( String key ) {
       productDetail.gtin().set( null );
       productDetail.tpnb().set( null );
-//      productDetail.tpncs().clear();
+      productDetail.tpncs().clear();
       productDetail.description().set( null );
       productDetail.brand().set( null );
       
@@ -87,7 +84,7 @@ public class TescoProductDetailModel {
       productDetail.packageDimensions().volumeUom().set( null );
    }//End Method
    
-   public void finishProduct( String key ) {
+   public void finishProductArray( String key ) {
       String tpnb = productDetail.tpnb().get();
       tpnb = Integer.valueOf( tpnb ).toString();
       
@@ -101,7 +98,6 @@ public class TescoProductDetailModel {
       
       convenienceSet( ProductDetail::gtin, description.productDetail() );
       convenienceSet( ProductDetail::tpnb, description.productDetail() );
-//      convenienceSet( ProductDetail::tpnc, description.productDetail() );
       description.productDetail().tpncs().addAll( productDetail.tpncs() );
       convenienceSet( ProductDetail::description, description.productDetail() );
       convenienceSet( ProductDetail::brand, description.productDetail() );
@@ -187,9 +183,24 @@ public class TescoProductDetailModel {
       convenienceSet( p -> p.packageDimensions().volumeUom(), description.productDetail() );
    }//End Method
    
+   public void startProduct( String key ) {
+      //do nothing - parse altogether, overriding if necessary
+   }//End Method
+   
+   public void finishProduct( String key ) {
+    //do nothing - parse altogether, overriding if necessary
+   }//End Method
+   
    private < TypeT > void convenienceSet( Function< ProductDetail, ObjectProperty< TypeT > > propertyRetriever, ProductDetail detailToUpdate ) {
       propertyRetriever.apply( detailToUpdate ).set( propertyRetriever.apply( productDetail ).get() );
    }//End Method
+   
+   private void convienceListAdd( ObservableList< String > list, String value ) {
+      if ( list.contains( value ) ) {
+         return;
+      }
+      list.add( value );
+   }
    
    public void setGtin( String key, String value ) {
       productDetail.gtin().set( value );
@@ -200,7 +211,7 @@ public class TescoProductDetailModel {
    }//End Method
    
    public void setTpnc( String key, String value ) {
-      productDetail.tpncs().add( value );
+      convienceListAdd( productDetail.tpncs(), value );
    }//End Method
    
    public void setDescription( String key, String value ) {
@@ -305,15 +316,15 @@ public class TescoProductDetailModel {
    }//End Method
    
    public void addHeader( String key, String value ) {
-      currentGdaReference.headers().add( value );
+      convienceListAdd( currentGdaReference.headers(), value );
    }//End Method
    
    public void addFooter( String key, String value ) {
-      currentGdaReference.footers().add( value );
+      convienceListAdd( currentGdaReference.footers(), value );
    }//End Method
    
    public void addStorage( String key, String value ) {
-      productDetail.storageInstructions().add( value );
+      convienceListAdd( productDetail.storageInstructions(), value );
    }//End Method
    
    public void setMarketingText( String key, String value ) {

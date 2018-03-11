@@ -117,7 +117,7 @@ public class TescoProductDetailParser extends JsonParser {
       when( REUSED_NAME         , new StringParseHandle( model::setName ) );
       
       when( ARRAY_PRODUCTS, new StringParseHandle( new JsonArrayWithObjectParseHandler<>( 
-               model::startProduct, model::finishProduct, model::startProductArray, null 
+               model::startProduct, model::finishProduct, model::startProductArray, model::finishProductArray 
       ) ) );
       
       when( GTIN        , new StringParseHandle( model::setGtin ) );

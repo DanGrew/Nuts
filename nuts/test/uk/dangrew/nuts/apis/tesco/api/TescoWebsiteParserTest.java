@@ -9,6 +9,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.manual.data.TescoExamples;
 
 public class TescoWebsiteParserTest {
 
@@ -21,8 +22,7 @@ public class TescoWebsiteParserTest {
    }//End Method
 
    @Test public void shouldParseFromWebsiteRealIntegrationTest() {
-      TescoFoodDescription description = new TescoFoodDescription( "Cravendale Filtered Whole Milk 2 Litre" );
-      description.productDetail().tpncs().add( "257265436" );
+      TescoFoodDescription description = TescoExamples.cravendaleMilk();
       
       systemUnderTest.parseNutritionFor( description );
      
