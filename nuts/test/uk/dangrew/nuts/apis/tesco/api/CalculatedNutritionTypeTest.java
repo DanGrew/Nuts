@@ -98,6 +98,63 @@ public class CalculatedNutritionTypeTest {
       assertThat( CalculatedNutritionType.Salt.matches( "Salt (g)" ), is( true ) );
    }//End Method
    
+   @Test public void shouldParseCalciumName() {
+      assertThat( CalculatedNutritionType.Calcium.matches( "Calcium" ), is( true ) );
+      assertThat( CalculatedNutritionType.Calcium.matches( "Calciums" ), is( true ) );
+      assertThat( CalculatedNutritionType.Calcium.matches( "calcium" ), is( true ) );
+      assertThat( CalculatedNutritionType.Calcium.matches( " Calcium " ), is( true ) );
+      assertThat( CalculatedNutritionType.Calcium.matches( "Calcium (mg)" ), is( true ) );
+   }//End Method
+   
+   @Test public void shouldParseThiaminName() {
+      assertThat( CalculatedNutritionType.Thiamin.matches( "Thiamin" ), is( true ) );
+      assertThat( CalculatedNutritionType.Thiamin.matches( "Thiamins" ), is( true ) );
+      assertThat( CalculatedNutritionType.Thiamin.matches( "thiamin" ), is( true ) );
+      assertThat( CalculatedNutritionType.Thiamin.matches( " Thiamin " ), is( true ) );
+      assertThat( CalculatedNutritionType.Thiamin.matches( "Thiamin (mg)" ), is( true ) );
+   }//End Method
+   
+   @Test public void shouldParseRiboflavinName() {
+      assertThat( CalculatedNutritionType.Riboflavin.matches( "Riboflavin" ), is( true ) );
+      assertThat( CalculatedNutritionType.Riboflavin.matches( "Riboflavins" ), is( true ) );
+      assertThat( CalculatedNutritionType.Riboflavin.matches( "riboflavin" ), is( true ) );
+      assertThat( CalculatedNutritionType.Riboflavin.matches( " Riboflavin " ), is( true ) );
+      assertThat( CalculatedNutritionType.Riboflavin.matches( "Riboflavin (mg)" ), is( true ) );
+   }//End Method
+   
+   @Test public void shouldParseNiacinName() {
+      assertThat( CalculatedNutritionType.Niacin.matches( "Niacin" ), is( true ) );
+      assertThat( CalculatedNutritionType.Niacin.matches( "Niacins" ), is( true ) );
+      assertThat( CalculatedNutritionType.Niacin.matches( "niacin" ), is( true ) );
+      assertThat( CalculatedNutritionType.Niacin.matches( " Niacin " ), is( true ) );
+      assertThat( CalculatedNutritionType.Niacin.matches( "Niacin (mg)" ), is( true ) );
+   }//End Method
+   
+   @Test public void shouldParseFolicAcidName() {
+      assertThat( CalculatedNutritionType.FolicAcid.matches( "Folic Acid" ), is( true ) );
+      assertThat( CalculatedNutritionType.FolicAcid.matches( "Folic Acids" ), is( true ) );
+      assertThat( CalculatedNutritionType.FolicAcid.matches( "folic Acid" ), is( true ) );
+      assertThat( CalculatedNutritionType.FolicAcid.matches( " Folic Acid " ), is( true ) );
+      assertThat( CalculatedNutritionType.FolicAcid.matches( "Folic Acid (mg)" ), is( true ) );
+      assertThat( CalculatedNutritionType.FolicAcid.matches( "FolicAcid" ), is( true ) );
+   }//End Method
+   
+   @Test public void shouldParseIronName() {
+      assertThat( CalculatedNutritionType.Iron.matches( "Iron" ), is( true ) );
+      assertThat( CalculatedNutritionType.Iron.matches( "Irons" ), is( true ) );
+      assertThat( CalculatedNutritionType.Iron.matches( "iron" ), is( true ) );
+      assertThat( CalculatedNutritionType.Iron.matches( " Iron " ), is( true ) );
+      assertThat( CalculatedNutritionType.Iron.matches( "Iron (mg)" ), is( true ) );
+   }//End Method
+   
+   @Test public void shouldParseOmega3Name() {
+      assertThat( CalculatedNutritionType.Omega3.matches( "Omega" ), is( true ) );
+      assertThat( CalculatedNutritionType.Omega3.matches( "Omega" ), is( true ) );
+      assertThat( CalculatedNutritionType.Omega3.matches( "omega" ), is( true ) );
+      assertThat( CalculatedNutritionType.Omega3.matches( " Omega 3 " ), is( true ) );
+      assertThat( CalculatedNutritionType.Omega3.matches( "Omega (g)" ), is( true ) );
+   }//End Method
+   
    @Test public void shouldRedirectToNutrientValue(){
       assertThat( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ), is( nutrition.energyInKcal() ) );
       assertThat( CalculatedNutritionType.EnergyInKj.redirect( nutrition ), is( nutrition.energyInKj() ) );
@@ -108,6 +165,12 @@ public class CalculatedNutritionTypeTest {
       assertThat( CalculatedNutritionType.Fibre.redirect( nutrition ), is( nutrition.fibre() ) );
       assertThat( CalculatedNutritionType.Protein.redirect( nutrition ), is( nutrition.protein() ) );
       assertThat( CalculatedNutritionType.Salt.redirect( nutrition ), is( nutrition.salt() ) );
+      assertThat( CalculatedNutritionType.Calcium.redirect( nutrition ), is( nutrition.calcium() ) );
+      assertThat( CalculatedNutritionType.Thiamin.redirect( nutrition ), is( nutrition.thiamin() ) );
+      assertThat( CalculatedNutritionType.Riboflavin.redirect( nutrition ), is( nutrition.riboflavin() ) );
+      assertThat( CalculatedNutritionType.Niacin.redirect( nutrition ), is( nutrition.niacin() ) );
+      assertThat( CalculatedNutritionType.FolicAcid.redirect( nutrition ), is( nutrition.folicAcid() ) );
+      assertThat( CalculatedNutritionType.Omega3.redirect( nutrition ), is( nutrition.omega3() ) );
    }//End Method
 
 }//End Class

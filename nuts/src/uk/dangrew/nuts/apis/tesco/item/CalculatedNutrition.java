@@ -16,6 +16,13 @@ public class CalculatedNutrition {
    private final CalculatedNutrientValue fibre;
    private final CalculatedNutrientValue protein;
    private final CalculatedNutrientValue salts;
+   private final CalculatedNutrientValue calcium;
+   private final CalculatedNutrientValue thiamin;
+   private final CalculatedNutrientValue riboflavin;
+   private final CalculatedNutrientValue niacin;
+   private final CalculatedNutrientValue folicAcid;
+   private final CalculatedNutrientValue iron;
+   private final CalculatedNutrientValue omega3;
    
    public CalculatedNutrition() {
       this.per100HeaderProperty = new SimpleObjectProperty<>();
@@ -29,6 +36,13 @@ public class CalculatedNutrition {
       this.fibre = new CalculatedNutrientValue( "Fibre (g)" );
       this.protein = new CalculatedNutrientValue( "Protein (g)" );
       this.salts = new CalculatedNutrientValue( "Salt (g)" );
+      this.calcium = new CalculatedNutrientValue( "Calcium (mg)" );
+      this.thiamin = new CalculatedNutrientValue( "Thiamin (mg)" );
+      this.riboflavin = new CalculatedNutrientValue( "Robolavin (mg)" );
+      this.niacin = new CalculatedNutrientValue( "Niacin (mg)" );
+      this.folicAcid = new CalculatedNutrientValue( "Folic Acid (mg)" );
+      this.iron = new CalculatedNutrientValue( "Iron (mg)" );
+      this.omega3 = new CalculatedNutrientValue( "Omega3 (g)" );
    }//End Constructor
 
    public ObjectProperty< String > per100Header() {
@@ -73,6 +87,34 @@ public class CalculatedNutrition {
 
    public CalculatedNutrientValue salt() {
       return salts;
+   }//End Method
+   
+   public CalculatedNutrientValue calcium() {
+      return calcium;
+   }//End Method
+   
+   public CalculatedNutrientValue thiamin() {
+      return thiamin;
+   }//End Method
+   
+   public CalculatedNutrientValue riboflavin() {
+      return riboflavin;
+   }//End Method
+   
+   public CalculatedNutrientValue niacin() {
+      return niacin;
+   }//End Method
+   
+   public CalculatedNutrientValue folicAcid() {
+      return folicAcid;
+   }//End Method
+   
+   public CalculatedNutrientValue iron() {
+      return iron;
+   }//End Method
+   
+   public CalculatedNutrientValue omega3() {
+      return omega3;
    }//End Method
    
 }//End Class

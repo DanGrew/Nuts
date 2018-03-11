@@ -43,6 +43,34 @@ public enum CalculatedNutritionType {
    Salt( 
             Pattern.compile( ".*salt.*" ),
             CalculatedNutrition::salt 
+   ),
+   Calcium( 
+            Pattern.compile( ".*calcium.*" ),
+            CalculatedNutrition::calcium 
+   ),
+   Thiamin( 
+            Pattern.compile( ".*thiamin.*" ),
+            CalculatedNutrition::thiamin 
+   ),
+   Riboflavin( 
+            Pattern.compile( ".*riboflavin.*" ),
+            CalculatedNutrition::riboflavin 
+   ),
+   Niacin( 
+            Pattern.compile( ".*niacin.*" ),
+            CalculatedNutrition::niacin 
+   ),
+   FolicAcid( 
+            Pattern.compile( ".*folic( )*acid.*" ),
+            CalculatedNutrition::folicAcid 
+   ),
+   Iron( 
+            Pattern.compile( ".*iron.*" ),
+            CalculatedNutrition::iron 
+   ),
+   Omega3( 
+            Pattern.compile( ".*omega.*" ),
+            CalculatedNutrition::omega3 
    );
    
    private final Pattern pattern;

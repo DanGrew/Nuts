@@ -27,7 +27,21 @@ public class NutritionAsserter {
    private String proteinValuePerServing;
    private String saltValuePer100;
    private String saltValuePerServing;
-   
+   private String calciumValuePer100;
+   private String calciumValuePerServing;
+   private String thiaminValuePer100;
+   private String thiaminValuePerServing;
+   private String riboflavinValuePer100;
+   private String riboflavinValuePerServing;
+   private String niacinValuePer100;
+   private String niacinValuePerServing;
+   private String folicAcidValuePer100;
+   private String folicAcidValuePerServing;
+   private String ironValuePer100;
+   private String ironValuePerServing;
+   private String omega3ValuePer100;
+   private String omega3ValuePerServing;
+      
    public NutritionAsserter per100Header( String per100Header ) {
       this.per100Header = per100Header;
       return this;
@@ -127,6 +141,76 @@ public class NutritionAsserter {
       this.saltValuePerServing = saltValuePerServing;
       return this;
    }//End Method
+   
+   public NutritionAsserter calciumValuePer100( String calciumValuePer100 ) {
+      this.calciumValuePer100 = calciumValuePer100;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter calciumValuePerServing( String calciumValuePerServing ) {
+      this.calciumValuePerServing = calciumValuePerServing;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter thiaminValuePer100( String thiaminValuePer100 ) {
+      this.thiaminValuePer100 = thiaminValuePer100;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter thiaminValuePerServing( String thiaminValuePerServing ) {
+      this.thiaminValuePerServing = thiaminValuePerServing;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter riboflavinValuePer100( String riboflavinValuePer100 ) {
+      this.riboflavinValuePer100 = riboflavinValuePer100;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter riboflavinValuePerServing( String riboflavinValuePerServing ) {
+      this.riboflavinValuePerServing = riboflavinValuePerServing;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter niacinValuePer100( String niacinValuePer100 ) {
+      this.niacinValuePer100 = niacinValuePer100;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter niacinValuePerServing( String niacinValuePerServing ) {
+      this.niacinValuePerServing = niacinValuePerServing;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter folicAcidValuePer100( String folicAcidValuePer100 ) {
+      this.folicAcidValuePer100 = folicAcidValuePer100;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter folicAcidValuePerServing( String folicAcidValuePerServing ) {
+      this.folicAcidValuePerServing = folicAcidValuePerServing;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter ironValuePer100( String ironValuePer100 ) {
+      this.ironValuePer100 = ironValuePer100;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter ironValuePerServing( String ironValuePerServing ) {
+      this.ironValuePerServing = ironValuePerServing;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter omega3ValuePer100( String omega3ValuePer100 ) {
+      this.omega3ValuePer100 = omega3ValuePer100;
+      return this;
+   }//End Method
+   
+   public NutritionAsserter omega3ValuePerServing( String omega3ValuePerServing ) {
+      this.omega3ValuePerServing = omega3ValuePerServing;
+      return this;
+   }//End Method
 
    public void assertThatValuesAreCorrect( CalculatedNutrition nutrition ) {
       assertThat( nutrition.per100Header().get(), is( per100Header ) );
@@ -158,5 +242,26 @@ public class NutritionAsserter {
       
       assertThat( nutrition.salt().valuePer100().get(), is( saltValuePer100 ) );
       assertThat( nutrition.salt().valuePerServing().get(), is( saltValuePerServing ) );
+      
+      assertThat( nutrition.calcium().valuePer100().get(), is( calciumValuePer100 ) );
+      assertThat( nutrition.calcium().valuePerServing().get(), is( calciumValuePerServing ) );
+      
+      assertThat( nutrition.thiamin().valuePer100().get(), is( thiaminValuePer100 ) );
+      assertThat( nutrition.thiamin().valuePerServing().get(), is( thiaminValuePerServing ) );
+      
+      assertThat( nutrition.riboflavin().valuePer100().get(), is( riboflavinValuePer100 ) );
+      assertThat( nutrition.riboflavin().valuePerServing().get(), is( riboflavinValuePerServing ) );
+      
+      assertThat( nutrition.niacin().valuePer100().get(), is( niacinValuePer100 ) );
+      assertThat( nutrition.niacin().valuePerServing().get(), is( niacinValuePerServing ) );
+      
+      assertThat( nutrition.folicAcid().valuePer100().get(), is( folicAcidValuePer100 ) );
+      assertThat( nutrition.folicAcid().valuePerServing().get(), is( folicAcidValuePerServing ) );
+      
+      assertThat( nutrition.iron().valuePer100().get(), is( ironValuePer100 ) );
+      assertThat( nutrition.iron().valuePerServing().get(), is( ironValuePerServing ) );
+      
+      assertThat( nutrition.omega3().valuePer100().get(), is( omega3ValuePer100 ) );
+      assertThat( nutrition.omega3().valuePerServing().get(), is( omega3ValuePerServing ) );
    }//End Method
 }//End Class

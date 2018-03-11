@@ -1,9 +1,6 @@
 package uk.dangrew.nuts.apis.tesco.api;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
@@ -45,10 +42,9 @@ public class TescoWebsiteParserTest {
          .proteinValuePerServing( "6.8" )
          .saltValuePer100( "0.1" )
          .saltValuePerServing( "0.2" )
+         .calciumValuePer100( "122" )
+         .calciumValuePerServing( "243" )
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
-      
-//      assertThat( nutrition.calcium().valuePer100().get(), is( "122mg (15.3% RI)" ) );
-//      assertThat( nutrition.calcium().valuePerServing().get(), is( "243mg (30.4% RI)" ) );
    }//End Method
    
 //   @Test public void shouldIgnoreMissingDescription(){
@@ -173,9 +169,9 @@ public class TescoWebsiteParserTest {
          .proteinValuePerServing( "4.4" )
          .saltValuePer100( "0.88" )
          .saltValuePerServing( "0.39" )
+         .omega3ValuePer100( "2.18" )
+         .omega3ValuePerServing( "0.96" )
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
-      
-      //Omega 3 (ALA)  2.18g 0.96g
    }//End Method
    
 //   @Test public void variation296056855() {
