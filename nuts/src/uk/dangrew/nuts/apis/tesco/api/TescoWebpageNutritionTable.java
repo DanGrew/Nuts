@@ -1,11 +1,7 @@
 package uk.dangrew.nuts.apis.tesco.api;
 
-import static org.mockito.Matchers.matches;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.jsoup.nodes.Document;
