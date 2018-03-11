@@ -56,6 +56,8 @@ public class TescoNutritionExtractorTest {
          .proteinValuePerServing( "6.8" )
          .saltValuePer100( "0.1" )
          .saltValuePerServing( "0.2" )
+         .calciumValuePer100( "122" )
+         .calciumValuePerServing( "243" )
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
    
