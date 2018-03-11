@@ -1,6 +1,8 @@
 package uk.dangrew.nuts.apis.tesco.api;
 
-import static org.junit.Assert.fail;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import org.jsoup.nodes.Document;
 import org.junit.Before;
@@ -9,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.manual.data.TescoExamples;
 
 public class TescoNutritionExtractorTest {
 
@@ -22,20 +25,16 @@ public class TescoNutritionExtractorTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       model = new CalculatedNutritionParsingHandler();
-      
-      description = new TescoFoodDescription( "Cravendale Filtered Whole Milk 2 Litre" );
-      description.productDetail().tpncs().add( "257265436" );
-      TescoWebsiteParser websiteParser = new TescoWebsiteParser();
-      Document document = websiteParser.connectToProductPage( description );
-      table = new TescoWebpageNutritionTable( document );
+      table = new TescoWebpageNutritionTable();
+      description = TescoExamples.cravendaleMilk();
+      model.setCurrentNutrition( description.productDetail().nutrition() );
       systemUnderTest = new TescoNutritionExtractor();
    }//End Method
-
-//   @Test public void shouldExtractFromTableIntoModel() {
-//      fail( "Not yet implemented" );
-//   }//End Method
    
    @Test public void integrationTestWithRealData(){
+      Document document = TescoExamples.crandaleMilkHtml();
+      table = new TescoWebpageNutritionTable( document );
+      
       model.setCurrentNutrition( description.productDetail().nutrition() );
       systemUnderTest.extract( table, model );
       new NutritionAsserter()
@@ -59,5 +58,15 @@ public class TescoNutritionExtractorTest {
          .saltValuePerServing( "0.2" )
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
-
+   
+   @Test public void shouldNotExtractEclusion(){
+      table.modifyColumnRow( 0, 1, TescoNutritionExtractor.EXCLUSION_REFRENCE_INTAKE + " something energy" );
+      table.modifyColumnRow( 1, 1, "200kcal" );
+      table.modifyColumnRow( 2, 1, "400kcal" );
+      
+      systemUnderTest.extract( table, model );
+      assertThat( description.productDetail().nutrition().energyInKcal().valuePer100().get(), is( nullValue() ) );
+      assertThat( description.productDetail().nutrition().energyInKcal().valuePerServing().get(), is( nullValue() ) );
+   }//End Method 
+   
 }//End Class

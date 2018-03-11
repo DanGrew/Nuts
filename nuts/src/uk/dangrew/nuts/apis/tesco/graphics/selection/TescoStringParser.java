@@ -135,12 +135,4 @@ public class TescoStringParser {
       return string;
    }//End Method
    
-   //not tested to remove
-   public boolean isNonParseableRow( String string ) {
-      String parseable = string.toLowerCase();
-      if ( parseable.contains( "reference intake" ) ) {
-         return true;
-      }
-      return false;
-   }
 }//End Class

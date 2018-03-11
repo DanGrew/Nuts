@@ -15,17 +15,24 @@ import javafx.util.Pair;
 
 public class TescoWebpageNutritionTable {
    
-   private static final String NUTRITION_TABLE_TAG = "table";
-   private static final String HEADER_ENTRY = "th";
-   private static final String ROW_ENTRY = "td";
+   static final String NUTRITION_TABLE_TAG = "table";
+   static final String HEADER_ENTRY = "th";
+   static final String ROW_ENTRY = "td";
 
    private final Map< Pair< Integer, Integer >, String > table;
    private int columnCount;
    private int rowCount;
    
    public TescoWebpageNutritionTable( Document webpageDocument ) {
+      this();
+      parse( webpageDocument );
+   }//End Constructor
+   
+   public TescoWebpageNutritionTable() {
       this.table = new HashMap<>();
+   }//End Constructor
       
+   private void parse( Document webpageDocument ) {
       if ( webpageDocument == null ) {
          return;
       }
@@ -39,14 +46,9 @@ public class TescoWebpageNutritionTable {
       parseRows( table );
    }//End Method
    
-   private boolean parseColumnRow( Iterator< Element > iterator, int column, int row ) {
-      if ( !iterator.hasNext() ){
-         return false;
-      }
-      
+   private void parseColumnRow( Iterator< Element > iterator, int column, int row ) {
       Element element = iterator.next();
       putCellValue( column, row, element.text() );
-      return true;
    }//End Method
    
    private void parseHeaders( Element table ) {
@@ -76,7 +78,7 @@ public class TescoWebpageNutritionTable {
    private void putCellValue( int column, int row, String value ) {
       table.put( new Pair<>( column, row ), value );
       
-      System.out.println( "C: " + column + " R: " + row + " V: " + value );
+//      System.out.println( "C: " + column + " R: " + row + " V: " + value );
       if ( column > columnCount ) {
          columnCount = column;
       }
@@ -95,6 +97,10 @@ public class TescoWebpageNutritionTable {
 
    public String columnRow( int column, int row ) {
       return table.get( new Pair<>( column, row ) );
+   }//End Method
+   
+   public void modifyColumnRow( int column, int row, String value ) {
+      putCellValue( column, row, value );
    }//End Method
 
 }//End Class

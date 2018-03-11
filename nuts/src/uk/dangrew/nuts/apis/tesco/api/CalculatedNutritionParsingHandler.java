@@ -48,9 +48,6 @@ public class CalculatedNutritionParsingHandler {
    }//End Method
    
    public void finishedCalculatedNutrientsObject( String key ) {
-      if ( stringParser.isNonParseableRow( name ) ) {
-         return;
-      }
       if ( stringParser.isCombinedEnergy( name ) ) {
          String parsedValuePer100 = valuePer100;
          String parsedValuePerServing = valuePerServing;
