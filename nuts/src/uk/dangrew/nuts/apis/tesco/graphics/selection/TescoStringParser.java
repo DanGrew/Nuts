@@ -12,13 +12,17 @@ public class TescoStringParser {
    static final String UNKNOWN_KCAL = "??kcal";
    static final String UNKNOWN_KJ = "??kj";
    
-   private static final Pattern NUMBER_MATCHER = Pattern.compile( "\\d+(\\.\\d*)*" );
+   private static final String NUMBER_REGEX_OPTIONAL_DECIMAL = "\\d+(\\.\\d*)*";
+   private static final String NUMBER_REGEX_OPTIONAL_WHOLE = "(\\d+)*\\.\\d*";
+   private static final Pattern NUMBER_MATCHER = Pattern.compile( 
+            "(" + NUMBER_REGEX_OPTIONAL_WHOLE + "|" + NUMBER_REGEX_OPTIONAL_DECIMAL + ")" 
+   );
    
    private static final Pattern GRAM_MATCHER = Pattern.compile( "\\d+g" );
    private static final Pattern MILLILITRE_MATCHER = Pattern.compile( "\\d+ml" );
    
-   private static final Pattern KCAL_MATCHER = Pattern.compile( "\\d+ *kcal" );
-   private static final Pattern KJ_MATCHER = Pattern.compile( "\\d+ *kj" );
+   private static final Pattern KCAL_MATCHER = Pattern.compile( NUMBER_MATCHER.pattern() + " *kcal" );
+   private static final Pattern KJ_MATCHER = Pattern.compile( NUMBER_MATCHER.pattern() + " *kj" );
    private static final Pattern KJ_SPLIT_MATCHER = Pattern.compile( "kj\\d+" );
    private static final Pattern COMBINED_ENERGY_KJ_KCAL_MATCHER = Pattern.compile( "kj.*kcal" );
    private static final Pattern COMBINED_ENERGY_KCAL_KJ_MATCHER = Pattern.compile( "kcal.*kj" );
@@ -52,6 +56,9 @@ public class TescoStringParser {
    }//End Method
    
    public CalculatedNutritionType parseNutritionType( String string ) {
+      if ( isCombinedEnergy( string ) ) {
+         return null;
+      }
       for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
          if ( type.matches( string ) ) {
             return type;
@@ -115,8 +122,8 @@ public class TescoStringParser {
       
       matcher = COMBINED_ENERGY_EXACT_MATCHER.matcher( parseable );
       if ( matcher.find() ){
-         boolean containsKcal = string.contains( "kcal" );
-         boolean containsKj = string.contains( "kj" );
+         boolean containsKcal = parseable.contains( "kcal" );
+         boolean containsKj = parseable.contains( "kj" );
          return containsKcal == containsKj;
       }
       

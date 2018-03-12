@@ -1792,16 +1792,7 @@
    {
       "name": "Chicken, Bacon, Avocado Sandwich",
       "id": "f35818f5-0be5-41c5-9049-fc6b395646c9",
-      "portions": [
-         {
-            "foodId": "22687ad0-4ab9-4179-a4d6-61c20e715ded",
-            "portionValue": 50
-         },
-         {
-            "foodId": "636e4c4b-310f-4ad9-8b6d-c4016cdb5066",
-            "portionValue": 100
-         }
-      ]
+      "portions": []
    },
    {
       "name": "Chicken, Bacon, Avocado Sandwich Filling",
