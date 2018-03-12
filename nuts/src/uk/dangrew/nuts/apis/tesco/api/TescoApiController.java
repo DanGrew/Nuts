@@ -14,19 +14,27 @@ public class TescoApiController {
    private final int pageSize;
    private final TescoApiConnector connector;
    private final TescoApiConverter converter;
+   private final TescoWebsiteParser websiteParser;
    
    public TescoApiController( TescoDatabase database ) {
-      this( PAGE_SIZE, new TescoApiConnector(), new TescoApiConverter( database ) );
+      this( 
+               PAGE_SIZE, 
+               new TescoApiConnector(), 
+               new TescoApiConverter( database ),
+               new TescoWebsiteParser()
+      );
    }//End Constructor
    
    TescoApiController( 
             int pageSize, 
             TescoApiConnector connector, 
-            TescoApiConverter converter 
+            TescoApiConverter converter,
+            TescoWebsiteParser websiteParser
    ) {
       this.pageSize = pageSize;
       this.connector = connector;
       this.converter = converter;
+      this.websiteParser = websiteParser;
    }//End Constructor
 
    public List< TescoFoodDescription > search( String criteria ) {
@@ -45,9 +53,18 @@ public class TescoApiController {
       return searchResults;
    }//End Method
 
-   public void downloadProductDetail( String tpnb ) {
-      String response = connector.retrieveProduct( tpnb );
+   public void downloadProductDetail( TescoFoodDescription description ) {
+      String tpnb = description.groceryProperties().tpnb().get();
+      if ( tpnb == null ) {
+         System.out.println( "Cannot download product detail: No tpnb present for " + description.properties().nameProperty().get() );
+         return;
+      }
+      String response = connector.retrieveProduct( description.groceryProperties().tpnb().get() );
       converter.importProductDetailResponse( response );
+      
+      if ( description.productDetail().nutrition().per100Header().get() == null ) {
+         websiteParser.parseNutritionFor( description );
+      }
    }//End Method
 
 }//End Class

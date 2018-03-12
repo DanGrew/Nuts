@@ -47,36 +47,23 @@ public class TescoWebsiteParserTest {
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
    
-//   @Test public void shouldIgnoreMissingDescription(){
-//      fail();
-//   }//End Method
-//   
-//   @Test public void shouldIgnoreInvalidDescription(){
-//      fail();
-//   }//End Method
-//   
-//   @Test public void shouldHandleMissingTableTag(){
-//      fail();
-//   }//End Method
-//   
-//   @Test public void shouldHandleMissingHeaders(){
-//      fail();
-//   }//End Method
-//   
-//   @Test public void shouldHandleMissingRows(){
-//      fail();
-//   }//End Method
-//   
-//   @Test public void shouldSupportNonNutritionalProducts(){
-//      fail();
-//      //shampoo hung - Alberto Balsam Coconut And Lychee Shampoo 350Ml
-//   }//End Method
-//   
-//   @Ignore
-//   @Test public void shouldHandleInvalidUrl(){
-//      fail();
-//      //254142016 - doesnt exist - handle
-//   }//End Method
+   @Test public void shouldIgnoreMissingDescription(){
+      systemUnderTest.parseNutritionFor( null );
+   }//End Method
+   
+   @Test public void shouldIgnoreInvalidDescription(){
+      systemUnderTest.parseNutritionFor( new TescoFoodDescription( "anything" ) );
+   }//End Method
+   
+   @Test public void shouldSupportNonNutritionalProducts(){
+      TescoFoodDescription description = new TescoFoodDescription( "Alberto Balsam Coconut And Lychee Shampoo 350Ml" );
+      description.productDetail().tpncs().add( "291181564" );
+      
+      systemUnderTest.parseNutritionFor( description );
+     
+      new NutritionAsserter()
+         .assertThatValuesAreCorrect( description.productDetail().nutrition() );
+   }//End Method
    
    @Test public void variation254852996() {
       TescoFoodDescription description = new TescoFoodDescription( "Weetabix Cereal 24 Pack" );

@@ -23,6 +23,9 @@ public class TescoWebsiteParser {
    }//End Constructor
 
    public void parseNutritionFor( TescoFoodDescription description ) {
+      if ( description == null ) {
+         return;
+      }
       model.setCurrentNutrition( description.productDetail().nutrition() );
       
       Document webpageDocument = connectToProductPage( description );
@@ -53,7 +56,7 @@ public class TescoWebsiteParser {
       return null;
    }//End Method
    
-   public Document connectToProductPage( TescoFoodDescription description ) {
+   private Document connectToProductPage( TescoFoodDescription description ) {
       for ( String tpnc : description.productDetail().tpncs() ) {
          String webpage = TESCO_PRODUCT_ADDRESS + tpnc;
          Document document = streamProductPage( webpage );

@@ -58,19 +58,7 @@ public class TescoTest {
       description.groceryProperties().tpnb().set( "anything" );
       
       systemUnderTest.downloadProductDetail( description );
-      verify( controller ).downloadProductDetail( description.groceryProperties().tpnb().get() );
+      verify( controller ).downloadProductDetail( description );
    }//End Method
    
-   @Test public void shouldNotDownloadProductDetailIfDescriptionHasNoTpnb() {
-      TescoFoodDescription description = new TescoFoodDescription( "a" );
-      
-      systemUnderTest.downloadProductDetail( description );
-      verify( controller, never() ).downloadProductDetail( Mockito.anyString() );
-   }//End Method
-   
-   @Test public void shouldDownloadProductDetailFromTpnb() {
-      systemUnderTest.downloadProductDetail( "anyTpnb" );
-      verify( controller ).downloadProductDetail( "anyTpnb" );
-   }//End Method
-
 }//End Class

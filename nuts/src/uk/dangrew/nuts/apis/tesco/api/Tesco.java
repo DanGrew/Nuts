@@ -22,17 +22,7 @@ public class Tesco {
    }//End Method
 
    public void downloadProductDetail( TescoFoodDescription description ) {
-      String tpnb = description.groceryProperties().tpnb().get();
-      if ( tpnb == null ) {
-         System.out.println( "Cannot download product detail: No tpnb present for " + description.properties().nameProperty().get() );
-         return;
-      }
-      
-      downloadProductDetail( tpnb );
-   }//End Method
-
-   public void downloadProductDetail( String tpnb ) {
-      controller.downloadProductDetail( tpnb );
+      controller.downloadProductDetail( description );
    }//End Method
 
 }//End Class

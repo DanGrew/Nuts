@@ -2,7 +2,7 @@ package uk.dangrew.nuts.apis.tesco.api;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -23,7 +23,11 @@ import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 public class TescoApiControllerTest {
 
    private static final int PAGE_SIZE = 2;
+   private static final String RESULT = "some result";
    
+   private TescoFoodDescription description; 
+   
+   @Mock private TescoWebsiteParser websiteParser;
    @Mock private TescoApiConverter converter;
    @Mock private TescoApiConnector connector;
    private TescoApiController systemUnderTest;
@@ -31,7 +35,11 @@ public class TescoApiControllerTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      systemUnderTest = new TescoApiController( PAGE_SIZE, connector, converter );
+      description = new TescoFoodDescription( "Anything" );
+      
+      description.groceryProperties().tpnb().set( "tpnbValue" );
+      when( connector.retrieveProduct( "tpnbValue" ) ).thenReturn( RESULT );
+      systemUnderTest = new TescoApiController( PAGE_SIZE, connector, converter, websiteParser );
    }//End Method
 
    @Test public void shouldSearchThroughAllPages() {
@@ -95,12 +103,28 @@ public class TescoApiControllerTest {
       verify( connector, never() ).searchProducts( searchCriteria, TescoApiController.PAGE_LIMIT, PAGE_SIZE );
    }//End Method
    
-   @Test public void shouldDownloadAndParseProductDetail(){
-      String result = "some result";
-      when( connector.retrieveProduct( "anything" ) ).thenReturn( result );
+   @Test public void shouldDownloadAndParseProductDetailUsingWebApi(){
+      doAnswer( i -> {
+         description.productDetail().nutrition().per100Header().set( "not null" );
+         description.productDetail().nutrition().perServingHeader().set( "not null" );
+         return null;
+      } ).when( converter ).importProductDetailResponse( RESULT );
       
-      systemUnderTest.downloadProductDetail( "anything" );
-      verify( converter ).importProductDetailResponse( result );
+      systemUnderTest.downloadProductDetail( description );
+      verify( converter ).importProductDetailResponse( RESULT );
+      verify( websiteParser, never() ).parseNutritionFor( description );
+   }//End Method
+   
+   @Test public void shouldNotDownloadProductDetailIfDescriptionHasNoTpnb() {
+      description.groceryProperties().tpnb().set( null );
+      systemUnderTest.downloadProductDetail( description );
+      verify( connector, never() ).retrieveProduct( Mockito.anyString() );
+   }//End Method
+   
+   @Test public void shouldUseWebsiteParserIfProductDetailNotProvided(){
+      systemUnderTest.downloadProductDetail( description );
+      verify( converter ).importProductDetailResponse( RESULT );
+      verify( websiteParser ).parseNutritionFor( description );
    }//End Method
 
 }//End Class
