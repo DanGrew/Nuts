@@ -2858,5 +2858,25 @@
       "name": "Woodside Farm Smoked Gammon Steak 250G (250g)",
       "id": "d63a9a22-d531-4c00-9fd4-30dd9d561db9",
       "calories": 424.75
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 7.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 21.2,
+      "name": "Boswell Farms Thin Cut Beef Steaks 395G (100g)",
+      "id": "c06d4395-0367-4aed-a2e6-15c2061c0b0a",
+      "calories": 150
+   },
+   {
+      "carbohydrates": 3.1,
+      "fats": 19,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 17,
+      "name": "Birds Eye 4 Original Beef Quarter Pounder Burgers 454G (114g)",
+      "id": "e558df90-9705-4d5d-91a7-d91d1d8cc16d",
+      "calories": 251
    }
 ]}

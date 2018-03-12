@@ -55,7 +55,10 @@ public class Stock extends Meal {
       FoodPortion portion = new FoodPortion( item, 0 );
       portionMapping.put( item, portion );
       super.portions().add( portion );
-      
+      sort();
+   }//End Method
+   
+   private void sort() {
       super.portions().sort( Comparators.stringExtractionComparater( this::extractCompareToName ) );
    }//End Method
    
@@ -77,6 +80,7 @@ public class Stock extends Meal {
    
    private void addStockForPortion( FoodPortion added ) {
       portionMapping.put( added.food().get(), added );
+      sort();
    }//End Method
    
    private void removeStockForPortion( FoodPortion removed ) {

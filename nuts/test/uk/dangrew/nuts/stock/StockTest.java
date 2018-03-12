@@ -72,4 +72,19 @@ public class StockTest {
       assertThat( systemUnderTest.portions().get( 2 ).food().get(), is( food2 ) );
    }//End Method
    
+   @Test public void shouldProvideStockInAlphabeticalOrderInitially(){
+      database = new Database();
+      systemUnderTest = new Stock( "Stock" );
+      
+      FoodPortion food1 = new FoodPortion( new FoodItem( "b - second" ), 100 );
+      FoodPortion food2 = new FoodPortion( new FoodItem( "c - third"  ), 100 );
+      FoodPortion food3 = new FoodPortion( new FoodItem( "a - first"  ), 100 );
+      systemUnderTest.portions().addAll( food1, food2, food3 );
+      
+      assertThat( systemUnderTest.portions(), hasSize( 3 ) );
+      assertThat( systemUnderTest.portions().get( 0 ), is( food3 ) );
+      assertThat( systemUnderTest.portions().get( 1 ), is( food1 ) );
+      assertThat( systemUnderTest.portions().get( 2 ), is( food2 ) );
+   }//End Method
+   
 }//End Class

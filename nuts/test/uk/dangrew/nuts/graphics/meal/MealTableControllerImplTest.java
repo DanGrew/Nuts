@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
@@ -129,4 +130,17 @@ public class MealTableControllerImplTest {
       verify( mealSelectionEvents, never() ).fire( Mockito.any() );
    }//End Method
    
+   @Test public void shouldSortTableWhenPortionsSorted(){
+      for ( int i = 0; i < meal.portions().size(); i++ ) {
+         assertThat( table.getRows().get( i ).concept().food().get(), is( meal.portions().get( i ).food().get() ) );
+      }
+      meal.portions().sort( 
+               Comparators.reverseComparator( 
+                        Comparators.stringExtractionComparater( p -> p.food().get().properties().nameProperty().get() ) 
+               )
+      );
+      for ( int i = 0; i < meal.portions().size(); i++ ) {
+         assertThat( table.getRows().get( i ).concept().food().get(), is( meal.portions().get( i ).food().get() ) );
+      }
+   }//End Method
 }//End Class

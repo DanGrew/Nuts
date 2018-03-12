@@ -38,7 +38,7 @@ public class MealTableControllerImpl implements MealTableController {
    MealTableControllerImpl( FoodSelectionForMealEvent selectionEvents ) {
       this.mealSelectionEvents = selectionEvents;
       this.mealListener = new FunctionListChangeListenerImpl<>( 
-               this::portionAddedToMeal, this::portionRemovedFromMeal 
+               this::portionAddedToMeal, this::portionRemovedFromMeal, this::sort
       );
    }//End Constructor
 
@@ -71,6 +71,10 @@ public class MealTableControllerImpl implements MealTableController {
     */
    @Override public Meal getShowingMeal(){
       return meal;
+   }//End Method
+   
+   private void sort() {
+      showMeal( meal );
    }//End Method
    
    /**
