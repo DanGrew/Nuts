@@ -28,15 +28,16 @@ public class TescoNutritionExtractorTest {
       table = new TescoWebpageNutritionTable();
       description = TescoExamples.cravendaleMilk();
       model.setCurrentNutrition( description.productDetail().nutrition() );
-      systemUnderTest = new TescoNutritionExtractor();
+      systemUnderTest = new TescoNutritionExtractor( table, model );
    }//End Method
    
    @Test public void integrationTestWithRealData(){
       Document document = TescoExamples.crandaleMilkHtml();
       table = new TescoWebpageNutritionTable( document );
+      systemUnderTest = new TescoNutritionExtractor( table, model );
       
       model.setCurrentNutrition( description.productDetail().nutrition() );
-      systemUnderTest.extract( table, model );
+      systemUnderTest.run();
       new NutritionAsserter()
          .per100Header( "Typical Values Per 100ml" )
          .perServingHeader( "Per 200ml" )
@@ -61,14 +62,57 @@ public class TescoNutritionExtractorTest {
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
    
-   @Test public void shouldNotExtractEclusion(){
+   @Test public void shouldNotExtractRowExclusion(){
       table.modifyColumnRow( 0, 1, TescoNutritionExtractor.EXCLUSION_REFRENCE_INTAKE + " something energy" );
       table.modifyColumnRow( 1, 1, "200kcal" );
       table.modifyColumnRow( 2, 1, "400kcal" );
       
-      systemUnderTest.extract( table, model );
+      systemUnderTest.run();
       assertThat( description.productDetail().nutrition().energyInKcal().valuePer100().get(), is( nullValue() ) );
       assertThat( description.productDetail().nutrition().energyInKcal().valuePerServing().get(), is( nullValue() ) );
    }//End Method 
+   
+   @Test public void shouldNotExtractColumnExclusion(){
+      table.modifyColumnRow( 0, 0, "Typical Values" );
+      table.modifyColumnRow( 1, 0, "100g" );
+      table.modifyColumnRow( 2, 0, "-" );
+      table.modifyColumnRow( 0, 1, "Energy (kcal/kj)" );
+      table.modifyColumnRow( 1, 1, "200kcal" );
+      table.modifyColumnRow( 2, 1, "400kcal" );
+      
+      systemUnderTest.run();
+      assertThat( description.productDetail().nutrition().energyInKcal().valuePer100().get(), is( "200" ) );
+      assertThat( description.productDetail().nutrition().energyInKcal().valuePerServing().get(), is( nullValue() ) );
+   }//End Method 
+   
+   @Test public void shouldDetectSplitEnergyRows(){
+      table.modifyColumnRow( 0, 1, "Energy" );
+      table.modifyColumnRow( 1, 1, "45kj" );
+      table.modifyColumnRow( 2, 1, "9kj" );
+      table.modifyColumnRow( 0, 2, "-" );
+      table.modifyColumnRow( 1, 2, "200kcal" );
+      table.modifyColumnRow( 2, 2, "400kcal" );
+      
+      systemUnderTest.run();
+      assertThat( description.productDetail().nutrition().energyInKcal().valuePer100().get(), is( "200" ) );
+      assertThat( description.productDetail().nutrition().energyInKcal().valuePerServing().get(), is( "400" ) );
+      assertThat( description.productDetail().nutrition().energyInKj().valuePer100().get(), is( "45" ) );
+      assertThat( description.productDetail().nutrition().energyInKj().valuePerServing().get(), is( "9" ) );
+   }//End Method
+   
+   @Test public void shouldDetectSplitEnergyRowsWithCombinedLabel(){
+      table.modifyColumnRow( 0, 1, "Energy (kcal/kj)" );
+      table.modifyColumnRow( 1, 1, "45kj" );
+      table.modifyColumnRow( 2, 1, "9kj" );
+      table.modifyColumnRow( 0, 2, "-" );
+      table.modifyColumnRow( 1, 2, "200kcal" );
+      table.modifyColumnRow( 2, 2, "400kcal" );
+      
+      systemUnderTest.run();
+      assertThat( description.productDetail().nutrition().energyInKcal().valuePer100().get(), is( "200" ) );
+      assertThat( description.productDetail().nutrition().energyInKcal().valuePerServing().get(), is( "400" ) );
+      assertThat( description.productDetail().nutrition().energyInKj().valuePer100().get(), is( "45" ) );
+      assertThat( description.productDetail().nutrition().energyInKj().valuePerServing().get(), is( "9" ) );
+   }//End Method
    
 }//End Class

@@ -24,6 +24,7 @@ public class CalculatedNutritionTypeTest {
       for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
          assertThat( type.matches( "Energy" ), is( false ) );
          assertThat( type.matches( "anything" ), is( false ) );
+         assertThat( type.matches( null ), is( false ) );
       }
    }//End Method
    

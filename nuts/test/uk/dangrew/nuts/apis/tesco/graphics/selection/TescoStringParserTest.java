@@ -127,7 +127,7 @@ public class TescoStringParserTest {
       assertThat( systemUnderTest.extractKcalFrom( "3700.00kj900." ), is( "900" ) );
       assertThat( systemUnderTest.extractKcalFrom( "555.00kj135." ), is( "135" ) );
       assertThat( systemUnderTest.extractKcalFrom( "anything" ), is( "anything" ) );
-      assertThat( systemUnderTest.extractKcalFrom( null ), is( TescoStringParser.UNKNOWN_KCAL ) );
+      assertThat( systemUnderTest.extractKcalFrom( null ), is( nullValue() ) );
       assertThat( systemUnderTest.extractKcalFrom( "708.20kJ(169.90kcal)" ), is( "169.90" ) );
       assertThat( systemUnderTest.extractKcalFrom( ".90kcal)" ), is( ".90" ) );
       assertThat( systemUnderTest.extractKcalFrom( "1.kcal)" ), is( "1." ) );
@@ -142,7 +142,7 @@ public class TescoStringParserTest {
       assertThat( systemUnderTest.extractKjFrom( "3700.00kj900." ), is( "3700.00" ) );
       assertThat( systemUnderTest.extractKjFrom( "555.00kj135." ), is( "555.00" ) );
       assertThat( systemUnderTest.extractKjFrom( "anything" ), is( "anything" ) );
-      assertThat( systemUnderTest.extractKjFrom( null ), is( TescoStringParser.UNKNOWN_KJ ) );
+      assertThat( systemUnderTest.extractKjFrom( null ), is( nullValue() ) );
       assertThat( systemUnderTest.extractKjFrom( "708.20kJ(169.90kcal)" ), is( "708.20" ) );
       assertThat( systemUnderTest.extractKjFrom( ".90kj)" ), is( ".90" ) );
       assertThat( systemUnderTest.extractKjFrom( "1.90kj)" ), is( "1.90" ) );

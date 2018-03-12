@@ -9,8 +9,6 @@ public class TescoStringParser {
 
    static final String UNKNOWN_PER_100 = "Per 100-Unknown";
    static final String UNKNOWN_PER_SERVING = "Per Serving-Unknown";
-   static final String UNKNOWN_KCAL = "??kcal";
-   static final String UNKNOWN_KJ = "??kj";
    
    private static final String NUMBER_REGEX_OPTIONAL_DECIMAL = "\\d+(\\.\\d*)*";
    private static final String NUMBER_REGEX_OPTIONAL_WHOLE = "(\\d+)*\\.\\d*";
@@ -70,7 +68,7 @@ public class TescoStringParser {
 
    public String extractKcalFrom( String string ) {
       if ( string == null ) {
-         return UNKNOWN_KCAL;
+         return null;
       }
       
       String parseable = string.toLowerCase();
@@ -90,7 +88,7 @@ public class TescoStringParser {
    
    public String extractKjFrom( String string ) {
       if ( string == null ) {
-         return UNKNOWN_KJ;
+         return null;
       }
       
       String parseable = string.toLowerCase();

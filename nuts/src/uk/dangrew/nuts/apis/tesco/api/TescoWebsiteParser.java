@@ -31,7 +31,7 @@ public class TescoWebsiteParser {
       }
       
       TescoWebpageNutritionTable table = new TescoWebpageNutritionTable( webpageDocument );
-      new TescoNutritionExtractor().extract( table, model );
+      new TescoNutritionExtractor( table, model ).run();;
    }//End Method 
    
    private Document streamProductPage( String webAddress ) {

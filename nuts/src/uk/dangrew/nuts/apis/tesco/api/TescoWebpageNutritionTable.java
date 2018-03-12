@@ -99,4 +99,16 @@ public class TescoWebpageNutritionTable {
       putCellValue( column, row, value );
    }//End Method
 
+   public void clearRow( int row ) {
+      for ( int c = 0; c < columnCount(); c++ ) {
+         table.remove( new Pair<>( c, row ) );
+      }
+   }//End Method
+
+   public void clearColumn( int column ) {
+      for ( int r = 0; r < rowCount(); r++ ) {
+         table.remove( new Pair<>( column, r ) );
+      }
+   }//End Method
+
 }//End Class

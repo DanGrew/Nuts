@@ -85,6 +85,9 @@ public enum CalculatedNutritionType {
    }//End Constructor
    
    public boolean matches( String string ) {
+      if ( string == null ) {
+         return false;
+      }
       return pattern.matcher( string.toLowerCase() ).find();
    }//End Method
    

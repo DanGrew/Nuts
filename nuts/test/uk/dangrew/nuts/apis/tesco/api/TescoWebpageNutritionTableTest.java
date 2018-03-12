@@ -107,5 +107,49 @@ public class TescoWebpageNutritionTableTest {
       assertThat( systemUnderTest.columnRow( 34, 101 ), is( nullValue() ) );
       assertThat( systemUnderTest.columnRow( -34, -101 ), is( nullValue() ) );
    }//End Method
+   
+   @Test public void shouldClearRow(){
+      for ( int r = 0; r < 10; r++ ) {
+         for ( int c = 0; c < 10; c++ ) {
+            systemUnderTest.modifyColumnRow( c, r, "anything" );
+         }  
+      }
+      
+      for ( int i = 0; i < 10; i++ ) {
+         assertThat( systemUnderTest.columnRow( i, 3 ), is( "anything" ) );
+      }
+      systemUnderTest.clearRow( 3 );
+      for ( int i = 0; i < 10; i++ ) {
+         assertThat( systemUnderTest.columnRow( i, 3 ), is( nullValue() ) );
+      }
+      for ( int i = 0; i < 10; i++ ) {
+         assertThat( systemUnderTest.columnRow( i, 2 ), is( "anything" ) );
+      }
+      for ( int i = 0; i < 10; i++ ) {
+         assertThat( systemUnderTest.columnRow( i, 4 ), is( "anything" ) );
+      }
+   }//End Method
+   
+   @Test public void shouldClearColumn(){
+      for ( int r = 0; r < 10; r++ ) {
+         for ( int c = 0; c < 10; c++ ) {
+            systemUnderTest.modifyColumnRow( c, r, "anything" );
+         }  
+      }
+      
+      for ( int i = 0; i < 10; i++ ) {
+         assertThat( systemUnderTest.columnRow( 3, i ), is( "anything" ) );
+      }
+      systemUnderTest.clearColumn( 3 );
+      for ( int i = 0; i < 10; i++ ) {
+         assertThat( systemUnderTest.columnRow( 3, i ), is( nullValue() ) );
+      }
+      for ( int i = 0; i < 10; i++ ) {
+         assertThat( systemUnderTest.columnRow( 2, i ), is( "anything" ) );
+      }
+      for ( int i = 0; i < 10; i++ ) {
+         assertThat( systemUnderTest.columnRow( 4, i ), is( "anything" ) );
+      }
+   }//End Method
 
 }//End Class

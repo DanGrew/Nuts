@@ -77,40 +77,46 @@ public class TescoWebsiteParserTest {
 //      fail();
 //      //254142016 - doesnt exist - handle
 //   }//End Method
-//   
-//   @Ignore
-//   @Test public void variation254852996() {
-//      TescoFoodDescription description = new TescoFoodDescription( "Weetabix Cereal 24 Pack" );
-//      description.productDetail().tpncs().add( "254852996" );
-//      
-//      systemUnderTest.parseNutritionFor( description );
-//     
-//      new NutritionAsserter()
-//         .per100Header( "Typical Values Per 100g" )
-//         .perServingHeader( "Per 2 biscuit serving" )
-//         .energyInKcalValuePer100( "362" )
-//         .energyInKcalValuePerServing( "136" )
-//         .energyInKjValuePer100( "1531" )
-//         .energyInKjValuePerServing( "574" )
-//         .fatValuePer100( "2.0" )
-//         .fatValuePerServing( "0.8" )
-//         .saturatesValuePer100( "0.6" )
-//         .saturatesValuePerServing( "0.2" )
-//         .carbohydratesValuePer100( "69" )
-//         .carbohydratesValuePerServing( "26" )
-//         .sugarsValuePer100( "4.4" )
-//         .sugarsValuePerServing( "1.7" )
-//         .proteinValuePer100( "12" )
-//         .proteinValuePerServing( "4.5" )
-//         .assertThatValuesAreCorrect( description.productDetail().nutrition() );
-//      
-//      //Vitamins & Iron -  -  -
-//      //Thiamin (B1)   0.94mg   0.35mg   85%
-//      //Riboflavin (B2)   1.2mg 0.45mg   86%
-//      //Niacin   14mg  5.3mg 88%
-//      //Folic Acid  170µg 64µg  85%
-//      //Iron  12mg  4.5mg
-//   }//End Method
+   
+   @Test public void variation254852996() {
+      TescoFoodDescription description = new TescoFoodDescription( "Weetabix Cereal 24 Pack" );
+      description.productDetail().tpncs().add( "254852996" );
+      
+      systemUnderTest.parseNutritionFor( description );
+     
+      new NutritionAsserter()
+         .per100Header( "Typical Values Per 100g" )
+         .perServingHeader( "Per 2 biscuit serving" )
+         .energyInKcalValuePer100( "362" )
+         .energyInKcalValuePerServing( "136" )
+         .energyInKjValuePer100( "1531" )
+         .energyInKjValuePerServing( "574" )
+         .fatValuePer100( "2.0" )
+         .fatValuePerServing( "0.8" )
+         .saturatesValuePer100( "0.6" )
+         .saturatesValuePerServing( "0.2" )
+         .carbohydratesValuePer100( "69" )
+         .carbohydratesValuePerServing( "26" )
+         .fibreValuePer100( "10" )
+         .fibreValuePerServing( "3.8" )
+         .sugarsValuePer100( "4.4" )
+         .sugarsValuePerServing( "1.7" )
+         .proteinValuePer100( "12" )
+         .proteinValuePerServing( "4.5" )
+         .saltValuePer100( "0.28" )
+         .saltValuePerServing( "0.10" )
+         .thiaminValuePer100( "0.94" )
+         .thiaminValuePerServing( "0.35" )
+         .riboflavinValuePer100( "1.2" )
+         .riboflavinValuePerServing( "0.45" )
+         .niacinValuePer100( "14" )
+         .niacinValuePerServing( "5.3" )
+         .folicAcidValuePer100( "170" )
+         .folicAcidValuePerServing( "64" )
+         .ironValuePer100( "12" )
+         .ironValuePerServing( "4.5" )
+         .assertThatValuesAreCorrect( description.productDetail().nutrition() );
+   }//End Method
    
    @Test public void variation278371514() {
       TescoFoodDescription description = new TescoFoodDescription( "Mcvities Milk Chocolate Hobnobs 262G" );
@@ -174,23 +180,23 @@ public class TescoWebsiteParserTest {
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
    
-//   @Test public void variation296056855() {
-//      TescoFoodDescription description = new TescoFoodDescription( "Boswell Farms Beef Mince 1Kg 20% Fat" );
-//      description.productDetail().tpncs().add( "296056855" );
-//      
-//      systemUnderTest.parseNutritionFor( description );
-//     
-//      new NutritionAsserter()
-//         .per100Header( "100g raw as sold" )
-//         .energyInKcalValuePer100( "252" )
-//         .energyInKjValuePer100( "1045" )
-//         .fatValuePer100( "19.8" )
-//         .saturatesValuePer100( "9.8" )
-//         .carbohydratesValuePer100( "0" )
-//         .sugarsValuePer100( "0" )
-//         .fibreValuePer100( "0" )
-//         .proteinValuePer100( "18.4" )
-//         .saltValuePer100( "0.4" )
-//         .assertThatValuesAreCorrect( description.productDetail().nutrition() );
-//   }//End Method
+   @Test public void variation296056855() {
+      TescoFoodDescription description = new TescoFoodDescription( "Boswell Farms Beef Mince 1Kg 20% Fat" );
+      description.productDetail().tpncs().add( "296056855" );
+      
+      systemUnderTest.parseNutritionFor( description );
+     
+      new NutritionAsserter()
+         .per100Header( "100g raw as sold" )
+         .energyInKcalValuePer100( "252" )
+         .energyInKjValuePer100( "1045" )
+         .fatValuePer100( "19.8" )
+         .saturatesValuePer100( "9.8" )
+         .carbohydratesValuePer100( "0" )
+         .sugarsValuePer100( "0" )
+         .fibreValuePer100( "0" )
+         .proteinValuePer100( "18.4" )
+         .saltValuePer100( "0.4" )
+         .assertThatValuesAreCorrect( description.productDetail().nutrition() );
+   }//End Method
 }//End Class
