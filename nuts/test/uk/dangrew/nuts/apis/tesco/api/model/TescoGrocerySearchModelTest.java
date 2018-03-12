@@ -13,7 +13,7 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.apis.tesco.api.model.TescoGrocerySearchModel;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
 
 public class TescoGrocerySearchModelTest {
 

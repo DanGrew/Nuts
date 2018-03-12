@@ -1,6 +1,6 @@
 package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
 
 public interface UiTescoFoodSelector {
 

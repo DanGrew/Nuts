@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.item;
+package uk.dangrew.nuts.apis.tesco.model;
 
 public class GuidelineDailyAmounts {
 

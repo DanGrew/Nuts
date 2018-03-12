@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import uk.dangrew.jupa.json.parse.handle.type.StringParseHandle;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
 
 public class TescoParseRecorder {
 

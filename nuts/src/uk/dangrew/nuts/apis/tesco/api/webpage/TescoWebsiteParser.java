@@ -11,7 +11,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
 
 public class TescoWebsiteParser {
 

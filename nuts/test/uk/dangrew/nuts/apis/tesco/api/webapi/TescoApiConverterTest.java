@@ -23,7 +23,7 @@ import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConverter;
 import uk.dangrew.nuts.apis.tesco.api.webapi.TescoGrocerySearchParser;
 import uk.dangrew.nuts.apis.tesco.api.webapi.TescoParseRecorder;
 import uk.dangrew.nuts.apis.tesco.api.webapi.TescoProductDetailParser;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
 
 public class TescoApiConverterTest {
 

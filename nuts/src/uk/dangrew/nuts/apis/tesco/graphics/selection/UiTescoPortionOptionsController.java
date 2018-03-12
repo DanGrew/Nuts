@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.dangrew.nuts.apis.tesco.api.Tesco;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
 
 public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
 

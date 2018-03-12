@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import uk.dangrew.jtt.connection.data.json.conversion.ApiResponseToJsonConverter;
 import uk.dangrew.nuts.apis.tesco.database.TescoDatabase;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
 
 public class TescoApiConverter {
 

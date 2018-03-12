@@ -13,8 +13,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.apis.tesco.item.CalculatedNutrition;
-import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.CalculatedNutrition;
+import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 
