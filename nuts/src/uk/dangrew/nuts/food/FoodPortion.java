@@ -204,4 +204,12 @@ public class FoodPortion implements Food {
       }
    }//End Method
    
+   @Override public String toString() {
+      if ( food.get() == null ) {
+         return "No Food";
+      }
+      
+      return food.get().properties().nameProperty().get() + ": " + portion.get();
+   }//End Method
+   
 }//End Class

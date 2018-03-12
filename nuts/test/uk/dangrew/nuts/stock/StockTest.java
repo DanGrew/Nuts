@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.stock;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
@@ -54,6 +55,21 @@ public class StockTest {
       database.foodItems().store( ( FoodItem )extra.food().get() );
       systemUnderTest.linkWithFoodItems( database.foodItems() );
       assertThat( systemUnderTest.portionFor( extra.food().get() ), is( extra ) );
+   }//End Method
+   
+   @Test public void shouldHoldStockInAlphabeticalOrder(){
+      database = new Database();
+      systemUnderTest = new Stock( "Stock" );
+      systemUnderTest.linkWithFoodItems( database.foodItems() );
+      
+      FoodItem food1 = database.foodItems().createConcept( "b - second" );
+      FoodItem food2 = database.foodItems().createConcept( "c - third" );
+      FoodItem food3 = database.foodItems().createConcept( "a - first" );
+      
+      assertThat( systemUnderTest.portions(), hasSize( 3 ) );
+      assertThat( systemUnderTest.portions().get( 0 ).food().get(), is( food3 ) );
+      assertThat( systemUnderTest.portions().get( 1 ).food().get(), is( food1 ) );
+      assertThat( systemUnderTest.portions().get( 2 ).food().get(), is( food2 ) );
    }//End Method
    
 }//End Class

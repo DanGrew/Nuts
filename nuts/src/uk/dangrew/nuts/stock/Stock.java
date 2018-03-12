@@ -3,6 +3,7 @@ package uk.dangrew.nuts.stock;
 import java.util.HashMap;
 import java.util.Map;
 
+import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
@@ -54,6 +55,15 @@ public class Stock extends Meal {
       FoodPortion portion = new FoodPortion( item, 0 );
       portionMapping.put( item, portion );
       super.portions().add( portion );
+      
+      super.portions().sort( Comparators.stringExtractionComparater( this::extractCompareToName ) );
+   }//End Method
+   
+   private String extractCompareToName( FoodPortion portion ) {
+      if ( portion.food().get() == null ) {
+         return null;
+      }
+      return portion.food().get().properties().nameProperty().get();
    }//End Method
    
    private void removeStockForItem( FoodItem item ) {
