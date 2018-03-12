@@ -82,39 +82,39 @@ public class TescoProductDetailParserTest {
       assertThat( detail.nutrition().per100Header().get(), is( "100g contains" ) );
       assertThat( detail.nutrition().perServingHeader().get(), is( "Each tablespoon (15g) contains" ) );
       
-      assertThat( detail.nutrition().energyInKj().name(), is( "Energy (kJ)" ) );
+      assertThat( detail.nutrition().energyInKj().name().get(), is( "Energy (kJ)" ) );
       assertThat( detail.nutrition().energyInKj().valuePer100().get(), is( "3700" ) );
       assertThat( detail.nutrition().energyInKj().valuePerServing().get(), is( "555" ) );
       
-      assertThat( detail.nutrition().energyInKcal().name(), is( "Energy (kcal)" ) );
+      assertThat( detail.nutrition().energyInKcal().name().get(), is( "Energy (kcal)" ) );
       assertThat( detail.nutrition().energyInKcal().valuePer100().get(), is( "900" ) );
       assertThat( detail.nutrition().energyInKcal().valuePerServing().get(), is( "135" ) );
       
-      assertThat( detail.nutrition().fat().name(), is( "Fat (g)" ) );
+      assertThat( detail.nutrition().fat().name().get(), is( "Fat (g)" ) );
       assertThat( detail.nutrition().fat().valuePer100().get(), is( "100" ) );
       assertThat( detail.nutrition().fat().valuePerServing().get(), is( "15" ) );
       
-      assertThat( detail.nutrition().saturates().name(), is( "Saturates (g)" ) );
+      assertThat( detail.nutrition().saturates().name().get(), is( "Saturates (g)" ) );
       assertThat( detail.nutrition().saturates().valuePer100().get(), is( "87" ) );
       assertThat( detail.nutrition().saturates().valuePerServing().get(), is( "13.05" ) );
       
-      assertThat( detail.nutrition().carbohydrates().name(), is( "Carbohydrate (g)" ) );
+      assertThat( detail.nutrition().carbohydrates().name().get(), is( "Carbohydrate (g)" ) );
       assertThat( detail.nutrition().carbohydrates().valuePer100().get(), is( "a" ) );
       assertThat( detail.nutrition().carbohydrates().valuePerServing().get(), is( "b" ) );
       
-      assertThat( detail.nutrition().sugars().name(), is( "Sugars (g)" ) );
+      assertThat( detail.nutrition().sugars().name().get(), is( "Sugars (g)" ) );
       assertThat( detail.nutrition().sugars().valuePer100().get(), is( "c" ) );
       assertThat( detail.nutrition().sugars().valuePerServing().get(), is( "d" ) );
       
-      assertThat( detail.nutrition().fibre().name(), is( "Fibre (g)" ) );
+      assertThat( detail.nutrition().fibre().name().get(), is( "Fibre (g)" ) );
       assertThat( detail.nutrition().fibre().valuePer100().get(), is( "e" ) );
       assertThat( detail.nutrition().fibre().valuePerServing().get(), is( "f" ) );
 
-      assertThat( detail.nutrition().protein().name(), is( "Protein (g)" ) );
+      assertThat( detail.nutrition().protein().name().get(), is( "Protein (g)" ) );
       assertThat( detail.nutrition().protein().valuePer100().get(), is( "g" ) );
       assertThat( detail.nutrition().protein().valuePerServing().get(), is( "h" ) );
       
-      assertThat( detail.nutrition().salt().name(), is( "Salt (g)" ) );
+      assertThat( detail.nutrition().salt().name().get(), is( "Salt (g)" ) );
       assertThat( detail.nutrition().salt().valuePer100().get(), is( "i" ) );
       assertThat( detail.nutrition().salt().valuePerServing().get(), is( "j" ) );
       

@@ -73,6 +73,7 @@ public class CalculatedNutritionParsingHandler {
    }//End Method
    
    private void setNutritionValues( CalculatedNutrientValue value ) {
+      value.name().set( name );
       value.valuePer100().set( stringParser.extractNumber( valuePer100 ) );
       value.valuePerServing().set( stringParser.extractNumber( valuePerServing ) );
    }//End Method

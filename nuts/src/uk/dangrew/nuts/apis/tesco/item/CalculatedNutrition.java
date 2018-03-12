@@ -27,22 +27,22 @@ public class CalculatedNutrition {
    public CalculatedNutrition() {
       this.per100HeaderProperty = new SimpleObjectProperty<>();
       this.perServingHeaderProperty = new SimpleObjectProperty<>();
-      this.energyInKj = new CalculatedNutrientValue( "Energy (kJ)" );
-      this.energyInKcal = new CalculatedNutrientValue( "Energy (kcal)" );
-      this.fat = new CalculatedNutrientValue( "Fat (g)" );
-      this.saturates = new CalculatedNutrientValue( "Saturates (g)" );
-      this.carbohydrates = new CalculatedNutrientValue( "Carbohydrate (g)" );
-      this.sugars = new CalculatedNutrientValue( "Sugars (g)" );
-      this.fibre = new CalculatedNutrientValue( "Fibre (g)" );
-      this.protein = new CalculatedNutrientValue( "Protein (g)" );
-      this.salts = new CalculatedNutrientValue( "Salt (g)" );
-      this.calcium = new CalculatedNutrientValue( "Calcium (mg)" );
-      this.thiamin = new CalculatedNutrientValue( "Thiamin (mg)" );
-      this.riboflavin = new CalculatedNutrientValue( "Robolavin (mg)" );
-      this.niacin = new CalculatedNutrientValue( "Niacin (mg)" );
-      this.folicAcid = new CalculatedNutrientValue( "Folic Acid (mg)" );
-      this.iron = new CalculatedNutrientValue( "Iron (mg)" );
-      this.omega3 = new CalculatedNutrientValue( "Omega3 (g)" );
+      this.energyInKj = new CalculatedNutrientValue();
+      this.energyInKcal = new CalculatedNutrientValue();
+      this.fat = new CalculatedNutrientValue();
+      this.saturates = new CalculatedNutrientValue();
+      this.carbohydrates = new CalculatedNutrientValue();
+      this.sugars = new CalculatedNutrientValue();
+      this.fibre = new CalculatedNutrientValue();
+      this.protein = new CalculatedNutrientValue();
+      this.salts = new CalculatedNutrientValue();
+      this.calcium = new CalculatedNutrientValue();
+      this.thiamin = new CalculatedNutrientValue();
+      this.riboflavin = new CalculatedNutrientValue();
+      this.niacin = new CalculatedNutrientValue();
+      this.folicAcid = new CalculatedNutrientValue();
+      this.iron = new CalculatedNutrientValue();
+      this.omega3 = new CalculatedNutrientValue();
    }//End Constructor
 
    public ObjectProperty< String > per100Header() {

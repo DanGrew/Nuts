@@ -5,18 +5,18 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class CalculatedNutrientValue {
 
-   private final String name;
+   private final ObjectProperty< String > nameProperty;
    private final ObjectProperty< String > valuePer100Property;
    private final ObjectProperty< String > valuePerServingProperty;
    
-   public CalculatedNutrientValue( String name ) {
-      this.name = name;
+   public CalculatedNutrientValue() {
+      this.nameProperty = new SimpleObjectProperty<>();
       this.valuePer100Property = new SimpleObjectProperty<>();
       this.valuePerServingProperty = new SimpleObjectProperty<>();
    }//End Constructor
 
-   public String name() {
-      return name;
+   public ObjectProperty< String > name() {
+      return nameProperty;
    }//End Method
    
    public ObjectProperty< String > valuePer100() {
