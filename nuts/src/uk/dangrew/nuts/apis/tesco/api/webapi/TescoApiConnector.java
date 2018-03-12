@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webapi;
 
 import java.io.IOException;
 import java.net.URI;

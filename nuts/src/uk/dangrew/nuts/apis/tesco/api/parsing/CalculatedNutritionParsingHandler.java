@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.parsing;
 
 import uk.dangrew.nuts.apis.tesco.graphics.selection.TescoStringParser;
 import uk.dangrew.nuts.apis.tesco.item.CalculatedNutrientValue;

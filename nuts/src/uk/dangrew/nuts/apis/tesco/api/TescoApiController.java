@@ -3,6 +3,9 @@ package uk.dangrew.nuts.apis.tesco.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConnector;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConverter;
+import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebsiteParser;
 import uk.dangrew.nuts.apis.tesco.database.TescoDatabase;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 

@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webpage;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -10,6 +10,10 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.apis.tesco.api.NutritionAsserter;
+import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
+import uk.dangrew.nuts.apis.tesco.api.webpage.TescoNutritionExtractor;
+import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebpageNutritionTable;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 import uk.dangrew.nuts.manual.data.TescoExamples;
 
@@ -41,22 +45,31 @@ public class TescoNutritionExtractorTest {
       new NutritionAsserter()
          .per100Header( "Typical Values Per 100ml" )
          .perServingHeader( "Per 200ml" )
+         .energyInKcalName( "Energy (kJ/kcal)" )
          .energyInKcalValuePer100( "65" )
          .energyInKcalValuePerServing( "130" )
+         .energyInKjName( "Energy (kJ/kcal)" )
          .energyInKjValuePer100( "271" )
          .energyInKjValuePerServing( "542" )
+         .fatName( "Fat" )
          .fatValuePer100( "3.6" )
          .fatValuePerServing( "7.2" )
+         .saturatesName( "Of which saturates" )
          .saturatesValuePer100( "2.3" )
          .saturatesValuePerServing( "4.6" )
+         .carbohydratesName( "Carbohydrate" )
          .carbohydratesValuePer100( "4.7" )
          .carbohydratesValuePerServing( "9.4" )
+         .sugarsName( "Of which sugars" )
          .sugarsValuePer100( "4.7" )
          .sugarsValuePerServing( "9.4" )
+         .proteinName( "Protein" )
          .proteinValuePer100( "3.4" )
          .proteinValuePerServing( "6.8" )
+         .saltName( "Salt" )
          .saltValuePer100( "0.1" )
          .saltValuePerServing( "0.2" )
+         .calciumName( "Calcium" )
          .calciumValuePer100( "122" )
          .calciumValuePerServing( "243" )
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );

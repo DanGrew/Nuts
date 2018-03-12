@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webpage;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -15,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebpageNutritionTable;
 import uk.dangrew.nuts.manual.data.TescoExamples;
 
 public class TescoWebpageNutritionTableTest {

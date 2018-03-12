@@ -18,6 +18,9 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConnector;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConverter;
+import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebsiteParser;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 
 public class TescoApiControllerTest {

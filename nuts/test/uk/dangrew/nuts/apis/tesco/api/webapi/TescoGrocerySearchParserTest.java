@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webapi;
 
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
@@ -13,6 +13,9 @@ import org.junit.Test;
 
 import uk.dangrew.jtt.connection.data.json.conversion.ApiResponseToJsonConverter;
 import uk.dangrew.kode.TestCommon;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConnector;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoGrocerySearchParser;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoParseRecorder;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 

@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webpage;
 
 import java.util.HashMap;
 import java.util.Iterator;

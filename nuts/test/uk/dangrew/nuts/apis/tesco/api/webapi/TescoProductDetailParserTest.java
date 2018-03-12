@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webapi;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import uk.dangrew.kode.TestCommon;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoProductDetailParser;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 import uk.dangrew.nuts.apis.tesco.item.GuidelineDailyAmountReference;
 import uk.dangrew.nuts.apis.tesco.item.ProductDetail;

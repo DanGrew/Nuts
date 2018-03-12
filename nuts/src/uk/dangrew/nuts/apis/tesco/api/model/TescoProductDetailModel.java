@@ -1,9 +1,11 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.model;
 
 import java.util.function.Function;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
+import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
+import uk.dangrew.nuts.apis.tesco.api.parsing.GdaValuesParsingHandler;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 import uk.dangrew.nuts.apis.tesco.item.GuidelineDailyAmountReference;
 import uk.dangrew.nuts.apis.tesco.item.ProductDetail;

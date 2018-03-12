@@ -3,7 +3,7 @@ package uk.dangrew.nuts.apis.tesco.graphics.selection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import uk.dangrew.nuts.apis.tesco.api.CalculatedNutritionType;
+import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionType;
 
 public class TescoStringParser {
 

@@ -1,10 +1,12 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webpage;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.apis.tesco.api.NutritionAsserter;
+import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebsiteParser;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 import uk.dangrew.nuts.manual.data.TescoExamples;
 

@@ -1,5 +1,7 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webpage;
 
+import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
+import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionType;
 import uk.dangrew.nuts.apis.tesco.graphics.selection.TescoStringParser;
 
 public class TescoNutritionExtractor implements Runnable {

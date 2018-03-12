@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webapi;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -19,6 +19,10 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.jtt.connection.data.json.conversion.ApiResponseToJsonConverter;
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConverter;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoGrocerySearchParser;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoParseRecorder;
+import uk.dangrew.nuts.apis.tesco.api.webapi.TescoProductDetailParser;
 import uk.dangrew.nuts.apis.tesco.item.TescoFoodDescription;
 
 public class TescoApiConverterTest {

@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.webapi;
 
 import uk.dangrew.jupa.json.parse.JsonParser;
 import uk.dangrew.jupa.json.parse.handle.key.JsonArrayParseHandler;
@@ -6,6 +6,7 @@ import uk.dangrew.jupa.json.parse.handle.key.JsonArrayWithObjectParseHandler;
 import uk.dangrew.jupa.json.parse.handle.type.BooleanParseHandle;
 import uk.dangrew.jupa.json.parse.handle.type.DoubleParseHandle;
 import uk.dangrew.jupa.json.parse.handle.type.StringParseHandle;
+import uk.dangrew.nuts.apis.tesco.api.model.TescoGrocerySearchModel;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 
 public class TescoGrocerySearchParser extends JsonParser {

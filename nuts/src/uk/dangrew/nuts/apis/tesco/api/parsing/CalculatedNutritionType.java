@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.api;
+package uk.dangrew.nuts.apis.tesco.api.parsing;
 
 import java.util.function.Function;
 import java.util.regex.Pattern;
