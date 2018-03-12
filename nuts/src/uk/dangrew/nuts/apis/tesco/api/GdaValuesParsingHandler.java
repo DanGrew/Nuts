@@ -23,18 +23,18 @@ public class GdaValuesParsingHandler {
       this.currentGdas = gdas;
    }//End Method
    
-   public void addValueForArrayValue( String key, String value ) {
+   public void addValueForArrayValue( String value ) {
       amount.add( value );
    }//End Method
    
-   public void handleValuesStartObject( String key ) {
+   public void handleValuesStartObject() {
       name = null;
       amount.clear();
       percent = null;
       rating = null;
    }//End Method
    
-   public void handleValuesEndObject( String key ) {
+   public void handleValuesEndObject() {
       if ( name.equalsIgnoreCase( "Energy" ) ) {
          String kj = amount.stream().filter( v -> v.contains( "kJ" ) ).findFirst().orElse( null );
          if ( kj != null ) {
@@ -65,23 +65,23 @@ public class GdaValuesParsingHandler {
       gda.rating().set( rating );
    }//End Method
    
-   public void handleValuesStartArray( String key ) {
+   public void handleValuesStartArray() {
       //do nothing
    }//End Method
    
-   public void handleValuesEndArray( String key ) {
+   public void handleValuesEndArray() {
       //do nothing      
    }//End Method
    
-   public void setName( String key, String value ) {
+   public void setName( String value ) {
       this.name = value;
    }//End Method
    
-   public void setPercent( String key, String value ) {
+   public void setPercent( String value ) {
       this.percent = value;
    }//End Method
    
-   public void setRating( String key, String value ) {
+   public void setRating( String value ) {
       this.rating = value;
    }//End Method
    

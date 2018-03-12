@@ -25,29 +25,29 @@ public class CalculatedNutritionParsingHandler {
       this.currentNutrition = nutrition;
    }//End Method
    
-   public void startedCalculatedNutrition( String key ) {
+   public void startedCalculatedNutrition() {
       //do nothing
    }//End Method
    
-   public void finishedCalculatedNutrition( String key ) {
+   public void finishedCalculatedNutrition() {
       //do nothing
    }//End Method
    
-   public void setPer100Header( String key, String value ) {
+   public void setPer100Header( String value ) {
       currentNutrition.per100Header().set( value );
    }//End Method
    
-   public void setPerServingHeader( String key, String value ) {
+   public void setPerServingHeader( String value ) {
       currentNutrition.perServingHeader().set( value );
    }//End Method
    
-   public void startedCalculatedNutrientsObject( String key ) {
+   public void startedCalculatedNutrientsObject() {
       this.name = null;
       this.valuePer100 = null;
       this.valuePerServing = null;
    }//End Method
    
-   public void finishedCalculatedNutrientsObject( String key ) {
+   public void finishedCalculatedNutrientsObject() {
       if ( stringParser.isCombinedEnergy( name ) ) {
          String parsedValuePer100 = valuePer100;
          String parsedValuePerServing = valuePerServing;
@@ -77,23 +77,23 @@ public class CalculatedNutritionParsingHandler {
       value.valuePerServing().set( stringParser.extractNumber( valuePerServing ) );
    }//End Method
    
-   public void startedCalculatedNutrientsArray( String key ) {
+   public void startedCalculatedNutrientsArray() {
       //do nothing
    }//End Method
    
-   public void finishedCalculatedNutrientsArray( String key ) {
+   public void finishedCalculatedNutrientsArray() {
       //do nothing
    }//End Method
    
-   public void setValuePer100( String key, String value ) {
+   public void setValuePer100( String value ) {
       this.valuePer100 = value;
    }//End Method
    
-   public void setValuePerServing( String key, String value ) {
+   public void setValuePerServing( String value ) {
       this.valuePerServing = value;
    }//End Method
    
-   public void setName( String key, String value ) {
+   public void setName( String value ) {
       this.name = value;
    }//End Method
    

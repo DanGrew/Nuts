@@ -24,19 +24,19 @@ public class TescoNutritionExtractor implements Runnable {
    }//End Method
    
    private void performExtraction() {
-      model.setPer100Header( null, table.columnRow( 1, 0 ) );
-      model.setPerServingHeader( null, table.columnRow( 2, 0 ) );
+      model.setPer100Header( table.columnRow( 1, 0 ) );
+      model.setPerServingHeader( table.columnRow( 2, 0 ) );
       for ( int row = 1; row < table.rowCount(); row++ ) {
          String name = table.columnRow( 0, row );
          if ( name == null ) {
             continue;
          }
          
-         model.startedCalculatedNutrientsObject( null );
-         model.setName( null, name );
-         model.setValuePer100( null, table.columnRow( 1, row ) );
-         model.setValuePerServing( null, table.columnRow( 2, row ) );
-         model.finishedCalculatedNutrientsObject( null );
+         model.startedCalculatedNutrientsObject();
+         model.setName( name );
+         model.setValuePer100( table.columnRow( 1, row ) );
+         model.setValuePerServing( table.columnRow( 2, row ) );
+         model.finishedCalculatedNutrientsObject();
       }
    }//End Method
    

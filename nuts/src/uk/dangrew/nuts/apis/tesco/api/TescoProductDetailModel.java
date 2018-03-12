@@ -25,7 +25,7 @@ public class TescoProductDetailModel {
       this.nutritionHandler = new CalculatedNutritionParsingHandler();
    }//End Constructor
    
-   public void startProductArray( String key ) {
+   public void startProductArray() {
       productDetail.gtin().set( null );
       productDetail.tpnb().set( null );
       productDetail.tpncs().clear();
@@ -84,7 +84,7 @@ public class TescoProductDetailModel {
       productDetail.packageDimensions().volumeUom().set( null );
    }//End Method
    
-   public void finishProductArray( String key ) {
+   public void finishProductArray() {
       String tpnb = productDetail.tpnb().get();
       tpnb = Integer.valueOf( tpnb ).toString();
       
@@ -183,11 +183,11 @@ public class TescoProductDetailModel {
       convenienceSet( p -> p.packageDimensions().volumeUom(), description.productDetail() );
    }//End Method
    
-   public void startProduct( String key ) {
+   public void startProduct() {
       //do nothing - parse altogether, overriding if necessary
    }//End Method
    
-   public void finishProduct( String key ) {
+   public void finishProduct() {
     //do nothing - parse altogether, overriding if necessary
    }//End Method
    
@@ -202,190 +202,190 @@ public class TescoProductDetailModel {
       list.add( value );
    }
    
-   public void setGtin( String key, String value ) {
+   public void setGtin( String value ) {
       productDetail.gtin().set( value );
    }//End Method
    
-   public void setTpnb( String key, String value ) {
+   public void setTpnb( String value ) {
       productDetail.tpnb().set( value );
    }//End Method
    
-   public void setTpnc( String key, String value ) {
+   public void setTpnc( String value ) {
       convienceListAdd( productDetail.tpncs(), value );
    }//End Method
    
-   public void setDescription( String key, String value ) {
+   public void setDescription( String value ) {
       productDetail.description().set( value );
    }//End Method
    
-   public void setBrand( String key, String value ) {
+   public void setBrand( String value ) {
       productDetail.brand().set( value );
    }//End Method
    
-   public void startQuantityContents( String key ) {
+   public void startQuantityContents() {
       //do nothing
    }//End Method
    
-   public void finishQuantityContents( String key ) {
+   public void finishQuantityContents() {
       //do nothing
    }//End Method
    
-   public void setQuantity( String key, Double value ) {
+   public void setQuantity( Double value ) {
       productDetail.quantityContents().quantity().set( value );
    }//End Method
    
-   public void setTotalQuantity( String key, Double value ) {
+   public void setTotalQuantity( Double value ) {
       productDetail.quantityContents().totalQuantity().set( value );
    }//End Method
    
-   public void setQuantityUom( String key, String value ) {
+   public void setQuantityUom( String value ) {
       productDetail.quantityContents().quantityUom().set( value );
    }//End Method
    
-   public void setNetContents( String key, String value ) {
+   public void setNetContents( String value ) {
       productDetail.quantityContents().netContents().set( value );
    }//End Method
    
-   public void setAverageMeasure( String key, String value ) {
+   public void setAverageMeasure( String value ) {
       productDetail.quantityContents().averageMeasure().set( value );
    }//End Method
    
-   public void startProductCharacteristics( String key ) {
+   public void startProductCharacteristics() {
       //do nothing
    }//End Method
    
-   public void finishProductCharacteristics( String key ) {
+   public void finishProductCharacteristics() {
       //do nothing
    }//End Method
    
-   public void setIsFood( String key, Boolean value ) {
+   public void setIsFood( Boolean value ) {
       productDetail.characteristics().isFood().set( value );
    }//End Method
    
-   public void setIsDrink( String key, Boolean value ) {
+   public void setIsDrink( Boolean value ) {
       productDetail.characteristics().isDrink().set( value );
    }//End Method
    
-   public void setHealthScore( String key, Double value ) {
+   public void setHealthScore( Double value ) {
       productDetail.characteristics().healthScore().set( value );
    }//End Method
    
-   public void setIsHazardous( String key, Boolean value ) {
+   public void setIsHazardous( Boolean value ) {
       productDetail.characteristics().isHazardous().set( value );
    }//End Method
    
-   public void setStorageType( String key, String value ) {
+   public void setStorageType( String value ) {
       productDetail.characteristics().storageType().set( value );
    }//End Method
    
-   public void setIsNonLiquidAnalgesic( String key, Boolean value ) {
+   public void setIsNonLiquidAnalgesic( Boolean value ) {
       productDetail.characteristics().isNonLiquidAnalgesic().set( value );
    }//End Method
    
-   public void setContainsLoperamide( String key, Boolean value ) {
+   public void setContainsLoperamide( Boolean value ) {
       productDetail.characteristics().containsLoperamide().set( value );
    }//End Method
    
-   public void startGdas( String key ) {
+   public void startGdas() {
       currentGdaReference = new GuidelineDailyAmountReference();
       gdaHandler.setCurrentGdas( currentGdaReference.gda() );
    }//End Method
    
-   public void finishGdas( String key ) {
+   public void finishGdas() {
       productDetail.gdas().put( currentGdaReference.description(), currentGdaReference );
    }//End Method
    
-   public void startedGdaRefObject( String key ) {
+   public void startedGdaRefObject() {
       //do nothing
    }//End Method
    
-   public void finishedGdaRefObject( String key ) {
+   public void finishedGdaRefObject() {
     //do nothing
    }//End Method
    
-   public void startedGdaRefArray( String key ) {
+   public void startedGdaRefArray() {
     //do nothing
    }//End Method
    
-   public void finishedGdaRefArray( String key ) {
+   public void finishedGdaRefArray() {
     //do nothing
    }//End Method
 
-   public void setGdaDescription( String key, String value ) {
+   public void setGdaDescription( String value ) {
       currentGdaReference.setDescription( value );
    }//End Method
    
-   public void addHeader( String key, String value ) {
+   public void addHeader( String value ) {
       convienceListAdd( currentGdaReference.headers(), value );
    }//End Method
    
-   public void addFooter( String key, String value ) {
+   public void addFooter( String value ) {
       convienceListAdd( currentGdaReference.footers(), value );
    }//End Method
    
-   public void addStorage( String key, String value ) {
+   public void addStorage( String value ) {
       convienceListAdd( productDetail.storageInstructions(), value );
    }//End Method
    
-   public void setMarketingText( String key, String value ) {
+   public void setMarketingText( String value ) {
       productDetail.marketingTextProperty().set( value );
    }//End Method
    
-   public void startedPackageDimensionsObject( String key ) {
+   public void startedPackageDimensionsObject() {
       //do nothing
    }//End Method
    
-   public void finishedPackageDimensionsObject( String key ) {
+   public void finishedPackageDimensionsObject() {
       //do nothing      
    }//End Method
    
-   public void startedPackageDimensionsArray( String key ) {
+   public void startedPackageDimensionsArray() {
       //do nothing
    }//End Method
    
-   public void finishedPackageDimensionsArray( String key ) {
+   public void finishedPackageDimensionsArray() {
       //do nothing
    }//End Method
    
-   public void setPackageDimensionsNumber( String key, Double value ) {
+   public void setPackageDimensionsNumber( Double value ) {
       productDetail.packageDimensions().number().set( value );
    }//End Method
    
-   public void setPackageDimensionsHeight( String key, Double value ) {
+   public void setPackageDimensionsHeight( Double value ) {
       productDetail.packageDimensions().height().set( value );
    }//End Method
    
-   public void setPackageDimensionsWidth( String key, Double value ) {
+   public void setPackageDimensionsWidth( Double value ) {
       productDetail.packageDimensions().width().set( value );
    }//End Method
    
-   public void setPackageDimensionsDepth( String key, Double value ) {
+   public void setPackageDimensionsDepth( Double value ) {
       productDetail.packageDimensions().depth().set( value );
    }//End Method
    
-   public void setPackageDimensionsUom( String key, String value ) {
+   public void setPackageDimensionsUom( String value ) {
       productDetail.packageDimensions().dimensionUom().set( value );
    }//End Method
    
-   public void setPackageDimensionsWeight( String key, Double value ) {
+   public void setPackageDimensionsWeight( Double value ) {
       productDetail.packageDimensions().weight().set( value );
    }//End Method
    
-   public void setPackageDimensionsWeightUom( String key, String value ) {
+   public void setPackageDimensionsWeightUom( String value ) {
       productDetail.packageDimensions().weightUom().set( value );
    }//End Method
    
-   public void setPackageDimensionsVolume( String key, Double value ) {
+   public void setPackageDimensionsVolume( Double value ) {
       productDetail.packageDimensions().volume().set( value );
    }//End Method
    
-   public void setPackageDimensionsVolumeUom( String key, String value ) {
+   public void setPackageDimensionsVolumeUom( String value ) {
       productDetail.packageDimensions().volumeUom().set( value );
    }//End Method
    
-   public void setName( String key, String value ) {
-      gdaHandler.setName( key, value );
-      nutritionHandler.setName( key, value );
+   public void setName( String value ) {
+      gdaHandler.setName( value );
+      nutritionHandler.setName( value );
    }//End Method
    
    public GdaValuesParsingHandler gdaHandler() {
