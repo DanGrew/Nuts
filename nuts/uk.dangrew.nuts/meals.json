@@ -1910,5 +1910,23 @@
             "portionValue": 30
          }
       ]
+   },
+   {
+      "name": "Cookies (No Bake Coconut)",
+      "id": "8d56bb1c-e2b9-4044-bb31-c66594107d9e",
+      "portions": [
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 30
+         },
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "portionValue": 170
+         }
+      ]
    }
 ]}

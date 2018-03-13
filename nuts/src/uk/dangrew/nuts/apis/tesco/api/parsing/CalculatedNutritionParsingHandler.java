@@ -65,6 +65,7 @@ public class CalculatedNutritionParsingHandler {
             return;
          }
          if ( nutritionType == CalculatedNutritionType.EnergyInKcal ) {
+            name = "Energy (kcal)";
             valuePer100 = stringParser.extractKcalFrom( valuePer100 );
             valuePerServing = stringParser.extractKcalFrom( valuePerServing );
          }
