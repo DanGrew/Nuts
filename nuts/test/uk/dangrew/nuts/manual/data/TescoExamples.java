@@ -4,7 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import uk.dangrew.kode.TestCommon;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class TescoExamples {
 

@@ -1,5 +1,7 @@
-package uk.dangrew.nuts.apis.tesco.model;
+package uk.dangrew.nuts.apis.tesco.model.nuts;
 
+import uk.dangrew.nuts.apis.tesco.model.api.GroceryProperties;
+import uk.dangrew.nuts.apis.tesco.model.api.ProductDetail;
 import uk.dangrew.nuts.system.Properties;
 
 public class TescoFoodDescription extends TescoFoodReference {

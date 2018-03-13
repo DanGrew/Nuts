@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class TescoGrocerySearchModel {
    

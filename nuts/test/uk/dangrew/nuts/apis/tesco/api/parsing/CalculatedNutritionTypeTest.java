@@ -9,7 +9,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionType;
-import uk.dangrew.nuts.apis.tesco.model.CalculatedNutrition;
+import uk.dangrew.nuts.apis.tesco.model.api.CalculatedNutrition;
 
 public class CalculatedNutritionTypeTest {
 

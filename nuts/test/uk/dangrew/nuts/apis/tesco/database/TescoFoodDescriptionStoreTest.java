@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class TescoFoodDescriptionStoreTest {
 

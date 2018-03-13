@@ -14,7 +14,7 @@ import uk.dangrew.nuts.apis.tesco.api.NutritionAsserter;
 import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
 import uk.dangrew.nuts.apis.tesco.api.webpage.TescoNutritionExtractor;
 import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebpageNutritionTable;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.manual.data.TescoExamples;
 
 public class TescoNutritionExtractorTest {

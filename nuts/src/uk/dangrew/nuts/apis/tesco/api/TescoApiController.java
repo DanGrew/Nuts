@@ -7,7 +7,7 @@ import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConnector;
 import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConverter;
 import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebsiteParser;
 import uk.dangrew.nuts.apis.tesco.database.TescoDatabase;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class TescoApiController {
    

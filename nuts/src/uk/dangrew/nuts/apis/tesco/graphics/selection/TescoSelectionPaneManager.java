@@ -2,7 +2,7 @@ package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import java.util.List;
 
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.graphics.selection.SelectionPane;
 
 public interface TescoSelectionPaneManager {

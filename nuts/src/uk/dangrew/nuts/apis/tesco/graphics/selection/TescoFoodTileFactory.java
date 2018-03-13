@@ -3,8 +3,8 @@ package uk.dangrew.nuts.apis.tesco.graphics.selection;
 import java.util.HashMap;
 import java.util.Map;
 
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodReference;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodReference;
 import uk.dangrew.nuts.graphics.system.ImageLoaderService;
 
 public class TescoFoodTileFactory {

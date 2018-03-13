@@ -3,8 +3,8 @@ package uk.dangrew.nuts.apis.tesco.api.parsing;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
-import uk.dangrew.nuts.apis.tesco.model.CalculatedNutrientValue;
-import uk.dangrew.nuts.apis.tesco.model.CalculatedNutrition;
+import uk.dangrew.nuts.apis.tesco.model.api.CalculatedNutrientValue;
+import uk.dangrew.nuts.apis.tesco.model.api.CalculatedNutrition;
 
 public enum CalculatedNutritionType {
 

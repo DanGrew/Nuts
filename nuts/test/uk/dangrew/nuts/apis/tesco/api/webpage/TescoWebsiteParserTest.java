@@ -7,7 +7,7 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.apis.tesco.api.NutritionAsserter;
 import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebsiteParser;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.manual.data.TescoExamples;
 
 public class TescoWebsiteParserTest {
@@ -139,7 +139,7 @@ public class TescoWebsiteParserTest {
       new NutritionAsserter()
          .per100Header( "Typical Values Per 100g" )
          .perServingHeader( "Per Biscuit (18.8g)" )
-         .energyInKcalName( "(kcal)" )
+         .energyInKcalName( "Energy (kcal)" )
          .energyInKcalValuePer100( "491" )
          .energyInKcalValuePerServing( "92" )
          .energyInKjName( "Energy (kJ)" )

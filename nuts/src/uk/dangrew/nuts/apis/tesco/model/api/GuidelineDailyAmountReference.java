@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.model;
+package uk.dangrew.nuts.apis.tesco.model.api;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

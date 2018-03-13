@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.model;
+package uk.dangrew.nuts.apis.tesco.model.api;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

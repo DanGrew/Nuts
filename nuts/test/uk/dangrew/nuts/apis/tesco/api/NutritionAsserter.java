@@ -3,7 +3,7 @@ package uk.dangrew.nuts.apis.tesco.api;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import uk.dangrew.nuts.apis.tesco.model.CalculatedNutrition;
+import uk.dangrew.nuts.apis.tesco.model.api.CalculatedNutrition;
 
 public class NutritionAsserter {
 

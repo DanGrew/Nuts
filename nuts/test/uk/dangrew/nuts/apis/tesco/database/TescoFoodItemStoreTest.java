@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodItem;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodItem;
 
 public class TescoFoodItemStoreTest {
 

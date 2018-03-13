@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import javafx.scene.layout.BorderPane;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.FoodSelectionManager;
 import uk.dangrew.nuts.graphics.selection.FoodSelectionPaneManager;

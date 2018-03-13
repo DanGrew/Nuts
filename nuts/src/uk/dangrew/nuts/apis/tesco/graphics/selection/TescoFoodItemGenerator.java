@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.function.Function;
 
 import javafx.beans.property.ObjectProperty;
-import uk.dangrew.nuts.apis.tesco.model.CalculatedNutrition;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.api.CalculatedNutrition;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 

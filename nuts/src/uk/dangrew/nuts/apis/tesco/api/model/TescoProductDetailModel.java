@@ -7,9 +7,9 @@ import javafx.collections.ObservableList;
 import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
 import uk.dangrew.nuts.apis.tesco.api.parsing.GdaValuesParsingHandler;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
-import uk.dangrew.nuts.apis.tesco.model.GuidelineDailyAmountReference;
-import uk.dangrew.nuts.apis.tesco.model.ProductDetail;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.api.GuidelineDailyAmountReference;
+import uk.dangrew.nuts.apis.tesco.model.api.ProductDetail;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class TescoProductDetailModel {
    

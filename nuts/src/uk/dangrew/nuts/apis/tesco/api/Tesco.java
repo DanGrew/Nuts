@@ -3,7 +3,7 @@ package uk.dangrew.nuts.apis.tesco.api;
 import java.util.List;
 
 import uk.dangrew.nuts.apis.tesco.database.TescoDatabase;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class Tesco {
 

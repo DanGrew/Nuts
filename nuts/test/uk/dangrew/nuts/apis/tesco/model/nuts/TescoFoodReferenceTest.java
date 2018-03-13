@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.apis.tesco.model;
+package uk.dangrew.nuts.apis.tesco.model.nuts;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodReference;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodReference;
 
 public class TescoFoodReferenceTest {
 

@@ -3,7 +3,7 @@ package uk.dangrew.nuts.apis.tesco.graphics.selection;
 import java.util.ArrayList;
 import java.util.List;
 
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionPane;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
 import uk.dangrew.nuts.graphics.system.ImageLoaderService;

@@ -12,7 +12,7 @@ import uk.dangrew.nuts.apis.tesco.api.webapi.TescoGrocerySearchParser;
 import uk.dangrew.nuts.apis.tesco.api.webapi.TescoParseRecorder;
 import uk.dangrew.nuts.apis.tesco.api.webapi.TescoProductDetailParser;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class MacroFetchE2ETest {
 

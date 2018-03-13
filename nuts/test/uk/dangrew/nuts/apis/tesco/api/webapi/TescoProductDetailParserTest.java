@@ -12,9 +12,9 @@ import org.junit.Test;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.apis.tesco.api.webapi.TescoProductDetailParser;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
-import uk.dangrew.nuts.apis.tesco.model.GuidelineDailyAmountReference;
-import uk.dangrew.nuts.apis.tesco.model.ProductDetail;
-import uk.dangrew.nuts.apis.tesco.model.TescoFoodDescription;
+import uk.dangrew.nuts.apis.tesco.model.api.GuidelineDailyAmountReference;
+import uk.dangrew.nuts.apis.tesco.model.api.ProductDetail;
+import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class TescoProductDetailParserTest {
 

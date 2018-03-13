@@ -3,8 +3,8 @@ package uk.dangrew.nuts.apis.tesco.api.parsing;
 import java.util.ArrayList;
 import java.util.List;
 
-import uk.dangrew.nuts.apis.tesco.model.GuidelineDailyAmount;
-import uk.dangrew.nuts.apis.tesco.model.GuidelineDailyAmounts;
+import uk.dangrew.nuts.apis.tesco.model.api.GuidelineDailyAmount;
+import uk.dangrew.nuts.apis.tesco.model.api.GuidelineDailyAmounts;
 
 public class GdaValuesParsingHandler {
 
