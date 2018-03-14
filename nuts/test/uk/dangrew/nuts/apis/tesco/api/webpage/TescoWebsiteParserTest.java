@@ -1,12 +1,12 @@
 package uk.dangrew.nuts.apis.tesco.api.webpage;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.apis.tesco.api.NutritionAsserter;
-import uk.dangrew.nuts.apis.tesco.api.webpage.TescoWebsiteParser;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.manual.data.TescoExamples;
 
@@ -211,6 +211,7 @@ public class TescoWebsiteParserTest {
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
    
+   @Ignore
    @Test public void variation296056855() {
       TescoFoodDescription description = new TescoFoodDescription( "Boswell Farms Beef Mince 1Kg 20% Fat" );
       description.productDetail().tpncs().add( "296056855" );

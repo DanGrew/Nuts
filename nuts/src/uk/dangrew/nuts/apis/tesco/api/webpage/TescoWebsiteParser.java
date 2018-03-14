@@ -50,6 +50,7 @@ public class TescoWebsiteParser {
          BufferedReader br = new BufferedReader( new InputStreamReader( is ) );
       ) {
          String line =  br.lines().collect( Collectors.joining() );
+//         line = line.substring( line.indexOf( TescoWebpageNutritionTable.NUTRITION_TABLE_HTML_TAG ) );
          return Jsoup.parse( line );
       } catch ( Exception exception ) {
          //unable to stream, not a problem, best effort

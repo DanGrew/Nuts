@@ -14,6 +14,8 @@ public class TescoWebpageNutritionTable {
    static final String NUTRITION_TABLE_TAG = "table";
    static final String HEADER_ENTRY = "th";
    static final String ROW_ENTRY = "td";
+   
+   public static final String NUTRITION_TABLE_HTML_TAG = "<" + NUTRITION_TABLE_TAG + ">";
 
    private final Map< Pair< Integer, Integer >, String > table;
    private int columnCount;
@@ -27,7 +29,7 @@ public class TescoWebpageNutritionTable {
    public TescoWebpageNutritionTable() {
       this.table = new HashMap<>();
    }//End Constructor
-      
+   
    private void parse( Document webpageDocument ) {
       if ( webpageDocument == null ) {
          return;
