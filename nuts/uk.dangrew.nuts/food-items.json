@@ -2888,5 +2888,15 @@
       "name": "Coconut (Shredded) (100g)",
       "id": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
       "calories": 663
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 19.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 18.4,
+      "name": "Boswell Farms Beef Mince 500G 20% Fat (100g)",
+      "id": "6dd04ef3-932c-4253-9f67-34070a3b0ad7",
+      "calories": 252
    }
 ]}

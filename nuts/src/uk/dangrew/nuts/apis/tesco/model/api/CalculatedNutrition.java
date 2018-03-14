@@ -116,5 +116,11 @@ public class CalculatedNutrition {
    public CalculatedNutrientValue omega3() {
       return omega3;
    }//End Method
+
+   public boolean isPopulated() {
+      boolean hasPer100Header = per100HeaderProperty.get() != null;
+      boolean hasPerservingHeader = perServingHeaderProperty.get() != null;
+      return hasPer100Header || hasPerservingHeader;
+   }//End Method
    
 }//End Class

@@ -2,6 +2,8 @@ package uk.dangrew.nuts.apis.tesco.api;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -130,4 +132,11 @@ public class TescoApiControllerTest {
       verify( websiteParser ).parseNutritionFor( description );
    }//End Method
 
+   @Test public void shouldOnlyDownloadProductDetailIfNotAlreadyPresent(){
+      description.productDetail().nutrition().per100Header().set( "anything" );
+      
+      systemUnderTest.downloadProductDetail( description );
+      verify( connector, never() ).retrieveProduct( anyString() );
+      verify( websiteParser, never() ).parseNutritionFor( any() );
+   }//End Method
 }//End Class

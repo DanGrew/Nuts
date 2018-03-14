@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.apis.tesco.model.api;
 
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -39,6 +40,18 @@ public class CalculatedNutritionTest {
          .shouldProvideObject( CalculatedNutrition::folicAcid )
          .shouldProvideObject( CalculatedNutrition::iron )
          .shouldProvideObject( CalculatedNutrition::omega3 );
+   }//End Method
+   
+   @Test public void shouldIdentifyWhenPopulatedHeadings(){
+      assertThat( systemUnderTest.isPopulated(), is( false ) );
+      systemUnderTest.per100Header().set( "anything" );
+      assertThat( systemUnderTest.isPopulated(), is( true ) );
+      systemUnderTest.per100Header().set( null );
+      assertThat( systemUnderTest.isPopulated(), is( false ) );
+      systemUnderTest.perServingHeader().set( "anything" );
+      assertThat( systemUnderTest.isPopulated(), is( true ) );
+      systemUnderTest.perServingHeader().set( null );
+      assertThat( systemUnderTest.isPopulated(), is( false ) );
    }//End Method
    
 }//End Class

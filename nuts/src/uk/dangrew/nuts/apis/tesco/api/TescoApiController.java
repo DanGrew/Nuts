@@ -57,6 +57,10 @@ public class TescoApiController {
    }//End Method
 
    public void downloadProductDetail( TescoFoodDescription description ) {
+      if ( description.productDetail().nutrition().isPopulated() ) {
+         return;
+      }
+      
       String tpnb = description.groceryProperties().tpnb().get();
       if ( tpnb == null ) {
          System.out.println( "Cannot download product detail: No tpnb present for " + description.properties().nameProperty().get() );
