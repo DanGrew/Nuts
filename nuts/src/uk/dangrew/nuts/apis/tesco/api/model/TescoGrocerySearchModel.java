@@ -32,7 +32,7 @@ public class TescoGrocerySearchModel {
       this.description = new ArrayList<>();
    }//End Constructor
 
-   public void startResult( String key ) {
+   public void startResult() {
       image = null;
       superDepartment = null;
       tpnb = null;
@@ -51,7 +51,7 @@ public class TescoGrocerySearchModel {
       isSpecialOffer = null;
    }//End Method
    
-   public void finishResult( String key ) {
+   public void finishResult() {
       if ( tpnb == null ) {
          System.out.println( "No tpnb provided!" );
          return;
@@ -81,67 +81,67 @@ public class TescoGrocerySearchModel {
       item.groceryProperties().isSpecialOffer().set( isSpecialOffer );
    }//End Method
    
-   public void setImageLink( String key, String value ) {
+   public void setImageLink( String value ) {
       this.image = value.replaceFirst( "http:", "https:" );
    }//End Method
    
-   public void setSuperDepartment( String key, String value ) {
+   public void setSuperDepartment( String value ) {
       this.superDepartment = value;
    }//End Method
 
-   public void setTpnb( String key, String value ) {
+   public void setTpnb( String value ) {
       this.tpnb = value;
    }//End Method
    
-   public void setUnitOfSale( String key, Double value ) {
+   public void setUnitOfSale( Double value ) {
       this.unitOfSale = value;
    }//End Method
    
-   public void addDescription( String key, String value ) {
+   public void addDescription( String value ) {
       this.description.add( value );
    }//End Method
    
-   public void setUnitQuantity( String key, String value ) {
+   public void setUnitQuantity( String value ) {
       this.unitQuantity = value;
    }//End Method
    
-   public void setPromotionDescription( String key, String value ) {
+   public void setPromotionDescription( String value ) {
       this.promotionDescription = value;
    }//End Method
    
-   public void setContentsMeasureType( String key, String value ) {
+   public void setContentsMeasureType( String value ) {
       this.contentsMeasureType = value;
    }//End Method
    
-   public void setName( String key, String value ) {
+   public void setName( String value ) {
       this.name = value;
    }//End Method
    
-   public void setAverageSellingUnitWeight( String key, Double value ) {
+   public void setAverageSellingUnitWeight( Double value ) {
       this.averageSellingUnitWeight = value;
    }//End Method
    
-   public void setId( String key, String value ) {
+   public void setId( String value ) {
       this.id = value;
    }//End Method
    
-   public void setContentsQuantity( String key, Double value ) {
+   public void setContentsQuantity( Double value ) {
       this.contentsQuantity = value;
    }//End Method
    
-   public void setDepartment( String key, String value ) {
+   public void setDepartment( String value ) {
       this.department = value;
    }//End Method
    
-   public void setPrice( String key, Double value ) {
+   public void setPrice( Double value ) {
       this.price = value;
    }//End Method
    
-   public void setUnitPrice( String key, Double value ) {
+   public void setUnitPrice( Double value ) {
       this.unitPrice = value;
    }//End Method
    
-   public void setIsSpecialOffer( String key, Boolean value ) {
+   public void setIsSpecialOffer( Boolean value ) {
       this.isSpecialOffer = value;
    }//End Method
    

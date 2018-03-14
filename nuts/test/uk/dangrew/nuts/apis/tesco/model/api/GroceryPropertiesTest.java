@@ -35,7 +35,7 @@ public class GroceryPropertiesTest {
          .shouldProvideDoubleProperty( GroceryProperties::contentsQuantity )
          .shouldProvideStringProperty( GroceryProperties::department )
          .shouldProvideDoubleProperty( GroceryProperties::price )
-         .shouldProvideDoubleProperty( GroceryProperties::unitOfSale )
+         .shouldProvideDoubleProperty( GroceryProperties::unitPrice )
          .shouldProvideBooleanProperty( GroceryProperties::isSpecialOffer );
    }//End Method
    

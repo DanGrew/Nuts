@@ -32,9 +32,9 @@ public class TescoGrocerySearchModelTest {
    @Test public void shouldFindExistingDescriptionAndUpdate() {
       store.createConcept( SAMPLE_TPNB, "anything" ).groceryProperties().image().set( "anything" );
       
-      systemUnderTest.setTpnb( null, SAMPLE_TPNB );
-      systemUnderTest.setImageLink( null, "image" );
-      systemUnderTest.finishResult( null );
+      systemUnderTest.setTpnb( SAMPLE_TPNB );
+      systemUnderTest.setImageLink( "image" );
+      systemUnderTest.finishResult();
       
       assertThat( store.objectList(), hasSize( 1 ) );
       TescoFoodDescription description = store.get( SAMPLE_TPNB );
@@ -45,9 +45,9 @@ public class TescoGrocerySearchModelTest {
    }//End Method
    
    @Test public void shouldCreateNewDescription() {
-      systemUnderTest.setTpnb( null, SAMPLE_TPNB );
-      systemUnderTest.setImageLink( null, "image" );
-      systemUnderTest.finishResult( null );
+      systemUnderTest.setTpnb( SAMPLE_TPNB );
+      systemUnderTest.setImageLink( "image" );
+      systemUnderTest.finishResult();
       
       TescoFoodDescription description = store.get( SAMPLE_TPNB );
       assertThat( description, is( notNullValue() ) );
@@ -57,9 +57,9 @@ public class TescoGrocerySearchModelTest {
    }//End Method
    
    @Test public void shouldFixImageLinkIssueWithHttps(){
-      systemUnderTest.setTpnb( null, SAMPLE_TPNB );
-      systemUnderTest.setImageLink( null, "http://anything" );
-      systemUnderTest.finishResult( null );
+      systemUnderTest.setTpnb( SAMPLE_TPNB );
+      systemUnderTest.setImageLink( "http://anything" );
+      systemUnderTest.finishResult();
       
       TescoFoodDescription description = store.get( SAMPLE_TPNB );
       assertThat( description.groceryProperties().image().get(), is( "https://anything" ) );
