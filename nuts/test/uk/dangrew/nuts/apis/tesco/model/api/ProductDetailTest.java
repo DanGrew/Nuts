@@ -28,7 +28,7 @@ public class ProductDetailTest {
          .shouldProvideStringProperty( ProductDetail::brand )
          .shouldProvideObject( ProductDetail::quantityContents )
          .shouldProvideObject( ProductDetail::characteristics )
-         .shouldProvideObservableMap( ProductDetail::gdas, UUID.randomUUID().toString(), new GuidelineDailyAmountReference() )
+         .shouldProvideObservableList( ProductDetail::gdas, new GuidelineDailyAmountReference() )
          .shouldProvideObject( ProductDetail::nutrition )
          .shouldProvideObservableList( ProductDetail::storageInstructions )
          .shouldProvideStringProperty( ProductDetail::marketingTextProperty )

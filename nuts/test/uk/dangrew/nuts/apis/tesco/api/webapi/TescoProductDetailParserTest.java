@@ -50,8 +50,8 @@ public class TescoProductDetailParserTest {
       assertThat( detail.characteristics().isNonLiquidAnalgesic().get(), is( false ) );
       assertThat( detail.characteristics().containsLoperamide().get(), is( true ) );
       
-      GuidelineDailyAmountReference gda = detail.gdas().get( "Guideline Amounts Per Serv" );
-      assertThat( gda.description(), is( "Guideline Amounts Per Serv" ) );
+      GuidelineDailyAmountReference gda = detail.gdas().get( 0 );
+      assertThat( gda.description().get(), is( "Guideline Amounts Per Serv" ) );
       assertThat( gda.headers(), is( Arrays.asList( "Each tablespoon contains" ) ) );
       assertThat( gda.footers(), is( Arrays.asList( 
                "*Reference intake of an average adult (8400 kJ / 2000 kcal)",

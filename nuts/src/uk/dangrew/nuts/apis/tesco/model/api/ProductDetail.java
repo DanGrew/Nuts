@@ -4,7 +4,6 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 
 public class ProductDetail {
    
@@ -15,7 +14,7 @@ public class ProductDetail {
    private final ObjectProperty< String > brandProperty;
    private final QuantityContents quantityContents;
    private final ProductCharacteristics characteristics;
-   private final ObservableMap< String, GuidelineDailyAmountReference > gdas;
+   private final ObservableList< GuidelineDailyAmountReference > gdas;
    private final CalculatedNutrition nutrition;
    private final ObservableList< String > storageInstructions;
    private final ObjectProperty< String > marketingTextProperty;
@@ -29,7 +28,7 @@ public class ProductDetail {
       this.brandProperty = new SimpleObjectProperty<>();
       this.quantityContents = new QuantityContents();
       this.characteristics = new ProductCharacteristics();
-      this.gdas = FXCollections.observableHashMap();
+      this.gdas = FXCollections.observableArrayList();
       this.nutrition = new CalculatedNutrition();
       this.storageInstructions = FXCollections.observableArrayList();
       this.marketingTextProperty = new SimpleObjectProperty<>();
@@ -64,7 +63,7 @@ public class ProductDetail {
       return characteristics;
    }//End Method
 
-   public ObservableMap< String, GuidelineDailyAmountReference > gdas() {
+   public ObservableList< GuidelineDailyAmountReference > gdas() {
       return gdas;
    }//End Method
 

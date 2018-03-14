@@ -127,35 +127,37 @@ public class TescoProductDetailModel {
       convenienceSet( p -> p.characteristics().isNonLiquidAnalgesic(), description.productDetail() );
       convenienceSet( p -> p.characteristics().containsLoperamide(), description.productDetail() );
       
-      for ( String gda : productDetail.gdas().keySet() ) {
-         GuidelineDailyAmountReference gdar = new GuidelineDailyAmountReference();
-         gdar.setDescription( gda );
-         description.productDetail().gdas().put( gda, gdar );
+      for ( int i = 0; i < productDetail.gdas().size(); i++ ) {
+         GuidelineDailyAmountReference parsedGda = productDetail.gdas().get( i );
+         GuidelineDailyAmountReference gdaToUpdate = new GuidelineDailyAmountReference();
+         description.productDetail().gdas().add( gdaToUpdate );
          
-         gdar.headers().addAll( productDetail.gdas().get( gda ).headers() );
-         gdar.footers().addAll( productDetail.gdas().get( gda ).footers() );
+         gdaToUpdate.headers().addAll( parsedGda.headers() );
+         gdaToUpdate.footers().addAll( parsedGda.footers() );
          
-         convenienceSet( p -> p.gdas().get( gda ).gda().energyGda().energyInKcal(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().energyGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().energyGda().energyInKj(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().energyGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().energyGda().rating(), description.productDetail() );
+         final int gdaIndex = i;
+         convenienceSet( p -> p.gdas().get( gdaIndex ).description(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().energyInKcal(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().amount(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().energyInKj(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().percent(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().rating(), description.productDetail() );
          
-         convenienceSet( p -> p.gdas().get( gda ).gda().fatGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().fatGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().fatGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().amount(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().percent(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().rating(), description.productDetail() );
          
-         convenienceSet( p -> p.gdas().get( gda ).gda().saturatesGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().saturatesGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().saturatesGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().amount(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().percent(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().rating(), description.productDetail() );
          
-         convenienceSet( p -> p.gdas().get( gda ).gda().sugarsGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().sugarsGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().sugarsGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().amount(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().percent(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().rating(), description.productDetail() );
          
-         convenienceSet( p -> p.gdas().get( gda ).gda().saltGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().saltGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gda ).gda().saltGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().amount(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().percent(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().rating(), description.productDetail() );
       }
       
       convenienceSet( p -> p.nutrition().per100Header(), description.productDetail() );
@@ -312,7 +314,7 @@ public class TescoProductDetailModel {
    }//End Method
    
    public void finishGdas() {
-      productDetail.gdas().put( currentGdaReference.description(), currentGdaReference );
+      productDetail.gdas().add( currentGdaReference );
    }//End Method
    
    public void startedGdaRefObject() {
@@ -332,7 +334,7 @@ public class TescoProductDetailModel {
    }//End Method
 
    public void setGdaDescription( String value ) {
-      currentGdaReference.setDescription( value );
+      currentGdaReference.description().set( value );
    }//End Method
    
    public void addHeader( String value ) {
