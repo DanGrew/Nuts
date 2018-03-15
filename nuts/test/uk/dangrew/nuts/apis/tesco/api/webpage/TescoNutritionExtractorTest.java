@@ -31,7 +31,7 @@ public class TescoNutritionExtractorTest {
       model = new CalculatedNutritionParsingHandler();
       table = new TescoWebpageNutritionTable();
       description = TescoExamples.cravendaleMilk();
-      model.setCurrentNutrition( description.productDetail().nutrition() );
+      model.resetNutrition( description.productDetail().nutrition() );
       systemUnderTest = new TescoNutritionExtractor( table, model );
    }//End Method
    
@@ -40,7 +40,7 @@ public class TescoNutritionExtractorTest {
       table = new TescoWebpageNutritionTable( document );
       systemUnderTest = new TescoNutritionExtractor( table, model );
       
-      model.setCurrentNutrition( description.productDetail().nutrition() );
+      model.resetNutrition( description.productDetail().nutrition() );
       systemUnderTest.run();
       new NutritionAsserter()
          .per100Header( "Typical Values Per 100ml" )

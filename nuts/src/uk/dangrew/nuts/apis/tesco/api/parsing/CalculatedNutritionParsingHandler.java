@@ -8,7 +8,9 @@ public class CalculatedNutritionParsingHandler {
 
    private final TescoStringParser stringParser;
    
-   private CalculatedNutrition currentNutrition;
+   private CalculatedNutrition nutrition;
+   private ModelUpdater< CalculatedNutrition > updater;
+   
    private String name;
    private String valuePer100;
    private String valuePerServing;
@@ -21,8 +23,27 @@ public class CalculatedNutritionParsingHandler {
       this.stringParser = stringParser;
    }//End Constructor
    
-   public void setCurrentNutrition( CalculatedNutrition nutrition ) {
-      this.currentNutrition = nutrition;
+   public void resetNutrition( CalculatedNutrition nutrition ) {
+      this.nutrition = nutrition;
+      this.updater = new ModelUpdater<>( nutrition );
+      
+      this.nutrition.per100Header().set( null );
+      this.nutrition.perServingHeader().set( null );
+      for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
+         type.redirect( nutrition ).name().set( null );
+         type.redirect( nutrition ).valuePer100().set( null );
+         type.redirect( nutrition ).valuePerServing().set( null );
+      }
+   }//End Method
+   
+   public void applyNutritionTo( CalculatedNutrition nutritionToUpdate ) {
+      updater.set( CalculatedNutrition::per100Header, nutritionToUpdate );
+      updater.set( CalculatedNutrition::perServingHeader, nutritionToUpdate );
+      for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
+         updater.set( n -> type.redirect( n ).name(), nutritionToUpdate );
+         updater.set( n -> type.redirect( n ).valuePer100(), nutritionToUpdate );
+         updater.set( n -> type.redirect( n ).valuePerServing(), nutritionToUpdate );
+      }
    }//End Method
    
    public void startedCalculatedNutrition() {
@@ -34,11 +55,11 @@ public class CalculatedNutritionParsingHandler {
    }//End Method
    
    public void setPer100Header( String value ) {
-      currentNutrition.per100Header().set( value );
+      nutrition.per100Header().set( value );
    }//End Method
    
    public void setPerServingHeader( String value ) {
-      currentNutrition.perServingHeader().set( value );
+      nutrition.perServingHeader().set( value );
    }//End Method
    
    public void startedCalculatedNutrientsObject() {
@@ -54,11 +75,11 @@ public class CalculatedNutritionParsingHandler {
          
          valuePer100 = stringParser.extractKcalFrom( parsedValuePer100 );
          valuePerServing = stringParser.extractKcalFrom( parsedValuePerServing );
-         setNutritionValues( CalculatedNutritionType.EnergyInKcal.redirect( currentNutrition ) );
+         setNutritionValues( CalculatedNutritionType.EnergyInKcal.redirect( nutrition ) );
          
          valuePer100 = stringParser.extractKjFrom( parsedValuePer100 );
          valuePerServing = stringParser.extractKjFrom( parsedValuePerServing );
-         setNutritionValues( CalculatedNutritionType.EnergyInKj.redirect( currentNutrition ) );
+         setNutritionValues( CalculatedNutritionType.EnergyInKj.redirect( nutrition ) );
       } else {
          CalculatedNutritionType nutritionType = stringParser.parseNutritionType( name );
          if ( nutritionType == null ) {
@@ -69,7 +90,7 @@ public class CalculatedNutritionParsingHandler {
             valuePer100 = stringParser.extractKcalFrom( valuePer100 );
             valuePerServing = stringParser.extractKcalFrom( valuePerServing );
          }
-         setNutritionValues( nutritionType.redirect( currentNutrition ) );
+         setNutritionValues( nutritionType.redirect( nutrition ) );
       }
    }//End Method
    

@@ -1536,22 +1536,27 @@
          {
             "consumed": false,
             "foodId": "a1587ad4-3d6b-42e1-bcb2-45daf0786471",
-            "portionValue": 20
+            "portionValue": 40
          },
          {
             "consumed": false,
-            "foodId": "8d56bb1c-e2b9-4044-bb31-c66594107d9e",
-            "portionValue": 10
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 300
+         },
+         {
+            "consumed": false,
+            "foodId": "898c2ac7-5a6f-4df1-8567-bf6e3eb64d50",
+            "portionValue": 60
          },
          {
             "consumed": false,
             "foodId": "e64e86e2-7f29-452c-8f88-0cfba61e0a28",
-            "portionValue": 25
+            "portionValue": 17
          },
          {
             "consumed": false,
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 40
+            "foodId": "b8ddfe42-9403-4de1-9404-343ad77ab06c",
+            "portionValue": 200
          }
       ]
    },

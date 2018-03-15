@@ -1718,8 +1718,8 @@
             "portionValue": 200
          },
          {
-            "foodId": "62f0cc0b-ee6a-4aa3-b5b4-9b1032506b8c",
-            "portionValue": 0
+            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
+            "portionValue": 100
          },
          {
             "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
@@ -1727,7 +1727,7 @@
          },
          {
             "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
-            "portionValue": 100
+            "portionValue": 150
          }
       ]
    },
@@ -1926,6 +1926,24 @@
          {
             "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
             "portionValue": 170
+         }
+      ]
+   },
+   {
+      "name": "Cookie Dough (Keto)",
+      "id": "080f83f4-e46a-440d-b83a-6b176adef9af",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 800
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 120
+         },
+         {
+            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "portionValue": 120
          }
       ]
    }

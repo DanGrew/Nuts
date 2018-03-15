@@ -2,7 +2,10 @@ package uk.dangrew.nuts.apis.tesco.api.parsing;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
+
+import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +27,7 @@ public class CalculatedNutritionParsingHandlerTest {
       MockitoAnnotations.initMocks( this );
       nutrition = new CalculatedNutrition();
       systemUnderTest = new CalculatedNutritionParsingHandler();
-      systemUnderTest.setCurrentNutrition( nutrition );
+      systemUnderTest.resetNutrition( nutrition );
    }//End Method
 
    @Test public void shouldSetHeaders() {
@@ -111,6 +114,55 @@ public class CalculatedNutritionParsingHandlerTest {
    @Test public void shouldIgnoreInvalidNutritionType(){
       systemUnderTest.setName( "anything" );
       systemUnderTest.finishedCalculatedNutrientsObject();
+   }//End Method
+   
+   @Test public void shouldResetNutritionInformation(){
+      nutrition.per100Header().set( UUID.randomUUID().toString() );
+      nutrition.perServingHeader().set( UUID.randomUUID().toString() );
+      for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
+         type.redirect( nutrition ).name().set( UUID.randomUUID().toString() );
+         type.redirect( nutrition ).valuePer100().set( UUID.randomUUID().toString() );
+         type.redirect( nutrition ).valuePerServing().set( UUID.randomUUID().toString() );
+      }
+      
+      systemUnderTest.resetNutrition( nutrition );
+      
+      assertThat( nutrition.per100Header().get(), is( nullValue() ) );
+      assertThat( nutrition.perServingHeader().get(), is( nullValue() ) );
+      for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
+         assertThat( type.redirect( nutrition ).name().get(), is( nullValue() ) );
+         assertThat( type.redirect( nutrition ).valuePer100().get(), is( nullValue() ) );
+         assertThat( type.redirect( nutrition ).valuePerServing().get(), is( nullValue() ) );
+      }
+   }//End Method
+   
+   @Test public void shouldApplyNutritionDataToDatabase(){
+      CalculatedNutrition databaseNutrition = new CalculatedNutrition();
+      nutrition.per100Header().set( UUID.randomUUID().toString() );
+      nutrition.perServingHeader().set( UUID.randomUUID().toString() );
+      for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
+         type.redirect( nutrition ).name().set( UUID.randomUUID().toString() );
+         type.redirect( nutrition ).valuePer100().set( UUID.randomUUID().toString() );
+         type.redirect( nutrition ).valuePerServing().set( UUID.randomUUID().toString() );
+      }
+      
+      systemUnderTest.applyNutritionTo( databaseNutrition );
+      
+      assertThat( nutrition.per100Header().get(), is( notNullValue() ) );
+      assertThat( nutrition.perServingHeader().get(), is( notNullValue() ) );
+      for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
+         assertThat( type.redirect( nutrition ).name().get(), is( notNullValue() ) );
+         assertThat( type.redirect( nutrition ).valuePer100().get(), is( notNullValue() ) );
+         assertThat( type.redirect( nutrition ).valuePerServing().get(), is( notNullValue() ) );
+      }
+      
+      assertThat( databaseNutrition.per100Header().get(), is( nutrition.per100Header().get() ) );
+      assertThat( databaseNutrition.perServingHeader().get(), is( nutrition.perServingHeader().get() ) );
+      for ( CalculatedNutritionType type : CalculatedNutritionType.values() ) {
+         assertThat( type.redirect( databaseNutrition ).name().get(), is( type.redirect( nutrition ).name().get() ) );
+         assertThat( type.redirect( databaseNutrition ).valuePer100().get(), is( type.redirect( nutrition ).valuePer100().get() ) );
+         assertThat( type.redirect( databaseNutrition ).valuePerServing().get(), is( type.redirect( nutrition ).valuePerServing().get() ) );
+      }
    }//End Method
 
 }//End Class

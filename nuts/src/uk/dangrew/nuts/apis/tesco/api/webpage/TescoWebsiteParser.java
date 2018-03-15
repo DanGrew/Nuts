@@ -27,7 +27,7 @@ public class TescoWebsiteParser {
       if ( description == null ) {
          return;
       }
-      model.setCurrentNutrition( description.productDetail().nutrition() );
+      model.resetNutrition( description.productDetail().nutrition() );
       
       Document webpageDocument = connectToProductPage( description );
       if ( webpageDocument == null ) {

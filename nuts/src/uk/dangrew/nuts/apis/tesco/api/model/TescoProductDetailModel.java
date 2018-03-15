@@ -6,6 +6,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
 import uk.dangrew.nuts.apis.tesco.api.parsing.GdaValuesParsingHandler;
+import uk.dangrew.nuts.apis.tesco.api.parsing.ProductCharacteristicsParsingHandler;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 import uk.dangrew.nuts.apis.tesco.graphics.selection.TescoStringParser;
 import uk.dangrew.nuts.apis.tesco.model.api.GuidelineDailyAmountReference;
@@ -16,8 +17,11 @@ public class TescoProductDetailModel {
    
    private final TescoFoodDescriptionStore store;
    private final ProductDetail productDetail;
+   
    private final GdaValuesParsingHandler gdaHandler;
+   private final ProductCharacteristicsParsingHandler characteristicsHandler;
    private final CalculatedNutritionParsingHandler nutritionHandler;
+   
    private final TescoStringParser stringParser;
    
    private GuidelineDailyAmountReference currentGdaReference;
@@ -26,6 +30,7 @@ public class TescoProductDetailModel {
       this.store = store;
       this.productDetail = new ProductDetail();
       this.gdaHandler = new GdaValuesParsingHandler();
+      this.characteristicsHandler = new ProductCharacteristicsParsingHandler();
       this.nutritionHandler = new CalculatedNutritionParsingHandler();
       this.stringParser = new TescoStringParser();
    }//End Constructor
@@ -43,46 +48,9 @@ public class TescoProductDetailModel {
       productDetail.quantityContents().netContents().set( null );
       productDetail.quantityContents().averageMeasure().set( null );
       
-      productDetail.characteristics().isFood().set( null );
-      productDetail.characteristics().isDrink().set( null );
-      productDetail.characteristics().healthScore().set( null );
-      productDetail.characteristics().isHazardous().set( null );
-      productDetail.characteristics().storageType().set( null );
-      productDetail.characteristics().isNonLiquidAnalgesic().set( null );
-      productDetail.characteristics().containsLoperamide().set( null );
-      
+      characteristicsHandler().resetCharacteristics( productDetail.characteristics() );
       productDetail.gdas().clear();
-      productDetail.nutrition().per100Header().set( null );
-      productDetail.nutrition().perServingHeader().set( null );
-      productDetail.nutrition().energyInKj().name().set( null );
-      productDetail.nutrition().energyInKj().valuePer100().set( null );
-      productDetail.nutrition().energyInKj().valuePerServing().set( null );
-      productDetail.nutrition().energyInKcal().name().set( null );
-      productDetail.nutrition().energyInKcal().valuePer100().set( null );
-      productDetail.nutrition().energyInKcal().valuePerServing().set( null );
-      productDetail.nutrition().fat().name().set( null );
-      productDetail.nutrition().fat().valuePer100().set( null );
-      productDetail.nutrition().fat().valuePerServing().set( null );
-      productDetail.nutrition().saturates().name().set( null );
-      productDetail.nutrition().saturates().valuePer100().set( null );
-      productDetail.nutrition().saturates().valuePerServing().set( null );
-      productDetail.nutrition().carbohydrates().name().set( null );
-      productDetail.nutrition().carbohydrates().valuePer100().set( null );
-      productDetail.nutrition().carbohydrates().valuePerServing().set( null );
-      productDetail.nutrition().sugars().name().set( null );
-      productDetail.nutrition().sugars().valuePer100().set( null );
-      productDetail.nutrition().sugars().valuePerServing().set( null );
-      productDetail.nutrition().fibre().name().set( null );
-      productDetail.nutrition().fibre().valuePer100().set( null );
-      productDetail.nutrition().fibre().valuePerServing().set( null );
-      productDetail.nutrition().protein().name().set( null );
-      productDetail.nutrition().protein().valuePer100().set( null );
-      productDetail.nutrition().protein().valuePerServing().set( null );
-      productDetail.nutrition().salt().name().set( null );
-      productDetail.nutrition().salt().valuePer100().set( null );
-      productDetail.nutrition().salt().valuePerServing().set( null );
-      
-      nutritionHandler.setCurrentNutrition( productDetail.nutrition() );
+      nutritionHandler().resetNutrition( productDetail.nutrition() );
       
       productDetail.storageInstructions().clear();
       productDetail.marketingTextProperty().set( null );
@@ -100,110 +68,75 @@ public class TescoProductDetailModel {
    
    public void finishProductArray() {
       String tpnb = stringParser.removeLeadingZerosFromInteger( productDetail.tpnb().get() );
-      TescoFoodDescription description = store.get( tpnb );
-      if ( description == null ) {
-         description = store.createConcept(  
+      TescoFoodDescription descriptionInDatabase = store.get( tpnb );
+      if ( descriptionInDatabase == null ) {
+         descriptionInDatabase = store.createConcept(  
                   productDetail.tpnb().get(), 
                   productDetail.description().get() 
          );
       }
       
-      convenienceSet( ProductDetail::gtin, description.productDetail() );
-      convenienceSet( ProductDetail::tpnb, description.productDetail() );
-      description.productDetail().tpncs().addAll( productDetail.tpncs() );
-      convenienceSet( ProductDetail::description, description.productDetail() );
-      convenienceSet( ProductDetail::brand, description.productDetail() );
+      convenienceSet( ProductDetail::gtin, descriptionInDatabase.productDetail() );
+      convenienceSet( ProductDetail::tpnb, descriptionInDatabase.productDetail() );
+      descriptionInDatabase.productDetail().tpncs().addAll( productDetail.tpncs() );
+      convenienceSet( ProductDetail::description, descriptionInDatabase.productDetail() );
+      convenienceSet( ProductDetail::brand, descriptionInDatabase.productDetail() );
 
-      convenienceSet( p -> p.quantityContents().quantity(), description.productDetail() );
-      convenienceSet( p -> p.quantityContents().totalQuantity(), description.productDetail() );
-      convenienceSet( p -> p.quantityContents().quantityUom(), description.productDetail() );
-      convenienceSet( p -> p.quantityContents().netContents(), description.productDetail() );
-      convenienceSet( p -> p.quantityContents().averageMeasure(), description.productDetail() );
+      convenienceSet( p -> p.quantityContents().quantity(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.quantityContents().totalQuantity(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.quantityContents().quantityUom(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.quantityContents().netContents(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.quantityContents().averageMeasure(), descriptionInDatabase.productDetail() );
       
-      convenienceSet( p -> p.characteristics().isFood(), description.productDetail() );
-      convenienceSet( p -> p.characteristics().isDrink(), description.productDetail() );
-      convenienceSet( p -> p.characteristics().healthScore(), description.productDetail() );
-      convenienceSet( p -> p.characteristics().isHazardous(), description.productDetail() );
-      convenienceSet( p -> p.characteristics().storageType(), description.productDetail() );
-      convenienceSet( p -> p.characteristics().isNonLiquidAnalgesic(), description.productDetail() );
-      convenienceSet( p -> p.characteristics().containsLoperamide(), description.productDetail() );
+      characteristicsHandler().applyCharacteristicsTo( descriptionInDatabase.productDetail().characteristics() );
       
       for ( int i = 0; i < productDetail.gdas().size(); i++ ) {
          GuidelineDailyAmountReference parsedGda = productDetail.gdas().get( i );
          GuidelineDailyAmountReference gdaToUpdate = new GuidelineDailyAmountReference();
-         description.productDetail().gdas().add( gdaToUpdate );
+         descriptionInDatabase.productDetail().gdas().add( gdaToUpdate );
          
          gdaToUpdate.headers().addAll( parsedGda.headers() );
          gdaToUpdate.footers().addAll( parsedGda.footers() );
          
          final int gdaIndex = i;
-         convenienceSet( p -> p.gdas().get( gdaIndex ).description(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().energyInKcal(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().energyInKj(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).description(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().energyInKcal(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().amount(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().energyInKj(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().percent(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().energyGda().rating(), descriptionInDatabase.productDetail() );
          
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().amount(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().percent(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().fatGda().rating(), descriptionInDatabase.productDetail() );
          
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().amount(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().percent(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saturatesGda().rating(), descriptionInDatabase.productDetail() );
          
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().amount(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().percent(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().sugarsGda().rating(), descriptionInDatabase.productDetail() );
          
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().amount(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().percent(), description.productDetail() );
-         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().rating(), description.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().amount(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().percent(), descriptionInDatabase.productDetail() );
+         convenienceSet( p -> p.gdas().get( gdaIndex ).gda().saltGda().rating(), descriptionInDatabase.productDetail() );
       }
       
-      convenienceSet( p -> p.nutrition().per100Header(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().perServingHeader(), description.productDetail() );
+      nutritionHandler().applyNutritionTo( descriptionInDatabase.productDetail().nutrition() );
       
-      convenienceSet( p -> p.nutrition().energyInKj().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().energyInKj().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().energyInKj().valuePerServing(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().energyInKcal().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().energyInKcal().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().energyInKcal().valuePerServing(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().fat().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().fat().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().fat().valuePerServing(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().saturates().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().saturates().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().saturates().valuePerServing(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().carbohydrates().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().carbohydrates().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().carbohydrates().valuePerServing(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().sugars().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().sugars().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().sugars().valuePerServing(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().fibre().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().fibre().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().fibre().valuePerServing(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().protein().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().protein().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().protein().valuePerServing(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().salt().name(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().salt().valuePer100(), description.productDetail() );
-      convenienceSet( p -> p.nutrition().salt().valuePerServing(), description.productDetail() );
+      descriptionInDatabase.productDetail().storageInstructions().addAll( productDetail.storageInstructions() );
+      convenienceSet( ProductDetail::marketingTextProperty, descriptionInDatabase.productDetail() );
       
-      description.productDetail().storageInstructions().addAll( productDetail.storageInstructions() );
-      convenienceSet( ProductDetail::marketingTextProperty, description.productDetail() );
-      
-      convenienceSet( p -> p.packageDimensions().number(), description.productDetail() );
-      convenienceSet( p -> p.packageDimensions().height(), description.productDetail() );
-      convenienceSet( p -> p.packageDimensions().width(), description.productDetail() );
-      convenienceSet( p -> p.packageDimensions().depth(), description.productDetail() );
-      convenienceSet( p -> p.packageDimensions().dimensionUom(), description.productDetail() );
-      convenienceSet( p -> p.packageDimensions().weight(), description.productDetail() );
-      convenienceSet( p -> p.packageDimensions().weightUom(), description.productDetail() );
-      convenienceSet( p -> p.packageDimensions().volume(), description.productDetail() );
-      convenienceSet( p -> p.packageDimensions().volumeUom(), description.productDetail() );
+      convenienceSet( p -> p.packageDimensions().number(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.packageDimensions().height(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.packageDimensions().width(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.packageDimensions().depth(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.packageDimensions().dimensionUom(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.packageDimensions().weight(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.packageDimensions().weightUom(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.packageDimensions().volume(), descriptionInDatabase.productDetail() );
+      convenienceSet( p -> p.packageDimensions().volumeUom(), descriptionInDatabase.productDetail() );
    }//End Method
    
    public void startProduct() {
@@ -273,45 +206,9 @@ public class TescoProductDetailModel {
       productDetail.quantityContents().averageMeasure().set( value );
    }//End Method
    
-   public void startProductCharacteristics() {
-      //do nothing
-   }//End Method
-   
-   public void finishProductCharacteristics() {
-      //do nothing
-   }//End Method
-   
-   public void setIsFood( Boolean value ) {
-      productDetail.characteristics().isFood().set( value );
-   }//End Method
-   
-   public void setIsDrink( Boolean value ) {
-      productDetail.characteristics().isDrink().set( value );
-   }//End Method
-   
-   public void setHealthScore( Double value ) {
-      productDetail.characteristics().healthScore().set( value );
-   }//End Method
-   
-   public void setIsHazardous( Boolean value ) {
-      productDetail.characteristics().isHazardous().set( value );
-   }//End Method
-   
-   public void setStorageType( String value ) {
-      productDetail.characteristics().storageType().set( value );
-   }//End Method
-   
-   public void setIsNonLiquidAnalgesic( Boolean value ) {
-      productDetail.characteristics().isNonLiquidAnalgesic().set( value );
-   }//End Method
-   
-   public void setContainsLoperamide( Boolean value ) {
-      productDetail.characteristics().containsLoperamide().set( value );
-   }//End Method
-   
    public void startGdas() {
       currentGdaReference = new GuidelineDailyAmountReference();
-      gdaHandler.setCurrentGdas( currentGdaReference.gda() );
+      gdaHandler().setCurrentGdas( currentGdaReference.gda() );
    }//End Method
    
    public void finishGdas() {
@@ -407,12 +304,16 @@ public class TescoProductDetailModel {
    }//End Method
    
    public void setName( String value ) {
-      gdaHandler.setName( value );
-      nutritionHandler.setName( value );
+      gdaHandler().setName( value );
+      nutritionHandler().setName( value );
    }//End Method
    
    public GdaValuesParsingHandler gdaHandler() {
       return gdaHandler;
+   }//End Method
+   
+   public ProductCharacteristicsParsingHandler characteristicsHandler() {
+      return characteristicsHandler;
    }//End Method
    
    public CalculatedNutritionParsingHandler nutritionHandler() {

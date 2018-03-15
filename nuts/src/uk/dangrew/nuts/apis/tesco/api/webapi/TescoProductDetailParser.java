@@ -11,6 +11,7 @@ import uk.dangrew.jupa.json.parse.handle.type.StringParseHandle;
 import uk.dangrew.nuts.apis.tesco.api.model.TescoProductDetailModel;
 import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
 import uk.dangrew.nuts.apis.tesco.api.parsing.GdaValuesParsingHandler;
+import uk.dangrew.nuts.apis.tesco.api.parsing.ProductCharacteristicsParsingHandler;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 
 public class TescoProductDetailParser extends JsonParser {
@@ -107,6 +108,7 @@ public class TescoProductDetailParser extends JsonParser {
    
    TescoProductDetailParser( TescoProductDetailModel model ) {
       GdaValuesParsingHandler gdaValueParser = model.gdaHandler();
+      ProductCharacteristicsParsingHandler characteristicsParser = model.characteristicsHandler();
       CalculatedNutritionParsingHandler nutritionParser = model.nutritionHandler();
       
       when( REUSED_VALUES, new StringParseHandle( new JsonKeyParseHandler<>( 
@@ -140,16 +142,17 @@ public class TescoProductDetailParser extends JsonParser {
       when( AVERAGE_MEASURE , new StringParseHandle( model::setAverageMeasure ) );
            
       when( PRODUCT_CHARACTERISTICS, new StringParseHandle( new JsonObjectParseHandler<>(  
-               model::startProductCharacteristics, model::finishProductCharacteristics
+               characteristicsParser::startProductCharacteristics, 
+               characteristicsParser::finishProductCharacteristics
       ) ) );
       
-      when( IS_FOOD                  , new BooleanParseHandle( model::setIsFood ) );
-      when( IS_DRINK                 , new BooleanParseHandle( model::setIsDrink ) );
-      when( HEALTH_SCORE             , new DoubleParseHandle( model::setHealthScore ) );
-      when( IS_HAZARDOUS             , new BooleanParseHandle( model::setIsHazardous ) );
-      when( STORAGE_TYPE             , new StringParseHandle( model::setStorageType ) );
-      when( IS_NON_LIQUID_ANALGESIC  , new BooleanParseHandle( model::setIsNonLiquidAnalgesic ) );
-      when( CONTAINS_LOPERAMIDE      , new BooleanParseHandle( model::setContainsLoperamide ) );
+      when( IS_FOOD                  , new BooleanParseHandle( characteristicsParser::setIsFood ) );
+      when( IS_DRINK                 , new BooleanParseHandle( characteristicsParser::setIsDrink ) );
+      when( HEALTH_SCORE             , new DoubleParseHandle( characteristicsParser::setHealthScore ) );
+      when( IS_HAZARDOUS             , new BooleanParseHandle( characteristicsParser::setIsHazardous ) );
+      when( STORAGE_TYPE             , new StringParseHandle( characteristicsParser::setStorageType ) );
+      when( IS_NON_LIQUID_ANALGESIC  , new BooleanParseHandle( characteristicsParser::setIsNonLiquidAnalgesic ) );
+      when( CONTAINS_LOPERAMIDE      , new BooleanParseHandle( characteristicsParser::setContainsLoperamide ) );
            
       when( GUIDELINE_DAILY_AMOUNTS , new StringParseHandle( new JsonObjectParseHandler<>( 
                model::startGdas, model::finishGdas
