@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import uk.dangrew.nuts.apis.tesco.api.parsing.CalculatedNutritionParsingHandler;
 import uk.dangrew.nuts.apis.tesco.api.parsing.GdaValuesParsingHandler;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
+import uk.dangrew.nuts.apis.tesco.graphics.selection.TescoStringParser;
 import uk.dangrew.nuts.apis.tesco.model.api.GuidelineDailyAmountReference;
 import uk.dangrew.nuts.apis.tesco.model.api.ProductDetail;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
@@ -17,6 +18,7 @@ public class TescoProductDetailModel {
    private final ProductDetail productDetail;
    private final GdaValuesParsingHandler gdaHandler;
    private final CalculatedNutritionParsingHandler nutritionHandler;
+   private final TescoStringParser stringParser;
    
    private GuidelineDailyAmountReference currentGdaReference;
    
@@ -25,6 +27,7 @@ public class TescoProductDetailModel {
       this.productDetail = new ProductDetail();
       this.gdaHandler = new GdaValuesParsingHandler();
       this.nutritionHandler = new CalculatedNutritionParsingHandler();
+      this.stringParser = new TescoStringParser();
    }//End Constructor
    
    public void startProductArray() {
@@ -96,9 +99,7 @@ public class TescoProductDetailModel {
    }//End Method
    
    public void finishProductArray() {
-      String tpnb = productDetail.tpnb().get();
-      tpnb = Integer.valueOf( tpnb ).toString();
-      
+      String tpnb = stringParser.removeLeadingZerosFromInteger( productDetail.tpnb().get() );
       TescoFoodDescription description = store.get( tpnb );
       if ( description == null ) {
          description = store.createConcept(  

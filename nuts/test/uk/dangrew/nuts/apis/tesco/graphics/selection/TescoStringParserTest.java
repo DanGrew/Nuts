@@ -177,4 +177,14 @@ public class TescoStringParserTest {
       assertThat( systemUnderTest.isCombinedEnergy( null ), is( false ) );
    }//End Method
    
+   @Test public void shouldParseNumberFromTextRemovingLeadingZeros(){
+      assertThat( systemUnderTest.removeLeadingZerosFromInteger( "007" ), is( "7" ) );
+      assertThat( systemUnderTest.removeLeadingZerosFromInteger( "7" ), is( "7" ) );
+      assertThat( systemUnderTest.removeLeadingZerosFromInteger( "007.002" ), is( "007.002" ) );
+      assertThat( systemUnderTest.removeLeadingZerosFromInteger( "anything" ), is( "anything" ) );
+      assertThat( systemUnderTest.removeLeadingZerosFromInteger( "anything007" ), is( "anything007" ) );
+      assertThat( systemUnderTest.removeLeadingZerosFromInteger( "anything7" ), is( "anything7" ) );
+      assertThat( systemUnderTest.removeLeadingZerosFromInteger( null ), is( nullValue() ) );
+   }//End Method
+   
 }//End Class

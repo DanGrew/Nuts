@@ -139,5 +139,13 @@ public class TescoStringParser {
       
       return string;
    }//End Method
+
+   public String removeLeadingZerosFromInteger( String string ) {
+      try {
+         return Integer.valueOf( string ).toString();
+      } catch ( NumberFormatException exception ) {
+         return string;
+      }
+   }//End Method
    
 }//End Class
