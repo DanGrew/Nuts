@@ -3,691 +3,7 @@
    "id": "ac003adb-30fa-47d6-9a00-96283b47b70a",
    "portions": [
       {
-         "foodId": "de3c984c-f742-4cf7-98fd-501e40fa2291",
-         "portionValue": 0
-      },
-      {
-         "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "64303ce3-d19e-4ed6-b44f-9b59be6ca31d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
-         "portionValue": 100
-      },
-      {
-         "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e17dc19e-a19b-4647-9e1b-58be498ee542",
-         "portionValue": 0
-      },
-      {
-         "foodId": "da8afe9d-dc3f-4296-9e37-48bd6d4b28a2",
-         "portionValue": 0
-      },
-      {
-         "foodId": "11a08090-3b8a-46b1-8efd-732aa4b546fc",
-         "portionValue": 0
-      },
-      {
-         "foodId": "1e68dc89-a717-4ed7-b4b9-653cb7cb1a71",
-         "portionValue": 0
-      },
-      {
-         "foodId": "fbe95d98-216d-4534-be62-df0cc1b0590f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "62ef626f-f15f-4f51-aae4-58e11c1c87e9",
-         "portionValue": 0
-      },
-      {
-         "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-         "portionValue": 0
-      },
-      {
-         "foodId": "30531235-26c5-4a22-bccd-27315ccc741e",
-         "portionValue": 0
-      },
-      {
-         "foodId": "382133bb-eba1-4692-a25e-aea25ee534c1",
-         "portionValue": 0
-      },
-      {
          "foodId": "1b2c1dc1-7020-4003-9f61-aed3f900eaac",
-         "portionValue": 0
-      },
-      {
-         "foodId": "008815b7-c67b-465c-9004-a996ac0e3827",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7bffd233-7880-44c5-a949-a586b7c1f29f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "372bae59-1cd9-4360-bdb3-b850aa955810",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
-         "portionValue": 200
-      },
-      {
-         "foodId": "93f37599-8bf0-4cc0-8f59-28aec3db3a2e",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f701d927-96bd-46b6-a9db-90259104f192",
-         "portionValue": 0
-      },
-      {
-         "foodId": "30990ba4-3c94-4a25-a991-7cec9e3cf3d2",
-         "portionValue": 0
-      },
-      {
-         "foodId": "204990f0-6bc8-4de7-8e40-1335a59b8a95",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ca71c78d-958e-490a-b184-971223817dfa",
-         "portionValue": 0
-      },
-      {
-         "foodId": "daf5df70-0946-4d16-aacd-f11d8620205e",
-         "portionValue": 0
-      },
-      {
-         "foodId": "02ce99af-2cb8-492d-a11c-6bdbc081194c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6a5cf962-cd9e-447b-ad30-e9334f06c4c9",
-         "portionValue": 0
-      },
-      {
-         "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-         "portionValue": 0
-      },
-      {
-         "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c274dee9-d0b2-4af6-9828-6b47ce94d096",
-         "portionValue": 0
-      },
-      {
-         "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
-         "portionValue": 0
-      },
-      {
-         "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
-         "portionValue": 0
-      },
-      {
-         "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
-         "portionValue": 0
-      },
-      {
-         "foodId": "72807440-1b59-4b44-ae3f-2e559ac0fd00",
-         "portionValue": 0
-      },
-      {
-         "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-         "portionValue": 0
-      },
-      {
-         "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "796aba83-f278-4ce8-bdac-f8b4245b3221",
-         "portionValue": 0
-      },
-      {
-         "foodId": "5a68f255-2092-4ff8-a068-d9aec5a97e58",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ad8370c6-97ca-4a10-9c94-67716c5c70c0",
-         "portionValue": 0
-      },
-      {
-         "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
-         "portionValue": 0
-      },
-      {
-         "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-         "portionValue": 0
-      },
-      {
-         "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-         "portionValue": 0
-      },
-      {
-         "foodId": "fc9142f2-7e9a-4c4d-8a84-67ef136a510b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "136d287c-d08f-47e4-aa48-f675b2da20a2",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c44be747-a9cc-4943-bf0b-167b89b13646",
-         "portionValue": 0
-      },
-      {
-         "foodId": "2d878474-0b7c-441d-9c59-71e29221f9f3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6f606511-3499-4712-92da-faa40594ad11",
-         "portionValue": 0
-      },
-      {
-         "foodId": "8f76b1b3-8601-456b-a8ae-9e4552263da8",
-         "portionValue": 0
-      },
-      {
-         "foodId": "44bd1712-53c2-4b4f-bea9-bb762cc87ee8",
-         "portionValue": 0
-      },
-      {
-         "foodId": "06f43c72-8a98-4724-ac56-518fc1d3babe",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4fbf7124-fb94-455e-86e8-9eaa836ab1f3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b5cf3432-a72a-4d3d-9d49-577a4a0f2796",
-         "portionValue": 0
-      },
-      {
-         "foodId": "937d11f4-7b35-434f-9990-1eb5b0be9dfe",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f9bcc6b6-d392-4d17-afe5-ed0b11d757be",
-         "portionValue": 0
-      },
-      {
-         "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f66a1ac6-93dc-4790-88ab-282159f4141d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "25bf44e6-ac70-4e1a-ba79-097618ba6b90",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c2470d90-c2e3-43f5-9930-b64ca041eb4d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "202a886e-5476-4634-a5d6-6f4a57363d09",
-         "portionValue": 0
-      },
-      {
-         "foodId": "62ea16cc-e207-4383-a026-6957007cd5da",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7921d7f7-fa8d-466b-a5fb-c3f92bec091e",
-         "portionValue": 0
-      },
-      {
-         "foodId": "2c2f8a08-8e75-4bbc-8b3b-e4499bf1e2fd",
-         "portionValue": 0
-      },
-      {
-         "foodId": "128c5c55-7d83-46dc-a89e-3f22f0adfe50",
-         "portionValue": 0
-      },
-      {
-         "foodId": "db6127c0-736f-45b4-a3a0-bdbb94ca8737",
-         "portionValue": 0
-      },
-      {
-         "foodId": "12c876dc-2d71-4910-b52d-ee3cf992183e",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "58680bd8-1ce4-437c-8b57-02b5547856ff",
-         "portionValue": 0
-      },
-      {
-         "foodId": "13f6e37f-a363-4902-a5f7-3f8a2b9ecc3a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "33623d5c-c53b-4c70-877c-e1a6388261cb",
-         "portionValue": 0
-      },
-      {
-         "foodId": "25537031-a23f-421b-b991-f80104811537",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f1b67d97-0b96-4c75-9413-a6854d4f8eb7",
-         "portionValue": 0
-      },
-      {
-         "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-         "portionValue": 0
-      },
-      {
-         "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
-         "portionValue": 0
-      },
-      {
-         "foodId": "63a4f8cc-482e-4202-a68b-1516364b294d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6983bed5-ba70-4c56-8133-8937710c8a0a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
-         "portionValue": 0
-      },
-      {
-         "foodId": "0315ab9b-6d5c-4de9-a27f-a6c6242abb79",
-         "portionValue": 0
-      },
-      {
-         "foodId": "3b737010-7e70-495e-99c5-2b9d29d9598c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
-         "portionValue": 0
-      },
-      {
-         "foodId": "a7c80e4b-8b2a-4810-a89c-d1273ebac40d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "40efd720-445c-453c-b0ad-2b427ed7bd69",
-         "portionValue": 0
-      },
-      {
-         "foodId": "dc1cbb9a-f433-48b5-98ab-faf32e6488b0",
-         "portionValue": 0
-      },
-      {
-         "foodId": "a260b804-04c6-425b-9069-2739e0b9e63c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4adf2167-11ad-40d0-8b8e-e81a81ff971f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ad55dc72-8a36-481a-b13e-c9e8296e3a0a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "0b85bb81-8038-4d99-a844-eb93dc26df5f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4cb19977-c124-4de5-9161-e19f2b35f4f7",
-         "portionValue": 0
-      },
-      {
-         "foodId": "da0203e0-1deb-4a5f-9d7c-6d40a1cb393c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "cdfcb7c4-ffb5-447b-91a4-9879a5e67812",
-         "portionValue": 0
-      },
-      {
-         "foodId": "14db1384-4b65-4356-95bf-769305a59e2b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4f211c53-5aa7-49dc-a619-2135c94a58d0",
-         "portionValue": 0
-      },
-      {
-         "foodId": "47e4a99e-f9b8-45da-bd7d-8950af541d3f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
-         "portionValue": 0
-      },
-      {
-         "foodId": "5cec382e-e653-451f-a101-a9cfebbd95cc",
-         "portionValue": 0
-      },
-      {
-         "foodId": "72755484-e77b-4743-be56-cdf113fde4e7",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e5689d20-d244-415e-90f3-ff2e3c68ee9d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
-         "portionValue": 0
-      },
-      {
-         "foodId": "98d49c0f-f691-4844-a2ed-88dffb7197d0",
-         "portionValue": 0
-      },
-      {
-         "foodId": "cb760857-38ac-4202-8916-adabf1eb54a9",
-         "portionValue": 0
-      },
-      {
-         "foodId": "2b897bd8-0502-4b9b-a706-5a6b600a8cae",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4f9ddbd0-7343-48cb-966f-918854767b77",
-         "portionValue": 0
-      },
-      {
-         "foodId": "2c1c545a-c10e-485b-9918-f98f5dc69015",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9c5d1518-d5d6-4280-a40b-9500da07b1e0",
-         "portionValue": 0
-      },
-      {
-         "foodId": "93570b84-e00e-4df1-b1f0-59155c46b25f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "86abfe2a-b2d7-42fb-88f8-cf8d2ec6dada",
-         "portionValue": 0
-      },
-      {
-         "foodId": "5385184f-7332-448c-9dc4-fd2b2f084586",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7c32afff-aa5f-424e-94ca-a027c09407ac",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e6ae3cd8-3548-4bf0-9b79-d2e4c1f7338b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "717655ea-c036-4b52-b13b-060e6baa8866",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
-         "portionValue": 0
-      },
-      {
-         "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
-         "portionValue": 0
-      },
-      {
-         "foodId": "1ca49134-a6ef-4071-8b5e-f7d12fd2e4fd",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4a122978-2051-4487-94f3-e00af1932d3b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "292a50bd-2424-4479-bafa-e6f4f3cc24a6",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b3b5c9cd-7383-4166-8f76-46697d8477d2",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b6fbfa6e-dd62-4e4d-b06b-72e00f754028",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7c8ddcdd-e6ea-49fd-8320-1cd0a81ce100",
-         "portionValue": 0
-      },
-      {
-         "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
-         "portionValue": 0
-      },
-      {
-         "foodId": "60f2a615-ba1e-4b5e-b009-16d0d4089642",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
-         "portionValue": 0
-      },
-      {
-         "foodId": "32800b14-6994-4ec0-a094-e6c1b204c9c4",
-         "portionValue": 0
-      },
-      {
-         "foodId": "95163ca8-8ee0-45d9-9234-311610c02d78",
-         "portionValue": 0
-      },
-      {
-         "foodId": "8ed99288-fc8c-457a-8f94-e785a15cc1fe",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6e31fadd-4f1d-4128-9299-1cda1519814a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "497b2962-7225-4448-9e44-ef9dd9e50134",
-         "portionValue": 0
-      },
-      {
-         "foodId": "47697f0f-8d00-4bf8-a196-6216ad44b938",
-         "portionValue": 0
-      },
-      {
-         "foodId": "47277f97-b2f8-44ee-bb76-a890bd7a4bda",
-         "portionValue": 0
-      },
-      {
-         "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "aa9e464f-79f6-4cb4-ba7f-c39b3cbc36b2",
-         "portionValue": 0
-      },
-      {
-         "foodId": "093c4cce-e195-408b-85af-909a250c7625",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b551ce70-3948-4134-8c5f-27f38ef462b5",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9ce660c9-c66f-406f-89d4-23c6b98def8d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-         "portionValue": 0
-      },
-      {
-         "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4f4c7ca1-4804-4823-b778-150f76e9dc0d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9f3a5f05-d72f-4546-a7ce-070153b8b262",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9543f754-b5ad-4208-8d51-6ae8ddee7010",
-         "portionValue": 0
-      },
-      {
-         "foodId": "2e109bca-90d9-4791-8110-6ca11134206f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "fb4b766a-baae-448f-9892-f15fd010ce9a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "cedf455a-6bfb-45eb-a35b-097b383c58f5",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c600d153-94a5-4d89-a874-7d7e133e88dd",
-         "portionValue": 0
-      },
-      {
-         "foodId": "d2f848cd-97a9-4abc-a9d7-505d0d899396",
-         "portionValue": 0
-      },
-      {
-         "foodId": "bf43c8fd-a07c-4c16-81f9-aae6abccc213",
-         "portionValue": 0
-      },
-      {
-         "foodId": "31d9f4f4-84e5-4e4a-8f7c-09dc50ef152b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "714e2db6-a459-40f7-b256-68d8171856a2",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4f799448-1364-4ac8-a047-4d950565fae9",
-         "portionValue": 0
-      },
-      {
-         "foodId": "bfde2715-8e4c-4bc8-8a76-c81927313538",
-         "portionValue": 0
-      },
-      {
-         "foodId": "bbe7affa-9988-459a-bfd3-61d22168f281",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6af05571-23e3-407e-bb42-d65cfbc95045",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7265ad97-8d0e-4e3c-80cb-c6d120153364",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ab28e4a3-cd1a-41c5-93bb-ce8c105d20c7",
-         "portionValue": 0
-      },
-      {
-         "foodId": "21f55b82-4791-4253-90ea-7574b94a210c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "17ab1ee6-7fb4-4e80-a388-c1afc135c311",
-         "portionValue": 0
-      },
-      {
-         "foodId": "110bf809-2b44-4f14-8b6d-60c5d28b6602",
-         "portionValue": 0
-      },
-      {
-         "foodId": "bf2149c2-b7c1-4ccd-aec1-1f41d0f17869",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4000035b-0c20-471a-9153-76aeb6d26eda",
-         "portionValue": 0
-      },
-      {
-         "foodId": "a555cb46-6962-4bea-b408-173862dc6427",
-         "portionValue": 0
-      },
-      {
-         "foodId": "69cf0e4f-ae96-491a-b5c0-8b79ffa425df",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7515477a-7cac-4fd5-b0b1-657072144845",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c49d1bb2-76be-479f-9414-6d1fa395b8c4",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7635391d-3975-47cf-921e-5edd06c220d0",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f6e0b1fa-354f-40d9-be1c-270c011a306c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "3fb573aa-e708-419a-b9eb-edeeef402bb8",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9b55c0ab-b67e-4edf-a398-34f79426a07f",
-         "portionValue": 0
-      },
-      {
-         "foodId": "90b2468a-45a4-42bb-a659-cfaa1faf7646",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b408cf38-62ec-4915-963e-41923e958c60",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4a45d27b-09bb-4f96-b4e1-28db3cb165e2",
          "portionValue": 0
       },
       {
@@ -695,319 +11,7 @@
          "portionValue": 0
       },
       {
-         "foodId": "aab7c8af-0c46-41df-81c0-bb4469f19991",
-         "portionValue": 0
-      },
-      {
-         "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
-         "portionValue": 0
-      },
-      {
-         "foodId": "bb36c4e8-8a75-4763-a25e-1461bd51f228",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e7716114-4adf-4770-b638-315ca8f9fc6a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "2b4cc1cc-1e50-4876-abaa-98909137a4ec",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b884e592-3891-4924-af5e-7ff47ca6cc49",
-         "portionValue": 0
-      },
-      {
-         "foodId": "d8f31390-3317-4477-a189-33eee04266c8",
-         "portionValue": 0
-      },
-      {
-         "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
-         "portionValue": 0
-      },
-      {
-         "foodId": "3750c935-69af-46e9-9298-7085d02ec7bf",
-         "portionValue": 0
-      },
-      {
-         "foodId": "95f64e61-6420-4b36-b85a-4dfa52d84241",
-         "portionValue": 0
-      },
-      {
-         "foodId": "66778091-f03f-4be9-a124-d1915120876d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ad810e1c-b0ce-4ad9-a4ed-1b2360b51210",
-         "portionValue": 0
-      },
-      {
-         "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-         "portionValue": 0
-      },
-      {
-         "foodId": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
-         "portionValue": 0
-      },
-      {
-         "foodId": "645e15f9-180a-4513-aa16-ce7f642c52cd",
-         "portionValue": 0
-      },
-      {
-         "foodId": "daca222c-88bf-4c56-b532-b66cce0772ae",
-         "portionValue": 0
-      },
-      {
-         "foodId": "24532823-a4bd-444a-8ae2-d1eab6179ff3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ec57dd53-b5d0-4c5e-9319-0254fe820868",
-         "portionValue": 0
-      },
-      {
-         "foodId": "25b9d7de-8d7f-4ab5-85ea-087023d4ed90",
-         "portionValue": 0
-      },
-      {
-         "foodId": "1be48296-f27a-44d8-99c8-150f9d75e450",
-         "portionValue": 0
-      },
-      {
-         "foodId": "20c91d82-fb9c-45f0-885c-e8ac04827e75",
-         "portionValue": 0
-      },
-      {
-         "foodId": "bb18c739-6e93-46a8-9585-87b471c41ef7",
-         "portionValue": 0
-      },
-      {
-         "foodId": "dd129609-cbd8-4420-81ce-74b909b72dd6",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e7b80746-5fab-4fad-a172-5196d1b8b9d0",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6a54db24-d940-4aa8-a38f-0db8aeed2d11",
-         "portionValue": 0
-      },
-      {
-         "foodId": "1af439ec-050b-4719-a4e6-ca3faf62c4d3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "8e794aa8-883f-479d-980c-aa2fe47047b7",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c53eaf9a-94de-404c-9720-e194a242f16f",
-         "portionValue": 0
-      },
-      {
          "foodId": "06f1fa21-7514-4de8-b2d0-ae1391dfdbda",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ab0bf94a-6202-4d82-817a-044d9156f49d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9bcfbf72-8810-4a8c-9b4f-9d0666f1a9a3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e0a9b801-a8dd-4812-a5f6-a6723972c659",
-         "portionValue": 0
-      },
-      {
-         "foodId": "949b7096-441a-4d30-96c9-2e2d0ca1f1b4",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ab5462a4-3ee0-4ced-a9bf-247ce7b54ef3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "24b70103-402e-44ca-ab45-68a27d467346",
-         "portionValue": 0
-      },
-      {
-         "foodId": "60953535-145f-47f2-a286-592ffc061628",
-         "portionValue": 0
-      },
-      {
-         "foodId": "be4c1b41-8eac-48ed-a5d8-d747659a50fa",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f19d8b07-998f-437e-ac52-47132c12929a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9a54c335-7836-4765-83b8-fe9cc661394b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b41fb665-62b1-4caa-bb1c-f8a2c427bbdc",
-         "portionValue": 0
-      },
-      {
-         "foodId": "2fc47522-538f-4c44-943e-63866257d267",
-         "portionValue": 0
-      },
-      {
-         "foodId": "8b877326-70c2-4795-9b47-70373e173f62",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f99f4d94-630a-4cbe-b4f1-92d66d173c1e",
-         "portionValue": 0
-      },
-      {
-         "foodId": "811ba02f-5d2f-4163-adac-3b80de40e027",
-         "portionValue": 0
-      },
-      {
-         "foodId": "32e5288e-459b-4818-a8ac-4bb950fac859",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
-         "portionValue": 0
-      },
-      {
-         "foodId": "643be751-5956-4e52-9324-d12a191519a6",
-         "portionValue": 0
-      },
-      {
-         "foodId": "313c1be6-8c6a-409b-a98a-a449ee67d7c0",
-         "portionValue": 0
-      },
-      {
-         "foodId": "a2cd09d5-9a89-4ca5-b89c-adc1367c3728",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b47f3188-38c9-463f-b76d-9f5b891e7b13",
-         "portionValue": 0
-      },
-      {
-         "foodId": "fa8c75e2-c36e-4f18-9843-2442d6c7eac5",
-         "portionValue": 0
-      },
-      {
-         "foodId": "001d4ee1-fa56-4041-bcdd-b59fd1c46c0b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "bbc6c185-b0fd-45fc-b0db-98714bf3caef",
-         "portionValue": 0
-      },
-      {
-         "foodId": "5b7d4f9f-5ef1-4d91-993e-60342610fa14",
-         "portionValue": 0
-      },
-      {
-         "foodId": "52b70281-3533-43cc-8aa7-4e13c710b413",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9d992f48-c270-4228-b39b-fab34e4ce1ee",
-         "portionValue": 0
-      },
-      {
-         "foodId": "9c64ecf7-f750-4253-a71d-85c27f605d28",
-         "portionValue": 0
-      },
-      {
-         "foodId": "08f5d4fe-3a52-415f-865e-173899da51d3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b12638bd-e260-4e3a-834c-9caac22154ef",
-         "portionValue": 0
-      },
-      {
-         "foodId": "77bf24dd-c233-4c70-bd8f-942a1f35112d",
-         "portionValue": 0
-      },
-      {
-         "foodId": "85e535c1-1a88-4279-a814-c91a36e76cd1",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6d6ef1b9-c401-45b2-952c-ff9dff943457",
-         "portionValue": 0
-      },
-      {
-         "foodId": "f25158e4-836c-4ac9-964f-f146a3d21d0b",
-         "portionValue": 0
-      },
-      {
-         "foodId": "0581f76a-4067-4535-b9f3-3e126327aa1c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e122657d-45fa-4c21-b82c-91241b2fce0e",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e160d4b8-bc39-403a-a057-c9781520d7c9",
-         "portionValue": 0
-      },
-      {
-         "foodId": "6db26e55-4a64-4e61-ad33-de234e56d480",
-         "portionValue": 0
-      },
-      {
-         "foodId": "ead28dfc-ed65-4185-9067-7ad145c90e2a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7047848e-b0d0-4dd7-a9bb-99eb94a73fef",
-         "portionValue": 0
-      },
-      {
-         "foodId": "579e6691-0451-4069-9f42-557914ca85c9",
-         "portionValue": 0
-      },
-      {
-         "foodId": "262dd8a5-c89e-4a90-9cd8-aa85e59c5a29",
-         "portionValue": 0
-      },
-      {
-         "foodId": "0270e872-43b7-4e84-9032-a9896ede6252",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7ce52ee3-5ccc-4570-957b-e1b389961801",
-         "portionValue": 0
-      },
-      {
-         "foodId": "08837f76-afd9-4ca0-b715-5f1bb384f2fe",
-         "portionValue": 0
-      },
-      {
-         "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
-         "portionValue": 0
-      },
-      {
-         "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
          "portionValue": 0
       },
       {
@@ -1015,11 +19,7 @@
          "portionValue": 0
       },
       {
-         "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
-         "portionValue": 0
-      },
-      {
-         "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+         "foodId": "3ce31af9-07e8-4a26-b00d-83486fd35f75",
          "portionValue": 0
       },
       {
@@ -1027,11 +27,51 @@
          "portionValue": 0
       },
       {
-         "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
+         "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
          "portionValue": 0
       },
       {
-         "foodId": "bff3cfa2-116d-4684-9ba4-dba2b9c07b75",
+         "foodId": "3fb573aa-e708-419a-b9eb-edeeef402bb8",
+         "portionValue": 0
+      },
+      {
+         "foodId": "64303ce3-d19e-4ed6-b44f-9b59be6ca31d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "898c2ac7-5a6f-4df1-8567-bf6e3eb64d50",
+         "portionValue": 0
+      },
+      {
+         "foodId": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "25537031-a23f-421b-b991-f80104811537",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7157f3d0-f279-4bee-b24f-0987d0e913f2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "30990ba4-3c94-4a25-a991-7cec9e3cf3d2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "db6127c0-736f-45b4-a3a0-bdbb94ca8737",
+         "portionValue": 0
+      },
+      {
+         "foodId": "dd129609-cbd8-4420-81ce-74b909b72dd6",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b884e592-3891-4924-af5e-7ff47ca6cc49",
+         "portionValue": 0
+      },
+      {
+         "foodId": "06f43c72-8a98-4724-ac56-518fc1d3babe",
          "portionValue": 0
       },
       {
@@ -1039,11 +79,95 @@
          "portionValue": 0
       },
       {
-         "foodId": "283160b3-0677-48ca-b881-f7782e8a53c2",
+         "foodId": "0581f76a-4067-4535-b9f3-3e126327aa1c",
          "portionValue": 0
       },
       {
-         "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+         "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e558df90-9705-4d5d-91a7-d91d1d8cc16d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "bb18c739-6e93-46a8-9585-87b471c41ef7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9bcfbf72-8810-4a8c-9b4f-9d0666f1a9a3",
+         "portionValue": 0
+      },
+      {
+         "foodId": "3750c935-69af-46e9-9298-7085d02ec7bf",
+         "portionValue": 0
+      },
+      {
+         "foodId": "24532823-a4bd-444a-8ae2-d1eab6179ff3",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e7716114-4adf-4770-b638-315ca8f9fc6a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6dd04ef3-932c-4253-9f67-34070a3b0ad7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c06d4395-0367-4aed-a2e6-15c2061c0b0a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "62ef626f-f15f-4f51-aae4-58e11c1c87e9",
+         "portionValue": 0
+      },
+      {
+         "foodId": "11a08090-3b8a-46b1-8efd-732aa4b546fc",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f1b67d97-0b96-4c75-9413-a6854d4f8eb7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ad8370c6-97ca-4a10-9c94-67716c5c70c0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "2d878474-0b7c-441d-9c59-71e29221f9f3",
+         "portionValue": 0
+      },
+      {
+         "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
+         "portionValue": 0
+      },
+      {
+         "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+         "portionValue": 0
+      },
+      {
+         "foodId": "382133bb-eba1-4692-a25e-aea25ee534c1",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6a54db24-d940-4aa8-a38f-0db8aeed2d11",
+         "portionValue": 0
+      },
+      {
+         "foodId": "40efd720-445c-453c-b0ad-2b427ed7bd69",
+         "portionValue": 0
+      },
+      {
+         "foodId": "47e4a99e-f9b8-45da-bd7d-8950af541d3f",
          "portionValue": 0
       },
       {
@@ -1051,11 +175,75 @@
          "portionValue": 0
       },
       {
-         "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+         "foodId": "fa8c75e2-c36e-4f18-9843-2442d6c7eac5",
          "portionValue": 0
       },
       {
-         "foodId": "91d9afe3-2453-43df-9d97-9277bcce6167",
+         "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ca71c78d-958e-490a-b184-971223817dfa",
+         "portionValue": 0
+      },
+      {
+         "foodId": "497b2962-7225-4448-9e44-ef9dd9e50134",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7c8ddcdd-e6ea-49fd-8320-1cd0a81ce100",
+         "portionValue": 0
+      },
+      {
+         "foodId": "32e5288e-459b-4818-a8ac-4bb950fac859",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9c758ea2-3f1c-4884-81ab-7c25a1a3e441",
+         "portionValue": 0
+      },
+      {
+         "foodId": "62f0cc0b-ee6a-4aa3-b5b4-9b1032506b8c",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e122657d-45fa-4c21-b82c-91241b2fce0e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "daf5df70-0946-4d16-aacd-f11d8620205e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "8f76b1b3-8601-456b-a8ae-9e4552263da8",
+         "portionValue": 0
+      },
+      {
+         "foodId": "fb4b766a-baae-448f-9892-f15fd010ce9a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
+         "portionValue": 0
+      },
+      {
+         "foodId": "bf2149c2-b7c1-4ccd-aec1-1f41d0f17869",
+         "portionValue": 0
+      },
+      {
+         "foodId": "23889b9d-6ad8-48d9-8f73-f91e858719a8",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6e31fadd-4f1d-4128-9299-1cda1519814a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4f4c7ca1-4804-4823-b778-150f76e9dc0d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
          "portionValue": 0
       },
       {
@@ -1063,15 +251,495 @@
          "portionValue": 0
       },
       {
+         "foodId": "4000035b-0c20-471a-9153-76aeb6d26eda",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6db26e55-4a64-4e61-ad33-de234e56d480",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "110bf809-2b44-4f14-8b6d-60c5d28b6602",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c53eaf9a-94de-404c-9720-e194a242f16f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "daca222c-88bf-4c56-b532-b66cce0772ae",
+         "portionValue": 0
+      },
+      {
+         "foodId": "202a886e-5476-4634-a5d6-6f4a57363d09",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c2470d90-c2e3-43f5-9930-b64ca041eb4d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "25bf44e6-ac70-4e1a-ba79-097618ba6b90",
+         "portionValue": 0
+      },
+      {
+         "foodId": "12c876dc-2d71-4910-b52d-ee3cf992183e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4adf2167-11ad-40d0-8b8e-e81a81ff971f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "95f64e61-6420-4b36-b85a-4dfa52d84241",
+         "portionValue": 0
+      },
+      {
+         "foodId": "2e109bca-90d9-4791-8110-6ca11134206f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b41fb665-62b1-4caa-bb1c-f8a2c427bbdc",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e6ae3cd8-3548-4bf0-9b79-d2e4c1f7338b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4f9ddbd0-7343-48cb-966f-918854767b77",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
+         "portionValue": 0
+      },
+      {
+         "foodId": "cb760857-38ac-4202-8916-adabf1eb54a9",
+         "portionValue": 0
+      },
+      {
+         "foodId": "dc1cbb9a-f433-48b5-98ab-faf32e6488b0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "21f55b82-4791-4253-90ea-7574b94a210c",
+         "portionValue": 0
+      },
+      {
+         "foodId": "47277f97-b2f8-44ee-bb76-a890bd7a4bda",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6a5cf962-cd9e-447b-ad30-e9334f06c4c9",
+         "portionValue": 0
+      },
+      {
+         "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7635391d-3975-47cf-921e-5edd06c220d0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b90aea1d-bc41-4be0-8caf-86b4f22a620e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "1b78c2c1-2bfd-4cb4-806f-addc3db9a7b4",
+         "portionValue": 0
+      },
+      {
+         "foodId": "8e794aa8-883f-479d-980c-aa2fe47047b7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "91d9afe3-2453-43df-9d97-9277bcce6167",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c49d1bb2-76be-479f-9414-6d1fa395b8c4",
+         "portionValue": 0
+      },
+      {
+         "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
+         "portionValue": 0
+      },
+      {
+         "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
+         "portionValue": 0
+      },
+      {
+         "foodId": "aab7c8af-0c46-41df-81c0-bb4469f19991",
+         "portionValue": 0
+      },
+      {
          "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
          "portionValue": 0
       },
       {
-         "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
+         "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
          "portionValue": 0
       },
       {
-         "foodId": "059e3fe6-8a66-4736-b5b5-e2e982aaf123",
+         "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+         "portionValue": 0
+      },
+      {
+         "foodId": "52b70281-3533-43cc-8aa7-4e13c710b413",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9c64ecf7-f750-4253-a71d-85c27f605d28",
+         "portionValue": 0
+      },
+      {
+         "foodId": "5b7d4f9f-5ef1-4d91-993e-60342610fa14",
+         "portionValue": 0
+      },
+      {
+         "foodId": "20c91d82-fb9c-45f0-885c-e8ac04827e75",
+         "portionValue": 0
+      },
+      {
+         "foodId": "1be48296-f27a-44d8-99c8-150f9d75e450",
+         "portionValue": 0
+      },
+      {
+         "foodId": "aa9e464f-79f6-4cb4-ba7f-c39b3cbc36b2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
+         "portionValue": 0
+      },
+      {
+         "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
+         "portionValue": 0
+      },
+      {
+         "foodId": "0315ab9b-6d5c-4de9-a27f-a6c6242abb79",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6af05571-23e3-407e-bb42-d65cfbc95045",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f701d927-96bd-46b6-a9db-90259104f192",
+         "portionValue": 0
+      },
+      {
+         "foodId": "93570b84-e00e-4df1-b1f0-59155c46b25f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "d8f31390-3317-4477-a189-33eee04266c8",
+         "portionValue": 0
+      },
+      {
+         "foodId": "90b2468a-45a4-42bb-a659-cfaa1faf7646",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7047848e-b0d0-4dd7-a9bb-99eb94a73fef",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e160d4b8-bc39-403a-a057-c9781520d7c9",
+         "portionValue": 0
+      },
+      {
+         "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
+         "portionValue": 0
+      },
+      {
+         "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "de3c984c-f742-4cf7-98fd-501e40fa2291",
+         "portionValue": 0
+      },
+      {
+         "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "262dd8a5-c89e-4a90-9cd8-aa85e59c5a29",
+         "portionValue": 0
+      },
+      {
+         "foodId": "2fc47522-538f-4c44-943e-63866257d267",
+         "portionValue": 0
+      },
+      {
+         "foodId": "136d287c-d08f-47e4-aa48-f675b2da20a2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7bffd233-7880-44c5-a949-a586b7c1f29f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "937d11f4-7b35-434f-9990-1eb5b0be9dfe",
+         "portionValue": 0
+      },
+      {
+         "foodId": "a7c80e4b-8b2a-4810-a89c-d1273ebac40d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b5cf3432-a72a-4d3d-9d49-577a4a0f2796",
+         "portionValue": 0
+      },
+      {
+         "foodId": "da8afe9d-dc3f-4296-9e37-48bd6d4b28a2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "372bae59-1cd9-4360-bdb3-b850aa955810",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+         "portionValue": 0
+      },
+      {
+         "foodId": "a2cd09d5-9a89-4ca5-b89c-adc1367c3728",
+         "portionValue": 0
+      },
+      {
+         "foodId": "001d4ee1-fa56-4041-bcdd-b59fd1c46c0b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f99f4d94-630a-4cbe-b4f1-92d66d173c1e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "643be751-5956-4e52-9324-d12a191519a6",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ead28dfc-ed65-4185-9067-7ad145c90e2a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "2c1c545a-c10e-485b-9918-f98f5dc69015",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9ce660c9-c66f-406f-89d4-23c6b98def8d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "fbe95d98-216d-4534-be62-df0cc1b0590f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9543f754-b5ad-4208-8d51-6ae8ddee7010",
+         "portionValue": 0
+      },
+      {
+         "foodId": "44bd1712-53c2-4b4f-bea9-bb762cc87ee8",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c600d153-94a5-4d89-a874-7d7e133e88dd",
+         "portionValue": 0
+      },
+      {
+         "foodId": "fc9142f2-7e9a-4c4d-8a84-67ef136a510b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "08f5d4fe-3a52-415f-865e-173899da51d3",
+         "portionValue": 0
+      },
+      {
+         "foodId": "bff3cfa2-116d-4684-9ba4-dba2b9c07b75",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7921d7f7-fa8d-466b-a5fb-c3f92bec091e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "949b7096-441a-4d30-96c9-2e2d0ca1f1b4",
+         "portionValue": 0
+      },
+      {
+         "foodId": "714e2db6-a459-40f7-b256-68d8171856a2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b408cf38-62ec-4915-963e-41923e958c60",
+         "portionValue": 0
+      },
+      {
+         "foodId": "66778091-f03f-4be9-a124-d1915120876d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b551ce70-3948-4134-8c5f-27f38ef462b5",
+         "portionValue": 0
+      },
+      {
+         "foodId": "bb36c4e8-8a75-4763-a25e-1461bd51f228",
+         "portionValue": 0
+      },
+      {
+         "foodId": "02ce99af-2cb8-492d-a11c-6bdbc081194c",
+         "portionValue": 0
+      },
+      {
+         "foodId": "47697f0f-8d00-4bf8-a196-6216ad44b938",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b6fbfa6e-dd62-4e4d-b06b-72e00f754028",
+         "portionValue": 0
+      },
+      {
+         "foodId": "313c1be6-8c6a-409b-a98a-a449ee67d7c0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b12638bd-e260-4e3a-834c-9caac22154ef",
+         "portionValue": 0
+      },
+      {
+         "foodId": "8e025392-8f94-4a0e-87bd-73af37cad86e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "72755484-e77b-4743-be56-cdf113fde4e7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f6e0b1fa-354f-40d9-be1c-270c011a306c",
+         "portionValue": 0
+      },
+      {
+         "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4cb19977-c124-4de5-9161-e19f2b35f4f7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9b55c0ab-b67e-4edf-a398-34f79426a07f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "a824158e-35b2-4610-9b23-cb36e8674df5",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f66a1ac6-93dc-4790-88ab-282159f4141d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "86abfe2a-b2d7-42fb-88f8-cf8d2ec6dada",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4a45d27b-09bb-4f96-b4e1-28db3cb165e2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
+         "portionValue": 0
+      },
+      {
+         "foodId": "0b85bb81-8038-4d99-a844-eb93dc26df5f",
+         "portionValue": 0
+      },
+      {
+         "foodId": "cedf455a-6bfb-45eb-a35b-097b383c58f5",
+         "portionValue": 0
+      },
+      {
+         "foodId": "717655ea-c036-4b52-b13b-060e6baa8866",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
+         "portionValue": 200
+      },
+      {
+         "foodId": "6d6ef1b9-c401-45b2-952c-ff9dff943457",
+         "portionValue": 0
+      },
+      {
+         "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+         "portionValue": 0
+      },
+      {
+         "foodId": "128c5c55-7d83-46dc-a89e-3f22f0adfe50",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9d992f48-c270-4228-b39b-fab34e4ce1ee",
+         "portionValue": 0
+      },
+      {
+         "foodId": "292a50bd-2424-4479-bafa-e6f4f3cc24a6",
+         "portionValue": 0
+      },
+      {
+         "foodId": "1ca49134-a6ef-4071-8b5e-f7d12fd2e4fd",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b3b5c9cd-7383-4166-8f76-46697d8477d2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4a122978-2051-4487-94f3-e00af1932d3b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "33623d5c-c53b-4c70-877c-e1a6388261cb",
+         "portionValue": 0
+      },
+      {
+         "foodId": "31d9f4f4-84e5-4e4a-8f7c-09dc50ef152b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "14db1384-4b65-4356-95bf-769305a59e2b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
          "portionValue": 0
       },
       {
@@ -1083,11 +751,11 @@
          "portionValue": 0
       },
       {
-         "foodId": "898c2ac7-5a6f-4df1-8567-bf6e3eb64d50",
+         "foodId": "d2f848cd-97a9-4abc-a9d7-505d0d899396",
          "portionValue": 0
       },
       {
-         "foodId": "62f0cc0b-ee6a-4aa3-b5b4-9b1032506b8c",
+         "foodId": "ec57dd53-b5d0-4c5e-9319-0254fe820868",
          "portionValue": 0
       },
       {
@@ -1095,11 +763,23 @@
          "portionValue": 0
       },
       {
-         "foodId": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
+         "foodId": "811ba02f-5d2f-4163-adac-3b80de40e027",
          "portionValue": 0
       },
       {
-         "foodId": "23889b9d-6ad8-48d9-8f73-f91e858719a8",
+         "foodId": "bfde2715-8e4c-4bc8-8a76-c81927313538",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "69cf0e4f-ae96-491a-b5c0-8b79ffa425df",
+         "portionValue": 0
+      },
+      {
+         "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
          "portionValue": 0
       },
       {
@@ -1107,27 +787,79 @@
          "portionValue": 0
       },
       {
-         "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+         "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
          "portionValue": 0
       },
       {
-         "foodId": "8e025392-8f94-4a0e-87bd-73af37cad86e",
+         "foodId": "13f6e37f-a363-4902-a5f7-3f8a2b9ecc3a",
          "portionValue": 0
       },
       {
-         "foodId": "a824158e-35b2-4610-9b23-cb36e8674df5",
+         "foodId": "32800b14-6994-4ec0-a094-e6c1b204c9c4",
          "portionValue": 0
       },
       {
-         "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
+         "foodId": "1af439ec-050b-4719-a4e6-ca3faf62c4d3",
          "portionValue": 0
       },
       {
-         "foodId": "8e457881-5430-4783-894e-c3a1a5e317d2",
+         "foodId": "bbe7affa-9988-459a-bfd3-61d22168f281",
          "portionValue": 0
       },
       {
-         "foodId": "9c758ea2-3f1c-4884-81ab-7c25a1a3e441",
+         "foodId": "cdfcb7c4-ffb5-447b-91a4-9879a5e67812",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f9bcc6b6-d392-4d17-afe5-ed0b11d757be",
+         "portionValue": 0
+      },
+      {
+         "foodId": "a555cb46-6962-4bea-b408-173862dc6427",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4fbf7124-fb94-455e-86e8-9eaa836ab1f3",
+         "portionValue": 0
+      },
+      {
+         "foodId": "60f2a615-ba1e-4b5e-b009-16d0d4089642",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7c32afff-aa5f-424e-94ca-a027c09407ac",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6f606511-3499-4712-92da-faa40594ad11",
+         "portionValue": 0
+      },
+      {
+         "foodId": "645e15f9-180a-4513-aa16-ce7f642c52cd",
+         "portionValue": 0
+      },
+      {
+         "foodId": "bbc6c185-b0fd-45fc-b0db-98714bf3caef",
+         "portionValue": 0
+      },
+      {
+         "foodId": "21224fdc-7444-465e-a425-e4423c935d3d",
+         "portionValue": 100
+      },
+      {
+         "foodId": "e17dc19e-a19b-4647-9e1b-58be498ee542",
+         "portionValue": 0
+      },
+      {
+         "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ab0bf94a-6202-4d82-817a-044d9156f49d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7ce52ee3-5ccc-4570-957b-e1b389961801",
          "portionValue": 0
       },
       {
@@ -1135,11 +867,243 @@
          "portionValue": 0
       },
       {
-         "foodId": "7157f3d0-f279-4bee-b24f-0987d0e913f2",
+         "foodId": "97903714-a714-4b22-ab0b-16e3e10b2a86",
          "portionValue": 0
       },
       {
-         "foodId": "3ce31af9-07e8-4a26-b00d-83486fd35f75",
+         "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+         "portionValue": 0
+      },
+      {
+         "foodId": "63a4f8cc-482e-4202-a68b-1516364b294d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e5689d20-d244-415e-90f3-ff2e3c68ee9d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6983bed5-ba70-4c56-8133-8937710c8a0a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "98d49c0f-f691-4844-a2ed-88dffb7197d0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "2c68ef1b-608d-48b6-98a0-c33b513dc1d8",
+         "portionValue": 0
+      },
+      {
+         "foodId": "85e535c1-1a88-4279-a814-c91a36e76cd1",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ad810e1c-b0ce-4ad9-a4ed-1b2360b51210",
+         "portionValue": 0
+      },
+      {
+         "foodId": "0270e872-43b7-4e84-9032-a9896ede6252",
+         "portionValue": 0
+      },
+      {
+         "foodId": "24b70103-402e-44ca-ab45-68a27d467346",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ab5462a4-3ee0-4ced-a9bf-247ce7b54ef3",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ab28e4a3-cd1a-41c5-93bb-ce8c105d20c7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7265ad97-8d0e-4e3c-80cb-c6d120153364",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
+         "portionValue": 0
+      },
+      {
+         "foodId": "579e6691-0451-4069-9f42-557914ca85c9",
+         "portionValue": 0
+      },
+      {
+         "foodId": "093c4cce-e195-408b-85af-909a250c7625",
+         "portionValue": 0
+      },
+      {
+         "foodId": "60953535-145f-47f2-a286-592ffc061628",
+         "portionValue": 0
+      },
+      {
+         "foodId": "283160b3-0677-48ca-b881-f7782e8a53c2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
+         "portionValue": 0
+      },
+      {
+         "foodId": "da0203e0-1deb-4a5f-9d7c-6d40a1cb393c",
+         "portionValue": 0
+      },
+      {
+         "foodId": "7515477a-7cac-4fd5-b0b1-657072144845",
+         "portionValue": 0
+      },
+      {
+         "foodId": "58680bd8-1ce4-437c-8b57-02b5547856ff",
+         "portionValue": 0
+      },
+      {
+         "foodId": "30531235-26c5-4a22-bccd-27315ccc741e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "25b9d7de-8d7f-4ab5-85ea-087023d4ed90",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9a54c335-7836-4765-83b8-fe9cc661394b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "8e457881-5430-4783-894e-c3a1a5e317d2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "17ab1ee6-7fb4-4e80-a388-c1afc135c311",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9f3a5f05-d72f-4546-a7ce-070153b8b262",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e7b80746-5fab-4fad-a172-5196d1b8b9d0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4f211c53-5aa7-49dc-a619-2135c94a58d0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "9c5d1518-d5d6-4280-a40b-9500da07b1e0",
+         "portionValue": 0
+      },
+      {
+         "foodId": "08837f76-afd9-4ca0-b715-5f1bb384f2fe",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f25158e4-836c-4ac9-964f-f146a3d21d0b",
+         "portionValue": 0
+      },
+      {
+         "foodId": "77bf24dd-c233-4c70-bd8f-942a1f35112d",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+         "portionValue": 0
+      },
+      {
+         "foodId": "204990f0-6bc8-4de7-8e40-1335a59b8a95",
+         "portionValue": 0
+      },
+      {
+         "foodId": "93f37599-8bf0-4cc0-8f59-28aec3db3a2e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b47f3188-38c9-463f-b76d-9f5b891e7b13",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
+         "portionValue": 0
+      },
+      {
+         "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
+         "portionValue": 0
+      },
+      {
+         "foodId": "72807440-1b59-4b44-ae3f-2e559ac0fd00",
+         "portionValue": 0
+      },
+      {
+         "foodId": "ad55dc72-8a36-481a-b13e-c9e8296e3a0a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
+         "portionValue": 0
+      },
+      {
+         "foodId": "059e3fe6-8a66-4736-b5b5-e2e982aaf123",
+         "portionValue": 0
+      },
+      {
+         "foodId": "1e68dc89-a717-4ed7-b4b9-653cb7cb1a71",
+         "portionValue": 0
+      },
+      {
+         "foodId": "bf43c8fd-a07c-4c16-81f9-aae6abccc213",
+         "portionValue": 0
+      },
+      {
+         "foodId": "5385184f-7332-448c-9dc4-fd2b2f084586",
+         "portionValue": 0
+      },
+      {
+         "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
+         "portionValue": 0
+      },
+      {
+         "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e0a9b801-a8dd-4812-a5f6-a6723972c659",
+         "portionValue": 0
+      },
+      {
+         "foodId": "62ea16cc-e207-4383-a026-6957007cd5da",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c44be747-a9cc-4943-bf0b-167b89b13646",
+         "portionValue": 0
+      },
+      {
+         "foodId": "95163ca8-8ee0-45d9-9234-311610c02d78",
+         "portionValue": 0
+      },
+      {
+         "foodId": "8b877326-70c2-4795-9b47-70373e173f62",
+         "portionValue": 0
+      },
+      {
+         "foodId": "5a68f255-2092-4ff8-a068-d9aec5a97e58",
+         "portionValue": 0
+      },
+      {
+         "foodId": "2c2f8a08-8e75-4bbc-8b3b-e4499bf1e2fd",
+         "portionValue": 0
+      },
+      {
+         "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+         "portionValue": 0
+      },
+      {
+         "foodId": "2b4cc1cc-1e50-4876-abaa-98909137a4ec",
          "portionValue": 0
       },
       {
@@ -1147,19 +1111,59 @@
          "portionValue": 0
       },
       {
-         "foodId": "c06d4395-0367-4aed-a2e6-15c2061c0b0a",
+         "foodId": "5cec382e-e653-451f-a101-a9cfebbd95cc",
          "portionValue": 0
       },
       {
-         "foodId": "e558df90-9705-4d5d-91a7-d91d1d8cc16d",
+         "foodId": "2b897bd8-0502-4b9b-a706-5a6b600a8cae",
          "portionValue": 0
       },
       {
-         "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+         "foodId": "a260b804-04c6-425b-9069-2739e0b9e63c",
          "portionValue": 0
       },
       {
-         "foodId": "6dd04ef3-932c-4253-9f67-34070a3b0ad7",
+         "foodId": "796aba83-f278-4ce8-bdac-f8b4245b3221",
+         "portionValue": 0
+      },
+      {
+         "foodId": "c274dee9-d0b2-4af6-9828-6b47ce94d096",
+         "portionValue": 0
+      },
+      {
+         "foodId": "0ddcf019-b3ed-4bd5-90a2-5ca72739faef",
+         "portionValue": 0
+      },
+      {
+         "foodId": "3b737010-7e70-495e-99c5-2b9d29d9598c",
+         "portionValue": 0
+      },
+      {
+         "foodId": "008815b7-c67b-465c-9004-a996ac0e3827",
+         "portionValue": 0
+      },
+      {
+         "foodId": "f19d8b07-998f-437e-ac52-47132c12929a",
+         "portionValue": 0
+      },
+      {
+         "foodId": "6b11e456-aab0-4ab4-beff-7ea8d4929dc4",
+         "portionValue": 0
+      },
+      {
+         "foodId": "00dfaeb8-2dca-4a0e-8038-9ab4839c0985",
+         "portionValue": 0
+      },
+      {
+         "foodId": "8ed99288-fc8c-457a-8f94-e785a15cc1fe",
+         "portionValue": 0
+      },
+      {
+         "foodId": "4f799448-1364-4ac8-a047-4d950565fae9",
+         "portionValue": 0
+      },
+      {
+         "foodId": "be4c1b41-8eac-48ed-a5d8-d747659a50fa",
          "portionValue": 0
       }
    ]

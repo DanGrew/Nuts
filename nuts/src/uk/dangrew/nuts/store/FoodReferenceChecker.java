@@ -28,7 +28,6 @@ public class FoodReferenceChecker {
       findReferencesInStore( database.templates() );
       findReferencesInStore( database.dayPlans() );
       findReferencesInStore( database.shoppingLists() );
-      findReferencesInStore( database.stockLists() );
    }//End Method
    
    private void findReferencesInStore( ConceptStore< ? extends Meal > store ) {

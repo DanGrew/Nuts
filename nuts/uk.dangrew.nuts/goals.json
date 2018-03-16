@@ -210,22 +210,22 @@
    },
    {
       "gender": "Male",
-      "fatPerPound": 1.15,
+      "fatPerPound": 1.1,
       "bmr": 1887.084883296,
       "weight": 182,
       "calorieGoal": 2441.9188366144,
       "calorieDeficit": 200,
-      "carbohydratesGoal": 48.554709153600015,
-      "fatsGoal": 209.29999999999998,
+      "carbohydratesGoal": 50.829709153599936,
+      "fatsGoal": 200.20000000000002,
       "tee": 2641.9188366144,
       "name": "Keto (<50)",
-      "proteinPerPound": 0.5,
+      "proteinPerPound": 0.6,
       "pal": 1.4,
       "id": "03e84328-3d1b-4de5-b043-b48fd40f8ee0",
       "exerciseCalories": 0,
       "age": 29,
       "height": 1.87,
-      "proteinGoal": 91
+      "proteinGoal": 109.2
    },
    {
       "gender": "Male",
@@ -248,21 +248,21 @@
    },
    {
       "gender": "Male",
-      "fatPerPound": 1.22,
+      "fatPerPound": 1.17,
       "bmr": 1887.084883296,
       "weight": 182,
       "calorieGoal": 2441.9188366144,
       "calorieDeficit": 200,
-      "carbohydratesGoal": 19.889709153599995,
-      "fatsGoal": 222.04,
+      "carbohydratesGoal": 20,
+      "fatsGoal": 210,
       "tee": 2641.9188366144,
       "name": "Keto (<20)",
-      "proteinPerPound": 0.5,
+      "proteinPerPound": 0.6,
       "pal": 1.4,
       "id": "a21da23f-1e55-45c9-a19b-e50af4b70bf8",
       "exerciseCalories": 0,
       "age": 29,
       "height": 1.87,
-      "proteinGoal": 91
+      "proteinGoal": 110
    }
 ]}

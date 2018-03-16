@@ -2515,7 +2515,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 1.7,
-      "name": "Soft Cheese (Philadelphia, Full Fat) (30g)",
+      "name": "Soft Cheese (Philadelphia, Full Fat) (30g/1oz)",
       "id": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
       "calories": 70
    },
@@ -2898,5 +2898,15 @@
       "name": "Boswell Farms Beef Mince 500G 20% Fat (100g)",
       "id": "6dd04ef3-932c-4253-9f67-34070a3b0ad7",
       "calories": 252
+   },
+   {
+      "carbohydrates": 0.24,
+      "fats": 7.56,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 9.72,
+      "name": "Tesco Smoked Back Bacon Rashers 300G (60g)",
+      "id": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
+      "calories": 107
    }
 ]}

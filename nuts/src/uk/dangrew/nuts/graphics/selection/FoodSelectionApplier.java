@@ -22,25 +22,26 @@ public class FoodSelectionApplier implements FoodSelectionWindowStageControls {
 
    @Override public void apply( Collection< FoodPortion > selected ) {
       if ( focus != null ) {
-         selected.forEach( this::copyToFoodItems );
-         selected.forEach( p -> focus.portions().add( p.duplicate( "" ) ) );
+         selected.forEach( this::appendToPortions );
       }
       cancel();
    }//End Method
    
-   private void copyToFoodItems( FoodPortion portion ) {
+   private void appendToPortions( FoodPortion portion ) {
       if ( !( portion.food().get() instanceof FoodItem ) ) {
          return;
       }
       
       FoodItem foodItem = ( FoodItem ) portion.food().get();
-      boolean containsItemWithSameName = foodItems.objectList().stream()
-               .anyMatch( f -> f.properties().nameProperty().get().equals( foodItem.properties().nameProperty().get() ) );
-      if ( containsItemWithSameName ) {
-         return;
+      FoodItem databaseItem = foodItems.objectList().stream()
+               .filter( f -> f.properties().nameProperty().get().equals( foodItem.properties().nameProperty().get() ) )
+               .findFirst().orElse( null );
+      if ( databaseItem == null ) {
+         foodItems.store( foodItem );
+         databaseItem = foodItem;
       }
       
-      foodItems.store( foodItem.duplicate( "" ) );
+      focus.portions().add( new FoodPortion( databaseItem, portion.portion().get() ) );
    }//End Method
 
    @Override public void cancel() {

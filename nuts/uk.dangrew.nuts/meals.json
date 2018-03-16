@@ -1792,16 +1792,7 @@
    {
       "name": "Chicken, Bacon, Avocado Sandwich",
       "id": "f35818f5-0be5-41c5-9049-fc6b395646c9",
-      "portions": [
-         {
-            "foodId": "22687ad0-4ab9-4179-a4d6-61c20e715ded",
-            "portionValue": 50
-         },
-         {
-            "foodId": "636e4c4b-310f-4ad9-8b6d-c4016cdb5066",
-            "portionValue": 100
-         }
-      ]
+      "portions": []
    },
    {
       "name": "Chicken, Bacon, Avocado Sandwich Filling",
@@ -1944,6 +1935,58 @@
          {
             "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
             "portionValue": 120
+         }
+      ]
+   },
+   {
+      "name": "Broccoli Cheese Bake",
+      "id": "f5881915-f61c-4c98-8696-aa5f08962f1b",
+      "portions": [
+         {
+            "foodId": "9c758ea2-3f1c-4884-81ab-7c25a1a3e441",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+            "portionValue": 200
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 400
+         },
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7157f3d0-f279-4bee-b24f-0987d0e913f2",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Bacon & Egg Baps (Keto)",
+      "id": "af888641-8765-409e-a8d4-b6154b445afa",
+      "portions": [
+         {
+            "foodId": "243bd375-f32e-4e5a-a159-738a38107d7b",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 20
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+            "portionValue": 30
+         },
+         {
+            "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
+            "portionValue": 200
          }
       ]
    }

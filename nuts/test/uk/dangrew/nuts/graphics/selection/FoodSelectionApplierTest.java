@@ -97,6 +97,10 @@ public class FoodSelectionApplierTest {
       assertThatFoodStoreHasFoodItem( portion1.food().get() );
       assertThatFoodStoreHasFoodItem( portion2.food().get() );
       assertThatFoodStoreHasFoodItem( portion3.food().get() );
+      
+      assertThat( focus.portions().get( 0 ).food().get(), is( foodItems.objectList().get( 0 ) ) );
+      assertThat( focus.portions().get( 1 ).food().get(), is( foodItems.objectList().get( 1 ) ) );
+      assertThat( focus.portions().get( 2 ).food().get(), is( foodItems.objectList().get( 2 ) ) );
    }//End Method
    
    @Test public void shouldNotDuplicateFoodWithSameExactName(){
@@ -111,6 +115,10 @@ public class FoodSelectionApplierTest {
       assertThatFoodStoreHasFoodItem( portion1.food().get() );
       assertThatFoodStoreHasFoodItem( portion2.food().get() );
       assertThatFoodStoreHasFoodItem( portion3.food().get() );
+      
+      assertThat( focus.portions().get( 0 ).food().get(), is( foodItems.objectList().get( 1 ) ) );
+      assertThat( focus.portions().get( 1 ).food().get(), is( foodItems.objectList().get( 0 ) ) );
+      assertThat( focus.portions().get( 2 ).food().get(), is( foodItems.objectList().get( 2 ) ) );
    }//End Method
    
    private void assertThatFoodStoreHasFoodItem( Food item ) {
