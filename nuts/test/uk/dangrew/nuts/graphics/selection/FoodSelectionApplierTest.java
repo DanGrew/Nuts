@@ -133,6 +133,8 @@ public class FoodSelectionApplierTest {
       FoodPortion portion = new FoodPortion( new Meal( "Meal" ), 100 );
       systemUnderTest.apply( Arrays.asList( portion ) );
       assertThat( foodItems.objectList(), is( empty() ) );
+      assertThat( focus.portions().get( 0 ).food().get(), is( portion.food().get() ) );
+      assertThat( focus.portions().get( 0 ).portion().get(), is( portion.portion().get() ) );
    }//End Method
-
+   
 }//End Class

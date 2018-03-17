@@ -29,6 +29,7 @@ public class FoodSelectionApplier implements FoodSelectionWindowStageControls {
    
    private void appendToPortions( FoodPortion portion ) {
       if ( !( portion.food().get() instanceof FoodItem ) ) {
+         focus.portions().add( new FoodPortion( portion.food().get() , portion.portion().get() ) );
          return;
       }
       
