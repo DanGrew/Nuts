@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.apis.tesco.api.parsing;
 
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -27,10 +28,10 @@ public class ModelUpdaterTest {
    }//End Method
 
    @Test public void shouldAddFromOnePropertyToAnother() {
+      assertThat( updateTo.characteristics().isFood().get(), is( nullValue() ) );
       updateFrom.characteristics().isFood().set( true );
-      
-      assertThat( updateTo.characteristics().isFood().get(), is( false ) );
       systemUnderTest.set( p -> p.characteristics().isFood(), updateTo );
+      assertThat( updateTo.characteristics().isFood().get(), is( true ) );
    }//End Method
 
 }//End Class
