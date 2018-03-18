@@ -2938,5 +2938,25 @@
       "name": "Counter German Salami (100g)",
       "id": "59ed1a9c-c8ad-463c-bd80-4443a248ef87",
       "calories": 309
+   },
+   {
+      "carbohydrates": 1.6,
+      "fats": 15,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1,
+      "name": "Pride Coconut Milk 400Ml (100ml)",
+      "id": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+      "calories": 142
+   },
+   {
+      "carbohydrates": 0.48,
+      "fats": 15.15,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.45,
+      "name": "Tesco British Extra Thick Double Cream 300Ml (30ml)",
+      "id": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+      "calories": 140
    }
 ]}

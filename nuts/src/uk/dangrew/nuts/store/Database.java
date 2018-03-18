@@ -11,6 +11,7 @@ package uk.dangrew.nuts.store;
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.progress.WeightProgress;
 import uk.dangrew.nuts.stock.StockStore;
@@ -30,6 +31,7 @@ public class Database {
    private final DayPlanStore dayPlans;
    private final MealStore shoppingLists;
    private final StockStore stockLists;
+   private final LabelStore labels;
    
    /**
     * Constructs a new {@link Database}.
@@ -43,6 +45,7 @@ public class Database {
       this.dayPlans = new DayPlanStore();
       this.shoppingLists = new MealStore();
       this.stockLists = new StockStore();
+      this.labels = new LabelStore();
    }//End Constructor
    
    /**
@@ -106,6 +109,10 @@ public class Database {
 
    public StockStore stockLists() {
       return stockLists;
+   }//End Method
+
+   public LabelStore labels() {
+      return labels;
    }//End Method
    
 }//End Class

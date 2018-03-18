@@ -3,6 +3,9 @@ package uk.dangrew.nuts.graphics.label;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.comparator.Comparators;
@@ -23,11 +26,11 @@ public class UiLabelController {
    private final ObservableList< Concept > publicSelectedLabelConcepts;
    
    private final FunctionListChangeListenerImpl< Concept > labelListener;
+   private final ObjectProperty< Label > selectedLabel;
    
    private ObservableList< Concept > labelLiveSelection;
    private ObservableList< Concept > databaseLiveSelection;
    
-   private Label selectedLabel;
    private Labelables selectedLabelable;
    
    public UiLabelController( Database database ) {
@@ -36,6 +39,7 @@ public class UiLabelController {
       this.privateSelectedLabelConcepts = FXCollections.observableArrayList();
       this.publicSelectedDatabaseConcepts = new PrivatelyModifiableObservableListImpl<>( privateSelectedDatabaseConcepts );
       this.publicSelectedLabelConcepts = new PrivatelyModifiableObservableListImpl<>( privateSelectedLabelConcepts );
+      this.selectedLabel = new SimpleObjectProperty<>();
       this.labelListener = new FunctionListChangeListenerImpl<>( c -> refreshSelection(), c -> refreshSelection() );
    }//End Constructor
    
@@ -48,26 +52,30 @@ public class UiLabelController {
    }//End Method
    
    private void refreshSelection(){
-      selectLabel( selectedLabel );
+      selectLabel( selectedLabel.get() );
+   }//End Method
+   
+   public ReadOnlyObjectProperty< Label > selectedLabel() {
+      return selectedLabel;
    }//End Method
    
    public void selectLabel( Label label ) {
       privateSelectedLabelConcepts.clear();
-      if ( selectedLabel != null ) {
-         selectedLabel.concepts().removeListener( labelListener );
+      if ( selectedLabel.get() != null ) {
+         selectedLabel.get().concepts().removeListener( labelListener );
       }
       
-      selectedLabel = label;
-      if ( selectedLabel != null ) {
-         selectedLabel.concepts().addListener( labelListener );
+      selectedLabel.set( label );
+      if ( selectedLabel.get() != null ) {
+         selectedLabel.get().concepts().addListener( labelListener );
       }
       selectLabelable( selectedLabelable );
       
-      if ( selectedLabel == null ) {
+      if ( selectedLabel.get() == null ) {
          return;
       }
       
-      privateSelectedLabelConcepts.addAll( selectedLabel.concepts() );
+      privateSelectedLabelConcepts.addAll( selectedLabel.get().concepts() );
       sort( privateSelectedLabelConcepts );
    }//End Method
    
@@ -88,8 +96,8 @@ public class UiLabelController {
       }
       
       List< Concept > databaseConcepts = new ArrayList<>( labelable.redirect( database ).objectList() );
-      if ( selectedLabel != null ) {
-         databaseConcepts.removeIf( c -> selectedLabel.concepts().contains( c ) );
+      if ( selectedLabel.get() != null ) {
+         databaseConcepts.removeIf( c -> selectedLabel.get().concepts().contains( c ) );
       }
       
       privateSelectedDatabaseConcepts.addAll( databaseConcepts );
@@ -101,19 +109,43 @@ public class UiLabelController {
    }//End Method
    
    public void removeFromLabel() {
-      if ( selectedLabel == null ) {
+      if ( selectedLabel.get() == null ) {
          return;
       }
       
-      selectedLabel.concepts().removeAll( labelLiveSelection );
+      selectedLabel.get().concepts().removeAll( labelLiveSelection );
    }//End Method
 
    public void addToLabel() {
-      if ( selectedLabel == null ) {
+      if ( selectedLabel.get() == null ) {
          return;
       }
       
-      selectedLabel.concepts().addAll( databaseLiveSelection );
+      selectedLabel.get().concepts().addAll( databaseLiveSelection );
    }//End Method
 
+   public void changeName( String text ) {
+      if ( selectedLabel.get() == null || text.trim().isEmpty() ) {
+         return;
+      }
+      
+      selectedLabel.get().properties().nameProperty().set( text );
+   }//End Method
+
+   public void createLabel( String text ) {
+      if ( text.trim().isEmpty() ) {
+         return;
+      }
+      
+      Label label = database.labels().createConcept( text );
+      selectLabel( label );
+   }//End Method
+
+   public void deleteLabel() {
+      if ( selectedLabel.get() == null ) {
+         return;
+      }
+      database.labels().removeConcept( selectedLabel.get() );
+      selectLabel( null );
+   }//End Method
 }//End Class

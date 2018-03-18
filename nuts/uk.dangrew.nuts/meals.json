@@ -2023,5 +2023,51 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "name": "Coconut Cream Pie",
+      "id": "6e868156-3681-4e6d-91f6-277d302a17c3",
+      "portions": [
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 45
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 60
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 400
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 500
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 22.5
+         },
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 50
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 500
+         },
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 25
+         }
+      ]
    }
 ]}

@@ -89,5 +89,10 @@ public class DatabaseTest {
       assertThat( systemUnderTest.stockLists(), is( notNullValue() ) );
       assertThat( systemUnderTest.stockLists(), is( systemUnderTest.stockLists() ) );
    }//End Method
+   
+   @Test public void shouldProvideLabels(){
+      assertThat( systemUnderTest.labels(), is( notNullValue() ) );
+      assertThat( systemUnderTest.labels(), is( systemUnderTest.labels() ) );
+   }//End Method
 
 }//End Class

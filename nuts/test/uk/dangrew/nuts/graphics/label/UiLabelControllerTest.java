@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
@@ -42,8 +43,8 @@ public class UiLabelControllerTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      label = new Label( "Anything" );
       database = new Database();
+      label = database.labels().createConcept( "Anything" );
       labelSelection = FXCollections.observableArrayList();
       databaseSelection = FXCollections.observableArrayList();
       
@@ -167,5 +168,49 @@ public class UiLabelControllerTest {
       label.concepts().add( concept );
       assertThat( systemUnderTest.selectedLabelConcepts(), contains( concept ) );
       assertThat( systemUnderTest.selectedDatabaseConcepts(), not( contains( concept ) ) );
+   }//End Method
+   
+   @Test public void shouldChangeName(){
+      systemUnderTest.selectLabel( label );
+      systemUnderTest.changeName( "something specific" );
+      assertThat( label.properties().nameProperty().get(), is( "something specific" ) );
+   }//End Method
+   
+   @Test public void shouldNotChangeNameIfEmpty(){
+      systemUnderTest.selectLabel( label );
+      systemUnderTest.changeName( "    " );
+      assertThat( label.properties().nameProperty().get(), is( "Anything" ) );
+   }//End Method
+   
+   @Test public void shouldCreateLabel(){
+      systemUnderTest.createLabel( "something specific" );
+      assertThat( label.properties().nameProperty().get(), is( "Anything" ) );
+      
+      Label newLabel = database.labels().objectList().get( 1 );
+      assertThat( newLabel.properties().nameProperty().get(), is( "something specific" ) );
+      assertThat( systemUnderTest.selectedLabel().get(), is( newLabel ) );
+   }//End Method
+   
+   @Test public void shouldNotCreateLabelIfEmpty(){
+      systemUnderTest.createLabel( "    " );
+      assertThat( database.labels().objectList(), contains( label ) );
+      assertThat( systemUnderTest.selectedLabel().get(), is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldDeleteLabel(){
+      systemUnderTest.selectLabel( label );
+      systemUnderTest.deleteLabel();
+      assertThat( systemUnderTest.selectedLabel().get(), is( nullValue() ) );
+      assertThat( database.labels().objectList(), is( empty() ) );
+   }//End Method
+   
+   @Test public void shouldNotChangeNameWhenNotSelected(){
+      systemUnderTest.changeName( "something" );
+      assertThat( label.properties().nameProperty().get(), is( "Anything" ) );
+   }//End Method
+   
+   @Test public void shouldNotDeleteLabelWhenNotSelected(){
+      systemUnderTest.deleteLabel();
+      assertThat( database.labels().objectList(), contains( label ) );
    }//End Method
 }//End Class
