@@ -25,7 +25,7 @@ public class GroceryPropertiesTest {
          .shouldProvideStringProperty( GroceryProperties::superDepartment )
          .shouldProvideStringProperty( GroceryProperties::tpnb )
          .shouldProvideDoubleProperty( GroceryProperties::unitOfSale )
-         .shouldProvideObservableList( GroceryProperties::description )
+         .shouldProvideCollection( GroceryProperties::description )
          .shouldProvideStringProperty( GroceryProperties::unitQuantity )
          .shouldProvideStringProperty( GroceryProperties::promotionDescription )
          .shouldProvideStringProperty( GroceryProperties::contentsMeasureType )

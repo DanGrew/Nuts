@@ -20,8 +20,8 @@ public class GuidelineDailyAmountReferenceTest {
    @Test public void shouldProvideProperties() {
       new ModelVerifier<>( systemUnderTest )
          .shouldProvideStringProperty( GuidelineDailyAmountReference::description )  
-         .shouldProvideObservableList( GuidelineDailyAmountReference::headers )
-         .shouldProvideObservableList( GuidelineDailyAmountReference::footers )
+         .shouldProvideCollection( GuidelineDailyAmountReference::headers )
+         .shouldProvideCollection( GuidelineDailyAmountReference::footers )
          .shouldProvideObject( GuidelineDailyAmountReference::gda );
    }//End Method
    

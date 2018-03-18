@@ -43,7 +43,7 @@ public class TescoFoodDescriptionTest {
          .shouldProvideDoubleProperty( d -> d.groceryProperties().price() )
          .shouldProvideDoubleProperty( d -> d.groceryProperties().unitPrice() )
          .shouldProvideBooleanProperty( d -> d.groceryProperties().isSpecialOffer() )
-         .shouldProvideObservableList( d -> d.groceryProperties().description() );
+         .shouldProvideCollection( d -> d.groceryProperties().description() );
    }//End Method
 
 }//End Class

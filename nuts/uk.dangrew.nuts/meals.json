@@ -1948,18 +1948,22 @@
          },
          {
             "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 200
-         },
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 400
-         },
-         {
-            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
             "portionValue": 100
          },
          {
-            "foodId": "7157f3d0-f279-4bee-b24f-0987d0e913f2",
+            "foodId": "898c2ac7-5a6f-4df1-8567-bf6e3eb64d50",
+            "portionValue": 125
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 50
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 0
+         },
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
             "portionValue": 100
          }
       ]
@@ -1987,6 +1991,36 @@
          {
             "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
             "portionValue": 200
+         },
+         {
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 300
+         },
+         {
+            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Almond Flax Cookies",
+      "id": "d610a804-f314-4bfc-8059-7d816f535bfa",
+      "portions": [
+         {
+            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "portionValue": 250
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
+            "portionValue": 200
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
          }
       ]
    }

@@ -7,12 +7,12 @@ import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Collection;
 import java.util.Random;
 import java.util.UUID;
 import java.util.function.Function;
 
 import javafx.beans.property.ObjectProperty;
-import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 
 public class ModelVerifier< SutT > {
@@ -56,7 +56,7 @@ public class ModelVerifier< SutT > {
       return this;
    }//End Method
    
-   public < TypeT > ModelVerifier< SutT > shouldProvideObservableList( Function< SutT, ObservableList< TypeT > > supplier, TypeT value ) {
+   public < TypeT > ModelVerifier< SutT > shouldProvideCollection( Function< SutT, Collection< TypeT > > supplier, TypeT value ) {
       shouldProvideObject( supplier );
       assertThat( supplier.apply( sut ), is( notNullValue() ) );
       supplier.apply( sut ).add( value );
@@ -64,8 +64,8 @@ public class ModelVerifier< SutT > {
       return this;
    }//End Method
    
-   public ModelVerifier< SutT > shouldProvideObservableList( Function< SutT, ObservableList< String > > supplier ) {
-      shouldProvideObservableList( supplier, UUID.randomUUID().toString() );
+   public ModelVerifier< SutT > shouldProvideCollection( Function< SutT, Collection< String > > supplier ) {
+      shouldProvideCollection( supplier, UUID.randomUUID().toString() );
       return this;
    }//End Method
    

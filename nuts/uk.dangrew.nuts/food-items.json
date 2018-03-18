@@ -2908,5 +2908,35 @@
       "name": "Tesco Smoked Back Bacon Rashers 300G (60g)",
       "id": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
       "calories": 107
+   },
+   {
+      "carbohydrates": 0.7,
+      "fats": 5.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 3,
+      "name": "The Chia Co Chia Seed Black 150G Pouch (15g)",
+      "id": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
+      "calories": 67
+   },
+   {
+      "carbohydrates": 0.9,
+      "fats": 12,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 6.63,
+      "name": "Linwoods Milled Organic Flaxseed 425G (30g)",
+      "id": "112a1b7e-d126-4589-a01c-45058008fcbc",
+      "calories": 152
+   },
+   {
+      "carbohydrates": 1,
+      "fats": 25,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 20,
+      "name": "Counter German Salami (100g)",
+      "id": "59ed1a9c-c8ad-463c-bd80-4443a248ef87",
+      "calories": 309
    }
 ]}

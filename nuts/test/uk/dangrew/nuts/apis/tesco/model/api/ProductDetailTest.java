@@ -23,14 +23,14 @@ public class ProductDetailTest {
       new ModelVerifier<>( systemUnderTest )
          .shouldProvideStringProperty( ProductDetail::gtin )
          .shouldProvideStringProperty( ProductDetail::tpnb )
-         .shouldProvideObservableList( ProductDetail::tpncs )
+         .shouldProvideCollection( ProductDetail::tpncs )
          .shouldProvideStringProperty( ProductDetail::description )
          .shouldProvideStringProperty( ProductDetail::brand )
          .shouldProvideObject( ProductDetail::quantityContents )
          .shouldProvideObject( ProductDetail::characteristics )
-         .shouldProvideObservableList( ProductDetail::gdas, new GuidelineDailyAmountReference() )
+         .shouldProvideCollection( ProductDetail::gdas, new GuidelineDailyAmountReference() )
          .shouldProvideObject( ProductDetail::nutrition )
-         .shouldProvideObservableList( ProductDetail::storageInstructions )
+         .shouldProvideCollection( ProductDetail::storageInstructions )
          .shouldProvideStringProperty( ProductDetail::marketingTextProperty )
          .shouldProvideObject( ProductDetail::packageDimensions );
    }//End Method
