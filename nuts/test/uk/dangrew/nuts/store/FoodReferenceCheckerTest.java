@@ -17,8 +17,8 @@ import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.template.Template;
 
 public class FoodReferenceCheckerTest {
@@ -39,6 +39,9 @@ public class FoodReferenceCheckerTest {
    
    private Meal shoppingList1;
    private Meal shoppingList2;
+   
+   private Label label1;
+   private Label label2;
    
    private Food searchFor;
    private FoodReferenceChecker systemUnderTest;
@@ -64,6 +67,9 @@ public class FoodReferenceCheckerTest {
       database.shoppingLists().store( shoppingList1 = new Meal( "Shopping1" ) );
       database.shoppingLists().store( shoppingList2 = new Meal( "Shopping2" ) );
       
+      database.labels().store( label1 = new Label( "Label1" ) );
+      database.labels().store( label2 = new Label( "Label2" ) );
+      
       systemUnderTest = new FoodReferenceChecker( database );
       
       searchFor = new FoodItem( "Anything" );
@@ -75,27 +81,28 @@ public class FoodReferenceCheckerTest {
       dayPlan1.portions().add( new FoodPortion( searchFor, 100 ) );
       dayPlan2.portions().add( new FoodPortion( searchFor, 100 ) );
       shoppingList1.portions().add( new FoodPortion( searchFor, 100 ) );
+      label1.concepts().add( searchFor );
    }//End Method
 
    @Test public void shouldFindAndCacheReferencesToFood() {
       systemUnderTest.searchFor( searchFor );
       assertThat( systemUnderTest.lastSearchResult(), containsInAnyOrder(  
-               meal1, meal3, template2, template3, dayPlan1, dayPlan2, shoppingList1 
+               meal1, meal3, template2, template3, dayPlan1, dayPlan2, shoppingList1, label1
       ) );
-      assertThat( systemUnderTest.lastSearchResult(), hasSize( 7 ) );
+      assertThat( systemUnderTest.lastSearchResult(), hasSize( 8 ) );
       
       //check avoid duplicates
       systemUnderTest.searchFor( searchFor );
       assertThat( systemUnderTest.lastSearchResult(), containsInAnyOrder( 
-               meal1, meal3, template2, template3, dayPlan1, dayPlan2, shoppingList1 
+               meal1, meal3, template2, template3, dayPlan1, dayPlan2, shoppingList1, label1
       ) );
-      assertThat( systemUnderTest.lastSearchResult(), hasSize( 7 ) );
+      assertThat( systemUnderTest.lastSearchResult(), hasSize( 8 ) );
    }//End Method
    
    @Test public void shouldClearCacheBetweenSearches() {
       systemUnderTest.searchFor( searchFor );
       assertThat( systemUnderTest.lastSearchResult(), containsInAnyOrder(  
-               meal1, meal3, template2, template3, dayPlan1, dayPlan2, shoppingList1 
+               meal1, meal3, template2, template3, dayPlan1, dayPlan2, shoppingList1, label1 
       ) );
       
       systemUnderTest.searchFor( new FoodItem( "Not Found" ) );
@@ -125,7 +132,7 @@ public class FoodReferenceCheckerTest {
       
       systemUnderTest.searchFor( replacement );
       assertThat( systemUnderTest.lastSearchResult(), containsInAnyOrder( 
-               meal1, meal3, template2, template3, dayPlan1, dayPlan2, shoppingList1 
+               meal1, meal3, template2, template3, dayPlan1, dayPlan2, shoppingList1, label1
       ) );
       
       systemUnderTest.searchFor( searchFor );

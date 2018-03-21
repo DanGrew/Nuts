@@ -28,7 +28,7 @@ public class NutsTabsTest {
    }//End Method
 
    @Test public void shouldProvideConcreteTabs() {
-      assertThat( systemUnderTest.getTabs(), hasSize( 10 ) );
+      assertThat( systemUnderTest.getTabs(), hasSize( 11 ) );
    }//End Method
    
 }//End Class

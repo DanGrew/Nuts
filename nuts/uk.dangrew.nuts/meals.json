@@ -1948,7 +1948,7 @@
          },
          {
             "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 100
+            "portionValue": 200
          },
          {
             "foodId": "898c2ac7-5a6f-4df1-8567-bf6e3eb64d50",
@@ -2067,6 +2067,64 @@
          {
             "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
             "portionValue": 25
+         }
+      ]
+   },
+   {
+      "name": "Bulletproof Coffee",
+      "id": "f53729d4-6e9e-4193-a021-224d04c462e9",
+      "portions": [
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 15
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 15
+         }
+      ]
+   },
+   {
+      "name": "Keto Fried Salmon",
+      "id": "da4311f2-4116-487b-ac28-df0008724e1a",
+      "portions": [
+         {
+            "foodId": "9a54c335-7836-4765-83b8-fe9cc661394b",
+            "portionValue": 240
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 30
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Vanilla Butter Fudge (+Walnuts)",
+      "id": "c36e25ab-aef7-42f2-9bed-16a3901f3283",
+      "portions": [
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 125
+         },
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "portionValue": 100
          }
       ]
    }

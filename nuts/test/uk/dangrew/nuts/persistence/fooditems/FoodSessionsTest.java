@@ -36,6 +36,7 @@ public class FoodSessionsTest {
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class )
       );
       sessions.read();
@@ -59,7 +60,8 @@ public class FoodSessionsTest {
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
-               goalLocation
+               goalLocation,
+               mock( JarJsonPersistingProtocol.class )
       );
       sessions.read();
       assertThat( database.goals().objectList(), is( not( empty() ) ) );

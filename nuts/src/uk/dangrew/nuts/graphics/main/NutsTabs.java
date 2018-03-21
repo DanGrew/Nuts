@@ -9,6 +9,7 @@ import uk.dangrew.nuts.graphics.day.balance.UiBalanceSummary;
 import uk.dangrew.nuts.graphics.goal.GoalManagerPane;
 import uk.dangrew.nuts.graphics.graph.WeightRecordingsPane;
 import uk.dangrew.nuts.graphics.information.InformationPane;
+import uk.dangrew.nuts.graphics.label.UiLabelConfigurationView;
 import uk.dangrew.nuts.graphics.manager.FoodManagerPane;
 import uk.dangrew.nuts.graphics.meal.TemplateManagerPane;
 import uk.dangrew.nuts.graphics.shopping.ShoppingPane;
@@ -25,6 +26,7 @@ public class NutsTabs extends TabPane {
       createConcreteTab( "Stock", new StockTable( database ) );
       createConcreteTab( "Templates", new TemplateManagerPane( database ) );
       createConcreteTab( "Day Plans", new UiCalendarPane( database ) );
+      createConcreteTab( "Labels", new UiLabelConfigurationView( database ) );
       createConcreteTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );
       createConcreteTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );
       createConcreteTab( "Weigh Ins", new WeightRecordingsPane( database.weightProgress() ) );

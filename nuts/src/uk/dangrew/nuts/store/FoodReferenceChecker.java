@@ -6,13 +6,16 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.label.Label;
+import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.ConceptStore;
 
 public class FoodReferenceChecker {
 
    private final Database database;
-   private final Set< Food > references;
+   private final Set< Concept > references;
    
    private Food searchedFor;
    
@@ -24,13 +27,14 @@ public class FoodReferenceChecker {
    public void searchFor( Food searchFor ) {
       this.searchedFor = searchFor;
       this.references.clear();
-      findReferencesInStore( database.meals() );
-      findReferencesInStore( database.templates() );
-      findReferencesInStore( database.dayPlans() );
-      findReferencesInStore( database.shoppingLists() );
+      findFoodReferencesInStore( database.meals() );
+      findFoodReferencesInStore( database.templates() );
+      findFoodReferencesInStore( database.dayPlans() );
+      findFoodReferencesInStore( database.shoppingLists() );
+      findConceptReferencesInStore( database.labels() );
    }//End Method
    
-   private void findReferencesInStore( ConceptStore< ? extends Meal > store ) {
+   private void findFoodReferencesInStore( ConceptStore< ? extends Meal > store ) {
       references.addAll( 
                store.objectList().stream()
                   .filter( m -> mealDoesNotContainFoodInPortion( m, searchedFor ) )
@@ -43,8 +47,16 @@ public class FoodReferenceChecker {
          .filter( p -> p.food().get() == food )
          .count() > 0;
    }//End Method
-
-   public Collection< Food > lastSearchResult() {
+   
+   private void findConceptReferencesInStore( LabelStore store ) {
+      references.addAll( 
+               store.objectList().stream()
+                  .filter( l -> l.concepts().contains( searchedFor ) )
+                  .collect( Collectors.toSet() ) 
+      );
+   }//End Method
+   
+   public Collection< Concept > lastSearchResult() {
       return references;
    }//End Method
 
@@ -57,11 +69,19 @@ public class FoodReferenceChecker {
          .filter( f -> ( f instanceof Meal ) )
          .map( f -> ( Meal )f )
          .forEach( this::removeFoodFromMeal );
+      references.stream()
+         .filter( f -> ( f instanceof Label ) )
+         .map( f -> ( Label )f )
+         .forEach( this::removeFoodFromLabel );
       references.clear();
    }//End Method
    
    private void removeFoodFromMeal( Meal meal ) {
       meal.portions().removeIf( p -> p.food().get() == searchedFor );
+   }//End Method
+   
+   private void removeFoodFromLabel( Label label ) {
+      label.concepts().remove( searchedFor );
    }//End Method
 
    public void replaceWith( Food replacement ) {
@@ -73,6 +93,10 @@ public class FoodReferenceChecker {
          .filter( f -> ( f instanceof Meal ) )
          .map( f -> ( Meal )f )
          .forEach( m -> replaceFoodInMeal( m, replacement ) );
+      references.stream()
+         .filter( f -> ( f instanceof Label ) )
+         .map( f -> ( Label )f )
+         .forEach( l -> replaceFoodInLabel( l, replacement ) );
       references.clear();
    }//End Method
    
@@ -80,6 +104,11 @@ public class FoodReferenceChecker {
       meal.portions().stream()
          .filter( p -> p.food().get() == searchedFor )
          .forEach( p -> p.setFood( replacement ) );
+   }//End Method
+   
+   private void replaceFoodInLabel( Label label, Food replacement ) {
+      label.concepts().remove( searchedFor );
+      label.concepts().add( replacement );
    }//End Method
 
 }//End Class

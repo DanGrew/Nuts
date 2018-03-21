@@ -1,0 +1,39 @@
+{"labels": [
+   {
+      "concepts": [
+         {"conceptId": "c4efc36b-f42f-4204-b578-5dfaf524b13a"},
+         {"conceptId": "6e868156-3681-4e6d-91f6-277d302a17c3"},
+         {"conceptId": "080f83f4-e46a-440d-b83a-6b176adef9af"},
+         {"conceptId": "8d56bb1c-e2b9-4044-bb31-c66594107d9e"},
+         {"conceptId": "a5331ce2-36d7-4874-afe2-29e52d2645a0"},
+         {"conceptId": "55d5a677-e181-4643-9437-7c0567c08d83"},
+         {"conceptId": "204a779a-9491-4c6c-b7cc-a58a65730763"},
+         {"conceptId": "555ae532-2d24-4e88-929f-e56dccca3258"},
+         {"conceptId": "516c212a-ac44-4a49-b42d-414dbe602d35"},
+         {"conceptId": "c85e6959-00d1-448e-8333-70b627128695"},
+         {"conceptId": "758b1a28-dc70-4e2c-b4ec-f5d887e859f7"},
+         {"conceptId": "da4311f2-4116-487b-ac28-df0008724e1a"},
+         {"conceptId": "499baa2d-2881-4cba-96c2-e5f8dcd8b02a"},
+         {"conceptId": "18bb4176-7385-4625-af4f-8541afa61c2f"},
+         {"conceptId": "ab66e672-0cfb-4501-b356-01176c30d88b"},
+         {"conceptId": "d34fcf67-917b-4ac0-9d63-a2c9abd5bae6"},
+         {"conceptId": "33d6cd07-137e-4fc3-9dfc-d1a72181d962"},
+         {"conceptId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb"}
+      ],
+      "name": "Keto",
+      "id": "c8969a43-8e88-480c-9354-e994d8fc2be4"
+   },
+   {
+      "concepts": [
+         {"conceptId": "516c212a-ac44-4a49-b42d-414dbe602d35"},
+         {"conceptId": "c85e6959-00d1-448e-8333-70b627128695"},
+         {"conceptId": "18bb4176-7385-4625-af4f-8541afa61c2f"},
+         {"conceptId": "ab66e672-0cfb-4501-b356-01176c30d88b"},
+         {"conceptId": "d34fcf67-917b-4ac0-9d63-a2c9abd5bae6"},
+         {"conceptId": "33d6cd07-137e-4fc3-9dfc-d1a72181d962"},
+         {"conceptId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb"}
+      ],
+      "name": "Dessert",
+      "id": "1cbbae3d-58aa-4b7b-a076-ddae9d5b88c6"
+   }
+]}

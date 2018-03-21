@@ -320,5 +320,40 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "goalId": "a21da23f-1e55-45c9-a19b-e50af4b70bf8",
+      "name": "Nandos (Keto)",
+      "id": "1e6509dd-3fbd-4b93-a647-185618431a43",
+      "portions": [
+         {
+            "foodId": "40754ee4-8b0d-4443-bb74-5d4f947ba32a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4c62de2b-83c7-4568-b3cb-04c9ba14ae56",
+            "portionValue": 100
+         },
+         {
+            "foodId": "8b5dd83c-ea39-4a75-9ccd-31db8d05c97b",
+            "portionValue": 200
+         },
+         {
+            "foodId": "93f76a3d-013a-4f4f-bfd7-313bb53ed9d7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "1e728707-2cee-40a7-9a9c-ff057608f566",
+            "portionValue": 0
+         },
+         {
+            "foodId": "d9acf45c-73bc-4e1a-80ae-846655fd29b2",
+            "portionValue": 200
+         },
+         {
+            "foodId": "672f6995-cf4c-4396-b312-2217bfff1a53",
+            "portionValue": 200
+         }
+      ]
    }
 ]}
