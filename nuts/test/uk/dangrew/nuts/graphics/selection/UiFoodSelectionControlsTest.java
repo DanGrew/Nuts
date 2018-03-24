@@ -13,12 +13,12 @@ import org.mockito.MockitoAnnotations;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.label.Label;
 
 public class UiFoodSelectionControlsTest {
 
-   private ObservableList< Food > foods;
+   private ObservableList< Label > labels;
    @Mock private UiFoodSelectionController controller;
    private UiFoodSelectionControls systemUnderTest;
 
@@ -26,12 +26,12 @@ public class UiFoodSelectionControlsTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      foods = FXCollections.observableArrayList( 
-               new FoodItem( "Beans" ),
-               new FoodItem( "Sausages" ),
-               new FoodItem( "Chicken" )
+      labels = FXCollections.observableArrayList( 
+               new Label( "Label1" ),
+               new Label( "Label2" ),
+               new Label( "Label3" )
       );
-      systemUnderTest = new UiFoodSelectionControls( foods, controller );
+      systemUnderTest = new UiFoodSelectionControls( labels, controller );
    }//End Method
 
    @Test public void shouldInvertSorting() {
@@ -52,5 +52,10 @@ public class UiFoodSelectionControlsTest {
    @Test public void shouldApplyFiltersWhenSelected(){
       systemUnderTest.filterBox().getCheckModel().checkAll();
       verify( controller, atLeastOnce() ).applyFilters( Arrays.asList( FoodSelectionFilters.values() ) );
+   }//End Method
+   
+   @Test public void shouldApplyLabelsWhenSelected(){
+      systemUnderTest.labelBox().getCheckModel().checkAll();
+      verify( controller, atLeastOnce() ).applyLabels( labels );      
    }//End Method
 }//End Class

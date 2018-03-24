@@ -1,38 +1,35 @@
 package uk.dangrew.nuts.graphics.selection;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
 
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.ConceptOptions;
-import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
-import uk.dangrew.nuts.graphics.table.FilteredConceptOptions;
+import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
 public class UiFoodSelectionController implements UiFoodSelector {
 
-   private final ConceptOptions< Food > backingConcepts;
-   private final FilteredConceptOptions< Food > filteredConcepts;
-   
    private final Template liveSelectionProperties;
    private final FoodSelectionManager selectionManager;
-   private final FoodSelectionFilterApplier filterApplier;
+   private final FoodSelectionModel model;
    
    private FoodSelectionPaneManager selectionPane;
    
    public UiFoodSelectionController( Database database, Template liveSelectionProperties ) {
+      this( database, new FoodSelectionModel( database ), liveSelectionProperties );
+   }//End Constructor
+   
+   UiFoodSelectionController( Database database, FoodSelectionModel model, Template liveSelectionProperties ) {
       this.liveSelectionProperties = liveSelectionProperties;
       this.selectionManager = new FoodSelectionManager();
-      this.backingConcepts = new ConceptOptionsImpl<>( Arrays.asList( database.foodItems(), database.meals() ) );
-      this.backingConcepts.options().addListener( new FunctionListChangeListenerImpl<>( 
+      this.model = model;
+      this.model.databaseConcepts().options().addListener( new FunctionListChangeListenerImpl<>( 
                a -> fireLayoutChanges(), r -> fireLayoutChanges() 
       ) );
-      this.filteredConcepts = new FilteredConceptOptions<>( backingConcepts );
-      this.filterApplier = new FoodSelectionFilterApplier( selectionManager, filteredConcepts, database.stockLists().objectList().get( 0 ) );
+      new FoodSelectionFilterApplier( selectionManager, model, database.stockLists().objectList().get( 0 ) );
    }//End Constructor
    
    public void controlSelection( FoodSelectionPaneManager pane ) {
@@ -49,27 +46,34 @@ public class UiFoodSelectionController implements UiFoodSelector {
    }//End Method
    
    public void useSelectionType( FoodSelectionTypes type ) {
-      backingConcepts.customSort( type.comparator() );
+      model.databaseConcepts().customSort( type.comparator() );
       fireLayoutChanges();
    }//End Method
    
    public void invertSort( boolean invert ) {
-      filteredConcepts.invertedSorting().set( invert );
+      model.filteredConcepts().invertedSorting().set( invert );
       fireLayoutChanges();
    }//End Method
 
    public void filterOptions( String filter ) {
-      filteredConcepts.filterString().set( filter );
+      model.filteredConcepts().filterString().set( filter );
       fireLayoutChanges();
    }//End Method
    
    public void applyFilters( Collection< FoodSelectionFilters > filters ) {
-      filterApplier.applyFilters( filters );
+      model.filters().clear();
+      model.filters().addAll( filters );
+      fireLayoutChanges();
+   }//End Method
+   
+   public void applyLabels( Collection< Label > labels ) {
+      model.labels().clear();
+      model.labels().addAll( labels );
       fireLayoutChanges();
    }//End Method
    
    private void fireLayoutChanges(){
-      selectionPane.layoutTiles( filteredConcepts.options() );
+      selectionPane.layoutTiles( model.filteredConcepts().options() );
    }//End Method
 
    @Override public boolean isSelected( FoodPortion portion ) {
@@ -99,5 +103,4 @@ public class UiFoodSelectionController implements UiFoodSelector {
       selectedPortions.forEach( p -> selectionPane.setSelected( p, false ) );
       return selectedPortions;
    }//End Method
-
 }//End Class

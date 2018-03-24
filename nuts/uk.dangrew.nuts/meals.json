@@ -1540,11 +1540,11 @@
             "portionValue": 800
          },
          {
-            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
-            "portionValue": 284
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 1000
          },
          {
-            "foodId": "d34fcf67-917b-4ac0-9d63-a2c9abd5bae6",
+            "foodId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
             "portionValue": 100
          }
       ]
@@ -2125,6 +2125,58 @@
          {
             "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Cheeseburger Casserole",
+      "id": "052a538d-1389-44a7-9353-8b964483606f",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 200
+         },
+         {
+            "foodId": "6dd04ef3-932c-4253-9f67-34070a3b0ad7",
+            "portionValue": 500
+         },
+         {
+            "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
+            "portionValue": 200
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         },
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 150
+         }
+      ]
+   },
+   {
+      "name": "Bacon & Omelette",
+      "id": "a3f53b71-6190-49f3-9b7c-7891836fda71",
+      "portions": [
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 400
+         },
+         {
+            "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
+            "portionValue": 200
+         },
+         {
+            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
+            "portionValue": 30
          }
       ]
    }

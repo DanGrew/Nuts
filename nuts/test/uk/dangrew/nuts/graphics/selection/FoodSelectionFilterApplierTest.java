@@ -28,8 +28,9 @@ public class FoodSelectionFilterApplierTest {
    private Stock stock;
    
    private FoodSelectionManager selectionManager;
-   private ConceptOptions< Food > backingOptions;
    private FilteredConceptOptions< Food > options;
+   
+   private FoodSelectionModel model;
    private FoodSelectionFilterApplier systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -45,17 +46,17 @@ public class FoodSelectionFilterApplierTest {
       sausages.foodAnalytics().proteinRatioProperty().set( 20.0 );
       stock = new Stock( "Stock" );
       
-      backingOptions = new ConceptOptionsImpl<>( database.foodItems() );
-      options = new FilteredConceptOptions<>( backingOptions );
+      model = new FoodSelectionModel( database );
+      options = model.filteredConcepts();
       
       selectionManager = new FoodSelectionManager();
-      systemUnderTest = new FoodSelectionFilterApplier( selectionManager, options, stock );
+      systemUnderTest = new FoodSelectionFilterApplier( selectionManager, model, stock );
    }//End Method
 
    @Test public void shouldApplySelectionFilter() {
       selectionManager.select( new FoodPortion( chicken, 100 ) );
       selectionManager.select( new FoodPortion( beans, 100 ) );
-      systemUnderTest.applyFilters( FoodSelectionFilters.Selection );
+      model.filters().add( FoodSelectionFilters.Selection );
       
       assertThat( options.options(), is( Arrays.asList( beans, chicken ) ) );
    }//End Method
@@ -64,12 +65,12 @@ public class FoodSelectionFilterApplierTest {
       stock.linkWithFoodItems( database.foodItems() );
       stock.portionFor( chicken ).setPortion( 200 );
       
-      systemUnderTest.applyFilters( FoodSelectionFilters.Stock );
+      model.filters().add( FoodSelectionFilters.Stock );
       assertThat( options.options(), is( Arrays.asList( chicken ) ) );
    }//End Method
 
    @Test public void shouldApplyStockFilterWhenNoStockPortion() {
-      systemUnderTest.applyFilters( FoodSelectionFilters.Stock );
+      model.filters().add( FoodSelectionFilters.Stock );
       assertThat( options.options(), is( Arrays.asList() ) );
    }//End Method
    
@@ -80,11 +81,41 @@ public class FoodSelectionFilterApplierTest {
       selectionManager.select( new FoodPortion( chicken, 100 ) );
       selectionManager.select( new FoodPortion( beans, 100 ) );
       
-      systemUnderTest.applyFilters( FoodSelectionFilters.Selection );
+      model.filters().add( FoodSelectionFilters.Selection );
       assertThat( options.options(), is( Arrays.asList( beans, chicken ) ) );
       
-      systemUnderTest.applyFilters( FoodSelectionFilters.Stock );
-      assertThat( options.options(), is( Arrays.asList( sausages ) ) );
+      model.filters().add( FoodSelectionFilters.Stock );
+      assertThat( options.options(), is( Arrays.asList() ) );
       
+      model.filters().remove( FoodSelectionFilters.Selection );
+      assertThat( options.options(), is( Arrays.asList( sausages ) ) );
+   }//End Method
+   
+   @Test public void shouldFilterBasedOnLabels(){
+      database.labels().createConcept( "Meat" ).concepts().addAll( chicken, sausages );
+      database.labels().createConcept( "Tinned" ).concepts().add( beans );
+      
+      model.filters().add( FoodSelectionFilters.Labels );
+      assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
+      
+      model.labels().add( database.labels().objectList().get( 0 ) );
+      assertThat( options.options(), is( Arrays.asList( chicken, sausages ) ) );
+      
+      model.labels().add( database.labels().objectList().get( 1 ) );
+      assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
+      
+      model.labels().remove( database.labels().objectList().get( 0 ) );
+      assertThat( options.options(), is( Arrays.asList( beans ) ) );
+      
+      model.filters().remove( FoodSelectionFilters.Labels );
+      assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
+      
+      model.labels().add( database.labels().objectList().get( 0 ) );
+      assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
+   }//End Method
+   
+   @Test public void shouldNotFilterWhenNoLabelsSelected(){
+      model.filters().add( FoodSelectionFilters.Labels );
+      assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
    }//End Method
 }//End Class

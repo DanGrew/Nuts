@@ -1,11 +1,8 @@
 package uk.dangrew.nuts.graphics.selection;
 
-import java.util.Arrays;
-
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.store.Database;
 
 public class UiFoodSelectionView extends TitledPane {
@@ -20,10 +17,7 @@ public class UiFoodSelectionView extends TitledPane {
       styling.configureConstraintsForRowPercentages( wrapper, 10, 90 );
       
       wrapper.add( new UiFoodSelectionControls( 
-               new ConceptOptionsImpl<>( Arrays.asList( 
-                        database.foodItems(), 
-                        database.meals() 
-               ) ).options(), controller 
+               database.labels().objectList(), controller 
       ), 0, 0 );
       wrapper.add( paneManager.selectionPane(), 0, 1 );
       

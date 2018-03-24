@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -18,6 +19,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -30,6 +32,7 @@ public class UiFoodSelectionControllerTest {
    private FoodItem sausages;
    
    private Stock stock;
+   private FoodSelectionModel model;
    private Template liveSelection;
    @Mock private FoodSelectionPaneManager pane;
    
@@ -50,7 +53,8 @@ public class UiFoodSelectionControllerTest {
       stock = database.stockLists().createConcept( "Stock" );
       stock.linkWithFoodItems( database.foodItems() );
       
-      systemUnderTest = new UiFoodSelectionController( database, liveSelection );
+      model = new FoodSelectionModel( database );
+      systemUnderTest = new UiFoodSelectionController( database, model, liveSelection );
       systemUnderTest.controlSelection( pane );
    }//End Method
 
@@ -142,13 +146,37 @@ public class UiFoodSelectionControllerTest {
    }//End Method
    
    @Test public void shouldApplyFilters(){
-      stock.portionFor( beans ).setPortion( 100 );
-      stock.portionFor( sausages ).setPortion( 200 );
-      systemUnderTest.select( new FoodPortion( chicken, 100 ) );
-      systemUnderTest.select( new FoodPortion( sausages, 100 ) );
+//      stock.portionFor( beans ).setPortion( 100 );
+//      stock.portionFor( sausages ).setPortion( 200 );
+//      systemUnderTest.select( new FoodPortion( chicken, 100 ) );
+//      systemUnderTest.select( new FoodPortion( sausages, 100 ) );
+//      
+//      systemUnderTest.applyFilters( Arrays.asList( FoodSelectionFilters.Selection, FoodSelectionFilters.Stock ) );
+//      verify( pane, atLeastOnce() ).layoutTiles( Arrays.asList( sausages ) );
       
-      systemUnderTest.applyFilters( Arrays.asList( FoodSelectionFilters.Selection, FoodSelectionFilters.Stock ) );
-      verify( pane, atLeastOnce() ).layoutTiles( Arrays.asList( sausages ) );
+      FoodSelectionFilters filter1 = FoodSelectionFilters.Selection;
+      FoodSelectionFilters filter2 = FoodSelectionFilters.Labels;
+      systemUnderTest.applyFilters( Arrays.asList( filter1, filter2 ) );
+      assertThat( model.filters(), contains( filter1, filter2 ) );
+      
+      FoodSelectionFilters filter3 = FoodSelectionFilters.Stock;
+      systemUnderTest.applyFilters( Arrays.asList( filter3 ) );
+      assertThat( model.filters(), contains( filter3 ) );
+      
+      verify( pane, times( 3 ) ).layoutTiles( anyList() );
+   }//End Method
+   
+   @Test public void shouldApplyLabelsToModel(){
+      Label label1 = database.labels().createConcept( "1" );
+      Label label2 = database.labels().createConcept( "2" );
+      systemUnderTest.applyLabels( Arrays.asList( label1, label2 ) );
+      assertThat( model.labels(), contains( label1, label2 ) );
+      
+      Label label3 = database.labels().createConcept( "3" );
+      systemUnderTest.applyLabels( Arrays.asList( label3 ) );
+      assertThat( model.labels(), contains( label3 ) );
+      
+      verify( pane, times( 3 ) ).layoutTiles( anyList() );
    }//End Method
    
 }//End Class
