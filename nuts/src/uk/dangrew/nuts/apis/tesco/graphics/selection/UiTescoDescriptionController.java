@@ -5,20 +5,21 @@ import java.util.List;
 
 import uk.dangrew.nuts.apis.tesco.api.Tesco;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
+import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
 
-public class UiTescoPortionOptionsController implements UiTescoFoodSelector {
+public class UiTescoDescriptionController implements UiFoodSelector< TescoFoodDescription > {
 
-   private final UiTescoFoodPortionOptions options;
+   private final UiTescoFoodDescriptionPane options;
    private final Tesco tesco;
    
    private TescoSelectionPaneManager selectionPane;
    private TescoFoodDescription selected;
    
-   public UiTescoPortionOptionsController( UiTescoFoodPortionOptions options ) {
+   public UiTescoDescriptionController( UiTescoFoodDescriptionPane options ) {
       this( new Tesco(), options );
    }//End Constructor
    
-   UiTescoPortionOptionsController( Tesco tesco, UiTescoFoodPortionOptions options ) {
+   UiTescoDescriptionController( Tesco tesco, UiTescoFoodDescriptionPane options ) {
       this.options = options;
       this.tesco = tesco;
    }//End Constructor

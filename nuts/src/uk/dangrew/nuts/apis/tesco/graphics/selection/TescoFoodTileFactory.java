@@ -5,6 +5,7 @@ import java.util.Map;
 
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodReference;
+import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
 import uk.dangrew.nuts.graphics.system.ImageLoaderService;
 
 public class TescoFoodTileFactory {
@@ -15,7 +16,7 @@ public class TescoFoodTileFactory {
       this.tiles = new HashMap<>();
    }//End Constructor
 
-   public UiTescoFoodTile create( TescoFoodDescription food, UiTescoFoodSelector controller, ImageLoaderService imageLoader ) {
+   public UiTescoFoodTile create( TescoFoodDescription food, UiFoodSelector< TescoFoodDescription > controller, ImageLoaderService imageLoader ) {
       UiTescoFoodTile tile = tiles.get( food );
       if ( tile == null ) {
          tile = new UiTescoFoodTile( food, controller, imageLoader );

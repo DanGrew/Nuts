@@ -12,7 +12,7 @@ import uk.dangrew.kode.launch.TestApplication;
 
 public class UiTescoFoodSelectionControlsTest {
 
-   @Mock private UiTescoPortionOptionsController controller;
+   @Mock private UiTescoDescriptionController controller;
    private UiTescoFoodSelectionControls systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {

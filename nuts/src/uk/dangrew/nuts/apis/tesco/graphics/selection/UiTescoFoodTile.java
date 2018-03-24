@@ -9,6 +9,7 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
+import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
 import uk.dangrew.nuts.graphics.selection.UiFoodTileConceptTitle;
 import uk.dangrew.nuts.graphics.system.ImageLoaderService;
 
@@ -19,12 +20,12 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
    
    private final JavaFxStyle styling;
    private final TescoFoodDescription food;
-   private final UiTescoFoodSelector controller;
+   private final UiFoodSelector< TescoFoodDescription > controller;
    private final ImageLoaderService imageLoader;
    private final UiFoodTileConceptTitle title;
    private final ImageView imageView;
    
-   public UiTescoFoodTile( TescoFoodDescription food, UiTescoFoodSelector controller, ImageLoaderService imageLoader ) {
+   public UiTescoFoodTile( TescoFoodDescription food, UiFoodSelector< TescoFoodDescription > controller, ImageLoaderService imageLoader ) {
       this( 
                food, 
                controller,
@@ -35,7 +36,7 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
    
    UiTescoFoodTile(
             TescoFoodDescription food,
-            UiTescoFoodSelector controller,
+            UiFoodSelector< TescoFoodDescription > controller,
             ImageLoaderService imageLoader,
             UiFoodTileConceptTitle title
    ) {

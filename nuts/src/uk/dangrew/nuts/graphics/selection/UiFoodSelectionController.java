@@ -10,7 +10,7 @@ import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
-public class UiFoodSelectionController implements UiFoodSelector {
+public class UiFoodSelectionController implements UiFoodSelector< FoodPortion > {
 
    private final Template liveSelectionProperties;
    private final FoodSelectionManager selectionManager;

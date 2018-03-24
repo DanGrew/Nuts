@@ -2,7 +2,6 @@ package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -29,7 +28,7 @@ import uk.dangrew.nuts.graphics.selection.UiFoodSelectionPane;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
 
-public class UiTescoFoodPortionOptionsTest {
+public class UiTescoFoodDescriptionPaneTest {
 
    @Captor private ArgumentCaptor< List< UiFoodSelectionTile > > tilesCaptor;
    @Captor private ArgumentCaptor< FoodPortion > portionCaptor;
@@ -37,10 +36,10 @@ public class UiTescoFoodPortionOptionsTest {
    private List< Food > foods;
    
    @Mock private TescoFoodItemGenerator itemGenerator;
-   @Mock private UiFoodSelector selectionController;
+   @Mock private UiFoodSelector< FoodPortion > selectionController;
    @Mock private FoodSelectionManager selectionManager;
    @Mock private UiFoodSelectionPane selectionPane;
-   private UiTescoFoodPortionOptions systemUnderTest;
+   private UiTescoFoodDescriptionPane systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
@@ -50,7 +49,7 @@ public class UiTescoFoodPortionOptionsTest {
       foods = Arrays.asList( new FoodItem( "A" ), new FoodItem( "B" ), new FoodItem( "C" ) );
       when( itemGenerator.generateFoodItemsFor( description ) ).thenReturn( foods );
       
-      systemUnderTest = new UiTescoFoodPortionOptions( 
+      systemUnderTest = new UiTescoFoodDescriptionPane( 
                selectionController, 
                selectionManager,
                selectionPane,

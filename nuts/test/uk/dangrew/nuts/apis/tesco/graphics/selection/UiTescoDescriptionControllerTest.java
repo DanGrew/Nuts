@@ -20,21 +20,21 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.apis.tesco.api.Tesco;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
-public class UiTescoPortionOptionsControllerTest {
+public class UiTescoDescriptionControllerTest {
 
    private TescoFoodDescription description;
    
    @Mock private Tesco tesco;
    @Mock private TescoSelectionPaneManager paneManager;
-   @Mock private UiTescoFoodPortionOptions options;
-   private UiTescoPortionOptionsController systemUnderTest;
+   @Mock private UiTescoFoodDescriptionPane options;
+   private UiTescoDescriptionController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       description = new TescoFoodDescription( "a" );
       
-      systemUnderTest = new UiTescoPortionOptionsController( tesco, options );
+      systemUnderTest = new UiTescoDescriptionController( tesco, options );
       systemUnderTest.controlSelection( paneManager );
    }//End Method
 

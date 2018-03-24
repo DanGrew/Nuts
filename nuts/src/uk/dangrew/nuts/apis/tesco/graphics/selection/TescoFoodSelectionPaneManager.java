@@ -6,16 +6,17 @@ import java.util.List;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionPane;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
+import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
 import uk.dangrew.nuts.graphics.system.ImageLoaderService;
 
 public class TescoFoodSelectionPaneManager implements TescoSelectionPaneManager {
 
    private static final ImageLoaderService imageLoader = new ImageLoaderService();
-   private final UiTescoFoodSelector selector;
+   private final UiFoodSelector< TescoFoodDescription > selector;
    private final TescoFoodTileFactory tileFactory;
    private final UiFoodSelectionPane selectionPane;
    
-   public TescoFoodSelectionPaneManager( UiTescoFoodSelector selector ) {
+   public TescoFoodSelectionPaneManager( UiFoodSelector< TescoFoodDescription > selector ) {
       this.selector = selector;
       this.tileFactory = new TescoFoodTileFactory();
       this.selectionPane = new UiFoodSelectionPane();

@@ -8,19 +8,19 @@ import uk.dangrew.nuts.food.FoodPortion;
 
 public class FoodSelectionPaneManager implements SelectionPaneManager {
    
-   private final UiFoodSelector selector;
+   private final UiFoodSelector< FoodPortion > selector;
    private final TileFactory tileFactory;
    private final UiFoodSelectionPane selectionPane;
    
-   public FoodSelectionPaneManager( UiFoodSelector selector ) {
+   public FoodSelectionPaneManager( UiFoodSelector< FoodPortion > selector ) {
       this( new FoodTileFactory(), new UiFoodSelectionPane(), selector );
    }//End Constructor
    
-   public FoodSelectionPaneManager( UiFoodSelector selector, UiFoodSelectionPane selectionPane ) {
+   public FoodSelectionPaneManager( UiFoodSelector< FoodPortion > selector, UiFoodSelectionPane selectionPane ) {
       this( new FoodTileFactory(), selectionPane, selector );
    }//End Constructor
    
-   FoodSelectionPaneManager( TileFactory tileFactory, UiFoodSelectionPane selectionPane, UiFoodSelector selector ) {
+   FoodSelectionPaneManager( TileFactory tileFactory, UiFoodSelectionPane selectionPane, UiFoodSelector< FoodPortion > selector ) {
       this.tileFactory = tileFactory;
       this.selectionPane = selectionPane;
       this.selector = selector;

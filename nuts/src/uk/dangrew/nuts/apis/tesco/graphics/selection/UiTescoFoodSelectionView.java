@@ -7,12 +7,12 @@ import uk.dangrew.nuts.graphics.selection.UiFoodSelectionController;
 public class UiTescoFoodSelectionView extends GridPane {
 
    private final UiTescoFoodSelectionControls controls;
-   private final UiTescoFoodPortionOptions options;
+   private final UiTescoFoodDescriptionPane options;
    
    public UiTescoFoodSelectionView( UiFoodSelectionController selectionController ) {
-      this.options = new UiTescoFoodPortionOptions( selectionController );
+      this.options = new UiTescoFoodDescriptionPane( selectionController );
       
-      UiTescoPortionOptionsController controller = new UiTescoPortionOptionsController( options );
+      UiTescoDescriptionController controller = new UiTescoDescriptionController( options );
       TescoFoodSelectionPaneManager paneManager = new TescoFoodSelectionPaneManager( controller );
       controller.controlSelection( paneManager );
       

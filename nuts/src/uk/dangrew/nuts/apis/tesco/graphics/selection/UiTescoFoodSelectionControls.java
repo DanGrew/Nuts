@@ -14,7 +14,7 @@ public class UiTescoFoodSelectionControls extends BorderPane {
    private final TextField searchTextField;
    private final Button searchButton;
 
-   public UiTescoFoodSelectionControls( UiTescoPortionOptionsController controller ) {
+   public UiTescoFoodSelectionControls( UiTescoDescriptionController controller ) {
       this.filterWrapper = new GridPane();
       JavaFxStyle stying = new JavaFxStyle();
       stying.configureConstraintsForEvenRows( filterWrapper, 1 );
