@@ -19,14 +19,14 @@ import uk.dangrew.nuts.food.MacroRatioCalculator;
  * {@link Goal} represents the properties associated with {@link uk.dangrew.nuts.nutrients.MacroNutrient} targets.
  * It also represents a {@link Food} in that it shares the same properties.
  */
-public class GoalImpl implements Goal {
+public class CalorieGoalImpl implements CalorieGoal {
    
    static final double RECOMMENDED_PROTEIN_PER_POUND = 1.0;
    static final double RECOMMENDED_FAT_PER_POUND = 0.4;
    static final double RECOMMENDED_ACTIVITY_LEVEL = 1.4;
    
    private final CalorieGoalCalculator calorieCalculator;
-   private final MacroGoalCalculator macroCalculator;
+   private final MacroCalorieGoalCalculator macroCalculator;
    
    private final FoodProperties properties;
    private final FoodAnalytics analytics;
@@ -46,12 +46,12 @@ public class GoalImpl implements Goal {
     * Constructs a new {@link GoalImpl}.
     * @param name the name of the {@link Goal}.
     */
-   public GoalImpl( String name ) {
+   public CalorieGoalImpl( String name ) {
       this( 
                new FoodProperties( name ), 
                new FoodAnalytics(), 
                new CalorieGoalCalculator(), 
-               new MacroGoalCalculator(),
+               new MacroCalorieGoalCalculator(),
                new MacroRatioCalculator()
       );
    }//End Constructor
@@ -60,12 +60,12 @@ public class GoalImpl implements Goal {
     * Constructs a new {@link GoalImpl}.
     * @param name the name of the {@link Goal}.
     */
-   public GoalImpl( String id, String name ) {
+   public CalorieGoalImpl( String id, String name ) {
       this( 
                new FoodProperties( id, name ), 
                new FoodAnalytics(), 
                new CalorieGoalCalculator(), 
-               new MacroGoalCalculator(),
+               new MacroCalorieGoalCalculator(),
                new MacroRatioCalculator()
       );
    }//End Constructor
@@ -78,11 +78,11 @@ public class GoalImpl implements Goal {
     * @param macroCalculator the {@link MacroGoalCalculator}.
     * @param ratioCalculator the {@link MacroRatioCalculator}.
     */
-   GoalImpl( 
+   CalorieGoalImpl( 
             FoodProperties properties, 
             FoodAnalytics analytics, 
             CalorieGoalCalculator calorieCalculator, 
-            MacroGoalCalculator macroCalculator,
+            MacroCalorieGoalCalculator macroCalculator,
             MacroRatioCalculator ratioCalculator
    ) {
       this.properties = properties;

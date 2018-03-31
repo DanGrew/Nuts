@@ -12,15 +12,15 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 
 public class UiCycleCreationDialogResultConverterTest {
 
    private ButtonType acceptButtonType;
    private ButtonType cancelButtonType;
-   private ObservableList< Goal > goalOptions;
-   private ComboBox< Goal > goals;
+   private ObservableList< CalorieGoal > goalOptions;
+   private ComboBox< CalorieGoal > calorieGoals;
    private UiCycleCreationDialogResultConverter systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -30,16 +30,16 @@ public class UiCycleCreationDialogResultConverterTest {
       cancelButtonType = ButtonType.CANCEL;
       
       goalOptions = FXCollections.observableArrayList();
-      goalOptions.add( new GoalImpl( "GoalA" ) );
-      goalOptions.add( new GoalImpl( "GoalB" ) );
-      goalOptions.add( new GoalImpl( "GoalC" ) );
+      goalOptions.add( new CalorieGoalImpl( "GoalA" ) );
+      goalOptions.add( new CalorieGoalImpl( "GoalB" ) );
+      goalOptions.add( new CalorieGoalImpl( "GoalC" ) );
       
-      goals = new ComboBox<>( goalOptions );
-      systemUnderTest = new UiCycleCreationDialogResultConverter( acceptButtonType, goals );
+      calorieGoals = new ComboBox<>( goalOptions );
+      systemUnderTest = new UiCycleCreationDialogResultConverter( acceptButtonType, calorieGoals );
    }//End Method
 
    @Test public void shouldConstructResultFromChosenOption() {
-      goals.getSelectionModel().select( 1 );
+      calorieGoals.getSelectionModel().select( 1 );
       
       CycleCreationResult result = systemUnderTest.call( acceptButtonType );
       assertThat( result.baseGoal(), is( goalOptions.get( 1 ) ) );
@@ -54,7 +54,7 @@ public class UiCycleCreationDialogResultConverterTest {
    }//End Method
    
    @Test public void shouldProvideNoResultWhenCancelled() {
-      goals.getSelectionModel().select( 1 );
+      calorieGoals.getSelectionModel().select( 1 );
       
       CycleCreationResult result = systemUnderTest.call( cancelButtonType );
       assertThat( result, is( nullValue() ) );

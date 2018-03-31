@@ -3,19 +3,19 @@ package uk.dangrew.nuts.graphics.cycle;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.util.Callback;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 
 public class UiCycleCreationDialogResultConverter implements Callback< ButtonType, CycleCreationResult >{
 
    private final ButtonType acceptingButtonType;
-   private final ComboBox< Goal > goals; 
+   private final ComboBox< CalorieGoal > calorieGoals; 
    
    public UiCycleCreationDialogResultConverter(
             ButtonType acceptingButtonType,
-            ComboBox< Goal > goals 
+            ComboBox< CalorieGoal > calorieGoals 
    ) {
       this.acceptingButtonType = acceptingButtonType;
-      this.goals = goals;
+      this.calorieGoals = calorieGoals;
    }//End Constructor
    
    @Override public CycleCreationResult call( ButtonType buttonType ) {
@@ -23,7 +23,7 @@ public class UiCycleCreationDialogResultConverter implements Callback< ButtonTyp
          return null;
       }
       
-      Goal baseGoal = goals.getSelectionModel().getSelectedItem();
+      CalorieGoal baseGoal = calorieGoals.getSelectionModel().getSelectedItem();
       if ( baseGoal == null ) {
          return null;
       }

@@ -11,7 +11,7 @@ package uk.dangrew.nuts.graphics.goal;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.store.Database;
 
@@ -23,7 +23,7 @@ public class GoalManagerPane extends GridPane {
    static final double GOALS_HEIGHT_PROPORTION = 25.0;
    static final double CALCULATION_VIEW_HEIGHT_PROPORTION = 75.0;
 
-   private final ConceptTableWithControls< Goal > goalsTable;
+   private final ConceptTableWithControls< CalorieGoal > goalsTable;
    private final GoalCalculationView goalView;
 
    /**
@@ -57,7 +57,7 @@ public class GoalManagerPane extends GridPane {
       } );
    }// End Constructor
 
-   ConceptTableWithControls< Goal > templatesTable() {
+   ConceptTableWithControls< CalorieGoal > templatesTable() {
       return goalsTable;
    }// End Method
 

@@ -8,62 +8,62 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 
 public class TemplateStoreTest {
 
-   private Goal goal;
+   private CalorieGoal calorieGoal;
    private Template food;
    private TemplateStore systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       food = new Template( "Meal" );
-      goal = new GoalImpl( "Goal" );
+      calorieGoal = new CalorieGoalImpl( "Goal" );
       systemUnderTest = new TemplateStore();
    }//End Method
 
    @Test public void shouldStoreById() {
-      systemUnderTest.setDefaultGoal( goal );
+      systemUnderTest.setDefaultGoal( calorieGoal );
       
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
-      assertThat( food.goalAnalytics().goal().get(), is( goal ) );
+      assertThat( food.goalAnalytics().calorieGoal().get(), is( calorieGoal ) );
    }//End Method
    
    @Test public void shouldNotOverwriteGoalWhenStored() {
-      systemUnderTest.setDefaultGoal( goal );
+      systemUnderTest.setDefaultGoal( calorieGoal );
       
-      food.goalAnalytics().goal().set( new GoalImpl( "anything" ) );
+      food.goalAnalytics().calorieGoal().set( new CalorieGoalImpl( "anything" ) );
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
-      assertThat( food.goalAnalytics().goal().get(), is( not( goal ) ) );
+      assertThat( food.goalAnalytics().calorieGoal().get(), is( not( calorieGoal ) ) );
    }//End Method
    
    @Test public void shouldCreateNew() {
-      systemUnderTest.setDefaultGoal( goal );
+      systemUnderTest.setDefaultGoal( calorieGoal );
       
       Template newFood = systemUnderTest.createConcept( "NewName" );
       assertThat( systemUnderTest.get( newFood.properties().id() ), is( newFood ) );
-      assertThat( newFood.goalAnalytics().goal().get(), is( goal ) );
+      assertThat( newFood.goalAnalytics().calorieGoal().get(), is( calorieGoal ) );
    }//End Method
    
    @Test public void shouldRemoveExisting() {
-      systemUnderTest.setDefaultGoal( goal );
+      systemUnderTest.setDefaultGoal( calorieGoal );
       
       systemUnderTest.store( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( food ) );
       systemUnderTest.removeConcept( food );
       assertThat( systemUnderTest.get( food.properties().id() ), is( nullValue() ) );
-      assertThat( food.goalAnalytics().goal().get(), is( nullValue() ) );
+      assertThat( food.goalAnalytics().calorieGoal().get(), is( nullValue() ) );
    }//End Method
    
    @Test public void shouldProvideDefaultGoal(){
       assertThat( systemUnderTest.defaultGoal(), is( nullValue() ) );
-      systemUnderTest.setDefaultGoal( goal );
-      assertThat( systemUnderTest.defaultGoal(), is( goal ) );
+      systemUnderTest.setDefaultGoal( calorieGoal );
+      assertThat( systemUnderTest.defaultGoal(), is( calorieGoal ) );
    }//End Method
 
 }//End Class

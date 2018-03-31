@@ -19,7 +19,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.meal.MealChangeListener;
 import uk.dangrew.nuts.meal.MealPropertiesCalculator;
@@ -122,13 +122,13 @@ public class TemplateTest {
    @Test public void shouldDuplicate(){
       systemUnderTest.portions().add( portion1 );
       systemUnderTest.portions().add( portion2 );
-      systemUnderTest.goalAnalytics().goal().set( new GoalImpl( "Goal" ) );
+      systemUnderTest.goalAnalytics().calorieGoal().set( new CalorieGoalImpl( "Goal" ) );
       Template duplicate = systemUnderTest.duplicate( "anything" );
       assertThat( duplicate.portions().get( 0 ).portion().get(), is( portion1.portion().get() ) );
       assertThat( duplicate.portions().get( 1 ).portion().get(), is( portion2.portion().get() ) );
       assertTrue( duplicate.portions().get( 0 ).food().get() == portion1.food().get() );
       assertTrue( duplicate.portions().get( 1 ).food().get() == portion2.food().get() );
-      assertTrue( duplicate.goalAnalytics().goal().get() == systemUnderTest.goalAnalytics().goal().get()  );
+      assertTrue( duplicate.goalAnalytics().calorieGoal().get() == systemUnderTest.goalAnalytics().calorieGoal().get()  );
    }//End Method
 
 }//End Class

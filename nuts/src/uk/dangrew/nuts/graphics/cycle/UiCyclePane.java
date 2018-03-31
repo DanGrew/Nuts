@@ -4,8 +4,8 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.cycle.CycleStore;
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.goal.GoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 
@@ -20,7 +20,7 @@ public class UiCyclePane extends GridPane {
       styling.configureConstraintsForEvenRows( this, 1 );
       
       CycleStore cycles = new CycleStore();
-      Goal baseGoal = new GoalImpl( "Base" );
+      CalorieGoal baseGoal = new CalorieGoalImpl( "Base" );
       baseGoal.gender().set( Gender.Male );
       baseGoal.age().set( 28.0 );
       baseGoal.weight().set( 197.0 );

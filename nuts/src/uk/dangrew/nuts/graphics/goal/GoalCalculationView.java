@@ -28,8 +28,8 @@ import uk.dangrew.kode.javafx.style.Conversions;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 
 /**
  * {@link GoalCalculationView} provides a pane of settable, and autocalculating, properties to configure
@@ -43,7 +43,7 @@ public class GoalCalculationView extends TitledPane {
    private final RegistrationManager modelRegistrations;
 
    private final VBox layout;
-   private final Goal viewModel; 
+   private final CalorieGoal viewModel; 
    
    /**
     * Constructs a new {@link GoalCalculationView}.
@@ -57,7 +57,7 @@ public class GoalCalculationView extends TitledPane {
       this.conversions = new Conversions();
       this.uiRegistrations = new RegistrationManager();
       this.modelRegistrations = new RegistrationManager();
-      this.viewModel = new GoalImpl( "Selected" );
+      this.viewModel = new CalorieGoalImpl( "Selected" );
 
       createGoalDetails();
       
@@ -180,28 +180,28 @@ public class GoalCalculationView extends TitledPane {
     * This will decouple the view from the previous.
     * @param goal the {@link Goal} to show.
     */
-   public void show( Goal goal ) {
+   public void show( CalorieGoal calorieGoal ) {
       modelRegistrations.shutdown();
       
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().nameProperty(), viewModel.properties().nameProperty() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.gender(), viewModel.gender() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.age(), viewModel.age() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.height(), viewModel.height() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.weight(), viewModel.weight() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().nameProperty(), viewModel.properties().nameProperty() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.gender(), viewModel.gender() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.age(), viewModel.age() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.height(), viewModel.height() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.weight(), viewModel.weight() ) );
       
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.bmr(), viewModel.bmr() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.pal(), viewModel.pal() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.tee(), viewModel.tee() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.bmr(), viewModel.bmr() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.pal(), viewModel.pal() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.tee(), viewModel.tee() ) );
       
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.exerciseCalories(), viewModel.exerciseCalories() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.calorieDeficit(), viewModel.calorieDeficit() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().calories(), viewModel.properties().calories() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.exerciseCalories(), viewModel.exerciseCalories() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.calorieDeficit(), viewModel.calorieDeficit() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().calories(), viewModel.properties().calories() ) );
       
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.proteinPerPound(), viewModel.proteinPerPound() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.fatPerPound(), viewModel.fatPerPound() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().carbohydrates(), viewModel.properties().carbohydrates() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().fats(), viewModel.properties().fats() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( goal.properties().protein(), viewModel.properties().protein() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.proteinPerPound(), viewModel.proteinPerPound() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.fatPerPound(), viewModel.fatPerPound() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().carbohydrates(), viewModel.properties().carbohydrates() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().fats(), viewModel.properties().fats() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().protein(), viewModel.properties().protein() ) );
    }//End Method 
    
 }//End Class

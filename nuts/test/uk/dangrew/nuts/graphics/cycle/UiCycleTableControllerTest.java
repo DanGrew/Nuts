@@ -18,7 +18,7 @@ import com.sun.javafx.application.PlatformImpl;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.cycle.Cycle;
 import uk.dangrew.nuts.cycle.CycleStore;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.GoalStore;
 
 public class UiCycleTableControllerTest {
@@ -28,7 +28,7 @@ public class UiCycleTableControllerTest {
    
    private CycleStore cycles;
    
-   private Goal baseGoal;
+   private CalorieGoal baseGoal;
    private GoalStore goals;
    private UiCycleTableController systemUnderTest;
 

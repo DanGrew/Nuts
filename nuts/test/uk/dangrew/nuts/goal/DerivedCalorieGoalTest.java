@@ -19,20 +19,20 @@ import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.manual.data.DataLocation;
 
-public class DerivedGoalTest {
+public class DerivedCalorieGoalTest {
 
    @Spy private MacroRatioCalculator marcoRatioCalculator;
    private FoodProperties properties;
    private FoodAnalytics analytics;
-   private Goal baseGoal;
-   private DerivedGoal systemUnderTest;
+   private CalorieGoal baseGoal;
+   private DerivedCalorieGoal systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
-      baseGoal = new GoalImpl( "Base" );
+      baseGoal = new CalorieGoalImpl( "Base" );
       properties = new FoodProperties( "Goal" );
       analytics = new GoalAnalytics();
-      systemUnderTest = new DerivedGoal( properties, analytics, marcoRatioCalculator );
+      systemUnderTest = new DerivedCalorieGoal( properties, analytics, marcoRatioCalculator );
       systemUnderTest.setBaseGoal( baseGoal );
    }//End Method
    
@@ -102,7 +102,7 @@ public class DerivedGoalTest {
    }//End Method
    
    @Test public void shouldDuplicateWithBaseGoal(){
-      DerivedGoal duplicate = systemUnderTest.duplicate( "anything" );
+      DerivedCalorieGoal duplicate = systemUnderTest.duplicate( "anything" );
       assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "anything" ) );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       assertThat( duplicate.baseGoal(), is( systemUnderTest.baseGoal() ) );
@@ -111,8 +111,8 @@ public class DerivedGoalTest {
    }//End Method
    
    @Test public void shouldDuplicateWithoutBaseGoal(){
-      systemUnderTest = new DerivedGoal( "No Base" );
-      DerivedGoal duplicate = systemUnderTest.duplicate( "anything" );
+      systemUnderTest = new DerivedCalorieGoal( "No Base" );
+      DerivedCalorieGoal duplicate = systemUnderTest.duplicate( "anything" );
       assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "anything" ) );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       assertThat( duplicate.baseGoal(), is( nullValue() ) );

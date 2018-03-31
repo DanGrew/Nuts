@@ -1,16 +1,16 @@
 package uk.dangrew.nuts.graphics.cycle;
 
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 
 public class CycleCreationResult {
    
-   private final Goal baseGoal;
+   private final CalorieGoal baseGoal;
    
-   public CycleCreationResult( Goal baseGoal ) {
+   public CycleCreationResult( CalorieGoal baseGoal ) {
       this.baseGoal = baseGoal;
    }//End Constructor
    
-   public Goal baseGoal(){
+   public CalorieGoal baseGoal(){
       return baseGoal;
    }//End Method
 

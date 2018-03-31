@@ -14,17 +14,17 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.cycle.Cycle;
-import uk.dangrew.nuts.goal.DerivedGoal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.DerivedCalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 
 public class UiCycleGoalsTableControllerTest {
 
    @Mock private UiCycleDialogs dialogs;
    
    private Cycle cycle;
-   private DerivedGoal goal1;
-   private DerivedGoal goal2;
-   private DerivedGoal goal3;
+   private DerivedCalorieGoal goal1;
+   private DerivedCalorieGoal goal2;
+   private DerivedCalorieGoal goal3;
    
    private UiCycleGoalsTable table;
    private UiCycleGoalsTableController systemUnderTest;
@@ -34,10 +34,10 @@ public class UiCycleGoalsTableControllerTest {
       MockitoAnnotations.initMocks( this );
       
       cycle = new Cycle( "Test Cycle" );
-      cycle.goals().add( goal1 = new DerivedGoal( "Derived1" ) );
-      cycle.goals().add( goal2 = new DerivedGoal( "Derived2" ) );
-      cycle.goals().add( goal3 = new DerivedGoal( "Derived3" ) );
-      cycle.setBaseGoal( new GoalImpl( "Base" ) );
+      cycle.goals().add( goal1 = new DerivedCalorieGoal( "Derived1" ) );
+      cycle.goals().add( goal2 = new DerivedCalorieGoal( "Derived2" ) );
+      cycle.goals().add( goal3 = new DerivedCalorieGoal( "Derived3" ) );
+      cycle.setBaseGoal( new CalorieGoalImpl( "Base" ) );
       
       systemUnderTest = new UiCycleGoalsTableController( dialogs );
       table = new UiCycleGoalsTable( systemUnderTest );
@@ -70,7 +70,7 @@ public class UiCycleGoalsTableControllerTest {
    
    @Test public void shouldCreateDerviedGoalWithBaseGoal(){
       systemUnderTest.focusOn( cycle );
-      DerivedGoal goal = systemUnderTest.createConcept();
+      DerivedCalorieGoal goal = systemUnderTest.createConcept();
       assertThat( goal.baseGoal(), is( cycle.baseGoal() ) );
       assertThat( cycle.goals().contains( goal ), is( true ) );
    }//End Method
@@ -100,7 +100,7 @@ public class UiCycleGoalsTableControllerTest {
    
    @Test public void shouldRespondToChangesInFocussedGoal(){
       systemUnderTest.focusOn( cycle );
-      DerivedGoal extra = new DerivedGoal( "Extra" );
+      DerivedCalorieGoal extra = new DerivedCalorieGoal( "Extra" );
       
       cycle.goals().add( extra );
       assertThatTableMatchesCycle();
@@ -119,7 +119,7 @@ public class UiCycleGoalsTableControllerTest {
    @Test public void shouldNotRespondToChangesInFocussedGoalWhenChanged(){
       systemUnderTest.focusOn( cycle );
       systemUnderTest.focusOn( new Cycle( "Different" ) );
-      DerivedGoal extra = new DerivedGoal( "Extra" );
+      DerivedCalorieGoal extra = new DerivedCalorieGoal( "Extra" );
       
       cycle.goals().add( extra );
       assertThat( table.getItems(), is( empty() ) );

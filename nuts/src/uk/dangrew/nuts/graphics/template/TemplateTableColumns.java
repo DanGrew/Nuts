@@ -57,8 +57,8 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements Conce
                table, 
                COLUMN_TITLE_GOAL, 
                0.1, 
-               r -> r.concept().goalAnalytics().goal(), 
-               ( r, v ) -> r.concept().goalAnalytics().goal().set( v ),
+               r -> r.concept().goalAnalytics().calorieGoal(), 
+               ( r, v ) -> r.concept().goalAnalytics().calorieGoal().set( v ),
                new ConceptOptionsImpl<>( Arrays.asList( goals ) )
       );
 

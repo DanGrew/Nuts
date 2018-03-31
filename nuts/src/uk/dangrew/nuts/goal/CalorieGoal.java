@@ -3,7 +3,7 @@ package uk.dangrew.nuts.goal;
 import javafx.beans.property.ObjectProperty;
 import uk.dangrew.nuts.food.Food;
 
-public interface Goal extends Food {
+public interface CalorieGoal extends Food {
 
    /**
     * Access to the age property, measured in years.

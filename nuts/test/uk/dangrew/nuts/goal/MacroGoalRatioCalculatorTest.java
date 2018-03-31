@@ -12,7 +12,7 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class MacroGoalRatioCalculatorTest {
 
-   private Goal goal;
+   private CalorieGoal calorieGoal;
    private FoodProperties properties;
    private GoalAnalytics analytics;
    private MacroGoalRatioCalculator systemUnderTest;
@@ -20,7 +20,7 @@ public class MacroGoalRatioCalculatorTest {
    @Before public void initialiseSystemUnderTest() {
       properties = new FoodProperties( "Props" );
       analytics = new GoalAnalytics();
-      goal = new GoalImpl( "Goal" );
+      calorieGoal = new CalorieGoalImpl( "Goal" );
       
       systemUnderTest = new MacroGoalRatioCalculator();
       systemUnderTest.associate( properties, analytics );
@@ -31,21 +31,21 @@ public class MacroGoalRatioCalculatorTest {
    }//End Method
    
    @Test public void shouldCalculateProportionsWhenFoodSet(){
-      goal.properties().setMacros( 300, 60, 200 );
+      calorieGoal.properties().setMacros( 300, 60, 200 );
       
       properties.carbohydrates().set( 45.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 40.0 );
       
-      analytics.goal().set( goal );
+      analytics.calorieGoal().set( calorieGoal );
       assertMacroProportions( 15, 25, 20 );
    }//End Method
    
    @Test public void shouldProvideMacroProportions() {
-      analytics.goal().set( goal );
+      analytics.calorieGoal().set( calorieGoal );
       
       assertMacroProportions( 0, 0, 0 );
-      goal.properties().setMacros( 300, 60, 200 );
+      calorieGoal.properties().setMacros( 300, 60, 200 );
       
       properties.carbohydrates().set( 30.0 );
       assertMacroProportions( 10, 0, 0 );
@@ -59,27 +59,27 @@ public class MacroGoalRatioCalculatorTest {
       properties.fats().set( 180.0 );
       assertMacroProportions( 10, 300, 37.5 );
       
-      goal.properties().setMacros( 0.0, 0.0, 0.0 );
+      calorieGoal.properties().setMacros( 0.0, 0.0, 0.0 );
       assertMacroProportions( 0, 0, 0 );
    }//End Method
    
    @Test public void shouldRespondToGoalChanges() {
-      analytics.goal().set( goal );
+      analytics.calorieGoal().set( calorieGoal );
       
       properties.carbohydrates().set( 20.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 10.0 );
       
-      goal.properties().carbohydrates().set( 50.0 );
+      calorieGoal.properties().carbohydrates().set( 50.0 );
       assertMacroProportions( 40, 0, 0 );
       
-      goal.properties().fats().set( 150.0 );
+      calorieGoal.properties().fats().set( 150.0 );
       assertMacroProportions( 40, 10, 0 );
       
-      goal.properties().protein().set( 80.0 );
+      calorieGoal.properties().protein().set( 80.0 );
       assertMacroProportions( 40, 10, 12.5 );
       
-      goal.properties().fats().set( 20.0 );
+      calorieGoal.properties().fats().set( 20.0 );
       assertMacroProportions( 40, 75, 12.5 );
    }//End Method
    
@@ -90,32 +90,32 @@ public class MacroGoalRatioCalculatorTest {
    }//End Method
    
    @Test public void shouldResetProportionsWhenGoalRemoved(){
-      goal.properties().setMacros( 300, 60, 200 );
+      calorieGoal.properties().setMacros( 300, 60, 200 );
       properties.carbohydrates().set( 45.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 40.0 );
       
       assertMacroProportions( 0, 0, 0 );
-      analytics.goal().set( goal );
+      analytics.calorieGoal().set( calorieGoal );
       assertMacroProportions( 15, 25, 20 );
       
-      analytics.goal().set( null );
+      analytics.calorieGoal().set( null );
       assertMacroProportions( 0, 0, 0 );
    }//End Method
    
    @Test public void shouldNotRespondToPreviousGoal(){
-      analytics.goal().set( goal );
+      analytics.calorieGoal().set( calorieGoal );
       
-      goal.properties().setMacros( 300, 60, 200 );
+      calorieGoal.properties().setMacros( 300, 60, 200 );
       properties.carbohydrates().set( 45.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 40.0 );
       assertMacroProportions( 15, 25, 20 );
       
-      analytics.goal().set( null );
+      analytics.calorieGoal().set( null );
       assertMacroProportions( 0, 0, 0 );
       properties.setMacros( 23, 456, 980 );
-      goal.properties().setMacros( 100, 23, 987 );
+      calorieGoal.properties().setMacros( 100, 23, 987 );
       assertMacroProportions( 0, 0, 0 );
    }//End Method
    
@@ -140,33 +140,33 @@ public class MacroGoalRatioCalculatorTest {
    }//End Method
    
    @Test public void shouldCalculateCalorieRatio(){
-      analytics.goal().set( goal );
+      analytics.calorieGoal().set( calorieGoal );
       
       assertThat( analytics.caloriesRatio(), is( 0.0 ) );
-      goal.properties().calories().set( 600.0 );
+      calorieGoal.properties().calories().set( 600.0 );
       assertThat( analytics.caloriesRatio(), is( 0.0 ) );
       properties.calories().set( 150.0 );
       assertThat( analytics.caloriesRatio(), is( 25.0 ) );
-      goal.properties().calories().set( 1000.0 );
+      calorieGoal.properties().calories().set( 1000.0 );
       assertThat( analytics.caloriesRatio(), is( 15.0 ) );
    }//End Method
    
    @Test public void shouldNotRespondToPreviousForCalorieRatio(){
-      analytics.goal().set( goal );
-      goal.properties().calories().set( 600.0 );
+      analytics.calorieGoal().set( calorieGoal );
+      calorieGoal.properties().calories().set( 600.0 );
       properties.calories().set( 150.0 );
       assertThat( analytics.caloriesRatio(), is( 25.0 ) );
       
-      analytics.goal().set( new GoalImpl( "anything" ) );
+      analytics.calorieGoal().set( new CalorieGoalImpl( "anything" ) );
       assertThat( analytics.caloriesRatio(), is( 0.0 ) );
       
-      goal.properties().calories().set( 1000.0 );
+      calorieGoal.properties().calories().set( 1000.0 );
       assertThat( analytics.caloriesRatio(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldRespondToPropertyChanges() {
-      analytics.goal().set( goal );
-      goal.properties().setMacros( 100, 60, 200 );
+      analytics.calorieGoal().set( calorieGoal );
+      calorieGoal.properties().setMacros( 100, 60, 200 );
       assertMacroProportions( 0, 0, 0 );
       
       properties.carbohydrates().set( 20.0 );

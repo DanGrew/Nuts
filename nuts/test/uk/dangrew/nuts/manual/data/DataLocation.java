@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
@@ -59,14 +59,14 @@ public class DataLocation {
       persistence.readHandles().parse( json );
    }//End Method
    
-   public static void configureExampleGoal( Goal goal ) {
-      goal.gender().set( Gender.Male );
-      goal.age().set( 28.0 );
-      goal.weight().set( 197.0 );
-      goal.height().set( 1.87 );
-      goal.exerciseCalories().set( 500.0 );
-      goal.calorieDeficit().set( 700.0 );
-      goal.fatPerPound().set( 0.35 );
+   public static void configureExampleGoal( CalorieGoal calorieGoal ) {
+      calorieGoal.gender().set( Gender.Male );
+      calorieGoal.age().set( 28.0 );
+      calorieGoal.weight().set( 197.0 );
+      calorieGoal.height().set( 1.87 );
+      calorieGoal.exerciseCalories().set( 500.0 );
+      calorieGoal.calorieDeficit().set( 700.0 );
+      calorieGoal.fatPerPound().set( 0.35 );
    }//End Method
    
 }//End Class

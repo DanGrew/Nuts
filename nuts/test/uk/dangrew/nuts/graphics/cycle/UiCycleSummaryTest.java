@@ -13,9 +13,9 @@ import com.sun.javafx.application.PlatformImpl;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.cycle.Cycle;
-import uk.dangrew.nuts.goal.DerivedGoal;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.DerivedCalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.manual.data.DataLocation;
 
 public class UiCycleSummaryTest {
@@ -23,10 +23,10 @@ public class UiCycleSummaryTest {
    private double startingCalories;
    
    private Cycle cycle;
-   private Goal baseGoal;
-   private DerivedGoal goal1;
-   private DerivedGoal goal2;
-   private DerivedGoal goal3;
+   private CalorieGoal baseGoal;
+   private DerivedCalorieGoal goal1;
+   private DerivedCalorieGoal goal2;
+   private DerivedCalorieGoal goal3;
    
    private UiCycleGoalsTableController controller;
    private UiCycleSummary systemUnderTest;
@@ -35,10 +35,10 @@ public class UiCycleSummaryTest {
       TestApplication.startPlatform();
       
       cycle = new Cycle( "Cycle" );
-      cycle.goals().add( goal1 = new DerivedGoal( "D1" ) );
-      cycle.goals().add( goal2 = new DerivedGoal( "D2" ) );
-      cycle.goals().add( goal3 = new DerivedGoal( "D3" ) );
-      cycle.setBaseGoal( baseGoal = new GoalImpl( "Base" ) );
+      cycle.goals().add( goal1 = new DerivedCalorieGoal( "D1" ) );
+      cycle.goals().add( goal2 = new DerivedCalorieGoal( "D2" ) );
+      cycle.goals().add( goal3 = new DerivedCalorieGoal( "D3" ) );
+      cycle.setBaseGoal( baseGoal = new CalorieGoalImpl( "Base" ) );
       DataLocation.configureExampleGoal( baseGoal );
       
       PlatformImpl.runAndWait( () -> controller = new UiCycleGoalsTableController() );

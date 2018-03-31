@@ -11,8 +11,8 @@ import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.stock.Stock;
@@ -49,9 +49,9 @@ public class FoodSelectionWindowTest {
     
     Template template = new Template( "Test Template" );
     template.portions().add( new FoodPortion( meal, 100 ) );
-    Goal goal = new GoalImpl( "Template Goal" );
-    DataLocation.configureExampleGoal( goal );
-    template.goalAnalytics().goal().set( goal );
+    CalorieGoal calorieGoal = new CalorieGoalImpl( "Template Goal" );
+    DataLocation.configureExampleGoal( calorieGoal );
+    template.goalAnalytics().calorieGoal().set( calorieGoal );
     new FoodSelectionForTemplateEvent().fire( new Event<>( template ) );
     
     Thread.sleep( 9999999 );

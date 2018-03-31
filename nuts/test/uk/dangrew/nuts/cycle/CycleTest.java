@@ -9,18 +9,18 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.system.Properties;
 
 public class CycleTest {
 
-   private Goal baseGoal;
+   private CalorieGoal baseGoal;
    private Properties properties;
    private Cycle systemUnderTest;
    
    @Before public void initialiseSystemUnderTest() {
-      baseGoal = new GoalImpl( "goal" );
+      baseGoal = new CalorieGoalImpl( "goal" );
       properties = new Properties( "id", "name" );
       systemUnderTest = new Cycle( properties );
    }//End Method

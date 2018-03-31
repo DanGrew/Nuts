@@ -98,7 +98,7 @@ public class Template extends Meal implements Food {
    @Override public Template duplicate( String referenceId ) {
       Template duplicate = new Template( properties().nameProperty().get() + referenceId );
       super.duplicateProperties( duplicate, referenceId );
-      duplicate.goalAnalytics().goal().set( goalAnalytics().goal().get() );
+      duplicate.goalAnalytics().calorieGoal().set( goalAnalytics().calorieGoal().get() );
       return duplicate;
    }//End Method 
    

@@ -9,30 +9,30 @@ import org.junit.Test;
 
 public class GoalStoreTest {
 
-   private Goal goal;
+   private CalorieGoal calorieGoal;
    private GoalStore systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      goal = new GoalImpl( "Goal" );
+      calorieGoal = new CalorieGoalImpl( "Goal" );
       systemUnderTest = new GoalStore();
    }//End Method
 
    @Test public void shouldStoreById() {
-      assertThat( systemUnderTest.get( goal.properties().id() ), is( nullValue() ) );
-      systemUnderTest.store( goal );
-      assertThat( systemUnderTest.get( goal.properties().id() ), is( goal ) );
+      assertThat( systemUnderTest.get( calorieGoal.properties().id() ), is( nullValue() ) );
+      systemUnderTest.store( calorieGoal );
+      assertThat( systemUnderTest.get( calorieGoal.properties().id() ), is( calorieGoal ) );
    }//End Method
    
    @Test public void shouldCreateNew() {
-      Goal newFood = systemUnderTest.createConcept( "NewName" );
+      CalorieGoal newFood = systemUnderTest.createConcept( "NewName" );
       assertThat( systemUnderTest.get( newFood.properties().id() ), is( newFood ) );
    }//End Method
    
    @Test public void shouldRemoveExisting() {
-      systemUnderTest.store( goal );
-      assertThat( systemUnderTest.get( goal.properties().id() ), is( goal ) );
-      systemUnderTest.removeConcept( goal );
-      assertThat( systemUnderTest.get( goal.properties().id() ), is( nullValue() ) );
+      systemUnderTest.store( calorieGoal );
+      assertThat( systemUnderTest.get( calorieGoal.properties().id() ), is( calorieGoal ) );
+      systemUnderTest.removeConcept( calorieGoal );
+      assertThat( systemUnderTest.get( calorieGoal.properties().id() ), is( nullValue() ) );
    }//End Method
 
 }//End Class

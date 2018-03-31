@@ -9,7 +9,7 @@
 package uk.dangrew.nuts.persistence.goal;
 
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.GoalStore;
 
 /**
@@ -71,7 +71,7 @@ class GoalParseModel {
     * @param key the parsed key.
     */
    void finishGoal( String key ) {
-      Goal goalImpl = goals.get( id );
+      CalorieGoal goalImpl = goals.get( id );
       if ( goalImpl == null ) {
          goalImpl = goals.createConcept( id, name );
       }
@@ -82,7 +82,7 @@ class GoalParseModel {
    void finishSingleGoalDefinition( String key ) {
       id = "single-goal-no-id-provided-unique";
       name = "Singleton Goal"; 
-      Goal singleton = goals.createConcept( id, name );
+      CalorieGoal singleton = goals.createConcept( id, name );
       setGoalProperties( singleton );
    }//End Method
    
@@ -90,7 +90,7 @@ class GoalParseModel {
     * Setter for the properties of a {@link Goal} from the parsed values.
     * @param goal the {@link Goal} to set on.
     */
-   private void setGoalProperties( Goal goalImpl ) {
+   private void setGoalProperties( CalorieGoal goalImpl ) {
       goalImpl.properties().nameProperty().set( name );
       goalImpl.age().set( age );
       goalImpl.weight().set( weight );

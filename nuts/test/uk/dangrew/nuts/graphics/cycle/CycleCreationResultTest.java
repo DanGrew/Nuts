@@ -6,16 +6,16 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 
 public class CycleCreationResultTest {
 
-   private Goal baseGoal;
+   private CalorieGoal baseGoal;
    private CycleCreationResult systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      baseGoal = new GoalImpl( "Base" );
+      baseGoal = new CalorieGoalImpl( "Base" );
       systemUnderTest = new CycleCreationResult( baseGoal );
    }//End Method
 

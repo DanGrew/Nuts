@@ -24,7 +24,7 @@ public class MacroGoalRatioCalculator {
    private FoodProperties properties;
    private GoalAnalytics analytics;
    
-   private Goal goal;
+   private CalorieGoal calorieGoal;
    
    /**
     * Constructs a new {@link MacroGoalRatioCalculator}.
@@ -50,23 +50,23 @@ public class MacroGoalRatioCalculator {
       this.properties.protein().addListener( updater );
       this.properties.calories().addListener( updater );
       this.analytics = analytics;
-      this.analytics.goal().addListener( ( s, o, n ) -> setGoal( n ) );
+      this.analytics.calorieGoal().addListener( ( s, o, n ) -> setGoal( n ) );
    }//End Method
    
    /**
     * Method to apply the {@link Goal} to the calculator.
     * @param goal the {@link Goal}, can be null.
     */
-   private void setGoal( Goal goal ) {
-      if ( this.goal != null ) {
+   private void setGoal( CalorieGoal calorieGoal ) {
+      if ( this.calorieGoal != null ) {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
-            this.goal.properties().nutritionFor( macro ).removeListener( updater );
+            this.calorieGoal.properties().nutritionFor( macro ).removeListener( updater );
          }
-         this.goal.properties().calories().removeListener( updater );
+         this.calorieGoal.properties().calories().removeListener( updater );
       }
       
-      this.goal = goal;
-      if ( this.goal == null ) {
+      this.calorieGoal = calorieGoal;
+      if ( this.calorieGoal == null ) {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
             analytics.nutrientRatioFor( macro ).set( 0.0 );
          }
@@ -74,9 +74,9 @@ public class MacroGoalRatioCalculator {
       } else {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
             properties.nutritionFor( macro ).addListener( updater );
-            this.goal.properties().nutritionFor( macro ).addListener( updater );
+            this.calorieGoal.properties().nutritionFor( macro ).addListener( updater );
          }
-         this.goal.properties().calories().addListener( updater );
+         this.calorieGoal.properties().calories().addListener( updater );
          updateRatios();
       }
    }//End Method
@@ -85,11 +85,11 @@ public class MacroGoalRatioCalculator {
     * Method to update the ratios of {@link Goal}s {@link MacroNutrient}s.
     */
    private void updateRatios(){
-      if ( this.goal == null ) {
+      if ( this.calorieGoal == null ) {
          return;
       }
       for ( MacroNutrient macro : MacroNutrient.values() ) {
-         double macroGoal = goal.properties().nutritionFor( macro ).get();
+         double macroGoal = calorieGoal.properties().nutritionFor( macro ).get();
          if ( macroGoal == 0 ) {
             analytics.nutrientRatioFor( macro ).set( 0.0 );   
             continue;
@@ -99,10 +99,10 @@ public class MacroGoalRatioCalculator {
          analytics.nutrientRatioFor( macro ).set( proportion );
       }
       
-      if ( goal.properties().calories().get() == 0.0 ) {
+      if ( calorieGoal.properties().calories().get() == 0.0 ) {
          analytics.caloriesRatioProperty().set( 0.0 );   
       } else {
-         double calorieProprtion = properties.calories().get() * 100 / goal.properties().calories().get();
+         double calorieProprtion = properties.calories().get() * 100 / calorieGoal.properties().calories().get();
          analytics.caloriesRatioProperty().set( calorieProprtion );
       }
    }//End Method

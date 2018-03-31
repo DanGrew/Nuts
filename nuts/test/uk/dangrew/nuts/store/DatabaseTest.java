@@ -16,8 +16,8 @@ import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.goal.GoalStore;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealStore;
@@ -72,9 +72,9 @@ public class DatabaseTest {
    @Test public void shouldProvideGoals(){
       assertThat( systemUnderTest.goals(), is( instanceOf( GoalStore.class ) ) );
       
-      Goal goal = new GoalImpl( "List" );
-      systemUnderTest.goals().store( goal );
-      assertThat( systemUnderTest.goals().get( goal.properties().id() ), is( goal ) );
+      CalorieGoal calorieGoal = new CalorieGoalImpl( "List" );
+      systemUnderTest.goals().store( calorieGoal );
+      assertThat( systemUnderTest.goals().get( calorieGoal.properties().id() ), is( calorieGoal ) );
    }//End Method
    
    @Test public void shouldProvideDayPlans(){

@@ -38,12 +38,12 @@ public class UiMealFoodSelectionPane extends GridPane {
       liveSelectionProperties.properties().nameProperty().set( meal.properties().nameProperty().get() );
       liveSelectionProperties.portions().clear();
       liveSelectionProperties.portions().addAll( meal.portions() );
-      liveSelectionProperties.goalAnalytics().goal().set( null );
+      liveSelectionProperties.goalAnalytics().calorieGoal().set( null );
    }//End Method
    
    public void selectForTemplate( Template template ) {
       selectForMeal( template );
-      liveSelectionProperties.goalAnalytics().goal().set( template.goalAnalytics().goal().get() );
+      liveSelectionProperties.goalAnalytics().calorieGoal().set( template.goalAnalytics().calorieGoal().get() );
    }//End Method
    
    Template liveSelectionProperties(){

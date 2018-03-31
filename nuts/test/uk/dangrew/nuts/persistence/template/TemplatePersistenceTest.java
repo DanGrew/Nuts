@@ -13,8 +13,8 @@ import javafx.util.Pair;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.goal.GoalPersistence;
@@ -85,17 +85,17 @@ public class TemplatePersistenceTest {
       item4.properties().setMacros( 0.1, 1.1, 0.3 );
       database.foodItems().store( item4 );
       
-      Goal goal1 = new GoalImpl( "Goal 1" );
+      CalorieGoal goal1 = new CalorieGoalImpl( "Goal 1" );
       database.goals().store( goal1 );
       
-      Goal goal2 = new GoalImpl( "Goal 2" );
+      CalorieGoal goal2 = new CalorieGoalImpl( "Goal 2" );
       database.goals().store( goal2 );
       
       Template meal1 = new Template( "99987", "Meal1" );
       meal1.portions().add( new FoodPortion( item1, 100.0 ) );
       meal1.portions().add( new FoodPortion( item2, 90.0 ) );
       meal1.portions().add( new FoodPortion( item3, 50.0 ) );
-      meal1.goalAnalytics().goal().set( goal1 );
+      meal1.goalAnalytics().calorieGoal().set( goal1 );
       database.templates().store( meal1 );
       
       Template meal2 = new Template( "556676", "Meal2" );
@@ -103,12 +103,12 @@ public class TemplatePersistenceTest {
       meal2.portions().add( new FoodPortion( item3, 90.0 ) );
       meal2.portions().add( new FoodPortion( item4, 100.0 ) );
       meal2.portions().add( new FoodPortion() );
-      meal2.goalAnalytics().goal().set( goal2 );
+      meal2.goalAnalytics().calorieGoal().set( goal2 );
       database.templates().store( meal2 );
       
       Template meal3 = new Template( "8878886", "Meal3" );
       meal3.portions().add( new FoodPortion( item3, 100.0 ) );
-      meal3.goalAnalytics().goal().set( goal1 );
+      meal3.goalAnalytics().calorieGoal().set( goal1 );
       database.templates().store( meal3 );
       
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
@@ -198,7 +198,7 @@ public class TemplatePersistenceTest {
    ){
       assertThat( meal.properties().id(), is( id ) );
       assertThat( meal.properties().nameProperty().get(), is( name ) );
-      assertThat( meal.goalAnalytics().goal().get().properties().id(), is( goalId ) );
+      assertThat( meal.goalAnalytics().calorieGoal().get().properties().id(), is( goalId ) );
       assertThat( meal.portions(), hasSize( portions.length ) );
       
       for ( int i = 0; i < portions.length; i++ ) {
@@ -212,7 +212,7 @@ public class TemplatePersistenceTest {
    private void assertMealProperties(
             Template meal, Template expected
    ){
-      assertThat( meal.goalAnalytics().goal().get().properties().id(), is( expected.goalAnalytics().goal().get().properties().id() ) );
+      assertThat( meal.goalAnalytics().calorieGoal().get().properties().id(), is( expected.goalAnalytics().calorieGoal().get().properties().id() ) );
       assertThat( meal.properties().id(), is( expected.properties().id() ) );
       assertThat( meal.properties().nameProperty().get(), is( expected.properties().nameProperty().get() ) );
       assertThat( meal.portions(), hasSize( expected.portions().size() ) );

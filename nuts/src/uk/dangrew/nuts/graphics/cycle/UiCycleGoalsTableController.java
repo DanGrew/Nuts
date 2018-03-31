@@ -7,18 +7,18 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.cycle.Cycle;
-import uk.dangrew.nuts.goal.DerivedGoal;
+import uk.dangrew.nuts.goal.DerivedCalorieGoal;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 
-public class UiCycleGoalsTableController implements ConceptTableController< DerivedGoal >{
+public class UiCycleGoalsTableController implements ConceptTableController< DerivedCalorieGoal >{
 
    private final UiCycleDialogs dialogs;
-   private final FunctionListChangeListenerImpl< DerivedGoal > goalsChangeListener;
+   private final FunctionListChangeListenerImpl< DerivedCalorieGoal > goalsChangeListener;
    private final ObjectProperty< Cycle > focus;
    
-   private ConceptTable< DerivedGoal > table;
+   private ConceptTable< DerivedCalorieGoal > table;
    
    public UiCycleGoalsTableController() {
       this( new UiCycleDialogs() );
@@ -32,7 +32,7 @@ public class UiCycleGoalsTableController implements ConceptTableController< Deri
       );
    }//End Constructor
    
-   @Override public void associate( ConceptTable< DerivedGoal > table ) {
+   @Override public void associate( ConceptTable< DerivedCalorieGoal > table ) {
       this.table = table;
    }//End Method
    
@@ -51,13 +51,13 @@ public class UiCycleGoalsTableController implements ConceptTableController< Deri
       return focus;
    }//End Method
    
-   private void addRow( DerivedGoal concept ) {
+   private void addRow( DerivedCalorieGoal concept ) {
       table.getItems().add( new ConceptTableRow<>( concept ) );
    }//End Method
    
-   private void removeRow( DerivedGoal concept ) {
-      Set< ConceptTableRow< DerivedGoal > > rowsToRemove = new HashSet<>();
-      for ( ConceptTableRow< DerivedGoal > row : table.getItems() ) {
+   private void removeRow( DerivedCalorieGoal concept ) {
+      Set< ConceptTableRow< DerivedCalorieGoal > > rowsToRemove = new HashSet<>();
+      for ( ConceptTableRow< DerivedCalorieGoal > row : table.getItems() ) {
          if ( row.concept().properties().id().equals( concept.properties().id() ) ) {
             rowsToRemove.add( row );
          }
@@ -66,7 +66,7 @@ public class UiCycleGoalsTableController implements ConceptTableController< Deri
       table.getItems().removeAll( rowsToRemove );
    }//End Method
 
-   @Override public DerivedGoal createConcept() {
+   @Override public DerivedCalorieGoal createConcept() {
       if ( focus.get() == null ) {
          dialogs.showNoFocusDialog();
          return null;
@@ -77,7 +77,7 @@ public class UiCycleGoalsTableController implements ConceptTableController< Deri
          return null;
       }
       
-      DerivedGoal derived = new DerivedGoal( "Day " + ( focus.get().goals().size() + 1 ) );
+      DerivedCalorieGoal derived = new DerivedCalorieGoal( "Day " + ( focus.get().goals().size() + 1 ) );
       derived.setBaseGoal( focus.get().baseGoal() );
       focus.get().goals().add( derived );
       return derived;
@@ -88,7 +88,7 @@ public class UiCycleGoalsTableController implements ConceptTableController< Deri
          return;
       }
       
-      ConceptTableRow< DerivedGoal > selected = table.getSelectionModel().getSelectedItem();
+      ConceptTableRow< DerivedCalorieGoal > selected = table.getSelectionModel().getSelectedItem();
       if ( selected == null ) {
          return;
       }
@@ -99,12 +99,12 @@ public class UiCycleGoalsTableController implements ConceptTableController< Deri
     * {@inheritDoc}
     */
    @Override public void copySelectedConcept() {
-      ConceptTableRow< DerivedGoal > selection = table.getSelectionModel().getSelectedItem();
+      ConceptTableRow< DerivedCalorieGoal > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
       
-      DerivedGoal copy = selection.concept().duplicate( "-copy" );
+      DerivedCalorieGoal copy = selection.concept().duplicate( "-copy" );
       focus.get().goals().add( copy );
    }//End Method
 

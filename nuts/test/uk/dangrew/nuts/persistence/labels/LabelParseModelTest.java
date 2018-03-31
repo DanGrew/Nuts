@@ -11,8 +11,8 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
@@ -56,8 +56,8 @@ public class LabelParseModelTest {
       Meal meal = new Meal( "2", "Meal" );
       database.meals().store( meal );
       
-      Goal goal = new GoalImpl( "3", "Goal" );
-      database.goals().store( goal );
+      CalorieGoal calorieGoal = new CalorieGoalImpl( "3", "Goal" );
+      database.goals().store( calorieGoal );
       
       database.labels().objectList().get( 0 ).concepts().add( new FoodItem( "anything" ) );
       
@@ -75,7 +75,7 @@ public class LabelParseModelTest {
       systemUnderTest.finishLabel();
       
       assertThat( database.labels().objectList().get( 0 ).concepts(), hasSize( 3 ) );
-      assertThat( database.labels().objectList().get( 0 ).concepts(), contains( foodItem, meal, goal ) );
+      assertThat( database.labels().objectList().get( 0 ).concepts(), contains( foodItem, meal, calorieGoal ) );
    }//End Method
 
 }//End Class

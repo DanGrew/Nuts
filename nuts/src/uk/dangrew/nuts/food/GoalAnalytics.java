@@ -10,21 +10,21 @@ package uk.dangrew.nuts.food;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 
 /**
  * {@link GoalAnalytics} provides {@link FoodAnalytics} with an associated {@link Goal}.
  */
 public class GoalAnalytics extends FoodAnalytics {
 
-   private final ObjectProperty< Goal > goal;
+   private final ObjectProperty< CalorieGoal > calorieGoal;
    private final ObjectProperty< Double > calories;
    
    /**
     * Constructs a new {@link GoalAnalytics}.
     */
    public GoalAnalytics() {
-      this.goal = new SimpleObjectProperty<>();
+      this.calorieGoal = new SimpleObjectProperty<>();
       this.calories = new SimpleObjectProperty<>( 0.0 );
    }//End Constructor
    
@@ -32,8 +32,8 @@ public class GoalAnalytics extends FoodAnalytics {
     * Access to the {@link Goal} applied.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Goal > goal() {
-      return goal;
+   public ObjectProperty< CalorieGoal > calorieGoal() {
+      return calorieGoal;
    }//End Method
    
    /**

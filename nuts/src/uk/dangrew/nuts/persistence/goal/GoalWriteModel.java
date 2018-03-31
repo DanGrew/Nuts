@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.GoalStore;
 
 /**
@@ -22,8 +22,8 @@ import uk.dangrew.nuts.goal.GoalStore;
 class GoalWriteModel {
    
    private final GoalStore goals;
-   private final List< Goal > buffer;
-   private Goal current; 
+   private final List< CalorieGoal > buffer;
+   private CalorieGoal current; 
    
    /**
     * Constructs a new {@link GoalWriteModel}.

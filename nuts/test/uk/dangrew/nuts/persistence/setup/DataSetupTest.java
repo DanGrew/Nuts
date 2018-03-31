@@ -10,27 +10,27 @@ import org.junit.Test;
 
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.progress.SystemDateRange;
 import uk.dangrew.nuts.store.Database;
 
 public class DataSetupTest {
 
-   private Goal goal;
+   private CalorieGoal calorieGoal;
    private Database database;
    private DataSetup systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      goal = new GoalImpl( "Goal" );
+      calorieGoal = new CalorieGoalImpl( "Goal" );
       database = new Database();
       systemUnderTest = new DataSetup( database );
    }//End Method
 
    @Test public void shouldIgnoreDefaultGoalIfSet() {
-      database.templates().setDefaultGoal( goal );
+      database.templates().setDefaultGoal( calorieGoal );
       systemUnderTest.configureDefaultGoal();
-      assertThat( database.templates().defaultGoal(), is( goal ) );
+      assertThat( database.templates().defaultGoal(), is( calorieGoal ) );
    }//End Method
    
    @Test public void shouldCreateDefaultGoalIfNonePresent() {
@@ -40,7 +40,7 @@ public class DataSetupTest {
    }//End Method
    
    @Test public void shouldSetDefaultGoalToFirstInListIfNotSet() {
-      database.goals().store( goal );
+      database.goals().store( calorieGoal );
       systemUnderTest.configureDefaultGoal();
       assertThat( database.templates().defaultGoal(), is( notNullValue() ) );
       assertThat( database.goals().objectList().get( 0 ), is( database.templates().defaultGoal() ) );

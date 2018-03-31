@@ -16,41 +16,41 @@ import javafx.beans.value.ChangeListener;
  */
 class CalorieGoalCalculator {
    
-   private Goal goal;
+   private CalorieGoal calorieGoal;
 
    /**
     * Associate with the given.
     * @param goal the {@link Goal}.
     */
-   void associate( Goal goal ) {
-      if ( this.goal != null ) {
+   void associate( CalorieGoal calorieGoal ) {
+      if ( this.calorieGoal != null ) {
          throw new IllegalStateException( "Aleady associated." );
       }
-      this.goal = goal;
+      this.calorieGoal = calorieGoal;
       
       ChangeListener< Object > bmrUpdater = ( s, o, n ) -> calculateBmr();
-      this.goal.age().addListener( bmrUpdater );
-      this.goal.weight().addListener( bmrUpdater );
-      this.goal.height().addListener( bmrUpdater );
-      this.goal.gender().addListener( bmrUpdater );
+      this.calorieGoal.age().addListener( bmrUpdater );
+      this.calorieGoal.weight().addListener( bmrUpdater );
+      this.calorieGoal.height().addListener( bmrUpdater );
+      this.calorieGoal.gender().addListener( bmrUpdater );
       
       ChangeListener< Double > teeUpdater = ( s, o, n ) -> calculateTee();
-      this.goal.bmr().addListener( teeUpdater );
-      this.goal.pal().addListener( teeUpdater );
+      this.calorieGoal.bmr().addListener( teeUpdater );
+      this.calorieGoal.pal().addListener( teeUpdater );
       
       ChangeListener< Double > macroUpdater = ( s, o, n ) -> calculateCalorieGoal();
-      this.goal.tee().addListener( macroUpdater );
-      this.goal.exerciseCalories().addListener( macroUpdater );
-      this.goal.calorieDeficit().addListener( macroUpdater );
+      this.calorieGoal.tee().addListener( macroUpdater );
+      this.calorieGoal.exerciseCalories().addListener( macroUpdater );
+      this.calorieGoal.calorieDeficit().addListener( macroUpdater );
    }//End Method
    
    /**
     * Method to calculate the Bmr in response to value changes.
     */
    private void calculateBmr(){
-      Gender gender = goal.gender().get();
+      Gender gender = calorieGoal.gender().get();
       if ( gender == null ) {
-         goal.bmr().set( 0.0 );
+         calorieGoal.bmr().set( 0.0 );
          return;
       }
       
@@ -68,7 +68,7 @@ class CalorieGoalCalculator {
     * Method to calculate the bmr for a {@link Gender#Male}.
     */
    private void calculateMaleBmr(){
-      double age = goal.age().get();
+      double age = calorieGoal.age().get();
       double bmr = 0;
       if ( age < 18 ) {
 //         15.6 x Weight(kg) + 266 x Height(m) + 299
@@ -83,14 +83,14 @@ class CalorieGoalCalculator {
 //         11.4 x Weight(kg)  + 541 x Height(m) – 256
          bmr = calculateBmr( 11.4, 541, -256 );
       }
-      goal.bmr().set( bmr );
+      calorieGoal.bmr().set( bmr );
    }//End Method
    
    /**
     * Method to calculate the bmr for a {@link Gender#Female}.
     */
    private void calculateFemaleBmr(){
-      double age = goal.age().get();
+      double age = calorieGoal.age().get();
       double bmr = 0;
       if ( age < 18 ) {
 //      9.40 x Weight(kg)  + 249 x Height(m) + 462
@@ -105,7 +105,7 @@ class CalorieGoalCalculator {
 //      8.52 x Weight(kg)  + 421 x Height(m) + 10.7
          bmr = calculateBmr( 8.52, 421, 10.7 );
       }
-      goal.bmr().set( bmr );
+      calorieGoal.bmr().set( bmr );
    }//End Method
    
    /**
@@ -115,9 +115,9 @@ class CalorieGoalCalculator {
     * @param offsetweightMultiplier the offset for the equation.
     */
    private double calculateBmr( double weightMultiplier, double heightMultiplier, double offset ) {
-      double weightToKgAdjusted = goal.weight().get() * 0.45359237;
+      double weightToKgAdjusted = calorieGoal.weight().get() * 0.45359237;
       double a = weightMultiplier * weightToKgAdjusted;
-      double b = heightMultiplier * goal.height().get();
+      double b = heightMultiplier * calorieGoal.height().get();
       return a + b + offset;
    }//End Method
    
@@ -125,17 +125,17 @@ class CalorieGoalCalculator {
     * Method to calculate the Tee in response to value changes.
     */
    private void calculateTee(){
-      double tee = goal.bmr().get() * goal.pal().get();
-      goal.tee().set( tee );
+      double tee = calorieGoal.bmr().get() * calorieGoal.pal().get();
+      calorieGoal.tee().set( tee );
    }//End Method
    
    /**
     * Perform the calculation, updating the {@link Goal} {@link uk.dangrew.nuts.food.FoodProperties#calories()}.
     */
    private void calculateCalorieGoal(){
-      double caloriesEarned = goal.tee().get() + goal.exerciseCalories().get();
-      double caloriesToSpend = caloriesEarned - goal.calorieDeficit().get();
-      goal.properties().calories().set( caloriesToSpend );
+      double caloriesEarned = calorieGoal.tee().get() + calorieGoal.exerciseCalories().get();
+      double caloriesToSpend = caloriesEarned - calorieGoal.calorieDeficit().get();
+      calorieGoal.properties().calories().set( caloriesToSpend );
    }//End Method
 
 }//End Class

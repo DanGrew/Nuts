@@ -2,17 +2,17 @@ package uk.dangrew.nuts.cycle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import uk.dangrew.nuts.goal.DerivedGoal;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.DerivedCalorieGoal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.Properties;
 
 public class Cycle implements Concept {
 
    private final Properties properties;
-   private final ObservableList< DerivedGoal > goals;
+   private final ObservableList< DerivedCalorieGoal > goals;
    
-   private Goal baseGoal;
+   private CalorieGoal baseGoal;
    
    public Cycle( String name ) {
       this( new Properties( name ) );
@@ -31,18 +31,18 @@ public class Cycle implements Concept {
       return properties;
    }//End Method
    
-   public void setBaseGoal( Goal baseGoal ) {
+   public void setBaseGoal( CalorieGoal baseGoal ) {
       if ( this.baseGoal != null ) {
          throw new IllegalStateException( "Base Goal Already Set." );
       }
       this.baseGoal = baseGoal;
    }//End Method
    
-   public Goal baseGoal() {
+   public CalorieGoal baseGoal() {
       return baseGoal;
    }//End Method
    
-   public ObservableList< DerivedGoal > goals() {
+   public ObservableList< DerivedCalorieGoal > goals() {
       return goals;
    }//End Method
 

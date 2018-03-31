@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextFlow;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.TextFlowBuilder;
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.GoalStore;
 
 public class UiCycleCreationDialog extends Dialog< CycleCreationResult > {
@@ -42,13 +42,13 @@ public class UiCycleCreationDialog extends Dialog< CycleCreationResult > {
       
       content.add( BASE_GOAL_DESCRIPTION, 0, 1 );
       
-      ComboBox< Goal > goals = new ComboBox<>( goalStore.objectList() );
-      goals.setMaxWidth( Double.MAX_VALUE );
-      content.add( goals, 0, 2 );
+      ComboBox< CalorieGoal > calorieGoals = new ComboBox<>( goalStore.objectList() );
+      calorieGoals.setMaxWidth( Double.MAX_VALUE );
+      content.add( calorieGoals, 0, 2 );
       
       getDialogPane().setContent( content );
       
-      setResultConverter( new UiCycleCreationDialogResultConverter( createButtonType, goals ) );
+      setResultConverter( new UiCycleCreationDialogResultConverter( createButtonType, calorieGoals ) );
    }// End Constructor
    
    public Optional< CycleCreationResult > friendly_showAndWait(){

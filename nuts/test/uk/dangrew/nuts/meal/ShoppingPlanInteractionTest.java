@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.GoalImpl;
+import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -17,7 +17,7 @@ public class ShoppingPlanInteractionTest {
 
    @Test public void shouldNotChangeMealStatsWithinShopppingListWhenListPortionChanges() {
       Database database = new Database();
-      database.templates().setDefaultGoal( new GoalImpl( "Anything" ) );
+      database.templates().setDefaultGoal( new CalorieGoalImpl( "Anything" ) );
       
       DataLocation.loadSampleFoodData( database );
       

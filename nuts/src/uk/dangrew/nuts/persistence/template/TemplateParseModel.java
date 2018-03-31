@@ -9,7 +9,7 @@
 package uk.dangrew.nuts.persistence.template;
 
 
-import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.persistence.meals.MealParseModel;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.ConceptStore;
@@ -49,12 +49,12 @@ public class TemplateParseModel< FoodTypeT extends Template > extends MealParseM
       super.finishMeal( key );
       Template template = meals().get( id() );
       
-      Goal resolvedGoal = database().goals().get( goalId );
+      CalorieGoal resolvedGoal = database().goals().get( goalId );
       if ( resolvedGoal == null ) {
          System.out.println( "Cannot find goal: " + goalId );
          return;
       }
-      template.goalAnalytics().goal().set( resolvedGoal );
+      template.goalAnalytics().calorieGoal().set( resolvedGoal );
    }//End Method
    
    /**

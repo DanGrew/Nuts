@@ -15,7 +15,7 @@ import uk.dangrew.nuts.system.ConceptStore;
  * {@link GoalStore} provides an {@link uk.dangrew.kode.storage.structure.ObjectStoreManager}
  * for {@link Goal}s.
  */
-public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > implements ConceptStore< Goal > {
+public class GoalStore extends MappedObservableStoreManagerImpl< String, CalorieGoal > implements ConceptStore< CalorieGoal > {
 
    /**
     * Constructs a new {@link GoalStore}.
@@ -27,8 +27,8 @@ public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > 
    /**
     * {@inheritDoc}
     */
-   @Override public Goal createConcept( String name ) {
-      Goal food = new GoalImpl( name );
+   @Override public CalorieGoal createConcept( String name ) {
+      CalorieGoal food = new CalorieGoalImpl( name );
       store( food );
       return food;
    }//End Method
@@ -36,24 +36,24 @@ public class GoalStore extends MappedObservableStoreManagerImpl< String, Goal > 
    /**
     * {@inheritDoc}
     */
-   @Override public Goal createConcept( String id, String name ) {
-      Goal goal = new GoalImpl( id, name );
-      store( goal );
-      return goal;
+   @Override public CalorieGoal createConcept( String id, String name ) {
+      CalorieGoal calorieGoal = new CalorieGoalImpl( id, name );
+      store( calorieGoal );
+      return calorieGoal;
    }//End Method
    
    /**
     * {@inheritDoc}
     */
-   @Override public void store( Goal goal ) {
-      super.store( goal );
+   @Override public void store( CalorieGoal calorieGoal ) {
+      super.store( calorieGoal );
    }//End Method
    
    /**
     * {@inheritDoc}
     */
-   @Override public void removeConcept( Goal goal ) {
-      remove( goal.properties().id() );
+   @Override public void removeConcept( CalorieGoal calorieGoal ) {
+      remove( calorieGoal.properties().id() );
    }//End Method
 
 }//End Class
