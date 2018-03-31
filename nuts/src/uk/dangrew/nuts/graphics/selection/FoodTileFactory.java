@@ -6,7 +6,7 @@ import java.util.Map;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 
-public class FoodTileFactory implements TileFactory {
+public class FoodTileFactory {
    
    private final Map< Food, UiFoodTile > tiles;
    
@@ -14,7 +14,7 @@ public class FoodTileFactory implements TileFactory {
       this.tiles = new HashMap<>();
    }//End Constructor
    
-   @Override public UiFoodTile create( Food food, UiFoodSelector controller ) {
+   public UiFoodTile create( Food food, UiFoodSelector< FoodPortion > controller ) {
       UiFoodTile tile = tiles.get( food );
       if ( tile == null ) {
          tile = new UiFoodTile( new FoodPortion( food, 100 ), controller );
@@ -23,7 +23,7 @@ public class FoodTileFactory implements TileFactory {
       return tile;
    }//End Method
 
-   @Override public UiFoodTile get( Food food ) {
+   public UiFoodTile get( Food food ) {
       return tiles.get( food );
    }//End Method
 

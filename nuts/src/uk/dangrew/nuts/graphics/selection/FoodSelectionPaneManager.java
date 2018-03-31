@@ -6,10 +6,10 @@ import java.util.List;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 
-public class FoodSelectionPaneManager implements SelectionPaneManager {
+public class FoodSelectionPaneManager {
    
    private final UiFoodSelector< FoodPortion > selector;
-   private final TileFactory tileFactory;
+   private final FoodTileFactory tileFactory;
    private final UiFoodSelectionPane selectionPane;
    
    public FoodSelectionPaneManager( UiFoodSelector< FoodPortion > selector ) {
@@ -20,19 +20,19 @@ public class FoodSelectionPaneManager implements SelectionPaneManager {
       this( new FoodTileFactory(), selectionPane, selector );
    }//End Constructor
    
-   FoodSelectionPaneManager( TileFactory tileFactory, UiFoodSelectionPane selectionPane, UiFoodSelector< FoodPortion > selector ) {
+   FoodSelectionPaneManager( FoodTileFactory tileFactory, UiFoodSelectionPane selectionPane, UiFoodSelector< FoodPortion > selector ) {
       this.tileFactory = tileFactory;
       this.selectionPane = selectionPane;
       this.selector = selector;
    }//End Constructor
 
-   @Override public void layoutTiles( List< Food > foods ) {
+   public void layoutTiles( List< Food > foods ) {
       List< UiFoodSelectionTile > tiles = new ArrayList<>();
       foods.forEach( f -> tiles.add( tileFactory.create( f, selector ) ) );
       selectionPane.layoutTiles( tiles );
    }//End Method
 
-   @Override public void setSelected( FoodPortion portion, boolean selected ) {
+   public void setSelected( FoodPortion portion, boolean selected ) {
       UiFoodTile tile = tileFactory.get( portion.food().get() );
       if ( tile == null ) {
          return;
@@ -40,7 +40,7 @@ public class FoodSelectionPaneManager implements SelectionPaneManager {
       tile.setSelected( selected );
    }//End Method
    
-   @Override public UiFoodSelectionPane selectionPane() {
+   public UiFoodSelectionPane selectionPane() {
       return selectionPane;
    }//End Method
    

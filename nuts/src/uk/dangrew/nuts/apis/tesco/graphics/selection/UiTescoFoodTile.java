@@ -21,15 +21,13 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
    private final JavaFxStyle styling;
    private final TescoFoodDescription food;
    private final UiFoodSelector< TescoFoodDescription > controller;
-   private final ImageLoaderService imageLoader;
    private final UiFoodTileConceptTitle title;
    private final ImageView imageView;
    
-   public UiTescoFoodTile( TescoFoodDescription food, UiFoodSelector< TescoFoodDescription > controller, ImageLoaderService imageLoader ) {
+   public UiTescoFoodTile( TescoFoodDescription food, UiFoodSelector< TescoFoodDescription > controller ) {
       this( 
                food, 
                controller,
-               imageLoader, 
                new UiFoodTileConceptTitle( food ) 
       );
    }//End Constructor
@@ -37,12 +35,10 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
    UiTescoFoodTile(
             TescoFoodDescription food,
             UiFoodSelector< TescoFoodDescription > controller,
-            ImageLoaderService imageLoader,
             UiFoodTileConceptTitle title
    ) {
       this.food = food;
       this.controller = controller;
-      this.imageLoader = imageLoader;
       this.title = title;
       
       this.styling = new JavaFxStyle();
@@ -65,7 +61,9 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
       this.add( new Label( "Department: " + food.groceryProperties().department().get() ), 0, row++ );
       
       this.setOnMouseClicked( this::clicked );
+   }//End Constructor
       
+   public void loadImage( ImageLoaderService imageLoader ) {
       imageLoader.loadImage( imageView, food.groceryProperties().image().get() );
    }//End Constructor
    

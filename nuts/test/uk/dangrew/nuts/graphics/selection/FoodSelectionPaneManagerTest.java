@@ -21,8 +21,8 @@ import uk.dangrew.nuts.food.FoodPortion;
 
 public class FoodSelectionPaneManagerTest {
 
-   @Mock private UiFoodSelector selector;
-   @Mock private TileFactory tileFactory;
+   @Mock private UiFoodSelector< FoodPortion > selector;
+   @Mock private FoodTileFactory tileFactory;
    @Mock private UiFoodSelectionPane selectionPane;
    private FoodSelectionPaneManager systemUnderTest;
 

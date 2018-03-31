@@ -8,14 +8,13 @@ import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.FoodSelectionManager;
 import uk.dangrew.nuts.graphics.selection.FoodSelectionPaneManager;
-import uk.dangrew.nuts.graphics.selection.SelectionPaneManager;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelectionPane;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
 
 public class UiTescoFoodDescriptionPane extends BorderPane implements UiFoodSelector< FoodPortion > {
 
    private final UiFoodSelector< FoodPortion > selectionController;
-   private final SelectionPaneManager selectionPaneManager;
+   private final FoodSelectionPaneManager selectionPaneManager;
    private final FoodSelectionManager selectionManager;
    private final TescoFoodItemGenerator tescoFoodItemGenerator;
    

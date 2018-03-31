@@ -9,27 +9,32 @@ import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
 import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
 import uk.dangrew.nuts.graphics.system.ImageLoaderService;
 
-public class TescoFoodSelectionPaneManager implements TescoSelectionPaneManager {
+public class TescoFoodDescriptionSelectionPaneManager {
 
-   private static final ImageLoaderService imageLoader = new ImageLoaderService();
+   private final ImageLoaderService imageLoader;
    private final UiFoodSelector< TescoFoodDescription > selector;
    private final TescoFoodTileFactory tileFactory;
    private final UiFoodSelectionPane selectionPane;
    
-   public TescoFoodSelectionPaneManager( UiFoodSelector< TescoFoodDescription > selector ) {
+   public TescoFoodDescriptionSelectionPaneManager( UiFoodSelector< TescoFoodDescription > selector ) {
       this.selector = selector;
       this.tileFactory = new TescoFoodTileFactory();
       this.selectionPane = new UiFoodSelectionPane();
+      this.imageLoader = new ImageLoaderService();
    }//End Constructor
    
-   @Override public void layoutTiles( List< TescoFoodDescription > foods ) {
+   public void layoutTiles( List< TescoFoodDescription > foods ) {
       List< UiFoodSelectionTile > tiles = new ArrayList<>();
       imageLoader.cancelInProgress();
-      foods.forEach( f -> tiles.add( tileFactory.create( f, selector, imageLoader ) ) );
+      foods.forEach( f -> {
+         UiTescoFoodTile tile = tileFactory.create( f, selector ); 
+         tile.loadImage( imageLoader );
+         tiles.add( tile );  
+      } );
       selectionPane.layoutTiles( tiles );
    }//End Method
 
-   @Override public void setSelected( TescoFoodDescription portion, boolean selected ) {
+   public void setSelected( TescoFoodDescription portion, boolean selected ) {
       UiTescoFoodTile tile = tileFactory.get( portion );
       if ( tile == null ) {
          return;
@@ -37,7 +42,7 @@ public class TescoFoodSelectionPaneManager implements TescoSelectionPaneManager 
       tile.setSelected( selected );
    }//End Method
 
-   @Override public UiFoodSelectionPane selectionPane() {
+   public UiFoodSelectionPane selectionPane() {
       return selectionPane;
    }//End Method
 

@@ -1,7 +1,10 @@
 package uk.dangrew.nuts.graphics.system;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Supplier;
 
 import com.sun.javafx.application.PlatformImpl;
 
@@ -10,23 +13,47 @@ import javafx.scene.image.ImageView;
 
 public class ImageLoaderService {
 
+   private final Map< String, Image > cachedImages;
+   private final Supplier< ExecutorService > executorSupplier;
+   
    private ExecutorService service;
    
    public ImageLoaderService() {
-      this.service = Executors.newSingleThreadExecutor();
+      this( Executors::newSingleThreadExecutor );
+   }//End Constructor
+   
+   ImageLoaderService( Supplier< ExecutorService > executorSupplier ) {
+      this.executorSupplier = executorSupplier;
+      this.service = executorSupplier.get();
+      this.cachedImages = new HashMap<>();
    }//End Constructor
    
    public void loadImage( ImageView view, String imageUrl ) {
       service.submit( () -> {
-         PlatformImpl.runAndWait( () -> view.setImage( new Image( imageUrl ) ) );
-         Thread.sleep( 1000 );
+         boolean newLoad = !cachedImages.containsKey( imageUrl );
+         PlatformImpl.runAndWait( () -> applyImage( view, imageUrl ) );
+         if ( newLoad ) {
+            Thread.sleep( 1000 );
+         }
          return null;
       } );
    }//End Method
    
    public void cancelInProgress(){
       service.shutdownNow();
-      service = Executors.newSingleThreadExecutor();
+      service = executorSupplier.get();
+   }//End Method
+   
+   private void applyImage( ImageView view, String imageUrl ) {
+      Image cachedImage = imageFor( imageUrl );
+      if ( cachedImage == null ) {
+         cachedImages.put( imageUrl, cachedImage = new Image( imageUrl ) );
+      }
+      view.setImage( cachedImage );
+   }//End Method
+
+   Image imageFor( String imageUrl ) {
+      return cachedImages.get( imageUrl );
    }//End Method
    
 }//End Class

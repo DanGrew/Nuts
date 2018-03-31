@@ -1985,7 +1985,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 7.9,
-      "name": "Flaxseed (30g)",
+      "name": "Flaxseed (30g) (1cup=100g)",
       "id": "ba6f9d73-940e-440c-9199-87a898832b33",
       "calories": 168
    },
@@ -2545,7 +2545,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 0.6,
-      "name": "Butter (T, Unsalted) (100g)",
+      "name": "Butter (T, Unsalted) (100g) (1tbsp=15g)",
       "id": "7e90c589-40eb-4f3f-a221-c86beae13899",
       "calories": 744
    },
@@ -2565,7 +2565,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 2.4,
-      "name": "Cream (Double, Long Life) (100)",
+      "name": "Cream (Double, Long Life) (100) (1tbsp=15g)",
       "id": "27acbb7c-5b19-411d-bfec-9659de41d31e",
       "calories": 351
    },
@@ -3028,5 +3028,25 @@
       "name": "Nandos (Mediterranean Salad)",
       "id": "4c62de2b-83c7-4568-b3cb-04c9ba14ae56",
       "calories": 288
+   },
+   {
+      "carbohydrates": 1.7,
+      "fats": 25,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 22,
+      "name": "Tesco Halloumi Cheese With Chilli 225 G (100g)",
+      "id": "511e2997-a0a8-4ef8-9cb7-9d4ec54c6269",
+      "calories": 319
+   },
+   {
+      "carbohydrates": 12.1,
+      "fats": 23.8,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 39.4,
+      "name": "Nandos (Mediterranean Salad with Chicken)",
+      "id": "cb2a2743-66bd-4797-8301-49b007cd208f",
+      "calories": 417
    }
 ]}

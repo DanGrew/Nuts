@@ -2168,14 +2168,172 @@
       "portions": [
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 400
+            "portionValue": 300
          },
          {
             "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
             "portionValue": 200
          },
          {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+            "portionValue": 40
+         }
+      ]
+   },
+   {
+      "name": "Caramel",
+      "id": "bff24735-3ed7-4d03-b5bb-1be5042a7b7c",
+      "portions": [
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 60
+         },
+         {
             "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Caramel Cheesecake (Keto)",
+      "id": "66e9a95a-6fc9-46c5-a63c-11a45611e1b4",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 400
+         },
+         {
+            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
+            "portionValue": 150
+         },
+         {
+            "foodId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
+            "portionValue": 100
+         },
+         {
+            "foodId": "bff24735-3ed7-4d03-b5bb-1be5042a7b7c",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Flax Bread",
+      "id": "b8335cb7-2d0a-4e13-9a45-5eb15c16d326",
+      "portions": [
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 400
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Bread (KetoConnect)",
+      "id": "ad09e135-9624-4a46-8d1b-a914936c52d5",
+      "portions": [
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 60
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 600
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Coconut Fudge with Flax",
+      "id": "3a2133c8-4f40-40fc-823a-1e10d525636c",
+      "portions": [
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 300
+         },
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 50
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 50
+         },
+         {
+            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
+            "portionValue": 100
+         },
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Sausage Puffs",
+      "id": "ebe58a66-2c28-4cf8-a23a-c659c84070de",
+      "portions": [
+         {
+            "foodId": "8e457881-5430-4783-894e-c3a1a5e317d2",
+            "portionValue": 150
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 20
+         },
+         {
+            "foodId": "cc81c071-18f9-4ade-b749-56c61a04f70b",
+            "portionValue": 30
+         },
+         {
+            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
+            "portionValue": 15
+         }
+      ]
+   },
+   {
+      "name": "Wraps (Flaxseed)",
+      "id": "86623111-5d90-4693-975b-c40d01bd4d3e",
+      "portions": [
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+            "portionValue": 45
+         },
+         {
+            "foodId": "cc81c071-18f9-4ade-b749-56c61a04f70b",
             "portionValue": 30
          }
       ]

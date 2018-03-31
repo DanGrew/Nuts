@@ -12,7 +12,7 @@ public class UiTescoDescriptionController implements UiFoodSelector< TescoFoodDe
    private final UiTescoFoodDescriptionPane options;
    private final Tesco tesco;
    
-   private TescoSelectionPaneManager selectionPane;
+   private TescoFoodDescriptionSelectionPaneManager selectionPane;
    private TescoFoodDescription selected;
    
    public UiTescoDescriptionController( UiTescoFoodDescriptionPane options ) {
@@ -24,7 +24,7 @@ public class UiTescoDescriptionController implements UiFoodSelector< TescoFoodDe
       this.tesco = tesco;
    }//End Constructor
    
-   public void controlSelection( TescoSelectionPaneManager pane ) {
+   public void controlSelection( TescoFoodDescriptionSelectionPaneManager pane ) {
       this.selectionPane = pane;
       fireLayoutChanges( new ArrayList<>() );
    }//End Method

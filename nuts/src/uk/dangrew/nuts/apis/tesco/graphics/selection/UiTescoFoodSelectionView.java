@@ -13,7 +13,7 @@ public class UiTescoFoodSelectionView extends GridPane {
       this.options = new UiTescoFoodDescriptionPane( selectionController );
       
       UiTescoDescriptionController controller = new UiTescoDescriptionController( options );
-      TescoFoodSelectionPaneManager paneManager = new TescoFoodSelectionPaneManager( controller );
+      TescoFoodDescriptionSelectionPaneManager paneManager = new TescoFoodDescriptionSelectionPaneManager( controller );
       controller.controlSelection( paneManager );
       
       JavaFxStyle styling = new JavaFxStyle();
