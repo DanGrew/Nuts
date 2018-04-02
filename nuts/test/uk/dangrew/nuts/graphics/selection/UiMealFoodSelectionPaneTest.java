@@ -49,30 +49,30 @@ public class UiMealFoodSelectionPaneTest {
       Template meal = new Template( "Template" );
       meal.portions().add( new FoodPortion( new FoodItem( "Food1" ), 100 ) );
       meal.portions().add( new FoodPortion( new FoodItem( "Food2" ), 45 ) );
-      meal.goalAnalytics().calorieGoal().set( new CalorieGoalImpl( "Goal" ) );
+      meal.goalAnalytics().goal().set( new CalorieGoalImpl( "Goal" ) );
       
       systemUnderTest.liveSelectionProperties().portions().add( new FoodPortion() );
       systemUnderTest.selectForTemplate( meal );
       assertThat( systemUnderTest.liveSelectionProperties().properties().nameProperty().get(), is( meal.properties().nameProperty().get() ) );
       assertThat( systemUnderTest.liveSelectionProperties().portions(), contains( meal.portions().get( 0 ), meal.portions().get( 1 ) ) );
-      assertThat( systemUnderTest.liveSelectionProperties().goalAnalytics().calorieGoal().get(), is( meal.goalAnalytics().calorieGoal().get() ) );
+      assertThat( systemUnderTest.liveSelectionProperties().goalAnalytics().goal().get(), is( meal.goalAnalytics().goal().get() ) );
    }//End Method
    
    @Test public void shouldClearBetweenSelections(){
       Template meal = new Template( "Template" );
       meal.portions().add( new FoodPortion( new FoodItem( "Food1" ), 100 ) );
       meal.portions().add( new FoodPortion( new FoodItem( "Food2" ), 45 ) );
-      meal.goalAnalytics().calorieGoal().set( new CalorieGoalImpl( "Goal" ) );
+      meal.goalAnalytics().goal().set( new CalorieGoalImpl( "Goal" ) );
       
       systemUnderTest.liveSelectionProperties().portions().add( new FoodPortion() );
       systemUnderTest.selectForTemplate( meal );
       assertThat( systemUnderTest.liveSelectionProperties().properties().nameProperty().get(), is( meal.properties().nameProperty().get() ) );
       assertThat( systemUnderTest.liveSelectionProperties().portions(), contains( meal.portions().get( 0 ), meal.portions().get( 1 ) ) );
-      assertThat( systemUnderTest.liveSelectionProperties().goalAnalytics().calorieGoal().get(), is( meal.goalAnalytics().calorieGoal().get() ) );
+      assertThat( systemUnderTest.liveSelectionProperties().goalAnalytics().goal().get(), is( meal.goalAnalytics().goal().get() ) );
       
       systemUnderTest.selectForMeal( new Meal( "empty" ) );
       
-      assertThat( systemUnderTest.liveSelectionProperties().goalAnalytics().calorieGoal().get(), is( nullValue() ) );
+      assertThat( systemUnderTest.liveSelectionProperties().goalAnalytics().goal().get(), is( nullValue() ) );
       assertThat( systemUnderTest.liveSelectionProperties().portions(), is( empty() ) );
    }//End Method
 }//End Class

@@ -51,7 +51,7 @@ public class FoodSelectionWindowTest {
     template.portions().add( new FoodPortion( meal, 100 ) );
     CalorieGoal calorieGoal = new CalorieGoalImpl( "Template Goal" );
     DataLocation.configureExampleGoal( calorieGoal );
-    template.goalAnalytics().calorieGoal().set( calorieGoal );
+    template.goalAnalytics().goal().set( calorieGoal );
     new FoodSelectionForTemplateEvent().fire( new Event<>( template ) );
     
     Thread.sleep( 9999999 );

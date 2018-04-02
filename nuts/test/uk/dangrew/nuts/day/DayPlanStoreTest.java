@@ -35,7 +35,7 @@ public class DayPlanStoreTest {
       assertThat( systemUnderTest.get( plan.properties().id() ), is( plan ) );
       systemUnderTest.removeConcept( plan );
       assertThat( systemUnderTest.get( plan.properties().id() ), is( nullValue() ) );
-      assertThat( plan.goalAnalytics().calorieGoal().get(), is( nullValue() ) );
+      assertThat( plan.goalAnalytics().goal().get(), is( nullValue() ) );
    }//End Method
    
 }//End Class

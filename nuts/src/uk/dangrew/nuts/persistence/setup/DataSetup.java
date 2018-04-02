@@ -40,10 +40,10 @@ public class DataSetup {
     */
    public void configureDefaultGoal(){
       if ( database.templates().defaultGoal() == null ) {
-         if ( database.goals().objectList().isEmpty() ) {
-            database.goals().createConcept( "Default Goal" );
+         if ( database.calorieGoals().objectList().isEmpty() ) {
+            database.calorieGoals().createConcept( "Default Goal" );
          }
-         database.templates().setDefaultGoal( database.goals().objectList().get( 0 ) );
+         database.templates().setDefaultGoal( database.calorieGoals().objectList().get( 0 ) );
       }
    }//End Method
 

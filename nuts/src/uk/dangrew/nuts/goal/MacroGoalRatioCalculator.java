@@ -50,14 +50,15 @@ public class MacroGoalRatioCalculator {
       this.properties.protein().addListener( updater );
       this.properties.calories().addListener( updater );
       this.analytics = analytics;
-      this.analytics.calorieGoal().addListener( ( s, o, n ) -> setGoal( n ) );
+      this.analytics.goal().addListener( ( s, o, n ) -> setGoal( n ) );
    }//End Method
    
    /**
     * Method to apply the {@link Goal} to the calculator.
     * @param goal the {@link Goal}, can be null.
     */
-   private void setGoal( CalorieGoal calorieGoal ) {
+   private void setGoal( Goal goal ) {
+      CalorieGoal calorieGoal = ( CalorieGoal ) goal;
       if ( this.calorieGoal != null ) {
          for ( MacroNutrient macro : MacroNutrient.values() ) {
             this.calorieGoal.properties().nutritionFor( macro ).removeListener( updater );

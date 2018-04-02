@@ -8,7 +8,6 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class ProportionGoalCalculator {
 
-   
    private final ChangeListener< Double > updater;
    
    private FoodProperties properties;

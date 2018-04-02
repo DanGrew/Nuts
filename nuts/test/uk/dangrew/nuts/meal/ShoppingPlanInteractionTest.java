@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.Gender;
+import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.store.Database;
@@ -17,14 +18,15 @@ public class ShoppingPlanInteractionTest {
 
    @Test public void shouldNotChangeMealStatsWithinShopppingListWhenListPortionChanges() {
       Database database = new Database();
-      database.templates().setDefaultGoal( new CalorieGoalImpl( "Anything" ) );
+      CalorieGoal defaultGoal = new CalorieGoalImpl( "Anything" );
+      database.templates().setDefaultGoal( defaultGoal );
       
       DataLocation.loadSampleFoodData( database );
       
-      database.templates().defaultGoal().gender().set( Gender.Male );
-      database.templates().defaultGoal().age().set( 28.0 );
-      database.templates().defaultGoal().weight().set( 197.0 );
-      database.templates().defaultGoal().height().set( 1.87 );
+      defaultGoal.gender().set( Gender.Male );
+      defaultGoal.age().set( 28.0 );
+      defaultGoal.weight().set( 197.0 );
+      defaultGoal.height().set( 1.87 );
       
       Template plan = database.templates().objectList().get( 0 );
       assertThat( plan.goalAnalytics().proteinRatio(), is( lessThan( 200.0 ) ) );

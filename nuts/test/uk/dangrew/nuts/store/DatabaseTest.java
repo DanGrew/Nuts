@@ -19,6 +19,8 @@ import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.proportion.ProportionGoal;
+import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.template.Template;
@@ -69,12 +71,20 @@ public class DatabaseTest {
       assertThat( systemUnderTest.shoppingLists().get( list.properties().id() ), is( list ) );
    }//End Method
    
-   @Test public void shouldProvideGoals(){
-      assertThat( systemUnderTest.goals(), is( instanceOf( GoalStore.class ) ) );
+   @Test public void shouldProvideCalorieGoals(){
+      assertThat( systemUnderTest.calorieGoals(), is( instanceOf( GoalStore.class ) ) );
       
       CalorieGoal calorieGoal = new CalorieGoalImpl( "List" );
-      systemUnderTest.goals().store( calorieGoal );
-      assertThat( systemUnderTest.goals().get( calorieGoal.properties().id() ), is( calorieGoal ) );
+      systemUnderTest.calorieGoals().store( calorieGoal );
+      assertThat( systemUnderTest.calorieGoals().get( calorieGoal.properties().id() ), is( calorieGoal ) );
+   }//End Method
+   
+   @Test public void shouldProvideProportionGoals(){
+      assertThat( systemUnderTest.proportionGoals(), is( instanceOf( ProportionGoalStore.class ) ) );
+      
+      ProportionGoal goal = new ProportionGoal( "List" );
+      systemUnderTest.proportionGoals().store( goal );
+      assertThat( systemUnderTest.proportionGoals().get( goal.properties().id() ), is( goal ) );
    }//End Method
    
    @Test public void shouldProvideDayPlans(){

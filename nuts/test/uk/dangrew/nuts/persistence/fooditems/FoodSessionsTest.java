@@ -64,7 +64,7 @@ public class FoodSessionsTest {
                mock( JarJsonPersistingProtocol.class )
       );
       sessions.read();
-      assertThat( database.goals().objectList(), is( not( empty() ) ) );
+      assertThat( database.calorieGoals().objectList(), is( not( empty() ) ) );
       assertThat( database.templates().defaultGoal().properties().nameProperty().get(), is( GoalParseModelTest.SINGLETON_GOAL_DEFAULT_NAME ) );
    }//End Method
    

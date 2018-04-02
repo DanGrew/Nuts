@@ -122,13 +122,13 @@ public class TemplateTest {
    @Test public void shouldDuplicate(){
       systemUnderTest.portions().add( portion1 );
       systemUnderTest.portions().add( portion2 );
-      systemUnderTest.goalAnalytics().calorieGoal().set( new CalorieGoalImpl( "Goal" ) );
+      systemUnderTest.goalAnalytics().goal().set( new CalorieGoalImpl( "Goal" ) );
       Template duplicate = systemUnderTest.duplicate( "anything" );
       assertThat( duplicate.portions().get( 0 ).portion().get(), is( portion1.portion().get() ) );
       assertThat( duplicate.portions().get( 1 ).portion().get(), is( portion2.portion().get() ) );
       assertTrue( duplicate.portions().get( 0 ).food().get() == portion1.food().get() );
       assertTrue( duplicate.portions().get( 1 ).food().get() == portion2.food().get() );
-      assertTrue( duplicate.goalAnalytics().calorieGoal().get() == systemUnderTest.goalAnalytics().calorieGoal().get()  );
+      assertTrue( duplicate.goalAnalytics().goal().get() == systemUnderTest.goalAnalytics().goal().get()  );
    }//End Method
 
 }//End Class

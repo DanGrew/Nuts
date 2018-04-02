@@ -39,7 +39,7 @@ public class DayPlanPersistenceTest {
       Database database = new Database();
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
       DayPlanPersistence persistence = new DayPlanPersistence( database, database.dayPlans() );
-      GoalPersistence goalPersistence = new GoalPersistence( database.goals() );
+      GoalPersistence goalPersistence = new GoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
       JSONObject json = new JSONObject( value );
@@ -106,16 +106,16 @@ public class DayPlanPersistenceTest {
       database.foodItems().store( item4 );
       
       CalorieGoal goal1 = new CalorieGoalImpl( "Goal 1" );
-      database.goals().store( goal1 );
+      database.calorieGoals().store( goal1 );
       
       CalorieGoal goal2 = new CalorieGoalImpl( "Goal 2" );
-      database.goals().store( goal2 );
+      database.calorieGoals().store( goal2 );
       
       DayPlan meal1 = new DayPlan( "99987", "Meal1" );
       meal1.portions().add( new FoodPortion( item1, 100.0 ) );
       meal1.portions().add( new FoodPortion( item2, 90.0 ) );
       meal1.portions().add( new FoodPortion( item3, 50.0 ) );
-      meal1.goalAnalytics().calorieGoal().set( goal1 );
+      meal1.goalAnalytics().goal().set( goal1 );
       meal1.setDate( LocalDate.now() );
       meal1.consumedCalories().set( 2400.0 );
       meal1.allowedCalories().set( 2700.0 );
@@ -127,7 +127,7 @@ public class DayPlanPersistenceTest {
       meal2.portions().add( new FoodPortion( item3, 90.0 ) );
       meal2.portions().add( new FoodPortion( item4, 100.0 ) );
       meal2.portions().add( new FoodPortion() );
-      meal2.goalAnalytics().calorieGoal().set( goal2 );
+      meal2.goalAnalytics().goal().set( goal2 );
       meal2.setDate( LocalDate.now() );
       meal2.consumed().add( meal2.portions().get( 1 ) );
       meal2.consumed().add( meal2.portions().get( 2 ) );
@@ -137,11 +137,11 @@ public class DayPlanPersistenceTest {
       
       DayPlan meal3 = new DayPlan( "8878886", "Meal3" );
       meal3.portions().add( new FoodPortion( item3, 100.0 ) );
-      meal3.goalAnalytics().calorieGoal().set( goal1 );
+      meal3.goalAnalytics().goal().set( goal1 );
       database.dayPlans().store( meal3 );
       
       DayPlan meal4 = new DayPlan( "565873", "Meal4" );
-      meal4.goalAnalytics().calorieGoal().set( goal1 );
+      meal4.goalAnalytics().goal().set( goal1 );
       meal4.setDate( LocalDate.now() );
       database.dayPlans().store( meal4 );
       
@@ -157,7 +157,7 @@ public class DayPlanPersistenceTest {
       
       System.out.println( mealJson );
       
-      GoalPersistence goalPersistence = new GoalPersistence( database.goals() );
+      GoalPersistence goalPersistence = new GoalPersistence( database.calorieGoals() );
       JSONObject goalJson = new JSONObject();
       goalPersistence.structure().build( goalJson );
       goalPersistence.writeHandles().parse( goalJson );
@@ -170,11 +170,11 @@ public class DayPlanPersistenceTest {
       foodItemPersistence.readHandles().parse( foodItemJson );
       assertThat( database.foodItems().objectList(), hasSize( 4 ) );
       
-      goalPersistence = new GoalPersistence( database.goals() );
+      goalPersistence = new GoalPersistence( database.calorieGoals() );
       
-      assertThat( database.goals().objectList(), is( empty() ) );
+      assertThat( database.calorieGoals().objectList(), is( empty() ) );
       goalPersistence.readHandles().parse( goalJson );
-      assertThat( database.goals().objectList(), hasSize( 2 ) );
+      assertThat( database.calorieGoals().objectList(), hasSize( 2 ) );
       
       persistence = new DayPlanPersistence( database, database.dayPlans() );
       
@@ -201,7 +201,7 @@ public class DayPlanPersistenceTest {
    ){
       assertThat( meal.properties().id(), is( id ) );
       assertThat( meal.properties().nameProperty().get(), is( name ) );
-      assertThat( meal.goalAnalytics().calorieGoal().get().properties().id(), is( goalId ) );
+      assertThat( meal.goalAnalytics().goal().get().properties().id(), is( goalId ) );
       assertThat( meal.date(), is( date ) );
       assertThat( meal.portions(), hasSize( portions.length ) );
       assertThat( meal.consumedCalories().get(), is( consumed ) );
@@ -221,10 +221,10 @@ public class DayPlanPersistenceTest {
    private void assertMealProperties(
             DayPlan meal, DayPlan expected
    ){
-      if ( expected.goalAnalytics().calorieGoal().get() != null ) {
-         assertThat( meal.goalAnalytics().calorieGoal().get().properties().id(), is( expected.goalAnalytics().calorieGoal().get().properties().id() ) );
+      if ( expected.goalAnalytics().goal().get() != null ) {
+         assertThat( meal.goalAnalytics().goal().get().properties().id(), is( expected.goalAnalytics().goal().get().properties().id() ) );
       } else {
-         assertThat( meal.goalAnalytics().calorieGoal().get(), is( nullValue() ) );
+         assertThat( meal.goalAnalytics().goal().get(), is( nullValue() ) );
       }
       assertThat( meal.date(), is( expected.date() ) );
       assertThat( meal.properties().id(), is( expected.properties().id() ) );

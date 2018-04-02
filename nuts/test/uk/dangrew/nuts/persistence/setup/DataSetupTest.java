@@ -36,14 +36,14 @@ public class DataSetupTest {
    @Test public void shouldCreateDefaultGoalIfNonePresent() {
       systemUnderTest.configureDefaultGoal();
       assertThat( database.templates().defaultGoal(), is( notNullValue() ) );
-      assertThat( database.goals().objectList().get( 0 ), is( database.templates().defaultGoal() ) );
+      assertThat( database.calorieGoals().objectList().get( 0 ), is( database.templates().defaultGoal() ) );
    }//End Method
    
    @Test public void shouldSetDefaultGoalToFirstInListIfNotSet() {
-      database.goals().store( calorieGoal );
+      database.calorieGoals().store( calorieGoal );
       systemUnderTest.configureDefaultGoal();
       assertThat( database.templates().defaultGoal(), is( notNullValue() ) );
-      assertThat( database.goals().objectList().get( 0 ), is( database.templates().defaultGoal() ) );
+      assertThat( database.calorieGoals().objectList().get( 0 ), is( database.templates().defaultGoal() ) );
    }//End Method
    
    @Test public void shouldCreateDefaultShoppingList() {

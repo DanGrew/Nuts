@@ -10,7 +10,7 @@ public enum Labelables {
    
    FoodItems( Database::foodItems ),
    Meals( Database::meals ),
-   Goals( Database::goals );
+   Goals( Database::calorieGoals );
    
    private final Function< Database, ConceptStore< ? extends Concept > > conceptRedirect;
    

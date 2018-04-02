@@ -2,6 +2,7 @@ package uk.dangrew.nuts.label;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +20,8 @@ public class LabelablesTest {
    @Test public void shouldRedirectToConcepts() {
       assertThat( Labelables.FoodItems.redirect( database ), is( database.foodItems() ) );
       assertThat( Labelables.Meals.redirect( database ), is( database.meals() ) );
-      assertThat( Labelables.Goals.redirect( database ), is( database.goals() ) );
+      assertThat( Labelables.Goals.redirect( database ), is( database.calorieGoals() ) );
+      fail( "include proportional" );
    }//End Method
 
 }//End Class

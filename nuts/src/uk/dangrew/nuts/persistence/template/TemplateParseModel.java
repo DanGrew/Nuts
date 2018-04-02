@@ -49,12 +49,12 @@ public class TemplateParseModel< FoodTypeT extends Template > extends MealParseM
       super.finishMeal( key );
       Template template = meals().get( id() );
       
-      CalorieGoal resolvedGoal = database().goals().get( goalId );
+      CalorieGoal resolvedGoal = database().calorieGoals().get( goalId );
       if ( resolvedGoal == null ) {
          System.out.println( "Cannot find goal: " + goalId );
          return;
       }
-      template.goalAnalytics().calorieGoal().set( resolvedGoal );
+      template.goalAnalytics().goal().set( resolvedGoal );
    }//End Method
    
    /**

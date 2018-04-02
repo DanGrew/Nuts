@@ -47,7 +47,7 @@ public class GoalManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
 
-      add( goalsTable = new ConceptTableWithControls<>( "Goals", new GoalTable( database.goals() ) ), 0, 0 );
+      add( goalsTable = new ConceptTableWithControls<>( "Goals", new GoalTable( database.calorieGoals() ) ), 0, 0 );
       ScrollPane scroller = new ScrollPane( goalView = new GoalCalculationView() );
       scroller.setFitToWidth( true );
       add( scroller, 0, 1 );

@@ -28,7 +28,7 @@ public class TemplatePersistenceTest {
       Database database = new Database();
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
       TemplatePersistence< Template > persistence = new TemplatePersistence<>( database, database.templates() );
-      GoalPersistence goalPersistence = new GoalPersistence( database.goals() );
+      GoalPersistence goalPersistence = new GoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
       JSONObject json = new JSONObject( value );
@@ -86,16 +86,16 @@ public class TemplatePersistenceTest {
       database.foodItems().store( item4 );
       
       CalorieGoal goal1 = new CalorieGoalImpl( "Goal 1" );
-      database.goals().store( goal1 );
+      database.calorieGoals().store( goal1 );
       
       CalorieGoal goal2 = new CalorieGoalImpl( "Goal 2" );
-      database.goals().store( goal2 );
+      database.calorieGoals().store( goal2 );
       
       Template meal1 = new Template( "99987", "Meal1" );
       meal1.portions().add( new FoodPortion( item1, 100.0 ) );
       meal1.portions().add( new FoodPortion( item2, 90.0 ) );
       meal1.portions().add( new FoodPortion( item3, 50.0 ) );
-      meal1.goalAnalytics().calorieGoal().set( goal1 );
+      meal1.goalAnalytics().goal().set( goal1 );
       database.templates().store( meal1 );
       
       Template meal2 = new Template( "556676", "Meal2" );
@@ -103,12 +103,12 @@ public class TemplatePersistenceTest {
       meal2.portions().add( new FoodPortion( item3, 90.0 ) );
       meal2.portions().add( new FoodPortion( item4, 100.0 ) );
       meal2.portions().add( new FoodPortion() );
-      meal2.goalAnalytics().calorieGoal().set( goal2 );
+      meal2.goalAnalytics().goal().set( goal2 );
       database.templates().store( meal2 );
       
       Template meal3 = new Template( "8878886", "Meal3" );
       meal3.portions().add( new FoodPortion( item3, 100.0 ) );
-      meal3.goalAnalytics().calorieGoal().set( goal1 );
+      meal3.goalAnalytics().goal().set( goal1 );
       database.templates().store( meal3 );
       
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
@@ -123,7 +123,7 @@ public class TemplatePersistenceTest {
       
       System.out.println( mealJson );
       
-      GoalPersistence goalPersistence = new GoalPersistence( database.goals() );
+      GoalPersistence goalPersistence = new GoalPersistence( database.calorieGoals() );
       JSONObject goalJson = new JSONObject();
       goalPersistence.structure().build( goalJson );
       goalPersistence.writeHandles().parse( goalJson );
@@ -136,11 +136,11 @@ public class TemplatePersistenceTest {
       foodItemPersistence.readHandles().parse( foodItemJson );
       assertThat( database.foodItems().objectList(), hasSize( 4 ) );
       
-      goalPersistence = new GoalPersistence( database.goals() );
+      goalPersistence = new GoalPersistence( database.calorieGoals() );
       
-      assertThat( database.goals().objectList(), is( empty() ) );
+      assertThat( database.calorieGoals().objectList(), is( empty() ) );
       goalPersistence.readHandles().parse( goalJson );
-      assertThat( database.goals().objectList(), hasSize( 2 ) );
+      assertThat( database.calorieGoals().objectList(), hasSize( 2 ) );
       
       persistence = new TemplatePersistence<>( database, database.templates() );
       
@@ -198,7 +198,7 @@ public class TemplatePersistenceTest {
    ){
       assertThat( meal.properties().id(), is( id ) );
       assertThat( meal.properties().nameProperty().get(), is( name ) );
-      assertThat( meal.goalAnalytics().calorieGoal().get().properties().id(), is( goalId ) );
+      assertThat( meal.goalAnalytics().goal().get().properties().id(), is( goalId ) );
       assertThat( meal.portions(), hasSize( portions.length ) );
       
       for ( int i = 0; i < portions.length; i++ ) {
@@ -212,7 +212,7 @@ public class TemplatePersistenceTest {
    private void assertMealProperties(
             Template meal, Template expected
    ){
-      assertThat( meal.goalAnalytics().calorieGoal().get().properties().id(), is( expected.goalAnalytics().calorieGoal().get().properties().id() ) );
+      assertThat( meal.goalAnalytics().goal().get().properties().id(), is( expected.goalAnalytics().goal().get().properties().id() ) );
       assertThat( meal.properties().id(), is( expected.properties().id() ) );
       assertThat( meal.properties().nameProperty().get(), is( expected.properties().nameProperty().get() ) );
       assertThat( meal.portions(), hasSize( expected.portions().size() ) );

@@ -214,7 +214,7 @@ public class FoodSessions {
     * @return the {@link ModelMarshaller} constructed for the {@link uk.dangrew.nuts.goal.Goal}.
     */
    private ModelMarshaller constructGoalMarshaller( JarJsonPersistingProtocol protocol ){
-      GoalPersistence persistence = new GoalPersistence( database.goals() );
+      GoalPersistence persistence = new GoalPersistence( database.calorieGoals() );
       return new ModelMarshaller( 
                persistence.structure(), 
                persistence.readHandles(), 

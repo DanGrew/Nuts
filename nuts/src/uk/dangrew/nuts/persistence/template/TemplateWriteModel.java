@@ -8,7 +8,7 @@
  */
 package uk.dangrew.nuts.persistence.template;
 
-import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.persistence.meals.MealWriteModel;
 import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
@@ -33,7 +33,7 @@ public class TemplateWriteModel< FoodTypeT extends Template > extends MealWriteM
     * @return the value.
     */
    String getGoalId( String key ) {
-      CalorieGoal calorieGoal = currentFood().goalAnalytics().calorieGoal().get();
+      Goal calorieGoal = currentFood().goalAnalytics().goal().get();
       if ( calorieGoal == null ) {
          return null;
       }

@@ -57,7 +57,7 @@ public class LabelParseModelTest {
       database.meals().store( meal );
       
       CalorieGoal calorieGoal = new CalorieGoalImpl( "3", "Goal" );
-      database.goals().store( calorieGoal );
+      database.calorieGoals().store( calorieGoal );
       
       database.labels().objectList().get( 0 ).concepts().add( new FoodItem( "anything" ) );
       

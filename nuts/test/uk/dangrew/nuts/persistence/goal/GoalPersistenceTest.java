@@ -17,30 +17,30 @@ public class GoalPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      GoalPersistence persistence = new GoalPersistence( database.goals() );
+      GoalPersistence persistence = new GoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
       JSONObject json = new JSONObject( value );
       persistence.readHandles().parse( json );
 
-      assertGoal1IsParsed( database.goals().objectList().get( 0 ), true );
-      assertGoal2IsParsed( database.goals().objectList().get( 1 ) );
+      assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), true );
+      assertGoal2IsParsed( database.calorieGoals().objectList().get( 1 ) );
    }//End Method
    
    @Test public void shouldReadFirstVersionData() {
       Database database = new Database();
-      GoalPersistence persistence = new GoalPersistence( database.goals() );
+      GoalPersistence persistence = new GoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "goal-no-id-name.txt" );
       JSONObject json = new JSONObject( value );
       persistence.readHandles().parse( json );
 
-      assertGoal1IsParsed( database.goals().objectList().get( 0 ), false );
+      assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), false );
    }//End Method
    
    @Test public void shouldRetainNewNameOfOriginalGoal() {
       Database database = new Database();
-      GoalPersistence persistence = new GoalPersistence( database.goals() );
+      GoalPersistence persistence = new GoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "goal-no-id-name.txt" );
       JSONObject json = new JSONObject( value );
@@ -50,8 +50,8 @@ public class GoalPersistenceTest {
       json = new JSONObject( value );
       persistence.readHandles().parse( json );
 
-      assertGoal1IsParsed( database.goals().objectList().get( 0 ), false );
-      assertThat( database.goals().objectList().get( 0 ).properties().nameProperty().get(), is( "some-name" ) );
+      assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), false );
+      assertThat( database.calorieGoals().objectList().get( 0 ).properties().nameProperty().get(), is( "some-name" ) );
    }//End Method
    
    @Test public void shouldWriteData(){
