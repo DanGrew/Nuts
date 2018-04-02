@@ -113,6 +113,10 @@ public class CalorieGoalImpl implements CalorieGoal {
    @Override public FoodAnalytics foodAnalytics() {
       return analytics;
    }//End Method
+   
+   @Override public GoalTypes type() {
+      return GoalTypes.Calorie;
+   }//End Method
 
    @Override public ObjectProperty< Double > age() {
       return age;

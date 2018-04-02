@@ -8,21 +8,21 @@
  */package uk.dangrew.nuts.graphics.goal;
 
 import javafx.collections.ObservableList;
-import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.graphics.food.UnresponsiveConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ReadOnlyTableColumns;
 import uk.dangrew.nuts.graphics.table.RowSynchronizer;
 
-public class ReadOnlyGoalTable extends ConceptTable< CalorieGoal > {
+public class ReadOnlyGoalTable extends ConceptTable< Goal > {
 
-   private RowSynchronizer< CalorieGoal > synchronizer;
+   private RowSynchronizer< Goal > synchronizer;
    
    public ReadOnlyGoalTable() {
       super( new ReadOnlyTableColumns<>( new GoalTableColumns() ), new UnresponsiveConceptTableController<>() );
    }//End Constructor
    
-   public void setGoals( ObservableList< CalorieGoal > calorieGoals ) {
+   public void setGoals( ObservableList< Goal > calorieGoals ) {
       if ( synchronizer != null ) {
          synchronizer.detach();
       }

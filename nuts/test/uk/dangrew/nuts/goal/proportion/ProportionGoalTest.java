@@ -21,5 +21,9 @@ public class ProportionGoalTest {
    @Test public void test() {
       fail( "Not yet implemented" );
    }//End Method
+   
+   @Test public void shouldProvideType(){
+      fail();
+   }//End Method
 
 }//End Class

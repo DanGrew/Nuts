@@ -3,8 +3,10 @@ package uk.dangrew.nuts.goal.proportion;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.GoalTypes;
 
-public class ProportionGoal implements Food {
+public class ProportionGoal implements Goal {
 
    private final FoodProperties properties;
    private final FoodAnalytics analytics;
@@ -43,6 +45,10 @@ public class ProportionGoal implements Food {
    
    @Override public FoodAnalytics foodAnalytics() {
       return analytics;
+   }//End Method
+   
+   @Override public GoalTypes type() {
+      return GoalTypes.Proportion;
    }//End Method
    
    @Override public Food duplicate( String referenceId ) {

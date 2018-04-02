@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -118,6 +119,10 @@ public class DerivedCalorieGoalTest {
       assertThat( duplicate.baseGoal(), is( nullValue() ) );
       assertThat( duplicate.calorieOffset().get(), is( systemUnderTest.calorieOffset().get() ) );
       assertThat( duplicate.calorieDeficit().get(), is( systemUnderTest.calorieDeficit().get() ) );
+   }//End Method
+   
+   @Test public void shouldProvideType(){
+      fail();
    }//End Method
 
 }//End Class

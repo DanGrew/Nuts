@@ -29,6 +29,10 @@ public class DerivedCalorieGoal implements CalorieGoal {
       macroRatioCalc.associate( properties, analytics );
    }//End Constructor
    
+   @Override public GoalTypes type() {
+      return GoalTypes.Calorie;
+   }//End Method
+   
    public void setBaseGoal( CalorieGoal baseGoal ) {
       if ( this.baseGoal != null ) {
          throw new IllegalStateException( "Cannot change base goal." );

@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -108,6 +109,10 @@ public class CalorieGoalImplTest {
    
    @Test public void shouldNotDuplicate(){
       assertThat( systemUnderTest.duplicate( "anythign" ), is( systemUnderTest ) );
+   }//End Method
+   
+   @Test public void shouldProvideType(){
+      fail();
    }//End Method
    
 }//End Method
