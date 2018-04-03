@@ -27,11 +27,14 @@ public class ProportionGoalCalculatorTest {
       analytics = new GoalAnalytics();
       goal = new ProportionGoal( "Goal" );
       systemUnderTest = new ProportionGoalCalculator();
-      systemUnderTest.associate( properties, analytics );
-      analytics.proportionGoal().set( goal );
+   }//End Method
+   
+   private void triggerCalculation(){
+      systemUnderTest.calculate( properties, analytics, goal );
    }//End Method
 
    @Test public void shouldProvideNoProgressForCalories() {
+      triggerCalculation();
       assertThat( analytics.caloriesRatio(), is( 0.0 ) );
    }//End Method
    
@@ -224,10 +227,15 @@ public class ProportionGoalCalculatorTest {
    }//End Method
    
    private void assertRatios( double c, double f, double p ) {
+      triggerCalculation();
       System.out.println( "C: " + analytics.carbohydratesRatio() + " F: " + analytics.fatsRatio() + " P: " + analytics.proteinRatio() );
       assertThat( analytics.carbohydratesRatio(), is( closeTo( c, 0.1 ) ) );
       assertThat( analytics.fatsRatio(), is( closeTo( f, 0.1 ) ) );
       assertThat( analytics.proteinRatio(), is( closeTo( p, 0.1 ) ) );
+   }//End Method
+   
+   @Test public void shouldAutoUpdateAssociationsWithGoalWhenPropertiesChange(){
+      fail();
    }//End Method
 
 }//End Class

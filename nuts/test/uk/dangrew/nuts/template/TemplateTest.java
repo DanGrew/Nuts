@@ -20,6 +20,7 @@ import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.GoalAnalyticsCalculator;
 import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.meal.MealChangeListener;
 import uk.dangrew.nuts.meal.MealPropertiesCalculator;
@@ -41,7 +42,7 @@ public class TemplateTest {
    @Spy private MacroRatioCalculator ratioCalculator;
    @Mock private MealRegistrations registrations;
    @Mock private MealPropertiesCalculator propertiesCalculator;
-   @Spy private MacroGoalRatioCalculator goalRatioCalculator;
+   @Spy private GoalAnalyticsCalculator goalRatioCalculator;
    @Spy private StockUsage stockUsage;
    private Template systemUnderTest;
 

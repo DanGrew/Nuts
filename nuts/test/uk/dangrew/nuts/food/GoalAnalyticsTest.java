@@ -16,7 +16,7 @@ public class GoalAnalyticsTest {
    }//End Method
 
    @Test public void shouldProvideGoal() {
-      assertThat( systemUnderTest.calorieGoal().get(), is( nullValue() ) );
+      assertThat( systemUnderTest.goal().get(), is( nullValue() ) );
    }//End Method
    
    @Test public void shouldProvideCalorieRatio(){

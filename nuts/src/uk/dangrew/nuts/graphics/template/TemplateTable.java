@@ -23,7 +23,7 @@ public class TemplateTable extends ConceptTable< Template > {
    }//End Constructor
    
    public TemplateTable( Database database, ConceptTableController< Template > controller ) {
-      super( new TemplateTableColumns<>( database.calorieGoals() ), controller );
+      super( new TemplateTableColumns<>( database ), controller );
    }//End Constructor
    
 }//End Class

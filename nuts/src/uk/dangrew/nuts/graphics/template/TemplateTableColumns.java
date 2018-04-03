@@ -12,10 +12,12 @@ import java.util.Arrays;
 
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
+import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
 /**
@@ -37,20 +39,15 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements Conce
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
    private final GoalStore goals;
+   private final ProportionGoalStore proportionGoals;
    private final TableConfiguration configuration;
 
-   /**
-    * Constructs a new {@link FoodTable}.
-    * @param goals the {@link GoalStore}.
-    */
-   public TemplateTableColumns( GoalStore goals ) {
-      this.goals = goals;
+   public TemplateTableColumns( Database database ) {
+      this.goals = database.calorieGoals();
+      this.proportionGoals = database.proportionGoals();
       this.configuration = new TableConfiguration();
    }//End Constructor
    
-   /**
-    * {@inheritDoc}
-    */
    @Override public void populateColumns( ConceptTable< Template > table ) {
       configuration.initialiseFoodPropertyStringColumn( table, COLUMN_TITLE_TEMPLATE, 0.2, FoodProperties::nameProperty, true );
       configuration.initialiseFoodDropDownColumn( 
@@ -59,7 +56,7 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements Conce
                0.1, 
                r -> r.concept().goalAnalytics().goal(), 
                ( r, v ) -> r.concept().goalAnalytics().goal().set( v ),
-               new ConceptOptionsImpl<>( Arrays.asList( goals ) )
+               new ConceptOptionsImpl<>( Arrays.asList( goals, proportionGoals ) )
       );
 
       configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.08, f -> f.properties().calories(), true );

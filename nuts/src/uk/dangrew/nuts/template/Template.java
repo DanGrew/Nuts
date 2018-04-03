@@ -13,7 +13,7 @@ import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
-import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
+import uk.dangrew.nuts.goal.GoalAnalyticsCalculator;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealPropertiesCalculator;
 import uk.dangrew.nuts.meal.MealRegistrations;
@@ -56,22 +56,11 @@ public class Template extends Meal implements Food {
                new MealRegistrations(), 
                new MealPropertiesCalculator(),
                new MacroRatioCalculator(),
-               new MacroGoalRatioCalculator(),
+               new GoalAnalyticsCalculator(),
                new StockUsage()
       );
    }//End Constructor
    
-   /**
-    * Constructs a new {@link Meal}.
-    * @param properties the {@link FoodProperties}.
-    * @param foodAnalytics the {@link FoodAnalytics}.
-    * @param goalAnalytics the {@link GoalAnalytics}.
-    * @param registrations the {@link MealRegistrations}.
-    * @param propertiesCalculator the {@link MealPropertiesCalculator}.
-    * @param ratioCalculator the {@link MacroRatioCalculator}.
-    * @param goalRatioCalculator the {@link MacroGoalRatioCalculator}.
-    * @param stockUsage the {@link StockUsage}.
-    */
    Template( 
             FoodProperties properties,
             FoodAnalytics foodAnalytics,
@@ -79,12 +68,12 @@ public class Template extends Meal implements Food {
             MealRegistrations registrations, 
             MealPropertiesCalculator propertiesCalculator,
             MacroRatioCalculator ratioCalculator,
-            MacroGoalRatioCalculator goalRatioCalculator,
+            GoalAnalyticsCalculator goalAnalyticsCalculator,
             StockUsage stockUsage
    ) {
       super( properties, foodAnalytics, registrations, propertiesCalculator, ratioCalculator, stockUsage );
       this.goalAnalytics = goalAnalytics;
-      goalRatioCalculator.associate( properties, goalAnalytics );
+      goalAnalyticsCalculator.associate( properties, goalAnalytics );
    }//End Constructor
    
    /**

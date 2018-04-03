@@ -8,7 +8,6 @@
  */
 package uk.dangrew.nuts.goal;
 
-import javafx.beans.value.ChangeListener;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
@@ -17,78 +16,23 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
  * {@link MacroGoalRatioCalculator} calculates the ratio of {@link MacroNutrient}s against the 
  * {@link MacroNutrient}s provided in a {@link Goal}.
  */
-public class MacroGoalRatioCalculator {
+public class MacroGoalRatioCalculator implements GoalCalculator {
 
-   private final ChangeListener< Double > updater;
-   
    private FoodProperties properties;
    private GoalAnalytics analytics;
-   
    private CalorieGoal calorieGoal;
    
-   /**
-    * Constructs a new {@link MacroGoalRatioCalculator}.
-    */
-   public MacroGoalRatioCalculator() {
-      this.updater = ( s, o, n ) -> updateRatios();
-   }//End Constructor
-   
-   /**
-    * Associate with the given.
-    * @param properties the {@link FoodProperties}.
-    * @param analytics the {@link FoodAnalytics}.
-    * @param goal the {@link Goal}.
-    */
-   public void associate( FoodProperties properties, GoalAnalytics analytics ) {
-      if ( this.properties != null || this.analytics != null ) {
-         throw new IllegalStateException( "Already associated." );
+   @Override public void calculate( FoodProperties properties, GoalAnalytics analytics, Goal goal ) {
+      if ( goal.type() != GoalTypes.Calorie ) {
+         return;
       }
-      
       this.properties = properties;
-      this.properties.carbohydrates().addListener( updater );
-      this.properties.fats().addListener( updater );
-      this.properties.protein().addListener( updater );
-      this.properties.calories().addListener( updater );
       this.analytics = analytics;
-      this.analytics.goal().addListener( ( s, o, n ) -> setGoal( n ) );
+      this.calorieGoal = ( CalorieGoal ) goal;
+      calculate();
    }//End Method
    
-   /**
-    * Method to apply the {@link Goal} to the calculator.
-    * @param goal the {@link Goal}, can be null.
-    */
-   private void setGoal( Goal goal ) {
-      CalorieGoal calorieGoal = ( CalorieGoal ) goal;
-      if ( this.calorieGoal != null ) {
-         for ( MacroNutrient macro : MacroNutrient.values() ) {
-            this.calorieGoal.properties().nutritionFor( macro ).removeListener( updater );
-         }
-         this.calorieGoal.properties().calories().removeListener( updater );
-      }
-      
-      this.calorieGoal = calorieGoal;
-      if ( this.calorieGoal == null ) {
-         for ( MacroNutrient macro : MacroNutrient.values() ) {
-            analytics.nutrientRatioFor( macro ).set( 0.0 );
-         }
-         return;
-      } else {
-         for ( MacroNutrient macro : MacroNutrient.values() ) {
-            properties.nutritionFor( macro ).addListener( updater );
-            this.calorieGoal.properties().nutritionFor( macro ).addListener( updater );
-         }
-         this.calorieGoal.properties().calories().addListener( updater );
-         updateRatios();
-      }
-   }//End Method
-   
-   /**
-    * Method to update the ratios of {@link Goal}s {@link MacroNutrient}s.
-    */
-   private void updateRatios(){
-      if ( this.calorieGoal == null ) {
-         return;
-      }
+   private void calculate(){
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          double macroGoal = calorieGoal.properties().nutritionFor( macro ).get();
          if ( macroGoal == 0 ) {
