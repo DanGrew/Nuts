@@ -81,7 +81,10 @@ public class GoalAnalyticsCalculator {
       }
    }//End Method
    
-   protected void updateRatios() {
+   private void updateRatios() {
+      if ( goal == null ) {
+         return;
+      }
       calculatorRetriever.apply( goal ).calculate( properties, analytics, goal );
    }//End Method
 

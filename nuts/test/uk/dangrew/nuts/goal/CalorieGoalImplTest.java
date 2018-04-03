@@ -112,7 +112,7 @@ public class CalorieGoalImplTest {
    }//End Method
    
    @Test public void shouldProvideType(){
-      fail();
+      assertThat( systemUnderTest.type(), is( GoalTypes.Calorie ) );
    }//End Method
    
 }//End Method

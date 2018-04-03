@@ -129,5 +129,4 @@ public class ProportionGoalView extends VBox {
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().protein(), viewModel.properties().protein() ) );
    }//End Method
 
-
 }//End Class

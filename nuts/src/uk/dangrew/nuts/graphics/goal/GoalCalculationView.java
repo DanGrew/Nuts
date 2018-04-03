@@ -22,13 +22,14 @@ public class GoalCalculationView extends TitledPane {
    private final CalorieGoalView calorieView;
    private final ProportionGoalView proportionView;
    
-   /**
-    * Constructs a new {@link GoalCalculationView}.
-    */
    public GoalCalculationView() {
+      this( new CalorieGoalView(), new ProportionGoalView() );
+   }//End Constructor
+   
+   GoalCalculationView( CalorieGoalView calorieView, ProportionGoalView proportionView ) {
       super.setText( "Selected Goal" );
-      this.calorieView = new CalorieGoalView();
-      this.proportionView = new ProportionGoalView();
+      this.calorieView = calorieView;
+      this.proportionView = proportionView;
    }//End Constructor
    
    /**

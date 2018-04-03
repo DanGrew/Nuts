@@ -122,7 +122,7 @@ public class DerivedCalorieGoalTest {
    }//End Method
    
    @Test public void shouldProvideType(){
-      fail();
+      assertThat( systemUnderTest.type(), is( GoalTypes.Calorie ) );
    }//End Method
 
 }//End Class

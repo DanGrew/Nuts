@@ -165,5 +165,5 @@ public class GoalAnalyticsCalculatorTest {
    @Test( expected = IllegalStateException.class ) public void shouldNotAllowMultipleAssociation(){
       systemUnderTest.associate( properties, analytics );
    }//End Method
-
+   
 }//End Class

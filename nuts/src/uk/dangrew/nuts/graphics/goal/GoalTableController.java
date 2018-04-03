@@ -25,6 +25,7 @@ import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 
 public class GoalTableController implements ConceptTableController< Goal > {
 
+   private final UiGoalTypeSelectionDialog dialog;
    private final GoalStore calorieGoals;
    private final ProportionGoalStore proportionGoals;
    
@@ -34,6 +35,15 @@ public class GoalTableController implements ConceptTableController< Goal > {
             GoalStore calorieGoals,
             ProportionGoalStore proportionGoals
    ) {
+      this( new UiGoalTypeSelectionDialog(), calorieGoals, proportionGoals );
+   }//End Constructor
+   
+   GoalTableController(
+            UiGoalTypeSelectionDialog dialog,
+            GoalStore calorieGoals,
+            ProportionGoalStore proportionGoals
+   ) {
+      this.dialog = dialog;
       this.calorieGoals = calorieGoals;
       this.proportionGoals = proportionGoals;
       
@@ -78,8 +88,8 @@ public class GoalTableController implements ConceptTableController< Goal > {
     * {@inheritDoc}
     */
    @Override public Goal createConcept() {
-      Optional< GoalTypes > result = new UiGoalSelectionDialog().showAndWait();
-      if ( !result.isPresent() ) {
+      Optional< GoalTypes > result = dialog.friendly_showAndWait();
+      if ( result == null || !result.isPresent() ) {
          return null;
       }
       

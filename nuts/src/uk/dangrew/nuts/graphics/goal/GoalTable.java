@@ -16,12 +16,12 @@ import uk.dangrew.nuts.store.Database;
  */
 public class GoalTable extends ConceptTable< Goal > {
 
-   /**
-    * Constructs a new {@link GoalTable}.
-    * @param database the {@link Database}.
-    */
    public GoalTable( Database datbase ) {
       super( new GoalTableColumns(), new GoalTableController( datbase.calorieGoals(), datbase.proportionGoals() ) );
+   }//End Constructor
+   
+   GoalTable( GoalTableController controller ) {
+      super( new GoalTableColumns(), controller );
    }//End Constructor
    
 }//End Class

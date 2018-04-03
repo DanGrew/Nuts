@@ -6,12 +6,12 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.ChoiceDialog;
 import uk.dangrew.nuts.goal.GoalTypes;
 
-public class UiGoalSelectionDialog extends ChoiceDialog< GoalTypes > {
+public class UiGoalTypeSelectionDialog extends ChoiceDialog< GoalTypes > {
 
-   public UiGoalSelectionDialog() {
+   public UiGoalTypeSelectionDialog() {
       super( GoalTypes.Calorie, FXCollections.observableArrayList( GoalTypes.values() ) );
-      setTitle( "Template Selection" );
-      setContentText( "Choose your Template:" );
+      setTitle( "Goal Type Selection" );
+      setContentText( "Choose your Goal Type:" );
    }//End Constructor
    
    public Optional< GoalTypes > friendly_showAndWait(){

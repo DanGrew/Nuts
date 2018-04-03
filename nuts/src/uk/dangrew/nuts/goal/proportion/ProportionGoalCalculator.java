@@ -39,6 +39,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
       double totalCalories = carbCalories + fatCalories + proteinCalories;
       double totalWeight = carbWeight + fatWeight + proteinWeight;
       
+      
       calculateAndSet( 
                proportionGoal.configuration().carbohydrateProportionType(), 
                proportionGoal.configuration().carbohydrateTargetValue(), 
@@ -87,7 +88,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
             macroCalories, 
             macroWeight, 
             value.get() 
-         );
+      );
       toSet.set( progress );
    }//End Method
    

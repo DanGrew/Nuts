@@ -71,9 +71,8 @@ public class MealParseModel< FoodTypeT extends Meal > {
    
    /**
     * Triggered when starting a new {@link Meal}.
-    * @param key the parsed key.
     */
-   protected void startMeal( String key ) {
+   protected void startMeal() {
       this.id = null;
       this.name = null;
       this.portions.clear();;
@@ -83,9 +82,8 @@ public class MealParseModel< FoodTypeT extends Meal > {
    
    /**
     * Triggered when all values of a {@link Meal} have been parsed.
-    * @param key the parsed key.
     */
-   protected void finishMeal( String key ) {
+   protected void finishMeal() {
       FoodTypeT meal = meals.get( id );
       if ( meal == null ) {
          meal = meals.createConcept( id, name );
@@ -96,37 +94,33 @@ public class MealParseModel< FoodTypeT extends Meal > {
    
    /**
     * Sets the {@link uk.dangrew.nuts.food.FoodProperties#id()} for the current {@link Meal}.
-    * @param key the parsed key.
     * @param value the parsed value.
     */
-   void setId( String key, String value ) {
+   protected void setId( String value ) {
       this.id = value;
    }//End Method
    
    /**
     * Sets the {@link uk.dangrew.nuts.food.FoodProperties#nameProperty()} for the current {@link Meal}.
-    * @param key the parsed key.
     * @param value the parsed value.
     */
-   void setName( String key, String value ) {
+   protected void setName( String value ) {
       this.name = value;
    }//End Method
    
    /**
     * Triggered when starting to parse a new {@link FoodPortion}.
-    * @param key the parsed key.
     */
-   protected void startPortion( String key ) {
+   protected void startPortion() {
       this.foodId = null;
       this.portionValue = null;
    }//End Method
    
    /**
     * Triggered when finished to parsing a new {@link FoodPortion}.
-    * @param key the parsed key.
     * @return the finished {@link FoodPortion}.
     */
-   protected FoodPortion finishPortion( String key ){
+   protected FoodPortion finishPortion(){
       Food food = null;
       if ( !foodId.isEmpty() ) {
          food = database.foodItems().get( foodId );
@@ -150,19 +144,17 @@ public class MealParseModel< FoodTypeT extends Meal > {
    
    /**
     * Sets the id of the {@link Food} associated with the current {@link FoodPortion}.
-    * @param key the parsed key.
     * @param value the parsed value.
     */
-   void setFoodId( String key, String value ) {
+   void setFoodId( String value ) {
       this.foodId = value;
    }//End Method
    
    /**
     * Sets the portion value as a percentage for the current {@link FoodPortion}. 
-    * @param key the parsed key.
     * @param value the parsed value.
     */
-   void setPortionValue( String key, Double value ) {
+   void setPortionValue( Double value ) {
       this.portionValue = value;
    }//End Method
    

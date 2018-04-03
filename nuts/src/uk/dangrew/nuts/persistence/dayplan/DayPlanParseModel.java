@@ -42,10 +42,9 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
    
    /**
     * Triggered when starting a new {@link Meal}.
-    * @param key the parsed key.
     */
-   @Override protected void startMeal( String key ) {
-      super.startMeal( key );
+   @Override protected void startMeal() {
+      super.startMeal();
       this.dateString = null;
       this.consumedCalories = 0;
       this.allowedCalories = 0;
@@ -56,10 +55,9 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
    
    /**
     * Triggered when all values of a {@link Meal} have been parsed.
-    * @param key the parsed key.
     */
-   @Override protected void finishMeal( String key ) {
-      super.finishMeal( key );
+   @Override protected void finishMeal() {
+      super.finishMeal();
       DayPlan template = meals().get( id() );
       
       try {
@@ -77,13 +75,13 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
       }
    }//End Method
    
-   @Override protected void startPortion( String key ) {
-      super.startPortion( key );
+   @Override protected void startPortion() {
+      super.startPortion();
       this.consumed = false;
    }//End Method
    
-   @Override protected FoodPortion finishPortion( String key ) {
-      FoodPortion portion = super.finishPortion( key );
+   @Override protected FoodPortion finishPortion() {
+      FoodPortion portion = super.finishPortion();
       if ( portion == null ) {
          return null;
       }

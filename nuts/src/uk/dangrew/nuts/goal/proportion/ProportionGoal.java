@@ -52,7 +52,7 @@ public class ProportionGoal implements Goal {
    }//End Method
    
    @Override public Food duplicate( String referenceId ) {
-      return null;
+      return this;
    }//End Method
 
 }//End Class

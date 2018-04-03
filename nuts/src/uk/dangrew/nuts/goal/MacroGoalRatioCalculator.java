@@ -20,15 +20,12 @@ public class MacroGoalRatioCalculator implements GoalCalculator {
 
    private FoodProperties properties;
    private GoalAnalytics analytics;
-   private CalorieGoal calorieGoal;
+   private Goal calorieGoal;
    
    @Override public void calculate( FoodProperties properties, GoalAnalytics analytics, Goal goal ) {
-      if ( goal.type() != GoalTypes.Calorie ) {
-         return;
-      }
       this.properties = properties;
       this.analytics = analytics;
-      this.calorieGoal = ( CalorieGoal ) goal;
+      this.calorieGoal = goal;
       calculate();
    }//End Method
    

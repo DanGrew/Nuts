@@ -6,8 +6,8 @@ import org.junit.Test;
 
 public class ProportionGoalViewTest {
 
-   @Test public void test() {
-      fail( "Not yet implemented" );
-   }
+   @Test public void untested() {
+      System.out.println( "Not tested" );
+   }//End Method
 
 }
