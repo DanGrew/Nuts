@@ -6,7 +6,7 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.persistence.goal;
+package uk.dangrew.nuts.persistence.goal.calorie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import uk.dangrew.nuts.goal.GoalStore;
  * {@link GoalWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}
  * when writing the {@link uk.dangrew.nuts.goal.Goal}.
  */
-class GoalWriteModel {
+class CalorieGoalWriteModel {
    
    private final GoalStore goals;
    private final List< CalorieGoal > buffer;
@@ -29,7 +29,7 @@ class GoalWriteModel {
     * Constructs a new {@link GoalWriteModel}.
     * @param goals the {@link GoalStore}.
     */
-   GoalWriteModel( GoalStore goals ) {
+   CalorieGoalWriteModel( GoalStore goals ) {
       this.goals = goals;
       this.buffer = new ArrayList<>();
    }//End Constructor

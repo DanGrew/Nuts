@@ -6,7 +6,7 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.persistence.goal;
+package uk.dangrew.nuts.persistence.goal.calorie;
 
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.CalorieGoal;
@@ -16,7 +16,7 @@ import uk.dangrew.nuts.goal.GoalStore;
  * {@link GoalParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when
  * parsing the {@link Goal}.
  */
-class GoalParseModel {
+class CalorieGoalParseModel {
    
    private final GoalStore goals;
    
@@ -42,7 +42,7 @@ class GoalParseModel {
     * Constructs a new {@link GoalParseModel}.
     * @param goals the {@link GoalStore}.
     */
-   GoalParseModel( GoalStore goals ) {
+   CalorieGoalParseModel( GoalStore goals ) {
       this.goals = goals;
    }//End Constructor
    

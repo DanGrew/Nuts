@@ -13,7 +13,7 @@ import uk.dangrew.jupa.json.marshall.ModelMarshaller;
 import uk.dangrew.nuts.main.Nuts;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.dayplan.DayPlanPersistence;
-import uk.dangrew.nuts.persistence.goal.GoalPersistence;
+import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.persistence.labels.LabelPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.persistence.setup.DataSetup;
@@ -214,7 +214,7 @@ public class FoodSessions {
     * @return the {@link ModelMarshaller} constructed for the {@link uk.dangrew.nuts.goal.Goal}.
     */
    private ModelMarshaller constructGoalMarshaller( JarJsonPersistingProtocol protocol ){
-      GoalPersistence persistence = new GoalPersistence( database.calorieGoals() );
+      CalorieGoalPersistence persistence = new CalorieGoalPersistence( database.calorieGoals() );
       return new ModelMarshaller( 
                persistence.structure(), 
                persistence.readHandles(), 

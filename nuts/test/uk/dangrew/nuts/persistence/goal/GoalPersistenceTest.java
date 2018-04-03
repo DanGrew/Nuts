@@ -11,13 +11,14 @@ import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.store.Database;
 
 public class GoalPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      GoalPersistence persistence = new GoalPersistence( database.calorieGoals() );
+      CalorieGoalPersistence persistence = new CalorieGoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
       JSONObject json = new JSONObject( value );
@@ -29,7 +30,7 @@ public class GoalPersistenceTest {
    
    @Test public void shouldReadFirstVersionData() {
       Database database = new Database();
-      GoalPersistence persistence = new GoalPersistence( database.calorieGoals() );
+      CalorieGoalPersistence persistence = new CalorieGoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "goal-no-id-name.txt" );
       JSONObject json = new JSONObject( value );
@@ -40,7 +41,7 @@ public class GoalPersistenceTest {
    
    @Test public void shouldRetainNewNameOfOriginalGoal() {
       Database database = new Database();
-      GoalPersistence persistence = new GoalPersistence( database.calorieGoals() );
+      CalorieGoalPersistence persistence = new CalorieGoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "goal-no-id-name.txt" );
       JSONObject json = new JSONObject( value );
@@ -68,7 +69,7 @@ public class GoalPersistenceTest {
       
       assertGoalsAreRealistic( calorieGoal );
       
-      GoalPersistence persistence = new GoalPersistence( goals );
+      CalorieGoalPersistence persistence = new CalorieGoalPersistence( goals );
       JSONObject json = new JSONObject();
       persistence.structure().build( json );
       persistence.writeHandles().parse( json );
@@ -76,7 +77,7 @@ public class GoalPersistenceTest {
       System.out.println( json.toString() );
       
       goals = new GoalStore();
-      persistence = new GoalPersistence( goals );
+      persistence = new CalorieGoalPersistence( goals );
       
       persistence.readHandles().parse( json );
       assertThat( goals.objectList().size(), is( 1 ) );

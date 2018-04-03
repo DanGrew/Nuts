@@ -18,7 +18,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
-import uk.dangrew.nuts.persistence.goal.GoalPersistence;
+import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.store.Database;
 
 public class DayPlanPersistenceTest {
@@ -39,7 +39,7 @@ public class DayPlanPersistenceTest {
       Database database = new Database();
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
       DayPlanPersistence persistence = new DayPlanPersistence( database, database.dayPlans() );
-      GoalPersistence goalPersistence = new GoalPersistence( database.calorieGoals() );
+      CalorieGoalPersistence calorieGoalPersistence = new CalorieGoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
       JSONObject json = new JSONObject( value );
@@ -47,7 +47,7 @@ public class DayPlanPersistenceTest {
       
       value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
       json = new JSONObject( value );
-      goalPersistence.readHandles().parse( json );
+      calorieGoalPersistence.readHandles().parse( json );
       
       value = TestCommon.readFileIntoString( getClass(), "dayplans.txt" );
       json = new JSONObject( value );
@@ -157,10 +157,10 @@ public class DayPlanPersistenceTest {
       
       System.out.println( mealJson );
       
-      GoalPersistence goalPersistence = new GoalPersistence( database.calorieGoals() );
+      CalorieGoalPersistence calorieGoalPersistence = new CalorieGoalPersistence( database.calorieGoals() );
       JSONObject goalJson = new JSONObject();
-      goalPersistence.structure().build( goalJson );
-      goalPersistence.writeHandles().parse( goalJson );
+      calorieGoalPersistence.structure().build( goalJson );
+      calorieGoalPersistence.writeHandles().parse( goalJson );
       
       
       database = new Database();
@@ -170,10 +170,10 @@ public class DayPlanPersistenceTest {
       foodItemPersistence.readHandles().parse( foodItemJson );
       assertThat( database.foodItems().objectList(), hasSize( 4 ) );
       
-      goalPersistence = new GoalPersistence( database.calorieGoals() );
+      calorieGoalPersistence = new CalorieGoalPersistence( database.calorieGoals() );
       
       assertThat( database.calorieGoals().objectList(), is( empty() ) );
-      goalPersistence.readHandles().parse( goalJson );
+      calorieGoalPersistence.readHandles().parse( goalJson );
       assertThat( database.calorieGoals().objectList(), hasSize( 2 ) );
       
       persistence = new DayPlanPersistence( database, database.dayPlans() );

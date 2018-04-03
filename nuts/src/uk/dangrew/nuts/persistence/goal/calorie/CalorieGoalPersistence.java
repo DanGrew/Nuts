@@ -6,7 +6,7 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.persistence.goal;
+package uk.dangrew.nuts.persistence.goal.calorie;
 
 import uk.dangrew.jupa.json.parse.JsonParser;
 import uk.dangrew.jupa.json.parse.handle.key.JsonArrayWithObjectParseHandler;
@@ -23,7 +23,7 @@ import uk.dangrew.nuts.goal.GoalStore;
 /**
  * {@link GoalPersistence} provides the architecture for reading and writing the {@link uk.dangrew.nuts.goal.Goal}.
  */
-public class GoalPersistence {
+public class CalorieGoalPersistence {
    
    static final String GOALS = "goals";
    static final String GOAL = "goal";
@@ -49,16 +49,16 @@ public class GoalPersistence {
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
-   private final GoalParseModel parseModel;
+   private final CalorieGoalParseModel parseModel;
    private final JsonParser parserWithWriteHandles;
-   private final GoalWriteModel writeModel;
+   private final CalorieGoalWriteModel writeModel;
    
   /**
     * Constructs a new {@link GoalPersistence}.
     * @param goals the {@link GoalStore}.
     */
-   public GoalPersistence( GoalStore goals ) {
-      this( new GoalParseModel( goals ), new GoalWriteModel( goals ) );
+   public CalorieGoalPersistence( GoalStore goals ) {
+      this( new CalorieGoalParseModel( goals ), new CalorieGoalWriteModel( goals ) );
    }//End Constructor
    
    /**
@@ -66,7 +66,7 @@ public class GoalPersistence {
     * @param parseModel the {@link GoalParseModel}.
     * @param writeModel the {@link GoalWriteModel}.
     */
-   GoalPersistence( GoalParseModel parseModel, GoalWriteModel writeModel ) {
+   CalorieGoalPersistence( CalorieGoalParseModel parseModel, CalorieGoalWriteModel writeModel ) {
       this.structure = new JsonStructure();
       this.parseModel = parseModel;
       this.parserWithReadHandles = new JsonParser();
