@@ -1,0 +1,24 @@
+{  
+   "goals":[  
+      {  
+         "carbohydrateProportionType":"PercentageOfCalories",
+         "proteinProportionValue":2343,
+         "name":"some-name",
+         "carbohydrateProportionValue":65,
+         "fatProportionType":"PercentageOfWeight",
+         "id":"single-goal-no-id-provided-unique",
+         "proteinProportionType":"Calorie",
+         "fatProportionValue":11
+      },
+      {  
+         "carbohydrateProportionType":"Weight",
+         "proteinProportionValue":25,
+         "name":"Keto",
+         "carbohydrateProportionValue":20,
+         "fatProportionType":"PercentageOfCalories",
+         "id":"alwieufh0182347huflsd",
+         "proteinProportionType":"PercentageOfCalories",
+         "fatProportionValue":75
+      }
+   ]
+}

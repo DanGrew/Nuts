@@ -26,8 +26,8 @@ public class ProportionConfigurationTest {
    }//End Method
    
    @Test public void shouldProvideFatsTarget() {
-      assertThat( systemUnderTest.fatsProportionType().get(), is( nullValue() ) );
-      assertThat( systemUnderTest.fatsTargetValue().get(), is( 0.0 ) );
+      assertThat( systemUnderTest.fatProportionType().get(), is( nullValue() ) );
+      assertThat( systemUnderTest.fatTargetValue().get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldProvideProteinTarget() {

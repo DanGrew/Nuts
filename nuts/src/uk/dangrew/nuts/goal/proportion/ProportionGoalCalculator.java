@@ -50,8 +50,8 @@ public class ProportionGoalCalculator implements GoalCalculator {
                analytics.carbohydratesRatioProperty() 
       );
       calculateAndSet( 
-               proportionGoal.configuration().fatsProportionType(), 
-               proportionGoal.configuration().fatsTargetValue(), 
+               proportionGoal.configuration().fatProportionType(), 
+               proportionGoal.configuration().fatTargetValue(), 
                totalCalories, 
                totalWeight, 
                fatCalories, 

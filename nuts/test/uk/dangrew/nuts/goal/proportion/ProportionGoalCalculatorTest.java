@@ -43,8 +43,8 @@ public class ProportionGoalCalculatorTest {
       goal.configuration().carbohydrateProportionType().set( ProportionType.Weight );
       goal.configuration().carbohydrateTargetValue().set( 20.0 );
       
-      goal.configuration().fatsProportionType().set( ProportionType.PercentageOfCalories );
-      goal.configuration().fatsTargetValue().set( 75.0 );
+      goal.configuration().fatProportionType().set( ProportionType.PercentageOfCalories );
+      goal.configuration().fatTargetValue().set( 75.0 );
       
       goal.configuration().proteinProportionType().set( ProportionType.PercentageOfCalories );
       goal.configuration().proteinTargetValue().set( 25.0 );
@@ -130,8 +130,8 @@ public class ProportionGoalCalculatorTest {
    }//End Method
    
    @Test public void shouldCalculateProgressForFats(){
-      goal.configuration().fatsProportionType().set( ProportionType.Calorie );
-      goal.configuration().fatsTargetValue().set( 450.0 );
+      goal.configuration().fatProportionType().set( ProportionType.Calorie );
+      goal.configuration().fatTargetValue().set( 450.0 );
       
       assertRatios( 0, 0, 0 );
       properties.fats().set( 25.0 );
@@ -141,8 +141,8 @@ public class ProportionGoalCalculatorTest {
       properties.fats().set( 100.0 );
       assertRatios( 0, 200.0, 0 );
       
-      goal.configuration().fatsProportionType().set( ProportionType.Weight );
-      goal.configuration().fatsTargetValue().set( 500.0 );
+      goal.configuration().fatProportionType().set( ProportionType.Weight );
+      goal.configuration().fatTargetValue().set( 500.0 );
       
       properties.fats().set( 50.0 );
       assertRatios( 0, 10.0, 0 );
@@ -151,8 +151,8 @@ public class ProportionGoalCalculatorTest {
       properties.fats().set( 2000.0 );
       assertRatios( 0, 400.0, 0 );
       
-      goal.configuration().fatsProportionType().set( ProportionType.PercentageOfCalories );
-      goal.configuration().fatsTargetValue().set( 20.0 );
+      goal.configuration().fatProportionType().set( ProportionType.PercentageOfCalories );
+      goal.configuration().fatTargetValue().set( 20.0 );
       
       properties.setMacros( 100, 10, 102.5 );
       assertRatios( 0, 50.0, 0 );
@@ -161,8 +161,8 @@ public class ProportionGoalCalculatorTest {
       properties.setMacros( 100, 40, 35 );
       assertRatios( 0, 200.0, 0 );
       
-      goal.configuration().fatsProportionType().set( ProportionType.PercentageOfWeight );
-      goal.configuration().fatsTargetValue().set( 20.0 );
+      goal.configuration().fatProportionType().set( ProportionType.PercentageOfWeight );
+      goal.configuration().fatTargetValue().set( 20.0 );
       
       properties.setMacros( 35, 10, 55 );
       assertRatios( 0.0, 50.0, 0 );

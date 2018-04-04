@@ -1,0 +1,10 @@
+{"goals": [{
+   "carbohydrateProportionType": "Weight",
+   "proteinProportionValue": 20,
+   "name": "Lazy Keto",
+   "carbohydrateProportionValue": 20,
+   "fatProportionType": "PercentageOfCalories",
+   "id": "40548597-d178-499d-a49d-5b32eb7e06a4",
+   "proteinProportionType": "PercentageOfCalories",
+   "fatProportionValue": 75
+}]}

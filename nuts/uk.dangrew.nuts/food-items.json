@@ -2215,7 +2215,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 18,
-      "name": "Chicken (T, Tin) (1/2)",
+      "name": "Chicken (T, Tin) (1/2=100g)",
       "id": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
       "calories": 81
    },
@@ -3048,5 +3048,35 @@
       "name": "Nandos (Mediterranean Salad with Chicken)",
       "id": "cb2a2743-66bd-4797-8301-49b007cd208f",
       "calories": 417
+   },
+   {
+      "carbohydrates": 7.3,
+      "fats": 28,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 20,
+      "name": "Chia Seeds (H&B)",
+      "id": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+      "calories": 429
+   },
+   {
+      "carbohydrates": 1.1,
+      "fats": 52.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 34.5,
+      "name": "Hemp (H&B)",
+      "id": "8c442bbb-e173-4655-a096-969dbc773ab1",
+      "calories": 617
+   },
+   {
+      "carbohydrates": 1.33,
+      "fats": 11.21,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 19.59,
+      "name": "Tesco Finest 12 Beef Italian Style Meatballs 336G (83g)",
+      "id": "c6674fa6-431b-4448-b18c-d6cdae69575e",
+      "calories": 184.74
    }
 ]}

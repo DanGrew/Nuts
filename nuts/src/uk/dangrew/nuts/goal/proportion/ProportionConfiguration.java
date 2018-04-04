@@ -33,11 +33,11 @@ public class ProportionConfiguration {
       return carbohydrateValue;
    }//End Method
    
-   public ObjectProperty< ProportionType > fatsProportionType() {
+   public ObjectProperty< ProportionType > fatProportionType() {
       return fatsProportionType;
    }//End Method
 
-   public ObjectProperty< Double > fatsTargetValue() {
+   public ObjectProperty< Double > fatTargetValue() {
       return fatsValue;
    }//End Method
    

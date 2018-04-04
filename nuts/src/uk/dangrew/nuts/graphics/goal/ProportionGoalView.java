@@ -43,8 +43,8 @@ public class ProportionGoalView extends VBox {
       
       createMacroPane( 
                "Fat",
-               viewModel.configuration().fatsProportionType(),
-               viewModel.configuration().fatsTargetValue()
+               viewModel.configuration().fatProportionType(),
+               viewModel.configuration().fatTargetValue()
       );
 
       createMacroPane( 
@@ -118,8 +118,8 @@ public class ProportionGoalView extends VBox {
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().carbohydrateProportionType(), viewModel.configuration().carbohydrateProportionType() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().carbohydrateTargetValue(), viewModel.configuration().carbohydrateTargetValue() ) );
       
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fatsProportionType(), viewModel.configuration().fatsProportionType() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fatsTargetValue(), viewModel.configuration().fatsTargetValue() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fatProportionType(), viewModel.configuration().fatProportionType() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fatTargetValue(), viewModel.configuration().fatTargetValue() ) );
       
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().proteinProportionType(), viewModel.configuration().proteinProportionType() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().proteinTargetValue(), viewModel.configuration().proteinTargetValue() ) );

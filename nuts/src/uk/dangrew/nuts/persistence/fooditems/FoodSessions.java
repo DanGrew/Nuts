@@ -14,6 +14,7 @@ import uk.dangrew.nuts.main.Nuts;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.dayplan.DayPlanPersistence;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
+import uk.dangrew.nuts.persistence.goal.proportion.ProportionGoalPersistence;
 import uk.dangrew.nuts.persistence.labels.LabelPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.persistence.setup.DataSetup;
@@ -36,7 +37,8 @@ public class FoodSessions {
    static final String SHOPPING_LISTS_FILE_NAME = "shoppingLists.json";
    static final String STOCK_LISTS_FILE_NAME = "stockLists.json";
    static final String WEIGHT_RECORDING_FILE_NAME = "weightRecordings.json";
-   static final String GOALS_FILE_NAME = "goals.json";
+   static final String CALORIE_GOALS_FILE_NAME = "goals.json";
+   static final String PROPORTION_GOALS_FILE_NAME = "proportionGoals.json";
    static final String LABEL_FILE_NAME = "labels.json";
    
    static final String LEGACY_GOAL_FILE_NAME = "goal.json";
@@ -48,7 +50,7 @@ public class FoodSessions {
    private final JarJsonPersistingProtocol mealFileLocation;
    private final JarJsonPersistingProtocol templateFileLocation;
    private final JarJsonPersistingProtocol weightRecordingLocation;
-   private final JarJsonPersistingProtocol goalsLocation;
+   private final JarJsonPersistingProtocol calorieGoalsLocation;
    
    private final ModelMarshaller foodItemMarshaller;
    private final ModelMarshaller mealMarshaller;
@@ -57,7 +59,8 @@ public class FoodSessions {
    private final ModelMarshaller shoppingListMarshaller;
    private final ModelMarshaller stockListMarshaller;
    private final ModelMarshaller weightRecordingMarshaller;
-   private final ModelMarshaller goalMarshaller;
+   private final ModelMarshaller calorieGoalMarshaller;
+   private final ModelMarshaller proportionGoalMarshaller;
    private final ModelMarshaller labelMarshaller;
    
    private final ModelMarshaller legacyGoalMarshaller;
@@ -93,7 +96,10 @@ public class FoodSessions {
                         FOLDER_NAME, WEIGHT_RECORDING_FILE_NAME, Nuts.class 
                ),
                new JarJsonPersistingProtocol( 
-                        FOLDER_NAME, GOALS_FILE_NAME, Nuts.class 
+                        FOLDER_NAME, CALORIE_GOALS_FILE_NAME, Nuts.class 
+               ),
+               new JarJsonPersistingProtocol( 
+                        FOLDER_NAME, PROPORTION_GOALS_FILE_NAME, Nuts.class 
                ),
                new JarJsonPersistingProtocol( 
                         FOLDER_NAME, LEGACY_GOAL_FILE_NAME, Nuts.class 
@@ -113,7 +119,8 @@ public class FoodSessions {
             JarJsonPersistingProtocol shoppingListFileLocation,
             JarJsonPersistingProtocol stockListFileLocation,
             JarJsonPersistingProtocol weightRecordingFileLocation,
-            JarJsonPersistingProtocol goalsFileLocation,
+            JarJsonPersistingProtocol calorieGoalsFileLocation,
+            JarJsonPersistingProtocol proportionGoalsFileLocation,
             JarJsonPersistingProtocol legacyGoalFileLocation,
             JarJsonPersistingProtocol labelFileLocation
    ) {
@@ -124,7 +131,7 @@ public class FoodSessions {
       this.mealFileLocation = mealFileLocation;
       this.templateFileLocation = planFileLocation;
       this.weightRecordingLocation = weightRecordingFileLocation;
-      this.goalsLocation = goalsFileLocation;
+      this.calorieGoalsLocation = calorieGoalsFileLocation;
       
       this.foodItemMarshaller = constructFoodItemMarshaller();
       this.mealMarshaller = constructMealMarshaller( database.meals(), mealFileLocation );
@@ -133,10 +140,11 @@ public class FoodSessions {
       this.shoppingListMarshaller = constructMealMarshaller( database.shoppingLists(), shoppingListFileLocation );
       this.stockListMarshaller = constructMealMarshaller( database.stockLists(), stockListFileLocation );
       this.weightRecordingMarshaller = constructWeightRecordingMarshaller();
-      this.goalMarshaller = constructGoalMarshaller( goalsFileLocation );
+      this.calorieGoalMarshaller = constructCalorieGoalMarshaller( calorieGoalsFileLocation );
+      this.proportionGoalMarshaller = constructProportionGoalMarshaller( proportionGoalsFileLocation );
       this.labelMarshaller = constructLabelMarshaller( labelFileLocation );
       
-      this.legacyGoalMarshaller = constructGoalMarshaller( legacyGoalFileLocation );
+      this.legacyGoalMarshaller = constructCalorieGoalMarshaller( legacyGoalFileLocation );
    }//End Constructor
    
    /**
@@ -208,13 +216,18 @@ public class FoodSessions {
       );
    }//End Method
    
-   /**
-    * Method to construct the {@link ModelMarshaller}.
-    * @param protocol the {@link JarJsonPersistingProtocol}.
-    * @return the {@link ModelMarshaller} constructed for the {@link uk.dangrew.nuts.goal.Goal}.
-    */
-   private ModelMarshaller constructGoalMarshaller( JarJsonPersistingProtocol protocol ){
+   private ModelMarshaller constructCalorieGoalMarshaller( JarJsonPersistingProtocol protocol ){
       CalorieGoalPersistence persistence = new CalorieGoalPersistence( database.calorieGoals() );
+      return new ModelMarshaller( 
+               persistence.structure(), 
+               persistence.readHandles(), 
+               persistence.writeHandles(), 
+               protocol 
+      );
+   }//End Method
+   
+   private ModelMarshaller constructProportionGoalMarshaller( JarJsonPersistingProtocol protocol ){
+      ProportionGoalPersistence persistence = new ProportionGoalPersistence( database.proportionGoals() );
       return new ModelMarshaller( 
                persistence.structure(), 
                persistence.readHandles(), 
@@ -239,7 +252,8 @@ public class FoodSessions {
     */
    public void read() {
       legacyGoalMarshaller.read();
-      goalMarshaller.read();
+      calorieGoalMarshaller.read();
+      proportionGoalMarshaller.read();
       setup.configureDefaultGoal();
       
       foodItemMarshaller.read();
@@ -272,7 +286,8 @@ public class FoodSessions {
       shoppingListMarshaller.write();
       stockListMarshaller.write();
       weightRecordingMarshaller.write();
-      goalMarshaller.write();
+      calorieGoalMarshaller.write();
+      proportionGoalMarshaller.write();
       labelMarshaller.write();
    }// End Method
 }//End Class
