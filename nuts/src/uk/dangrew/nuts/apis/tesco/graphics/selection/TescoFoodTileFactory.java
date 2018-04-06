@@ -5,7 +5,7 @@ import java.util.Map;
 
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodReference;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelector;
 
 public class TescoFoodTileFactory {
    

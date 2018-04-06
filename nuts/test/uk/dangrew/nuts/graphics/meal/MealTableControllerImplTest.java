@@ -20,7 +20,7 @@ import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.selection.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 

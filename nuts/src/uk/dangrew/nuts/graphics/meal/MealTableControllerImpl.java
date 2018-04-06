@@ -15,7 +15,7 @@ import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.FriendlyTableView;
-import uk.dangrew.nuts.graphics.selection.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.meal.Meal;

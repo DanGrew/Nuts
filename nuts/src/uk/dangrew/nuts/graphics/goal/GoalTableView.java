@@ -13,7 +13,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import uk.dangrew.nuts.graphics.main.NutsTabs;
-import uk.dangrew.nuts.graphics.selection.FoodSelectionWindow;
+import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindow;
 import uk.dangrew.nuts.persistence.fooditems.FoodSessions;
 import uk.dangrew.nuts.store.Database;
 

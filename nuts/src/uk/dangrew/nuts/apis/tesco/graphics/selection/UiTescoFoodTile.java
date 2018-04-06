@@ -8,9 +8,9 @@ import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
-import uk.dangrew.nuts.graphics.selection.UiFoodTileConceptTitle;
+import uk.dangrew.nuts.graphics.selection.tiles.UiFoodTileConceptTitle;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionTile;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelector;
 import uk.dangrew.nuts.graphics.system.ImageLoaderService;
 
 public class UiTescoFoodTile extends UiFoodSelectionTile {

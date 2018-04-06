@@ -6,10 +6,10 @@ import java.util.Collections;
 import javafx.scene.layout.BorderPane;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.selection.FoodSelectionManager;
-import uk.dangrew.nuts.graphics.selection.FoodSelectionPaneManager;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelectionPane;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionManager;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionPaneManager;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionPane;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelector;
 
 public class UiTescoFoodDescriptionPane extends BorderPane implements UiFoodSelector< FoodPortion > {
 

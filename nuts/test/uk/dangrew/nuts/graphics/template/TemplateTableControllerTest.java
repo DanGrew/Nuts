@@ -16,7 +16,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.selection.FoodSelectionForTemplateEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForTemplateEvent;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.template.Template;
 

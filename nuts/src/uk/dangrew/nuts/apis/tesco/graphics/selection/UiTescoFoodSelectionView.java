@@ -2,7 +2,7 @@ package uk.dangrew.nuts.apis.tesco.graphics.selection;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelectionController;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionController;
 
 public class UiTescoFoodSelectionView extends GridPane {
 

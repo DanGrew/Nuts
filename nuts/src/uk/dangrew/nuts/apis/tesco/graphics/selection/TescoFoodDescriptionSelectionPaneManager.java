@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelectionPane;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelectionTile;
-import uk.dangrew.nuts.graphics.selection.UiFoodSelector;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionPane;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionTile;
+import uk.dangrew.nuts.graphics.selection.view.UiFoodSelector;
 import uk.dangrew.nuts.graphics.system.ImageLoaderService;
 
 public class TescoFoodDescriptionSelectionPaneManager {
