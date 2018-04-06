@@ -18,7 +18,7 @@ import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
 import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 
 /**
  * {@link GoalPersistence} provides the architecture for reading and writing the {@link uk.dangrew.nuts.goal.Goal}.
@@ -57,7 +57,7 @@ public class CalorieGoalPersistence {
     * Constructs a new {@link GoalPersistence}.
     * @param goals the {@link GoalStore}.
     */
-   public CalorieGoalPersistence( GoalStore goals ) {
+   public CalorieGoalPersistence( CalorieGoalStore goals ) {
       this( new CalorieGoalParseModel( goals ), new CalorieGoalWriteModel( goals ) );
    }//End Constructor
    

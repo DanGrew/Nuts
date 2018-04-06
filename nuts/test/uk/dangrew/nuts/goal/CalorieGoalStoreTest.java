@@ -7,14 +7,14 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GoalStoreTest {
+public class CalorieGoalStoreTest {
 
    private CalorieGoal calorieGoal;
-   private GoalStore systemUnderTest;
+   private CalorieGoalStore systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       calorieGoal = new CalorieGoalImpl( "Goal" );
-      systemUnderTest = new GoalStore();
+      systemUnderTest = new CalorieGoalStore();
    }//End Method
 
    @Test public void shouldStoreById() {

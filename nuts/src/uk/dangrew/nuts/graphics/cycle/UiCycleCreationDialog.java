@@ -12,7 +12,7 @@ import javafx.scene.text.TextFlow;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.TextFlowBuilder;
 import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 
 public class UiCycleCreationDialog extends Dialog< CycleCreationResult > {
 
@@ -25,7 +25,7 @@ public class UiCycleCreationDialog extends Dialog< CycleCreationResult > {
    
    private final ButtonType createButtonType;
    
-   public UiCycleCreationDialog( GoalStore goalStore ) {
+   public UiCycleCreationDialog( CalorieGoalStore calorieGoalStore ) {
       setTitle( "Cycle Creation" );
       setHeaderText( "Please choose the type of cycle and the base goal." );
       setResizable( true );
@@ -42,7 +42,7 @@ public class UiCycleCreationDialog extends Dialog< CycleCreationResult > {
       
       content.add( BASE_GOAL_DESCRIPTION, 0, 1 );
       
-      ComboBox< CalorieGoal > calorieGoals = new ComboBox<>( goalStore.objectList() );
+      ComboBox< CalorieGoal > calorieGoals = new ComboBox<>( calorieGoalStore.objectList() );
       calorieGoals.setMaxWidth( Double.MAX_VALUE );
       content.add( calorieGoals, 0, 2 );
       

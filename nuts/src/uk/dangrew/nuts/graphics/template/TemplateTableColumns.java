@@ -11,7 +11,7 @@ package uk.dangrew.nuts.graphics.template;
 import java.util.Arrays;
 
 import uk.dangrew.nuts.food.FoodProperties;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
@@ -38,7 +38,7 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements Conce
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
-   private final GoalStore goals;
+   private final CalorieGoalStore goals;
    private final ProportionGoalStore proportionGoals;
    private final TableConfiguration configuration;
 

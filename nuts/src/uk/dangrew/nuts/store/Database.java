@@ -10,7 +10,7 @@ package uk.dangrew.nuts.store;
 
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItemStore;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.meal.MealStore;
@@ -24,7 +24,7 @@ import uk.dangrew.nuts.template.TemplateStore;
 public class Database {
 
    private final WeightProgress weightProgress;
-   private final GoalStore calorieGoals;
+   private final CalorieGoalStore calorieGoals;
    private final ProportionGoalStore proportionGoals;
    
    private final FoodItemStore foodItems;
@@ -40,7 +40,7 @@ public class Database {
     */
    public Database() {
       this.weightProgress = new WeightProgress();
-      this.calorieGoals = new GoalStore();
+      this.calorieGoals = new CalorieGoalStore();
       this.proportionGoals = new ProportionGoalStore();
       this.foodItems = new FoodItemStore();
       this.meals = new MealStore();
@@ -63,7 +63,7 @@ public class Database {
     * Access to the {@link GoalStore}.
     * @return the {@link GoalStore}.
     */
-   public GoalStore calorieGoals() {
+   public CalorieGoalStore calorieGoals() {
       return calorieGoals;
    }//End Method
    

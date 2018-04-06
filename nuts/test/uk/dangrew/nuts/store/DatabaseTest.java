@@ -18,7 +18,7 @@ import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.CalorieGoalImpl;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.meal.Meal;
@@ -72,7 +72,7 @@ public class DatabaseTest {
    }//End Method
    
    @Test public void shouldProvideCalorieGoals(){
-      assertThat( systemUnderTest.calorieGoals(), is( instanceOf( GoalStore.class ) ) );
+      assertThat( systemUnderTest.calorieGoals(), is( instanceOf( CalorieGoalStore.class ) ) );
       
       CalorieGoal calorieGoal = new CalorieGoalImpl( "List" );
       systemUnderTest.calorieGoals().store( calorieGoal );

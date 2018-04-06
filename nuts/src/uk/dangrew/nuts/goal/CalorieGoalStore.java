@@ -15,12 +15,12 @@ import uk.dangrew.nuts.system.ConceptStore;
  * {@link GoalStore} provides an {@link uk.dangrew.kode.storage.structure.ObjectStoreManager}
  * for {@link Goal}s.
  */
-public class GoalStore extends MappedObservableStoreManagerImpl< String, CalorieGoal > implements ConceptStore< CalorieGoal > {
+public class CalorieGoalStore extends MappedObservableStoreManagerImpl< String, CalorieGoal > implements ConceptStore< CalorieGoal > {
 
    /**
     * Constructs a new {@link GoalStore}.
     */
-   public GoalStore() {
+   public CalorieGoalStore() {
       super( f -> f.properties().id() );
    }//End Constructor
 

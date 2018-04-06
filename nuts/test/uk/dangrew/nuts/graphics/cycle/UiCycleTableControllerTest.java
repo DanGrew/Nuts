@@ -19,7 +19,7 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.cycle.Cycle;
 import uk.dangrew.nuts.cycle.CycleStore;
 import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 
 public class UiCycleTableControllerTest {
 
@@ -29,7 +29,7 @@ public class UiCycleTableControllerTest {
    private CycleStore cycles;
    
    private CalorieGoal baseGoal;
-   private GoalStore goals;
+   private CalorieGoalStore goals;
    private UiCycleTableController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -37,7 +37,7 @@ public class UiCycleTableControllerTest {
       MockitoAnnotations.initMocks( this );
       
       cycles = new CycleStore();
-      goals = new GoalStore();
+      goals = new CalorieGoalStore();
       baseGoal = goals.createConcept( "Goal1" );
       
       systemUnderTest = new UiCycleTableController( creationDialog, cycles );

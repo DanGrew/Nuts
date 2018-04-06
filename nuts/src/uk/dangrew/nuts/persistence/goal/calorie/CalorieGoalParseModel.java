@@ -10,7 +10,7 @@ package uk.dangrew.nuts.persistence.goal.calorie;
 
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 
 /**
  * {@link GoalParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when
@@ -18,7 +18,7 @@ import uk.dangrew.nuts.goal.GoalStore;
  */
 class CalorieGoalParseModel {
    
-   private final GoalStore goals;
+   private final CalorieGoalStore goals;
    
    private String id;
    private String name;
@@ -42,7 +42,7 @@ class CalorieGoalParseModel {
     * Constructs a new {@link GoalParseModel}.
     * @param goals the {@link GoalStore}.
     */
-   CalorieGoalParseModel( GoalStore goals ) {
+   CalorieGoalParseModel( CalorieGoalStore goals ) {
       this.goals = goals;
    }//End Constructor
    

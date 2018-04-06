@@ -2545,7 +2545,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 0.6,
-      "name": "Butter (T, Unsalted) (100g) (1tbsp=15g)",
+      "name": "Butter (T, Unsalted) (100g) (1tbsp=15g, 8oz=1cup=240g)",
       "id": "7e90c589-40eb-4f3f-a221-c86beae13899",
       "calories": 744
    },
@@ -3065,7 +3065,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 34.5,
-      "name": "Hemp (H&B)",
+      "name": "Hemp (H&B) (100g)",
       "id": "8c442bbb-e173-4655-a096-969dbc773ab1",
       "calories": 617
    },
@@ -3078,5 +3078,15 @@
       "name": "Tesco Finest 12 Beef Italian Style Meatballs 336G (83g)",
       "id": "c6674fa6-431b-4448-b18c-d6cdae69575e",
       "calories": 184.74
+   },
+   {
+      "carbohydrates": 0.38,
+      "fats": 9.34,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 3.26,
+      "name": "Tesco Pizza Pepperoni 120G (20g)",
+      "id": "a68cb572-bbfc-42b5-9715-422cd3d1d7a6",
+      "calories": 98
    }
 ]}

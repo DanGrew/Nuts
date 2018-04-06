@@ -15,7 +15,7 @@ import java.util.Set;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
@@ -26,13 +26,13 @@ import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 public class GoalTableController implements ConceptTableController< Goal > {
 
    private final UiGoalTypeSelectionDialog dialog;
-   private final GoalStore calorieGoals;
+   private final CalorieGoalStore calorieGoals;
    private final ProportionGoalStore proportionGoals;
    
    private ConceptTable< Goal > table;
    
    public GoalTableController( 
-            GoalStore calorieGoals,
+            CalorieGoalStore calorieGoals,
             ProportionGoalStore proportionGoals
    ) {
       this( new UiGoalTypeSelectionDialog(), calorieGoals, proportionGoals );
@@ -40,7 +40,7 @@ public class GoalTableController implements ConceptTableController< Goal > {
    
    GoalTableController(
             UiGoalTypeSelectionDialog dialog,
-            GoalStore calorieGoals,
+            CalorieGoalStore calorieGoals,
             ProportionGoalStore proportionGoals
    ) {
       this.dialog = dialog;

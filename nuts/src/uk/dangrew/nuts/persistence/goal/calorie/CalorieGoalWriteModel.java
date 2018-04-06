@@ -13,7 +13,7 @@ import java.util.List;
 
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 
 /**
  * {@link GoalWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}
@@ -21,7 +21,7 @@ import uk.dangrew.nuts.goal.GoalStore;
  */
 class CalorieGoalWriteModel {
    
-   private final GoalStore goals;
+   private final CalorieGoalStore goals;
    private final List< CalorieGoal > buffer;
    private CalorieGoal current; 
    
@@ -29,7 +29,7 @@ class CalorieGoalWriteModel {
     * Constructs a new {@link GoalWriteModel}.
     * @param goals the {@link GoalStore}.
     */
-   CalorieGoalWriteModel( GoalStore goals ) {
+   CalorieGoalWriteModel( CalorieGoalStore goals ) {
       this.goals = goals;
       this.buffer = new ArrayList<>();
    }//End Constructor

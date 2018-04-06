@@ -6,7 +6,7 @@ import uk.dangrew.nuts.cycle.CycleStore;
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.CalorieGoalImpl;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 
 public class UiCyclePane extends GridPane {
@@ -27,7 +27,7 @@ public class UiCyclePane extends GridPane {
       baseGoal.height().set( 1.87 );
       baseGoal.calorieDeficit().set( 300.0 );
       
-      GoalStore goals = new GoalStore();
+      CalorieGoalStore goals = new CalorieGoalStore();
       goals.createConcept( "Goal1" );
       goals.createConcept( "Goal2" );
       goals.createConcept( "Goal3" );

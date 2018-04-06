@@ -10,7 +10,7 @@ import org.junit.Test;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.goal.Gender;
 import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.GoalStore;
+import uk.dangrew.nuts.goal.CalorieGoalStore;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.store.Database;
 
@@ -56,7 +56,7 @@ public class GoalPersistenceTest {
    }//End Method
    
    @Test public void shouldWriteData(){
-      GoalStore goals = new GoalStore();
+      CalorieGoalStore goals = new CalorieGoalStore();
       CalorieGoal calorieGoal = goals.createConcept( "this-is-the-id", "some-name" );
       
       calorieGoal.gender().set( Gender.Male );
@@ -76,7 +76,7 @@ public class GoalPersistenceTest {
       
       System.out.println( json.toString() );
       
-      goals = new GoalStore();
+      goals = new CalorieGoalStore();
       persistence = new CalorieGoalPersistence( goals );
       
       persistence.readHandles().parse( json );

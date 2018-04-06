@@ -2369,7 +2369,7 @@
       ]
    },
    {
-      "name": "Flax Crackers",
+      "name": "Flax Crackers (with Chia)",
       "id": "c2a1c8ce-a82d-4539-916e-ed2c79a0c826",
       "portions": [
          {
@@ -2395,11 +2395,19 @@
             "portionValue": 500
          },
          {
-            "foodId": "555ae532-2d24-4e88-929f-e56dccca3258",
+            "foodId": "cbaa3d19-9cca-4d3d-ae51-691dc579dfd5",
             "portionValue": 100
          },
          {
             "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
+            "portionValue": 200
+         },
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 50
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
             "portionValue": 200
          }
       ]
@@ -2419,10 +2427,6 @@
          {
             "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
             "portionValue": 200
-         },
-         {
-            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
-            "portionValue": 50
          }
       ]
    },
@@ -2441,6 +2445,60 @@
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Butter Pastry",
+      "id": "cbaa3d19-9cca-4d3d-ae51-691dc579dfd5",
+      "portions": [
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 75
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 120
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Flax Crackers (Flax + Hemp)",
+      "id": "987250f2-b0d5-4f4f-9e89-79fccb009324",
+      "portions": [
+         {
+            "foodId": "8c442bbb-e173-4655-a096-969dbc773ab1",
+            "portionValue": 150
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 500
+         }
+      ]
+   },
+   {
+      "name": "Beef Madras",
+      "id": "b20fcd95-8a2c-4c25-a1cd-8ac6f568c8bb",
+      "portions": [
+         {
+            "foodId": "c06d4395-0367-4aed-a2e6-15c2061c0b0a",
+            "portionValue": 200
+         },
+         {
+            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
+            "portionValue": 100
+         },
+         {
+            "foodId": "a824158e-35b2-4610-9b23-cb36e8674df5",
+            "portionValue": 30
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
          }
       ]
    }
