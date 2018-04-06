@@ -10,7 +10,7 @@ package uk.dangrew.nuts.store;
 
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItemStore;
-import uk.dangrew.nuts.goal.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.meal.MealStore;

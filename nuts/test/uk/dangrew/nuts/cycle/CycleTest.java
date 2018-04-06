@@ -9,8 +9,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
 import uk.dangrew.nuts.system.Properties;
 
 public class CycleTest {

@@ -6,7 +6,7 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.goal;
+package uk.dangrew.nuts.goal.calorie;
 
 import javafx.beans.value.ChangeListener;
 

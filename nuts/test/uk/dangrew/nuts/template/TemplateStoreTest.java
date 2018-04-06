@@ -8,8 +8,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.goal.CalorieGoalImpl;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
 
 public class TemplateStoreTest {
 

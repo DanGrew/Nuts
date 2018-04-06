@@ -13,9 +13,9 @@ import com.sun.javafx.application.PlatformImpl;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.cycle.Cycle;
-import uk.dangrew.nuts.goal.DerivedCalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.DerivedCalorieGoal;
 import uk.dangrew.nuts.manual.data.DataLocation;
 
 public class UiCycleSummaryTest {

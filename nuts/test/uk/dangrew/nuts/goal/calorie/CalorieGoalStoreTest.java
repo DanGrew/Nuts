@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.goal;
+package uk.dangrew.nuts.goal.calorie;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -6,6 +6,10 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 
 public class CalorieGoalStoreTest {
 

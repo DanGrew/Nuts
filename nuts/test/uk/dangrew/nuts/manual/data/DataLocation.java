@@ -11,8 +11,8 @@ package uk.dangrew.nuts.manual.data;
 import org.json.JSONObject;
 
 import uk.dangrew.kode.TestCommon;
-import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.Gender;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;

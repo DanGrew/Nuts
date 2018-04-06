@@ -11,9 +11,9 @@ package uk.dangrew.nuts.persistence.goal.calorie;
 import java.util.ArrayList;
 import java.util.List;
 
-import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.Gender;
 
 /**
  * {@link GoalWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}

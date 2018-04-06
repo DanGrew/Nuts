@@ -6,7 +6,7 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.goal;
+package uk.dangrew.nuts.goal.calorie;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
 import uk.dangrew.nuts.system.ConceptStore;

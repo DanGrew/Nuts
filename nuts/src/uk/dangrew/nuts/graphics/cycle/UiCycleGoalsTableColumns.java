@@ -9,7 +9,7 @@
 package uk.dangrew.nuts.graphics.cycle;
 
 import javafx.beans.property.SimpleObjectProperty;
-import uk.dangrew.nuts.goal.DerivedCalorieGoal;
+import uk.dangrew.nuts.goal.calorie.DerivedCalorieGoal;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;

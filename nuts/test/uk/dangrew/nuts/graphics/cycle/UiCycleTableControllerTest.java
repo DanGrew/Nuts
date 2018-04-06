@@ -18,8 +18,8 @@ import com.sun.javafx.application.PlatformImpl;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.cycle.Cycle;
 import uk.dangrew.nuts.cycle.CycleStore;
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 
 public class UiCycleTableControllerTest {
 

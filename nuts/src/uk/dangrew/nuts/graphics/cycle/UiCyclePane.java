@@ -3,10 +3,10 @@ package uk.dangrew.nuts.graphics.cycle;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.cycle.CycleStore;
-import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalImpl;
-import uk.dangrew.nuts.goal.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.Gender;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 
 public class UiCyclePane extends GridPane {

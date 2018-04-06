@@ -9,7 +9,7 @@
 
 import uk.dangrew.nuts.cycle.Cycle;
 import uk.dangrew.nuts.cycle.CycleStore;
-import uk.dangrew.nuts.goal.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 
 public class UiCycleTable extends ConceptTable< Cycle > {

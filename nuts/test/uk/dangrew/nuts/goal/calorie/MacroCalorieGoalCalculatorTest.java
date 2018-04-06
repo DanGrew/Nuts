@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.goal;
+package uk.dangrew.nuts.goal.calorie;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -9,6 +9,10 @@ import org.junit.Test;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalCalculator;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.MacroCalorieGoalCalculator;
 
 public class MacroCalorieGoalCalculatorTest {
 

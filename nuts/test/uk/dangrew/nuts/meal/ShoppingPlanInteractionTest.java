@@ -7,9 +7,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.Gender;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;

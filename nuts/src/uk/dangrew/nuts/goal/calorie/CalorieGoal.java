@@ -1,6 +1,7 @@
-package uk.dangrew.nuts.goal;
+package uk.dangrew.nuts.goal.calorie;
 
 import javafx.beans.property.ObjectProperty;
+import uk.dangrew.nuts.goal.Goal;
 
 public interface CalorieGoal extends Goal {
 

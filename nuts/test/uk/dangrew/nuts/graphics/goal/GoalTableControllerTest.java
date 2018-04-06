@@ -19,9 +19,9 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalTypes;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.store.Database;

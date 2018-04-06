@@ -13,10 +13,10 @@ import java.util.Optional;
 import java.util.Set;
 
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
-import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.Goal;
-import uk.dangrew.nuts.goal.CalorieGoalStore;
 import uk.dangrew.nuts.goal.GoalTypes;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptTable;

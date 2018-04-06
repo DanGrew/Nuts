@@ -1,6 +1,6 @@
 package uk.dangrew.nuts.graphics.cycle;
 
-import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 
 public class CycleCreationResult {
    

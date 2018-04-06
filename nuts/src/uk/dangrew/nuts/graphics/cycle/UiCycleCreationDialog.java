@@ -11,8 +11,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextFlow;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.TextFlowBuilder;
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 
 public class UiCycleCreationDialog extends Dialog< CycleCreationResult > {
 

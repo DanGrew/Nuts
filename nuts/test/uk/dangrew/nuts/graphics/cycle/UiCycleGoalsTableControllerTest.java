@@ -14,8 +14,8 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.cycle.Cycle;
-import uk.dangrew.nuts.goal.DerivedCalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.DerivedCalorieGoal;
 
 public class UiCycleGoalsTableControllerTest {
 

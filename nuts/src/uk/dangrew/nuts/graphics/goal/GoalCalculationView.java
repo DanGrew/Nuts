@@ -9,8 +9,8 @@
 package uk.dangrew.nuts.graphics.goal;
 
 import javafx.scene.control.TitledPane;
-import uk.dangrew.nuts.goal.CalorieGoal;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 
 /**

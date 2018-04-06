@@ -6,7 +6,7 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.goal;
+package uk.dangrew.nuts.goal.calorie;
 
 /**
  * {@link Gender} provides the user's gender for goal calculations.

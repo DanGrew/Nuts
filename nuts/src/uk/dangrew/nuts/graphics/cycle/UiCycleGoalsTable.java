@@ -7,7 +7,7 @@
  * ----------------------------------------
  */package uk.dangrew.nuts.graphics.cycle;
 
-import uk.dangrew.nuts.goal.DerivedCalorieGoal;
+import uk.dangrew.nuts.goal.calorie.DerivedCalorieGoal;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 
 public class UiCycleGoalsTable extends ConceptTable< DerivedCalorieGoal > {

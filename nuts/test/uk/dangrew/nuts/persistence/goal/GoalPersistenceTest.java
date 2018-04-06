@@ -8,9 +8,9 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import uk.dangrew.kode.TestCommon;
-import uk.dangrew.nuts.goal.Gender;
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
+import uk.dangrew.nuts.goal.calorie.Gender;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.store.Database;
 

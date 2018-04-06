@@ -19,9 +19,9 @@ import uk.dangrew.kode.javafx.registrations.RegistrationManager;
 import uk.dangrew.kode.javafx.style.Conversions;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
-import uk.dangrew.nuts.goal.CalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoalImpl;
-import uk.dangrew.nuts.goal.Gender;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
+import uk.dangrew.nuts.goal.calorie.Gender;
 
 public class CalorieGoalView extends VBox {
 

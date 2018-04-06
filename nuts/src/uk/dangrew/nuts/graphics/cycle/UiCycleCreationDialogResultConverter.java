@@ -3,7 +3,7 @@ package uk.dangrew.nuts.graphics.cycle;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.util.Callback;
-import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 
 public class UiCycleCreationDialogResultConverter implements Callback< ButtonType, CycleCreationResult >{
 

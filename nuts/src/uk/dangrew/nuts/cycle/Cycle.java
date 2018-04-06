@@ -2,8 +2,8 @@ package uk.dangrew.nuts.cycle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import uk.dangrew.nuts.goal.DerivedCalorieGoal;
-import uk.dangrew.nuts.goal.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.CalorieGoal;
+import uk.dangrew.nuts.goal.calorie.DerivedCalorieGoal;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.Properties;
 
