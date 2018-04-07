@@ -83,4 +83,8 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
       }
    }//End Method
    
+   TescoFoodDescription food(){
+      return food;
+   }//End Method
+   
 }//End Class
