@@ -13,14 +13,13 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.selection.tiles.FoodTileFactory;
-import uk.dangrew.nuts.graphics.selection.tiles.UiFoodTile;
+import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelector;
 
 public class FoodTileFactoryTest {
 
    private Food food;
-   @Mock private UiFoodSelector selector;
+   @Mock private UiFoodSelector< FoodPortion > selector;
    private FoodTileFactory systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {

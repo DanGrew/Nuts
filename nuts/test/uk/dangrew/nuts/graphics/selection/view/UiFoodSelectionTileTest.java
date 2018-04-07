@@ -19,10 +19,6 @@ public class UiFoodSelectionTileTest {
          UiFoodSelectionTileTest.this.selected = selected;
       }//End Method
 
-      @Override public FoodPortion food() {
-         return null;
-      }//End Method
-      
    }//End Class
    
    private boolean selected;

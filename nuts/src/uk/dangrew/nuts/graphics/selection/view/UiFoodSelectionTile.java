@@ -1,7 +1,6 @@
 package uk.dangrew.nuts.graphics.selection.view;
 
 import javafx.scene.layout.GridPane;
-import uk.dangrew.nuts.food.FoodPortion;
 
 //awful lack of use of interfaces forces an abstract extension - thanks jfx!
 public abstract class UiFoodSelectionTile extends GridPane {
@@ -14,8 +13,6 @@ public abstract class UiFoodSelectionTile extends GridPane {
    }//End Method
    
    protected abstract void updateSelection( boolean selected );
-
-   public abstract FoodPortion food();
 
    public boolean isSelected(){
       return isSelected;

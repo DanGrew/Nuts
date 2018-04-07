@@ -83,8 +83,4 @@ public class UiTescoFoodTile extends UiFoodSelectionTile {
       }
    }//End Method
    
-   @Override public FoodPortion food() {
-      return null;
-   }//End Method
-   
 }//End Class

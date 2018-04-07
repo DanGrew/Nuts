@@ -16,12 +16,12 @@ public class UiFoodTile extends UiFoodSelectionTile {
    
    private final JavaFxStyle styling;
    private final FoodPortion food;
-   private final UiFoodSelector controller;
+   private final UiFoodSelector< FoodPortion > controller;
    private final UiFoodTileConceptTitle title;
    private final UiFoodTileProperties macros;
    private final UiFoodTilePortionControl control;
    
-   public UiFoodTile( FoodPortion food, UiFoodSelector controller ) {
+   public UiFoodTile( FoodPortion food, UiFoodSelector< FoodPortion > controller ) {
       this( 
                food, 
                controller, 
@@ -33,7 +33,7 @@ public class UiFoodTile extends UiFoodSelectionTile {
    
    UiFoodTile(
             FoodPortion food,
-            UiFoodSelector controller, 
+            UiFoodSelector< FoodPortion > controller, 
             UiFoodTileConceptTitle title,
             UiFoodTileProperties macros,
             UiFoodTilePortionControl control 

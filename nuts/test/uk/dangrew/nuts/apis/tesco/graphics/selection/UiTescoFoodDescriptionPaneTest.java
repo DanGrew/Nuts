@@ -24,6 +24,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionManager;
+import uk.dangrew.nuts.graphics.selection.tiles.UiFoodTile;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionPane;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionTile;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelector;
@@ -67,7 +68,7 @@ public class UiTescoFoodDescriptionPaneTest {
       verify( selectionPane ).layoutTiles( tilesCaptor.capture() );
       
       for ( int i = 0; i < 3; i++ ) {
-         assertThat( tilesCaptor.getValue().get( i ).food().food().get(), is( foods.get( i ) ) );
+         assertThat( assumeUiFoodTile( tilesCaptor.getValue().get( i ) ).food().food().get(), is( foods.get( i ) ) );
       }
    }//End Method
    
@@ -81,28 +82,36 @@ public class UiTescoFoodDescriptionPaneTest {
    @Test public void shouldDeselect() {
       systemUnderTest.showOptions( description );
       verify( selectionPane ).layoutTiles( tilesCaptor.capture() );
-      assertThat( tilesCaptor.getValue().get( 0 ).isSelected(), is( false ) );
       
-      systemUnderTest.select( tilesCaptor.getValue().get( 0 ).food() );
-      assertThat( tilesCaptor.getValue().get( 0 ).isSelected(), is( true ) );
+      UiFoodTile firstTile = assumeUiFoodTile( tilesCaptor.getValue().get( 0 ) );
+      assertThat( firstTile.isSelected(), is( false ) );
       
-      systemUnderTest.deselect( tilesCaptor.getValue().get( 0 ).food() );
+      systemUnderTest.select( firstTile.food() );
+      assertThat( firstTile.isSelected(), is( true ) );
       
-      verify( selectionManager ).deselect( tilesCaptor.getValue().get( 0 ).food() );
-      assertThat( tilesCaptor.getValue().get( 0 ).isSelected(), is( false ) );
-      verify( selectionController ).deselect( tilesCaptor.getValue().get( 0 ).food() );
+      systemUnderTest.deselect( firstTile.food() );
+      
+      verify( selectionManager ).deselect( firstTile.food() );
+      assertThat( firstTile.isSelected(), is( false ) );
+      verify( selectionController ).deselect( firstTile.food() );
    }//End Method
    
    @Test public void shouldSelect() {
       systemUnderTest.showOptions( description );
       verify( selectionPane ).layoutTiles( tilesCaptor.capture() );
-      assertThat( tilesCaptor.getValue().get( 0 ).isSelected(), is( false ) );
       
-      systemUnderTest.select( tilesCaptor.getValue().get( 0 ).food() );
+      UiFoodTile firstTile = assumeUiFoodTile( tilesCaptor.getValue().get( 0 ) );
+      assertThat( firstTile.isSelected(), is( false ) );
       
-      verify( selectionManager ).select( tilesCaptor.getValue().get( 0 ).food() );
-      assertThat( tilesCaptor.getValue().get( 0 ).isSelected(), is( true ) );
-      verify( selectionController ).select( tilesCaptor.getValue().get( 0 ).food() );
+      systemUnderTest.select( firstTile.food() );
+      
+      verify( selectionManager ).select( firstTile.food() );
+      assertThat( firstTile.isSelected(), is( true ) );
+      verify( selectionController ).select( firstTile.food() );
+   }//End Method
+   
+   private UiFoodTile assumeUiFoodTile( UiFoodSelectionTile abstractTile ) {
+      return ( UiFoodTile ) abstractTile;
    }//End Method
 
 }//End Class
