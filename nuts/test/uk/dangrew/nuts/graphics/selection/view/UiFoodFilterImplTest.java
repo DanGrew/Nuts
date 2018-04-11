@@ -17,6 +17,9 @@ public class UiFoodFilterImplTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
+      database = new Database();
+      database.stockLists().createConcept( "Stock" );
+      model = new FoodFilterModel( database );
       systemUnderTest = new UiFoodFilterImpl( database, model );
    }//End Method
 
