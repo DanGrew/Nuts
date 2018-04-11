@@ -45,6 +45,8 @@ public class DataLocation {
       value = TestCommon.readFileIntoString( DataLocation.class, "plans.json" );
       json = new JSONObject( value );
       planPersistence.readHandles().parse( json );
+      
+      database.stockLists().createConcept( "Stock" );
    }//End Method
    
    /**

@@ -2333,7 +2333,7 @@
             "portionValue": 45
          },
          {
-            "foodId": "cc81c071-18f9-4ade-b749-56c61a04f70b",
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
             "portionValue": 30
          }
       ]
@@ -2499,6 +2499,60 @@
          {
             "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
             "portionValue": 400
+         }
+      ]
+   },
+   {
+      "name": "Bacon & Eggs",
+      "id": "50abb221-1d53-4e01-97e1-f99136c1a204",
+      "portions": [
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 15
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
+            "portionValue": 200
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Dream Almond Butter",
+      "id": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
+      "portions": [
+         {
+            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 45
+         },
+         {
+            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Dream Almond Fudge",
+      "id": "a171b70e-b12c-4d11-90c8-4491ac86f061",
+      "portions": [
+         {
+            "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
+            "portionValue": 33
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 100
          }
       ]
    }

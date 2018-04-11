@@ -1,10 +1,22 @@
-{"goals": [{
-   "carbohydrateProportionType": "Weight",
-   "proteinProportionValue": 20,
-   "name": "Lazy Keto",
-   "carbohydrateProportionValue": 20,
-   "fatProportionType": "PercentageOfCalories",
-   "id": "40548597-d178-499d-a49d-5b32eb7e06a4",
-   "proteinProportionType": "PercentageOfCalories",
-   "fatProportionValue": 75
-}]}
+{"goals": [
+   {
+      "carbohydrateProportionType": "Weight",
+      "proteinProportionValue": 20,
+      "name": "Lazy Keto",
+      "carbohydrateProportionValue": 20,
+      "fatProportionType": "PercentageOfCalories",
+      "id": "40548597-d178-499d-a49d-5b32eb7e06a4",
+      "proteinProportionType": "PercentageOfCalories",
+      "fatProportionValue": 75
+   },
+   {
+      "carbohydrateProportionType": "Weight",
+      "proteinProportionValue": 85,
+      "name": "Keto Adaptation",
+      "carbohydrateProportionValue": 20,
+      "fatProportionType": "Weight",
+      "id": "289074ad-ea8c-4fd3-9969-87f0bfe6686a",
+      "proteinProportionType": "Weight",
+      "fatProportionValue": 240
+   }
+]}

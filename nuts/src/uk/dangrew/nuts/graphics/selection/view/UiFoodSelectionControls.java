@@ -15,8 +15,7 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.LabelBuilder;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
-import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionFilters;
+import uk.dangrew.nuts.graphics.selection.model.FoodFilters;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionTypes;
 import uk.dangrew.nuts.label.Label;
 
@@ -25,11 +24,11 @@ public class UiFoodSelectionControls extends BorderPane {
    private final GridPane filterWrapper;
    private final TextField filterBox;
    private final ComboBox< FoodSelectionTypes > sortBox;
-   private final CheckComboBox< FoodSelectionFilters > filterOptionsBox;
+   private final CheckComboBox< FoodFilters > filterOptionsBox;
    private final CheckComboBox< Label > labelsOptionsBox;
    private final CheckBox invertSorting;
    
-   public UiFoodSelectionControls( ObservableList< Label > labels, UiFoodSelectionController controller ) {
+   public UiFoodSelectionControls( ObservableList< Label > labels, UiFoodFilter controller ) {
       this.invertSorting = new CheckBox( "Reverse Sort" );
       this.invertSorting.selectedProperty().addListener( ( s, o, n ) -> controller.invertSort( n ) );
       
@@ -66,8 +65,8 @@ public class UiFoodSelectionControls extends BorderPane {
                   .asBold()
                   .build(), 
       6, 0 );
-      this.filterOptionsBox = new CheckComboBox<>( FXCollections.observableArrayList( FoodSelectionFilters.values() ) );
-      Consumer< FoodSelectionFilters > filterApplier = f -> controller.applyFilters( filterOptionsBox.getCheckModel().getCheckedItems() );
+      this.filterOptionsBox = new CheckComboBox<>( FXCollections.observableArrayList( FoodFilters.values() ) );
+      Consumer< FoodFilters > filterApplier = f -> controller.applyFilters( filterOptionsBox.getCheckModel().getCheckedItems() );
       this.filterOptionsBox.getCheckModel().getCheckedItems().addListener( new FunctionListChangeListenerImpl<>( 
                 filterApplier, filterApplier
       ) );
@@ -104,7 +103,7 @@ public class UiFoodSelectionControls extends BorderPane {
       return sortBox;
    }//End Method
    
-   CheckComboBox< FoodSelectionFilters > filterBox() {
+   CheckComboBox< FoodFilters > filterBox() {
       return filterOptionsBox;
    }//End Method
    

@@ -12,12 +12,11 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.FilteredConceptOptions;
 import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.store.Database;
 
-public class FoodSelectionFilterApplierTest {
+public class FoodFilterApplierTest {
 
    private Database database;
    private FoodItem chicken;
@@ -25,11 +24,10 @@ public class FoodSelectionFilterApplierTest {
    private FoodItem sausages;
    private Stock stock;
    
-   private FoodSelectionManager selectionManager;
    private FilteredConceptOptions< Food > options;
    
    private FoodFilterModel model;
-   private FoodSelectionFilterApplier systemUnderTest;
+   private FoodFilterApplier systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
@@ -47,18 +45,9 @@ public class FoodSelectionFilterApplierTest {
       model = new FoodFilterModel( database );
       options = model.filteredConcepts();
       
-      selectionManager = new FoodSelectionManager();
-      systemUnderTest = new FoodSelectionFilterApplier( selectionManager, model, stock );
+      systemUnderTest = new FoodFilterApplier( model, stock );
    }//End Method
 
-   @Test public void shouldApplySelectionFilter() {
-      selectionManager.select( new FoodPortion( chicken, 100 ) );
-      selectionManager.select( new FoodPortion( beans, 100 ) );
-      model.filters().add( FoodFilters.Selection );
-      
-      assertThat( options.options(), is( Arrays.asList( beans, chicken ) ) );
-   }//End Method
-   
    @Test public void shouldApplyStockFilter() {
       stock.linkWithFoodItems( database.foodItems() );
       stock.portionFor( chicken ).setPortion( 200 );
@@ -76,17 +65,11 @@ public class FoodSelectionFilterApplierTest {
       stock.linkWithFoodItems( database.foodItems() );
       stock.portionFor( sausages ).setPortion( 200 );
       
-      selectionManager.select( new FoodPortion( chicken, 100 ) );
-      selectionManager.select( new FoodPortion( beans, 100 ) );
-      
-      model.filters().add( FoodFilters.Selection );
-      assertThat( options.options(), is( Arrays.asList( beans, chicken ) ) );
-      
       model.filters().add( FoodFilters.Stock );
-      assertThat( options.options(), is( Arrays.asList() ) );
-      
-      model.filters().remove( FoodFilters.Selection );
       assertThat( options.options(), is( Arrays.asList( sausages ) ) );
+      
+      model.filters().remove( FoodFilters.Stock );
+      assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
    }//End Method
    
    @Test public void shouldFilterBasedOnLabels(){

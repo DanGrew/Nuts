@@ -7,28 +7,28 @@ import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionFilterApplier;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionFilters;
+import uk.dangrew.nuts.graphics.selection.model.FoodFilters;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionManager;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionModel;
+import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionPaneManager;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionTypes;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
-public class UiFoodSelectionController implements UiFoodSelector< FoodPortion > {
+public class UiFoodSelectionController implements UiFoodSelector< FoodPortion >, UiFoodFilter {
 
    private final Template liveSelectionProperties;
    private final FoodSelectionManager selectionManager;
-   private final FoodSelectionModel model;
+   private final FoodFilterModel model;
    
    private FoodSelectionPaneManager selectionPane;
    
    public UiFoodSelectionController( Database database, Template liveSelectionProperties ) {
-      this( database, new FoodSelectionModel( database ), liveSelectionProperties );
+      this( database, new FoodFilterModel( database ), liveSelectionProperties );
    }//End Constructor
    
-   UiFoodSelectionController( Database database, FoodSelectionModel model, Template liveSelectionProperties ) {
+   UiFoodSelectionController( Database database, FoodFilterModel model, Template liveSelectionProperties ) {
       this.liveSelectionProperties = liveSelectionProperties;
       this.selectionManager = new FoodSelectionManager();
       this.model = model;
@@ -51,28 +51,28 @@ public class UiFoodSelectionController implements UiFoodSelector< FoodPortion > 
       liveSelectionProperties.portions().remove( portion );
    }//End Method
    
-   public void useSelectionType( FoodSelectionTypes type ) {
+   @Override public void useSelectionType( FoodSelectionTypes type ) {
       model.databaseConcepts().customSort( type.comparator() );
       fireLayoutChanges();
    }//End Method
    
-   public void invertSort( boolean invert ) {
+   @Override public void invertSort( boolean invert ) {
       model.filteredConcepts().invertedSorting().set( invert );
       fireLayoutChanges();
    }//End Method
 
-   public void filterOptions( String filter ) {
+   @Override public void filterOptions( String filter ) {
       model.filteredConcepts().filterString().set( filter );
       fireLayoutChanges();
    }//End Method
    
-   public void applyFilters( Collection< FoodSelectionFilters > filters ) {
+   @Override public void applyFilters( Collection< FoodFilters > filters ) {
       model.filters().clear();
       model.filters().addAll( filters );
       fireLayoutChanges();
    }//End Method
    
-   public void applyLabels( Collection< Label > labels ) {
+   @Override public void applyLabels( Collection< Label > labels ) {
       model.labels().clear();
       model.labels().addAll( labels );
       fireLayoutChanges();

@@ -9,12 +9,13 @@
 package uk.dangrew.nuts.system;
 
 import javafx.collections.ObservableList;
+import uk.dangrew.kode.storage.structure.ObjectStoreManager;
 
 /**
  * {@link ConceptStore} provides an interface for storing {@link Concept}s, being a little more general
  * for storage mechanisms other that {@link uk.dangrew.kode.storage.structure.ObjectStoreManager}s.
  */
-public interface ConceptStore< TypeT > {
+public interface ConceptStore< TypeT > extends ObjectStoreManager< String, TypeT >{
 
    /**
     * Provides the {@link ObservableList} of {@link Concept} held.

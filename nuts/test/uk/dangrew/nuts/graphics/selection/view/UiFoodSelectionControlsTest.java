@@ -14,7 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionFilters;
+import uk.dangrew.nuts.graphics.selection.model.FoodFilters;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionTypes;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionController;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionControls;
@@ -55,7 +55,7 @@ public class UiFoodSelectionControlsTest {
 
    @Test public void shouldApplyFiltersWhenSelected(){
       systemUnderTest.filterBox().getCheckModel().checkAll();
-      verify( controller, atLeastOnce() ).applyFilters( Arrays.asList( FoodSelectionFilters.values() ) );
+      verify( controller, atLeastOnce() ).applyFilters( Arrays.asList( FoodFilters.values() ) );
    }//End Method
    
    @Test public void shouldApplyLabelsWhenSelected(){

@@ -1,6 +1,6 @@
 package uk.dangrew.nuts.graphics.selection.model;
 
-public enum FoodSelectionFilters {
+public enum FoodFilters {
 
    Selection,
    Stock,

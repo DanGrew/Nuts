@@ -19,8 +19,8 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionFilters;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionModel;
+import uk.dangrew.nuts.graphics.selection.model.FoodFilters;
+import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionPaneManager;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionTypes;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionController;
@@ -37,7 +37,7 @@ public class UiFoodSelectionControllerTest {
    private FoodItem sausages;
    
    private Stock stock;
-   private FoodSelectionModel model;
+   private FoodFilterModel model;
    private Template liveSelection;
    @Mock private FoodSelectionPaneManager pane;
    
@@ -58,7 +58,7 @@ public class UiFoodSelectionControllerTest {
       stock = database.stockLists().createConcept( "Stock" );
       stock.linkWithFoodItems( database.foodItems() );
       
-      model = new FoodSelectionModel( database );
+      model = new FoodFilterModel( database );
       systemUnderTest = new UiFoodSelectionController( database, model, liveSelection );
       systemUnderTest.controlSelection( pane );
    }//End Method
@@ -159,12 +159,12 @@ public class UiFoodSelectionControllerTest {
 //      systemUnderTest.applyFilters( Arrays.asList( FoodSelectionFilters.Selection, FoodSelectionFilters.Stock ) );
 //      verify( pane, atLeastOnce() ).layoutTiles( Arrays.asList( sausages ) );
       
-      FoodSelectionFilters filter1 = FoodSelectionFilters.Selection;
-      FoodSelectionFilters filter2 = FoodSelectionFilters.Labels;
+      FoodFilters filter1 = FoodFilters.Selection;
+      FoodFilters filter2 = FoodFilters.Labels;
       systemUnderTest.applyFilters( Arrays.asList( filter1, filter2 ) );
       assertThat( model.filters(), contains( filter1, filter2 ) );
       
-      FoodSelectionFilters filter3 = FoodSelectionFilters.Stock;
+      FoodFilters filter3 = FoodFilters.Stock;
       systemUnderTest.applyFilters( Arrays.asList( filter3 ) );
       assertThat( model.filters(), contains( filter3 ) );
       
