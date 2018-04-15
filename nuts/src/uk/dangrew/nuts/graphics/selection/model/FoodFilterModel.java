@@ -13,7 +13,7 @@ import uk.dangrew.nuts.graphics.table.FilteredConceptOptions;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.store.Database;
 
-public class FoodFilterModel {
+public class FoodFilterModel implements FoodModel {
 
    private final ConceptOptions< Food > backingConcepts;
    private final FilteredConceptOptions< Food > filteredConcepts;
@@ -38,6 +38,10 @@ public class FoodFilterModel {
    
    public FilteredConceptOptions< Food > filteredConcepts() {
       return filteredConcepts;
+   }//End Method
+   
+   @Override public ObservableList< Food > concepts() {
+      return filteredConcepts.options();
    }//End Method
    
    public ObservableList< FoodFilters > filters(){

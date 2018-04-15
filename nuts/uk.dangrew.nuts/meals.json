@@ -2525,7 +2525,7 @@
       ]
    },
    {
-      "name": "Dream Almond Butter",
+      "name": "Dream Almond Butter (300g)",
       "id": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
       "portions": [
          {
@@ -2553,6 +2553,62 @@
          {
             "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Dream Coconut Butter (300g)",
+      "id": "647d9237-5d58-4086-bc62-a2fbfae1c895",
+      "portions": [
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Hemp Butter (300g)",
+      "id": "33982176-8b85-4245-afef-b0513594566c",
+      "portions": [
+         {
+            "foodId": "fb9de09a-d7e6-4a21-8eff-618d492bb128",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Sunflower Seed Butter (300g)",
+      "id": "6fb63477-e658-48af-be1d-d7d51981a491",
+      "portions": [
+         {
+            "foodId": "2a993f2d-835c-4283-aaac-db1644b03f90",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Butter Sauce (Almond)",
+      "id": "b2c09860-b2d0-43de-9d7b-190dfe37a63e",
+      "portions": [
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 300
+         },
+         {
+            "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
+            "portionValue": 20
          }
       ]
    }

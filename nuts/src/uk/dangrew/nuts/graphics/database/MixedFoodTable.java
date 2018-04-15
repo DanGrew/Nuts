@@ -10,21 +10,22 @@ package uk.dangrew.nuts.graphics.database;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
+import uk.dangrew.nuts.graphics.selection.model.FoodModel;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.store.Database;
 
 public class MixedFoodTable extends ConceptTable< Food >{
 
-   public MixedFoodTable( Database database, FoodFilterModel model ) {
+   public MixedFoodTable( Database database, FoodModel model ) {
       this( 
+               new FoodTableColumns<>(),
                new MixedFoodTableController( database, model )
       );
    }//End Constructor
    
-   MixedFoodTable( MixedFoodTableController controller ) {
+   public MixedFoodTable( FoodTableColumns< Food > columns, MixedFoodTableController controller ) {
       super( 
-               new FoodTableColumns<>(),
+               columns,
                controller
       );
    }//End Constructor

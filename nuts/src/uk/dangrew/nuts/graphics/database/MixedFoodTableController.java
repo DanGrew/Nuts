@@ -8,7 +8,7 @@ import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.deletion.FoodDeletionMechanism;
-import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
+import uk.dangrew.nuts.graphics.selection.model.FoodModel;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
@@ -18,12 +18,12 @@ public class MixedFoodTableController implements ConceptTableController< Food > 
 
    private final UiEnumTypeSelectionDialog< FoodTypes > dialog;
    private final Database database;
-   private final FoodFilterModel model;
+   private final FoodModel model;
    private final FoodDeletionMechanism deletionMechanism;
    
    private ConceptTable< Food > table;
    
-   public MixedFoodTableController( Database database, FoodFilterModel model ) {
+   public MixedFoodTableController( Database database, FoodModel model ) {
       this( 
                new FoodDeletionMechanism( database ),
                new UiEnumTypeSelectionDialog<>( FoodTypes.class, FoodTypes.FoodItems ),
@@ -36,7 +36,7 @@ public class MixedFoodTableController implements ConceptTableController< Food > 
             FoodDeletionMechanism deletionMechanism, 
             UiEnumTypeSelectionDialog< FoodTypes > dialog,
             Database database,
-            FoodFilterModel model
+            FoodModel model
    ) {
       this.deletionMechanism = deletionMechanism;
       this.dialog = dialog;
@@ -49,8 +49,8 @@ public class MixedFoodTableController implements ConceptTableController< Food > 
     */
    @Override public void associate( ConceptTable< Food > table ) {
       this.table = table;
-      this.model.filteredConcepts().options().forEach( this::addRow );
-      this.model.filteredConcepts().options().addListener( new FunctionListChangeListenerImpl<>( 
+      this.model.concepts().forEach( this::addRow );
+      this.model.concepts().addListener( new FunctionListChangeListenerImpl<>( 
                this::addRow, this::removeRow
       ) );
    }//End Method

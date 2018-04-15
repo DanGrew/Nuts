@@ -48,5 +48,9 @@ public class FoodFilterModelTest {
          .shouldProvideCollection( FoodFilterModel::filters, FoodFilters.Labels )
          .shouldProvideCollection( FoodFilterModel::labels, new Label( "Label" ) );
    }//End Method
+   
+   @Test public void shouldProvideConcepts(){
+      assertThat( systemUnderTest.concepts(), is( systemUnderTest.filteredConcepts().options() ) );
+   }//End Method
 
 }//End Class

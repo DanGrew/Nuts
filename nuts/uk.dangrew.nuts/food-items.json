@@ -3118,5 +3118,55 @@
       "name": "Pecans (T) (100g)",
       "id": "b2c54c5d-ccec-4951-a31d-2776e6232241",
       "calories": 706
+   },
+   {
+      "carbohydrates": 0.7,
+      "fats": 30.62,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 17.75,
+      "name": "Tesco Finest 10 Traditional Pork Sausages 667G (116g)",
+      "id": "063348b3-5c5b-4144-a1c0-ede8b7da6c2b",
+      "calories": 351.48
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 26.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 15.8,
+      "name": "Counter Tesco British Pork Belly (100g)",
+      "id": "5ba08b05-7e69-4626-81da-c3015a5ffc00",
+      "calories": 300
+   },
+   {
+      "carbohydrates": 5.7,
+      "fats": 47.7,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 25.4,
+      "name": "Hemp (Amazon) (100g)",
+      "id": "fb9de09a-d7e6-4a21-8eff-618d492bb128",
+      "calories": 578
+   },
+   {
+      "carbohydrates": 18.6,
+      "fats": 47.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 19.8,
+      "name": "Sunflower Seeds (Amazon) (100g)",
+      "id": "2a993f2d-835c-4283-aaac-db1644b03f90",
+      "calories": 581
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 22.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 16.5,
+      "name": "Tesco Pork Ribs 700G (100g)",
+      "id": "ee78295f-0e9a-4def-9417-d4ff407df01f",
+      "calories": 268
    }
 ]}

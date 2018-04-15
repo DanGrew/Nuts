@@ -25,6 +25,7 @@ import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.deletion.FoodDeletionMechanism;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
@@ -53,7 +54,7 @@ public class MixedFoodTableControllerTest {
       model = new FoodFilterModel( database );
       
       systemUnderTest = new MixedFoodTableController( deletionMechanism, dialog, database, model );
-      PlatformImpl.runAndWait( () -> table = new MixedFoodTable( systemUnderTest ) );
+      PlatformImpl.runAndWait( () -> table = new MixedFoodTable( new FoodTableColumns<>(), systemUnderTest ) );
    }//End Method
 
    @Test public void shouldProvideRows() {
