@@ -18,6 +18,7 @@ import uk.dangrew.nuts.store.Database;
 
 public class UiDatabaseManagerPane extends GridPane {
 
+   private final UiFoodSelectionControls controls;
    private final ConceptTableWithControls< Food > foodTable;
    private final ConceptTableWithControls< Food > comparisonTable;
    private final MealTableWithControls mealTable;
@@ -25,7 +26,7 @@ public class UiDatabaseManagerPane extends GridPane {
    
    public UiDatabaseManagerPane( Database database ) {
       JavaFxStyle styling = new JavaFxStyle();
-      styling.configureConstraintsForRowPercentages( this, 5, 35, 60 );
+      styling.configureConstraintsForRowPercentages( this, 5, 30, 55 );
       styling.configureConstraintsForColumnPercentages( this, 60, 40 );
       
       FoodFilterModel filterModel = new FoodFilterModel( database );
@@ -33,7 +34,7 @@ public class UiDatabaseManagerPane extends GridPane {
       
       comparisonModel = new SimpleFoodModel();
       
-      add( new UiFoodSelectionControls( database.labels().objectList(), filter ), 0, 0 );
+      add( controls = new UiFoodSelectionControls( database.labels().objectList(), filter ), 0, 0 );
       add( foodTable = new ConceptTableWithControls<>( 
                "Foods", 
                new MixedFoodTable( new UiComparableFoodTableColumns( comparisonModel ), 
@@ -47,6 +48,7 @@ public class UiDatabaseManagerPane extends GridPane {
       selectionSynchronizer.selected().addListener( this::handleSelection );
       
       GridPane.setRowSpan( foodTable, 2 );
+      GridPane.setColumnSpan( controls, 2 );
    }//End Constructor
    
    private void handleSelection( ObservableValue< ? extends Food > source, Food old, Food updated ) {

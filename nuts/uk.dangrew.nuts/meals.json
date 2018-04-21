@@ -1589,7 +1589,7 @@
       "portions": [
          {
             "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
-            "portionValue": 60
+            "portionValue": 80
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
@@ -1889,12 +1889,12 @@
       "id": "ab66e672-0cfb-4501-b356-01176c30d88b",
       "portions": [
          {
-            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
-            "portionValue": 120
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
          },
          {
             "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 400
+            "portionValue": 200
          },
          {
             "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
@@ -1957,10 +1957,6 @@
          {
             "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
             "portionValue": 50
-         },
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 0
          },
          {
             "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
@@ -2395,10 +2391,6 @@
             "portionValue": 500
          },
          {
-            "foodId": "cbaa3d19-9cca-4d3d-ae51-691dc579dfd5",
-            "portionValue": 100
-         },
-         {
             "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
             "portionValue": 200
          },
@@ -2471,7 +2463,7 @@
       "id": "987250f2-b0d5-4f4f-9e89-79fccb009324",
       "portions": [
          {
-            "foodId": "8c442bbb-e173-4655-a096-969dbc773ab1",
+            "foodId": "fb9de09a-d7e6-4a21-8eff-618d492bb128",
             "portionValue": 150
          },
          {
@@ -2604,11 +2596,207 @@
       "portions": [
          {
             "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "High Fat Egg Mayo",
+      "id": "85ba19f9-c2f9-43e3-8ad3-40aba3aa061b",
+      "portions": [
+         {
+            "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+            "portionValue": 50
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 300
          },
          {
+            "foodId": "a1587ad4-3d6b-42e1-bcb2-45daf0786471",
+            "portionValue": 40
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Cauliflower Pizza Base",
+      "id": "c7946d27-70ea-4752-bd76-9f6d7c064cbc",
+      "portions": [
+         {
+            "foodId": "23889b9d-6ad8-48d9-8f73-f91e858719a8",
+            "portionValue": 300
+         },
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 120
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Chorizo & Bread",
+      "id": "067e568d-49df-4b64-8fef-c7668c459578",
+      "portions": [
+         {
+            "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+            "portionValue": 50
+         },
+         {
+            "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "a1587ad4-3d6b-42e1-bcb2-45daf0786471",
+            "portionValue": 40
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Almond Butter Pizza Crust",
+      "id": "60e92505-4120-486e-8d4a-f26d786124d8",
+      "portions": [
+         {
+            "foodId": "91ee770d-15cc-477f-9dcc-cab14f63819f",
+            "portionValue": 120
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 15
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 15
+         }
+      ]
+   },
+   {
+      "name": "Pizza Topping - Chorizo",
+      "id": "adb6a667-3ebc-481e-8d04-1661ebae9b0e",
+      "portions": [
+         {
+            "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 80
+         },
+         {
+            "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Baked Eggs & Chorizo",
+      "id": "fa2a7834-bce2-49fd-a8f9-406b1e815cd4",
+      "portions": [
+         {
+            "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Cheese Sauce",
+      "id": "1847a9cb-8c9d-46f0-8f10-85c00b4e745f",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 200
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 15
+         },
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Almond Butter Mousse",
+      "id": "e7e4ca70-0cf5-4cff-a55e-de92428c9d76",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 200
+         },
+         {
             "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
-            "portionValue": 20
+            "portionValue": 10
+         }
+      ]
+   },
+   {
+      "name": "Coconut Milk Mousse",
+      "id": "7128419f-9b1a-4fbf-9a56-56e5f430b37c",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 200
+         },
+         {
+            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Butter Cream",
+      "id": "35ccd573-8804-4598-9cae-632d66b13db2",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 200
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 40
+         },
+         {
+            "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
+            "portionValue": 10
          }
       ]
    }

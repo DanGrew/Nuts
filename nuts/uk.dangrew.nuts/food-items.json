@@ -2741,10 +2741,10 @@
    },
    {
       "carbohydrates": 3,
-      "fats": 0.9,
+      "fats": 0.3,
       "loggedWeight": 0,
       "soldInWeight": 0,
-      "protein": 3.6,
+      "protein": 1.9,
       "name": "Cauliflower (100g)",
       "id": "23889b9d-6ad8-48d9-8f73-f91e858719a8",
       "calories": 38
@@ -3168,5 +3168,25 @@
       "name": "Tesco Pork Ribs 700G (100g)",
       "id": "ee78295f-0e9a-4def-9417-d4ff407df01f",
       "calories": 268
+   },
+   {
+      "carbohydrates": 2,
+      "fats": 31.2,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 27.7,
+      "name": "Bacon Lardons (M) (100g)",
+      "id": "70a33778-b9d9-4c58-bb91-ff76210bfcb0",
+      "calories": 401
+   },
+   {
+      "carbohydrates": 0.4,
+      "fats": 22.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 27.5,
+      "name": "Bacon (M, Savers) (100g)",
+      "id": "fed5a02f-a44c-48c1-ad3d-bbe6e8b4b1c4",
+      "calories": 311
    }
 ]}

@@ -61,12 +61,12 @@ public class MealTableColumns implements ConceptTableColumnsPopulator< FoodPorti
                conceptOptions 
       );
       
-      configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.05 );
+      configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.10 );
       
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.16, f -> f.properties().calories(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.16, f -> f.properties().carbohydrates(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.16, f -> f.properties().fats(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.16, f -> f.properties().protein(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.14, f -> f.properties().calories(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.14, f -> f.properties().carbohydrates(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.14, f -> f.properties().fats(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.14, f -> f.properties().protein(), false );
       
       table.getColumns().forEach( c -> c.setSortable( false ) );
    }//End Method

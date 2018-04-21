@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.manager.FoodManagerPane;
+import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.store.Database;
@@ -47,7 +47,7 @@ public class ConceptTableTest {
       addNewMeal( "Breakfast", new FoodPortion( food1, 100 ), new FoodPortion( food2, 100 ), new FoodPortion( food3, 50 ) );
       addNewMeal( "Lunch", new FoodPortion( food8, 100 ), new FoodPortion( food9, 100 ), new FoodPortion( food10, 100 ) );
       
-      TestApplication.launch( () -> new BorderPane( new FoodManagerPane( database ) ) );
+      TestApplication.launch( () -> new BorderPane( new UiDatabaseManagerPane( database ) ) );
       
       Thread.sleep( 1000000 );
    }//End Method
