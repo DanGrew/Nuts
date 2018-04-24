@@ -29,12 +29,14 @@ public class MealTableColumns implements ConceptTableColumnsPopulator< FoodPorti
    static final String COLUMN_TITLE_CALORIE_DENSITY = "Density";
    static final String COLUMN_TITLE_PORTION = "Portion %";
    static final String COLUMN_TITLE_CARBS = "Carbs";
+   static final String COLUMN_TITLE_FIBER = "Fiber";
    static final String COLUMN_TITLE_FATS = "Fats";
    static final String COLUMN_TITLE_PROTEINS = "Protein";
    static final String COLUMN_TITLE_CALORIES_PROPORTION = "Calories %";
    static final String COLUMN_TITLE_CARBS_PROPORTION = "Carbs %";
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
+   static final String COLUMN_TITLE_FIBER_PROPORTION = "Fiber %";
    
    private final ConceptOptions< Food > conceptOptions;
    private final TableConfiguration configuration;
@@ -63,10 +65,11 @@ public class MealTableColumns implements ConceptTableColumnsPopulator< FoodPorti
       
       configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.10 );
       
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.14, f -> f.properties().calories(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.14, f -> f.properties().carbohydrates(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.14, f -> f.properties().fats(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.14, f -> f.properties().protein(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.12, f -> f.properties().calories(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.12, f -> f.properties().carbohydrates(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.12, f -> f.properties().fats(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.12, f -> f.properties().protein(), false );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FIBER, 0.12, f -> f.properties().fiber(), false );
       
       table.getColumns().forEach( c -> c.setSortable( false ) );
    }//End Method

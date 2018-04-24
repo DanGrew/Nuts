@@ -23,6 +23,7 @@ import uk.dangrew.nuts.system.Properties;
 public class FoodProperties extends Properties {
 
    private final ObjectProperty< Double > calories;
+   private final ObjectProperty< Double > fiber;
    private final EnumMap< MacroNutrient, ObjectProperty< Double > > macros;
    
    /**
@@ -42,6 +43,7 @@ public class FoodProperties extends Properties {
    public FoodProperties( String id, String name ) {
       super( id, name );
       this.calories = new SimpleObjectProperty<>( 0.0 );
+      this.fiber = new SimpleObjectProperty<>( 0.0 );
       this.macros = new EnumMap<>( MacroNutrient.class );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          this.macros.put( macro, new SimpleObjectProperty<>( 0.0 ) );
@@ -54,6 +56,10 @@ public class FoodProperties extends Properties {
     */
    public ObjectProperty< Double > calories() {
       return calories;
+   }//End Method
+   
+   public ObjectProperty< Double > fiber() {
+      return fiber;
    }//End Method
 
    /**

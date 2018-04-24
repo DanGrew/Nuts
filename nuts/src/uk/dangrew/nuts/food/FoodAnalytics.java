@@ -22,6 +22,7 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
 public class FoodAnalytics {
 
    private final ObjectProperty< Double > calorieDensity;
+   private final ObjectProperty< Double > fiberRatio;
    private final Map< MacroNutrient, ObjectProperty< Double > > macroRatios;
    
    /**
@@ -29,6 +30,7 @@ public class FoodAnalytics {
     */
    public FoodAnalytics() {
       this.calorieDensity = new SimpleObjectProperty<>( 0.0 );
+      this.fiberRatio = new SimpleObjectProperty<>( 0.0 );
       this.macroRatios = new EnumMap<>( MacroNutrient.class );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          this.macroRatios.put( macro, new SimpleObjectProperty< Double >( 0.0 ) );
@@ -74,6 +76,10 @@ public class FoodAnalytics {
     */
    public ObjectProperty< Double > calorieDensityProperty() {
       return calorieDensity;
+   }//End Method
+   
+   public ObjectProperty< Double > fiberRatioProperty() {
+      return fiberRatio;
    }//End Method
    
    /**

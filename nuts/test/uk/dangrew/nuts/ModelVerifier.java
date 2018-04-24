@@ -25,8 +25,12 @@ public class ModelVerifier< SutT > {
    }//End Constructor
    
    public < TypeT > ModelVerifier< SutT > shouldProvideProperty( Function< SutT, ObjectProperty< TypeT > > supplier, TypeT value ) {
+      return shouldProvideProperty( supplier, null );
+   }//End Method
+   
+   public < TypeT > ModelVerifier< SutT > shouldProvideProperty( Function< SutT, ObjectProperty< TypeT > > supplier, TypeT initialValue, TypeT value ) {
       shouldProvideObject( supplier );
-      assertThat( supplier.apply( sut ).get(), is( nullValue() ) );
+      assertThat( supplier.apply( sut ).get(), is( initialValue ) );
       supplier.apply( sut ).set( value );
       assertThat( supplier.apply( sut ).get(), is( value ) );
       return this;
@@ -45,9 +49,12 @@ public class ModelVerifier< SutT > {
    }//End Method
    
    public ModelVerifier< SutT > shouldProvideDoubleProperty( Function< SutT, ObjectProperty< Double > > supplier ) {
+      return shouldProvideDoubleProperty( supplier, null );
+   }//End Method
+   
+   public ModelVerifier< SutT > shouldProvideDoubleProperty( Function< SutT, ObjectProperty< Double > > supplier, Double initialValue ) {
       double value = random.nextDouble();
-      shouldProvideProperty( supplier, value );
-      return this;
+      return shouldProvideProperty( supplier, initialValue, value );
    }//End Method
    
    public ModelVerifier< SutT > shouldProvideBooleanProperty( Function< SutT, ObjectProperty< Boolean > > supplier ) {

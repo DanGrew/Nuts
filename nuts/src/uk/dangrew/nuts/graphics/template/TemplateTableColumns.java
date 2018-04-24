@@ -30,11 +30,13 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements Conce
    static final String COLUMN_TITLE_GOAL = "Goal";
    static final String COLUMN_TITLE_CALORIES = "Calories";
    static final String COLUMN_TITLE_CALORIE_DENSITY = "Density";
-   static final String COLUMN_TITLE_CARBS = "Carbohydrates";
+   static final String COLUMN_TITLE_CARBS = "Carbs";
+   static final String COLUMN_TITLE_FIBER = "Fiber";
    static final String COLUMN_TITLE_FATS = "Fats";
    static final String COLUMN_TITLE_PROTEINS = "Protein";
    static final String COLUMN_TITLE_CALORIES_PROPORTION = "Calories %";
-   static final String COLUMN_TITLE_CARBS_PROPORTION = "Carbohydrates %";
+   static final String COLUMN_TITLE_CARBS_PROPORTION = "Carbs %";
+   static final String COLUMN_TITLE_FIBER_PROPORTION = "Fiber %";
    static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
    static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
    
@@ -59,15 +61,17 @@ public class TemplateTableColumns< FoodTypeT extends Template > implements Conce
                new ConceptOptionsImpl<>( Arrays.asList( goals, proportionGoals ) )
       );
 
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.08, f -> f.properties().calories(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.08, f -> f.properties().carbohydrates(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.08, f -> f.properties().fats(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.08, f -> f.properties().protein(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.06, f -> f.properties().calories(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.06, f -> f.properties().carbohydrates(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.06, f -> f.properties().fats(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.06, f -> f.properties().protein(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FIBER, 0.06, f -> f.properties().fiber(), true );
       
-      configuration.initialiseRatioColumn( table, COLUMN_TITLE_CALORIES_PROPORTION, 0.08, f -> f.goalAnalytics().caloriesRatioProperty() );
-      configuration.initialiseRatioColumn( table, COLUMN_TITLE_CARBS_PROPORTION, 0.08, f -> f.goalAnalytics().carbohydratesRatioProperty() );
-      configuration.initialiseRatioColumn( table, COLUMN_TITLE_FATS_PROPORTION, 0.08, f -> f.goalAnalytics().fatsRatioProperty() );
-      configuration.initialiseRatioColumn( table, COLUMN_TITLE_PROTEINS_PROPORTION, 0.08, f -> f.goalAnalytics().proteinRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_CALORIES_PROPORTION, 0.06, f -> f.goalAnalytics().caloriesRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_CARBS_PROPORTION, 0.06, f -> f.goalAnalytics().carbohydratesRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_FATS_PROPORTION, 0.06, f -> f.goalAnalytics().fatsRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_PROTEINS_PROPORTION, 0.06, f -> f.goalAnalytics().proteinRatioProperty() );
+      configuration.initialiseRatioColumn( table, COLUMN_TITLE_FIBER_PROPORTION, 0.06, f -> f.goalAnalytics().fiberRatioProperty() );
    }//End Method
    
 }//End Class

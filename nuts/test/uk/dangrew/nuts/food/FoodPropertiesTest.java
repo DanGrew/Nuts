@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
+import uk.dangrew.nuts.ModelVerifier;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodPropertiesTest {
@@ -78,6 +79,11 @@ public class FoodPropertiesTest {
       assertThat( systemUnderTest.carbohydrates().get(), is( 45.0 ) );
       assertThat( systemUnderTest.fats().get(), is( 67.0 ) );
       assertThat( systemUnderTest.protein().get(), is( 89.0 ) );
+   }//End Method
+   
+   @Test public void shouldProvideProperties(){
+      new ModelVerifier<>( systemUnderTest )
+         .shouldProvideDoubleProperty( FoodProperties::fiber, 0.0 );
    }//End Method
 
 }//End Class

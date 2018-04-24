@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.ModelVerifier;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodAnalyticsTest {
@@ -34,6 +35,11 @@ public class FoodAnalyticsTest {
       systemUnderTest.calorieDensityProperty().set( 101.0 );
       assertThat( systemUnderTest.calorieDensity(), is( 101.0 ) );
       assertThat( systemUnderTest.calorieDensityProperty().get(), is( 101.0 ) );
+   }//End Method
+   
+   @Test public void shouldProvideProperties(){
+      new ModelVerifier<>( systemUnderTest )
+         .shouldProvideDoubleProperty( FoodAnalytics::fiberRatioProperty, 0.0 );
    }//End Method
 
 }//End Class
