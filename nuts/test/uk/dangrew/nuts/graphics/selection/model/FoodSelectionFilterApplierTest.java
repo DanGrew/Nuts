@@ -97,13 +97,13 @@ public class FoodSelectionFilterApplierTest {
       assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
       
       model.labels().add( database.labels().objectList().get( 0 ) );
-      assertThat( options.options(), is( Arrays.asList( chicken, sausages ) ) );
+      assertThat( options.options(), is( Arrays.asList( beans ) ) );
       
       model.labels().add( database.labels().objectList().get( 1 ) );
-      assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
+      assertThat( options.options(), is( Arrays.asList() ) );
       
       model.labels().remove( database.labels().objectList().get( 0 ) );
-      assertThat( options.options(), is( Arrays.asList( beans ) ) );
+      assertThat( options.options(), is( Arrays.asList( chicken, sausages ) ) );
       
       model.filters().remove( FoodFilters.Labels );
       assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );

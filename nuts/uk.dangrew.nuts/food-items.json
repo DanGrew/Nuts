@@ -3188,5 +3188,25 @@
       "name": "Bacon (M, Savers) (100g)",
       "id": "fed5a02f-a44c-48c1-ad3d-bbe6e8b4b1c4",
       "calories": 311
+   },
+   {
+      "carbohydrates": 1,
+      "fats": 23,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 16.9,
+      "name": "Tesco Greek Feta Cheese 200 G (100g)",
+      "id": "af2dd2b6-9f85-4432-a00b-cdfdf4d3d485",
+      "calories": 278
+   },
+   {
+      "carbohydrates": 1.9,
+      "fats": 19.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.9,
+      "name": "Tesco Frozen Avocado Chunks 500G (100g)",
+      "id": "b28bd778-86f6-4931-a57f-fa8dc7485a08",
+      "calories": 197
    }
 ]}

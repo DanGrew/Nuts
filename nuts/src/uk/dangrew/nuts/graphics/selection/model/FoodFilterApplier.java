@@ -58,7 +58,7 @@ public class FoodFilterApplier {
       }
       return model.labels().stream()
                .filter( l -> l.concepts().contains( food ) )
-               .count() == 0;
+               .count() > 0;
    }//End Method
    
 }//End Class

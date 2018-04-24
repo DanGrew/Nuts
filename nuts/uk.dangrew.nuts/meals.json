@@ -2730,7 +2730,7 @@
       "portions": [
          {
             "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 200
+            "portionValue": 300
          },
          {
             "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
@@ -2797,6 +2797,226 @@
          {
             "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
             "portionValue": 10
+         }
+      ]
+   },
+   {
+      "name": "Cumberland Sausage Rolls (6)",
+      "id": "f97fe9af-1475-46c9-b7cc-3d7dad8ac825",
+      "portions": [
+         {
+            "foodId": "8e457881-5430-4783-894e-c3a1a5e317d2",
+            "portionValue": 300
+         },
+         {
+            "foodId": "555ae532-2d24-4e88-929f-e56dccca3258",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Mince Meat Pie",
+      "id": "6b4de016-a268-4f99-9b1f-671094860d4f",
+      "portions": [
+         {
+            "foodId": "6dd04ef3-932c-4253-9f67-34070a3b0ad7",
+            "portionValue": 500
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 600
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 60
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 60
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter Cookies (with Walnuts & Coconut)",
+      "id": "e9606585-cbcd-4679-bf6f-a5a9e26de4e4",
+      "portions": [
+         {
+            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "portionValue": 170
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 50
+         },
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Sunflower Butter Cookie Batch",
+      "id": "ea89801c-3be5-4dcc-892f-b9f5288fc33b",
+      "portions": [
+         {
+            "foodId": "6fb63477-e658-48af-be1d-d7d51981a491",
+            "portionValue": 25
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Hemp Seed Cookie Batch",
+      "id": "2d233471-d33b-4ba1-83da-ddfa06c9efdd",
+      "portions": [
+         {
+            "foodId": "33982176-8b85-4245-afef-b0513594566c",
+            "portionValue": 50
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Roll",
+      "id": "91db56fa-360e-441e-a929-2905b5e77ec3",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 800
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 60
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 25
+         },
+         {
+            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
+            "portionValue": 75
+         },
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Cheesecake (Nut Base) (Keto)",
+      "id": "59d81fea-c3c5-438f-9201-63aa3c546079",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 800
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 1000
+         },
+         {
+            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
+            "portionValue": 240
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Coconut Walnut Mousse",
+      "id": "1b7492de-f67f-4a81-abe8-bc24c28b70d4",
+      "portions": [
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 400
+         },
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 100
+         },
+         {
+            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Frittatta (Chorizo)",
+      "id": "08a5e542-9aa4-42db-8ae4-729e22c0fdad",
+      "portions": [
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 0
+         },
+         {
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+            "portionValue": 100
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 1000
+         },
+         {
+            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 600
+         },
+         {
+            "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Butter Cream (Cacoa)",
+      "id": "61288998-2ef7-4dca-838c-caf76530dbb9",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 120
+         },
+         {
+            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
+            "portionValue": 25
          }
       ]
    }
