@@ -1,7 +1,9 @@
 {"goals": [
    {
+      "fiberProportionValue": "java.lang.Object@3edf8f00",
       "carbohydrateProportionType": "Weight",
       "proteinProportionValue": 20,
+      "fiberProportionType": "java.lang.Object@3edf8f00",
       "name": "Lazy Keto",
       "carbohydrateProportionValue": 20,
       "fatProportionType": "PercentageOfCalories",
@@ -10,8 +12,10 @@
       "fatProportionValue": 75
    },
    {
+      "fiberProportionValue": 15,
       "carbohydrateProportionType": "Weight",
       "proteinProportionValue": 85,
+      "fiberProportionType": "Weight",
       "name": "Keto Adaptation",
       "carbohydrateProportionValue": 20,
       "fatProportionType": "Weight",

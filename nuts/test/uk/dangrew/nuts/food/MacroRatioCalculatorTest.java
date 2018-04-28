@@ -29,35 +29,33 @@ public class MacroRatioCalculatorTest {
       properties.carbohydrates().set( 45.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 40.0 );
+      properties.fiber().set( 1.0 );
       
       systemUnderTest = new MacroRatioCalculator();
       systemUnderTest.associate( properties, analytics );
-      assertMacroProportions( 45, 15, 40 );
+      assertPropertyProportions( 45, 15, 40, 1 );
    }//End Method
    
    @Test public void shouldProvideMacroProportions() {
-      assertMacroProportions( 0, 0, 0 );
+      assertPropertyProportions( 0, 0, 0, 0 );
       
       properties.nutritionFor( MacroNutrient.Carbohydrates ).set( 10.0 );
-      assertMacroProportions( 100, 0, 0 );
+      assertPropertyProportions( 100, 0, 0, 0 );
       
       properties.nutritionFor( MacroNutrient.Fats ).set( 15.0 );
-      assertMacroProportions( 40, 60, 0 );
+      assertPropertyProportions( 40, 60, 0, 0 );
       
       properties.nutritionFor( MacroNutrient.Protein ).set( 75.0 );
-      assertMacroProportions( 10, 15, 75 );
+      assertPropertyProportions( 10, 15, 75, 0 );
+      
+      properties.fiber().set( 1.75 );
+      assertPropertyProportions( 10, 15, 75, 1.75 );
       
       properties.nutritionFor( MacroNutrient.Fats ).set( 115.0 );
-      assertMacroProportions( 5, 57.5, 37.5 );
+      assertPropertyProportions( 5, 57.5, 37.5, 0.875 );
    }//End Method
    
-   /**
-    * Convenience method to assert that the {@link FoodAnalytics} reports the correct {@link MacroNutrient}s.
-    * @param c the {@link MacroNutrient#Carbohydrates}.
-    * @param f the {@link MacroNutrient#Fats}.
-    * @param p the {@link MacroNutrient#Protein}.
-    */
-   private void assertMacroProportions( double c, double f, double p ) {
+   private void assertPropertyProportions( double c, double f, double p, double i ) {
       assertThat( analytics.nutrientRatioFor( MacroNutrient.Carbohydrates ).get(), is( c ) );
       assertThat( analytics.nutrientRatioFor( MacroNutrient.Fats ).get(), is( f ) );
       assertThat( analytics.nutrientRatioFor( MacroNutrient.Protein ).get(), is( p ) );
@@ -65,6 +63,7 @@ public class MacroRatioCalculatorTest {
       assertThat( analytics.carbohydratesRatioProperty().get(), is( c ) );
       assertThat( analytics.fatsRatioProperty().get(), is( f ) );
       assertThat( analytics.proteinRatioProperty().get(), is( p ) );
+      assertThat( analytics.fiberRatioProperty().get(), is( i ) );
       
       assertThat( analytics.carbohydratesRatio(), is( c ) );
       assertThat( analytics.fatsRatio(), is( f ) );

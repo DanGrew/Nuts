@@ -7,7 +7,8 @@
       "id": "de3c984c-f742-4cf7-98fd-501e40fa2291",
       "calories": 78,
       "loggedWeight": 1,
-      "soldInWeight": 15
+      "soldInWeight": 15,
+      "fiber": 0.45
    },
    {
       "carbohydrates": 26.3,
@@ -27,7 +28,8 @@
       "id": "64303ce3-d19e-4ed6-b44f-9b59be6ca31d",
       "calories": 71,
       "loggedWeight": 1,
-      "soldInWeight": 6
+      "soldInWeight": 6,
+      "fiber": 79.01
    },
    {
       "carbohydrates": 14.8,

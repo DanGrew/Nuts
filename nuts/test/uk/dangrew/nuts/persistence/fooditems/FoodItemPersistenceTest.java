@@ -23,11 +23,11 @@ public class FoodItemPersistenceTest {
       persistence.readHandles().parse( json );
       
       FoodItem item = database.foodItems().objectList().get( 0 );
-      assertFoodItemProperties( item, "de3c984c-f742-4cf7-98fd-501e40fa2291", "Egg", 0.6, 5.0, 6.0, 1.0, 15.0 );
+      assertFoodItemProperties( item, "de3c984c-f742-4cf7-98fd-501e40fa2291", "Egg", 0.6, 5.0, 6.0, 0.45, 1.0, 15.0 );
       item = database.foodItems().objectList().get( 1 );
-      assertFoodItemProperties( item, "be66258a-d0ff-4e54-a13a-e6069c333a2a", "Oats So Simple", 26.3, 2.2, 3.2, 1.0, 20.0 );
+      assertFoodItemProperties( item, "be66258a-d0ff-4e54-a13a-e6069c333a2a", "Oats So Simple", 26.3, 2.2, 3.2, 0.0, 1.0, 20.0 );
       item = database.foodItems().objectList().get( 2 );
-      assertFoodItemProperties( item, "64303ce3-d19e-4ed6-b44f-9b59be6ca31d", "Apple", 31.4, 0.2, 1.0, 1.0, 6.0 );
+      assertFoodItemProperties( item, "64303ce3-d19e-4ed6-b44f-9b59be6ca31d", "Apple", 31.4, 0.2, 1.0, 79.01, 1.0, 6.0 );
    }//End Method
    
    @Test public void shouldWriteData(){
@@ -35,6 +35,7 @@ public class FoodItemPersistenceTest {
       
       FoodItem item1 = new FoodItem( "12345", "Food1" );
       item1.properties().setMacros( 45, 3.4, 98.1 );
+      item1.properties().fiber().set( 87.34 );
       item1.stockProperties().setWeighting( 100, 750 );
       database.foodItems().store( item1 );
       
@@ -62,6 +63,7 @@ public class FoodItemPersistenceTest {
                item1.properties().carbohydrates().get(),
                item1.properties().fats().get(),
                item1.properties().protein().get(),
+               item1.properties().fiber().get(),
                item1.stockProperties().loggedWeight().get(),
                item1.stockProperties().soldInWeight().get()
       );
@@ -72,26 +74,16 @@ public class FoodItemPersistenceTest {
                item2.properties().carbohydrates().get(),
                item2.properties().fats().get(),
                item2.properties().protein().get(),
+               item2.properties().fiber().get(),
                item2.stockProperties().loggedWeight().get(),
                item2.stockProperties().soldInWeight().get()
       );
    }//End Method
 
-   /**
-    * Method to assert that the {@link uk.dangrew.nuts.food.FoodProperties} are expected.
-    * @param item the {@link FoodItem} to test.
-    * @param id the expected.
-    * @param name the expected.
-    * @param c the expected carbs.
-    * @param f the expected fats.
-    * @param p the expected protein.
-    * @param lw the logged weight.
-    * @param siw the sold in weight.
-    */
    private void assertFoodItemProperties(
             FoodItem item,
             String id, String name,
-            Double c, Double f, Double p,
+            Double c, Double f, Double p, Double i,
             Double lw, Double siw
    ){
       assertThat( item.properties().id(), is( id ) );
@@ -99,6 +91,7 @@ public class FoodItemPersistenceTest {
       assertThat( item.properties().carbohydrates().get(), is( c ) );
       assertThat( item.properties().fats().get(), is( f ) );
       assertThat( item.properties().protein().get(), is( p ) );
+      assertThat( item.properties().fiber().get(), is( i ) );
       assertThat( item.stockProperties().loggedWeight().get(), is( lw ) );
       assertThat( item.stockProperties().soldInWeight().get(), is( siw ) );
    }//End Method

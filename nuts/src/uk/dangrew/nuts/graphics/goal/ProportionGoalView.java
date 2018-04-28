@@ -52,6 +52,12 @@ public class ProportionGoalView extends VBox {
                viewModel.configuration().proteinProportionType(),
                viewModel.configuration().proteinTargetValue()
       );
+      
+      createMacroPane( 
+               "Fiber",
+               viewModel.configuration().fiberProportionType(),
+               viewModel.configuration().fiberTargetValue()
+      );
    }//End Constructor
    
    private final GridPane createMacroPane( 
@@ -124,9 +130,13 @@ public class ProportionGoalView extends VBox {
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().proteinProportionType(), viewModel.configuration().proteinProportionType() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().proteinTargetValue(), viewModel.configuration().proteinTargetValue() ) );
       
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fiberProportionType(), viewModel.configuration().fiberProportionType() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fiberTargetValue(), viewModel.configuration().fiberTargetValue() ) );
+      
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().carbohydrates(), viewModel.properties().carbohydrates() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().fats(), viewModel.properties().fats() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().protein(), viewModel.properties().protein() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().fiber(), viewModel.properties().fiber() ) );
    }//End Method
 
 }//End Class

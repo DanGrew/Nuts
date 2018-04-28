@@ -46,6 +46,7 @@ public class TescoFoodItemGenerator {
       convertAndSetProperty( nutrition.carbohydrates().valuePer100(), item.properties().carbohydrates() );
       convertAndSetProperty( nutrition.fat().valuePer100(), item.properties().fats() );
       convertAndSetProperty( nutrition.protein().valuePer100(), item.properties().protein() );
+      convertAndSetProperty( nutrition.fibre().valuePer100(), item.properties().fiber() );
       items.add( item );
    }//End Method
    
@@ -61,6 +62,7 @@ public class TescoFoodItemGenerator {
       convertAndSetProperty( nutrition.carbohydrates().valuePerServing(), item.properties().carbohydrates() );
       convertAndSetProperty( nutrition.fat().valuePerServing(), item.properties().fats() );
       convertAndSetProperty( nutrition.protein().valuePerServing(), item.properties().protein() );
+      convertAndSetProperty( nutrition.fibre().valuePerServing(), item.properties().fiber() );
       items.add( item );
    }//End Method
    

@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.ModelVerifier;
 
 public class ProportionConfigurationTest {
 
@@ -33,6 +34,12 @@ public class ProportionConfigurationTest {
    @Test public void shouldProvideProteinTarget() {
       assertThat( systemUnderTest.proteinProportionType().get(), is( nullValue() ) );
       assertThat( systemUnderTest.proteinTargetValue().get(), is( 0.0 ) );
+   }//End Method
+   
+   @Test public void shouldProvideProperties(){
+      new ModelVerifier<>( systemUnderTest )
+         .shouldProvideProperty( ProportionConfiguration::fiberProportionType, ProportionType.Calorie )
+         .shouldProvideDoubleProperty( ProportionConfiguration::fiberTargetValue, 0.0 );;
    }//End Method
    
 }//End Class

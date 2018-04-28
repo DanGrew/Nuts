@@ -93,6 +93,7 @@ public class FoodPortion implements Food {
          properties.nutritionFor( macro ).set( food.get().properties().nutritionFor( macro ).get() * proportion );
       }
       properties.calories().set( food.get().properties().calories().get() * proportion );
+      properties.fiber().set( food.get().properties().fiber().get() * proportion );
    }//End Method
    
    /**
@@ -163,6 +164,7 @@ public class FoodPortion implements Food {
          this.food.get().properties().nutritionFor( macro ).removeListener( macroUpdater );
       }
       this.food.get().properties().calories().removeListener( macroUpdater );
+      this.food.get().properties().fiber().removeListener( macroUpdater );
       registrations.shutdown();
    }//End Method
    
@@ -180,6 +182,7 @@ public class FoodPortion implements Food {
          food.properties().nutritionFor( macro ).addListener( macroUpdater );
       }
       food.properties().calories().addListener( macroUpdater );
+      food.properties().fiber().addListener( macroUpdater );
    }//End Method
 
    /**

@@ -39,6 +39,7 @@ public class TescoFoodItemGeneratorTest {
       double carbs = 20.7;
       double fat = 1.3;
       double protein = 35.9;
+      double fiber = 0.56;
       
       description.groceryProperties().name().set( groceryName );
       CalculatedNutrition nutrition = description.productDetail().nutrition();
@@ -47,6 +48,7 @@ public class TescoFoodItemGeneratorTest {
       nutrition.carbohydrates().valuePer100().set( Double.toString( carbs ) );
       nutrition.fat().valuePer100().set( Double.toString( fat ) );
       nutrition.protein().valuePer100().set( Double.toString( protein ) );
+      nutrition.fibre().valuePer100().set( Double.toString( fiber ) );
       
       List< Food > items = systemUnderTest.generateFoodItemsFor( description );
       assertThat( items, hasSize( 1 ) );
@@ -56,6 +58,7 @@ public class TescoFoodItemGeneratorTest {
                groceryName + " (100g)" 
       ) );
       assertThat( first.properties().calories().get(), is( kcal ) );
+      assertThat( first.properties().fiber().get(), is( fiber ) );
       assertThat( first.properties().carbohydrates().get(), is( carbs ) );
       assertThat( first.properties().fats().get(), is( fat ) );
       assertThat( first.properties().protein().get(), is( protein ) );
@@ -69,6 +72,7 @@ public class TescoFoodItemGeneratorTest {
       double carbs = 20.7;
       double fat = 1.3;
       double protein = 35.9;
+      double fiber = 0.56;
       
       description.groceryProperties().name().set( groceryName );
       CalculatedNutrition nutrition = description.productDetail().nutrition();
@@ -77,6 +81,7 @@ public class TescoFoodItemGeneratorTest {
       nutrition.carbohydrates().valuePerServing().set( Double.toString( carbs ) );
       nutrition.fat().valuePerServing().set( Double.toString( fat ) );
       nutrition.protein().valuePerServing().set( Double.toString( protein ) );
+      nutrition.fibre().valuePerServing().set( Double.toString( fiber ) );
       
       List< Food > items = systemUnderTest.generateFoodItemsFor( description );
       assertThat( items, hasSize( 1 ) );
@@ -86,6 +91,7 @@ public class TescoFoodItemGeneratorTest {
                groceryName + " (15g)" 
       ) );
       assertThat( first.properties().calories().get(), is( kcal ) );
+      assertThat( first.properties().fiber().get(), is( fiber ) );
       assertThat( first.properties().carbohydrates().get(), is( carbs ) );
       assertThat( first.properties().fats().get(), is( fat ) );
       assertThat( first.properties().protein().get(), is( protein ) );
@@ -109,6 +115,7 @@ public class TescoFoodItemGeneratorTest {
       nutrition.carbohydrates().valuePer100().set( "unparsable" );
       nutrition.fat().valuePer100().set( "unparsable" );
       nutrition.protein().valuePer100().set( "unparsable" );
+      nutrition.fibre().valuePer100().set( "unparsable" );
       
       List< Food > items = systemUnderTest.generateFoodItemsFor( description );
       
@@ -118,6 +125,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
       assertThat( first.properties().fats().get(), is( 0.0 ) );
       assertThat( first.properties().protein().get(), is( 0.0 ) );
+      assertThat( first.properties().fiber().get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldConstructPerServingItemEvenIfDataInvalid() {
@@ -130,12 +138,14 @@ public class TescoFoodItemGeneratorTest {
       nutrition.carbohydrates().valuePerServing().set( "unparsable" );
       nutrition.fat().valuePerServing().set( "unparsable" );
       nutrition.protein().valuePerServing().set( "unparsable" );
+      nutrition.fibre().valuePerServing().set( "unparsable" );
       
       List< Food > items = systemUnderTest.generateFoodItemsFor( description );
       
       FoodItem first = ( FoodItem )items.get( 0 );
       assertThat( first.properties().nameProperty().get(), is( groceryName + " (unparsable)" ) );
       assertThat( first.properties().calories().get(), is( 0.0 ) );
+      assertThat( first.properties().fiber().get(), is( 0.0 ) );
       assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
       assertThat( first.properties().fats().get(), is( 0.0 ) );
       assertThat( first.properties().protein().get(), is( 0.0 ) );

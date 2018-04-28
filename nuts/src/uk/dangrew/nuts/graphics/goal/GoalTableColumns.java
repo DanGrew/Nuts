@@ -25,6 +25,7 @@ public class GoalTableColumns implements ConceptTableColumnsPopulator< Goal > {
    static final String COLUMN_TITLE_CARBS = "Carbohydrates";
    static final String COLUMN_TITLE_FATS = "Fats";
    static final String COLUMN_TITLE_PROTEINS = "Protein";
+   static final String COLUMN_TITLE_FIBER = "Fiber";
    
    private final TableConfiguration configuration;
 
@@ -41,10 +42,11 @@ public class GoalTableColumns implements ConceptTableColumnsPopulator< Goal > {
    @Override public void populateColumns( ConceptTable< Goal > table ) {
       configuration.initialiseFoodPropertyStringColumn( table, COLUMN_TITLE_FOOD, 0.3, FoodProperties::nameProperty, true );
       
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.16, f -> f.properties().calories(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.16, f -> f.properties().carbohydrates(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.16, f -> f.properties().fats(), true );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.16, f -> f.properties().protein(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.12, f -> f.properties().calories(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.12, f -> f.properties().carbohydrates(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.12, f -> f.properties().fats(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.12, f -> f.properties().protein(), true );
+      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FIBER, 0.12, f -> f.properties().fiber(), true );
    }//End Method
    
 }//End Class

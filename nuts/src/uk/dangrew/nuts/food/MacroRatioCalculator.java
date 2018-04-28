@@ -35,6 +35,7 @@ public class MacroRatioCalculator {
       
       ChangeListener< Object > listener = ( s, o, n ) -> updateRatios();
       properties.calories().addListener( listener );
+      properties.fiber().addListener( listener );
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          properties.nutritionFor( macro ).addListener( listener );
       }
@@ -54,6 +55,11 @@ public class MacroRatioCalculator {
          double proportion = total == 0 ? 0 : value * 100 / total;
          analytics.nutrientRatioFor( macro ).set( proportion );
       }
+      
+      double fiber = properties.fiber().get();
+      double proportion = total == 0 ? 0 : fiber * 100 / total;
+      analytics.fiberRatioProperty().set( proportion );
+      
       if ( properties.calories().get() == 0.0 ) {
          analytics.calorieDensityProperty().set( 0.0 );
       } else {

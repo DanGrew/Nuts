@@ -18,7 +18,9 @@
          "fatProportionType":"PercentageOfCalories",
          "id":"alwieufh0182347huflsd",
          "proteinProportionType":"PercentageOfCalories",
-         "fatProportionValue":75
+         "fatProportionValue":75,
+         "fiberProportionValue":15,
+         "fiberProportionType":"Weight",
       }
    ]
 }

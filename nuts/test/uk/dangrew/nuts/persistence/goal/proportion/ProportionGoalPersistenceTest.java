@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.persistence.goal.proportion;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.json.JSONObject;
@@ -33,9 +34,11 @@ public class ProportionGoalPersistenceTest {
       proportionGoal.configuration().carbohydrateProportionType().set( ProportionType.Weight );
       proportionGoal.configuration().fatProportionType().set( ProportionType.PercentageOfCalories );
       proportionGoal.configuration().proteinProportionType().set( ProportionType.PercentageOfCalories );
+      proportionGoal.configuration().fiberProportionType().set( ProportionType.Weight );
       proportionGoal.configuration().carbohydrateTargetValue().set( 20.0 );
       proportionGoal.configuration().fatTargetValue().set( 75.0 );
       proportionGoal.configuration().proteinTargetValue().set( 25.0 );
+      proportionGoal.configuration().fiberTargetValue().set( 15.0 );
       assertGoalsAreRealistic( proportionGoal );
       
       ProportionGoalPersistence persistence = new ProportionGoalPersistence( goals );
@@ -60,9 +63,11 @@ public class ProportionGoalPersistenceTest {
       assertThat( goal.configuration().carbohydrateProportionType().get(), is( ProportionType.PercentageOfCalories ) );
       assertThat( goal.configuration().fatProportionType().get(), is( ProportionType.PercentageOfWeight ) );
       assertThat( goal.configuration().proteinProportionType().get(), is( ProportionType.Calorie ) );
+      assertThat( goal.configuration().fiberProportionType().get(), is( nullValue() ) );
       assertThat( goal.configuration().carbohydrateTargetValue().get(), is( 65.0 ) );
       assertThat( goal.configuration().fatTargetValue().get(), is( 11.0 ) );
       assertThat( goal.configuration().proteinTargetValue().get(), is( 2343.0 ) );
+      assertThat( goal.configuration().fiberTargetValue().get(), is( nullValue() ) );
    }//End Method
    
    private void assertGoal2IsParsed( ProportionGoal goal ) {
@@ -73,11 +78,13 @@ public class ProportionGoalPersistenceTest {
    
    private void assertGoalsAreRealistic( ProportionGoal goal ) {
       assertThat( goal.configuration().carbohydrateProportionType().get(), is( ProportionType.Weight ) );
+      assertThat( goal.configuration().fiberProportionType().get(), is( ProportionType.Weight ) );
       assertThat( goal.configuration().fatProportionType().get(), is( ProportionType.PercentageOfCalories ) );
       assertThat( goal.configuration().proteinProportionType().get(), is( ProportionType.PercentageOfCalories ) );
       assertThat( goal.configuration().carbohydrateTargetValue().get(), is( 20.0 ) );
       assertThat( goal.configuration().fatTargetValue().get(), is( 75.0 ) );
       assertThat( goal.configuration().proteinTargetValue().get(), is( 25.0 ) );
+      assertThat( goal.configuration().fiberTargetValue().get(), is( 15.0 ) );
    }//End Method
 
 }//End Class

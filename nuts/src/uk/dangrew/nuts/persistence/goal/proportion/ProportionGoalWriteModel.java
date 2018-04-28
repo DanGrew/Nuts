@@ -73,5 +73,13 @@ class ProportionGoalWriteModel {
    Double getProteinProportionValue() {
       return current.configuration().proteinTargetValue().get();
    }//End Method
+   
+   ProportionType getFiberProportionType() {
+      return current.configuration().fiberProportionType().get();
+   }//End Method
+   
+   Double getFiberProportionValue() {
+      return current.configuration().fiberTargetValue().get();
+   }//End Method
 
 }//End Class

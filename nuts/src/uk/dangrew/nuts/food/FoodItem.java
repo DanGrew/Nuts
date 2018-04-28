@@ -95,6 +95,7 @@ public class FoodItem implements Food {
    @Override public FoodItem duplicate( String referenceId ) {
       FoodItem duplicate = new FoodItem( properties().nameProperty().get() + referenceId );
       duplicate.properties().calories().set( properties().calories().get() );
+      duplicate.properties().fiber().set( properties().fiber().get() );
       duplicate.properties().carbohydrates().set( properties().carbohydrates().get() );
       duplicate.properties().fats().set( properties().fats().get() );
       duplicate.properties().protein().set( properties().protein().get() );

@@ -30,9 +30,11 @@ public class ProportionGoalPersistence {
    static final String CARB_PROPORTION_TYPE = "carbohydrateProportionType";
    static final String FAT_PROPORTION_TYPE = "fatProportionType";
    static final String PROTEIN_PROPORTION_TYPE = "proteinProportionType";
+   static final String FIBER_PROPORTION_TYPE = "fiberProportionType";
    static final String CARB_PROPORTION_VALUE = "carbohydrateProportionValue";
    static final String FAT_PROPORTION_VALUE = "fatProportionValue";
    static final String PROTEIN_PROPORTION_VALUE = "proteinProportionValue";
+   static final String FIBER_PROPORTION_VALUE = "fiberProportionValue";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -68,6 +70,8 @@ public class ProportionGoalPersistence {
       structure.child( FAT_PROPORTION_VALUE, GOAL );
       structure.child( PROTEIN_PROPORTION_TYPE, GOAL ); 
       structure.child( PROTEIN_PROPORTION_VALUE, GOAL );
+      structure.optionalChild( FIBER_PROPORTION_TYPE, GOAL ); 
+      structure.optionalChild( FIBER_PROPORTION_VALUE, GOAL );
    }//End Method
    
    private void constructReadHandles(){
@@ -80,9 +84,11 @@ public class ProportionGoalPersistence {
       parserWithReadHandles.when( CARB_PROPORTION_TYPE, new EnumParseHandle<>( ProportionType.class, parseModel::setCarbohydrateProportionType ) );
       parserWithReadHandles.when( FAT_PROPORTION_TYPE, new EnumParseHandle<>( ProportionType.class, parseModel::setFatProportionType ) );
       parserWithReadHandles.when( PROTEIN_PROPORTION_TYPE, new EnumParseHandle<>( ProportionType.class, parseModel::setProteinProportionType ) );
+      parserWithReadHandles.when( FIBER_PROPORTION_TYPE, new EnumParseHandle<>( ProportionType.class, parseModel::setFiberProportionType ) );
       parserWithReadHandles.when( CARB_PROPORTION_VALUE, new DoubleParseHandle( parseModel::setCarbohydrateProportionValue ) );
       parserWithReadHandles.when( FAT_PROPORTION_VALUE, new DoubleParseHandle( parseModel::setFatProportionValue ) );
       parserWithReadHandles.when( PROTEIN_PROPORTION_VALUE, new DoubleParseHandle( parseModel::setProteinProportionValue ) );
+      parserWithReadHandles.when( FIBER_PROPORTION_VALUE, new DoubleParseHandle( parseModel::setFiberProportionValue ) );
    }//End Method
    
    private void constructWriteHandles(){
@@ -95,9 +101,11 @@ public class ProportionGoalPersistence {
       parserWithWriteHandles.when( CARB_PROPORTION_TYPE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCarbohydrateProportionType ) ) );
       parserWithWriteHandles.when( FAT_PROPORTION_TYPE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFatProportionType ) ) );
       parserWithWriteHandles.when( PROTEIN_PROPORTION_TYPE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProteinProportionType ) ) );
+      parserWithWriteHandles.when( FIBER_PROPORTION_TYPE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFiberProportionType ) ) );
       parserWithWriteHandles.when( CARB_PROPORTION_VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCarbohydrateProportionValue ) ) );
       parserWithWriteHandles.when( FAT_PROPORTION_VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFatProportionValue ) ) );
       parserWithWriteHandles.when( PROTEIN_PROPORTION_VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProteinProportionValue ) ) );
+      parserWithWriteHandles.when( FIBER_PROPORTION_VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFiberProportionValue ) ) );
    }//End Method
    
    public JsonStructure structure(){

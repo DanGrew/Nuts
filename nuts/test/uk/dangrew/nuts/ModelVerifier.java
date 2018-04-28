@@ -25,7 +25,7 @@ public class ModelVerifier< SutT > {
    }//End Constructor
    
    public < TypeT > ModelVerifier< SutT > shouldProvideProperty( Function< SutT, ObjectProperty< TypeT > > supplier, TypeT value ) {
-      return shouldProvideProperty( supplier, null );
+      return shouldProvideProperty( supplier, null, null );
    }//End Method
    
    public < TypeT > ModelVerifier< SutT > shouldProvideProperty( Function< SutT, ObjectProperty< TypeT > > supplier, TypeT initialValue, TypeT value ) {

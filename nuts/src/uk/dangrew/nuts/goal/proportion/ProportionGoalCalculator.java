@@ -31,10 +31,12 @@ public class ProportionGoalCalculator implements GoalCalculator {
       double carbWeight = properties.carbohydrates().get();
       double fatWeight = properties.fats().get();
       double proteinWeight = properties.protein().get();
+      double fiberWeight = properties.fiber().get();
       
       double carbCalories = carbWeight * 4;
       double fatCalories = fatWeight * 9;
       double proteinCalories = proteinWeight * 4;
+      double fiberCalories = fiberWeight * 4;
       
       double totalCalories = carbCalories + fatCalories + proteinCalories;
       double totalWeight = carbWeight + fatWeight + proteinWeight;
@@ -66,6 +68,15 @@ public class ProportionGoalCalculator implements GoalCalculator {
                proteinCalories, 
                proteinWeight, 
                analytics.proteinRatioProperty() 
+      );
+      calculateAndSet( 
+               proportionGoal.configuration().fiberProportionType(), 
+               proportionGoal.configuration().fiberTargetValue(), 
+               totalCalories, 
+               totalWeight, 
+               fiberCalories, 
+               fiberWeight, 
+               analytics.fiberRatioProperty() 
       );
    }//End Method
    

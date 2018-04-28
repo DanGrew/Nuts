@@ -14,6 +14,9 @@ public class ProportionConfiguration {
    private final ObjectProperty< ProportionType > proteinProportionType;
    private final ObjectProperty< Double > proteinValue;
    
+   private final ObjectProperty< ProportionType > fiberProportionType;
+   private final ObjectProperty< Double > fiberValue;
+   
    public ProportionConfiguration() {
       this.carbohydrateProportionType = new SimpleObjectProperty<>();
       this.carbohydrateValue = new SimpleObjectProperty<>( 0.0 );
@@ -23,6 +26,9 @@ public class ProportionConfiguration {
       
       this.proteinProportionType = new SimpleObjectProperty<>();
       this.proteinValue = new SimpleObjectProperty<>( 0.0 );
+      
+      this.fiberProportionType = new SimpleObjectProperty<>();
+      this.fiberValue = new SimpleObjectProperty<>( 0.0 );
    }//End Constructor
 
    public ObjectProperty< ProportionType > carbohydrateProportionType() {
@@ -47,6 +53,14 @@ public class ProportionConfiguration {
 
    public ObjectProperty< Double > proteinTargetValue() {
       return proteinValue;
+   }//End Method
+   
+   public ObjectProperty< ProportionType > fiberProportionType() {
+      return fiberProportionType;
+   }//End Method
+
+   public ObjectProperty< Double > fiberTargetValue() {
+      return fiberValue;
    }//End Method
    
 }//End Class

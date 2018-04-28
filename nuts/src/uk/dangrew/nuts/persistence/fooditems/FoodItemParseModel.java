@@ -25,6 +25,7 @@ class FoodItemParseModel {
    private Double fats;
    private Double protein;
    private Double calories;
+   private Double fiber;
    private double loggedWeight;
    private double soldInWeight;
    
@@ -47,6 +48,7 @@ class FoodItemParseModel {
       this.fats = null;
       this.protein = null;
       this.calories = null;
+      this.fiber = null;
    }//End Method
    
    /**
@@ -54,12 +56,17 @@ class FoodItemParseModel {
     * @param key the parsed key.
     */
    void finishFoodItem( String key ) {
+      if ( fiber == null ) {
+         fiber = 0.0;
+      }
+      
       FoodItem item = database.foodItems().get( id );
       if ( item == null ) {
          item = new FoodItem( id, name );
          database.foodItems().store( item );
       }
       item.properties().setMacros( carbohydrates, fats, protein );
+      item.properties().fiber().set( fiber );
       item.properties().calories().set( calories );
       item.stockProperties().setWeighting( loggedWeight, soldInWeight );
    }//End Method
@@ -116,6 +123,10 @@ class FoodItemParseModel {
     */
    void setCalories( String key, Double value ) {
       this.calories = value;
+   }//End Method
+   
+   void setFiber( String key, Double value ) {
+      this.fiber = value;
    }//End Method
    
    /**

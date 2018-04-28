@@ -116,6 +116,10 @@ class FoodItemWriteModel {
       return currentFood.properties().calories().get();
    }//End Method
    
+   Double getFiber( String key ) {
+      return currentFood.properties().fiber().get();
+   }//End Method
+   
    /**
     * Provides the next {@link uk.dangrew.nuts.food.StockProperties#loggedWeight()}.
     * @param key the parsed key.

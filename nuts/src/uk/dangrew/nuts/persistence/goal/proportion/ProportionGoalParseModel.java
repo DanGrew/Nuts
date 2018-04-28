@@ -21,9 +21,11 @@ class ProportionGoalParseModel {
    private ProportionType carbohydrateProportionType;
    private ProportionType fatProportionType;
    private ProportionType proteinProportionType;
+   private ProportionType fiberProportionType;
    private Double carbohydrateProportionValue;
    private Double fatProportionValue;
    private Double proteinProportionValue;
+   private Double fiberProportionValue;
    
    ProportionGoalParseModel( ProportionGoalStore goals ) {
       this.goals = goals;
@@ -42,6 +44,8 @@ class ProportionGoalParseModel {
       fatProportionValue = null;
       proteinProportionType = null;
       proteinProportionValue = null;
+      fiberProportionType = null;
+      fiberProportionValue = null;
    }//End Method
    
    /**
@@ -66,9 +70,11 @@ class ProportionGoalParseModel {
       goal.configuration().carbohydrateProportionType().set( carbohydrateProportionType );
       goal.configuration().fatProportionType().set( fatProportionType );
       goal.configuration().proteinProportionType().set( proteinProportionType );
+      goal.configuration().fiberProportionType().set( fiberProportionType );
       goal.configuration().carbohydrateTargetValue().set( carbohydrateProportionValue );
       goal.configuration().fatTargetValue().set( fatProportionValue );
       goal.configuration().proteinTargetValue().set( proteinProportionValue );
+      goal.configuration().fiberTargetValue().set( fiberProportionValue );
    }//End Method
 
    void setId( String value ) {
@@ -101,6 +107,14 @@ class ProportionGoalParseModel {
    
    void setProteinProportionValue( Double value ) {
       this.proteinProportionValue = value;
+   }//End Method
+   
+   void setFiberProportionType( ProportionType value ) {
+      this.fiberProportionType = value;
+   }//End Method
+   
+   void setFiberProportionValue( Double value ) {
+      this.fiberProportionValue = value;
    }//End Method
    
 }//End Class

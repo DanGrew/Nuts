@@ -49,11 +49,6 @@ public class GoalAnalyticsCalculatorTest {
 
    @Test public void shouldCalculateProportionsWhenFoodSet(){
       calorieGoal.properties().setMacros( 300, 60, 200 );
-      
-      properties.carbohydrates().set( 45.0 );
-      properties.fats().set( 15.0 );
-      properties.protein().set( 40.0 );
-      
       analytics.goal().set( calorieGoal );
       assertThatCalculationTriggered( calorieGoal, 1 );
    }//End Method
@@ -81,6 +76,9 @@ public class GoalAnalyticsCalculatorTest {
       
       properties.calories().set( 1800.0 );
       assertThatCalculationTriggered( calorieGoal, 12 );
+      
+      properties.fiber().set( 0.08 );
+      assertThatCalculationTriggered( calorieGoal, 13 );
    }//End Method
    
    @Test public void shouldRespondToGoalChanges() {
@@ -102,9 +100,12 @@ public class GoalAnalyticsCalculatorTest {
       calorieGoal.properties().fats().set( 20.0 );
       assertThatCalculationTriggered( calorieGoal, 8 );
       
+      calorieGoal.properties().fiber().set( 0.01 );
+      assertThatCalculationTriggered( calorieGoal, 9 );
+      
       calorieGoal.properties().calories().set( 20.0 );
       //calculator triggered
-      assertThatCalculationTriggered( calorieGoal, 12 );
+      assertThatCalculationTriggered( calorieGoal, 13 );
    }//End Method
    
    @Test public void shouldNotCalculateProportionsWhenNoGoal(){
@@ -115,9 +116,10 @@ public class GoalAnalyticsCalculatorTest {
    
    @Test public void shouldResetProportionsWhenGoalRemoved(){
       calorieGoal.properties().setMacros( 300, 60, 200 );
-      properties.carbohydrates().set( 45.0 );
-      properties.fats().set( 15.0 );
-      properties.protein().set( 40.0 );
+      analytics.carbohydratesRatioProperty().set( 45.0 );
+      analytics.fatsRatioProperty().set( 15.0 );
+      analytics.proteinRatioProperty().set( 40.0 );
+      analytics.fiberRatioProperty().set( 2.0 );
       
       assertThatCalculationTriggered( calorieGoal, 0 );
       analytics.goal().set( calorieGoal );
@@ -125,7 +127,7 @@ public class GoalAnalyticsCalculatorTest {
       
       analytics.goal().set( null );
       assertThatCalculationTriggered( calorieGoal, 1 );
-      assertMacroProportions( 0, 0, 0 );
+      assertMacroProportions( 0, 0, 0, 0 );
    }//End Method
    
    @Test public void shouldNotRespondToPreviousGoal(){
@@ -135,22 +137,25 @@ public class GoalAnalyticsCalculatorTest {
       properties.carbohydrates().set( 45.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 40.0 );
-      assertThatCalculationTriggered( calorieGoal, 7 );
+      properties.fiber().set( 2.0 );
+      assertThatCalculationTriggered( calorieGoal, 8 );
       
       analytics.goal().set( null );
-      assertThatCalculationTriggered( calorieGoal, 7 );
+      assertThatCalculationTriggered( calorieGoal, 8 );
       properties.setMacros( 23, 456, 980 );
+      properties.fiber().set( 200.0 );
       calorieGoal.properties().setMacros( 100, 23, 987 );
-      assertThatCalculationTriggered( calorieGoal, 7 );
+      assertThatCalculationTriggered( calorieGoal, 8 );
    }//End Method
    
    @Test public void shouldRespondToPropertyChanges() {
       analytics.goal().set( calorieGoal );
       calorieGoal.properties().setMacros( 100, 60, 200 );
-      assertThatCalculationTriggered( calorieGoal, 4 );
+      calorieGoal.properties().fiber().set( 45.4 );
+      assertThatCalculationTriggered( calorieGoal, 5 );
    }//End Method
    
-   private void assertMacroProportions( double c, double f, double p ) {
+   private void assertMacroProportions( double c, double f, double p, double i ) {
       assertThat( analytics.nutrientRatioFor( MacroNutrient.Carbohydrates ).get(), is( c ) );
       assertThat( analytics.nutrientRatioFor( MacroNutrient.Fats ).get(), is( f ) );
       assertThat( analytics.nutrientRatioFor( MacroNutrient.Protein ).get(), is( p ) );
@@ -158,6 +163,7 @@ public class GoalAnalyticsCalculatorTest {
       assertThat( analytics.carbohydratesRatioProperty().get(), is( c ) );
       assertThat( analytics.fatsRatioProperty().get(), is( f ) );
       assertThat( analytics.proteinRatioProperty().get(), is( p ) );
+      assertThat( analytics.fiberRatioProperty().get(), is( i ) );
       
       assertThat( analytics.carbohydratesRatio(), is( c ) );
       assertThat( analytics.fatsRatio(), is( f ) );

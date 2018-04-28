@@ -32,16 +32,19 @@ public class MealPropertiesCalculatorTest {
       
       FoodItem item1 = new FoodItem( "Food1" );
       item1.properties().setMacros( 1, 2, 7 );
+      item1.properties().fiber().set( 1.2 );
       item1.properties().calories().set( 100.0 );
       portion1 = new FoodPortion();
       portion1.setFood( item1 );
       FoodItem item2 = new FoodItem( "Food2" );
       item2.properties().setMacros( 10, 2, 3 );
+      item2.properties().fiber().set( 0.5 );
       item2.properties().calories().set( 150.0 );
       portion2 = new FoodPortion();
       portion2.setFood( item2 );
       FoodItem item3 = new FoodItem( "Food3" );
       item3.properties().setMacros( 50, 10, 40 );
+      item3.properties().fiber().set( 3.9 );
       item3.properties().calories().set( 50.0 );
       portion3 = new FoodPortion();
       portion3.setFood( item3 );
@@ -75,10 +78,12 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.properties().carbohydrates().get(), is( 0.0 ) );
       assertThat( meal.properties().fats().get(), is( 0.0 ) );
       assertThat( meal.properties().protein().get(), is( 0.0 ) );
+      assertThat( meal.properties().fiber().get(), is( 0.0 ) );
       
       assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 0.0 ) );
       assertThat( meal.foodAnalytics().fatsRatio(), is( 0.0 ) );
       assertThat( meal.foodAnalytics().proteinRatio(), is( 0.0 ) );
+      assertThat( meal.foodAnalytics().fiberRatioProperty().get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldResetPropertiesWhenEmptyMeal(){
@@ -90,10 +95,12 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.properties().carbohydrates().get(), is( 61.0 ) );
       assertThat( meal.properties().fats().get(), is( 14.0 ) );
       assertThat( meal.properties().protein().get(), is( 50.0 ) );
+      assertThat( meal.properties().fiber().get(), is( 5.6 ) );
       
       assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 48.8 ) );
       assertThat( meal.foodAnalytics().fatsRatio(), is( 11.2 ) );
       assertThat( meal.foodAnalytics().proteinRatio(), is( 40.0 ) );
+      assertThat( meal.foodAnalytics().fiberRatioProperty().get(), is( 4.48 ) );
    }//End Method
    
    @Test public void shouldIgnorePortionsWithNoFood(){
@@ -105,10 +112,12 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.properties().carbohydrates().get(), is( 61.0 ) );
       assertThat( meal.properties().fats().get(), is( 14.0 ) );
       assertThat( meal.properties().protein().get(), is( 50.0 ) );
+      assertThat( meal.properties().fiber().get(), is( 5.6 ) );
       
       assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 48.8 ) );
       assertThat( meal.foodAnalytics().fatsRatio(), is( 11.2 ) );
       assertThat( meal.foodAnalytics().proteinRatio(), is( 40.0 ) );
+      assertThat( meal.foodAnalytics().fiberRatioProperty().get(), is( 4.48 ) );
    }//End Method
 
 }//End Class
