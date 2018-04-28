@@ -25,6 +25,7 @@ public class ProportionGoalPersistenceTest {
 
       assertGoal1IsParsed( database.proportionGoals().objectList().get( 0 ) );
       assertGoal2IsParsed( database.proportionGoals().objectList().get( 1 ) );
+      assertEmptyGoal( database.proportionGoals().objectList().get( 2 ) );
    }//End Method
    
    @Test public void shouldWriteData(){
@@ -41,6 +42,8 @@ public class ProportionGoalPersistenceTest {
       proportionGoal.configuration().fiberTargetValue().set( 15.0 );
       assertGoalsAreRealistic( proportionGoal );
       
+      goals.createConcept( "Empty" );
+      
       ProportionGoalPersistence persistence = new ProportionGoalPersistence( goals );
       JSONObject json = new JSONObject();
       persistence.structure().build( json );
@@ -52,9 +55,21 @@ public class ProportionGoalPersistenceTest {
       persistence = new ProportionGoalPersistence( goals );
       
       persistence.readHandles().parse( json );
-      assertThat( goals.objectList().size(), is( 1 ) );
+      assertThat( goals.objectList().size(), is( 2 ) );
       
       assertGoalsAreRealistic( goals.objectList().get( 0 ) );
+      assertEmptyGoal( goals.objectList().get( 1 ) );
+   }//End Method
+   
+   private void assertEmptyGoal( ProportionGoal empty ) {
+      assertThat( empty.configuration().carbohydrateProportionType().get(), is( nullValue() ) );
+      assertThat( empty.configuration().fatProportionType().get(), is( nullValue() ) );
+      assertThat( empty.configuration().proteinProportionType().get(), is( nullValue() ) );
+      assertThat( empty.configuration().fiberProportionType().get(), is( nullValue() ) );
+      assertThat( empty.configuration().carbohydrateTargetValue().get(), is( 0.0 ) );
+      assertThat( empty.configuration().fatTargetValue().get(), is( 0.0 ) );
+      assertThat( empty.configuration().proteinTargetValue().get(), is( 0.0 ) );
+      assertThat( empty.configuration().fiberTargetValue().get(), is( 0.0 ) );
    }//End Method
    
    private void assertGoal1IsParsed( ProportionGoal goal ) {

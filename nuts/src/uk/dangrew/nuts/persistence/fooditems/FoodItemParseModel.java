@@ -37,11 +37,7 @@ class FoodItemParseModel {
       this.database = database;
    }//End Constructor
    
-   /**
-    * Triggered when starting a new {@link FoodItem}.
-    * @param key the parsed key.
-    */
-   void startFoodItem( String key ) {
+   void startFoodItem() {
       this.id = null;
       this.name = null;
       this.carbohydrates = null;
@@ -50,12 +46,8 @@ class FoodItemParseModel {
       this.calories = null;
       this.fiber = null;
    }//End Method
-   
-   /**
-    * Triggered when all values of a {@link FoodItem} have been parsed.
-    * @param key the parsed key.
-    */
-   void finishFoodItem( String key ) {
+
+   void finishFoodItem() {
       if ( fiber == null ) {
          fiber = 0.0;
       }
@@ -71,56 +63,26 @@ class FoodItemParseModel {
       item.stockProperties().setWeighting( loggedWeight, soldInWeight );
    }//End Method
    
-   /**
-    * Sets the {@link uk.dangrew.nuts.food.FoodProperties#id()} for the current {@link FoodItem}.
-    * @param key the parsed key.
-    * @param value the parsed value.
-    */
    void setId( String key, String value ) {
       this.id = value;
    }//End Method
    
-   /**
-    * Sets the {@link uk.dangrew.nuts.food.FoodProperties#nameProperty()} for the current {@link FoodItem}.
-    * @param key the parsed key.
-    * @param value the parsed value.
-    */
    void setName( String key, String value ) {
       this.name = value;
    }//End Method
 
-   /**
-    * Sets the {@link uk.dangrew.nuts.food.FoodProperties#carbohydrates()} for the current {@link FoodItem}.
-    * @param key the parsed key.
-    * @param value the parsed value.
-    */
    void setCarbohydrates( String key, Double value ) {
       this.carbohydrates = value;
    }//End Method
    
-   /**
-    * Sets the {@link uk.dangrew.nuts.food.FoodProperties#fats()} for the current {@link FoodItem}.
-    * @param key the parsed key.
-    * @param value the parsed value.
-    */
    void setFats( String key, Double value ) {
       this.fats = value;
    }//End Method
    
-   /**
-    * Sets the {@link uk.dangrew.nuts.food.FoodProperties#protein()} for the current {@link FoodItem}.
-    * @param key the parsed key.
-    * @param value the parsed value.
-    */
    void setProtein( String key, Double value ) {
       this.protein = value;
    }//End Method
    
-   /**
-    * Sets the {@link uk.dangrew.nuts.food.FoodProperties#calories()} for the current {@link FoodItem}.
-    * @param key the parsed key.
-    * @param value the parsed value.
-    */
    void setCalories( String key, Double value ) {
       this.calories = value;
    }//End Method
@@ -129,20 +91,10 @@ class FoodItemParseModel {
       this.fiber = value;
    }//End Method
    
-   /**
-    * Sets the {@link uk.dangrew.nuts.food.StockProperties#loggedWeight()} for the current {@link FoodItem}.
-    * @param key the parsed key.
-    * @param value the parsed value.
-    */
    void setLoggedWeight( String key, Double value ) {
       this.loggedWeight = value;
    }//End Method
    
-   /**
-    * Sets the {@link uk.dangrew.nuts.food.StockProperties#soldInWeight()} for the current {@link FoodItem}.
-    * @param key the parsed key.
-    * @param value the parsed value.
-    */
    void setSoldInWeight( String key, Double value ) {
       this.soldInWeight = value;
    }//End Method

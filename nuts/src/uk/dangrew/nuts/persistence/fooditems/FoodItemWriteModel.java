@@ -32,109 +32,56 @@ class FoodItemWriteModel {
       this.database = database;
       this.foodBuffer = new ArrayList<>();
    }//End Constructor
-   
-   /**
-    * Provides the number of {@link FoodItem}s to write.
-    * @param key the parsed key.
-    * @return the number of items.
-    */
+
    Integer getNumberOfFoodItems( String key ){
       return database.foodItems().objectList().size();
    }//End Method
    
-   /**
-    * Triggered when the writing of the {@link FoodItem}s begins, initialising the items to write.
-    * @param key the parsed key.
-    */
-   void startWritingFoodItems( String key ) {
+   void startWritingFoodItems() {
       foodBuffer.clear();
       foodBuffer.addAll( database.foodItems().objectList() );
    }//End Method
    
-   /**
-    * Triggered when starting a new {@link FoodItem}.
-    * @param key the parsed key.
-    */
-   void startWritingFoodItem( String key ) {
+   void startWritingFoodItem() {
       if ( foodBuffer.isEmpty() ) {
          return;
       }
       this.currentFood = foodBuffer.remove( 0 );
    }//End Method
 
-   /**
-    * Provides the next {@link uk.dangrew.nuts.food.FoodProperties#id()}.
-    * @param key the parsed key.
-    * @return the value.
-    */
-   String getId( String key ) {
+   String getId() {
       return currentFood.properties().id();
    }//End Method
 
-   /**
-    * Provides the next {@link uk.dangrew.nuts.food.FoodProperties#nameProperty()}.
-    * @param key the parsed key.
-    * @return the value.
-    */
-   String getName( String key ) {
+   String getName() {
       return currentFood.properties().nameProperty().get();
    }//End Method
    
-   /**
-    * Provides the next {@link uk.dangrew.nuts.food.FoodProperties#carbohydrates()}.
-    * @param key the parsed key.
-    * @return the value.
-    */
-   Double getCarbohydrates( String key ) {
+   Double getCarbohydrates() {
       return currentFood.properties().carbohydrates().get();
    }//End Method
    
-   /**
-    * Provides the next {@link uk.dangrew.nuts.food.FoodProperties#fats()}.
-    * @param key the parsed key.
-    * @return the value.
-    */
-   Double getFats( String key ) {
+   Double getFats() {
       return currentFood.properties().fats().get();
    }//End Method
    
-   /**
-    * Provides the next {@link uk.dangrew.nuts.food.FoodProperties#protein()}.
-    * @param key the parsed key.
-    * @return the value.
-    */
-   Double getProtein( String key ) {
+   Double getProtein() {
       return currentFood.properties().protein().get();
    }//End Method
    
-   /**
-    * Provides the next {@link uk.dangrew.nuts.food.FoodProperties#calories()}.
-    * @param key the parsed key.
-    * @return the value.
-    */
-   Double getCalories( String key ) {
+   Double getCalories() {
       return currentFood.properties().calories().get();
    }//End Method
    
-   Double getFiber( String key ) {
+   Double getFiber() {
       return currentFood.properties().fiber().get();
    }//End Method
    
-   /**
-    * Provides the next {@link uk.dangrew.nuts.food.StockProperties#loggedWeight()}.
-    * @param key the parsed key.
-    * @return the value.
-    */
-   Double getLoggedWeight( String key ) {
+   Double getLoggedWeight() {
       return currentFood.stockProperties().loggedWeight().get();
    }//End Method
    
-   /**
-    * Provides the next {@link uk.dangrew.nuts.food.StockProperties#soldInWeight()}.
-    * @param key the parsed key.
-    * @return the value.
-    */
-   Double getSoldInWeight( String key ) {
+   Double getSoldInWeight() {
       return currentFood.stockProperties().soldInWeight().get();
    }//End Method
    

@@ -21,6 +21,18 @@
          "fatProportionValue":75,
          "fiberProportionValue":15,
          "fiberProportionType":"Weight",
+      },      
+      {  
+         "fiberProportionValue":0,
+         "carbohydrateProportionType":"java.lang.Object@34ce8af7",
+         "proteinProportionValue":0,
+         "fiberProportionType":"java.lang.Object@34ce8af7",
+         "name":"Empty",
+         "carbohydrateProportionValue":0,
+         "fatProportionType":"java.lang.Object@34ce8af7",
+         "id":"60f2409a-92ee-4d89-be98-f8132ec15ad5",
+         "proteinProportionType":"java.lang.Object@34ce8af7",
+         "fatProportionValue":0
       }
    ]
 }
