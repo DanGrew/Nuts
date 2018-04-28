@@ -18,7 +18,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import uk.dangrew.kode.javafx.contextmenu.ContextMenuWithCancel;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
-import uk.dangrew.nuts.progress.SystemDateRange;
+import uk.dangrew.nuts.progress.weight.SystemDateRange;
 import uk.dangrew.nuts.template.Template;
 
 public class UiDayPlanContextMenu extends ContextMenuWithCancel {

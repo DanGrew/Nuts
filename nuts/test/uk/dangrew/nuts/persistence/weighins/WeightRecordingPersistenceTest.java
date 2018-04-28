@@ -10,7 +10,7 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import uk.dangrew.kode.TestCommon;
-import uk.dangrew.nuts.progress.WeightRecording;
+import uk.dangrew.nuts.progress.weight.WeightRecording;
 import uk.dangrew.nuts.store.Database;
 
 public class WeightRecordingPersistenceTest {

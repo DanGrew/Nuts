@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 import uk.dangrew.nuts.day.CalorieBalance;
 import uk.dangrew.nuts.day.DayPlan;
-import uk.dangrew.nuts.progress.SystemDateRange;
+import uk.dangrew.nuts.progress.weight.SystemDateRange;
 import uk.dangrew.nuts.store.Database;
 
 /**

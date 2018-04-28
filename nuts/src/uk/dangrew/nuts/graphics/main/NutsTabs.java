@@ -8,7 +8,7 @@ import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.graphics.day.UiCalendarPane;
 import uk.dangrew.nuts.graphics.day.balance.UiBalanceSummary;
 import uk.dangrew.nuts.graphics.goal.GoalManagerPane;
-import uk.dangrew.nuts.graphics.graph.WeightRecordingsPane;
+import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingsPane;
 import uk.dangrew.nuts.graphics.information.InformationPane;
 import uk.dangrew.nuts.graphics.label.UiLabelConfigurationView;
 import uk.dangrew.nuts.graphics.meal.TemplateManagerPane;

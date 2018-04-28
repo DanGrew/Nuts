@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.beans.property.ObjectProperty;
-import uk.dangrew.nuts.progress.WeightRecording;
+import uk.dangrew.nuts.progress.weight.WeightRecording;
 import uk.dangrew.nuts.store.Database;
 
 /**

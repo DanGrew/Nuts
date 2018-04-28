@@ -8,7 +8,7 @@
  */
 package uk.dangrew.nuts.persistence.weighins;
 
-import uk.dangrew.nuts.progress.WeightRecording;
+import uk.dangrew.nuts.progress.weight.WeightRecording;
 import uk.dangrew.nuts.store.Database;
 
 /**

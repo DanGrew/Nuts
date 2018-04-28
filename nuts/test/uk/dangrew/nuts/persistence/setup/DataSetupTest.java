@@ -12,7 +12,7 @@ import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
-import uk.dangrew.nuts.progress.SystemDateRange;
+import uk.dangrew.nuts.progress.weight.SystemDateRange;
 import uk.dangrew.nuts.store.Database;
 
 public class DataSetupTest {

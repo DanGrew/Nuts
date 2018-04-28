@@ -14,7 +14,7 @@ import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.meal.MealStore;
-import uk.dangrew.nuts.progress.WeightProgress;
+import uk.dangrew.nuts.progress.weight.WeightProgress;
 import uk.dangrew.nuts.stock.StockStore;
 import uk.dangrew.nuts.template.TemplateStore;
 
