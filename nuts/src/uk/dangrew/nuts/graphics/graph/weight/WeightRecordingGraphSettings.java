@@ -16,6 +16,7 @@ import uk.dangrew.kode.javafx.custom.ResponsiveComboLocalDateProperty;
 import uk.dangrew.kode.javafx.custom.ResponsiveDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
+import uk.dangrew.nuts.graphics.graph.custom.GraphController;
 import uk.dangrew.nuts.progress.weight.SystemDateRange;
 
 /**
@@ -37,8 +38,8 @@ public class WeightRecordingGraphSettings extends GridPane {
     * @param fatController the {@link WeightRecordingGraphController} for the body fat properties.
     */
    public WeightRecordingGraphSettings( 
-            WeightRecordingGraphController weightController,
-            WeightRecordingGraphController fatController
+            GraphController weightController,
+            GraphController fatController
    ) {
       new JavaFxStyle().configureConstraintsForEvenColumns( this, 1 );
       new JavaFxStyle().configureConstraintsForEvenRows( this, 1 );

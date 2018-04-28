@@ -12,6 +12,7 @@ import java.net.URL;
 
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import uk.dangrew.nuts.graphics.graph.custom.GraphBuilder;
 import uk.dangrew.nuts.progress.weight.WeighIn;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
 
@@ -34,7 +35,7 @@ public class CombinedWeightRecordingGraph extends BorderPane {
       
       WeightRecordingGraph weightAndLeanGraph = new WeightRecordingGraph( 
                progress, 
-               new WeightRecordingGraphBuilder()
+               new GraphBuilder()
                   .withChartTitle( "Weight Recordings" )
                   .withChartXTranslation( 30 )
                   .withXAxisTitle( "Epoch Day" )
@@ -52,7 +53,7 @@ public class CombinedWeightRecordingGraph extends BorderPane {
       
       WeightRecordingGraph fatGraph = new WeightRecordingGraph( 
                progress, 
-               new WeightRecordingGraphBuilder()
+               new GraphBuilder()
                   .withChartTitle( "..." )
                   .withChartXTranslation( 30 )
                   .withXAxisTitle( "..." )

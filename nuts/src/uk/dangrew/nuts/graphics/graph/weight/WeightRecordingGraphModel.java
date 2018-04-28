@@ -18,6 +18,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart.Data;
+import uk.dangrew.nuts.graphics.graph.custom.GraphModel;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
 import uk.dangrew.nuts.progress.weight.WeightRecording;
 
@@ -25,7 +26,7 @@ import uk.dangrew.nuts.progress.weight.WeightRecording;
  * {@link WeightRecordingGraphModel} provides a model managing the data points within a series, adding points
  * with values and removing those without.
  */
-public class WeightRecordingGraphModel {
+public class WeightRecordingGraphModel implements GraphModel {
 
    private final String modelName;
    private final WeightProgress progress;
@@ -61,7 +62,7 @@ public class WeightRecordingGraphModel {
       this.progress.records().forEach( this::constructDataPoint );
    }//End Constructor
    
-   public String modelName(){
+   @Override public String modelName(){
       return modelName;
    }//End Method
    
@@ -111,11 +112,11 @@ public class WeightRecordingGraphModel {
       return dataPoints.get( propertyRetriever.apply( record ) );
    }//End Method
 
-   public void hide() {
+   @Override public void hide() {
       series.clear();
    }//End Method
 
-   public void show() {
+   @Override public void show() {
       series.addAll( dataPoints.values() );
       sortSeries();
    }//End Method

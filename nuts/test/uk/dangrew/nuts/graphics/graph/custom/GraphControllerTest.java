@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.graphics.graph.weight;
+package uk.dangrew.nuts.graphics.graph.custom;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -14,18 +14,16 @@ import org.junit.Test;
 import javafx.collections.FXCollections;
 import javafx.scene.chart.NumberAxis;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphController;
 import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphModel;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
-import uk.dangrew.nuts.progress.weight.WeightRecording;
 
-public class WeightRecordingGraphControllerTest {
+public class GraphControllerTest {
 
    private NumberAxis xAxis;
    private NumberAxis yAxis;
    private WeightRecordingGraphModel model1;
    private WeightRecordingGraphModel model2;
-   private WeightRecordingGraphController systemUnderTest;
+   private GraphController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
@@ -46,7 +44,7 @@ public class WeightRecordingGraphControllerTest {
                r -> r.morningWeighIn().bodyFat(), 
                FXCollections.observableArrayList() 
       ) );
-      systemUnderTest = new WeightRecordingGraphController(
+      systemUnderTest = new GraphController(
                xAxis, yAxis, model1, model2
       );
    }//End Method

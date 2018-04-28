@@ -7,9 +7,9 @@ import org.junit.Test;
 
 import javafx.scene.layout.BorderPane;
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.graphics.graph.custom.GraphBuilder;
+import uk.dangrew.nuts.graphics.graph.custom.GraphController;
 import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraph;
-import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphBuilder;
-import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphController;
 import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphSettings;
 import uk.dangrew.nuts.graphics.progress.weight.WeighInTable;
 import uk.dangrew.nuts.manual.data.DataLocation;
@@ -26,14 +26,14 @@ public class WeightRecordingGraphTest {
       
       WeightRecordingGraph graph = new WeightRecordingGraph( 
                database.weightProgress(),
-               new WeightRecordingGraphBuilder()
+               new GraphBuilder()
                   .withXAxisTitle( "Epoch Day" )
                   .withYAxisTitle( "Weight (lbs)" )
                   .withChartTitle( "Weight Recordings" )
       );
       BorderPane pane = new BorderPane( graph );
       pane.setTop( new WeighInTable( database.weightProgress() ) );
-      pane.setRight( new WeightRecordingGraphSettings( graph.controller(), mock( WeightRecordingGraphController.class ) ) );
+      pane.setRight( new WeightRecordingGraphSettings( graph.controller(), mock( GraphController.class ) ) );
       
       TestApplication.launch( () -> pane );
       

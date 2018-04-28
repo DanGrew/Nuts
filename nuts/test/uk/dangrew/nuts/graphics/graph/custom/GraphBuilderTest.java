@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.graphics.graph.weight;
+package uk.dangrew.nuts.graphics.graph.custom;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -7,14 +7,12 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphBuilder;
+public class GraphBuilderTest {
 
-public class WeightRecordingGraphBuilderTest {
-
-   private WeightRecordingGraphBuilder systemUnderTest;
+   private GraphBuilder systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      systemUnderTest = new WeightRecordingGraphBuilder();
+      systemUnderTest = new GraphBuilder();
    }//End Method
 
    @Test public void shouldProvideXAxisTitle() {
@@ -30,7 +28,7 @@ public class WeightRecordingGraphBuilderTest {
    }//End Method
    
    @Test public void shouldProvideXAxisTickInterval() {
-      assertThat( systemUnderTest.xAxisTickInterval(), is( WeightRecordingGraphBuilder.DEFAULT_TICK_INTERVAL ) );
+      assertThat( systemUnderTest.xAxisTickInterval(), is( GraphBuilder.DEFAULT_TICK_INTERVAL ) );
       assertThat( systemUnderTest.withXAxisTickInterval( 78 ), is( systemUnderTest ) );
       assertThat( systemUnderTest.xAxisTickInterval(), is( 78.0 ) );
    }//End Method

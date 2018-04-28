@@ -6,7 +6,7 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.graphics.graph.weight;
+package uk.dangrew.nuts.graphics.graph.custom;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,24 +14,17 @@ import java.util.List;
 import java.util.Map;
 
 import javafx.scene.chart.NumberAxis;
-/**
- * The {@link WeightRecordingGraphController} is responsible for relaying instructions to the {@link WeightRecordingGraph}
- * in order to control its behaviour and configuration. 
- */
-public class WeightRecordingGraphController {
+
+public class GraphController {
    
    private final NumberAxis xAxis;
    private final NumberAxis yAxis;
-   private final Map< String, WeightRecordingGraphModel > models;
+   private final Map< String, GraphModel > models;
 
-   /**
-    * Constructs a new {@link WeightRecordingGraphController}.
-    * @param xAxis the {@link NumberAxis}.
-    * @param yAxis the {@link NumberAxis}.
-    */
-   public WeightRecordingGraphController( 
-            NumberAxis xAxis, NumberAxis yAxis,
-            WeightRecordingGraphModel... models
+   public GraphController( 
+            NumberAxis xAxis, 
+            NumberAxis yAxis,
+            GraphModel... models
    ) {
       this.xAxis = xAxis;
       this.yAxis = yAxis;
@@ -40,7 +33,7 @@ public class WeightRecordingGraphController {
       this.yAxis.setAutoRanging( false );
       
       this.models = new LinkedHashMap<>();
-      for ( WeightRecordingGraphModel model : models ) {
+      for ( GraphModel model : models ) {
          this.models.put( model.modelName(), model );
       }
    }//End Constructor
@@ -82,7 +75,7 @@ public class WeightRecordingGraphController {
    }//End Method
 
    public void enableSeries( String modelName, boolean enabled ) {
-      WeightRecordingGraphModel model = models.get( modelName );
+      GraphModel model = models.get( modelName );
       if ( model == null ) {
          return;
       }

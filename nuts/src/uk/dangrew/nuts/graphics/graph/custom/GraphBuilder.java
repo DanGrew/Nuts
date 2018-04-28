@@ -6,12 +6,9 @@
  *                 2017
  * ----------------------------------------
  */
-package uk.dangrew.nuts.graphics.graph.weight;
+package uk.dangrew.nuts.graphics.graph.custom;
 
-/**
- * {@link WeightRecordingGraphBuilder} provides a builder for configuring a {@link WeightRecordingGraph}.
- */
-public class WeightRecordingGraphBuilder {
+public class GraphBuilder {
    
    static final double DEFAULT_TICK_INTERVAL = 10;
    
@@ -26,10 +23,7 @@ public class WeightRecordingGraphBuilder {
    private double chartXTranslation;
    private double yAxisTranslation;
 
-   /**
-    * Constructs a new {@link WeightRecordingGraphBuilder}.
-    */
-   public WeightRecordingGraphBuilder() {
+   public GraphBuilder() {
       this.xAxisVisible = true;
       this.yAxisVisible = true;
       this.xAxisTickInterval = DEFAULT_TICK_INTERVAL;
@@ -48,7 +42,7 @@ public class WeightRecordingGraphBuilder {
     * @param value the value to configure.
     * @return this.
     */
-   public WeightRecordingGraphBuilder withXAxisTitle( String value ) {
+   public GraphBuilder withXAxisTitle( String value ) {
       this.xAxisTitle = value;
       return this;
    }//End Method
@@ -66,7 +60,7 @@ public class WeightRecordingGraphBuilder {
     * @param value the value to configure.
     * @return this.
     */
-   public WeightRecordingGraphBuilder withXAxisVisible( boolean value ) {
+   public GraphBuilder withXAxisVisible( boolean value ) {
       this.xAxisVisible = value;
       return this;
    }//End Method
@@ -84,7 +78,7 @@ public class WeightRecordingGraphBuilder {
     * @param value the value to configure.
     * @return this.
     */
-   public WeightRecordingGraphBuilder withXAxisTickInterval( double value ) {
+   public GraphBuilder withXAxisTickInterval( double value ) {
       this.xAxisTickInterval = value;
       return this;
    }//End Method
@@ -102,7 +96,7 @@ public class WeightRecordingGraphBuilder {
     * @param value the value to configure.
     * @return this.
     */
-   public WeightRecordingGraphBuilder withYAxisTitle( String value ) {
+   public GraphBuilder withYAxisTitle( String value ) {
       this.yAxisTitle = value;
       return this;
    }//End Method
@@ -120,7 +114,7 @@ public class WeightRecordingGraphBuilder {
     * @param value the value to configure.
     * @return this.
     */
-   public WeightRecordingGraphBuilder withYAxisVisible( boolean value ) {
+   public GraphBuilder withYAxisVisible( boolean value ) {
       this.yAxisVisible = value;
       return this;
    }//End Method
@@ -138,7 +132,7 @@ public class WeightRecordingGraphBuilder {
     * @param value the value to configure.
     * @return this.
     */
-   public WeightRecordingGraphBuilder withChartTitle( String value ) {
+   public GraphBuilder withChartTitle( String value ) {
       this.chartTitle = value;
       return this;
    }//End Method
@@ -156,7 +150,7 @@ public class WeightRecordingGraphBuilder {
     * @param value the value to configure.
     * @return this.
     */
-   public WeightRecordingGraphBuilder withChartXTranslation( double value ){
+   public GraphBuilder withChartXTranslation( double value ){
       this.chartXTranslation = value;
       return this;
    }//End Method
@@ -174,7 +168,7 @@ public class WeightRecordingGraphBuilder {
     * @param value the value to configure.
     * @return this.
     */
-   public WeightRecordingGraphBuilder withYAxisTranslation( double value ){
+   public GraphBuilder withYAxisTranslation( double value ){
       this.yAxisTranslation = value;
       return this;
    }//End Method

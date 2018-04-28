@@ -6,7 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphController;
+import uk.dangrew.nuts.graphics.graph.custom.GraphController;
 import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphSettings;
 
 public class WeightRecordingGraphSettingsTest {
@@ -14,8 +14,8 @@ public class WeightRecordingGraphSettingsTest {
    @Ignore
    @Test public void manual() throws InterruptedException {
       TestApplication.launch( () -> new WeightRecordingGraphSettings( 
-               mock( WeightRecordingGraphController.class ), 
-               mock( WeightRecordingGraphController.class ) 
+               mock( GraphController.class ), 
+               mock( GraphController.class ) 
       ) );
       
       Thread.sleep( 999999999 );
