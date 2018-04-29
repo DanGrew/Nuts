@@ -34,8 +34,6 @@ public class Graph extends BorderPane {
       yAxis.setTickUnit( graphBuilder.xAxisTickInterval() );
       yAxis.setTranslateX( graphBuilder.yAxisTranslation() );
       
-      this.controller = new GraphController( xAxis, yAxis );
-      
       this.chart = new LineChart<>( xAxis, yAxis );
       this.chart.setTitle( graphBuilder.chartTitle() );
       
@@ -52,6 +50,7 @@ public class Graph extends BorderPane {
       this.chart.minHeightProperty().bind( heightAdjuster );
       this.chart.maxHeightProperty().bind( heightAdjuster );
       
+      this.controller = new GraphController( chart().getData(), xAxis, yAxis );
       this.setCenter( chart );
    }//End Constructor
    

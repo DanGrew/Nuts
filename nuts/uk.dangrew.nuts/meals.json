@@ -2885,7 +2885,7 @@
       ]
    },
    {
-      "name": "Hemp Seed Cookie Batch",
+      "name": "Hemp Seed Bun Batch",
       "id": "2d233471-d33b-4ba1-83da-ddfa06c9efdd",
       "portions": [
          {
@@ -3017,6 +3017,106 @@
          {
             "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
             "portionValue": 25
+         }
+      ]
+   },
+   {
+      "name": "Hot Pockets",
+      "id": "1ef5e85f-ce64-4df1-8773-5e628cd1c18f",
+      "portions": [
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 75
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 15
+         }
+      ]
+   },
+   {
+      "name": "Risotto",
+      "id": "9722eb49-9249-48a6-96af-bb2019a98f38",
+      "portions": [
+         {
+            "foodId": "23889b9d-6ad8-48d9-8f73-f91e858719a8",
+            "portionValue": 200
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 200
+         },
+         {
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+            "portionValue": 50
+         },
+         {
+            "foodId": "a512bdfb-f4f9-4c90-989c-eb9b6b4f8b58",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Hemp Seed Bun Batch (Yolks)",
+      "id": "50be51f7-483e-4612-96c8-494dba26778e",
+      "portions": [
+         {
+            "foodId": "33982176-8b85-4245-afef-b0513594566c",
+            "portionValue": 25
+         },
+         {
+            "foodId": "457e8f68-e4c5-4ce5-bb9e-f05be2a6b487",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Hemp Seed Bun Batch (Whites)",
+      "id": "2be9da14-c59f-47d1-9307-18a3d083ebe0",
+      "portions": [
+         {
+            "foodId": "33982176-8b85-4245-afef-b0513594566c",
+            "portionValue": 25
+         },
+         {
+            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Dream Coconut Butter (400g)-copy",
+      "id": "7874db7b-2cfd-4a7f-9421-1847e801a50a",
+      "portions": [
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Almond Butter (Homemade) (300g)",
+      "id": "368e5d58-0ac7-449b-92b8-55c4738300ee",
+      "portions": [
+         {
+            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
          }
       ]
    }

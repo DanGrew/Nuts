@@ -1,12 +1,12 @@
 package uk.dangrew.nuts.graphics.graph.custom;
 
+import javafx.scene.chart.XYChart.Series;
+
 public interface GraphModel {
 
    public String modelName();
    
-   public void hide();
-
-   public void show();
+   public Series< Number, Number > series();
    
 }//End Interface
 

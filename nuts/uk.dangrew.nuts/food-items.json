@@ -369,7 +369,7 @@
       "loggedWeight": 1,
       "soldInWeight": 6,
       "protein": 3.6,
-      "name": "Egg (without yolk)",
+      "name": "Egg (White)",
       "id": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
       "calories": 17
    },
@@ -3529,5 +3529,27 @@
       "name": "Tesco Frozen Avocado Chunks 500G (100g)",
       "id": "b28bd778-86f6-4931-a57f-fa8dc7485a08",
       "calories": 197
+   },
+   {
+      "carbohydrates": 0.6,
+      "fiber": 0,
+      "fats": 4.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 2.7,
+      "name": "Egg (Yolk)",
+      "id": "457e8f68-e4c5-4ce5-bb9e-f05be2a6b487",
+      "calories": 55
+   },
+   {
+      "carbohydrates": 1.5,
+      "fiber": 0,
+      "fats": 0.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0.5,
+      "name": "Marigold Swiss Vegetable Bouillon Powder 150G (250ml)",
+      "id": "a512bdfb-f4f9-4c90-989c-eb9b6b4f8b58",
+      "calories": 12
    }
 ]}

@@ -8,35 +8,33 @@
  */
 package uk.dangrew.nuts.graphics.graph.custom;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
+import javafx.collections.ObservableList;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart.Series;
 
 public class GraphController {
    
+   private final GraphSeriesVisibility seriesVisibility;
    private final NumberAxis xAxis;
    private final NumberAxis yAxis;
-   private final Map< String, GraphModel > models;
 
    public GraphController( 
+            ObservableList< Series< Number, Number > > chartData,
             NumberAxis xAxis, 
-            NumberAxis yAxis,
-            GraphModel... models
+            NumberAxis yAxis
    ) {
+      this.seriesVisibility = new GraphSeriesVisibility( chartData );
+      
       this.xAxis = xAxis;
       this.yAxis = yAxis;
       
       this.xAxis.setAutoRanging( false );
       this.yAxis.setAutoRanging( false );
-      
-      this.models = new LinkedHashMap<>();
-      for ( GraphModel model : models ) {
-         this.models.put( model.modelName(), model );
-      }
    }//End Constructor
+   
+   public GraphSeriesVisibility seriesVisibility(){
+      return seriesVisibility;
+   }//End Method
 
    /**
     * Set the lower bound of the recording axis.
@@ -68,22 +66,6 @@ public class GraphController {
     */
    public void setDateUpperBound( double value ) {
       xAxis.setUpperBound( value );
-   }//End Method
-
-   public List< String > seriesByName() {
-      return new ArrayList<>( models.keySet() );
-   }//End Method
-
-   public void enableSeries( String modelName, boolean enabled ) {
-      GraphModel model = models.get( modelName );
-      if ( model == null ) {
-         return;
-      }
-      if ( enabled ) {
-         model.show();
-      } else {
-         model.hide();
-      }
    }//End Method
 
 }//End Class

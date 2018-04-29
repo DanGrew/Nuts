@@ -18,6 +18,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart.Data;
+import javafx.scene.chart.XYChart.Series;
 import uk.dangrew.nuts.graphics.graph.custom.GraphModel;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
 import uk.dangrew.nuts.progress.weight.WeightRecording;
@@ -32,7 +33,7 @@ public class WeightRecordingGraphModel implements GraphModel {
    private final WeightProgress progress;
    private final Function< WeightRecording, Double > dateRetriever;
    private final Function< WeightRecording, ObjectProperty< Double > > propertyRetriever;
-   private final ObservableList< Data< Number, Number > > series;
+   private final Series< Number, Number > series;
    
    private final Map< ObjectProperty< Double >, Data< Number, Number > > dataPoints;
    private final ChangeListener< Double > propertyChangeListener;
@@ -42,14 +43,14 @@ public class WeightRecordingGraphModel implements GraphModel {
     * @param progress the {@link WeightProgress}.
     * @param dateRetriever the {@link Function} for extracting the {@link java.time.LocalDate} representation.
     * @param propertyRetriever the {@link Function} for extracting the {@link ObjectProperty} to plot.
-    * @param series the {@link ObservableList} of points to manage.
+    * @param series the {@link javafx.scene.chart.XYChart.Series} to manage.
     */
    public WeightRecordingGraphModel( 
             String modelName,
             WeightProgress progress,
             Function< WeightRecording, Double > dateRetriever,
             Function< WeightRecording, ObjectProperty< Double > > propertyRetriever,
-            ObservableList< Data< Number, Number > > series 
+            Series< Number, Number > series 
    ) {
       this.modelName = modelName;
       this.progress = progress;
@@ -64,6 +65,14 @@ public class WeightRecordingGraphModel implements GraphModel {
    
    @Override public String modelName(){
       return modelName;
+   }//End Method
+   
+   @Override public Series< Number, Number > series() {
+      return series;
+   }//End Method
+   
+   private ObservableList< Data< Number, Number > > seriesData(){
+      return series().getData();
    }//End Method
    
    /**
@@ -91,15 +100,15 @@ public class WeightRecordingGraphModel implements GraphModel {
       dataPoint.setYValue( value );
       
       if ( value == null || value == 0.0 ) {
-         series.remove( dataPoint );
-      } else if ( !series.contains( dataPoint ) ){
-         series.add( dataPoint );
+         seriesData().remove( dataPoint );
+      } else if ( !seriesData().contains( dataPoint ) ){
+         seriesData().add( dataPoint );
          sortSeries();
       }
    }//End Method
    
    private void sortSeries(){
-      Collections.sort( series, ( o1, o2 ) -> Double.compare( o1.getXValue().doubleValue(), o2.getXValue().doubleValue() ) );
+      Collections.sort( seriesData(), ( o1, o2 ) -> Double.compare( o1.getXValue().doubleValue(), o2.getXValue().doubleValue() ) );
    }//End Method
    
    /**
@@ -110,15 +119,6 @@ public class WeightRecordingGraphModel implements GraphModel {
     */
    Data< Number, Number > dataFor( WeightRecording record ) {
       return dataPoints.get( propertyRetriever.apply( record ) );
-   }//End Method
-
-   @Override public void hide() {
-      series.clear();
-   }//End Method
-
-   @Override public void show() {
-      series.addAll( dataPoints.values() );
-      sortSeries();
    }//End Method
 
 }//End Class

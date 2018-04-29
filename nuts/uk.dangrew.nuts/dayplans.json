@@ -1522,29 +1522,14 @@
             "portionValue": 50
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
             "portionValue": 500
          },
          {
-            "consumed": false,
-            "foodId": "f98e6cfd-d533-4b92-aa62-b4b150fa28a0",
-            "portionValue": 200
-         },
-         {
-            "consumed": false,
-            "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
-            "portionValue": 100
-         },
-         {
-            "consumed": false,
-            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
-            "portionValue": 100
-         },
-         {
-            "consumed": false,
-            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
-            "portionValue": 50
+            "consumed": true,
+            "foodId": "d610a804-f314-4bfc-8059-7d816f535bfa",
+            "portionValue": 25
          }
       ]
    },
@@ -3178,13 +3163,34 @@
    {
       "date": "2018-04-29",
       "allowedCalories": 0,
-      "goalId": "java.lang.Object@4c7dfb48",
+      "goalId": "289074ad-ea8c-4fd3-9969-87f0bfe6686a",
       "isBalanceReset": false,
       "name": "2018-04-29",
       "id": "39d197a0-6097-4c14-a1af-2a5074c3eccf",
       "consumedCalories": 0,
       "calorieBalance": -14300,
-      "portions": []
+      "portions": [
+         {
+            "consumed": false,
+            "foodId": "1ef5e85f-ce64-4df1-8773-5e628cd1c18f",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+            "portionValue": 50
+         },
+         {
+            "consumed": false,
+            "foodId": "f98e6cfd-d533-4b92-aa62-b4b150fa28a0",
+            "portionValue": 200
+         },
+         {
+            "consumed": false,
+            "foodId": "9722eb49-9249-48a6-96af-bb2019a98f38",
+            "portionValue": 100
+         }
+      ]
    },
    {
       "date": "2017-10-02",

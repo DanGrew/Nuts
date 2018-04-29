@@ -12,10 +12,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javafx.beans.property.ObjectProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart.Data;
-import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingGraphModel;
+import javafx.scene.chart.XYChart.Series;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
 import uk.dangrew.nuts.progress.weight.WeightRecording;
 
@@ -28,7 +27,8 @@ public class WeightRecordingGraphModelTest {
    private WeightRecordingGraphModel systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
-      series = FXCollections.observableArrayList();
+      Series< Number, Number > graphSeries = new Series<>();
+      series = graphSeries.getData();
       progress = new WeightProgress();
       
       
@@ -39,7 +39,7 @@ public class WeightRecordingGraphModelTest {
                progress, 
                dateRetriever, 
                propertyRetriever, 
-               series 
+               graphSeries 
       );
    }//End Method
    
@@ -90,18 +90,4 @@ public class WeightRecordingGraphModelTest {
       assertThat( series.get( 1 ), is( systemUnderTest.dataFor( first ) ) );
    }//End Method
 
-   @Test public void shouldClearSeriesPoints(){
-      shouldReplaceSeries();
-      systemUnderTest.hide();
-      assertThat( series, is( empty() ) );
-   }//End Method
-   
-   @Test public void shouldReplaceSeries(){
-      assertThat( series, is( empty() ) );
-      systemUnderTest.show();
-      for ( int i = 0; i < progress.records().size(); i++ ) {
-         WeightRecording record = progress.records().get( i );
-         assertThat( series.get( i ), is( systemUnderTest.dataFor( record ) ) );
-      }
-   }//End Method
 }//End Class
