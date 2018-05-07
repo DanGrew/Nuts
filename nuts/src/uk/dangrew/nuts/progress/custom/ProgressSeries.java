@@ -7,9 +7,10 @@ import java.util.NavigableMap;
 import java.util.Set;
 import java.util.TreeMap;
 
+import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.Properties;
 
-public class ProgressSeries {
+public class ProgressSeries implements Concept {
 
    private final Properties properties;
    private final TreeMap< LocalDateTime, Double > entries;
@@ -29,8 +30,12 @@ public class ProgressSeries {
       this.changeListener = changeListener;
    }//End Constructor
    
-   public Properties properties(){
+   @Override public Properties properties(){
       return properties;
+   }//End Method
+   
+   @Override public Concept duplicate( String referenceId ) {
+      return this;
    }//End Method
    
    public Set< LocalDateTime > entries() {

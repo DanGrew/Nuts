@@ -3551,5 +3551,115 @@
       "name": "Marigold Swiss Vegetable Bouillon Powder 150G (250ml)",
       "id": "a512bdfb-f4f9-4c90-989c-eb9b6b4f8b58",
       "calories": 12
+   },
+   {
+      "carbohydrates": 5.8,
+      "fiber": 4.7,
+      "fats": 70.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 9.2,
+      "name": "Pecan Nuts (HFS) (100g)",
+      "id": "fa3b431a-08e4-4761-b498-bae079d585bd",
+      "calories": 689
+   },
+   {
+      "carbohydrates": 5,
+      "fiber": 16,
+      "fats": 40,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 23,
+      "name": "Golden Flax Seeds (HFS) (100g)",
+      "id": "53b25005-eb46-4c54-b876-90e2b5a2d203",
+      "calories": 471
+   },
+   {
+      "carbohydrates": 4.8,
+      "fiber": 9,
+      "fats": 77.6,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 7.9,
+      "name": "Macadamia Nuts (HFS) (100g)",
+      "id": "b2f07ea0-83a8-4748-afcd-46275968837f",
+      "calories": 748
+   },
+   {
+      "carbohydrates": 12.5,
+      "fiber": 6.2,
+      "fats": 46,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 25.6,
+      "name": "Peanuts (HFS, Blanched) (100g)",
+      "id": "c9050dc5-9c9b-489d-ba80-6b79eb647e8b",
+      "calories": 563
+   },
+   {
+      "carbohydrates": 7.9,
+      "fiber": 12,
+      "fats": 49,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 21,
+      "name": "Almonds (HFS, Unblanched) (100g)",
+      "id": "f3c458f3-68d6-44ce-a0df-531d27caaca1",
+      "calories": 576
+   },
+   {
+      "carbohydrates": 6.4,
+      "fiber": 13.7,
+      "fats": 62,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 6.6,
+      "name": "Coconut Flakes (HFS) (100g)",
+      "id": "bf0ba779-a882-4682-bb0d-b1d343ab17a9",
+      "calories": 595
+   },
+   {
+      "carbohydrates": 1.5,
+      "fiber": 0.5,
+      "fats": 7.9,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 8.3,
+      "name": "Birds Eye 4 Original Beef Burgers 227G (57g)",
+      "id": "d632ba61-6418-4ad6-a577-b7a2329dba46",
+      "calories": 110
+   },
+   {
+      "carbohydrates": 0.17,
+      "fiber": 0.6,
+      "fats": 21.6,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 20.3,
+      "name": "Tesco Skinless Boneless Scottish Mackerel In Olive Oil 125G (100g)",
+      "id": "bc516307-51e9-4af1-808c-f6a69feefbff",
+      "calories": 277.48
+   },
+   {
+      "carbohydrates": 14.7,
+      "fiber": 2.4,
+      "fats": 0.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 4.3,
+      "name": "Tesco Tomato Puree 200G (100g)",
+      "id": "d7499f84-6888-4584-af84-e242abc1c2cc",
+      "calories": 85.3
+   },
+   {
+      "carbohydrates": 1,
+      "fiber": 0.3,
+      "fats": 25,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 20,
+      "name": "Tesco German Salami Slices 125G (100g)",
+      "id": "50836e97-165c-4a17-bcf7-67e44ad3913d",
+      "calories": 309.6
    }
 ]}

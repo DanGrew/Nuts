@@ -1,9 +1,9 @@
 {"goals": [
    {
-      "fiberProportionValue": "java.lang.Object@3edf8f00",
+      "fiberProportionValue": 0,
       "carbohydrateProportionType": "Weight",
       "proteinProportionValue": 20,
-      "fiberProportionType": "java.lang.Object@3edf8f00",
+      "fiberProportionType": "java.lang.Object@2809487a",
       "name": "Lazy Keto",
       "carbohydrateProportionValue": 20,
       "fatProportionType": "PercentageOfCalories",
@@ -22,5 +22,17 @@
       "id": "289074ad-ea8c-4fd3-9969-87f0bfe6686a",
       "proteinProportionType": "Weight",
       "fatProportionValue": 220
+   },
+   {
+      "fiberProportionValue": 20,
+      "carbohydrateProportionType": "Weight",
+      "proteinProportionValue": 90,
+      "fiberProportionType": "Weight",
+      "name": "Strict Keto Adaptation",
+      "carbohydrateProportionValue": 20,
+      "fatProportionType": "Weight",
+      "id": "625578e2-911b-4ae7-945d-b36143900236",
+      "proteinProportionType": "Weight",
+      "fatProportionValue": 215
    }
 ]}

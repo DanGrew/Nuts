@@ -26,7 +26,7 @@ public class UiDatabaseManagerPane extends GridPane {
    
    public UiDatabaseManagerPane( Database database ) {
       JavaFxStyle styling = new JavaFxStyle();
-      styling.configureConstraintsForRowPercentages( this, 5, 30, 55 );
+      styling.configureConstraintsForRowPercentages( this, 5, 30, 45 );
       styling.configureConstraintsForColumnPercentages( this, 50, 50 );
       
       FoodFilterModel filterModel = new FoodFilterModel( database );

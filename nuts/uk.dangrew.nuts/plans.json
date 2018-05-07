@@ -218,57 +218,6 @@
    },
    {
       "goalId": "single-goal-no-id-provided-unique",
-      "name": "Temp",
-      "id": "3872ecfb-6ded-439e-94b6-d0dd3fd08979",
-      "portions": [
-         {
-            "foodId": "bbe7affa-9988-459a-bfd3-61d22168f281",
-            "portionValue": 100
-         },
-         {
-            "foodId": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
-            "portionValue": 200
-         },
-         {
-            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 300
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-            "portionValue": 200
-         },
-         {
-            "foodId": "4f799448-1364-4ac8-a047-4d950565fae9",
-            "portionValue": 200
-         },
-         {
-            "foodId": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
-            "portionValue": 100
-         },
-         {
-            "foodId": "94fc9ce8-41eb-4f64-b439-4b04cab70983",
-            "portionValue": 100
-         },
-         {
-            "foodId": "b408cf38-62ec-4915-963e-41923e958c60",
-            "portionValue": 100
-         },
-         {
-            "foodId": "91a7e4d8-2912-4401-81d3-5b68f6264a85",
-            "portionValue": 200
-         },
-         {
-            "foodId": "b12638bd-e260-4e3a-834c-9caac22154ef",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "goalId": "single-goal-no-id-provided-unique",
       "name": "Coming Off Fast",
       "id": "0c35b6e9-ea92-4f13-a253-eb819c7afe0a",
       "portions": [

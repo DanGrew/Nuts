@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
+import uk.dangrew.nuts.ModelVerifier;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItem;
@@ -103,6 +104,21 @@ public class DatabaseTest {
    @Test public void shouldProvideLabels(){
       assertThat( systemUnderTest.labels(), is( notNullValue() ) );
       assertThat( systemUnderTest.labels(), is( systemUnderTest.labels() ) );
+   }//End Method
+   
+   @Test public void shouldProvideConcepts(){
+      new ModelVerifier<>( systemUnderTest )
+         .shouldProvideObject( Database::foodItems )
+         .shouldProvideObject( Database::meals )
+         .shouldProvideObject( Database::templates )
+         .shouldProvideObject( Database::shoppingLists )
+         .shouldProvideObject( Database::labels )
+         .shouldProvideObject( Database::stockLists )
+         .shouldProvideObject( Database::dayPlans )
+         .shouldProvideObject( Database::calorieGoals )
+         .shouldProvideObject( Database::proportionGoals )
+         .shouldProvideObject( Database::progressSeries )
+         ;
    }//End Method
 
 }//End Class

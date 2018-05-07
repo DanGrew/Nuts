@@ -197,5 +197,9 @@ public class ProgressSeriesTest {
       assertThat( subMap, hasEntry( t4, v4 ) );
       assertThat( subMap, hasEntry( t5, v5 ) );
    }//End Method
+   
+   @Test public void shouldNotDuplicate(){
+      assertThat( systemUnderTest.duplicate( "anything" ), is( systemUnderTest ) );
+   }//End Method
 
 }//End Class

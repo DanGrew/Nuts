@@ -2125,7 +2125,7 @@
       ]
    },
    {
-      "name": "Cheeseburger Casserole",
+      "name": "Cheeseburger Casserole (First)",
       "id": "052a538d-1389-44a7-9353-8b964483606f",
       "portions": [
          {
@@ -2189,8 +2189,8 @@
             "portionValue": 60
          },
          {
-            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
-            "portionValue": 60
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
          }
       ]
    },
@@ -2741,7 +2741,7 @@
             "portionValue": 15
          },
          {
-            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
             "portionValue": 60
          }
       ]
@@ -2977,24 +2977,20 @@
       "id": "08a5e542-9aa4-42db-8ae4-729e22c0fdad",
       "portions": [
          {
-            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
-            "portionValue": 0
-         },
-         {
             "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
             "portionValue": 100
          },
          {
             "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 1000
+            "portionValue": 400
          },
          {
             "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
-            "portionValue": 300
+            "portionValue": 150
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 600
+            "portionValue": 300
          },
          {
             "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
@@ -3034,7 +3030,11 @@
          },
          {
             "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
-            "portionValue": 15
+            "portionValue": 10
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 100
          }
       ]
    },
@@ -3089,7 +3089,7 @@
       ]
    },
    {
-      "name": "Dream Coconut Butter (400g)-copy",
+      "name": "Dream Coconut Butter (400g)",
       "id": "7874db7b-2cfd-4a7f-9421-1847e801a50a",
       "portions": [
          {
@@ -3117,6 +3117,250 @@
          {
             "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
             "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Nut Bar (Homemade)",
+      "id": "fd3b203e-bf5e-4d38-b7d8-7d27ac5b2587",
+      "portions": [
+         {
+            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
+            "portionValue": 400
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 200
+         },
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 60
+         },
+         {
+            "foodId": "fb9de09a-d7e6-4a21-8eff-618d492bb128",
+            "portionValue": 60
+         },
+         {
+            "foodId": "b2f07ea0-83a8-4748-afcd-46275968837f",
+            "portionValue": 60
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter (Homemade) (300g)",
+      "id": "f4aa89b6-4b16-43d3-9e27-e4721861fac8",
+      "portions": [
+         {
+            "foodId": "c9050dc5-9c9b-489d-ba80-6b79eb647e8b",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Keto Mash",
+      "id": "87986a26-80b2-40df-a8be-aa94f4c535a0",
+      "portions": [
+         {
+            "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
+            "portionValue": 100
+         },
+         {
+            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
+            "portionValue": 100
+         },
+         {
+            "foodId": "9c758ea2-3f1c-4884-81ab-7c25a1a3e441",
+            "portionValue": 100
+         },
+         {
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+            "portionValue": 50
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Cake Base",
+      "id": "b99364ff-d48e-44c3-aad2-5712148729bc",
+      "portions": [
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 50
+         },
+         {
+            "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
+            "portionValue": 30
+         },
+         {
+            "foodId": "b2f07ea0-83a8-4748-afcd-46275968837f",
+            "portionValue": 30
+         },
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Pecan Pie",
+      "id": "4cf016bd-4673-4428-bf78-49a68798851e",
+      "portions": [
+         {
+            "foodId": "b99364ff-d48e-44c3-aad2-5712148729bc",
+            "portionValue": 100
+         },
+         {
+            "foodId": "bff24735-3ed7-4d03-b5bb-1be5042a7b7c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Coconut Bar (Pecan)",
+      "id": "d3fbc9a4-d2c1-41e9-a0b9-99f3f0f049bb",
+      "portions": [
+         {
+            "foodId": "7874db7b-2cfd-4a7f-9421-1847e801a50a",
+            "portionValue": 10
+         },
+         {
+            "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
+            "portionValue": 150
+         },
+         {
+            "foodId": "b2f07ea0-83a8-4748-afcd-46275968837f",
+            "portionValue": 0
+         },
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 0
+         },
+         {
+            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
+            "portionValue": 0
+         },
+         {
+            "foodId": "bf0ba779-a882-4682-bb0d-b1d343ab17a9",
+            "portionValue": 0
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 0
+         },
+         {
+            "foodId": "53b25005-eb46-4c54-b876-90e2b5a2d203",
+            "portionValue": 0
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         }
+      ]
+   },
+   {
+      "name": "Tomato Sauce Paste",
+      "id": "77328e66-d56b-4075-b38f-32a72311261c",
+      "portions": [
+         {
+            "foodId": "d7499f84-6888-4584-af84-e242abc1c2cc",
+            "portionValue": 10
+         },
+         {
+            "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "German Salami Pizza",
+      "id": "9dbeb24c-9a24-462e-9ea8-c6ad886e2fe3",
+      "portions": [
+         {
+            "foodId": "55d5a677-e181-4643-9437-7c0567c08d83",
+            "portionValue": 100
+         },
+         {
+            "foodId": "77328e66-d56b-4075-b38f-32a72311261c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "50836e97-165c-4a17-bcf7-67e44ad3913d",
+            "portionValue": 125
+         },
+         {
+            "foodId": "1847a9cb-8c9d-46f0-8f10-85c00b4e745f",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Bread (Almond Milk, PaleoFlourish)",
+      "id": "be776d48-70a3-486c-9394-da4cbf60e389",
+      "portions": [
+         {
+            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
+            "portionValue": 120
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 150
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 110
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Cheeseburger Casserole",
+      "id": "0af50d24-1046-4527-b748-268d9386a973",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 200
+         },
+         {
+            "foodId": "6dd04ef3-932c-4253-9f67-34070a3b0ad7",
+            "portionValue": 500
+         },
+         {
+            "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         },
+         {
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+            "portionValue": 150
          }
       ]
    }
