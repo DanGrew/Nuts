@@ -22,6 +22,7 @@ public class UiRecipeSummary extends GridPane {
    static final String INDENTATION = "---- "; 
    
    private static final Color HEADER_BACKGROUND = Color.BLACK;
+   private static final Color TOTAL_STATS_BACKGROUND = Color.CORNFLOWERBLUE;
    private static final Color MEAL_BACKGROUND = Color.GRAY;
    private static final Color ITEM_BACKGROUND = Color.WHITE;
    
@@ -49,6 +50,9 @@ public class UiRecipeSummary extends GridPane {
    }//End Class
    
    private void addTopLevelMeal( Meal meal ) {
+      addFoodRow( new FoodPortion( meal, 100.0 ), TOTAL_STATS_BACKGROUND, LIGHT_TEXT_COLOUR );
+      currentIndentation++;
+      
       meal.portions().stream()
          .filter( p -> p.food().get() instanceof FoodItem )
          .forEach( p -> individualIngredients.portions().add( p ) );
@@ -61,7 +65,7 @@ public class UiRecipeSummary extends GridPane {
    }//End Method
    
    private void addMealContents( FoodPortion mealPortion ){
-      addMealHeader( mealPortion );
+      addFoodRow( mealPortion, MEAL_BACKGROUND, LIGHT_TEXT_COLOUR );
       currentIndentation++;
       
       Meal meal = ( Meal ) mealPortion.food().get();
@@ -85,14 +89,18 @@ public class UiRecipeSummary extends GridPane {
       addRow( foodHeader, portionHeader, caloriesHeader, carbsHeader, fatsHeader, proteinHeader );
    }//End Method
    
-   private void addFoodItemUsage( FoodPortion item ) {
-      Label itemLabel = basicLabel( withIndentation( item.food().get().properties().nameProperty().get() ), ITEM_BACKGROUND, DARK_TEXT_COLOUR );
-      Label portionLabel = basicLabel( textWrap( item.portion().get() ), ITEM_BACKGROUND, DARK_TEXT_COLOUR );
-      Label caloriesLabel = basicLabel( textWrap( item.properties().calories().get() ), ITEM_BACKGROUND, DARK_TEXT_COLOUR );
-      Label carbsLabel = basicLabel( textWrap( item.properties().carbohydrates().get() ), ITEM_BACKGROUND, DARK_TEXT_COLOUR );
-      Label fatsLabel = basicLabel( textWrap( item.properties().fats().get() ), ITEM_BACKGROUND, DARK_TEXT_COLOUR );
-      Label proteinLabel = basicLabel( textWrap( item.properties().protein().get() ), ITEM_BACKGROUND, DARK_TEXT_COLOUR );
+   private void addFoodRow( FoodPortion meal, Color backgroundColour, Color textColour ) {
+      Label itemLabel = basicLabel( withIndentation( meal.food().get().properties().nameProperty().get() ), backgroundColour, textColour );
+      Label portionLabel = basicLabel( textWrap( meal.portion().get() ), backgroundColour, textColour );
+      Label caloriesLabel = basicLabel( textWrap( meal.properties().calories().get() ), backgroundColour, textColour );
+      Label carbsLabel = basicLabel( textWrap( meal.properties().carbohydrates().get() ), backgroundColour, textColour );
+      Label fatsLabel = basicLabel( textWrap( meal.properties().fats().get() ), backgroundColour, textColour );
+      Label proteinLabel = basicLabel( textWrap( meal.properties().protein().get() ), backgroundColour, textColour );
       addRow( itemLabel, portionLabel, caloriesLabel, carbsLabel, fatsLabel, proteinLabel );
+   }//End Method
+   
+   private void addFoodItemUsage( FoodPortion item ) {
+      addFoodRow( item, ITEM_BACKGROUND, DARK_TEXT_COLOUR );
    }//End Method
    
    private String textWrap( double value ) {
@@ -107,17 +115,7 @@ public class UiRecipeSummary extends GridPane {
       builder.append( value );
       return builder.toString();
    }//End Method
-   
-   private void addMealHeader( FoodPortion meal ) {
-      Label itemLabel = basicLabel( withIndentation( meal.food().get().properties().nameProperty().get() ), MEAL_BACKGROUND, LIGHT_TEXT_COLOUR );
-      Label portionLabel = basicLabel( textWrap( meal.portion().get() ), MEAL_BACKGROUND, LIGHT_TEXT_COLOUR );
-      Label caloriesLabel = basicLabel( textWrap( meal.properties().calories().get() ), MEAL_BACKGROUND, LIGHT_TEXT_COLOUR );
-      Label carbsLabel = basicLabel( textWrap( meal.properties().carbohydrates().get() ), MEAL_BACKGROUND, LIGHT_TEXT_COLOUR );
-      Label fatsLabel = basicLabel( textWrap( meal.properties().fats().get() ), MEAL_BACKGROUND, LIGHT_TEXT_COLOUR );
-      Label proteinLabel = basicLabel( textWrap( meal.properties().protein().get() ), MEAL_BACKGROUND, LIGHT_TEXT_COLOUR );
-      addRow( itemLabel, portionLabel, caloriesLabel, carbsLabel, fatsLabel, proteinLabel );
-   }//End Method
-   
+
    private Label basicLabel( String text, Color backgroundColour, Color textColour ) {
       return new LabelBuilder()
                .withText( text )

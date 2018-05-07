@@ -3661,5 +3661,16 @@
       "name": "Tesco German Salami Slices 125G (100g)",
       "id": "50836e97-165c-4a17-bcf7-67e44ad3913d",
       "calories": 309.6
+   },
+   {
+      "carbohydrates": 18.3,
+      "fiber": 37.4,
+      "fats": 13,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 14.8,
+      "name": "Tesco Smoked Paprika 48G (100g)",
+      "id": "25014999-5fd6-4249-b265-b6f108921bd3",
+      "calories": 324.2
    }
 ]}

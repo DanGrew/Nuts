@@ -18,6 +18,8 @@ import uk.dangrew.nuts.store.Database;
 
 public class UiRecipeSummaryTest {
 
+   private static final String DOUBLE_INDENTATION = UiRecipeSummary.INDENTATION + UiRecipeSummary.INDENTATION;
+   
    private Meal subject;
    private UiRecipeSummary systemUnderTest;
 
@@ -51,29 +53,31 @@ public class UiRecipeSummaryTest {
       
       row++;
       
+      assertFoodDisplayedInRow( row++, new FoodPortion( subject, 100.0 ), "" );
+      
       FoodPortion pizzaBase = subject.portions().get( 0 );
-      assertFoodDisplayedInRow( row++, pizzaBase, "" );
+      assertFoodDisplayedInRow( row++, pizzaBase, UiRecipeSummary.INDENTATION );
       for ( FoodPortion basePortion : ( ( Meal )pizzaBase.food().get() ).portions() ) {
-         assertFoodDisplayedInRow( row++, basePortion, UiRecipeSummary.INDENTATION );   
+         assertFoodDisplayedInRow( row++, basePortion, DOUBLE_INDENTATION );   
       }
       
       FoodPortion tomatoSauce = subject.portions().get( 1 );
-      assertFoodDisplayedInRow( row++, tomatoSauce, "" );
+      assertFoodDisplayedInRow( row++, tomatoSauce, UiRecipeSummary.INDENTATION );
       for ( FoodPortion basePortion : ( ( Meal )tomatoSauce.food().get() ).portions() ) {
-         assertFoodDisplayedInRow( row++, basePortion, UiRecipeSummary.INDENTATION  );   
+         assertFoodDisplayedInRow( row++, basePortion, DOUBLE_INDENTATION );   
       }
       
       FoodPortion cheeseSauce = subject.portions().get( 3 );
-      assertFoodDisplayedInRow( row++, cheeseSauce, "" );
+      assertFoodDisplayedInRow( row++, cheeseSauce, UiRecipeSummary.INDENTATION );
       for ( FoodPortion basePortion : ( ( Meal )cheeseSauce.food().get() ).portions() ) {
-         assertFoodDisplayedInRow( row++, basePortion, UiRecipeSummary.INDENTATION  );   
+         assertFoodDisplayedInRow( row++, basePortion, DOUBLE_INDENTATION );   
       }
       
       Meal individualIngredients = new Meal( UiRecipeSummary.INDIVIDUAL_INGREDIENTS );
       individualIngredients.portions().add( subject.portions().get( 2 ) );
-      assertFoodDisplayedInRow( row++, new FoodPortion( individualIngredients, 100.0 ), "" );
+      assertFoodDisplayedInRow( row++, new FoodPortion( individualIngredients, 100.0 ), UiRecipeSummary.INDENTATION );
       for ( FoodPortion basePortion : individualIngredients.portions() ) {
-         assertFoodDisplayedInRow( row++, basePortion, UiRecipeSummary.INDENTATION  );   
+         assertFoodDisplayedInRow( row++, basePortion, DOUBLE_INDENTATION  );   
       }
    }//End Method
    
@@ -95,5 +99,5 @@ public class UiRecipeSummaryTest {
       Label label = ( Label ) systemUnderTest.getChildren().get( index );
       assertThat( label.getText(), is( text ) );
    }//End Method
-
+   
 }//End Class

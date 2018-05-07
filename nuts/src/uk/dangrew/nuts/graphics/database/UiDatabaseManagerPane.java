@@ -6,6 +6,8 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.meal.MealTableWithControls;
+import uk.dangrew.nuts.graphics.meal.RecipeController;
+import uk.dangrew.nuts.graphics.meal.RecipeControls;
 import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
 import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodFilter;
@@ -33,13 +35,16 @@ public class UiDatabaseManagerPane extends GridPane {
       UiFoodFilter filter = new UiFoodFilterImpl( database, filterModel );
       
       comparisonModel = new SimpleFoodModel();
+      RecipeController recipeController = new RecipeControllerImpl( database, filterModel );
       
       add( controls = new UiFoodSelectionControls( database.labels().objectList(), filter ), 0, 0 );
       add( foodTable = new ConceptTableWithControls<>( 
                "Foods", 
-               new MixedFoodTable( new UiComparableFoodTableColumns( comparisonModel ), 
-                        new MixedFoodTableController( database, filterModel ) 
-               ) 
+               new MixedFoodTable( 
+                        new UiComparableFoodTableColumns( comparisonModel ), 
+                        recipeController 
+               ),
+               new RecipeControls( recipeController )
       ), 0, 1 );
       add( comparisonTable = new ConceptTableWithControls<>( "Comparison", new MixedFoodTable( database, comparisonModel ) ), 1, 1 );
       add( mealTable = new MealTableWithControls( "Contents of Selection", database ), 1, 2 );
