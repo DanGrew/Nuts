@@ -17,6 +17,7 @@ import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.persistence.goal.proportion.ProportionGoalPersistence;
 import uk.dangrew.nuts.persistence.labels.LabelPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
+import uk.dangrew.nuts.persistence.progress.ProgressSeriesPersistence;
 import uk.dangrew.nuts.persistence.setup.DataSetup;
 import uk.dangrew.nuts.persistence.template.TemplatePersistence;
 import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
@@ -40,6 +41,7 @@ public class FoodSessions {
    static final String CALORIE_GOALS_FILE_NAME = "goals.json";
    static final String PROPORTION_GOALS_FILE_NAME = "proportionGoals.json";
    static final String LABEL_FILE_NAME = "labels.json";
+   static final String PROGRESS_SERIES_FILE_NAME = "progressSeries.json";
    
    static final String LEGACY_GOAL_FILE_NAME = "goal.json";
    
@@ -62,6 +64,7 @@ public class FoodSessions {
    private final ModelMarshaller calorieGoalMarshaller;
    private final ModelMarshaller proportionGoalMarshaller;
    private final ModelMarshaller labelMarshaller;
+   private final ModelMarshaller progressSeriesMarshaller;
    
    private final ModelMarshaller legacyGoalMarshaller;
    
@@ -106,6 +109,9 @@ public class FoodSessions {
                ),
                new JarJsonPersistingProtocol( 
                         FOLDER_NAME, LABEL_FILE_NAME, Nuts.class 
+               ),
+               new JarJsonPersistingProtocol( 
+                        FOLDER_NAME, PROGRESS_SERIES_FILE_NAME, Nuts.class 
                )
       );
    }//End Constructor
@@ -122,7 +128,8 @@ public class FoodSessions {
             JarJsonPersistingProtocol calorieGoalsFileLocation,
             JarJsonPersistingProtocol proportionGoalsFileLocation,
             JarJsonPersistingProtocol legacyGoalFileLocation,
-            JarJsonPersistingProtocol labelFileLocation
+            JarJsonPersistingProtocol labelFileLocation,
+            JarJsonPersistingProtocol progressSeriesFileLocation
    ) {
       this.database = database;
       this.setup = new DataSetup( database );
@@ -143,6 +150,7 @@ public class FoodSessions {
       this.calorieGoalMarshaller = constructCalorieGoalMarshaller( calorieGoalsFileLocation );
       this.proportionGoalMarshaller = constructProportionGoalMarshaller( proportionGoalsFileLocation );
       this.labelMarshaller = constructLabelMarshaller( labelFileLocation );
+      this.progressSeriesMarshaller = constructProgressSeriesMarshaller( progressSeriesFileLocation );
       
       this.legacyGoalMarshaller = constructCalorieGoalMarshaller( legacyGoalFileLocation );
    }//End Constructor
@@ -245,6 +253,16 @@ public class FoodSessions {
                fileLocation 
       );
    }//End Method
+   
+   private ModelMarshaller constructProgressSeriesMarshaller( JarJsonPersistingProtocol fileLocation ){
+      ProgressSeriesPersistence persistence = new ProgressSeriesPersistence( database );
+      return new ModelMarshaller( 
+               persistence.structure(), 
+               persistence.readHandles(), 
+               persistence.writeHandles(), 
+               fileLocation 
+      );
+   }//End Method
 
    /**
     * Method to read all {@link uk.dangrew.nuts.food.FoodItem}s and {@link uk.dangrew.nuts.meal.Meal}s
@@ -270,6 +288,7 @@ public class FoodSessions {
       setup.configureDefaultStockListAndConnect();
       
       labelMarshaller.read();
+      progressSeriesMarshaller.read();
       
       weightRecordingMarshaller.read();
    }// End Method
@@ -289,5 +308,6 @@ public class FoodSessions {
       calorieGoalMarshaller.write();
       proportionGoalMarshaller.write();
       labelMarshaller.write();
+      progressSeriesMarshaller.write();
    }// End Method
 }//End Class

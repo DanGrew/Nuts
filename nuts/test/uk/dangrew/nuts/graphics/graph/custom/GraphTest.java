@@ -30,8 +30,8 @@ public class GraphTest {
       
       TestApplication.launch( () -> {
          systemUnderTest.controller().seriesVisibility().add( progressSeries );
-         systemUnderTest.controller().setDateLowerBound( LocalDateTime.now().toEpochSecond( ZoneOffset.UTC ) );
-         systemUnderTest.controller().setDateUpperBound( LocalDateTime.now().plusDays( 10 ).toEpochSecond( ZoneOffset.UTC ) );
+         systemUnderTest.controller().setDateLowerBound( LocalDateTime.now().toLocalDate() );
+         systemUnderTest.controller().setDateUpperBound( LocalDateTime.now().plusDays( 10 ).toLocalDate() );
          
          return systemUnderTest;
       } );

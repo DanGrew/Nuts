@@ -38,6 +38,7 @@ public class FoodSessionsTest {
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class )
       );
       sessions.read();
@@ -63,6 +64,7 @@ public class FoodSessionsTest {
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                goalLocation,
+               mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class )
       );
       sessions.read();

@@ -12,6 +12,7 @@ import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingsPane;
 import uk.dangrew.nuts.graphics.information.InformationPane;
 import uk.dangrew.nuts.graphics.label.UiLabelConfigurationView;
 import uk.dangrew.nuts.graphics.meal.TemplateManagerPane;
+import uk.dangrew.nuts.graphics.progress.custom.ProgressSeriesPane;
 import uk.dangrew.nuts.graphics.shopping.ShoppingPane;
 import uk.dangrew.nuts.graphics.stock.StockTable;
 import uk.dangrew.nuts.graphics.tools.dryweight.DryWeightToolPane;
@@ -26,6 +27,7 @@ public class NutsTabs extends TabPane {
       createConcreteTab( "Stock", new StockTable( database ) );
       createConcreteTab( "Templates", new TemplateManagerPane( database ) );
       createConcreteTab( "Day Plans", new UiCalendarPane( database ) );
+      createConcreteTab( "Graph", new ProgressSeriesPane( database ) );
       createConcreteTab( "Labels", new UiLabelConfigurationView( database ) );
       createConcreteTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );
       createConcreteTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );

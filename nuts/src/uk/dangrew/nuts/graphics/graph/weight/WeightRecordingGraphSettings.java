@@ -52,8 +52,8 @@ public class WeightRecordingGraphSettings extends GridPane {
                          dataRange.get(),
                          DEFAULT_DATE_LOWER_BOUND,
                          ( s, o, n ) -> {
-                            weightController.setDateLowerBound( n.toEpochDay() + 0.0 );
-                            fatController.setDateLowerBound( n.toEpochDay() + 0.0 );
+                            weightController.setDateLowerBound( n );
+                            fatController.setDateLowerBound( n );
                          }
              ) ),
          new PropertyRowBuilder()
@@ -62,8 +62,8 @@ public class WeightRecordingGraphSettings extends GridPane {
                         dataRange.get(),
                         DEFAULT_DATE_UPPER_BOUND,
                         ( s, o, n ) -> {
-                           weightController.setDateUpperBound( n.toEpochDay() + 0.0 );
-                           fatController.setDateUpperBound( n.toEpochDay() + 0.0 );
+                           weightController.setDateUpperBound( n );
+                           fatController.setDateUpperBound( n );
                         }
                ) ),
          new PropertyRowBuilder()
@@ -96,13 +96,13 @@ public class WeightRecordingGraphSettings extends GridPane {
                ) )
       ) );
       
-      weightController.setDateLowerBound( DEFAULT_DATE_LOWER_BOUND.toEpochDay() );
-      weightController.setDateUpperBound( DEFAULT_DATE_UPPER_BOUND.toEpochDay() );
+      weightController.setDateLowerBound( DEFAULT_DATE_LOWER_BOUND );
+      weightController.setDateUpperBound( DEFAULT_DATE_UPPER_BOUND );
       weightController.setRecordingLowerBound( DEFAULT_WEIGHT_LOWER_BOUND );
       weightController.setRecordingUpperBound( DEFAULT_WEIGHT_UPPER_BOUND );
       
-      fatController.setDateLowerBound( DEFAULT_DATE_LOWER_BOUND.toEpochDay() );
-      fatController.setDateUpperBound( DEFAULT_DATE_UPPER_BOUND.toEpochDay() );
+      fatController.setDateLowerBound( DEFAULT_DATE_LOWER_BOUND );
+      fatController.setDateUpperBound( DEFAULT_DATE_UPPER_BOUND );
       fatController.setRecordingLowerBound( DEFAULT_FAT_LOWER_BOUND );
       fatController.setRecordingUpperBound( DEFAULT_FAT_UPPER_BOUND );
    }//End Constructor
