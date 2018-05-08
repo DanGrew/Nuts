@@ -17,6 +17,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import uk.dangrew.kode.comparator.Comparators;
@@ -25,6 +26,7 @@ import uk.dangrew.kode.javafx.table.EditCommitHandler;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.system.Concept;
 
 /**
@@ -222,6 +224,17 @@ public class TableConfiguration {
       portionColumn.setEditable( true );
       portionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
       portionColumn.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> r.concept().setPortion( Double.valueOf( v ) ) ) );
+   }//End Method
+   
+   public < TypeT extends Concept > void configureCheckBoxController(
+            ConceptTable< TypeT > table,
+            CheckBoxController< TypeT > controller 
+   ) {
+      TableColumn< ConceptTableRow< TypeT >, Boolean > column = new TableColumn<>();
+      column.setCellValueFactory( param -> controller.propertyFor( param.getValue().concept() ) );
+      column.setCellFactory( CheckBoxTableCell.forTableColumn( column ) );
+      column.setEditable( true );
+      table.getColumns().add( column );
    }//End Method
 
 }//End Class

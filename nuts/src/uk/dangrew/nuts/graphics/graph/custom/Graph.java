@@ -27,11 +27,14 @@ public class Graph extends BorderPane {
          xAxis.setTickLabelsVisible( false );
          xAxis.setOpacity( 0 );
       }
+      xAxis.setTickUnit( graphBuilder.xAxisTickInterval() );
+      if ( graphBuilder.xAxisTickFormatter() != null ) {
+         xAxis.setTickLabelFormatter( graphBuilder.xAxisTickFormatter() );
+      }
       
       NumberAxis yAxis = new NumberAxis();
       yAxis.setLabel( graphBuilder.yAxisTitle() );
       yAxis.setVisible( graphBuilder.isYAxisVisible() );
-      yAxis.setTickUnit( graphBuilder.xAxisTickInterval() );
       yAxis.setTranslateX( graphBuilder.yAxisTranslation() );
       
       this.chart = new LineChart<>( xAxis, yAxis );

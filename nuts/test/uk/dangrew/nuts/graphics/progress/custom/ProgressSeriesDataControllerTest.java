@@ -20,6 +20,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.common.UiDateTimeInputDialog;
+import uk.dangrew.nuts.graphics.graph.custom.GraphSeriesVisibility;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
 
@@ -32,6 +33,7 @@ public class ProgressSeriesDataControllerTest {
    private ProgressSeriesTable seriesTable;
    private ProgressSeriesDataTable dataTable;
    
+   @Mock private GraphSeriesVisibility graphController;
    @Mock private UiDateTimeInputDialog timestampInput;
    private ProgressSeriesDataController systemUnderTest;
 
@@ -41,7 +43,7 @@ public class ProgressSeriesDataControllerTest {
       systemUnderTest = new ProgressSeriesDataController( timestampInput );
       
       dataTable = new ProgressSeriesDataTable( systemUnderTest );
-      seriesTable = new ProgressSeriesTable( database = new Database() );
+      seriesTable = new ProgressSeriesTable( database = new Database(), graphController );
       systemUnderTest.associate( seriesTable );
       
       first = database.progressSeries().createConcept( "First" );

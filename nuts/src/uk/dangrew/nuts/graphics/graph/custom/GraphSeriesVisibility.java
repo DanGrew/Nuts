@@ -48,11 +48,13 @@ public class GraphSeriesVisibility {
    private void internal_add( ProgressSeries progress ){
       GraphModel model = new GraphModelImpl( progress );
       models.put( progress, model );
+      
+      chartData.add( model.series() );
       internal_availableSeries.add( progress );
    }//End Method
 
    public void hide( ProgressSeries progress ) {
-      chartData.remove( models.get( progress ).series() );
+      models.get( progress ).hide();
       internal_visibleSeries.remove( progress );
    }//End Method
 
@@ -60,7 +62,11 @@ public class GraphSeriesVisibility {
       if ( !models.containsKey( progress ) ) {
          add( progress );
       }
-      chartData.add( models.get( progress ).series() );
+      
+      if ( visibleSeries().contains( progress ) ) {
+         return;
+      }
+      models.get( progress ).show();
       internal_visibleSeries.add( progress );
    }//End Method
    

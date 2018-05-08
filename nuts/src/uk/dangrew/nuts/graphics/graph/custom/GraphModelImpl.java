@@ -9,12 +9,7 @@
 package uk.dangrew.nuts.graphics.graph.custom;
 
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
-import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
@@ -22,16 +17,12 @@ import uk.dangrew.nuts.progress.custom.ProgressSeries;
 public class GraphModelImpl implements GraphModel {
 
    private final ProgressSeries progressSeries;
-   private final Series< Number, Number > series;
-   
-   private final Map< LocalDateTime, Data< Number, Number > > dataPoints;
+   private final GraphSeriesSynchronizer seriesModel;
    
    public GraphModelImpl( ProgressSeries progressSeries ) {
       this.progressSeries = progressSeries;
-      this.series = new Series<>();
-      this.series.setName( modelName() );
+      this.seriesModel = new GraphSeriesSynchronizer( modelName() );
       
-      this.dataPoints = new HashMap<>();
       this.progressSeries.entries().forEach( this::updateDataPoint );
       this.progressSeries.progressChangedListener().whenProgressAdded( this::internalRedirect_updateDataPoint );
       this.progressSeries.progressChangedListener().whenProgressRemoved( this::internalRedirect_updateDataPoint );
@@ -43,11 +34,15 @@ public class GraphModelImpl implements GraphModel {
    }//End Method
    
    @Override public Series< Number, Number > series() {
-      return series;
+      return seriesModel.chartSeries();
    }//End Method
    
-   private ObservableList< Data< Number, Number > > seriesData(){
-      return series().getData();
+   @Override public void show() {
+      seriesModel.show();
+   }//End Method
+   
+   @Override public void hide() {
+      seriesModel.hide();
    }//End Method
    
    private void internalRedirect_updateDataPoint( LocalDateTime timestamp, Double value ) {
@@ -55,31 +50,11 @@ public class GraphModelImpl implements GraphModel {
    }//End Method
    
    private void updateDataPoint( LocalDateTime timestamp ) {
-      if ( !dataPoints.containsKey( timestamp ) ) {
-         dataPoints.put( 
-               timestamp, 
-               new Data<>( timestamp.toEpochSecond( ZoneOffset.UTC ), progressSeries.entryFor( timestamp ) ) 
-         );
-      }
-      
-      Data< Number, Number > dataPoint = dataPoints.get( timestamp );
-      dataPoint.setYValue( progressSeries.entryFor( timestamp ) );
-      
-      if ( dataPoint.getYValue() == null ) {
-         dataPoints.remove( timestamp );
-         seriesData().remove( dataPoint );
-      } else if ( !seriesData().contains( dataPoint ) ){
-         seriesData().add( dataPoint );
-         sortSeries();
-      }
-   }//End Method
-   
-   private void sortSeries(){
-      Collections.sort( seriesData(), ( o1, o2 ) -> Double.compare( o1.getXValue().doubleValue(), o2.getXValue().doubleValue() ) );
+      seriesModel.update( timestamp, progressSeries.entryFor( timestamp ) );
    }//End Method
    
    Data< Number, Number > dataFor( LocalDateTime recordTimestamp ) {
-      return dataPoints.get( recordTimestamp );
+      return seriesModel.pointFor( recordTimestamp );
    }//End Method
 
 }//End Class

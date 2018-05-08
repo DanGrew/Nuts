@@ -1,10 +1,14 @@
 package uk.dangrew.nuts.graphics.graph.custom;
 
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
+
+import java.time.LocalDateTime;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +33,9 @@ public class GraphSeriesVisibilityTest {
       MockitoAnnotations.initMocks( this );
       
       progress = new ProgressSeries( "anything" );
+      for ( int i = 0; i < 10; i++ ) {
+         progress.record( LocalDateTime.now().plusDays( i ), i + 20.0 );
+      }
       
       chartData = FXCollections.observableArrayList();
       systemUnderTest = new GraphSeriesVisibility( chartData );
@@ -55,12 +62,15 @@ public class GraphSeriesVisibilityTest {
    @Test public void shouldChangeVisibilityOfSeries() {
       systemUnderTest.add( progress );
       assertThat( chartData.contains( systemUnderTest.dataFor( progress ) ), is( true ) );
+      assertThat( systemUnderTest.dataFor( progress ).getData(), is( not( empty() ) ) );
       assertThat( systemUnderTest.visibleSeries().contains( progress ), is( true ) );
       systemUnderTest.hide( progress );
-      assertThat( chartData.contains( systemUnderTest.dataFor( progress ) ), is( false ) );
+      assertThat( chartData.contains( systemUnderTest.dataFor( progress ) ), is( true ) );
+      assertThat( systemUnderTest.dataFor( progress ).getData(), is( empty() ) );
       assertThat( systemUnderTest.visibleSeries().contains( progress ), is( false ) );
       systemUnderTest.show( progress );
       assertThat( chartData.contains( systemUnderTest.dataFor( progress ) ), is( true ) );
+      assertThat( systemUnderTest.dataFor( progress ).getData(), is( not( empty() ) ) );
       assertThat( systemUnderTest.visibleSeries().contains( progress ), is( true ) );
    }//End Method
    

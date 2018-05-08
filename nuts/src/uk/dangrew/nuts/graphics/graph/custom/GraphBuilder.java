@@ -8,6 +8,8 @@
  */
 package uk.dangrew.nuts.graphics.graph.custom;
 
+import javafx.util.StringConverter;
+
 public class GraphBuilder {
    
    static final double DEFAULT_TICK_INTERVAL = 10;
@@ -22,6 +24,8 @@ public class GraphBuilder {
    
    private double chartXTranslation;
    private double yAxisTranslation;
+   
+   private StringConverter< Number > xAxisTickFormatter;
 
    public GraphBuilder() {
       this.xAxisVisible = true;
@@ -170,6 +174,15 @@ public class GraphBuilder {
     */
    public GraphBuilder withYAxisTranslation( double value ){
       this.yAxisTranslation = value;
+      return this;
+   }//End Method
+   
+   public StringConverter< Number > xAxisTickFormatter() {
+      return xAxisTickFormatter;
+   }//End Method
+   
+   public GraphBuilder withXAxisTickFormatter( StringConverter< Number > formatter ){
+      this.xAxisTickFormatter = formatter;
       return this;
    }//End Method
 

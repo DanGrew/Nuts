@@ -1,10 +1,13 @@
 package uk.dangrew.nuts.graphics.graph.custom;
 
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -38,7 +41,7 @@ public class GraphModelImplTest {
       assertThat( systemUnderTest.series().getName(), is( systemUnderTest.modelName() ) );
       for ( LocalDateTime record : progress.entries() ) {
          assertThat( systemUnderTest.dataFor( record ), is( notNullValue() ) );
-         assertThat( systemUnderTest.dataFor( record ).getXValue(), is( record.toEpochSecond( ZoneOffset.UTC ) ) );
+         assertThat( systemUnderTest.dataFor( record ).getXValue().longValue(), is( record.toEpochSecond( ZoneOffset.UTC ) ) );
          assertThat( systemUnderTest.dataFor( record ).getYValue(), is( progress.entryFor( record ) ) );
       }
    }//End Method
@@ -57,7 +60,7 @@ public class GraphModelImplTest {
       
       assertThat( systemUnderTest.dataFor( subject ), is( notNullValue() ) );
       assertThat( systemUnderTest.series().getData(), hasSize( 8 ) );
-      assertThat( systemUnderTest.series().getData().get( 7 ).getXValue(), is( subject.toEpochSecond( ZoneOffset.UTC ) ) );
+      assertThat( systemUnderTest.series().getData().get( 7 ).getXValue().longValue(), is( subject.toEpochSecond( ZoneOffset.UTC ) ) );
       assertThat( systemUnderTest.series().getData().get( 7 ).getYValue(), is( 20.0 ) );
    }//End Method
    
@@ -68,6 +71,14 @@ public class GraphModelImplTest {
       assertThat( systemUnderTest.dataFor( subject ), is( notNullValue() ) );
       assertThat( systemUnderTest.series().getData(), hasSize( 8 ) );
       assertThat( systemUnderTest.series().getData().get( 2 ), is( systemUnderTest.dataFor( subject ) ) );
+   }//End Method
+   
+   @Test public void shouldShowAndHideByEmptyingPoints(){
+      assertThat( systemUnderTest.series().getData(), is( not( empty() ) ) );
+      systemUnderTest.hide();
+      assertThat( systemUnderTest.series().getData(), is( empty() ) );
+      systemUnderTest.show();
+      assertThat( systemUnderTest.series().getData(), is( not( empty() ) ) );
    }//End Method
 
 }//End Class

@@ -3367,5 +3367,27 @@
             "portionValue": 150
          }
       ]
+   },
+   {
+      "name": "Cheesecake (Almond Base)",
+      "id": "ec4fb86e-8f47-49a9-aad2-7e8a72fe3cab",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 800
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 1000
+         },
+         {
+            "foodId": "0ffeec3c-24eb-4eec-9d0a-fb4858fe463f",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b2c54c5d-ccec-4951-a31d-2776e6232241",
+            "portionValue": 40
+         }
+      ]
    }
 ]}

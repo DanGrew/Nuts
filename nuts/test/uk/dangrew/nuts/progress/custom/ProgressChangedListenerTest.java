@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.progress.custom;
 
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.time.LocalDateTime;
@@ -21,6 +22,11 @@ public class ProgressChangedListenerTest {
    @Mock private BiConsumer< LocalDateTime, Double > whenAdded;
    @Mock private BiConsumer< LocalDateTime, Double > whenUpdated;
    @Mock private BiConsumer< LocalDateTime, Double > whenRemoved;
+   
+   @Mock private BiConsumer< LocalDateTime, Double > whenAdded2;
+   @Mock private BiConsumer< LocalDateTime, Double > whenUpdated2;
+   @Mock private BiConsumer< LocalDateTime, Double > whenRemoved2;
+   
    private ProgressChangedListener< LocalDateTime > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -36,6 +42,16 @@ public class ProgressChangedListenerTest {
       systemUnderTest.whenProgressAdded( whenAdded );
       systemUnderTest.progressAdded( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
       verify( whenAdded ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      
+      systemUnderTest.whenProgressAdded( whenAdded2 );
+      systemUnderTest.progressAdded( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenAdded, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenAdded2 ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      
+      systemUnderTest.removeWhenProgressAdded( whenAdded );
+      systemUnderTest.progressAdded( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenAdded, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenAdded2, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
    }//End Method
    
    @Test public void shouldForwardUpdatedCallsOnToDelegated() {
@@ -45,6 +61,16 @@ public class ProgressChangedListenerTest {
       systemUnderTest.whenProgressUpdated( whenUpdated );
       systemUnderTest.progressUpdated( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
       verify( whenUpdated ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      
+      systemUnderTest.whenProgressUpdated( whenUpdated2 );
+      systemUnderTest.progressUpdated( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenUpdated, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenUpdated2 ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      
+      systemUnderTest.removeWhenProgressUpdated( whenUpdated );
+      systemUnderTest.progressUpdated( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenUpdated, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenUpdated2, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
    }//End Method
    
    @Test public void shouldForwardRemovedCallsOnToDelegated() {
@@ -54,6 +80,16 @@ public class ProgressChangedListenerTest {
       systemUnderTest.whenProgressRemoved( whenRemoved );
       systemUnderTest.progressRemoved( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
       verify( whenRemoved ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      
+      systemUnderTest.whenProgressRemoved( whenRemoved2 );
+      systemUnderTest.progressRemoved( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenRemoved, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenRemoved2 ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      
+      systemUnderTest.removeWhenProgressRemoved( whenRemoved );
+      systemUnderTest.progressRemoved( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenRemoved, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
+      verify( whenRemoved2, times( 2 ) ).accept( EXAMPLE_TIMESTAMP, EXAMPLE_VALUE );
    }//End Method
    
 }//End Class

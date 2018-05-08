@@ -3,9 +3,12 @@ package uk.dangrew.nuts.graphics.graph.custom;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import javafx.util.StringConverter;
 
 public class GraphBuilderTest {
 
@@ -61,6 +64,13 @@ public class GraphBuilderTest {
       assertThat( systemUnderTest.yAxisTranslation(), is( 0.0 ) );
       assertThat( systemUnderTest.withYAxisTranslation( 78 ), is( systemUnderTest ) );
       assertThat( systemUnderTest.yAxisTranslation(), is( 78.0 ) );
+   }//End Method
+   
+   @Test public void shouldProvideXAxisTickFormatter() {
+      StringConverter< Number > converter = mock( StringConverter.class );
+      assertThat( systemUnderTest.xAxisTickFormatter(), is( nullValue() ) );
+      assertThat( systemUnderTest.withXAxisTickFormatter( converter ), is( systemUnderTest ) );
+      assertThat( systemUnderTest.xAxisTickFormatter(), is( converter ) );
    }//End Method
    
 }//End Class

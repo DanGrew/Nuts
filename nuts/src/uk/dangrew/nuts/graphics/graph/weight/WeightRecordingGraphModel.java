@@ -75,6 +75,14 @@ public class WeightRecordingGraphModel implements GraphModel {
       return series().getData();
    }//End Method
    
+   @Override public void show() {
+      throw new UnsupportedOperationException( "Not integrated with Graph yet." );
+   }//End Method
+   
+   @Override public void hide() {
+      throw new UnsupportedOperationException( "Not integrated with Graph yet." );
+   }//End Method
+   
    /**
     * Method to construct a data point for the given {@link WeightRecording}, automatically added to the series if present.
     * @param recording the {@link WeightRecording} to construct for.

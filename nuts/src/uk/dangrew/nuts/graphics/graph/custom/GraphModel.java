@@ -8,5 +8,9 @@ public interface GraphModel {
    
    public Series< Number, Number > series();
    
+   public void show();
+   
+   public void hide();
+   
 }//End Interface
 

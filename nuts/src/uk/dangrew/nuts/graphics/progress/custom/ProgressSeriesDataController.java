@@ -39,9 +39,9 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
    
    private void select( ProgressSeries series ) {
       if ( selected != null ) {
-         selected.progressChangedListener().whenProgressAdded( null );
-         selected.progressChangedListener().whenProgressRemoved( null );
-         selected.progressChangedListener().whenProgressUpdated( null );
+         selected.progressChangedListener().removeWhenProgressAdded( updater );
+         selected.progressChangedListener().removeWhenProgressRemoved( remover );
+         selected.progressChangedListener().removeWhenProgressUpdated( updater );
       }
       
       this.table.getRows().clear();
