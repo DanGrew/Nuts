@@ -3047,7 +3047,7 @@
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "ec4fb86e-8f47-49a9-aad2-7e8a72fe3cab",
             "portionValue": 25
          }

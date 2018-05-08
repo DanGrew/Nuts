@@ -8,12 +8,18 @@
  */
 package uk.dangrew.nuts.graphics.graph.custom;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import javafx.collections.ObservableList;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Series;
+import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class GraphController {
    
+   private final DateTimeFormats formats;
    private final GraphSeriesVisibility seriesVisibility;
    private final NumberAxis xAxis;
    private final NumberAxis yAxis;
@@ -23,6 +29,16 @@ public class GraphController {
             NumberAxis xAxis, 
             NumberAxis yAxis
    ) {
+      this( new DateTimeFormats(), chartData, xAxis, yAxis );
+   }//End Constructor
+   
+   GraphController(
+            DateTimeFormats formats,
+            ObservableList< Series< Number, Number > > chartData,
+            NumberAxis xAxis, 
+            NumberAxis yAxis
+   ) {
+      this.formats = formats;
       this.seriesVisibility = new GraphSeriesVisibility( chartData );
       
       this.xAxis = xAxis;
@@ -56,16 +72,72 @@ public class GraphController {
     * Set the lower bound of the date axis.
     * @param value the bound.
     */
-   public void setDateLowerBound( double value ) {
-      xAxis.setLowerBound( value );
+   public void setDateLowerBound( LocalDate value ) {
+      xAxis.setLowerBound( formats.toDayBeginningEpochSeconds( value ) );
    }//End Method
 
    /**
     * Set the upper bound of the date axis.
     * @param value the bound.
     */
-   public void setDateUpperBound( double value ) {
-      xAxis.setUpperBound( value );
+   public void setDateUpperBound( LocalDate value ) {
+      xAxis.setUpperBound( formats.toDayBeginningEpochSeconds( value ) );
+   }//End Method
+
+   public void autoScaleHorizontal() {
+      LocalDateTime min = null;
+      LocalDateTime max = null;
+      for ( ProgressSeries series : seriesVisibility.visibleSeries() ) {
+         if ( series.entries().isEmpty() ) {
+            continue;
+         }
+         
+         LocalDateTime first = series.first();
+         LocalDateTime last = series.last();
+         if ( min == null || min.isAfter( first ) ) {
+            min = first;
+         }
+         if ( max == null || max.isBefore( last ) ) {
+            max = last;
+         }
+      }
+      
+      if ( min == null || max == null ) {
+         return;
+      }
+      
+      //add some padding
+      max = max.plusDays( 1 );
+      
+      setDateLowerBound( min.toLocalDate() );
+      setDateUpperBound( max.toLocalDate() );
+   }//End Method
+   
+   public void autoScaleVertical() {
+      Double min = null;
+      Double max = null;
+      for ( ProgressSeries series : seriesVisibility.visibleSeries() ) {
+         if ( series.entries().isEmpty() ) {
+            continue;
+         }
+         
+         for ( LocalDateTime key : series.entries() ) {
+            double value = series.entryFor( key );
+            if ( min == null || min > value ) {
+               min = value;
+            }
+            if ( max == null || max < value ) {
+               max = value;
+            }
+         }
+      }
+      
+      if ( min == null || max == null ) {
+         return;
+      }
+      
+      setRecordingLowerBound( min );
+      setRecordingUpperBound( max );
    }//End Method
 
 }//End Class

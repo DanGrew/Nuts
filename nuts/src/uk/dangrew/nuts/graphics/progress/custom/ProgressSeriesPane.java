@@ -31,7 +31,7 @@ public class ProgressSeriesPane extends GridPane {
       add( graph = new GraphWithSettings( 
                new GraphBuilder()
                   .withXAxisTickFormatter( new GraphDateStringConverter() )
-                  .withXAxisTickInterval( 100000 )
+                  .withXAxisTickInterval( 86400 )
       ), 0, 1 );
       
       add( new ConceptTableWithControls<>( "Series", 

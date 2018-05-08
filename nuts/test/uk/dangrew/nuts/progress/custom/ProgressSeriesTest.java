@@ -201,5 +201,16 @@ public class ProgressSeriesTest {
    @Test public void shouldNotDuplicate(){
       assertThat( systemUnderTest.duplicate( "anything" ), is( systemUnderTest ) );
    }//End Method
+   
+   @Test public void shouldProvideFirstAndLast(){
+      final LocalDateTime now = LocalDateTime.now();
+      systemUnderTest.record( now, 34.0 );
+      systemUnderTest.record( now.plusDays( 2 ), 34.0 );
+      systemUnderTest.record( now.plusDays( 3 ), 34.0 );
+      systemUnderTest.record( now.plusDays( 1 ), 34.0 );
+      
+      assertThat( systemUnderTest.first(), is( now ) );
+      assertThat( systemUnderTest.last(), is( now.plusDays( 3 ) ) );
+   }//End Method
 
 }//End Class

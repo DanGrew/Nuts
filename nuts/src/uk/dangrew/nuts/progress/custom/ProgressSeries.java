@@ -42,6 +42,14 @@ public class ProgressSeries implements Concept {
       return entries.keySet();
    }//End Method
    
+   public LocalDateTime first(){
+      return entries.firstKey();
+   }//End Method
+   
+   public LocalDateTime last(){
+      return entries.lastKey();
+   }//End Method
+   
    public Double entryFor( LocalDateTime timestamp ){
       return entries.get( timestamp );
    }//End Method
