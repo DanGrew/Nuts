@@ -1,12 +1,13 @@
 package uk.dangrew.nuts.progress.custom;
 
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
@@ -15,6 +16,7 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -211,6 +213,24 @@ public class ProgressSeriesTest {
       
       assertThat( systemUnderTest.first(), is( now ) );
       assertThat( systemUnderTest.last(), is( now.plusDays( 3 ) ) );
+   }//End Method
+   
+   @Test public void shouldClearRecords(){
+      LocalDateTime now = LocalDateTime.now();
+      systemUnderTest.record( now, 34.0 );
+      systemUnderTest.record( now.plusDays( 2 ), 35.0 );
+      systemUnderTest.record( now.plusDays( 3 ), 36.0 );
+      systemUnderTest.record( now.plusDays( 1 ), 37.0 );
+      
+      assertThat( systemUnderTest.entries(), is( not( empty() ) ) );
+      systemUnderTest.clear();
+      assertThat( systemUnderTest.entries(), is( empty() ) );
+      
+      InOrder order = inOrder( changeListener );
+      order.verify( changeListener ).progressRemoved( now, 34.0 );
+      order.verify( changeListener ).progressRemoved( now.plusDays( 1 ), 37.0 );
+      order.verify( changeListener ).progressRemoved( now.plusDays( 2 ), 35.0 );
+      order.verify( changeListener ).progressRemoved( now.plusDays( 3 ), 36.0 );
    }//End Method
 
 }//End Class

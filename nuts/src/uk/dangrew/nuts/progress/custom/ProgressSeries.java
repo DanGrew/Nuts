@@ -50,6 +50,12 @@ public class ProgressSeries implements Concept {
       return entries.lastKey();
    }//End Method
    
+   public void clear(){
+      while ( !entries.isEmpty() ) {
+         remove( entries.firstKey() );
+      }
+   }//End Method
+   
    public Double entryFor( LocalDateTime timestamp ){
       return entries.get( timestamp );
    }//End Method

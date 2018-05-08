@@ -3050,6 +3050,31 @@
             "consumed": true,
             "foodId": "ec4fb86e-8f47-49a9-aad2-7e8a72fe3cab",
             "portionValue": 25
+         },
+         {
+            "consumed": true,
+            "foodId": "ea600638-c979-4862-a826-7ff55a630b2e",
+            "portionValue": 150
+         },
+         {
+            "consumed": true,
+            "foodId": "1847a9cb-8c9d-46f0-8f10-85c00b4e745f",
+            "portionValue": 66
+         },
+         {
+            "consumed": true,
+            "foodId": "898c2ac7-5a6f-4df1-8567-bf6e3eb64d50",
+            "portionValue": 125
+         },
+         {
+            "consumed": true,
+            "foodId": "2b4c3925-0612-48d8-a8e5-5e882da87680",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "c85e6959-00d1-448e-8333-70b627128695",
+            "portionValue": 50
          }
       ]
    },
