@@ -28,29 +28,29 @@ public class RunningAverageCalculatorTest {
    }//End Method
 
    @Test public void shouldComputeAverageOver7DaysForSingleEntries() {
-      series.record( START.minusDays( 3 ), 97.0 );
-      series.record( START.minusDays( 2 ), 98.0 );
-      series.record( START.minusDays( 1 ), 99.0 );
-      series.record( START, 100.0 );
-      series.record( START.plusDays( 1 ), 101.0 );
-      series.record( START.plusDays( 2 ), 102.0 );
-      series.record( START.plusDays( 3 ), 110.0 );
+      series.values().record(START.minusDays( 3 ), 97.0 );
+      series.values().record(START.minusDays( 2 ), 98.0 );
+      series.values().record(START.minusDays( 1 ), 99.0 );
+      series.values().record(START, 100.0 );
+      series.values().record(START.plusDays( 1 ), 101.0 );
+      series.values().record(START.plusDays( 2 ), 102.0 );
+      series.values().record(START.plusDays( 3 ), 110.0 );
       
       assertThat( systemUnderTest.calculate( START.toLocalDate(), series ), is( 101.0 ) );
    }//End Method
    
    @Test public void shouldComputeAverageForEachDayOver7Days() {
-      series.record( START.minusDays( 3 ), 97.0 );
-      series.record( START.minusDays( 2 ), 98.0 );
-      series.record( START.minusDays( 1 ), 99.0 );
-      series.record( START, 100.0 );
-      series.record( START.plusDays( 1 ), 101.0 );
-      series.record( START.plusDays( 2 ), 102.0 );
+      series.values().record(START.minusDays( 3 ), 97.0 );
+      series.values().record(START.minusDays( 2 ), 98.0 );
+      series.values().record(START.minusDays( 1 ), 99.0 );
+      series.values().record(START, 100.0 );
+      series.values().record(START.plusDays( 1 ), 101.0 );
+      series.values().record(START.plusDays( 2 ), 102.0 );
       
-      series.record( START.plusDays( 3 ), 125.0 );
-      series.record( START.plusDays( 3 ).plusHours( 1 ), 110.0 );
-      series.record( START.plusDays( 3 ).plusHours( 2 ), 105.0 );
-      series.record( START.plusDays( 3 ).plusHours( 3 ), 100.0 );
+      series.values().record(START.plusDays( 3 ), 125.0 );
+      series.values().record(START.plusDays( 3 ).plusHours( 1 ), 110.0 );
+      series.values().record(START.plusDays( 3 ).plusHours( 2 ), 105.0 );
+      series.values().record(START.plusDays( 3 ).plusHours( 3 ), 100.0 );
       
       assertThat( systemUnderTest.calculate( START.toLocalDate(), series ), is( 101.0 ) );
    }//End Method
@@ -60,40 +60,40 @@ public class RunningAverageCalculatorTest {
    }//End Method
    
    @Test public void shouldNotComputeAverageWhereThereAreNotEnoughEntriesBelow() {
-//      series.record( START.minusDays( 3 ), 97.0 );
-      series.record( START.minusDays( 2 ), 98.0 );
-      series.record( START.minusDays( 1 ), 99.0 );
-      series.record( START, 100.0 );
-      series.record( START.plusDays( 1 ), 101.0 );
-      series.record( START.plusDays( 2 ), 102.0 );
-      series.record( START.plusDays( 3 ), 110.0 );
+//      series.values().record(START.minusDays( 3 ), 97.0 );
+      series.values().record(START.minusDays( 2 ), 98.0 );
+      series.values().record(START.minusDays( 1 ), 99.0 );
+      series.values().record(START, 100.0 );
+      series.values().record(START.plusDays( 1 ), 101.0 );
+      series.values().record(START.plusDays( 2 ), 102.0 );
+      series.values().record(START.plusDays( 3 ), 110.0 );
       
       assertThat( systemUnderTest.calculate( START.toLocalDate(), series ), is( nullValue() ) );
    }//End Method
    
    @Test public void shouldNotComputeAverageWhereThereAreNotEnoughEntriesAbove() {
-      series.record( START.minusDays( 3 ), 97.0 );
-      series.record( START.minusDays( 2 ), 98.0 );
-      series.record( START.minusDays( 1 ), 99.0 );
-      series.record( START, 100.0 );
-      series.record( START.plusDays( 1 ), 101.0 );
-      series.record( START.plusDays( 2 ), 102.0 );
-//      series.record( START.plusDays( 3 ), 110.0 );
+      series.values().record(START.minusDays( 3 ), 97.0 );
+      series.values().record(START.minusDays( 2 ), 98.0 );
+      series.values().record(START.minusDays( 1 ), 99.0 );
+      series.values().record(START, 100.0 );
+      series.values().record(START.plusDays( 1 ), 101.0 );
+      series.values().record(START.plusDays( 2 ), 102.0 );
+//      series.values().record(START.plusDays( 3 ), 110.0 );
       
       assertThat( systemUnderTest.calculate( START.toLocalDate(), series ), is( nullValue() ) );
    }//End Method
    
    @Test public void shouldOnlyIncludeDaysInRangeInAverage() {
-      series.record( START.minusDays( 3 ), 97.0 );
-      series.record( START.minusDays( 2 ), 98.0 );
-      series.record( START.minusDays( 1 ), 99.0 );
-      series.record( START, 100.0 );
-      series.record( START.plusDays( 1 ), 101.0 );
-      series.record( START.plusDays( 2 ), 102.0 );
-      series.record( START.plusDays( 3 ), 110.0 );
+      series.values().record(START.minusDays( 3 ), 97.0 );
+      series.values().record(START.minusDays( 2 ), 98.0 );
+      series.values().record(START.minusDays( 1 ), 99.0 );
+      series.values().record(START, 100.0 );
+      series.values().record(START.plusDays( 1 ), 101.0 );
+      series.values().record(START.plusDays( 2 ), 102.0 );
+      series.values().record(START.plusDays( 3 ), 110.0 );
       
-      series.record( START.minusDays( 4 ), 10000.0 );
-      series.record( START.plusDays( 4 ), 10000.0 );
+      series.values().record(START.minusDays( 4 ), 10000.0 );
+      series.values().record(START.plusDays( 4 ), 10000.0 );
       
       assertThat( systemUnderTest.calculate( START.toLocalDate(), series ), is( 101.0 ) );
    }//End Method

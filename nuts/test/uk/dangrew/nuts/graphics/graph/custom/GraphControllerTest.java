@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
@@ -89,10 +90,11 @@ public class GraphControllerTest {
       when( formats.toDayBeginningEpochSeconds( min.toLocalDate() ) ).thenReturn( 45L );
       when( formats.toDayBeginningEpochSeconds( max.toLocalDate().plusDays( 1 ) ) ).thenReturn( 46L );
       
-      progress1.record( min, 100.0 );
-      progress1.record( min.plusDays( 5 ), 100.0 );
-      progress2.record( max.minusDays( 1 ), 100.0 );
-      progress2.record( max, 100.0 );
+      progress1.values().record( min, 100.0 );
+      progress1.values().record( min.plusDays( 5 ), 100.0 );
+      progress1.notes().record( min.plusDays( 100 ), "anything" );
+      progress2.values().record( max.minusDays( 1 ), 100.0 );
+      progress2.values().record( max, 100.0 );
       
       systemUnderTest.seriesVisibility().show( progress1 );
       systemUnderTest.seriesVisibility().show( progress2 );
@@ -115,10 +117,11 @@ public class GraphControllerTest {
       when( formats.toDayBeginningEpochSeconds( min.toLocalDate() ) ).thenReturn( 45L );
       when( formats.toDayBeginningEpochSeconds( max.toLocalDate().plusDays( 1 ) ) ).thenReturn( 46L );
       
-      progress1.record( min, 23.0 );
-      progress1.record( min.plusDays( 5 ), 100.0 );
-      progress2.record( max.minusDays( 1 ), 90.0 );
-      progress2.record( max, 123.0 );
+      progress1.values().record( min, 23.0 );
+      progress1.values().record( min.plusDays( 5 ), 100.0 );
+      progress1.notes().record( min.plusDays( 100 ), "anything" );
+      progress2.values().record( max.minusDays( 1 ), 90.0 );
+      progress2.values().record( max, 123.0 );
       
       systemUnderTest.seriesVisibility().show( progress1 );
       systemUnderTest.seriesVisibility().show( progress2 );
@@ -134,5 +137,5 @@ public class GraphControllerTest {
       assertThat( yAxis.getLowerBound(), is( 23.0 ) );
       assertThat( yAxis.getUpperBound(), is( 123.0 ) );
    }//End Method
-
+   
 }//End Class

@@ -88,12 +88,12 @@ public class GraphController {
       LocalDateTime min = null;
       LocalDateTime max = null;
       for ( ProgressSeries series : seriesVisibility.visibleSeries() ) {
-         if ( series.entries().isEmpty() ) {
+         if ( series.values().entries().isEmpty() ) {
             continue;
          }
          
-         LocalDateTime first = series.first();
-         LocalDateTime last = series.last();
+         LocalDateTime first = series.values().first();
+         LocalDateTime last = series.values().last();
          if ( min == null || min.isAfter( first ) ) {
             min = first;
          }
@@ -122,7 +122,10 @@ public class GraphController {
          }
          
          for ( LocalDateTime key : series.entries() ) {
-            double value = series.entryFor( key );
+            Double value = series.values().entryFor( key );
+            if ( value == null ) {
+               continue;
+            }
             if ( min == null || min > value ) {
                min = value;
             }

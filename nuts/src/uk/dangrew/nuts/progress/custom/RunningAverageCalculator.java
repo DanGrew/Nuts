@@ -21,7 +21,7 @@ public class RunningAverageCalculator {
    }//End Method
    
    private Double computeAverageForDay( LocalDate day, ProgressSeries series ) {
-      NavigableMap< LocalDateTime, Double > dayRecordings = series.range( day );
+      NavigableMap< LocalDateTime, Double > dayRecordings = series.values().range( day );
       if ( dayRecordings.isEmpty() ) {
          return null;
       }

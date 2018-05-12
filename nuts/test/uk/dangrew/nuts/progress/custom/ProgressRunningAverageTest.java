@@ -29,7 +29,7 @@ public class ProgressRunningAverageTest {
    @Mock private BiConsumer< LocalDate, Double > whenAdded;
    
    @Mock private RunningAverageCalculator calculator;
-   @Mock private ProgressChangedListener< LocalDate > averageChangedListener;
+   @Mock private ProgressChangedListener< LocalDate, Double > averageChangedListener;
    private ProgressSeries series;
    private ProgressRunningAverage systemUnderTest;
 
@@ -43,30 +43,30 @@ public class ProgressRunningAverageTest {
 
    @Test public void shouldDelegateCalculation() {
       when( calculator.calculate( START.toLocalDate(), series ) ).thenReturn( null, 0.5, 1002.1, null );
-      series.record( START, 1.1 );
+      series.values().record(START, 1.1 );
       assertThat( systemUnderTest.averageFor( START.toLocalDate() ), is( nullValue() ) );
-      series.record( START, 1.2 );
+      series.values().record(START, 1.2 );
       assertThat( systemUnderTest.averageFor( START.toLocalDate() ), is( 0.5 ) );
-      series.record( START, 1.1 );
+      series.values().record(START, 1.1 );
       assertThat( systemUnderTest.averageFor( START.toLocalDate() ), is( 1002.1 ) );
-      series.record( START, 1.2 );
+      series.values().record(START, 1.2 );
       assertThat( systemUnderTest.averageFor( START.toLocalDate() ), is( nullValue() ) );
    }//End Method
    
    @Test public void shouldRecalculateAverageWhenAdded(){
-      series.record( START, 1.1 );
+      series.values().record(START, 1.1 );
       shouldCalculateForAllWithinRunningAverage( 1 );
    }//End Method
    
    @Test public void shouldRecalculateAverageWhenUpdated(){
-      series.record( START, 1.1 );
-      series.record( START, 1.2 );
+      series.values().record(START, 1.1 );
+      series.values().record(START, 1.2 );
       shouldCalculateForAllWithinRunningAverage( 2 );
    }//End Method
    
    @Test public void shouldRecalculateAverageWhenRemoved(){
-      series.record( START, 1.1 );
-      series.record( START, null );
+      series.values().record(START, 1.1 );
+      series.values().record(START, null );
       shouldCalculateForAllWithinRunningAverage( 2 );
    }//End Method
    
@@ -83,7 +83,7 @@ public class ProgressRunningAverageTest {
    @Test public void shouldNotifyAverageWhenAdded(){
       when( calculator.calculate( START.toLocalDate(), series ) ).thenReturn( 102.3 );
       when( calculator.calculate( START.toLocalDate().minusDays( 2 ), series ) ).thenReturn( 56.8 );
-      series.record( START, 0.1 );
+      series.values().record(START, 0.1 );
       
       verify( averageChangedListener ).progressAdded( START.toLocalDate().minusDays( 2 ), 56.8 );
       verify( averageChangedListener ).progressAdded( START.toLocalDate(), 102.3 );
@@ -93,13 +93,13 @@ public class ProgressRunningAverageTest {
    @Test public void shouldNotifyAverageWhenUpdated(){
       when( calculator.calculate( START.toLocalDate(), series ) ).thenReturn( 102.3, 7.6 );
       when( calculator.calculate( START.toLocalDate().minusDays( 2 ), series ) ).thenReturn( 56.8, 123000.0 );
-      series.record( START, 0.1 );
+      series.values().record(START, 0.1 );
       
       verify( averageChangedListener ).progressAdded( START.toLocalDate().minusDays( 2 ), 56.8 );
       verify( averageChangedListener ).progressAdded( START.toLocalDate(), 102.3 );
       verifyNoMoreInteractions( averageChangedListener );
       
-      series.record( START, 0.2 );
+      series.values().record(START, 0.2 );
       verify( averageChangedListener ).progressUpdated( START.toLocalDate().minusDays( 2 ), 123000.0 );
       verify( averageChangedListener ).progressUpdated( START.toLocalDate(), 7.6 );
       verifyNoMoreInteractions( averageChangedListener );
@@ -108,13 +108,13 @@ public class ProgressRunningAverageTest {
    @Test public void shouldNotifyAverageWhenRemoved(){
       when( calculator.calculate( START.toLocalDate(), series ) ).thenReturn( 102.3 ).thenReturn( null );
       when( calculator.calculate( START.toLocalDate().minusDays( 2 ), series ) ).thenReturn( 56.8 ).thenReturn( null );
-      series.record( START, 0.1 );
+      series.values().record(START, 0.1 );
       
       verify( averageChangedListener ).progressAdded( START.toLocalDate().minusDays( 2 ), 56.8 );
       verify( averageChangedListener ).progressAdded( START.toLocalDate(), 102.3 );
       verifyNoMoreInteractions( averageChangedListener );
       
-      series.record( START, 0.2 );
+      series.values().record(START, 0.2 );
       verify( averageChangedListener ).progressRemoved( START.toLocalDate().minusDays( 2 ), 56.8 );
       verify( averageChangedListener ).progressRemoved( START.toLocalDate(), 102.3 );
       verifyNoMoreInteractions( averageChangedListener );

@@ -24,9 +24,9 @@ public class GraphModelImpl implements GraphModel {
       this.seriesModel = new GraphSeriesSynchronizer( modelName() );
       
       this.progressSeries.entries().forEach( this::updateDataPoint );
-      this.progressSeries.progressChangedListener().whenProgressAdded( this::internalRedirect_updateDataPoint );
-      this.progressSeries.progressChangedListener().whenProgressRemoved( this::internalRedirect_updateDataPoint );
-      this.progressSeries.progressChangedListener().whenProgressUpdated( this::internalRedirect_updateDataPoint );
+      this.progressSeries.values().progressChangedListener().whenProgressAdded( this::internalRedirect_updateDataPoint );
+      this.progressSeries.values().progressChangedListener().whenProgressRemoved( this::internalRedirect_updateDataPoint );
+      this.progressSeries.values().progressChangedListener().whenProgressUpdated( this::internalRedirect_updateDataPoint );
    }//End Constructor
    
    @Override public String modelName(){
@@ -50,7 +50,7 @@ public class GraphModelImpl implements GraphModel {
    }//End Method
    
    private void updateDataPoint( LocalDateTime timestamp ) {
-      seriesModel.update( timestamp, progressSeries.entryFor( timestamp ) );
+      seriesModel.update( timestamp, progressSeries.values().entryFor( timestamp ) );
    }//End Method
    
    Data< Number, Number > dataFor( LocalDateTime recordTimestamp ) {

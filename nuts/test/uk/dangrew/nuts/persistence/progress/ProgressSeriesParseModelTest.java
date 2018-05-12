@@ -3,6 +3,7 @@ package uk.dangrew.nuts.persistence.progress;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import java.time.LocalDateTime;
 
@@ -43,7 +44,7 @@ public class ProgressSeriesParseModelTest {
    }//End Method
    
    @Test public void shouldResetEntriesOfSeriesThatExists() {
-      series.record( NOW, 100.0 );
+      series.values().record(NOW, 100.0 );
       
       systemUnderTest.setId( series.properties().id() );
       systemUnderTest.setName( "name" );
@@ -71,9 +72,9 @@ public class ProgressSeriesParseModelTest {
       systemUnderTest.finishSeries();
       
       assertThat( database.progressSeries().objectList().get( 0 ).entries(), hasSize( 3 ) );
-      assertThat( database.progressSeries().objectList().get( 0 ).entryFor( NOW ), is( 100.0 ) );
-      assertThat( database.progressSeries().objectList().get( 0 ).entryFor( NOW.plusDays( 1 ) ), is( 101.0 ) );
-      assertThat( database.progressSeries().objectList().get( 0 ).entryFor( NOW.plusDays( 2 ) ), is( 102.0 ) );
+      assertThat( database.progressSeries().objectList().get( 0 ).values().entryFor( NOW ), is( 100.0 ) );
+      assertThat( database.progressSeries().objectList().get( 0 ).values().entryFor( NOW.plusDays( 1 ) ), is( 101.0 ) );
+      assertThat( database.progressSeries().objectList().get( 0 ).values().entryFor( NOW.plusDays( 2 ) ), is( 102.0 ) );
    }//End Method
-
+   
 }//End Class

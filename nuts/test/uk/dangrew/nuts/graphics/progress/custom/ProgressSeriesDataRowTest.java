@@ -26,22 +26,22 @@ public class ProgressSeriesDataRowTest {
       
       timestamp = LocalDateTime.now();
       series = new ProgressSeries( "Anything" );
-      series.record( timestamp, 34.0 );
+      series.values().record( timestamp, 34.0 );
       
       systemUnderTest = new ProgressSeriesDataRow( series, timestamp );
    }//End Method
 
    @Test public void shouldProvideValues() {
       assertThat( systemUnderTest.timestamp(), is( timestamp ) );
-      assertThat( systemUnderTest.valueProperty().get(), is( series.entryFor( timestamp ) ) );
+      assertThat( systemUnderTest.valueProperty().get(), is( series.values().entryFor( timestamp ) ) );
    }//End Method
    
    @Test public void shouldFeedPropertyUpdateBackToSeries() {
       systemUnderTest.valueProperty().set( 100.01 );
-      assertThat( series.entryFor( timestamp ), is( 100.01 ) );
+      assertThat( series.values().entryFor( timestamp ), is( 100.01 ) );
       
       systemUnderTest.valueProperty().set( null );
-      assertThat( series.entryFor( timestamp ), is( nullValue() ) );
+      assertThat( series.values().entryFor( timestamp ), is( nullValue() ) );
    }//End Method
 
 }//End Class

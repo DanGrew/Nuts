@@ -39,17 +39,17 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
    
    private void select( ProgressSeries series ) {
       if ( selected != null ) {
-         selected.progressChangedListener().removeWhenProgressAdded( updater );
-         selected.progressChangedListener().removeWhenProgressRemoved( remover );
-         selected.progressChangedListener().removeWhenProgressUpdated( updater );
+         selected.values().progressChangedListener().removeWhenProgressAdded( updater );
+         selected.values().progressChangedListener().removeWhenProgressRemoved( remover );
+         selected.values().progressChangedListener().removeWhenProgressUpdated( updater );
       }
       
       this.table.getRows().clear();
       this.selected = series;
       this.selected.entries().forEach( this::internal_add );
-      this.selected.progressChangedListener().whenProgressAdded( updater );
-      this.selected.progressChangedListener().whenProgressRemoved( remover );
-      this.selected.progressChangedListener().whenProgressUpdated( updater );
+      this.selected.values().progressChangedListener().whenProgressAdded( updater );
+      this.selected.values().progressChangedListener().whenProgressRemoved( remover );
+      this.selected.values().progressChangedListener().whenProgressUpdated( updater );
    }//End Method
    
    private void internal_add( LocalDateTime timestamp ) {
@@ -94,7 +94,7 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
          return null;
       }
       
-      selected.record( timestamp.get(), 0.0 );
+      selected.values().record( timestamp.get(), 0.0 );
       return selected;
    }//End Method
 
@@ -108,7 +108,7 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
          return;
       }
       
-      selected.record( selectedRow.timestamp(), null );
+      selected.values().record( selectedRow.timestamp(), null );
    }//End Method
 
    @Override public void copySelectedConcept() {
@@ -123,12 +123,12 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
       
       LocalDateTime selectedTimestamp = selectedRow.timestamp();
       int secondsOffset = 1;
-      while ( selected.entryFor( selectedTimestamp.plusSeconds( secondsOffset ) ) != null ) {
+      while ( selected.values().entryFor( selectedTimestamp.plusSeconds( secondsOffset ) ) != null ) {
          secondsOffset++;
       }
-      selected.record( 
+      selected.values().record( 
                selectedTimestamp.plusSeconds( secondsOffset ), 
-               selected.entryFor( selectedRow.timestamp() ) 
+               selected.values().entryFor( selectedRow.timestamp() ) 
       );
    }//End Method
 

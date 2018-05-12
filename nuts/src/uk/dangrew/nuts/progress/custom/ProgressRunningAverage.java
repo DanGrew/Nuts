@@ -8,7 +8,7 @@ import java.util.Map;
 public class ProgressRunningAverage {
 
    private final RunningAverageCalculator calculator;
-   private final ProgressChangedListener< LocalDate > averageChangedListener;
+   private final ProgressChangedListener< LocalDate, Double > averageChangedListener;
    private final ProgressSeries series;
    private final Map< LocalDate, Double > averages;
    
@@ -24,7 +24,7 @@ public class ProgressRunningAverage {
    
    ProgressRunningAverage( 
             RunningAverageCalculator calculator, 
-            ProgressChangedListener< LocalDate > averageChangedListener,
+            ProgressChangedListener< LocalDate, Double > averageChangedListener,
             ProgressSeries series 
    ) {
       this.calculator = calculator;
@@ -32,16 +32,16 @@ public class ProgressRunningAverage {
       this.series = series;
       this.averages = new HashMap<>();
       
-      this.series.progressChangedListener().whenProgressAdded( this::recalculate );
-      this.series.progressChangedListener().whenProgressUpdated( this::recalculate );
-      this.series.progressChangedListener().whenProgressRemoved( this::recalculate );
+      this.series.values().progressChangedListener().whenProgressAdded( this::recalculate );
+      this.series.values().progressChangedListener().whenProgressUpdated( this::recalculate );
+      this.series.values().progressChangedListener().whenProgressRemoved( this::recalculate );
    }//End Class
 
    public Double averageFor( LocalDate day ) {
       return averages.get( day );
    }//End Method
    
-   public ProgressChangedListener< LocalDate > progressChangedListener(){
+   public ProgressChangedListener< LocalDate, Double > progressChangedListener(){
       return averageChangedListener;
    }//End Method
    

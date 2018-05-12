@@ -30,6 +30,8 @@ public class ProgressSeriesPersistence {
    static final String ENTRY = "entry";
    static final String TIMESTAMP = "timestamp";
    static final String VALUE = "value";
+   static final String HEADER = "header";
+   static final String NOTES = "notes";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -61,7 +63,9 @@ public class ProgressSeriesPersistence {
       structure.array( ENTRIES, SERIES, writeModel::getNumberOfEntries );
       structure.child( ENTRY, ENTRIES );
       structure.child( TIMESTAMP, ENTRY );
-      structure.child( VALUE, ENTRY );
+      structure.optionalChild( VALUE, ENTRY );
+      structure.optionalChild( HEADER, ENTRY );
+      structure.optionalChild( NOTES, ENTRY );
    }//End Method
    
    private void constructReadHandles(){
@@ -77,6 +81,8 @@ public class ProgressSeriesPersistence {
       ) );
       parserWithReadHandles.when( TIMESTAMP, new StringParseHandle( parseModel::setTimestamp ) );
       parserWithReadHandles.when( VALUE, new DoubleParseHandle( parseModel::setValue ) );
+      parserWithReadHandles.when( HEADER, new StringParseHandle( parseModel::setHeader ) );
+      parserWithReadHandles.when( NOTES, new StringParseHandle( parseModel::setNotes ) );
    }//End Method
    
    private void constructWriteHandles(){
@@ -92,6 +98,8 @@ public class ProgressSeriesPersistence {
       ) ) );
       parserWithWriteHandles.when( TIMESTAMP, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getTimestamp ) ) );
       parserWithWriteHandles.when( VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getValue ) ) );
+      parserWithWriteHandles.when( HEADER, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getHeader ) ) );
+      parserWithWriteHandles.when( NOTES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getNotes ) ) );
    }//End Method
    
    public JsonStructure structure(){

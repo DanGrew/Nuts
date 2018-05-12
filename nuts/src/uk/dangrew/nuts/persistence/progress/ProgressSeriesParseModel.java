@@ -14,6 +14,7 @@ import java.util.List;
 
 import javafx.util.Pair;
 import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.nuts.progress.custom.ProgressEntry;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.progress.custom.ProgressSeriesStore;
 import uk.dangrew.nuts.store.Database;
@@ -25,10 +26,12 @@ public class ProgressSeriesParseModel {
    
    private String id;
    private String name;
-   private final List< Pair< LocalDateTime, Double > > entries;
+   private final List< ProgressEntry > entries;
    
    private String timestamp;
-   private double value;
+   private Double value;
+   private String header;
+   private String notes;
    
    ProgressSeriesParseModel( Database database ) {
       this.formats = new DateTimeFormats();
@@ -41,7 +44,9 @@ public class ProgressSeriesParseModel {
       this.name = null;
       this.entries.clear();
       this.timestamp = null;
-      this.value = 0.0;
+      this.value = null;
+      this.header = null;
+      this.notes = null;
    }//End Method
    
    void finishSeries() {
@@ -50,8 +55,10 @@ public class ProgressSeriesParseModel {
          series = store.createConcept( id, name );
       }
       series.clear();
-      for ( Pair< LocalDateTime, Double > entry : entries ) {
-         series.record( entry.getKey(), entry.getValue() );
+      for ( ProgressEntry entry : entries ) {
+         series.values().record( entry.timestamp(), entry.value() );
+         series.headers().record( entry.timestamp(), entry.header() );
+         series.notes().record( entry.timestamp(), entry.notes() );
       }
    }//End Method
    
@@ -65,7 +72,9 @@ public class ProgressSeriesParseModel {
    
    void startEntry() {
       this.timestamp = null;
-      this.value = 0.0;
+      this.value = null;
+      this.header = null;
+      this.notes = null;
    }//End Method
    
    void finishEntry(){
@@ -73,8 +82,12 @@ public class ProgressSeriesParseModel {
       if ( timestampLdt == null ) {
          return;
       }
-      
-      entries.add( new Pair<>( timestampLdt, value ) );
+
+      ProgressEntry entry = new ProgressEntry( timestampLdt );
+      entry.setValue( value );
+      entry.setHeader( header );
+      entry.setNotes( notes );
+      entries.add( entry );
    }//End Method
    
    void setTimestamp( String value ) {
@@ -83,6 +96,20 @@ public class ProgressSeriesParseModel {
    
    void setValue( Double value ) {
       this.value = value;
+   }//End Method
+   
+   void setHeader( String value ) {
+      if ( value != null && value.trim().isEmpty() ) {
+         value = null;
+      }
+      this.header = value;
+   }//End Method
+   
+   void setNotes( String value ) {
+      if ( value != null && value.trim().isEmpty() ) {
+         value = null;
+      }
+      this.notes = value;
    }//End Method
    
 }//End Class

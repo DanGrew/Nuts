@@ -11,6 +11,7 @@ package uk.dangrew.nuts.persistence.progress;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import uk.dangrew.kode.datetime.DateTimeFormats;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
@@ -76,7 +77,15 @@ public class ProgressSeriesWriteModel {
    }//End Method
    
    Double getValue() {
-      return currentSeries.entryFor( currentTimestamp );
+      return currentSeries.values().entryFor( currentTimestamp );
+   }//End Method
+   
+   String getHeader() {
+      return Optional.ofNullable( currentSeries.headers().entryFor( currentTimestamp ) ).orElse( "" ); 
+   }//End Method
+   
+   String getNotes() {
+      return Optional.ofNullable( currentSeries.notes().entryFor( currentTimestamp ) ).orElse( "" ); 
    }//End Method
    
 }//End Class

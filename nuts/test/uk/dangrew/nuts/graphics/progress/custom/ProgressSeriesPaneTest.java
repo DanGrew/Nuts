@@ -16,7 +16,7 @@ public class ProgressSeriesPaneTest {
       Database database = new Database();
       ProgressSeries first = database.progressSeries().createConcept( "First" );
       for ( int i = 0; i < 20; i++ ) {
-         first.record( LocalDateTime.now().plusDays( i ), i* 23.1 );
+         first.values().record( LocalDateTime.now().plusDays( i ), i* 23.1 );
       }
       
       database.progressSeries().createConcept( "Second" );

@@ -27,7 +27,7 @@ public class ProgressChangedListenerTest {
    @Mock private BiConsumer< LocalDateTime, Double > whenUpdated2;
    @Mock private BiConsumer< LocalDateTime, Double > whenRemoved2;
    
-   private ProgressChangedListener< LocalDateTime > systemUnderTest;
+   private ProgressChangedListener< LocalDateTime, Double > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();

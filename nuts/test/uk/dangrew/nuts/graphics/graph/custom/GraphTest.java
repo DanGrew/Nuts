@@ -25,7 +25,7 @@ public class GraphTest {
    @Test public void manual() throws InterruptedException {
       ProgressSeries progressSeries = new ProgressSeries( "Series" );
       for ( int i = 0; i < 7; i++ ) {
-         progressSeries.record( LocalDateTime.now().plusDays( i ), i* 10.0 );
+         progressSeries.values().record( LocalDateTime.now().plusDays( i ), i* 10.0 );
       }
       
       TestApplication.launch( () -> {

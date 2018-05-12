@@ -21,8 +21,8 @@ public class ProgressSeriesDataRow {
    
    public ProgressSeriesDataRow( ProgressSeries series, LocalDateTime timestamp ) {
       this.timestamp = timestamp;
-      this.valueProperty = new SimpleObjectProperty<>( series.entryFor( timestamp ) );
-      this.valueProperty.addListener( ( s, o, n ) -> series.record( timestamp, n ) );
+      this.valueProperty = new SimpleObjectProperty<>( series.values().entryFor( timestamp ) );
+      this.valueProperty.addListener( ( s, o, n ) -> series.values().record( timestamp, n ) );
    }//End Constructor
    
    public LocalDateTime timestamp(){

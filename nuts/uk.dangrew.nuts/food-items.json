@@ -3683,5 +3683,16 @@
       "name": "Tesco Smoked Streaky Bacon 14 Rashers 300G (100g)",
       "id": "ea600638-c979-4862-a826-7ff55a630b2e",
       "calories": 266.6
+   },
+   {
+      "carbohydrates": 1.8,
+      "fiber": 0.9,
+      "fats": 0.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 1.8,
+      "name": "Tesco Courgettes Pre Packed 500G (100g)",
+      "id": "145f7ad5-d3f1-4eac-bb8b-45642c8b6c3e",
+      "calories": 19.8
    }
 ]}

@@ -49,8 +49,8 @@ public class ProgressSeriesDataControllerTest {
       first = database.progressSeries().createConcept( "First" );
       second = database.progressSeries().createConcept( "Second" );
       for ( int i = 0; i < 10; i++ ) {
-         first.record( LocalDateTime.now().plusDays( i ), i* 10.0 );
-         second.record( LocalDateTime.now().plusDays( i ), i* 7.0 );
+         first.values().record(LocalDateTime.now().plusDays( i ), i* 10.0 );
+         second.values().record(LocalDateTime.now().plusDays( i ), i* 7.0 );
       }
    }//End Method
 
@@ -71,13 +71,13 @@ public class ProgressSeriesDataControllerTest {
       assertThat( dataTable.getRows(), hasSize( 10 ) );
       
       LocalDateTime timestamp = LocalDateTime.now().plusMonths( 12 );
-      first.record( timestamp, 45.0 );
+      first.values().record(timestamp, 45.0 );
       assertDataTableContainsEntriesFor( first );
       
-      first.record( timestamp, null );
+      first.values().record(timestamp, null );
       assertDataTableContainsEntriesFor( first );
       
-      first.record( timestamp, 46.0 );
+      first.values().record(timestamp, 46.0 );
       assertDataTableContainsEntriesFor( first );
    }//End Method
    
@@ -137,7 +137,7 @@ public class ProgressSeriesDataControllerTest {
       systemUnderTest.copySelectedConcept();
       assertThat( dataTable.getRows(), hasSize( 11 ) );
       assertThat( dataTable.getRows().get( 5 ).timestamp(), is( timestamp.plusSeconds( 1 ) ) );
-      assertThat( dataTable.getRows().get( 5 ).valueProperty().get(), is( first.entryFor( timestamp ) ) );
+      assertThat( dataTable.getRows().get( 5 ).valueProperty().get(), is( first.values().entryFor( timestamp ) ) );
    }//End Method
    
    @Test public void shouldCopyEntryAndAvoidClashingTimestamp() {
@@ -150,7 +150,7 @@ public class ProgressSeriesDataControllerTest {
       systemUnderTest.copySelectedConcept();
       assertThat( dataTable.getRows(), hasSize( 13 ) );
       assertThat( dataTable.getRows().get( 7 ).timestamp(), is( timestamp.plusSeconds( 3 ) ) );
-      assertThat( dataTable.getRows().get( 7 ).valueProperty().get(), is( first.entryFor( timestamp ) ) );
+      assertThat( dataTable.getRows().get( 7 ).valueProperty().get(), is( first.values().entryFor( timestamp ) ) );
    }//End Method
    
    @Test public void shouldIgnoreCopyEntryWhenNoSelection() {
@@ -167,13 +167,13 @@ public class ProgressSeriesDataControllerTest {
       assertThat( dataTable.getRows(), hasSize( 10 ) );
       
       LocalDateTime timestamp = LocalDateTime.now().plusMonths( 12 );
-      first.record( timestamp, 45.0 );
+      first.values().record(timestamp, 45.0 );
       assertDataTableContainsEntriesFor( second );
       
-      first.record( timestamp, null );
+      first.values().record(timestamp, null );
       assertDataTableContainsEntriesFor( second );
       
-      first.record( timestamp, 46.0 );
+      first.values().record(timestamp, 46.0 );
       assertDataTableContainsEntriesFor( second );
    }//End Method
    
@@ -181,7 +181,7 @@ public class ProgressSeriesDataControllerTest {
       List< LocalDateTime > timestamps = new ArrayList<>( series.entries() );
       for ( int i = 0; i < series.entries().size(); i++ ) {
          assertThat( dataTable.getRows().get( i ).timestamp(), is( timestamps.get( i ) ) );
-         assertThat( dataTable.getRows().get( i ).valueProperty().get(), is( series.entryFor( timestamps.get( i ) ) ) );
+         assertThat( dataTable.getRows().get( i ).valueProperty().get(), is( series.values().entryFor( timestamps.get( i ) ) ) );
       }
    }//End Method
    

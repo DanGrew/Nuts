@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.persistence.progress;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import java.time.LocalDateTime;
@@ -34,11 +35,18 @@ public class ProgressSeriesPersistenceTest {
       
       ProgressSeries first = database.progressSeries().createConcept( "First" );
       for ( int i = 0; i < 5; i++ ) {
-         first.record( NOW.plusDays( i ), i * 1.2 );
+         first.values().record( NOW.plusDays( i ), i * 1.2 );
       }
+      first.headers().record( NOW.plusDays( 2 ), "header2" );
+      first.headers().record( NOW.plusDays( 3 ), "header3" );
+      first.notes().record( NOW.plusDays( 3 ), "notes 3" );
+      first.notes().record( NOW.plusDays( 4 ), "notes 4" );
+      first.headers().record( NOW.plusDays( 5 ), "header5" );
+      first.notes().record( NOW.plusDays( 5 ), "notes 5" );
+      
       ProgressSeries second = database.progressSeries().createConcept( "Second" );
       for ( int i = 0; i < 100; i++ ) {
-         second.record( NOW.plusHours( i ), i * 23.4 );
+         second.values().record( NOW.plusHours( i ), i * 23.4 );
       }
       
       ProgressSeriesPersistence persistence = new ProgressSeriesPersistence( database );
@@ -58,12 +66,27 @@ public class ProgressSeriesPersistenceTest {
       ProgressSeries first = database.progressSeries().objectList().get( 0 );
       List< LocalDateTime > keys = new ArrayList<>( first.entries() );
       for ( int i = 0; i < 10; i++ ) {
-         assertThat( first.entryFor( keys.get( i ) ), is( i * 8.0 ) );
+         assertThat( first.values().entryFor( keys.get( i ) ), is( i * 8.0 ) );
+         
+         if ( i != 4 && i != 5 ) {
+            assertThat( first.headers().entryFor( keys.get( i ) ), is( nullValue() ) );      
+         }
+         if ( i != 5 && i != 9 ) {
+            assertThat( first.notes().entryFor( keys.get( i ) ), is( nullValue() ) );      
+         }
       }
+      assertThat( first.headers().entryFor( keys.get( 4 ) ), is( "header4" ) );
+      assertThat( first.headers().entryFor( keys.get( 5 ) ), is( "header5" ) );
+      
+      assertThat( first.notes().entryFor( keys.get( 5 ) ), is( "notes 5" ) );
+      assertThat( first.notes().entryFor( keys.get( 9 ) ), is( "notes 9" ) );
+      
       ProgressSeries second = database.progressSeries().objectList().get( 1 );
       keys = new ArrayList<>( second.entries() );
       for ( int i = 0; i < 33; i++ ) {
-         assertThat( second.entryFor( keys.get( i ) ), is( i * 0.01 ) );
+         assertThat( second.values().entryFor( keys.get( i ) ), is( i * 0.01 ) );
+         assertThat( second.headers().entryFor( keys.get( i ) ), is( nullValue() ) );
+         assertThat( second.notes().entryFor( keys.get( i ) ), is( nullValue() ) );
       }
    }//End Method
    
@@ -71,13 +94,29 @@ public class ProgressSeriesPersistenceTest {
       ProgressSeries first = database.progressSeries().objectList().get( 0 );
       List< LocalDateTime > keys = new ArrayList<>( first.entries() );
       for ( int i = 0; i < 5; i++ ) {
-         assertThat( first.entryFor( keys.get( i ) ), is( i * 1.2 ) );
+         assertThat( first.values().entryFor( keys.get( i ) ), is( i * 1.2 ) );
+         
+         if ( i != 2 && i != 3 ) {
+            assertThat( first.headers().entryFor( keys.get( i ) ), is( nullValue() ) );
+         }
+         
+         if ( i != 3 && i != 4 ) {
+            assertThat( first.notes().entryFor( keys.get( i ) ), is( nullValue() ) );
+         }
       }
+      
+      assertThat( first.values().entryFor( keys.get( 5 ) ), is( nullValue() ) );
+      assertThat( first.headers().entryFor( keys.get( 2 ) ), is( "header2" ) );
+      assertThat( first.headers().entryFor( keys.get( 3 ) ), is( "header3" ) );
+      assertThat( first.notes().entryFor( keys.get( 3 ) ), is( "notes 3" ) );
+      assertThat( first.notes().entryFor( keys.get( 4 ) ), is( "notes 4" ) );
 
       ProgressSeries second = database.progressSeries().objectList().get( 1 );
       keys = new ArrayList<>( second.entries() );
       for ( int i = 0; i < 100; i++ ) {
-         assertThat( second.entryFor( keys.get( i ) ), is( i * 23.4 ) );
+         assertThat( second.values().entryFor( keys.get( i ) ), is( i * 23.4 ) );
+         assertThat( second.headers().entryFor( keys.get( i ) ), is( nullValue() ) );
+         assertThat( second.notes().entryFor( keys.get( i ) ), is( nullValue() ) );
       }
    }//End Method
 }//End Class

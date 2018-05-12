@@ -15,16 +15,22 @@
                "timestamp":"10-05-2018 15:58:12"
             },
             {  
+               "timestamp":"10-05-2018 15:58:13"
+            },
+            {  
                "value":24,
                "timestamp":"11-05-2018 15:58:12"
             },
             {  
                "value":32,
-               "timestamp":"12-05-2018 15:58:12"
+               "timestamp":"12-05-2018 15:58:12",
+               "header":"header4"
             },
             {  
                "value":40,
-               "timestamp":"13-05-2018 15:58:12"
+               "timestamp":"13-05-2018 15:58:12",
+               "header":"header5",
+               "notes":"notes 5"
             },
             {  
                "value":48,
@@ -40,7 +46,8 @@
             },
             {  
                "value":72,
-               "timestamp":"17-05-2018 15:58:12"
+               "timestamp":"17-05-2018 15:58:12",
+               "notes":"notes 9"
             }
          ],
          "name":"First",

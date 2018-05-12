@@ -2,29 +2,48 @@ package uk.dangrew.nuts.progress.custom;
 
 import java.time.LocalDateTime;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-
 public class ProgressEntry {
 
-   private final ObjectProperty< LocalDateTime > timestampProperty;
-   private final ObjectProperty< Double > valueProperty;
+   private final LocalDateTime timestamp;
+   private Double value;
+   private String heading;
+   private String notes;
    
-   public ProgressEntry() {
-      this( null, 0.0 );
+   public ProgressEntry( LocalDateTime timestamp ) {
+      this( timestamp, 0.0 );
    }//End Constructor
    
    public ProgressEntry( LocalDateTime timstamp, double value ) {
-      this.timestampProperty = new SimpleObjectProperty<>( timstamp );
-      this.valueProperty = new SimpleObjectProperty<>( value );
+      this.timestamp = timstamp;
+      this.value = value;
    }//End Constructor
-   
-   public ObjectProperty< LocalDateTime > timestampProperty(){
-      return timestampProperty;
+
+   public LocalDateTime timestamp() {
+      return timestamp;
    }//End Method
    
-   public ObjectProperty< Double > valueProperty(){
-      return valueProperty;
+   public Double value() {
+      return value;
+   }//End Method
+
+   public void setValue( Double value ) {
+      this.value = value;
+   }//End Method
+
+   public String header() {
+      return heading;
+   }//End Method
+
+   public void setHeader( String heading ) {
+      this.heading = heading;
+   }//End Method
+
+   public String notes() {
+      return notes;
+   }//End Method
+
+   public void setNotes( String notes ) {
+      this.notes = notes;
    }//End Method
    
 }//End Class

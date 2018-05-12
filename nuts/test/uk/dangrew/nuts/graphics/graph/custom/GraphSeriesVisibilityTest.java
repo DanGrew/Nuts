@@ -34,7 +34,7 @@ public class GraphSeriesVisibilityTest {
       
       progress = new ProgressSeries( "anything" );
       for ( int i = 0; i < 10; i++ ) {
-         progress.record( LocalDateTime.now().plusDays( i ), i + 20.0 );
+         progress.values().record( LocalDateTime.now().plusDays( i ), i + 20.0 );
       }
       
       chartData = FXCollections.observableArrayList();

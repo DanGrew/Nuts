@@ -25,7 +25,7 @@ public class GraphModelImplTest {
    @Before public void initialiseSystemUnderTest() {
       progress = new ProgressSeries( "Anything" );
       for ( int i = 0; i < 7; i++ ) {
-         progress.record( LocalDateTime.now().plusDays( i ), i* 10.0 );
+         progress.values().record( LocalDateTime.now().plusDays( i ), i* 10.0 );
       }
       
       systemUnderTest = new GraphModelImpl(
@@ -42,13 +42,13 @@ public class GraphModelImplTest {
       for ( LocalDateTime record : progress.entries() ) {
          assertThat( systemUnderTest.dataFor( record ), is( notNullValue() ) );
          assertThat( systemUnderTest.dataFor( record ).getXValue().longValue(), is( record.toEpochSecond( ZoneOffset.UTC ) ) );
-         assertThat( systemUnderTest.dataFor( record ).getYValue(), is( progress.entryFor( record ) ) );
+         assertThat( systemUnderTest.dataFor( record ).getYValue(), is( progress.values().entryFor( record ) ) );
       }
    }//End Method
    
    @Test public void shouldRemoveDataWhenSetToNull() {
       LocalDateTime subject = progress.entries().iterator().next();
-      progress.record( subject, null );
+      progress.values().record( subject, null );
       
       assertThat( systemUnderTest.dataFor( subject ), is( nullValue() ) );
       assertThat( systemUnderTest.series().getData(), hasSize( 6 ) );
@@ -56,7 +56,7 @@ public class GraphModelImplTest {
    
    @Test public void shouldAddDataWhenSetToNonNullNonZero() {
       LocalDateTime subject = LocalDateTime.now().plusDays( 89 );
-      progress.record( subject, 20.0 );
+      progress.values().record( subject, 20.0 );
       
       assertThat( systemUnderTest.dataFor( subject ), is( notNullValue() ) );
       assertThat( systemUnderTest.series().getData(), hasSize( 8 ) );
@@ -66,7 +66,7 @@ public class GraphModelImplTest {
    
    @Test public void shouldSortDataWhenAdded() {
       LocalDateTime subject = LocalDateTime.now().plusDays( 1 ).plusHours( 1 );
-      progress.record( subject, 20.0 );
+      progress.values().record( subject, 20.0 );
       
       assertThat( systemUnderTest.dataFor( subject ), is( notNullValue() ) );
       assertThat( systemUnderTest.series().getData(), hasSize( 8 ) );
