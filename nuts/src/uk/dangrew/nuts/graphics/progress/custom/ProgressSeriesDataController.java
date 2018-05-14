@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
-import javafx.beans.value.ChangeListener;
 import uk.dangrew.nuts.graphics.common.UiDateTimeInputDialog;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableController;
@@ -13,10 +12,11 @@ import uk.dangrew.nuts.progress.custom.ProgressSeries;
 public class ProgressSeriesDataController implements ConceptTableController< ProgressSeries > {
 
    private final UiDateTimeInputDialog timestampInput;
-   private final BiConsumer< LocalDateTime, Double > updater;
-   private final BiConsumer< LocalDateTime, Double >  remover;
+   private final BiConsumer< LocalDateTime, Double > valueUpdater;
+   private final BiConsumer< LocalDateTime, String > textUpdater;
    
    private ProgressSeriesDataTable table;
+   private ProgressEntryTextPane textPane;
    private ProgressSeries selected;
    
    public ProgressSeriesDataController() {
@@ -25,12 +25,17 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
    
    ProgressSeriesDataController( UiDateTimeInputDialog timestampInput ) {
       this.timestampInput = timestampInput;
-      this.updater = this::internal_update;
-      this.remover = ( t, v ) -> this.internal_update( t, null );
+      this.valueUpdater = ( t, v ) -> this.internal_update( t );
+      this.textUpdater = ( t, v ) -> this.internal_update( t );
    }//End Constructor
    
    public void associate( ProgressSeriesDataTable table ) {
       this.table = table;
+      this.table.getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> internal_updateTextPane( n ) );
+   }//End Method
+   
+   public void associate( ProgressEntryTextPane textPane ) {
+      this.textPane = textPane;
    }//End Method
    
    @Override public void associate( ConceptTable< ProgressSeries > table ) {
@@ -39,17 +44,34 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
    
    private void select( ProgressSeries series ) {
       if ( selected != null ) {
-         selected.values().progressChangedListener().removeWhenProgressAdded( updater );
-         selected.values().progressChangedListener().removeWhenProgressRemoved( remover );
-         selected.values().progressChangedListener().removeWhenProgressUpdated( updater );
+         selected.values().progressChangedListener().removeWhenProgressAdded( valueUpdater );
+         selected.values().progressChangedListener().removeWhenProgressRemoved( valueUpdater );
+         selected.values().progressChangedListener().removeWhenProgressUpdated( valueUpdater );
+         
+         selected.headers().progressChangedListener().removeWhenProgressAdded( textUpdater );
+         selected.headers().progressChangedListener().removeWhenProgressRemoved( textUpdater );
+         selected.headers().progressChangedListener().removeWhenProgressUpdated( textUpdater );
+         
+         selected.notes().progressChangedListener().removeWhenProgressAdded( textUpdater );
+         selected.notes().progressChangedListener().removeWhenProgressRemoved( textUpdater );
+         selected.notes().progressChangedListener().removeWhenProgressUpdated( textUpdater );
       }
       
       this.table.getRows().clear();
       this.selected = series;
       this.selected.entries().forEach( this::internal_add );
-      this.selected.values().progressChangedListener().whenProgressAdded( updater );
-      this.selected.values().progressChangedListener().whenProgressRemoved( remover );
-      this.selected.values().progressChangedListener().whenProgressUpdated( updater );
+      
+      this.selected.values().progressChangedListener().whenProgressAdded( valueUpdater );
+      this.selected.values().progressChangedListener().whenProgressRemoved( valueUpdater );
+      this.selected.values().progressChangedListener().whenProgressUpdated( valueUpdater );
+      
+      this.selected.headers().progressChangedListener().whenProgressAdded( textUpdater );
+      this.selected.headers().progressChangedListener().whenProgressRemoved( textUpdater );
+      this.selected.headers().progressChangedListener().whenProgressUpdated( textUpdater );
+      
+      this.selected.notes().progressChangedListener().whenProgressAdded( textUpdater );
+      this.selected.notes().progressChangedListener().whenProgressRemoved( textUpdater );
+      this.selected.notes().progressChangedListener().whenProgressUpdated( textUpdater );
    }//End Method
    
    private void internal_add( LocalDateTime timestamp ) {
@@ -58,11 +80,15 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
    }//End Method
    
    private void internal_remove( ProgressSeriesDataRow row ) {
+      if ( selected.entries().contains( row.timestamp() ) ) {
+         return;
+      }
       this.table.getRows().remove( row );
    }//End Method
    
-   private void internal_update( ProgressSeriesDataRow row, Double value ) {
+   private void internal_updateUi( ProgressSeriesDataRow row, Double value ) {
       row.valueProperty().set( value );
+      internal_updateTextPane( row );
       this.internal_sortRows();
    }//End Method
    
@@ -70,16 +96,30 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
       this.table.getRows().sort( ( a, b ) -> a.timestamp().compareTo( b.timestamp() ) );
    }//End Method
    
-   private void internal_update( LocalDateTime timestamp, Double value ) {
+   private void internal_update( LocalDateTime timestamp ) {
       Optional< ProgressSeriesDataRow > row = table.getRows().stream()
          .filter( r -> r.timestamp().equals( timestamp ) )
          .findFirst();
       if ( !row.isPresent() ) {
          internal_add( timestamp );
-      } else if ( value == null ) {
+      } else if ( !selected.entries().contains( timestamp ) ) {
          internal_remove( row.get() );
       } else {
-         internal_update( row.get(), value );
+         internal_updateUi( row.get(), selected.values().entryFor( timestamp ) );
+      }
+   }//End Method
+   
+   private void internal_updateTextPane( ProgressSeriesDataRow selectedRow ){
+      if ( textPane == null ) {
+         return;
+      }
+      if ( selectedRow == null ) {
+         textPane.selectionRemoved();
+      } else {
+         textPane.update( 
+                  selected.headers().entryFor( selectedRow.timestamp() ), 
+                  selected.notes().entryFor( selectedRow.timestamp() ) 
+         );
       }
    }//End Method
 
@@ -88,7 +128,6 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
          return null;
       }
       
-      timestampInput.resetInputToNow();
       Optional< LocalDateTime > timestamp = timestampInput.friendly_showAndWait();
       if ( !timestamp.isPresent() ) {
          return null;
@@ -99,11 +138,7 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
    }//End Method
 
    @Override public void removeSelectedConcept() {
-      if ( selected == null ) {
-         return;
-      }
-      
-      ProgressSeriesDataRow selectedRow = table.getSelectionModel().getSelectedItem();
+      ProgressSeriesDataRow selectedRow = internal_getSelectedRow();
       if ( selectedRow == null ) {
          return;
       }
@@ -112,11 +147,7 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
    }//End Method
 
    @Override public void copySelectedConcept() {
-      if ( selected == null ) {
-         return;
-      }
-      
-      ProgressSeriesDataRow selectedRow = table.getSelectionModel().getSelectedItem();
+      ProgressSeriesDataRow selectedRow = internal_getSelectedRow();
       if ( selectedRow == null ) {
          return;
       }
@@ -130,6 +161,30 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
                selectedTimestamp.plusSeconds( secondsOffset ), 
                selected.values().entryFor( selectedRow.timestamp() ) 
       );
+   }//End Method
+   
+   private ProgressSeriesDataRow internal_getSelectedRow(){
+      if ( selected == null ) {
+         return null;
+      }
+      
+      return table.getSelectionModel().getSelectedItem();
+   }//End Method
+
+   public void setHeaderForSelected( String header ) {
+      ProgressSeriesDataRow selectedRow = internal_getSelectedRow();
+      if ( selectedRow == null ) {
+         return;
+      }
+      selected.headers().record( selectedRow.timestamp(), header );
+   }//End Method
+   
+   public void setNotesForSelected( String notes ) {
+      ProgressSeriesDataRow selectedRow = internal_getSelectedRow();
+      if ( selectedRow == null ) {
+         return;
+      }
+      selected.notes().record( selectedRow.timestamp(), notes );
    }//End Method
 
 }//End Class

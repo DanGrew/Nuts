@@ -3694,5 +3694,38 @@
       "name": "Tesco Courgettes Pre Packed 500G (100g)",
       "id": "145f7ad5-d3f1-4eac-bb8b-45642c8b6c3e",
       "calories": 19.8
+   },
+   {
+      "carbohydrates": 0,
+      "fiber": 0,
+      "fats": 5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0,
+      "name": "Tesco Valencian Orange Extract 60Ml (5ml)",
+      "id": "aff66558-89d2-4a79-93c9-bff1b6027662",
+      "calories": 45.01
+   },
+   {
+      "carbohydrates": 0,
+      "fiber": 0,
+      "fats": 0,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0,
+      "name": "Stevia (1ml)",
+      "id": "70b0d26b-8665-4342-9bd4-a7f4997e3f51",
+      "calories": 0
+   },
+   {
+      "carbohydrates": 0,
+      "fiber": 0,
+      "fats": 0,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 0,
+      "name": "Tesco Rock Salt Grinder 100G (100g)",
+      "id": "4a31623b-2240-4022-9e64-aac64a4e881f",
+      "calories": 0
    }
 ]}

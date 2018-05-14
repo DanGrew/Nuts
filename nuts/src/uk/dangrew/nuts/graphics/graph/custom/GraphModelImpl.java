@@ -27,6 +27,14 @@ public class GraphModelImpl implements GraphModel {
       this.progressSeries.values().progressChangedListener().whenProgressAdded( this::internalRedirect_updateDataPoint );
       this.progressSeries.values().progressChangedListener().whenProgressRemoved( this::internalRedirect_updateDataPoint );
       this.progressSeries.values().progressChangedListener().whenProgressUpdated( this::internalRedirect_updateDataPoint );
+      
+      this.progressSeries.headers().progressChangedListener().whenProgressAdded( this::internalRedirect_updateDataPoint );
+      this.progressSeries.headers().progressChangedListener().whenProgressRemoved( this::internalRedirect_updateDataPoint );
+      this.progressSeries.headers().progressChangedListener().whenProgressUpdated( this::internalRedirect_updateDataPoint );
+      
+      this.progressSeries.notes().progressChangedListener().whenProgressAdded( this::internalRedirect_updateDataPoint );
+      this.progressSeries.notes().progressChangedListener().whenProgressRemoved( this::internalRedirect_updateDataPoint );
+      this.progressSeries.notes().progressChangedListener().whenProgressUpdated( this::internalRedirect_updateDataPoint );
    }//End Constructor
    
    @Override public String modelName(){
@@ -45,12 +53,17 @@ public class GraphModelImpl implements GraphModel {
       seriesModel.hide();
    }//End Method
    
-   private void internalRedirect_updateDataPoint( LocalDateTime timestamp, Double value ) {
+   private void internalRedirect_updateDataPoint( LocalDateTime timestamp, Object value ) {
       updateDataPoint( timestamp );
    }//End Method
    
    private void updateDataPoint( LocalDateTime timestamp ) {
-      seriesModel.update( timestamp, progressSeries.values().entryFor( timestamp ) );
+      seriesModel.update( 
+               timestamp, 
+               progressSeries.values().entryFor( timestamp ),
+               progressSeries.headers().entryFor( timestamp ),
+               progressSeries.notes().entryFor( timestamp )
+      );
    }//End Method
    
    Data< Number, Number > dataFor( LocalDateTime recordTimestamp ) {

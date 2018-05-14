@@ -7,7 +7,6 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -15,6 +14,9 @@ import java.time.ZoneOffset;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.javafx.application.PlatformImpl;
+
+import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class GraphModelImplTest {
@@ -23,14 +25,15 @@ public class GraphModelImplTest {
    private GraphModelImpl systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
+      TestApplication.startPlatform();
       progress = new ProgressSeries( "Anything" );
       for ( int i = 0; i < 7; i++ ) {
          progress.values().record( LocalDateTime.now().plusDays( i ), i* 10.0 );
       }
       
-      systemUnderTest = new GraphModelImpl(
+      PlatformImpl.runAndWait( () -> systemUnderTest = new GraphModelImpl(
                progress 
-      );
+      ) );;
    }//End Method
    
    @Test public void shouldProvideModelName(){
@@ -62,6 +65,16 @@ public class GraphModelImplTest {
       assertThat( systemUnderTest.series().getData(), hasSize( 8 ) );
       assertThat( systemUnderTest.series().getData().get( 7 ).getXValue().longValue(), is( subject.toEpochSecond( ZoneOffset.UTC ) ) );
       assertThat( systemUnderTest.series().getData().get( 7 ).getYValue(), is( 20.0 ) );
+   }//End Method
+   
+   @Test public void shouldAddDataWhenTextAdded() {
+      LocalDateTime subject = LocalDateTime.now().plusDays( 89 );
+      progress.headers().record( subject, "header" );
+      
+      assertThat( systemUnderTest.dataFor( subject ), is( notNullValue() ) );
+      assertThat( systemUnderTest.series().getData(), hasSize( 8 ) );
+      assertThat( systemUnderTest.series().getData().get( 7 ).getXValue().longValue(), is( subject.toEpochSecond( ZoneOffset.UTC ) ) );
+      assertThat( systemUnderTest.series().getData().get( 7 ).getYValue(), is( nullValue() ) );
    }//End Method
    
    @Test public void shouldSortDataWhenAdded() {

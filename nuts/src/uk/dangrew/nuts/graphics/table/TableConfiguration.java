@@ -22,6 +22,7 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
+import uk.dangrew.kode.javafx.style.Conversions;
 import uk.dangrew.kode.javafx.table.EditCommitHandler;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -33,6 +34,8 @@ import uk.dangrew.nuts.system.Concept;
  * {@link TableConfiguration} provides configuration for the {@link FoodTable}.
  */
 public class TableConfiguration {
+   
+   private final static Conversions conversions = new Conversions();
    
    /**
     * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.
@@ -150,7 +153,7 @@ public class TableConfiguration {
       if ( editable ) {
          column.setCellFactory(TextFieldTableCell.forTableColumn());
          column.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> 
-                  propertyRetriever.apply( r ).set( Double.valueOf( v ) )
+                  propertyRetriever.apply( r ).set( conversions.nullableStringToDoubleFunction().apply( v ) )
          ) );
       }
       table.getColumns().add( column );
@@ -228,9 +231,11 @@ public class TableConfiguration {
    
    public < TypeT extends Concept > void configureCheckBoxController(
             ConceptTable< TypeT > table,
-            CheckBoxController< TypeT > controller 
+            CheckBoxController< TypeT > controller,
+            double widthProportion
    ) {
       TableColumn< ConceptTableRow< TypeT >, Boolean > column = new TableColumn<>();
+      column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
       column.setCellValueFactory( param -> controller.propertyFor( param.getValue().concept() ) );
       column.setCellFactory( CheckBoxTableCell.forTableColumn( column ) );
       column.setEditable( true );

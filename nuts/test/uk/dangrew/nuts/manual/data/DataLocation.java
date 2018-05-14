@@ -16,6 +16,7 @@ import uk.dangrew.nuts.goal.calorie.Gender;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
+import uk.dangrew.nuts.persistence.progress.ProgressSeriesPersistence;
 import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -57,6 +58,14 @@ public class DataLocation {
       WeightRecordingPersistence persistence = new WeightRecordingPersistence( database );
       
       String value = TestCommon.readFileIntoString( DataLocation.class, "weightRecordings.json" );
+      JSONObject json = new JSONObject( value );
+      persistence.readHandles().parse( json );
+   }//End Method
+   
+   public static void loadSampleProgressSeries( Database database ) {
+      ProgressSeriesPersistence persistence = new ProgressSeriesPersistence( database );
+      
+      String value = TestCommon.readFileIntoString( DataLocation.class, "progressSeries.json" );
       JSONObject json = new JSONObject( value );
       persistence.readHandles().parse( json );
    }//End Method

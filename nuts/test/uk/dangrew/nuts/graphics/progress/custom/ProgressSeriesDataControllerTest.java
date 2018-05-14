@@ -4,7 +4,9 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
@@ -32,6 +34,7 @@ public class ProgressSeriesDataControllerTest {
    private Database database;
    private ProgressSeriesTable seriesTable;
    private ProgressSeriesDataTable dataTable;
+   private ProgressEntryTextPane textPane;
    
    @Mock private GraphSeriesVisibility graphController;
    @Mock private UiDateTimeInputDialog timestampInput;
@@ -44,7 +47,9 @@ public class ProgressSeriesDataControllerTest {
       
       dataTable = new ProgressSeriesDataTable( systemUnderTest );
       seriesTable = new ProgressSeriesTable( database = new Database(), graphController );
+      textPane = new ProgressEntryTextPane( systemUnderTest );
       systemUnderTest.associate( seriesTable );
+      systemUnderTest.associate( textPane );
       
       first = database.progressSeries().createConcept( "First" );
       second = database.progressSeries().createConcept( "Second" );
@@ -71,13 +76,25 @@ public class ProgressSeriesDataControllerTest {
       assertThat( dataTable.getRows(), hasSize( 10 ) );
       
       LocalDateTime timestamp = LocalDateTime.now().plusMonths( 12 );
-      first.values().record(timestamp, 45.0 );
+      first.values().record( timestamp, 45.0 );
       assertDataTableContainsEntriesFor( first );
       
-      first.values().record(timestamp, null );
+      first.values().record( timestamp, null );
       assertDataTableContainsEntriesFor( first );
       
-      first.values().record(timestamp, 46.0 );
+      first.values().record( timestamp, 46.0 );
+      assertDataTableContainsEntriesFor( first );
+      
+      first.headers().record( timestamp.plusDays( 100 ), "header" );
+      assertDataTableContainsEntriesFor( first );
+      
+      first.headers().record( timestamp.plusDays( 100 ), null );
+      assertDataTableContainsEntriesFor( first );
+      
+      first.notes().record( timestamp.plusDays( 101 ), "notes" );
+      assertDataTableContainsEntriesFor( first );
+      
+      first.notes().record( timestamp.plusDays( 101 ), null );
       assertDataTableContainsEntriesFor( first );
    }//End Method
    
@@ -92,7 +109,6 @@ public class ProgressSeriesDataControllerTest {
       assertThat( dataTable.getRows().get( 1 ).valueProperty().get(), is( 0.0 ) );
       
       InOrder order = inOrder( timestampInput );
-      order.verify( timestampInput ).resetInputToNow();
       order.verify( timestampInput ).friendly_showAndWait();
    }//End Method
    
@@ -170,10 +186,10 @@ public class ProgressSeriesDataControllerTest {
       first.values().record(timestamp, 45.0 );
       assertDataTableContainsEntriesFor( second );
       
-      first.values().record(timestamp, null );
+      first.values().record( timestamp, null );
       assertDataTableContainsEntriesFor( second );
       
-      first.values().record(timestamp, 46.0 );
+      first.values().record( timestamp, 46.0 );
       assertDataTableContainsEntriesFor( second );
    }//End Method
    
@@ -183,6 +199,82 @@ public class ProgressSeriesDataControllerTest {
          assertThat( dataTable.getRows().get( i ).timestamp(), is( timestamps.get( i ) ) );
          assertThat( dataTable.getRows().get( i ).valueProperty().get(), is( series.values().entryFor( timestamps.get( i ) ) ) );
       }
+   }//End Method
+   
+   @Test public void shouldSetHeaderTextForSelected(){
+      LocalDateTime timestamp = new ArrayList<>( first.entries() ).get( 4 );
+      seriesTable.getSelectionModel().select( 0 );
+      dataTable.getSelectionModel().select( 4 );
+      
+      assertThat( first.headers().entryFor( timestamp ), is( nullValue() ) );
+      systemUnderTest.setHeaderForSelected( "header" );
+      assertThat( first.headers().entryFor( timestamp ), is( "header" ) );
+   }//End Method
+   
+   @Test public void shouldNotSetHeaderTextWhenNoSelection(){
+      LocalDateTime timestamp = new ArrayList<>( first.entries() ).get( 4 );
+      seriesTable.getSelectionModel().select( 0 );
+//      dataTable.getSelectionModel().select( 4 );
+      
+      assertThat( first.headers().entryFor( timestamp ), is( nullValue() ) );
+      systemUnderTest.setHeaderForSelected( "header" );
+      assertThat( first.headers().entryFor( timestamp ), is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldSetNotesTextForSelected(){
+      LocalDateTime timestamp = new ArrayList<>( first.entries() ).get( 4 );
+      seriesTable.getSelectionModel().select( 0 );
+      dataTable.getSelectionModel().select( 4 );
+      
+      assertThat( first.notes().entryFor( timestamp ), is( nullValue() ) );
+      systemUnderTest.setNotesForSelected( "notes" );
+      assertThat( first.notes().entryFor( timestamp ), is( "notes" ) );
+   }//End Method
+   
+   @Test public void shouldNotSetNotesTextWhenNoSelection(){
+      LocalDateTime timestamp = new ArrayList<>( first.entries() ).get( 4 );
+      seriesTable.getSelectionModel().select( 0 );
+//      dataTable.getSelectionModel().select( 4 );
+      
+      assertThat( first.notes().entryFor( timestamp ), is( nullValue() ) );
+      systemUnderTest.setNotesForSelected( "notes" );
+      assertThat( first.notes().entryFor( timestamp ), is( nullValue() ) );
+   }//End Method
+   
+   @Test public void shouldUpdateTextPaneWhenRowSelected(){
+      LocalDateTime subject = first.values().first();
+      assertThat( first.headers().entryFor( subject ), is( nullValue() ) );
+      assertThat( first.notes().entryFor( subject ), is( nullValue() ) );
+      first.headers().record( subject, "header" );
+      first.notes().record( subject, "notes" );
+      
+      assertThat( textPane.headerField().getText(), is( nullValue() ) );
+      assertThat( textPane.notesArea().getText(), is( nullValue() ) );
+      
+      seriesTable.getSelectionModel().select( 0 );
+      dataTable.getSelectionModel().select( 0 );
+      assertThat( textPane.headerField().getText(), is( "header" ) );
+      assertThat( textPane.notesArea().getText(), is( "notes" ) );
+      
+      first.headers().record( subject, "header2" );
+      first.notes().record( subject, "notes2" );
+      assertThat( textPane.headerField().getText(), is( "header2" ) );
+      assertThat( textPane.notesArea().getText(), is( "notes2" ) );
+   }//End Method
+   
+   @Test public void shouldClearTextPaneWhenRowDeselected(){
+      LocalDateTime subject = first.values().first();
+      first.headers().record( subject, "header" );
+      first.notes().record( subject, "notes" );
+      
+      seriesTable.getSelectionModel().select( 0 );
+      dataTable.getSelectionModel().select( 0 );
+      assertThat( textPane.headerField().getText(), is( "header" ) );
+      assertThat( textPane.notesArea().getText(), is( "notes" ) );
+      
+      dataTable.getSelectionModel().clearSelection();
+      assertThat( textPane.headerField().getText(), is( nullValue() ) );
+      assertThat( textPane.notesArea().getText(), is( nullValue() ) );
    }//End Method
    
 }//End Class

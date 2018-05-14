@@ -28,7 +28,7 @@ public class ProgressSeriesTableColumns implements ConceptTableColumnsPopulator<
    
    @Override public void populateColumns( ConceptTable< ProgressSeries > table ) {
       table.setEditable( true );
-      configuration.configureCheckBoxController( table, controller );
+      configuration.configureCheckBoxController( table, controller, 0.2 );
       configuration.initialiseStringColumn( table, COLUMN_TITLE_SERIES, 0.8, p -> p.properties().nameProperty(), true );
    }//End Method
    

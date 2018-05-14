@@ -26,7 +26,7 @@ public class UiComparableFoodTableColumns extends FoodTableColumns< Food > {
    
    @Override public void populateColumns( ConceptTable< Food > table ) {
       table.setEditable( true );
-      configuration.configureCheckBoxController( table, controller );
+      configuration.configureCheckBoxController( table, controller, 0.05 );
       super.populateColumns( table );
    }//End Method
 

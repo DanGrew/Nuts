@@ -21,30 +21,36 @@ public class ProgressSeriesPane extends GridPane {
 
    private final ProgressSeriesTable seriesTable;
    private final ProgressSeriesDataTable dataTable;
+   private final ProgressEntryTextPane textPane;
    private final ProgressSeriesDataController dataController;
    private final GraphWithSettings graph;
    
    public ProgressSeriesPane( Database database ) {
-      new JavaFxStyle().configureConstraintsForColumnPercentages( this, 20, 80 );
-      new JavaFxStyle().configureConstraintsForRowPercentages( this, 40, 60 );
+      new JavaFxStyle().configureConstraintsForColumnPercentages( this, 20, 50, 30 );
+      new JavaFxStyle().configureConstraintsForRowPercentages( this, 40, 50 );
       
-      add( graph = new GraphWithSettings( 
+      this.dataTable = new ProgressSeriesDataTable(); 
+      this.dataController = dataTable.controller();
+      this.graph = new GraphWithSettings( 
                new GraphBuilder()
                   .withXAxisTickFormatter( new GraphDateStringConverter() )
                   .withXAxisTickInterval( 86400 )
-      ), 0, 1 );
+      );
+      this.textPane = new ProgressEntryTextPane( dataController );
+      
+      add( graph, 0, 1 );
+      add( textPane, 2, 0 );
       
       add( new ConceptTableWithControls<>( "Series", 
                seriesTable = new ProgressSeriesTable( database, graph.graph().controller().seriesVisibility() ) 
       ), 0, 0 );
       add( new TableWithControls<>( "Data Points", 
-               dataTable = new ProgressSeriesDataTable(), 
-               dataController = dataTable.controller()
+               dataTable, 
+               dataController
       ), 1, 0 );
-      GridPane.setColumnSpan( graph, 2 );
+      GridPane.setColumnSpan( graph, 3 );
       
       dataController.associate( seriesTable );
-      dataController.associate( dataTable );
    }//End Constructor
    
 }//End Class

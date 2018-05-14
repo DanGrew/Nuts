@@ -3389,5 +3389,67 @@
             "portionValue": 40
          }
       ]
+   },
+   {
+      "name": "Zucchini Boats",
+      "id": "5d92ef86-0e51-4b50-9356-dbe4f2ea3e31",
+      "portions": [
+         {
+            "foodId": "145f7ad5-d3f1-4eac-bb8b-45642c8b6c3e",
+            "portionValue": 500
+         },
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "8e457881-5430-4783-894e-c3a1a5e317d2",
+            "portionValue": 300
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Almond Milk Boost",
+      "id": "e7cdd82b-d2fc-4de9-8773-edde95c407d6",
+      "portions": [
+         {
+            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Pure Fat Bombs",
+      "id": "c3f9c351-92c4-4fdf-a144-e3bac41f45eb",
+      "portions": [
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 100
+         },
+         {
+            "foodId": "aff66558-89d2-4a79-93c9-bff1b6027662",
+            "portionValue": 100
+         },
+         {
+            "foodId": "70b0d26b-8665-4342-9bd4-a7f4997e3f51",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4a31623b-2240-4022-9e64-aac64a4e881f",
+            "portionValue": 1
+         }
+      ]
    }
 ]}
