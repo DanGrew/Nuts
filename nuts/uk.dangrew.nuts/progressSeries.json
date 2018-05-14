@@ -1,192 +1,284 @@
-{"seriesList": [{
-   "entries": [
-      {
-         "notes": "",
-         "header": "Before leaving for work",
-         "value": 4,
-         "timestamp": "27-04-2018 07:00:00"
-      },
-      {
-         "notes": "Repeated due to high previous result",
-         "header": "Before leaving for work",
-         "value": 3.4,
-         "timestamp": "27-04-2018 07:05:00"
-      },
-      {
-         "notes": "Mixed macros, but Keto and high fat.",
-         "header": "Before Big Breakfast",
-         "value": 2.4,
-         "timestamp": "28-04-2018 08:47:00"
-      },
-      {
-         "notes": "1 hour after finishing breakfast.",
-         "header": "After Breakfast",
-         "value": 1.4,
-         "timestamp": "28-04-2018 10:39:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 1.9,
-         "timestamp": "28-04-2018 11:55:00"
-      },
-      {
-         "notes": "Whipped up heavy cream and had that as my last meal by itself at around 15:30. Didn\u2019t eat anything else until the following day. I noticed mood rise after about an hour and ketones levels skyrocketed, finishing the night on 4.7mmol.\n",
-         "header": "Experiment - Heavy Cream (150g) (1/4)",
-         "value": 2.4,
-         "timestamp": "28-04-2018 15:17:00"
-      },
-      {
-         "notes": "",
-         "header": "Experiment - Heavy Cream (150g) (2/4)",
-         "value": 2.8,
-         "timestamp": "28-04-2018 16:46:00"
-      },
-      {
-         "notes": "",
-         "header": "Experiment - Heavy Cream (150g) (3/4)",
-         "value": 3,
-         "timestamp": "28-04-2018 18:05:00"
-      },
-      {
-         "notes": "Struggled to get to sleep initially. Heart rate was noticeable and felt pretty wired although still tired.",
-         "header": "Experiment - Heavy Cream (150g) (4/4)",
-         "value": 4.7,
-         "timestamp": "28-04-2018 22:47:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 2.6,
-         "timestamp": "29-04-2018 08:01:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 1,
-         "timestamp": "29-04-2018 18:49:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 1.7,
-         "timestamp": "29-04-2018 23:02:00"
-      },
-      {
-         "notes": "Previous reading before leaving house. Hemp buns and heavy cream for breakfast to see effect over the morning.\nNo noticeable effect.\n",
-         "header": "Experiment - Heavy Cream + Hemp Buns",
-         "value": 0.7,
-         "timestamp": "30-04-2018 06:56:00"
-      },
-      {
-         "notes": "Same as breakfast for same experiment. \nNo noticeable effect.\n",
-         "header": "Experiment - Heavy Cream <stats>",
-         "value": 1.3,
-         "timestamp": "30-04-2018 12:34:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 1.6,
-         "timestamp": "30-04-2018 16:02:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 1.3,
-         "timestamp": "30-04-2018 22:36:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 0.6,
-         "timestamp": "01-05-2018 07:40:00"
-      },
-      {
-         "notes": "High fat content (over 100g) in the meal left me feeling really good. I had two portions when I was only planning for 1.",
-         "header": "High Fat Pizza (Accidental Experiment)",
-         "value": 3.2,
-         "timestamp": "06-05-2018 19:40:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 1.6,
-         "timestamp": "09-05-2018 16:37:00"
-      },
-      {
-         "notes": "Recording before leaving for swimming.",
-         "header": "Swimming Experiment (1/3)",
-         "value": 3.7,
-         "timestamp": "09-05-2018 18:15:00"
-      },
-      {
-         "notes": "After walking back from swimming. Approximately 70 (25 yard) lengths.",
-         "header": "Swimming Experiment (2/3)",
-         "value": 1.9,
-         "timestamp": "09-05-2018 20:17:00"
-      },
-      {
-         "notes": "",
-         "header": "Swimming Experiment (3/3)",
-         "value": 3.2,
-         "timestamp": "09-05-2018 23:00:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 2.2,
-         "timestamp": "10-05-2018 06:43:00"
-      },
-      {
-         "notes": "Bacon, Omelette, Spinach and Avocados. C: 7g, F: 140g, P: 60g.",
-         "header": "High Fat Meal and Fast Experiment (1/6)",
-         "value": 1.7,
-         "timestamp": "10-05-2018 08:22:00"
-      },
-      {
-         "notes": "Reading late morning.",
-         "header": "High Fat Meal and Fast Experiment (2/6)",
-         "value": 1.9,
-         "timestamp": "10-05-2018 11:07:00"
-      },
-      {
-         "notes": "Fasting through afternoon.",
-         "header": "High Fat Meal and Fast Experiment (3/6)",
-         "value": 3.2,
-         "timestamp": "10-05-2018 14:04:00"
-      },
-      {
-         "notes": "Reading before evening meal. Mackerel, Flax Wraps, Spinach and an Avocado. C: 5.5g, F: 100g, P45:",
-         "header": "High Fat Meal and Fast Experiment (4/6)",
-         "value": 2.5,
-         "timestamp": "10-05-2018 17:49:00"
-      },
-      {
-         "notes": "Hour after eating.",
-         "header": "High Fat Meal and Fast Experiment (5/6)",
-         "value": 3.2,
-         "timestamp": "10-05-2018 18:58:00"
-      },
-      {
-         "notes": "Reading after getting home.",
-         "header": "High Fat Meal and Fast Experiment (6/6)",
-         "value": 3.1,
-         "timestamp": "10-05-2018 21:57:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 1.5,
-         "timestamp": "12-05-2018 12:00:00"
-      },
-      {
-         "notes": "",
-         "header": "",
-         "value": 2.9,
-         "timestamp": "12-05-2018 14:18:00"
-      }
-   ],
-   "name": "Keto Readings 27/04/18",
-   "id": "28d16404-199c-43b4-a82e-bc8ae66eba3b"
-}]}
+{"seriesList": [
+   {
+      "entries": [
+         {
+            "notes": "",
+            "header": "Before leaving for work",
+            "value": 4,
+            "timestamp": "27-04-2018 07:00:00"
+         },
+         {
+            "notes": "Repeated due to high previous result",
+            "header": "Before leaving for work",
+            "value": 3.4,
+            "timestamp": "27-04-2018 07:05:00"
+         },
+         {
+            "notes": "Mixed macros, but Keto and high fat.",
+            "header": "Before Big Breakfast",
+            "value": 2.4,
+            "timestamp": "28-04-2018 08:47:00"
+         },
+         {
+            "notes": "1 hour after finishing breakfast.",
+            "header": "After Breakfast",
+            "value": 1.4,
+            "timestamp": "28-04-2018 10:39:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 1.9,
+            "timestamp": "28-04-2018 11:55:00"
+         },
+         {
+            "notes": "Whipped up heavy cream and had that as my last meal by itself at around 15:30. Didn\u2019t eat anything else until the following day. I noticed mood rise after about an hour and ketones levels skyrocketed, finishing the night on 4.7mmol.\n",
+            "header": "Experiment - Heavy Cream (150g) (1/4)",
+            "value": 2.4,
+            "timestamp": "28-04-2018 15:17:00"
+         },
+         {
+            "notes": "",
+            "header": "Experiment - Heavy Cream (150g) (2/4)",
+            "value": 2.8,
+            "timestamp": "28-04-2018 16:46:00"
+         },
+         {
+            "notes": "",
+            "header": "Experiment - Heavy Cream (150g) (3/4)",
+            "value": 3,
+            "timestamp": "28-04-2018 18:05:00"
+         },
+         {
+            "notes": "Struggled to get to sleep initially. Heart rate was noticeable and felt pretty wired although still tired.",
+            "header": "Experiment - Heavy Cream (150g) (4/4)",
+            "value": 4.7,
+            "timestamp": "28-04-2018 22:47:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 2.6,
+            "timestamp": "29-04-2018 08:01:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 1,
+            "timestamp": "29-04-2018 18:49:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 1.7,
+            "timestamp": "29-04-2018 23:02:00"
+         },
+         {
+            "notes": "Previous reading before leaving house. Hemp buns and heavy cream for breakfast to see effect over the morning.\nNo noticeable effect.\n",
+            "header": "Experiment - Heavy Cream + Hemp Buns",
+            "value": 0.7,
+            "timestamp": "30-04-2018 06:56:00"
+         },
+         {
+            "notes": "Same as breakfast for same experiment. \nNo noticeable effect.\n",
+            "header": "Experiment - Heavy Cream <stats>",
+            "value": 1.3,
+            "timestamp": "30-04-2018 12:34:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 1.6,
+            "timestamp": "30-04-2018 16:02:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 1.3,
+            "timestamp": "30-04-2018 22:36:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 0.6,
+            "timestamp": "01-05-2018 07:40:00"
+         },
+         {
+            "notes": "High fat content (over 100g) in the meal left me feeling really good. I had two portions when I was only planning for 1.",
+            "header": "High Fat Pizza (Accidental Experiment)",
+            "value": 3.2,
+            "timestamp": "06-05-2018 19:40:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 1.6,
+            "timestamp": "09-05-2018 16:37:00"
+         },
+         {
+            "notes": "Recording before leaving for swimming.",
+            "header": "Swimming Experiment (1/3)",
+            "value": 3.7,
+            "timestamp": "09-05-2018 18:15:00"
+         },
+         {
+            "notes": "After walking back from swimming. Approximately 70 (25 yard) lengths.",
+            "header": "Swimming Experiment (2/3)",
+            "value": 1.9,
+            "timestamp": "09-05-2018 20:17:00"
+         },
+         {
+            "notes": "",
+            "header": "Swimming Experiment (3/3)",
+            "value": 3.2,
+            "timestamp": "09-05-2018 23:00:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 2.2,
+            "timestamp": "10-05-2018 06:43:00"
+         },
+         {
+            "notes": "Bacon, Omelette, Spinach and Avocados. C: 7g, F: 140g, P: 60g.",
+            "header": "High Fat Meal and Fast Experiment (1/6)",
+            "value": 1.7,
+            "timestamp": "10-05-2018 08:22:00"
+         },
+         {
+            "notes": "Reading late morning.",
+            "header": "High Fat Meal and Fast Experiment (2/6)",
+            "value": 1.9,
+            "timestamp": "10-05-2018 11:07:00"
+         },
+         {
+            "notes": "Fasting through afternoon.",
+            "header": "High Fat Meal and Fast Experiment (3/6)",
+            "value": 3.2,
+            "timestamp": "10-05-2018 14:04:00"
+         },
+         {
+            "notes": "Reading before evening meal. Mackerel, Flax Wraps, Spinach and an Avocado. C: 5.5g, F: 100g, P45:",
+            "header": "High Fat Meal and Fast Experiment (4/6)",
+            "value": 2.5,
+            "timestamp": "10-05-2018 17:49:00"
+         },
+         {
+            "notes": "Hour after eating.",
+            "header": "High Fat Meal and Fast Experiment (5/6)",
+            "value": 3.2,
+            "timestamp": "10-05-2018 18:58:00"
+         },
+         {
+            "notes": "Reading after getting home.",
+            "header": "High Fat Meal and Fast Experiment (6/6)",
+            "value": 3.1,
+            "timestamp": "10-05-2018 21:57:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 1.5,
+            "timestamp": "12-05-2018 12:00:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 2.9,
+            "timestamp": "12-05-2018 14:18:00"
+         },
+         {
+            "notes": "Reading just before leaving for work.",
+            "header": "Intermittent Fasting (1/6)",
+            "value": 1,
+            "timestamp": "14-05-2018 07:05:00"
+         },
+         {
+            "notes": "Mid morning. Bouillion + squash only.",
+            "header": "Intermittent Fasting (2/6)",
+            "value": 2,
+            "timestamp": "14-05-2018 10:52:00"
+         },
+         {
+            "notes": "After lunch, nothing but water since last.",
+            "header": "Intermittent Fasting (3/6)",
+            "value": 1.6,
+            "timestamp": "14-05-2018 13:35:00"
+         },
+         {
+            "notes": "Before eating after getting back from work. Another glass of squash only.",
+            "header": "Intermittent Fasting (4/6)",
+            "value": 1.1,
+            "timestamp": "14-05-2018 16:33:00"
+         },
+         {
+            "notes": "About an hour after food. Omelette, avocados, cheese, kale, spinach. Plus, before food 15 mins of bar training.",
+            "header": "Intermittent Fasting (5/6)",
+            "value": 1,
+            "timestamp": "14-05-2018 18:46:00"
+         }
+      ],
+      "name": "Keto Readings",
+      "id": "28d16404-199c-43b4-a82e-bc8ae66eba3b"
+   },
+   {
+      "entries": [
+         {
+            "notes": "",
+            "header": "",
+            "value": 4.3,
+            "timestamp": "14-05-2018 10:52:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 3.8,
+            "timestamp": "14-05-2018 13:35:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 4.2,
+            "timestamp": "14-05-2018 16:33:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 5.1,
+            "timestamp": "14-05-2018 18:46:00"
+         }
+      ],
+      "name": "Glucose Readings",
+      "id": "27181944-1710-4de6-beb8-4a829fdc1cd9"
+   },
+   {
+      "entries": [
+         {
+            "notes": "",
+            "header": "",
+            "value": 2.15,
+            "timestamp": "14-05-2018 10:52:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 2.375,
+            "timestamp": "14-05-2018 13:35:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 3.81,
+            "timestamp": "14-05-2018 16:33:00"
+         },
+         {
+            "notes": "",
+            "header": "",
+            "value": 5.1,
+            "timestamp": "14-05-2018 18:46:00"
+         }
+      ],
+      "name": "GKI Readings",
+      "id": "2421466c-4aa3-402b-8066-14753f0af504"
+   }
+]}

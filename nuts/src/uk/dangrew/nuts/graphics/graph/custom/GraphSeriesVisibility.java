@@ -2,6 +2,7 @@ package uk.dangrew.nuts.graphics.graph.custom;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,7 +55,7 @@ public class GraphSeriesVisibility {
    }//End Method
 
    public void hide( ProgressSeries progress ) {
-      models.get( progress ).hide();
+      Optional.ofNullable( models.get( progress ) ).ifPresent( GraphModel::hide );
       internal_visibleSeries.remove( progress );
    }//End Method
 

@@ -80,4 +80,8 @@ public class GraphSeriesVisibilityTest {
       assertThat( systemUnderTest.visibleSeries().contains( progress ), is( true ) );
    }//End Method
    
+   @Test public void shouldHandleHideOnMissingModel(){
+      systemUnderTest.hide( progress );
+   }//End Method
+   
 }//End Class
