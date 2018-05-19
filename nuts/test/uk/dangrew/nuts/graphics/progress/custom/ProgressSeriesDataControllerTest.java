@@ -21,7 +21,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.common.UiDateTimeInputDialog;
+import uk.dangrew.nuts.graphics.common.UiTimestampInputDialog;
 import uk.dangrew.nuts.graphics.graph.custom.GraphSeriesVisibility;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
@@ -37,7 +37,7 @@ public class ProgressSeriesDataControllerTest {
    private ProgressEntryTextPane textPane;
    
    @Mock private GraphSeriesVisibility graphController;
-   @Mock private UiDateTimeInputDialog timestampInput;
+   @Mock private UiTimestampInputDialog timestampInput;
    private ProgressSeriesDataController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {

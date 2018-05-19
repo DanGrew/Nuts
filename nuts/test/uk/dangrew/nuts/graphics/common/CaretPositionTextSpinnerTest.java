@@ -23,7 +23,7 @@ public class CaretPositionTextSpinnerTest {
    
    private TimestampFormat format;
    
-   private DateTimeTextBox box;
+   private TimestampBox box;
    private CaretPositionTextSpinner systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -32,7 +32,7 @@ public class CaretPositionTextSpinnerTest {
       
       format = new TimestampFormat();
       systemUnderTest = new CaretPositionTextSpinner();
-      box = new DateTimeTextBox( systemUnderTest );
+      box = new TimestampBox( systemUnderTest );
    }//End Method
 
    @Test public void shouldDeregister() {

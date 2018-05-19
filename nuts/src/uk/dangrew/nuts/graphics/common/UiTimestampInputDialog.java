@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.LabelBuilder;
 
-public class UiDateTimeInputDialog extends Dialog< LocalDateTime >{
+public class UiTimestampInputDialog extends Dialog< LocalDateTime >{
 
    static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern( "dd-MM-yyyy" );
    static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern( "HH:mm:ss" );
@@ -20,13 +20,13 @@ public class UiDateTimeInputDialog extends Dialog< LocalDateTime >{
    private final ButtonType cancel;
    
    private final JavaFxStyle styling;
-   private final DateTimeTextBox timestampTextBox;
+   private final TimestampBox timestampTextBox;
    
-   public UiDateTimeInputDialog() {
+   public UiTimestampInputDialog() {
       this.styling = new JavaFxStyle();
       this.setTitle( "Timestamp Input" );
       
-      this.timestampTextBox = new DateTimeTextBox();
+      this.timestampTextBox = new TimestampBox();
       
       GridPane wrapper = new GridPane();
       this.styling.configureConstraintsForEvenRows( wrapper, 2 );
@@ -63,7 +63,7 @@ public class UiDateTimeInputDialog extends Dialog< LocalDateTime >{
       return showAndWait();
    }//End Method
    
-   DateTimeTextBox timestampBox() {
+   TimestampBox timestampBox() {
       return timestampTextBox;
    }//End Method
    

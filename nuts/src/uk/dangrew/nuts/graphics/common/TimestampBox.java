@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 import uk.dangrew.kode.datetime.TimestampFormat;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 
-public class DateTimeTextBox extends TextField {
+public class TimestampBox extends TextField {
 
    static final Color INVALID_BORDER_COLOUR = Color.RED;
    static final Color VALID_BORDER_COLOUR = Color.GREEN;
@@ -16,11 +16,11 @@ public class DateTimeTextBox extends TextField {
    private final JavaFxStyle styling;
    private final TimestampFormat format;
    
-   public DateTimeTextBox() {
+   public TimestampBox() {
       this( new CaretPositionTextSpinner() );
    }//End Constructor
    
-   DateTimeTextBox( CaretPositionTextSpinner spinner ) {
+   TimestampBox( CaretPositionTextSpinner spinner ) {
       this.styling = new JavaFxStyle();
       this.format = new TimestampFormat();
       this.setPromptText( format.pattern() );

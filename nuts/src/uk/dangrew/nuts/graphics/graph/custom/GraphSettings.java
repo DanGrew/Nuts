@@ -18,7 +18,7 @@ import uk.dangrew.kode.javafx.custom.ResponsiveComboProperty;
 import uk.dangrew.kode.javafx.custom.ResponsiveTextRegion;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
-import uk.dangrew.nuts.graphics.common.DateTimeTextBox;
+import uk.dangrew.nuts.graphics.common.TimestampBox;
 
 public class GraphSettings extends GridPane {
    
@@ -29,7 +29,7 @@ public class GraphSettings extends GridPane {
    private final JavaFxStyle styling;
    
    private final GraphController controller;
-   private final DateTimeTextBox horizontalAxisFocusField;
+   private final TimestampBox horizontalAxisFocusField;
    private final ComboBox< TimestampPeriod > timestampPeriodBox;
    
    public GraphSettings( GraphController controller ) {
@@ -38,7 +38,7 @@ public class GraphSettings extends GridPane {
       this.styling.configureConstraintsForEvenColumns( this, 1 );
       this.styling.configureConstraintsForEvenRows( this, 1 );
       
-      this.horizontalAxisFocusField = new DateTimeTextBox();
+      this.horizontalAxisFocusField = new TimestampBox();
       this.timestampPeriodBox = new ComboBox<>();
       this.timestampPeriodBox.getItems().addAll( TimestampPeriod.values() );
       

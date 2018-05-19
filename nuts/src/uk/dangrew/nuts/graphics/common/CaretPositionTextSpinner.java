@@ -12,13 +12,13 @@ public class CaretPositionTextSpinner implements EventHandler< KeyEvent >{
 
    private final TimestampFormat format;
    
-   private DateTimeTextBox subject;
+   private TimestampBox subject;
    
    public CaretPositionTextSpinner() {
       this.format = new TimestampFormat();
    }//End Constructor
    
-   public void register( DateTimeTextBox subject ) {
+   public void register( TimestampBox subject ) {
       this.subject = subject;
       this.subject.addEventFilter( KeyEvent.KEY_PRESSED, this );
    }//End Constructor

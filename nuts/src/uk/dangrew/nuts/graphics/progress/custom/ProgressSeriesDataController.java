@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
-import uk.dangrew.nuts.graphics.common.UiDateTimeInputDialog;
+import uk.dangrew.nuts.graphics.common.UiTimestampInputDialog;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableController;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class ProgressSeriesDataController implements ConceptTableController< ProgressSeries > {
 
-   private final UiDateTimeInputDialog timestampInput;
+   private final UiTimestampInputDialog timestampInput;
    private final BiConsumer< LocalDateTime, Double > valueUpdater;
    private final BiConsumer< LocalDateTime, String > textUpdater;
    
@@ -20,10 +20,10 @@ public class ProgressSeriesDataController implements ConceptTableController< Pro
    private ProgressSeries selected;
    
    public ProgressSeriesDataController() {
-      this( new UiDateTimeInputDialog() );
+      this( new UiTimestampInputDialog() );
    }//End Constructor
    
-   ProgressSeriesDataController( UiDateTimeInputDialog timestampInput ) {
+   ProgressSeriesDataController( UiTimestampInputDialog timestampInput ) {
       this.timestampInput = timestampInput;
       this.valueUpdater = ( t, v ) -> this.internal_update( t );
       this.textUpdater = ( t, v ) -> this.internal_update( t );

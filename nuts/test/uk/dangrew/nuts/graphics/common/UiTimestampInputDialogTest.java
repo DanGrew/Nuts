@@ -21,14 +21,14 @@ import javafx.scene.paint.Color;
 import uk.dangrew.kode.datetime.TimestampFormat;
 import uk.dangrew.kode.launch.TestApplication;
 
-public class UiDateTimeInputDialogTest {
+public class UiTimestampInputDialogTest {
 
-   private UiDateTimeInputDialog systemUnderTest;
+   private UiTimestampInputDialog systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new UiDateTimeInputDialog() );
+      PlatformImpl.runAndWait( () -> systemUnderTest = new UiTimestampInputDialog() );
    }//End Method
 
    @Ignore
