@@ -4,14 +4,11 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import javafx.collections.FXCollections;
@@ -23,6 +20,8 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class GraphControllerTest {
+   
+   private static final LocalDateTime NOW = LocalDateTime.of( 2018, 3, 6, 14, 45 );
 
    private NumberAxis xAxis;
    private NumberAxis yAxis;
@@ -30,7 +29,7 @@ public class GraphControllerTest {
    private ProgressSeries progress2;
    private ObservableList< Series< Number, Number > > chartData;
    
-   @Mock private DateTimeFormats formats;
+   private DateTimeFormats formats;
    private GraphController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -41,6 +40,7 @@ public class GraphControllerTest {
       progress2 = new ProgressSeries( "Second" );
       xAxis = new NumberAxis();
       yAxis = new NumberAxis();
+      formats = new DateTimeFormats();
       systemUnderTest = new GraphController(
                formats, 
                chartData = FXCollections.observableArrayList(),
@@ -54,27 +54,23 @@ public class GraphControllerTest {
    }//End Method
    
    @Test public void shouldSetRecordingLowerBound() {
-      systemUnderTest.setRecordingLowerBound( 45.6 );
+      systemUnderTest.yAxisLowerBoundProperty().set( 45.6 );
       assertThat( yAxis.getLowerBound(), is( 45.6 ) );
    }//End Method
    
    @Test public void shouldSetRecordingUpperBound() {
-      systemUnderTest.setRecordingUpperBound( 45.6 );
+      systemUnderTest.yAxisUpperBoundProperty().set( 45.6 );
       assertThat( yAxis.getUpperBound(), is( 45.6 ) );
    }//End Method
    
    @Test public void shouldSetDateLowerBound() {
-      LocalDateTime now = LocalDateTime.now();
-      when( formats.toEpochSeconds( now ) ).thenReturn( 45L );
-      systemUnderTest.setDateLowerBound( now );
-      assertThat( xAxis.getLowerBound(), is( 45.0 ) );
+      systemUnderTest.xAxisLowerBoundProperty().set( NOW );
+      assertThat( xAxis.getLowerBound(), is( ( double )formats.toEpochSeconds( NOW ) ) );
    }//End Method
    
    @Test public void shouldSetDateUpperBound() {
-      LocalDateTime now = LocalDateTime.now();
-      when( formats.toEpochSeconds( now ) ).thenReturn( 45L );
-      systemUnderTest.setDateUpperBound( now );
-      assertThat( xAxis.getUpperBound(), is( 45.0 ) );
+      systemUnderTest.xAxisUpperBoundProperty().set( NOW );
+      assertThat( xAxis.getUpperBound(), is( ( double )formats.toEpochSeconds( NOW ) ) );
    }//End Method
    
    @Test public void shouldAddProgressToChart(){
@@ -84,14 +80,12 @@ public class GraphControllerTest {
    }//End Method
    
    @Test public void shouldAutoSetHorizontalBounds(){
-      LocalDateTime min = LocalDateTime.now();
-      LocalDateTime max = LocalDateTime.now().plusDays( 20 );
-      when( formats.toEpochSeconds( min ) ).thenReturn( 45L );
-      when( formats.toEpochSeconds( max.plusDays( 1 ) ) ).thenReturn( 46L );
+      LocalDateTime min = NOW;
+      LocalDateTime max = NOW.plusDays( 100 );
       
       progress1.values().record( min, 100.0 );
       progress1.values().record( min.plusDays( 5 ), 100.0 );
-      progress1.notes().record( min.plusDays( 100 ), "anything" );
+      progress1.notes().record( min.plusDays( 18 ), "anything" );
       progress2.values().record( max.minusDays( 1 ), 100.0 );
       progress2.values().record( max, 100.0 );
       
@@ -99,22 +93,20 @@ public class GraphControllerTest {
       systemUnderTest.seriesVisibility().show( progress2 );
       systemUnderTest.autoScaleHorizontal();
       
-      assertThat( xAxis.getLowerBound(), is( 45.0 ) );
-      assertThat( xAxis.getUpperBound(), is( 46.0 ) );
+      assertThat( xAxis.getLowerBound(), is( ( double )formats.toEpochSeconds( min ) ) );
+      assertThat( xAxis.getUpperBound(), is( ( double )formats.toEpochSeconds( max ) ) );
       
       systemUnderTest.seriesVisibility().hide( progress1 );
       systemUnderTest.seriesVisibility().hide( progress2 );
       systemUnderTest.autoScaleHorizontal();
       
-      assertThat( xAxis.getLowerBound(), is( 45.0 ) );
-      assertThat( xAxis.getUpperBound(), is( 46.0 ) );
+      assertThat( xAxis.getLowerBound(), is( ( double )formats.toEpochSeconds( min ) ) );
+      assertThat( xAxis.getUpperBound(), is( ( double )formats.toEpochSeconds( max ) ) );
    }//End Method
    
    @Test public void shouldAutoSetVerticalBounds(){
-      LocalDateTime min = LocalDateTime.now();
-      LocalDateTime max = LocalDateTime.now().plusDays( 20 );
-      when( formats.toDayBeginningEpochSeconds( min.toLocalDate() ) ).thenReturn( 45L );
-      when( formats.toDayBeginningEpochSeconds( max.toLocalDate().plusDays( 1 ) ) ).thenReturn( 46L );
+      LocalDateTime min = NOW;
+      LocalDateTime max = NOW.plusDays( 20 );
       
       progress1.values().record( min, 23.0 );
       progress1.values().record( min.plusDays( 5 ), 100.0 );
@@ -138,13 +130,10 @@ public class GraphControllerTest {
    }//End Method
    
    @Test public void shouldFocusOnTimestamp(){
-      LocalDateTime now = LocalDateTime.now();
-      when( formats.toEpochSeconds( now.plusDays( 180 ) ) ).thenReturn( 123L );
-      when( formats.toEpochSeconds( now.minusDays( 180 ) ) ).thenReturn( 900L );
-      
+      LocalDateTime now = NOW;
       systemUnderTest.focusHorizontalAxisOn( now, TimestampPeriod.SixMonths );
-      assertThat( xAxis.getLowerBound(), is( 900.0 ) );
-      assertThat( xAxis.getUpperBound(), is( 123.0 ) );
+      assertThat( xAxis.getLowerBound(), is( ( double )formats.toEpochSeconds( TimestampPeriod.SixMonths.lowerBound( NOW ) ) ) );
+      assertThat( xAxis.getUpperBound(), is( ( double )formats.toEpochSeconds( TimestampPeriod.SixMonths.upperBound( NOW ) ) ) );
    }//End Method
    
 }//End Class

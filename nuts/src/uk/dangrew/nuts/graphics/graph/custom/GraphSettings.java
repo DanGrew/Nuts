@@ -8,15 +8,13 @@
  */
 package uk.dangrew.nuts.graphics.graph.custom;
 
-import java.time.LocalDate;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
+import uk.dangrew.kode.javafx.custom.BoundTextProperty;
 import uk.dangrew.kode.javafx.custom.PropertiesPane;
 import uk.dangrew.kode.javafx.custom.ResponsiveButtonRegion;
 import uk.dangrew.kode.javafx.custom.ResponsiveComboProperty;
-import uk.dangrew.kode.javafx.custom.ResponsiveDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.custom.ResponsiveTextRegion;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
@@ -60,16 +58,14 @@ public class GraphSettings extends GridPane {
             ) ),
          new PropertyRowBuilder()
                .withLabelName( "Minimum Value" )
-               .withBinding( new ResponsiveDoubleAsTextProperty( 
-                        DEFAULT_LOWER_BOUND, 
-                        ( o, n ) -> controller.setRecordingLowerBound( n ), 
+               .withBinding( new BoundTextProperty( 
+                        controller.yAxisLowerBoundProperty().asObject(),
                         true 
                ) ),
          new PropertyRowBuilder()
                .withLabelName( "Maximum Value" )
-               .withBinding( new ResponsiveDoubleAsTextProperty( 
-                        DEFAULT_UPPER_BOUND, 
-                        ( o, n ) -> controller.setRecordingUpperBound( n ), 
+               .withBinding( new BoundTextProperty( 
+                        controller.yAxisUpperBoundProperty().asObject(),
                         true 
                ) ),
          new PropertyRowBuilder()
@@ -82,8 +78,8 @@ public class GraphSettings extends GridPane {
          ) )
       ) );
       
-      controller.setRecordingLowerBound( DEFAULT_LOWER_BOUND );
-      controller.setRecordingUpperBound( DEFAULT_UPPER_BOUND );
+      controller.yAxisLowerBoundProperty().set( DEFAULT_LOWER_BOUND );
+      controller.yAxisUpperBoundProperty().set( DEFAULT_UPPER_BOUND );
       horizontalAxisFocusField.resetInputToNow();
       updateHorizontalRange();
    }//End Constructor

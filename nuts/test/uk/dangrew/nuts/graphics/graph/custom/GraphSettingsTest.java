@@ -29,8 +29,8 @@ public class GraphSettingsTest {
    }//End Method
 
    @Test public void shouldInitialiseGraphBounds() {
-      verify( controller ).setRecordingLowerBound( GraphSettings.DEFAULT_LOWER_BOUND );
-      verify( controller ).setRecordingUpperBound( GraphSettings.DEFAULT_UPPER_BOUND );
+      verify( controller ).yAxisLowerBoundProperty().set( GraphSettings.DEFAULT_LOWER_BOUND );
+      verify( controller ).yAxisUpperBoundProperty().set( GraphSettings.DEFAULT_UPPER_BOUND );
    }//End Method
    
    @Test public void shouldFocusOnTimestamp(){

@@ -54,8 +54,8 @@ public class WeightRecordingGraphSettings extends GridPane {
                          dataRange.get(),
                          DEFAULT_DATE_LOWER_BOUND,
                          ( s, o, n ) -> {
-                            weightController.setDateLowerBound( LocalDateTime.of( n, LocalTime.MIN ) );
-                            fatController.setDateLowerBound( LocalDateTime.of( n, LocalTime.MIN ) );
+                            weightController.xAxisLowerBoundProperty().set( LocalDateTime.of( n, LocalTime.MIN ) );
+                            fatController.xAxisLowerBoundProperty().set( LocalDateTime.of( n, LocalTime.MIN ) );
                          }
              ) ),
          new PropertyRowBuilder()
@@ -64,49 +64,49 @@ public class WeightRecordingGraphSettings extends GridPane {
                         dataRange.get(),
                         DEFAULT_DATE_UPPER_BOUND,
                         ( s, o, n ) -> {
-                           weightController.setDateUpperBound( LocalDateTime.of( n, LocalTime.MIN ) );
-                           fatController.setDateUpperBound( LocalDateTime.of( n, LocalTime.MIN ) );
+                           weightController.xAxisUpperBoundProperty().set( LocalDateTime.of( n, LocalTime.MIN ) );
+                           fatController.xAxisUpperBoundProperty().set( LocalDateTime.of( n, LocalTime.MIN ) );
                         }
                ) ),
          new PropertyRowBuilder()
                .withLabelName( "Minimum Weight" )
                .withBinding( new ResponsiveDoubleAsTextProperty( 
                         DEFAULT_WEIGHT_LOWER_BOUND, 
-                        ( o, n ) -> weightController.setRecordingLowerBound( n ), 
+                        ( o, n ) -> weightController.yAxisLowerBoundProperty().set( n ), 
                         true 
                ) ),
          new PropertyRowBuilder()
                .withLabelName( "Maximum Weight" )
                .withBinding( new ResponsiveDoubleAsTextProperty( 
                         DEFAULT_WEIGHT_UPPER_BOUND, 
-                        ( o, n ) -> weightController.setRecordingUpperBound( n ), 
+                        ( o, n ) -> weightController.yAxisUpperBoundProperty().set( n ), 
                         true 
                ) ),
          new PropertyRowBuilder()
                .withLabelName( "Minimum Percentage" )
                .withBinding( new ResponsiveDoubleAsTextProperty( 
                         DEFAULT_FAT_LOWER_BOUND, 
-                        ( o, n ) -> fatController.setRecordingLowerBound( n ), 
+                        ( o, n ) -> fatController.yAxisLowerBoundProperty().set( n ), 
                         true 
                ) ),
          new PropertyRowBuilder()
                .withLabelName( "Maximum Percentage" )
                .withBinding( new ResponsiveDoubleAsTextProperty( 
                         DEFAULT_FAT_UPPER_BOUND, 
-                        ( o, n ) -> fatController.setRecordingUpperBound( n ), 
+                        ( o, n ) -> fatController.yAxisUpperBoundProperty().set( n ), 
                         true 
                ) )
       ) );
       
-      weightController.setDateLowerBound( LocalDateTime.of( DEFAULT_DATE_LOWER_BOUND, LocalTime.MIN ) );
-      weightController.setDateUpperBound( LocalDateTime.of( DEFAULT_DATE_UPPER_BOUND, LocalTime.MIN ) );
-      weightController.setRecordingLowerBound( DEFAULT_WEIGHT_LOWER_BOUND );
-      weightController.setRecordingUpperBound( DEFAULT_WEIGHT_UPPER_BOUND );
+      weightController.xAxisLowerBoundProperty().set( LocalDateTime.of( DEFAULT_DATE_LOWER_BOUND, LocalTime.MIN ) );
+      weightController.xAxisUpperBoundProperty().set( LocalDateTime.of( DEFAULT_DATE_UPPER_BOUND, LocalTime.MIN ) );
+      weightController.yAxisLowerBoundProperty().set( DEFAULT_WEIGHT_LOWER_BOUND );
+      weightController.yAxisUpperBoundProperty().set( DEFAULT_WEIGHT_UPPER_BOUND );
       
-      fatController.setDateLowerBound( LocalDateTime.of( DEFAULT_DATE_LOWER_BOUND, LocalTime.MIN ) );
-      fatController.setDateUpperBound( LocalDateTime.of( DEFAULT_DATE_UPPER_BOUND, LocalTime.MIN ) );
-      fatController.setRecordingLowerBound( DEFAULT_FAT_LOWER_BOUND );
-      fatController.setRecordingUpperBound( DEFAULT_FAT_UPPER_BOUND );
+      fatController.xAxisLowerBoundProperty().set( LocalDateTime.of( DEFAULT_DATE_LOWER_BOUND, LocalTime.MIN ) );
+      fatController.xAxisUpperBoundProperty().set( LocalDateTime.of( DEFAULT_DATE_UPPER_BOUND, LocalTime.MIN ) );
+      fatController.yAxisLowerBoundProperty().set( DEFAULT_FAT_LOWER_BOUND );
+      fatController.yAxisUpperBoundProperty().set( DEFAULT_FAT_UPPER_BOUND );
    }//End Constructor
 
 }//End Class

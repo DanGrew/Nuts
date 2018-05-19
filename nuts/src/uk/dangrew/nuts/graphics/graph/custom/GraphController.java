@@ -10,10 +10,15 @@ package uk.dangrew.nuts.graphics.graph.custom;
 
 import java.time.LocalDateTime;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Series;
 import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.kode.javafx.registrations.ChangeListenerMismatchBindingImpl;
+import uk.dangrew.kode.javafx.registrations.RegistrationManager;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class GraphController {
@@ -22,6 +27,9 @@ public class GraphController {
    private final GraphSeriesVisibility seriesVisibility;
    private final NumberAxis xAxis;
    private final NumberAxis yAxis;
+   
+   private final ObjectProperty< LocalDateTime > xAxisLowerBound;
+   private final ObjectProperty< LocalDateTime > xAxisUpperBound;
 
    public GraphController( 
             ObservableList< Series< Number, Number > > chartData,
@@ -41,54 +49,55 @@ public class GraphController {
       this.seriesVisibility = new GraphSeriesVisibility( chartData );
       
       this.xAxis = xAxis;
+      this.xAxis.setAutoRanging( false );
       this.yAxis = yAxis;
       
-      this.xAxis.setAutoRanging( false );
+      this.xAxisLowerBound = new SimpleObjectProperty<>();
+      this.xAxisUpperBound = new SimpleObjectProperty<>();
+      
+      RegistrationManager registrations = new RegistrationManager();
+      registrations.apply( new ChangeListenerMismatchBindingImpl<>( 
+               xAxis.lowerBoundProperty(), 
+               xAxisLowerBound, 
+               formats::toEpochSeconds,
+               formats::fromEpochSeconds
+      ) );
+      registrations.apply( new ChangeListenerMismatchBindingImpl<>( 
+               xAxis.upperBoundProperty(), 
+               xAxisUpperBound, 
+               formats::toEpochSeconds,
+               formats::fromEpochSeconds
+      ) );
+      
       this.yAxis.setAutoRanging( false );
    }//End Constructor
    
    public GraphSeriesVisibility seriesVisibility(){
       return seriesVisibility;
    }//End Method
-
-   /**
-    * Set the lower bound of the recording axis.
-    * @param value the bound.
-    */
-   public void setRecordingLowerBound( double value ) {
-      yAxis.setLowerBound( value );
-   }//End Method
-
-   /**
-    * Set the upper bound of the recording axis.
-    * @param value the bound.
-    */
-   public void setRecordingUpperBound( double value ) {
-      yAxis.setUpperBound( value );
-   }//End Method
-
-   /**
-    * Set the lower bound of the date axis.
-    * @param value the bound.
-    */
-   public void setDateLowerBound( LocalDateTime value ) {
-      xAxis.setLowerBound( formats.toEpochSeconds( value ) );
-   }//End Method
-
-   /**
-    * Set the upper bound of the date axis.
-    * @param value the bound.
-    */
-   public void setDateUpperBound( LocalDateTime value ) {
-      xAxis.setUpperBound( formats.toEpochSeconds( value ) );
+   
+   public ObjectProperty< LocalDateTime > xAxisUpperBoundProperty(){
+      return xAxisUpperBound;
    }//End Method
    
+   public ObjectProperty< LocalDateTime > xAxisLowerBoundProperty(){
+      return xAxisLowerBound;
+   }//End Method
+   
+   public DoubleProperty yAxisLowerBoundProperty(){
+      return yAxis.lowerBoundProperty();
+   }//End Method
+   
+   public DoubleProperty yAxisUpperBoundProperty(){
+      return yAxis.upperBoundProperty();
+   }//End Method
+
    public void focusHorizontalAxisOn( LocalDateTime focus, TimestampPeriod period ) {
       if ( focus == null || period == null ) {
          return;
       }
-      setDateLowerBound( period.lowerBound( focus ) );
-      setDateUpperBound( period.upperBound( focus ) );
+      xAxisLowerBoundProperty().set( period.lowerBound( focus ) );
+      xAxisUpperBoundProperty().set( period.upperBound( focus ) );
    }//End Method
 
    public void autoScaleHorizontal() {
@@ -113,11 +122,8 @@ public class GraphController {
          return;
       }
       
-      //add some padding
-      max = max.plusDays( 1 );
-      
-      setDateLowerBound( min );
-      setDateUpperBound( max );
+      xAxisLowerBoundProperty().set( min );
+      xAxisUpperBoundProperty().set( max );
    }//End Method
    
    public void autoScaleVertical() {
@@ -146,8 +152,8 @@ public class GraphController {
          return;
       }
       
-      setRecordingLowerBound( min );
-      setRecordingUpperBound( max );
+      yAxisLowerBoundProperty().set( min );
+      yAxisUpperBoundProperty().set( max );
    }//End Method
 
 }//End Class
