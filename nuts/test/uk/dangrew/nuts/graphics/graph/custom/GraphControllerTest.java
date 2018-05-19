@@ -7,7 +7,6 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.when;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.junit.Before;
@@ -65,15 +64,15 @@ public class GraphControllerTest {
    }//End Method
    
    @Test public void shouldSetDateLowerBound() {
-      LocalDate now = LocalDate.now();
-      when( formats.toDayBeginningEpochSeconds( now ) ).thenReturn( 45L );
+      LocalDateTime now = LocalDateTime.now();
+      when( formats.toEpochSeconds( now ) ).thenReturn( 45L );
       systemUnderTest.setDateLowerBound( now );
       assertThat( xAxis.getLowerBound(), is( 45.0 ) );
    }//End Method
    
    @Test public void shouldSetDateUpperBound() {
-      LocalDate now = LocalDate.now();
-      when( formats.toDayBeginningEpochSeconds( now ) ).thenReturn( 45L );
+      LocalDateTime now = LocalDateTime.now();
+      when( formats.toEpochSeconds( now ) ).thenReturn( 45L );
       systemUnderTest.setDateUpperBound( now );
       assertThat( xAxis.getUpperBound(), is( 45.0 ) );
    }//End Method
@@ -87,8 +86,8 @@ public class GraphControllerTest {
    @Test public void shouldAutoSetHorizontalBounds(){
       LocalDateTime min = LocalDateTime.now();
       LocalDateTime max = LocalDateTime.now().plusDays( 20 );
-      when( formats.toDayBeginningEpochSeconds( min.toLocalDate() ) ).thenReturn( 45L );
-      when( formats.toDayBeginningEpochSeconds( max.toLocalDate().plusDays( 1 ) ) ).thenReturn( 46L );
+      when( formats.toEpochSeconds( min ) ).thenReturn( 45L );
+      when( formats.toEpochSeconds( max.plusDays( 1 ) ) ).thenReturn( 46L );
       
       progress1.values().record( min, 100.0 );
       progress1.values().record( min.plusDays( 5 ), 100.0 );
@@ -136,6 +135,16 @@ public class GraphControllerTest {
       
       assertThat( yAxis.getLowerBound(), is( 23.0 ) );
       assertThat( yAxis.getUpperBound(), is( 123.0 ) );
+   }//End Method
+   
+   @Test public void shouldFocusOnTimestamp(){
+      LocalDateTime now = LocalDateTime.now();
+      when( formats.toEpochSeconds( now.plusDays( 180 ) ) ).thenReturn( 123L );
+      when( formats.toEpochSeconds( now.minusDays( 180 ) ) ).thenReturn( 900L );
+      
+      systemUnderTest.focusHorizontalAxisOn( now, TimestampPeriod.SixMonths );
+      assertThat( xAxis.getLowerBound(), is( 900.0 ) );
+      assertThat( xAxis.getUpperBound(), is( 123.0 ) );
    }//End Method
    
 }//End Class

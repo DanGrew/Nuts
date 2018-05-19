@@ -1,7 +1,6 @@
 package uk.dangrew.nuts.graphics.graph.custom;
 
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -30,8 +29,8 @@ public class GraphTest {
       
       TestApplication.launch( () -> {
          systemUnderTest.controller().seriesVisibility().add( progressSeries );
-         systemUnderTest.controller().setDateLowerBound( LocalDateTime.now().toLocalDate() );
-         systemUnderTest.controller().setDateUpperBound( LocalDateTime.now().plusDays( 10 ).toLocalDate() );
+         systemUnderTest.controller().setDateLowerBound( LocalDateTime.now() );
+         systemUnderTest.controller().setDateUpperBound( LocalDateTime.now().plusDays( 10 ) );
          
          return systemUnderTest;
       } );

@@ -8,7 +8,6 @@
  */
 package uk.dangrew.nuts.graphics.graph.custom;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javafx.collections.ObservableList;
@@ -72,16 +71,24 @@ public class GraphController {
     * Set the lower bound of the date axis.
     * @param value the bound.
     */
-   public void setDateLowerBound( LocalDate value ) {
-      xAxis.setLowerBound( formats.toDayBeginningEpochSeconds( value ) );
+   public void setDateLowerBound( LocalDateTime value ) {
+      xAxis.setLowerBound( formats.toEpochSeconds( value ) );
    }//End Method
 
    /**
     * Set the upper bound of the date axis.
     * @param value the bound.
     */
-   public void setDateUpperBound( LocalDate value ) {
-      xAxis.setUpperBound( formats.toDayBeginningEpochSeconds( value ) );
+   public void setDateUpperBound( LocalDateTime value ) {
+      xAxis.setUpperBound( formats.toEpochSeconds( value ) );
+   }//End Method
+   
+   public void focusHorizontalAxisOn( LocalDateTime focus, TimestampPeriod period ) {
+      if ( focus == null || period == null ) {
+         return;
+      }
+      setDateLowerBound( period.lowerBound( focus ) );
+      setDateUpperBound( period.upperBound( focus ) );
    }//End Method
 
    public void autoScaleHorizontal() {
@@ -109,8 +116,8 @@ public class GraphController {
       //add some padding
       max = max.plusDays( 1 );
       
-      setDateLowerBound( min.toLocalDate() );
-      setDateUpperBound( max.toLocalDate() );
+      setDateLowerBound( min );
+      setDateUpperBound( max );
    }//End Method
    
    public void autoScaleVertical() {

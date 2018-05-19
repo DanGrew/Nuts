@@ -3727,5 +3727,16 @@
       "name": "Tesco Rock Salt Grinder 100G (100g)",
       "id": "4a31623b-2240-4022-9e64-aac64a4e881f",
       "calories": 0
+   },
+   {
+      "carbohydrates": 1.4,
+      "fiber": 0,
+      "fats": 22.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 16.7,
+      "name": "Woodside Farms Smoked Back Bacon 300G (100g)",
+      "id": "0fa443d5-44f2-4783-ac4e-8a413b7b78a3",
+      "calories": 274.9
    }
 ]}
