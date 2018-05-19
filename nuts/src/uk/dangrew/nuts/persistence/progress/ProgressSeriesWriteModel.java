@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.kode.datetime.TimestampFormat;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.progress.custom.ProgressSeriesStore;
 
 public class ProgressSeriesWriteModel {
    
-   private final DateTimeFormats formats;
+   private final TimestampFormat format;
    private final ProgressSeriesStore store;
    private final List< ProgressSeries > seriesBuffer;
    private final List< LocalDateTime > timestampBuffer;
@@ -27,7 +27,7 @@ public class ProgressSeriesWriteModel {
    private LocalDateTime currentTimestamp; 
    
    ProgressSeriesWriteModel( ProgressSeriesStore labels ) {
-      this.formats = new DateTimeFormats();
+      this.format = new TimestampFormat();
       this.store = labels;
       this.seriesBuffer = new ArrayList<>();
       this.timestampBuffer = new ArrayList<>();
@@ -73,7 +73,7 @@ public class ProgressSeriesWriteModel {
    }//End Method
    
    String getTimestamp() {
-      return formats.toTimestampString( currentTimestamp );
+      return format.toTimestampString( currentTimestamp );
    }//End Method
    
    Double getValue() {

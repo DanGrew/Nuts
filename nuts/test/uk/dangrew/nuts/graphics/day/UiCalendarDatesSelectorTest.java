@@ -19,7 +19,7 @@ import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.input.ContextMenuEvent;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.kode.utility.mouse.TestMouseEvent;
+import uk.dangrew.kode.utility.event.TestMouseEvent;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.store.Database;
 

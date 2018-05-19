@@ -3,7 +3,6 @@ package uk.dangrew.nuts.persistence.progress;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.kode.datetime.TimestampFormat;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
@@ -20,7 +19,7 @@ public class ProgressSeriesParseModelTest {
 
    private static final LocalDateTime NOW = LocalDateTime.of( 2018, 5, 8, 19, 38 );
    
-   private DateTimeFormats formats;
+   private TimestampFormat format;
    
    private ProgressSeries series;
    private Database database;
@@ -29,7 +28,7 @@ public class ProgressSeriesParseModelTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      formats = new DateTimeFormats();
+      format = new TimestampFormat();
       database = new Database();
       database.progressSeries().store( series = new ProgressSeries( "Existing" ) );
       systemUnderTest = new ProgressSeriesParseModel( database );
@@ -58,15 +57,15 @@ public class ProgressSeriesParseModelTest {
       systemUnderTest.setId( series.properties().id() );
       systemUnderTest.setName( "name" );
       systemUnderTest.startEntry();
-      systemUnderTest.setTimestamp( formats.toTimestampString( NOW ) );
+      systemUnderTest.setTimestamp( format.toTimestampString( NOW ) );
       systemUnderTest.setValue( 100.0 );
       systemUnderTest.finishEntry();
       systemUnderTest.startEntry();
-      systemUnderTest.setTimestamp( formats.toTimestampString( NOW.plusDays( 1 ) ) );
+      systemUnderTest.setTimestamp( format.toTimestampString( NOW.plusDays( 1 ) ) );
       systemUnderTest.setValue( 101.0 );
       systemUnderTest.finishEntry();
       systemUnderTest.startEntry();
-      systemUnderTest.setTimestamp( formats.toTimestampString( NOW.plusDays( 2 ) ) );
+      systemUnderTest.setTimestamp( format.toTimestampString( NOW.plusDays( 2 ) ) );
       systemUnderTest.setValue( 102.0 );
       systemUnderTest.finishEntry();
       systemUnderTest.finishSeries();

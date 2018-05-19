@@ -12,8 +12,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.util.Pair;
-import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.kode.datetime.TimestampFormat;
 import uk.dangrew.nuts.progress.custom.ProgressEntry;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.progress.custom.ProgressSeriesStore;
@@ -21,7 +20,7 @@ import uk.dangrew.nuts.store.Database;
 
 public class ProgressSeriesParseModel {
    
-   private final DateTimeFormats formats;
+   private final TimestampFormat formats;
    private final ProgressSeriesStore store;
    
    private String id;
@@ -34,7 +33,7 @@ public class ProgressSeriesParseModel {
    private String notes;
    
    ProgressSeriesParseModel( Database database ) {
-      this.formats = new DateTimeFormats();
+      this.formats = new TimestampFormat();
       this.store = database.progressSeries();
       this.entries = new ArrayList<>();
    }//End Constructor

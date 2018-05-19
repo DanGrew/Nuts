@@ -1,22 +1,22 @@
 package uk.dangrew.nuts.graphics.graph.custom;
 
 import javafx.util.StringConverter;
-import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.kode.datetime.TimestampFormat;
 
 public class GraphDateStringConverter extends StringConverter< Number > {
 
-   private final DateTimeFormats formats;
+   private final TimestampFormat format;
    
    public GraphDateStringConverter() {
-      this.formats = new DateTimeFormats();
+      this.format = new TimestampFormat();
    }//End Constructor
    
    @Override public String toString( Number object ) {
-      return formats.toTimestampString( object );
+      return format.toTimestampString( object );
    }//End Method
 
    @Override public Number fromString( String string ) {
-      return formats.parseTimestampToEpochSeconds( string );
+      return format.parseTimestampToEpochSeconds( string );
    }//End Method
 
 }//End Class
