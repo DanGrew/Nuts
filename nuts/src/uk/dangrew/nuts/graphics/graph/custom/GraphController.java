@@ -16,14 +16,14 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Series;
-import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.kode.datetime.TimestampFormat;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerMismatchBindingImpl;
 import uk.dangrew.kode.javafx.registrations.RegistrationManager;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class GraphController {
    
-   private final DateTimeFormats formats;
+   private final TimestampFormat format;
    private final GraphSeriesVisibility seriesVisibility;
    private final NumberAxis xAxis;
    private final NumberAxis yAxis;
@@ -36,16 +36,16 @@ public class GraphController {
             NumberAxis xAxis, 
             NumberAxis yAxis
    ) {
-      this( new DateTimeFormats(), chartData, xAxis, yAxis );
+      this( new TimestampFormat(), chartData, xAxis, yAxis );
    }//End Constructor
    
    GraphController(
-            DateTimeFormats formats,
+            TimestampFormat formats,
             ObservableList< Series< Number, Number > > chartData,
             NumberAxis xAxis, 
             NumberAxis yAxis
    ) {
-      this.formats = formats;
+      this.format = formats;
       this.seriesVisibility = new GraphSeriesVisibility( chartData );
       
       this.xAxis = xAxis;

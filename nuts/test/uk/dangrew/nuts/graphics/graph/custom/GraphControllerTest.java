@@ -15,7 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Series;
-import uk.dangrew.kode.datetime.DateTimeFormats;
+import uk.dangrew.kode.datetime.TimestampFormat;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
@@ -29,7 +29,7 @@ public class GraphControllerTest {
    private ProgressSeries progress2;
    private ObservableList< Series< Number, Number > > chartData;
    
-   private DateTimeFormats formats;
+   private TimestampFormat formats;
    private GraphController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -40,7 +40,7 @@ public class GraphControllerTest {
       progress2 = new ProgressSeries( "Second" );
       xAxis = new NumberAxis();
       yAxis = new NumberAxis();
-      formats = new DateTimeFormats();
+      formats = new TimestampFormat();
       systemUnderTest = new GraphController(
                formats, 
                chartData = FXCollections.observableArrayList(),

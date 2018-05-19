@@ -1,6 +1,9 @@
 package uk.dangrew.nuts.graphics.graph.custom;
 
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
 import java.time.LocalDateTime;
@@ -9,9 +12,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import javafx.collections.FXCollections;
+import javafx.scene.chart.NumberAxis;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.kode.launch.TestApplication;
 
@@ -19,18 +23,19 @@ public class GraphSettingsTest {
    
    @Captor private ArgumentCaptor< LocalDateTime > timestampCaptor;
    
-   @Mock private GraphController controller;
+   private GraphController controller;
    private GraphSettings systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
+      controller = spy( new GraphController( FXCollections.observableArrayList(), new NumberAxis(), new NumberAxis() ) );
       systemUnderTest = new GraphSettings( controller );
    }//End Method
 
    @Test public void shouldInitialiseGraphBounds() {
-      verify( controller ).yAxisLowerBoundProperty().set( GraphSettings.DEFAULT_LOWER_BOUND );
-      verify( controller ).yAxisUpperBoundProperty().set( GraphSettings.DEFAULT_UPPER_BOUND );
+      assertThat( controller.yAxisLowerBoundProperty().get(), is( GraphSettings.DEFAULT_LOWER_BOUND ) );
+      assertThat( controller.yAxisUpperBoundProperty().get(), is( GraphSettings.DEFAULT_UPPER_BOUND ) );
    }//End Method
    
    @Test public void shouldFocusOnTimestamp(){

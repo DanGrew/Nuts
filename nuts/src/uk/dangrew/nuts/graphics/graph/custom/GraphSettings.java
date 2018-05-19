@@ -78,8 +78,6 @@ public class GraphSettings extends GridPane {
          ) )
       ) );
       
-      controller.yAxisLowerBoundProperty().set( DEFAULT_LOWER_BOUND );
-      controller.yAxisUpperBoundProperty().set( DEFAULT_UPPER_BOUND );
       horizontalAxisFocusField.resetInputToNow();
       updateHorizontalRange();
    }//End Constructor
