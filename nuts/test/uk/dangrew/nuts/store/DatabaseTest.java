@@ -12,8 +12,8 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.kode.model.ModelVerifier;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.ModelVerifier;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItem;

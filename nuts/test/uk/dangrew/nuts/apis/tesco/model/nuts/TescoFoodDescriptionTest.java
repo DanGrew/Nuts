@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.ModelVerifier;
+import uk.dangrew.kode.model.ModelVerifier;
 
 public class TescoFoodDescriptionTest {
 

@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.ModelVerifier;
+import uk.dangrew.kode.model.ModelVerifier;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
 import uk.dangrew.nuts.label.Label;

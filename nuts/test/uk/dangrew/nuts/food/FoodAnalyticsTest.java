@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.ModelVerifier;
+import uk.dangrew.kode.model.ModelVerifier;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodAnalyticsTest {

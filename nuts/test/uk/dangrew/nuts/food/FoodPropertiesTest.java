@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-import uk.dangrew.nuts.ModelVerifier;
+import uk.dangrew.kode.model.ModelVerifier;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 
 public class FoodPropertiesTest {

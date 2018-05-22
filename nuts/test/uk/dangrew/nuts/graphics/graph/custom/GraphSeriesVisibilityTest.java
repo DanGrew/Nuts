@@ -18,7 +18,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart.Series;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.ModelVerifier;
+import uk.dangrew.kode.model.ModelVerifier;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class GraphSeriesVisibilityTest {
