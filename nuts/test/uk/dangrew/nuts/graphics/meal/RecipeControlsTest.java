@@ -22,6 +22,7 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.graphics.database.RecipeController;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class RecipeControlsTest {

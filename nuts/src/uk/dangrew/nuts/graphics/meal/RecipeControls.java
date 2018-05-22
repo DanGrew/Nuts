@@ -12,6 +12,7 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.control.Button;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.graphics.database.RecipeController;
 import uk.dangrew.nuts.graphics.table.ConceptControls;
 
 public class RecipeControls extends ConceptControls {
@@ -39,16 +40,4 @@ public class RecipeControls extends ConceptControls {
       return share;
    }//End Method
    
-   @Override protected Button addButton() {
-      return super.addButton();
-   }//End Method
-   
-   @Override protected Button copyButton() {
-      return super.copyButton();
-   }//End Method
-   
-   @Override protected Button removeButton() {
-      return super.removeButton();
-   }//End Method
-
 }//End Class

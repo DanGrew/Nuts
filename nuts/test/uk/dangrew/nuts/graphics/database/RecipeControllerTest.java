@@ -20,12 +20,12 @@ import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
-public class RecipeControllerImplTest {
+public class RecipeControllerTest {
 
    private MixedFoodTable table;
    
    @Mock private RecipeSummaryWindow window;
-   private RecipeControllerImpl systemUnderTest;
+   private RecipeController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
@@ -38,7 +38,7 @@ public class RecipeControllerImplTest {
       database.meals().objectList().forEach( model::add );
       
       PlatformImpl.runAndWait( () -> {
-         systemUnderTest = new RecipeControllerImpl( window, database, model );
+         systemUnderTest = new RecipeController( window, database, model );
          table = new MixedFoodTable( new FoodTableColumns<>(), systemUnderTest );
       } );
    }//End Method
