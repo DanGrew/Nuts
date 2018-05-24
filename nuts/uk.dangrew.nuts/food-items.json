@@ -3738,5 +3738,16 @@
       "name": "Woodside Farms Smoked Back Bacon 300G (100g)",
       "id": "0fa443d5-44f2-4783-ac4e-8a413b7b78a3",
       "calories": 274.9
+   },
+   {
+      "carbohydrates": 3.5,
+      "fiber": 0,
+      "fats": 21.4,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 28.2,
+      "name": "Heck 6 97% Pork Sausages 400G (133g)",
+      "id": "1ea78c38-9fa2-4105-88aa-de907c6b4012",
+      "calories": 314
    }
 ]}

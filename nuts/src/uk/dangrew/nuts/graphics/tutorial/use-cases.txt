@@ -1,0 +1,18 @@
+TUTORIAL: DATABASE
+
+1. Understanding the table
+- Description of items
+- Table features
+
+2. Add a food item
+- Find it 'unnamed'
+- Rename it
+- Set values
+- Sort table
+
+3. Copy a food item
+- Find it, rename it
+- Modify it
+
+4. Delete a food item
+- Options and detection
