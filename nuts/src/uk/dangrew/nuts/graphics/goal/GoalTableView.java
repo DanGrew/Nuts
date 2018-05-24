@@ -37,11 +37,9 @@ public class GoalTableView extends BorderPane {
       new FoodSelectionWindow( database );
       
       HBox controls = new HBox();
-      Button load = new Button( "Load" );
-      load.setOnAction( e -> sessions.read() );
       Button save = new Button( "Save" );
       save.setOnAction( e -> sessions.write() );
-      controls.getChildren().addAll( load, save );
+      controls.getChildren().addAll( save );
       
       this.setTop( controls );
       
