@@ -118,5 +118,9 @@ public class MixedFoodTableController implements ConceptTableController< Food > 
       Food copy = selection.concept().duplicate( "-copy" );
       type.redirect( database ).store( copy );
    }//End Method
+   
+   public UiEnumTypeSelectionDialog< FoodTypes > foodTypeSelectionDialog() {
+      return dialog;
+   }//End Method
 
 }//End Class

@@ -39,6 +39,7 @@ public class TableWithControls< RowTypeT, BackingConceptT extends Concept > exte
       super( title, new BorderPane() );
       this.table = table;
       this.controls = controls;
+      
       this.setCollapsible( false );
       this.setMaxHeight( Double.MAX_VALUE );
       this.setMaxWidth( Double.MAX_VALUE );
@@ -54,7 +55,7 @@ public class TableWithControls< RowTypeT, BackingConceptT extends Concept > exte
       return table;
    }//End Method
 
-   ConceptControls controls(){
+   public ConceptControls controls(){
       return controls;
    }//End Method
    

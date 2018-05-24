@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.graphics.database;
 
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -14,6 +15,7 @@ import com.sun.javafx.application.PlatformImpl;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.tutorial.database.DatabaseComponents;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
@@ -50,6 +52,14 @@ public class UiDatabaseManagerPaneTest {
       selected = systemUnderTest.comparisonTable().getSelectionModel().getSelectedItem().concept();
       assertThat( systemUnderTest.foodTable().getSelectionModel().getSelectedItem(), is( nullValue() ) );
       assertThat( systemUnderTest.mealTable().controller().getShowingMeal(), is( selected ) );
+   }//End Method
+   
+   @Test public void shouldProvidePopulatedComponents(){
+      DatabaseComponents components = systemUnderTest.generateComponents();
+      assertThat( components.parent(), is( notNullValue() ) );
+      assertThat( components.mainTable(), is( notNullValue() ) );
+      assertThat( components.mainTableAddButton(), is( notNullValue() ) );
+      assertThat( components.mainTableFoodTypeDialog(), is( notNullValue() ) );
    }//End Method
 
 }//End Class

@@ -6,7 +6,6 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.meal.MealTableWithControls;
-import uk.dangrew.nuts.graphics.meal.RecipeController;
 import uk.dangrew.nuts.graphics.meal.RecipeControls;
 import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
 import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
@@ -15,6 +14,7 @@ import uk.dangrew.nuts.graphics.selection.view.UiFoodFilterImpl;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionControls;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
+import uk.dangrew.nuts.graphics.tutorial.database.DatabaseComponents;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
@@ -24,6 +24,7 @@ public class UiDatabaseManagerPane extends GridPane {
    private final ConceptTableWithControls< Food > foodTable;
    private final ConceptTableWithControls< Food > comparisonTable;
    private final MealTableWithControls mealTable;
+   private final RecipeController recipeController;
    private final SimpleFoodModel comparisonModel;
    
    public UiDatabaseManagerPane( Database database ) {
@@ -35,7 +36,7 @@ public class UiDatabaseManagerPane extends GridPane {
       UiFoodFilter filter = new UiFoodFilterImpl( database, filterModel );
       
       comparisonModel = new SimpleFoodModel();
-      RecipeController recipeController = new RecipeControllerImpl( database, filterModel );
+      recipeController = new RecipeController( database, filterModel );
       
       add( controls = new UiFoodSelectionControls( database.labels().objectList(), filter ), 0, 0 );
       add( foodTable = new ConceptTableWithControls<>( 
@@ -74,5 +75,13 @@ public class UiDatabaseManagerPane extends GridPane {
    
    MealTable mealTable(){
       return mealTable.table();
+   }//End Method
+   
+   public DatabaseComponents generateComponents(){
+      return new DatabaseComponents()
+               .withParent( this )
+               .withMainTable( foodTable.table() )
+               .withMainTableAddButton( foodTable.controls().addButton() )
+               .withMainTableFoodTypeDialog( recipeController.foodTypeSelectionDialog() );
    }//End Method
 }//End Class

@@ -50,16 +50,4 @@ public class MealControls extends ConceptControls {
       return down;
    }//End Method
    
-   @Override protected Button addButton() {
-      return super.addButton();
-   }//End Method
-   
-   @Override protected Button copyButton() {
-      return super.copyButton();
-   }//End Method
-   
-   @Override protected Button removeButton() {
-      return super.removeButton();
-   }//End Method
-
 }//End Class

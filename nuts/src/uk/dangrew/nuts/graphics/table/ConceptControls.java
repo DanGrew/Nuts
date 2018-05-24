@@ -53,15 +53,15 @@ public class ConceptControls extends VBox {
       remove.setOnAction( e -> controller.removeSelectedConcept() );
    }//End Constructor
    
-   protected Button addButton(){
+   public Button addButton(){
       return add;
    }//End Method
    
-   protected Button copyButton(){
+   public Button copyButton(){
       return copy;
    }//End Method
    
-   protected Button removeButton(){
+   public Button removeButton(){
       return remove;
    }//End Method
 
