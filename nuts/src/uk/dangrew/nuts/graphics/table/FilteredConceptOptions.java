@@ -64,7 +64,7 @@ public class FilteredConceptOptions< TypeT extends Concept > {
       filtered.clear();
 
       List< TypeT > filteredItems = null;
-      if ( filterString.get() != null ) {
+      if ( filterString.get() != null && filterString.get().trim().length() > 0 ) {
          filteredItems = backingOptions.options().stream()
                   .filter( this::filter )
                   .collect( Collectors.toList() );

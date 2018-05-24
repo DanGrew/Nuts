@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
@@ -139,5 +140,11 @@ public class FilteredConceptOptionsTest {
 
       systemUnderTest.applyFilter( f -> f.properties().nameProperty().get().contains( "g" ) );
       assertThat( systemUnderTest.options(), is( Arrays.asList( beans ) ) );
+   }//End Method
+   
+   @Test public void shouldIgnoreEmptyStringForFilter(){
+      systemUnderTest.filterString().set( " " );
+      assertThat( systemUnderTest.options().get( 0 ), is( beans ) );
+      assertThat( systemUnderTest.options().get( 1 ), is( chicken ) );
    }//End Method
 }//End Class
