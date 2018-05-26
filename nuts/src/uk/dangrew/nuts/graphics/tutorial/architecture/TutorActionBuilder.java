@@ -2,6 +2,7 @@ package uk.dangrew.nuts.graphics.tutorial.architecture;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 import com.sun.javafx.application.PlatformImpl;
@@ -9,6 +10,7 @@ import com.sun.javafx.application.PlatformImpl;
 public class TutorActionBuilder {
 
    private final List< Runnable > actions;
+   private Runnable callback;
    
    public TutorActionBuilder() {
       this.actions = new ArrayList<>();
@@ -46,6 +48,15 @@ public class TutorActionBuilder {
    
    public List< Runnable > actions(){
       return actions;
+   }//End Method
+   
+   public TutorActionBuilder callingBackTo( Runnable runnable ) {
+      this.callback = runnable;
+      return this;
+   }//End Method
+   
+   public Optional< Runnable > callback(){
+      return Optional.ofNullable( callback );
    }//End Method
    
 }//End Class

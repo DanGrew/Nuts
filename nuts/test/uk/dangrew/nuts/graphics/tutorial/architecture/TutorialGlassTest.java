@@ -31,12 +31,10 @@ public class TutorialGlassTest {
 
    @Mock private Function< Runnable, Thread > threadSupplier;
    @Mock private Thread mockedThread;
-   @Mock private Runnable callback;
    @Captor private ArgumentCaptor< Runnable > runnableCaptor;
    
    private DatabaseTutorial tutorial;
    @Mock private UiDatabaseManagerPane pane;
-   @Mock private TutorialProgressor progressor;
    @Mock private TutorPopOver popover;
    @Mock private TutorHighlight highlight;
    private TutorialGlass systemUnderTest;
@@ -46,7 +44,7 @@ public class TutorialGlassTest {
       MockitoAnnotations.initMocks( this );
       
       when( threadSupplier.apply( Mockito.any() ) ).thenReturn( mockedThread );
-      systemUnderTest = new TutorialGlass( threadSupplier, popover, highlight, progressor, pane );
+      systemUnderTest = new TutorialGlass( threadSupplier, popover, highlight, pane );
    }//End Method
 
    @Ignore
@@ -58,43 +56,27 @@ public class TutorialGlassTest {
             return tutorial.window();
       } );
       
-      PlatformImpl.runLater( () -> tutorial.runTutorial() );
-      
-      
       Thread.sleep( 99999999 );
-   }//End Method
-   
-   @Test public void shouldAttachCallbackForMessage() {
-      systemUnderTest.tutorUser( new TutorMessageBuilder(), callback );
-      verify( progressor ).oneTimeOnlyCallback( callback );
-   }//End Method
-   
-   @Test public void shouldAttachCallbackForAction() {
-      systemUnderTest.tutorAction( new TutorActionBuilder(), callback );
-      verify( threadSupplier ).apply( runnableCaptor.capture() );
-      verify( mockedThread ).start();
-      runnableCaptor.getValue().run();
-      verify( callback ).run();
    }//End Method
    
    @Test public void shouldShowPopupForMessage(){
       TutorMessageBuilder builder = new TutorMessageBuilder();
-      systemUnderTest.tutorUser( builder, callback );
-      PlatformImpl.runAndWait( callback );
+      systemUnderTest.tutorUser( builder );
+      PlatformImpl.runAndWait( () -> {} );
       verify( popover ).show( builder );
    }//End Method
    
    @Test public void shouldHighlightSubject(){
       TutorMessageBuilder builder = new TutorMessageBuilder().highlighting( pane );
-      systemUnderTest.tutorUser( builder, callback );
-      PlatformImpl.runAndWait( callback );
+      systemUnderTest.tutorUser( builder );
+      PlatformImpl.runAndWait( () -> {} );
       verify( highlight ).focus( pane );
    }//End Method
    
    @Test public void shouldNotHighlightWhenNoSubject(){
       TutorMessageBuilder builder = new TutorMessageBuilder();
-      systemUnderTest.tutorUser( builder, callback );
-      PlatformImpl.runAndWait( callback );
+      systemUnderTest.tutorUser( builder );
+      PlatformImpl.runAndWait( () -> {} );
       verify( highlight, never() ).focus( any() );
    }//End Method
    
@@ -109,7 +91,7 @@ public class TutorialGlassTest {
       TutorActionBuilder builder = new TutorActionBuilder();
       actions.forEach( builder::nonGraphicalAction );
       
-      systemUnderTest.tutorAction( builder, callback );
+      systemUnderTest.tutorAction( builder );
       verify( threadSupplier ).apply( runnableCaptor.capture() );
       runnableCaptor.getValue().run();
       

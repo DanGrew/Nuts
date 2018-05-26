@@ -21,16 +21,20 @@ public class TutorPopOver extends PopOver {
       this.setAutoHide( false );
       
       this.confirmationButton = new Button();
-      this.confirmationButton.setOnAction( e -> friendly_hide() );
       BorderPane.setAlignment( confirmationButton, Pos.CENTER_RIGHT );
-      this.content.setBottom( confirmationButton );
       this.content.setPadding( new Insets( 5 ) );
    }//End Constructor
    
    public void show( TutorMessageBuilder builder ) {
       this.setArrowLocation( builder.getArrowDirection() );
       this.content.setCenter( builder.getMessage() );
-      this.confirmationButton.setText( buttonTextGenerator.friendlyConfirmation() );
+      if ( builder.shouldHaveConfirmation() ) {
+         this.content.setBottom( confirmationButton );
+         this.confirmationButton.setText( buttonTextGenerator.friendlyConfirmation() );
+         this.confirmationButton.setOnAction( e -> builder.callback().ifPresent( Runnable::run ) );
+      } else {
+         this.content.setBottom( null );
+      }
       this.friendly_show( builder.getComponent() );
    }//End Method
    

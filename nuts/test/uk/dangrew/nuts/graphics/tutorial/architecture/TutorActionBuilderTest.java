@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.kode.model.BuilderVerifier;
 
 public class TutorActionBuilderTest {
 
@@ -30,6 +31,11 @@ public class TutorActionBuilderTest {
                   .actions(),
                 hasSize( 4 )
        );
+   }//End Method
+   
+   @Test public void shouldBuild(){
+      new BuilderVerifier<>()
+         .buildWithOptional( systemUnderTest::callingBackTo, systemUnderTest::callback, () -> {} );
    }//End Method
 
 }

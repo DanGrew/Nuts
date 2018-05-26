@@ -1,28 +1,30 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture;
 
+import java.util.Optional;
+
 import org.controlsfx.control.PopOver.ArrowLocation;
 
 import javafx.scene.Node;
-import javafx.scene.text.TextFlow;
 
 public class TutorMessageBuilder {
    
-   private TextFlow message;
+   private Node message;
    private Node component;
    private ArrowLocation arrowLocation;
-   
    private Node borderHighlightSubject;
+   private Runnable callback;
+   private boolean withConfirmation;
    
    public TutorMessageBuilder() {
       this.arrowLocation = ArrowLocation.LEFT_CENTER;
    }//End Constructor
    
-   public TutorMessageBuilder withMessage( TextFlow message ) {
+   public TutorMessageBuilder withMessage( Node message ) {
       this.message = message;
       return this;
    }//End Method
    
-   public TextFlow getMessage(){
+   public Node getMessage(){
       return message;
    }//End Method
    
@@ -44,6 +46,15 @@ public class TutorMessageBuilder {
       return arrowLocation;
    }//End Method
    
+   public TutorMessageBuilder withConfirmation() {
+      this.withConfirmation = true;
+      return this;
+   }//End Method
+   
+   public boolean shouldHaveConfirmation(){
+      return withConfirmation;
+   }//End Method
+   
    public TutorMessageBuilder highlighting( Node node ) {
       this.borderHighlightSubject = node;
       return this;
@@ -51,6 +62,15 @@ public class TutorMessageBuilder {
    
    public Node getHighlightSubject(){
       return borderHighlightSubject;
+   }//End Method
+   
+   public TutorMessageBuilder callingBackTo( Runnable runnable ) {
+      this.callback = runnable;
+      return this;
+   }//End Method
+   
+   public Optional< Runnable > callback(){
+      return Optional.ofNullable( callback );
    }//End Method
 
 }//End Class

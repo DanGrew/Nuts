@@ -48,11 +48,14 @@ public abstract class DatabaseTableTutorial {
    }//End Method
    
    protected void tutorUser( TutorMessageBuilder builder ) {
-      glass().tutorUser( builder, nextInstruction() );
+      glass().tutorUser( builder
+               .callingBackTo( nextInstruction() )
+               .withConfirmation()
+      );
    }//End Method
    
    protected void tutorAction( TutorActionBuilder builder ) {
-      glass().tutorAction( builder, nextInstruction() );
+      glass().tutorAction( builder.callingBackTo( nextInstruction() ) );
    }//End Method
    
 }//End Class

@@ -3,12 +3,14 @@ package uk.dangrew.nuts.graphics.tutorial.database;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.verification.VerificationMode;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.tutorial.architecture.TutorActionBuilder;
@@ -18,8 +20,8 @@ import uk.dangrew.nuts.graphics.tutorial.architecture.TutorialGlass;
 public class DatabaseTableTutorialTest {
 
    private Runnable[] instructions;
-   @Mock private TutorMessageBuilder message;
-   @Mock private TutorActionBuilder action;
+   private TutorMessageBuilder message;
+   private TutorActionBuilder action;
    
    @Mock private DatabaseComponents components;
    @Mock private TutorialGlass glass;
@@ -33,6 +35,9 @@ public class DatabaseTableTutorialTest {
                mock( Runnable.class ), 
                mock( Runnable.class ) 
       };
+      
+      message = new TutorMessageBuilder();
+      action = new TutorActionBuilder();
       
       systemUnderTest = new DatabaseTableTutorial( components, glass ) {
          @Override public Runnable[] defineInstructions() {
@@ -50,16 +55,22 @@ public class DatabaseTableTutorialTest {
    }//End Method
    
    @Test public void shouldTutorUser() {
+      int invocations = 0;
       for ( Runnable i : instructions ) {
          systemUnderTest.tutorUser( message );
-         verify( glass ).tutorUser( message, i );
+         verify( glass, times( ++invocations ) ).tutorUser( message );
+         assertThat( message.callback().get(), is( i ) );
+         assertThat( message.shouldHaveConfirmation(), is( true ) );
       }
    }//End Method
    
    @Test public void shouldTutorAction() {
+      int invocations = 0;
       for ( Runnable i : instructions ) {
          systemUnderTest.tutorAction( action );
-         verify( glass ).tutorAction( action, i );
+         verify( glass, times( ++invocations ) ).tutorAction( action );
+         assertThat( action.callback().get(), is( i ) );
+         assertThat( message.shouldHaveConfirmation(), is( false ) );
       }
    }//End Method
    

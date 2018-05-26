@@ -2,6 +2,8 @@ package uk.dangrew.nuts.graphics.tutorial.database;
 
 import java.util.Optional;
 
+import org.controlsfx.control.PopOver.ArrowLocation;
+
 import javafx.event.Event;
 import javafx.scene.Node;
 import uk.dangrew.kode.javafx.hacks.JavaFxHacks;
@@ -11,11 +13,11 @@ import uk.dangrew.nuts.graphics.tutorial.architecture.TutorActionBuilder;
 import uk.dangrew.nuts.graphics.tutorial.architecture.TutorMessageBuilder;
 import uk.dangrew.nuts.graphics.tutorial.architecture.TutorialGlass;
 
-public class DttIntroduceTable extends DatabaseTableTutorial {
+public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
 
    private final JavaFxHacks hacks;
    
-   public DttIntroduceTable( DatabaseComponents components, TutorialGlass glass ) {
+   public DttAddingFoodItemToTable( DatabaseComponents components, TutorialGlass glass ) {
       super( components, glass );
       this.hacks = new JavaFxHacks();
    }//End Constructor
@@ -39,6 +41,7 @@ public class DttIntroduceTable extends DatabaseTableTutorial {
                         .build()
                 )
                .withRespectTo( components().parent() )
+               .pointing( ArrowLocation.BOTTOM_CENTER )
       );
    }//End Method
    

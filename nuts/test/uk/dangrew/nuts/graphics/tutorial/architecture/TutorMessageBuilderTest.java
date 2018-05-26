@@ -25,7 +25,9 @@ public class TutorMessageBuilderTest {
          .build( systemUnderTest::highlighting, systemUnderTest::getHighlightSubject, new BorderPane() )
          .build( systemUnderTest::pointing, systemUnderTest::getArrowDirection, ArrowLocation.RIGHT_TOP )
          .build( systemUnderTest::withMessage, systemUnderTest::getMessage, new TextFlow() )
-         .build( systemUnderTest::withRespectTo, systemUnderTest::getComponent, new BorderPane() );
+         .build( systemUnderTest::withRespectTo, systemUnderTest::getComponent, new BorderPane() )
+         .buildWithOptional( systemUnderTest::callingBackTo, systemUnderTest::callback, () -> {} )
+         .build( systemUnderTest::withConfirmation, systemUnderTest::shouldHaveConfirmation, true );
    }//End Method
 
 }//End Class
