@@ -7,12 +7,14 @@ import static org.mockito.Mockito.mock;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.model.BuilderVerifier;
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
@@ -20,6 +22,7 @@ import uk.dangrew.nuts.graphics.table.ConceptTable;
 
 public class DatabaseComponentsTest {
 
+   @Mock private ConceptTable< Food > table;
    private DatabaseComponents systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -30,7 +33,7 @@ public class DatabaseComponentsTest {
 
    @Test public void shouldBuild() {
       new BuilderVerifier<>()
-         .buildObject( systemUnderTest::withMainTable, systemUnderTest::mainTable, mock( ConceptTable.class ) )
+         .buildObject( systemUnderTest::withMainTable, systemUnderTest::mainTable, table )
          .buildObject( systemUnderTest::withMainTableAddButton, systemUnderTest::mainTableAddButton, mock( Button.class ) )
          .buildObject( systemUnderTest::withMainTableFoodTypeDialog, systemUnderTest::mainTableFoodTypeDialog, mock( UiEnumTypeSelectionDialog.class ) );
    }//End Method
