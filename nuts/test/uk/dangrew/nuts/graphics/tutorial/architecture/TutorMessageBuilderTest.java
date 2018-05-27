@@ -26,12 +26,12 @@ public class TutorMessageBuilderTest {
 
    @Test public void shouldBuildProperties() {
       new BuilderVerifier<>()
-         .build( systemUnderTest::highlighting, systemUnderTest::getHighlightSubject, new BorderPane() )
-         .build( systemUnderTest::pointing, systemUnderTest::getArrowDirection, ArrowLocation.RIGHT_TOP )
-         .build( systemUnderTest::withMessage, systemUnderTest::getMessage, new TextFlow() )
-         .build( systemUnderTest::withRespectTo, systemUnderTest::getComponent, new BorderPane() )
+         .buildObject( systemUnderTest::highlighting, systemUnderTest::getHighlightSubject, new BorderPane() )
+         .buildObject( systemUnderTest::pointing, systemUnderTest::getArrowDirection, ArrowLocation.RIGHT_TOP )
+         .buildObject( systemUnderTest::withMessage, systemUnderTest::getMessage, new TextFlow() )
+         .buildObject( systemUnderTest::withRespectTo, systemUnderTest::getComponent, new BorderPane() )
          .buildWithOptional( systemUnderTest::callingBackTo, systemUnderTest::callback, () -> {} )
-         .build( systemUnderTest::withConfirmation, systemUnderTest::shouldHaveConfirmation, true );
+         .buildBoolean( systemUnderTest::withConfirmation, systemUnderTest::shouldHaveConfirmation, true );
    }//End Method
    
    @Test public void shouldFocusOn(){

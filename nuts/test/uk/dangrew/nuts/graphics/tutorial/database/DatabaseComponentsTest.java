@@ -30,9 +30,9 @@ public class DatabaseComponentsTest {
 
    @Test public void shouldBuild() {
       new BuilderVerifier<>()
-         .build( systemUnderTest::withMainTable, systemUnderTest::mainTable, mock( ConceptTable.class ) )
-         .build( systemUnderTest::withMainTableAddButton, systemUnderTest::mainTableAddButton, mock( Button.class ) )
-         .build( systemUnderTest::withMainTableFoodTypeDialog, systemUnderTest::mainTableFoodTypeDialog, mock( UiEnumTypeSelectionDialog.class ) );
+         .buildObject( systemUnderTest::withMainTable, systemUnderTest::mainTable, mock( ConceptTable.class ) )
+         .buildObject( systemUnderTest::withMainTableAddButton, systemUnderTest::mainTableAddButton, mock( Button.class ) )
+         .buildObject( systemUnderTest::withMainTableFoodTypeDialog, systemUnderTest::mainTableFoodTypeDialog, mock( UiEnumTypeSelectionDialog.class ) );
    }//End Method
 
    @Test public void shouldRegenerate(){

@@ -24,7 +24,7 @@ import org.mockito.MockitoAnnotations;
 
 import javafx.scene.Node;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.kode.utility.mouse.TestMouseEvent;
+import uk.dangrew.kode.utility.event.TestMouseEvent;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseComponents;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseTutorials;
 
@@ -43,7 +43,6 @@ public class TutorialSelectorTest {
       
       glass = spy( new TutorialGlass() );
       components = new DatabaseComponents();
-//      TestApplication.launch( () -> components.parent() );
       systemUnderTest = new TutorialSelector( 
                mouseLocationConverter, 
                glass, 
