@@ -18,7 +18,7 @@ public class MacroFetchE2ETest {
 
    @Test public void shouldConnectToTescoAndParseFullUseCase() {
       TescoApiConnector provider = new TescoApiConnector();
-      String products = provider.searchProducts( "Chicken", 1, 100 );
+      String products = provider.searchProducts( "Biscuit", 1, 100 );
       JSONObject json = new ApiResponseToJsonConverter().convert( products );
       
       TescoFoodDescriptionStore store = new TescoFoodDescriptionStore();

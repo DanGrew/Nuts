@@ -1,8 +1,8 @@
 package uk.dangrew.nuts.graphics.tutorial.database;
 
-import java.util.function.BiFunction;
-
+import uk.dangrew.nuts.graphics.tutorial.architecture.TutorialCreator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.TutorialGlass;
+import uk.dangrew.nuts.graphics.tutorial.architecture.TutorialSelector;
 
 public enum DatabaseTutorials {
 
@@ -11,19 +11,19 @@ public enum DatabaseTutorials {
             "Adding Food Items in the Database"
    );
    
-   private final BiFunction< DatabaseComponents, TutorialGlass, DatabaseTableTutorial > generator;
+   private final TutorialCreator generator;
    private final String description;
    
    private DatabaseTutorials(
-            BiFunction< DatabaseComponents, TutorialGlass, DatabaseTableTutorial > generator,
+            TutorialCreator generator,
             String tutorialDescription
    ){
       this.generator = generator;
       this.description = tutorialDescription;
    }//End Constructor
    
-   public DatabaseTableTutorial generate( DatabaseComponents components, TutorialGlass glass ) {
-      return generator.apply( components, glass );
+   public DatabaseTableTutorial generate( DatabaseComponents components, TutorialGlass glass, TutorialSelector selector ) {
+      return generator.create( components, glass, selector );
    }//End Method
    
    public String description(){

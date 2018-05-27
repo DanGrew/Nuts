@@ -1,10 +1,14 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture;
 
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.controlsfx.control.PopOver.ArrowLocation;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
+import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.TextFlow;
 import uk.dangrew.kode.launch.TestApplication;
@@ -28,6 +32,13 @@ public class TutorMessageBuilderTest {
          .build( systemUnderTest::withRespectTo, systemUnderTest::getComponent, new BorderPane() )
          .buildWithOptional( systemUnderTest::callingBackTo, systemUnderTest::callback, () -> {} )
          .build( systemUnderTest::withConfirmation, systemUnderTest::shouldHaveConfirmation, true );
+   }//End Method
+   
+   @Test public void shouldFocusOn(){
+      Node node = new BorderPane();
+      systemUnderTest.focussingOn( node );
+      assertThat( systemUnderTest.getComponent(), is( node ) );
+      assertThat( systemUnderTest.getHighlightSubject(), is( node ) );
    }//End Method
 
 }//End Class

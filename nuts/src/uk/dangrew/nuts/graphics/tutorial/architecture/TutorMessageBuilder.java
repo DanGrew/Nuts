@@ -72,5 +72,9 @@ public class TutorMessageBuilder {
    public Optional< Runnable > callback(){
       return Optional.ofNullable( callback );
    }//End Method
+   
+   public TutorMessageBuilder focussingOn( Node focus ) {
+      return withRespectTo( focus ).highlighting( focus );
+   }//End Method
 
 }//End Class

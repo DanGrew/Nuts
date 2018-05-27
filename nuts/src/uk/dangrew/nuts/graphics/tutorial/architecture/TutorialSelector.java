@@ -36,14 +36,22 @@ public class TutorialSelector {
       this.components = components;
       this.mouseHandler = this::detectSelected;
       this.mouseLocationConverter = mouseLocationConverter;
-      this.optionBuilder = new DatabaseTutorialOptionBuilder( this );
       this.glass = glass;
-      this.glass.setOnMouseMoved( mouseHandler );
-      
+      this.optionBuilder = new DatabaseTutorialOptionBuilder( this );
       this.enterableComponents = new HashSet<>();
+      
+      this.resetSelector();
+   }//End Constructor
+   
+   public void resetSelector(){
+      this.components.generateComponents();
+      this.glass.clearMessageAndHighlight();
+      this.glass.setOnMouseMoved( mouseHandler );
+      this.glass.replaceUnderlyingContent( components.parent() );
+      this.enterableComponents.clear();
       this.enterableComponents.add( components.mainTable() );
       this.enterableComponents.add( components.mainTableAddButton() );
-   }//End Constructor
+   }//End Method
    
    private void detectSelected( MouseEvent event ){
       Optional< Node > nodeContainingMouse = mouseInsideFilter( event );
@@ -79,9 +87,8 @@ public class TutorialSelector {
    
    public void startTutorial( DatabaseTutorials tutorial ) {
       glass.setOnMouseMoved( null );
-      glass.removeTutorMessage();
       glass.removeTutorHighlight();
-      tutorial.generate( components, glass ).run();
+      tutorial.generate( components, glass, this ).run();
    }//End Method
 
 }//End Class

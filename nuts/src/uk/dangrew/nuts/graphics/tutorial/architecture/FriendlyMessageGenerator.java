@@ -16,7 +16,10 @@ public class FriendlyMessageGenerator {
                      new SimpleEntry<>( 1, "Heard Chef!" ),
                      new SimpleEntry<>( 2, "Understood" ),
                      new SimpleEntry<>( 3, "No problemo" ),
-                     new SimpleEntry<>( 4, "Sure thing" )
+                     new SimpleEntry<>( 4, "Sure thing" ),
+                     new SimpleEntry<>( 5, "Aye Captain" ),
+                     new SimpleEntry<>( 6, "Making sense" ),
+                     new SimpleEntry<>( 7, "I'm with you" )
             ).collect( Collectors.toMap( SimpleEntry::getKey, SimpleEntry::getValue ) ) );
    
    private final Random random;

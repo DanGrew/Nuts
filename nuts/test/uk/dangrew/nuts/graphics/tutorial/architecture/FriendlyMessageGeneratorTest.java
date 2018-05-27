@@ -27,7 +27,7 @@ public class FriendlyMessageGeneratorTest {
 
    @Test public void shouldProvideResponses() {
       when( random.nextInt( systemUnderTest.friendlyConfirmationAnswerCount() ) )
-         .thenReturn( 0, 1, 2, 3, 4, 5 );
+         .thenReturn( 0, 1, 2, 3, 4, 5, 6, 7, 8 );
       
       for ( int i = 0; i < systemUnderTest.friendlyConfirmationAnswerCount(); i++ ) {
          assertThat( systemUnderTest.friendlyConfirmation(), is( systemUnderTest.friendlyConfirmationAnswer( i ) ) );

@@ -1,5 +1,7 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture;
 
+import static org.hamcrest.Matchers.contains;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
@@ -22,6 +24,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.sun.javafx.application.PlatformImpl;
 
+import javafx.scene.layout.Pane;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseTutorial;
@@ -35,6 +38,8 @@ public class TutorialGlassTest {
    
    private DatabaseTutorial tutorial;
    @Mock private UiDatabaseManagerPane pane;
+   
+   private Pane glass;
    @Mock private TutorPopOver popover;
    @Mock private TutorHighlight highlight;
    private TutorialGlass systemUnderTest;
@@ -43,8 +48,9 @@ public class TutorialGlassTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
+      glass = new Pane();
       when( threadSupplier.apply( Mockito.any() ) ).thenReturn( mockedThread );
-      systemUnderTest = new TutorialGlass( threadSupplier, popover, highlight, pane );
+      systemUnderTest = new TutorialGlass( glass, threadSupplier, popover, highlight );
    }//End Method
 
    @Ignore
@@ -52,7 +58,7 @@ public class TutorialGlassTest {
       Database database = new Database();
       database.stockLists().createConcept( "" );
       TestApplication.launch( () -> { 
-            tutorial = new DatabaseTutorial( pane = new UiDatabaseManagerPane( database ) );
+            tutorial = new DatabaseTutorial();
             return tutorial.window();
       } );
       
@@ -105,6 +111,18 @@ public class TutorialGlassTest {
    
    @Test public void shouldHideHighlight(){
       systemUnderTest.removeTutorHighlight();
+      verify( highlight ).hide();
+   }//End Method
+   
+   @Test public void shouldReplaceUnderlyingContent(){
+      systemUnderTest.replaceUnderlyingContent( pane );
+      assertThat( systemUnderTest.getChildren(), contains( pane, glass ) );
+      assertThat( glass.getChildren(), contains( highlight ) );
+   }//End Method
+   
+   @Test public void shouldClearMessageAndHighlighting(){
+      systemUnderTest.clearMessageAndHighlight();
+      verify( popover ).friendly_hide();
       verify( highlight ).hide();
    }//End Method
 }//End Class

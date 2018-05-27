@@ -16,32 +16,37 @@ public class TutorialGlass extends StackPane {
    private final TutorPopOver popOver;
    private final TutorHighlight highlight;
    
-   public TutorialGlass( Node underlyingContent ) {
-      this( new TutorPopOver(), new TutorHighlight(), underlyingContent );
+   public TutorialGlass() {
+      this( new TutorPopOver(), new TutorHighlight() );
    }//End Constructor
    
    private TutorialGlass(
             TutorPopOver popover, 
-            TutorHighlight highlight, 
-            Node underlyingContent
+            TutorHighlight highlight 
    ) {
-      this( Thread::new, popover, highlight, underlyingContent );
+      this( new Pane(), Thread::new, popover, highlight );
    }//End Constructor
    
    TutorialGlass( 
+            Pane glass,
             Function< Runnable, Thread > threadSupplier,
             TutorPopOver popover, 
-            TutorHighlight highlight, 
-            Node underlyingContent 
+            TutorHighlight highlight
    ) {
-      this.glass = new Pane();
-      this.getChildren().addAll( underlyingContent, glass );
-      
+      this.glass = glass;
       this.threadSupplier = threadSupplier;
       this.popOver = popover;
       this.highlight = highlight;
-      this.glass.getChildren().add( highlight );
    }//End Constructor
+   
+   public void replaceUnderlyingContent( Node underlyingContent ) {
+      PlatformImpl.runAndWait( () -> {
+         this.getChildren().clear();
+         this.getChildren().addAll( underlyingContent, glass );
+         this.glass.getChildren().clear();
+         this.glass.getChildren().add( highlight );
+      } );
+   }//End Method
    
    public void tutorUser( TutorMessageBuilder messageBuilder ) {
       PlatformImpl.runLater( () -> popOver.show( messageBuilder ) );
@@ -65,6 +70,11 @@ public class TutorialGlass extends StackPane {
    
    public void removeTutorHighlight() {
       highlight.hide();
+   }//End Method
+   
+   public void clearMessageAndHighlight(){
+      removeTutorMessage();
+      removeTutorHighlight();
    }//End Method
    
 }//End Method

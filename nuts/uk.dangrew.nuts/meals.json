@@ -3503,5 +3503,27 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "name": "Pancakes",
+      "id": "0cc0aa1b-bfca-4878-bd47-489f3d87cef3",
+      "portions": [
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 25
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 200
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 60
+         }
+      ]
    }
 ]}

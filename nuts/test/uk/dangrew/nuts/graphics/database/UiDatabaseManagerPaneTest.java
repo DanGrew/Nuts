@@ -55,7 +55,8 @@ public class UiDatabaseManagerPaneTest {
    }//End Method
    
    @Test public void shouldProvidePopulatedComponents(){
-      DatabaseComponents components = systemUnderTest.generateComponents();
+      DatabaseComponents components = new DatabaseComponents();
+      systemUnderTest.populateComponents( components );
       assertThat( components.parent(), is( notNullValue() ) );
       assertThat( components.mainTable(), is( notNullValue() ) );
       assertThat( components.mainTableAddButton(), is( notNullValue() ) );

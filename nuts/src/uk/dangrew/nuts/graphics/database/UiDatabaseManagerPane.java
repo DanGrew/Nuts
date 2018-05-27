@@ -77,9 +77,8 @@ public class UiDatabaseManagerPane extends GridPane {
       return mealTable.table();
    }//End Method
    
-   public DatabaseComponents generateComponents(){
-      return new DatabaseComponents()
-               .withParent( this )
+   public void populateComponents( DatabaseComponents components ){
+      components
                .withMainTable( foodTable.table() )
                .withMainTableAddButton( foodTable.controls().addButton() )
                .withMainTableFoodTypeDialog( recipeController.foodTypeSelectionDialog() );

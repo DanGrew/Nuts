@@ -3,7 +3,6 @@ package uk.dangrew.nuts.graphics.tutorial.database;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 
 import org.junit.Before;
@@ -12,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.tutorial.architecture.TutorialGlass;
+import uk.dangrew.nuts.graphics.tutorial.architecture.TutorialSelector;
 
 public class DatabaseTutorialsTest {
 
@@ -29,8 +29,9 @@ public class DatabaseTutorialsTest {
    @Test public void shouldGenerateTutorials() {
       DatabaseComponents components = new DatabaseComponents();
       TutorialGlass glass = mock( TutorialGlass.class );
+      TutorialSelector selector = mock( TutorialSelector.class );
       for ( DatabaseTutorials tutorial : DatabaseTutorials.values() ) {
-         assertThat( tutorial.generate( components, glass ), is( notNullValue() ) );
+         assertThat( tutorial.generate( components, glass, selector ), is( notNullValue() ) );
       }
    }//End Method
 

@@ -1,16 +1,17 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
@@ -22,14 +23,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.utility.mouse.TestMouseEvent;
-import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseComponents;
-import uk.dangrew.nuts.graphics.tutorial.database.DatabaseTutorialOptionBuilder;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseTutorials;
 
 public class TutorialSelectorTest {
@@ -41,15 +37,13 @@ public class TutorialSelectorTest {
    private DatabaseComponents components;
    private TutorialSelector systemUnderTest;
 
-   @Before public void initialiseSystemUnderTest() {
+   @Before public void initialiseSystemUnderTest() throws InterruptedException {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      glass = spy( new TutorialGlass( new BorderPane() ) );
-      components = new DatabaseComponents()
-               .withMainTable( mock( ConceptTable.class ) )
-               .withMainTableAddButton( mock( Button.class ) )
-               .withParent( mock( UiDatabaseManagerPane.class ) );
+      glass = spy( new TutorialGlass() );
+      components = new DatabaseComponents();
+//      TestApplication.launch( () -> components.parent() );
       systemUnderTest = new TutorialSelector( 
                mouseLocationConverter, 
                glass, 
@@ -59,14 +53,14 @@ public class TutorialSelectorTest {
 
    @Test public void shouldDoNothingIfMouseOutsideComponents() {
       fireMouseMovement( null );
-      verifyZeroInteractions( glass );
+      verify( glass, never() ).tutorUser( any() );
    }//End Method
    
    @Test public void shouldDoNothingIfMouseInsideComponentAlreadySelected() {
       shouldTutorUserWhenInNodeForFirstTime();
       
       fireMouseMovement( components.mainTableAddButton() );
-      verifyNoMoreInteractions( glass );
+      verify( glass, times( 1 ) ).tutorUser( any() );
    }//End Method
    
    @Ignore //nice to have but fiddly to test
@@ -85,8 +79,8 @@ public class TutorialSelectorTest {
    @Test public void shouldStartTutorial() {
       systemUnderTest.startTutorial( DatabaseTutorials.AddingFoodItemToTable );
       assertThat( glass.getOnMouseMoved(), is( nullValue() ) );
-      verify( glass ).removeTutorHighlight();
-      verify( glass ).removeTutorMessage();
+      verify( glass, times( 2 ) ).removeTutorHighlight();
+      verify( glass, times( 1 ) ).removeTutorMessage();
    }//End Method
    
    private void fireMouseMovement( Node inside ) {
@@ -95,4 +89,13 @@ public class TutorialSelectorTest {
       }
       glass.getOnMouseMoved().handle( new TestMouseEvent() );
    }//End Method
+   
+   @Test public void shouldResetSelector(){
+      Node parent = components.parent();
+      systemUnderTest.resetSelector();
+      verify( glass, times( 2 ) ).clearMessageAndHighlight();
+      assertThat( components.parent(), is( not( parent ) ) );
+      assertThat( glass.getOnMouseMoved(), is( notNullValue() ) );
+   }//End Method
+   
 }//End Class
