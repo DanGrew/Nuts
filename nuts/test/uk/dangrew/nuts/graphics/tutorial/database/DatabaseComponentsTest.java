@@ -27,6 +27,7 @@ public class DatabaseComponentsTest {
 
    @Mock private ConceptTable< Food > mainTable;
    @Mock private MealTable mealTable;
+   @Mock private UiEnumTypeSelectionDialog< FoodTypes > dialog;
    private DatabaseComponents systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -39,7 +40,7 @@ public class DatabaseComponentsTest {
       new BuilderVerifier<>()
          .buildObject( systemUnderTest::withMainTable, systemUnderTest::mainTable, mainTable )
          .buildObject( systemUnderTest::withMainTableAddButton, systemUnderTest::mainTableAddButton, mock( Button.class ) )
-         .buildObject( systemUnderTest::withMainTableFoodTypeDialog, systemUnderTest::mainTableFoodTypeDialog, mock( UiEnumTypeSelectionDialog.class ) )
+         .buildObject( systemUnderTest::withMainTableFoodTypeDialog, systemUnderTest::mainTableFoodTypeDialog, dialog )
          .buildObject( systemUnderTest::withMealTable, systemUnderTest::mealTable, mealTable )
          .buildObject( systemUnderTest::withMealTableAddButton, systemUnderTest::mealTableAddButton, mock( Button.class ) )
          .buildObject( systemUnderTest::withMealTableRemoveButton, systemUnderTest::mealTableRemoveButton, mock( Button.class ) )
