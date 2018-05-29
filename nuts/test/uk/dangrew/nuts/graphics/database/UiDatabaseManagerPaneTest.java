@@ -57,10 +57,24 @@ public class UiDatabaseManagerPaneTest {
    @Test public void shouldProvidePopulatedComponents(){
       DatabaseComponents components = new DatabaseComponents();
       systemUnderTest.populateComponents( components );
+      
       assertThat( components.parent(), is( notNullValue() ) );
+      
+      assertThat( components.database(), is( notNullValue() ) );
+      assertThat( components.databaseManipulator(), is( notNullValue() ) );
+      
       assertThat( components.mainTable(), is( notNullValue() ) );
+      assertThat( components.mainTableComponents(), is( notNullValue() ) );
       assertThat( components.mainTableAddButton(), is( notNullValue() ) );
       assertThat( components.mainTableFoodTypeDialog(), is( notNullValue() ) );
+      
+      assertThat( components.mealTable(), is( notNullValue() ) );
+      assertThat( components.mealTableComponents(), is( notNullValue() ) );
+      assertThat( components.mealTableAddButton(), is( notNullValue() ) );
+      assertThat( components.mealTableRemoveButton(), is( notNullValue() ) );
+      assertThat( components.mealTableCopyButton(), is( notNullValue() ) );
+      assertThat( components.mealTableUpButton(), is( notNullValue() ) );
+      assertThat( components.mealTableDownButton(), is( notNullValue() ) );
    }//End Method
 
 }//End Class

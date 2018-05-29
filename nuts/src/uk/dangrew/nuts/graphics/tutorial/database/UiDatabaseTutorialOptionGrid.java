@@ -2,6 +2,7 @@ package uk.dangrew.nuts.graphics.tutorial.database;
 
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -22,6 +23,7 @@ public class UiDatabaseTutorialOptionGrid extends BorderPane {
          DatabaseTutorials tutorial = tutorials[ i ];
          Button button = new Button( tutorial.description() );
          button.setMaxWidth( Double.MAX_VALUE );
+         button.setAlignment( Pos.CENTER_LEFT );
          button.setOnAction( e -> selector.startTutorial( tutorial ) );
          content.add( button, 0, i );
       }

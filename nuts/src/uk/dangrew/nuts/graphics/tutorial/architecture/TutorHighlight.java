@@ -8,7 +8,6 @@ import javafx.scene.shape.Rectangle;
 
 public class TutorHighlight extends Rectangle {
 
-   static final Color OPAQUE = Color.RED;
    static final Color TRANSPARENT = Color.TRANSPARENT;
    static final double STROKE_WIDTH = 4;
    
@@ -22,7 +21,7 @@ public class TutorHighlight extends Rectangle {
       this.setStroke( TRANSPARENT );
    }//End Method
    
-   public void focus( Node subject ) {
+   public void focus( Node subject, Color colour ) {
       Bounds bounds = subject.getLayoutBounds();
       Point2D coordinates = subject.localToScene( bounds.getMinX(), bounds.getMinY() );
       
@@ -30,7 +29,7 @@ public class TutorHighlight extends Rectangle {
       this.setY( coordinates.getY() );
       this.setWidth( bounds.getWidth() );
       this.setHeight( bounds.getHeight() );
-      this.setStroke( OPAQUE );
+      this.setStroke( colour );
    }//End Method
    
 }//End Class

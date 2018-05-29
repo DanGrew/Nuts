@@ -14,6 +14,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import org.controlsfx.control.PopOver.ArrowLocation;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -23,6 +24,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import javafx.scene.Node;
+import javafx.scene.paint.Color;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.utility.event.TestMouseEvent;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseComponents;
@@ -73,6 +75,8 @@ public class TutorialSelectorTest {
       
       assertThat( messageCaptor.getValue().getComponent(), is( components.mainTableAddButton() ) );
       assertThat( messageCaptor.getValue().getHighlightSubject(), is( components.mainTableAddButton() ) );
+      assertThat( messageCaptor.getValue().getArrowDirection(), is( systemUnderTest.arrowFor( components.mainTableAddButton() ) ) );
+      assertThat( messageCaptor.getValue().getHighlightColour(), is( Color.BLUE ) );
    }//End Method
 
    @Test public void shouldStartTutorial() {
@@ -95,6 +99,17 @@ public class TutorialSelectorTest {
       verify( glass, times( 2 ) ).clearMessageAndHighlight();
       assertThat( components.parent(), is( not( parent ) ) );
       assertThat( glass.getOnMouseMoved(), is( notNullValue() ) );
+   }//End Method
+   
+   @Test public void shouldProvideEnterableComponents(){
+      assertThat( systemUnderTest.arrowFor( components.mainTable() ), is( ArrowLocation.LEFT_CENTER ) );
+      assertThat( systemUnderTest.arrowFor( components.mainTableAddButton() ), is( ArrowLocation.LEFT_CENTER ) );
+      assertThat( systemUnderTest.arrowFor( components.mealTable() ), is( ArrowLocation.RIGHT_CENTER ) );
+      assertThat( systemUnderTest.arrowFor( components.mealTableAddButton() ), is( ArrowLocation.RIGHT_CENTER ) );
+      assertThat( systemUnderTest.arrowFor( components.mealTableCopyButton() ), is( ArrowLocation.RIGHT_CENTER ) );
+      assertThat( systemUnderTest.arrowFor( components.mealTableRemoveButton() ), is( ArrowLocation.RIGHT_CENTER ) );
+      assertThat( systemUnderTest.arrowFor( components.mealTableUpButton() ), is( ArrowLocation.RIGHT_CENTER ) );
+      assertThat( systemUnderTest.arrowFor( components.mealTableDownButton() ), is( ArrowLocation.RIGHT_CENTER ) );
    }//End Method
    
 }//End Class

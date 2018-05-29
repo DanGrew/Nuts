@@ -49,12 +49,13 @@ public class TutorialGlass extends StackPane {
    }//End Method
    
    public void tutorUser( TutorMessageBuilder messageBuilder ) {
-      PlatformImpl.runLater( () -> popOver.show( messageBuilder ) );
-      
-      if ( messageBuilder.getHighlightSubject() == null ) {
-         return;
+      if ( messageBuilder.getComponent() != null ) {
+         PlatformImpl.runLater( () -> popOver.show( messageBuilder ) );
       }
-      PlatformImpl.runLater( () -> highlight.focus( messageBuilder.getHighlightSubject() ) );
+      
+      if ( messageBuilder.getHighlightSubject() != null ) {
+         PlatformImpl.runLater( () -> highlight.focus( messageBuilder.getHighlightSubject(), messageBuilder.getHighlightColour() ) );
+      }
    }//End Method
    
    public void tutorAction( TutorActionBuilder builder ) {

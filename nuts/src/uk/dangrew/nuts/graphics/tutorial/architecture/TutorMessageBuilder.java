@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.controlsfx.control.PopOver.ArrowLocation;
 
 import javafx.scene.Node;
+import javafx.scene.paint.Color;
 
 public class TutorMessageBuilder {
    
@@ -12,11 +13,13 @@ public class TutorMessageBuilder {
    private Node component;
    private ArrowLocation arrowLocation;
    private Node borderHighlightSubject;
+   private Color highlightColour;
    private Runnable callback;
    private boolean withConfirmation;
    
    public TutorMessageBuilder() {
       this.arrowLocation = ArrowLocation.LEFT_CENTER;
+      this.highlightColour = Color.RED;
    }//End Constructor
    
    public TutorMessageBuilder withMessage( Node message ) {
@@ -62,6 +65,15 @@ public class TutorMessageBuilder {
    
    public Node getHighlightSubject(){
       return borderHighlightSubject;
+   }//End Method
+   
+   public TutorMessageBuilder withHighlight( Color colour ) {
+      this.highlightColour = colour;
+      return this;
+   }//End Method
+   
+   public Color getHighlightColour(){
+      return highlightColour;
    }//End Method
    
    public TutorMessageBuilder callingBackTo( Runnable runnable ) {

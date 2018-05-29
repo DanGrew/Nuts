@@ -10,6 +10,7 @@ import org.mockito.MockitoAnnotations;
 
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.TextFlow;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.model.BuilderVerifier;
@@ -31,7 +32,13 @@ public class TutorMessageBuilderTest {
          .buildObject( systemUnderTest::withMessage, systemUnderTest::getMessage, new TextFlow() )
          .buildObject( systemUnderTest::withRespectTo, systemUnderTest::getComponent, new BorderPane() )
          .buildWithOptional( systemUnderTest::callingBackTo, systemUnderTest::callback, () -> {} )
-         .buildBoolean( systemUnderTest::withConfirmation, systemUnderTest::shouldHaveConfirmation, true );
+         .buildBoolean( systemUnderTest::withConfirmation, systemUnderTest::shouldHaveConfirmation, true )
+         .buildObject( systemUnderTest::withHighlight, systemUnderTest::getHighlightColour, Color.BEIGE );
+   }//End Method
+   
+   @Test public void shouldProvideDefaults(){
+      assertThat( systemUnderTest.getHighlightColour(), is( Color.RED ) );
+      assertThat( systemUnderTest.getArrowDirection(), is( ArrowLocation.LEFT_CENTER ) );
    }//End Method
    
    @Test public void shouldFocusOn(){

@@ -24,7 +24,9 @@ import org.mockito.MockitoAnnotations;
 
 import com.sun.javafx.application.PlatformImpl;
 
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseTutorial;
@@ -66,24 +68,31 @@ public class TutorialGlassTest {
    }//End Method
    
    @Test public void shouldShowPopupForMessage(){
-      TutorMessageBuilder builder = new TutorMessageBuilder();
+      TutorMessageBuilder builder = new TutorMessageBuilder().withRespectTo( new BorderPane() );
       systemUnderTest.tutorUser( builder );
       PlatformImpl.runAndWait( () -> {} );
       verify( popover ).show( builder );
+   }//End Method
+   
+   @Test public void shouldNotShowPopupWhenNoFocus(){
+      TutorMessageBuilder builder = new TutorMessageBuilder();
+      systemUnderTest.tutorUser( builder );
+      PlatformImpl.runAndWait( () -> {} );
+      verify( popover, never() ).show( builder );
    }//End Method
    
    @Test public void shouldHighlightSubject(){
       TutorMessageBuilder builder = new TutorMessageBuilder().highlighting( pane );
       systemUnderTest.tutorUser( builder );
       PlatformImpl.runAndWait( () -> {} );
-      verify( highlight ).focus( pane );
+      verify( highlight ).focus( pane, Color.RED );
    }//End Method
    
    @Test public void shouldNotHighlightWhenNoSubject(){
       TutorMessageBuilder builder = new TutorMessageBuilder();
       systemUnderTest.tutorUser( builder );
       PlatformImpl.runAndWait( () -> {} );
-      verify( highlight, never() ).focus( any() );
+      verify( highlight, never() ).focus( any(), any() );
    }//End Method
    
    @Test public void shouldRunAllActions(){

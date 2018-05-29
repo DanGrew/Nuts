@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import uk.dangrew.kode.launch.TestApplication;
 
@@ -28,7 +29,7 @@ public class TutorHighlightTest {
    }//End Method
    
    @Test public void shouldUpdatePosition() {
-      systemUnderTest.focus( new Rectangle( 20, 25, 40, 50 ) );
+      systemUnderTest.focus( new Rectangle( 20, 25, 40, 50 ), Color.ANTIQUEWHITE );
       assertThat( systemUnderTest.getX(), is( 20.0 ) );
       assertThat( systemUnderTest.getY(), is( 25.0 ) );
       assertThat( systemUnderTest.getWidth(), is( 40.0 ) );
@@ -36,8 +37,8 @@ public class TutorHighlightTest {
    }//End Method
    
    @Test public void shouldBecomeOpaque() {
-      systemUnderTest.focus( new BorderPane() );
-      assertThat( systemUnderTest.getStroke(), is( TutorHighlight.OPAQUE ) );
+      systemUnderTest.focus( new BorderPane(), Color.ANTIQUEWHITE );
+      assertThat( systemUnderTest.getStroke(), is( Color.ANTIQUEWHITE ) );
    }//End Method
    
    @Test public void shouldHide() {

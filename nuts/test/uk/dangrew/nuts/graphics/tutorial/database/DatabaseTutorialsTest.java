@@ -23,6 +23,7 @@ public class DatabaseTutorialsTest {
    @Test public void shouldProvideDescriptions() {
       for ( DatabaseTutorials tutorial : DatabaseTutorials.values() ) {
          assertThat( tutorial.description(), is( notNullValue() ) );
+         assertThat( tutorial.tutorialId(), is( notNullValue() ) );
       }
    }//End Method
    

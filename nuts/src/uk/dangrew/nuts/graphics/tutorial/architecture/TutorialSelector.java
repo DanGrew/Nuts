@@ -1,12 +1,15 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
+
+import org.controlsfx.control.PopOver.ArrowLocation;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseComponents;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseTutorialOptionBuilder;
 import uk.dangrew.nuts.graphics.tutorial.database.DatabaseTutorials;
@@ -20,7 +23,7 @@ public class TutorialSelector {
    private final MouseLocationConverter mouseLocationConverter;
    private final EventHandler< MouseEvent > mouseHandler;
    private final DatabaseTutorialOptionBuilder optionBuilder;
-   private final Set< Node > enterableComponents;
+   private final Map< Node, ArrowLocation > enterableComponents;
    
    private Node current;
    
@@ -38,7 +41,7 @@ public class TutorialSelector {
       this.mouseLocationConverter = mouseLocationConverter;
       this.glass = glass;
       this.optionBuilder = new DatabaseTutorialOptionBuilder( this );
-      this.enterableComponents = new HashSet<>();
+      this.enterableComponents = new HashMap<>();
       
       this.resetSelector();
    }//End Constructor
@@ -49,8 +52,14 @@ public class TutorialSelector {
       this.glass.setOnMouseMoved( mouseHandler );
       this.glass.replaceUnderlyingContent( components.parent() );
       this.enterableComponents.clear();
-      this.enterableComponents.add( components.mainTable() );
-      this.enterableComponents.add( components.mainTableAddButton() );
+      this.enterableComponents.put( components.mainTable(), ArrowLocation.LEFT_CENTER );
+      this.enterableComponents.put( components.mainTableAddButton(), ArrowLocation.LEFT_CENTER );
+      this.enterableComponents.put( components.mealTable(), ArrowLocation.RIGHT_CENTER );
+      this.enterableComponents.put( components.mealTableAddButton(), ArrowLocation.RIGHT_CENTER );
+      this.enterableComponents.put( components.mealTableRemoveButton(), ArrowLocation.RIGHT_CENTER );
+      this.enterableComponents.put( components.mealTableCopyButton(), ArrowLocation.RIGHT_CENTER );
+      this.enterableComponents.put( components.mealTableUpButton(), ArrowLocation.RIGHT_CENTER );
+      this.enterableComponents.put( components.mealTableDownButton(), ArrowLocation.RIGHT_CENTER );
    }//End Method
    
    private void detectSelected( MouseEvent event ){
@@ -76,11 +85,13 @@ public class TutorialSelector {
                .withMessage( optionGrid.get() )
                .highlighting( nodeContainingMouse.get() )
                .withRespectTo( nodeContainingMouse.get() )
+               .pointing( enterableComponents.get( nodeContainingMouse.get() ) )
+               .withHighlight( Color.BLUE )
       );
    }//End Method
    
    private Optional< Node > mouseInsideFilter( MouseEvent event ) {
-      return enterableComponents.stream()
+      return enterableComponents.keySet().stream()
                .filter( n -> mouseLocationConverter.containedInScene( event, n ) )
                .findFirst();
    }//End Method
@@ -89,6 +100,10 @@ public class TutorialSelector {
       glass.setOnMouseMoved( null );
       glass.removeTutorHighlight();
       tutorial.generate( components, glass, this ).run();
+   }//End Method
+   
+   ArrowLocation arrowFor( Node component ){
+      return enterableComponents.get( component );
    }//End Method
 
 }//End Class

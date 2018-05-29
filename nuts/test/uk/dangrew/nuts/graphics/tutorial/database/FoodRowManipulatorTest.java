@@ -2,25 +2,28 @@ package uk.dangrew.nuts.graphics.tutorial.database;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
+import com.sun.javafx.application.PlatformImpl;
+
 import javafx.scene.control.TableRow;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.store.Database;
 
 public class FoodRowManipulatorTest {
 
-   private TableRow< ConceptTableRow< Food > > row;
-   private Food food;
+   private GeneralFoodTable< FoodItem > table;
+   private TableRow< ConceptTableRow< FoodItem > > row;
+   private FoodItem food;
    
-   private FoodRowManipulator systemUnderTest;
+   private FoodRowManipulator< FoodItem > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
@@ -28,9 +31,20 @@ public class FoodRowManipulatorTest {
       
       food = new FoodItem( "Name" );
       row = new TableRow<>();
-      row.setItem( new ConceptTableRow< Food >( food ) );
+      row.setItem( new ConceptTableRow<>( food ) );
       
-      systemUnderTest = new FoodRowManipulator( row );
+      Database database = new Database();
+      PlatformImpl.runAndWait( () -> table = new GeneralFoodTable<>( database, database.foodItems() ) );
+      row.updateTableView( table );
+      systemUnderTest = new FoodRowManipulator<>( row, 3 );
+   }//End Method
+   
+   @Test public void shouldProvideIndex(){
+      assertThat( systemUnderTest.index(), is( 3 ) );
+   }//End Method
+   
+   @Test public void shouldProvideConcept(){
+      assertThat( systemUnderTest.concept(), is( food ) );
    }//End Method
 
    @Test public void shouldChangeName() {
@@ -63,6 +77,17 @@ public class FoodRowManipulatorTest {
       assertThat( food.properties().fiber().get(), is( 0.0 ) );
       systemUnderTest.changeFibre( 45.3 );
       assertThat( food.properties().fiber().get(), is( 45.3 ) );
+   }//End Method
+   
+   @Test public void shouldTriggerCellEdit(){
+      systemUnderTest.triggerCellEdit( 4 );
+      assertThat( table.editingCellProperty().get().getRow(), is( 3 ) );
+      assertThat( table.editingCellProperty().get().getColumn(), is( 4 ) );
+   }//End Method
+   
+   @Test public void shouldSelectInTable(){
+      systemUnderTest.selectInTable();
+      assertThat( table.getSelectionModel().getSelectedItem(), is( systemUnderTest.node().getItem() ) );
    }//End Method
 
 }//End Class

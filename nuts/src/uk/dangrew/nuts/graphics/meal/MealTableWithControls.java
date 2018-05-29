@@ -36,5 +36,9 @@ public class MealTableWithControls extends ConceptTableWithControls< FoodPortion
    @Override public MealTable table() {
       return ( MealTable ) super.table();
    }//End Method
+   
+   @Override public MealControls controls() {
+      return ( MealControls )super.controls();
+   }//End Method
 
 }//End Class

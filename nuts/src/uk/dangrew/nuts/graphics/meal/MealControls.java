@@ -42,11 +42,11 @@ public class MealControls extends ConceptControls {
       down.setOnAction( e -> controller.moveDown() );
    }//End Constructor
    
-   Button upButton() {
+   public Button upButton() {
       return up;
    }//End Method
    
-   Button downButton() {
+   public Button downButton() {
       return down;
    }//End Method
    

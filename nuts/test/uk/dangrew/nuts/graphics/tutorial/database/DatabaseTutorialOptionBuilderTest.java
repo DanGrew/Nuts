@@ -29,9 +29,7 @@ public class DatabaseTutorialOptionBuilderTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      components = new DatabaseComponents()
-               .withMainTable( mock( ConceptTable.class ) )
-               .withMainTableAddButton( mock( Button.class ) );
+      components = new DatabaseComponents();
       systemUnderTest = new DatabaseTutorialOptionBuilder( selector );
    }//End Method
 
@@ -53,12 +51,18 @@ public class DatabaseTutorialOptionBuilderTest {
       assertThat( systemUnderTest.optionsFor( components, components.parent() ), is( Optional.empty() ) );
    }//End Method
    
-   @Test public void shouldProvideGridForMainTable() {
+   @Test public void shouldProvideGridsForMainTable() {
       assertThat( systemUnderTest.optionsFor( components, components.mainTable() ).get(), is( notNullValue() ) );
+      assertThat( systemUnderTest.optionsFor( components, components.mainTableAddButton() ).get(), is( notNullValue() ) );
    }//End Method
    
-   @Test public void shouldProvideGridForMainTableAddButton() {
-      assertThat( systemUnderTest.optionsFor( components, components.mainTableAddButton() ).get(), is( notNullValue() ) );
+   @Test public void shouldProvideGridsForMealTable() {
+      assertThat( systemUnderTest.optionsFor( components, components.mealTable() ).get(), is( notNullValue() ) );
+      assertThat( systemUnderTest.optionsFor( components, components.mealTableAddButton() ).get(), is( notNullValue() ) );
+      assertThat( systemUnderTest.optionsFor( components, components.mealTableRemoveButton() ).get(), is( notNullValue() ) );
+      assertThat( systemUnderTest.optionsFor( components, components.mealTableCopyButton() ).get(), is( notNullValue() ) );
+      assertThat( systemUnderTest.optionsFor( components, components.mealTableUpButton() ).get(), is( notNullValue() ) );
+      assertThat( systemUnderTest.optionsFor( components, components.mealTableDownButton() ).get(), is( notNullValue() ) );
    }//End Method
 
 }//End Class

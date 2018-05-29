@@ -6,11 +6,8 @@ import java.util.List;
 import org.controlsfx.control.PopOver.ArrowLocation;
 
 import javafx.event.Event;
-import javafx.scene.control.TableRow;
 import uk.dangrew.kode.javafx.style.TextFlowBuilder;
-import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.tutorial.architecture.TutorActionBuilder;
 import uk.dangrew.nuts.graphics.tutorial.architecture.TutorMessageBuilder;
 import uk.dangrew.nuts.graphics.tutorial.architecture.TutorialGlass;

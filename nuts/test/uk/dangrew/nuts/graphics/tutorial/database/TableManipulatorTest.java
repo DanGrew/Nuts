@@ -1,7 +1,8 @@
 package uk.dangrew.nuts.graphics.tutorial.database;
 
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -10,7 +11,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class TableManipulatorTest {
 
    private List< TableRow< Object > > rows;
    private TableView< Object > table;
-   @Mock private Function< TableRow< Object >, TableRowManipulator< Object > > supplier;
+   @Mock private BiFunction< TableRow< Object >, Integer, TableRowManipulator< Object > > supplier;
    
    @Mock private JavaFxHacks hacks;
    private TableManipulator< Object, TableRowManipulator<  Object > > systemUnderTest;
@@ -48,17 +49,15 @@ public class TableManipulatorTest {
 
    @Test public void shouldProvideRowManipulator() {
       systemUnderTest.row( 0 );
-      verify( supplier ).apply( rows.get( 0 ) );
+      verify( supplier ).apply( rows.get( 0 ), 0 );
       
       systemUnderTest.row( 1 );
-      verify( supplier ).apply( rows.get( 1 ) );
+      verify( supplier ).apply( rows.get( 1 ), 1 );
       
-      systemUnderTest.row( 2 );
-      verify( supplier ).apply( null );
+      assertThat( systemUnderTest.row( 2 ), is( nullValue() ) ) ;
       
       rows = new ArrayList<>();
-      systemUnderTest.row( 0 );
-      verify( supplier ).apply( null );
+      assertThat( systemUnderTest.row( 0 ), is( nullValue() ) ) ;
    }//End Method
    
    @Test public void shouldTriggerCellEdit() {
