@@ -14,7 +14,7 @@ import uk.dangrew.nuts.graphics.selection.view.UiFoodFilterImpl;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionControls;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
-import uk.dangrew.nuts.graphics.tutorial.database.DatabaseComponents;
+import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
