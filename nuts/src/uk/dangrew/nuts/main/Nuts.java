@@ -12,7 +12,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import uk.dangrew.jupa.javafx.platform.PlatformLifecycle;
-import uk.dangrew.nuts.graphics.goal.GoalTableView;
+import uk.dangrew.nuts.graphics.goal.CoreInterface;
 
 /**
  * Entry point to the system for launching.
@@ -32,7 +32,7 @@ public class Nuts extends Application {
    @Override public void start(Stage stage) throws Exception {
       stage.setTitle( TITLE );
       stage.setOnCloseRequest( event -> PlatformLifecycle.shutdown() );
-      stage.setScene( new Scene( new GoalTableView() ) );
+      stage.setScene( new Scene( new CoreInterface() ) );
       stage.setMaximized( true );
       stage.show();
    }//End Method

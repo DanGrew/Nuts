@@ -1,9 +1,11 @@
 package uk.dangrew.nuts.graphics.main;
 
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.AnchorPane;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.graphics.day.UiCalendarPane;
 import uk.dangrew.nuts.graphics.day.balance.UiBalanceSummary;
@@ -18,9 +20,24 @@ import uk.dangrew.nuts.graphics.stock.StockTable;
 import uk.dangrew.nuts.graphics.tools.dryweight.DryWeightToolPane;
 import uk.dangrew.nuts.store.Database;
 
-public class NutsTabs extends TabPane {
+public class NutsTabs extends AnchorPane {
 
-   public NutsTabs( Database database ) {
+   private final TabPane tabPane;
+   private final Button saveButton;
+   
+   public NutsTabs( Database database, CoreInterfaceOperations operations ) {
+      this.tabPane = new TabPane();
+      this.saveButton = new Button( "Save" );
+      this.saveButton.setOnAction( e -> operations.save() );
+      this.getChildren().addAll( tabPane, saveButton );
+      
+      AnchorPane.setTopAnchor( saveButton, 3.0 );
+      AnchorPane.setRightAnchor( saveButton, 5.0 );
+      AnchorPane.setTopAnchor( tabPane, 1.0 );
+      AnchorPane.setRightAnchor( tabPane, 1.0 );
+      AnchorPane.setLeftAnchor( tabPane, 1.0 );
+      AnchorPane.setBottomAnchor( tabPane, 1.0 );
+      
       createConcreteTab( "Nutrition", new InformationPane() );
       createConcreteTab( "Goals", new GoalManagerPane( database ) );
       createConcreteTab( "Database", new UiDatabaseManagerPane( database ) );
@@ -43,6 +60,15 @@ public class NutsTabs extends TabPane {
       Tab tab = new Tab( title );
       tab.setClosable( closeable );
       tab.setContent( content );
-      getTabs().add( tab );
+      tabPane.getTabs().add( tab );
    }//End Method
+   
+   TabPane tabPane(){
+      return tabPane;
+   }//End Method
+   
+   Button saveButton(){
+      return saveButton;
+   }//End Method
+   
 }//End Class

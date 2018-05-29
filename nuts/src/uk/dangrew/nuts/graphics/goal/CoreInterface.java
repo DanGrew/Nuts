@@ -8,42 +8,32 @@
  */
 package uk.dangrew.nuts.graphics.goal;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.TabPane;
+import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
+import uk.dangrew.nuts.graphics.main.CoreInterfaceOperations;
 import uk.dangrew.nuts.graphics.main.NutsTabs;
 import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindow;
-import uk.dangrew.nuts.persistence.fooditems.FoodSessions;
 import uk.dangrew.nuts.store.Database;
 
 /**
  * The {@link GoalTableView} provides the various elements of the system related to a single {@link uk.dangrew.nuts.goal.Goal}.
  */
-public class GoalTableView extends BorderPane {
+public class CoreInterface extends BorderPane {
 
    private final Database database;
-   private final TabPane tabPane;
+   private final Node tabPane;
    
    /**
     * Constructs a new {@link GoalTableView}.
     */
-   public GoalTableView() {
+   public CoreInterface() {
       this.database = new Database();
       setPrefSize( 800, 600 );
       
-      FoodSessions sessions = new FoodSessions( database );
-      sessions.read();
+      CoreInterfaceOperations operations = new CoreInterfaceOperations( database );
       new FoodSelectionWindow( database );
       
-      HBox controls = new HBox();
-      Button save = new Button( "Save" );
-      save.setOnAction( e -> sessions.write() );
-      controls.getChildren().addAll( save );
-      
-      this.setTop( controls );
-      
-      this.tabPane = new NutsTabs( database );
+      this.tabPane = new NutsTabs( database, operations );
       this.setCenter( tabPane );
    }//End Constructor
    
