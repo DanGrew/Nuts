@@ -1,7 +1,6 @@
 package uk.dangrew.nuts.graphics.main;
 
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TitledPane;
@@ -23,16 +22,17 @@ import uk.dangrew.nuts.store.Database;
 public class NutsTabs extends AnchorPane {
 
    private final TabPane tabPane;
-   private final Button saveButton;
+   private final CoreInterfaceOperationControls controls;
    
    public NutsTabs( Database database, CoreInterfaceOperations operations ) {
       this.tabPane = new TabPane();
-      this.saveButton = new Button( "Save" );
-      this.saveButton.setOnAction( e -> operations.save() );
-      this.getChildren().addAll( tabPane, saveButton );
+      this.controls = new CoreInterfaceOperationControls( operations );
       
-      AnchorPane.setTopAnchor( saveButton, 3.0 );
-      AnchorPane.setRightAnchor( saveButton, 5.0 );
+      this.getChildren().addAll( tabPane, controls );
+      
+      AnchorPane.setTopAnchor( controls, 3.0 );
+      AnchorPane.setRightAnchor( controls, 5.0 );
+      
       AnchorPane.setTopAnchor( tabPane, 1.0 );
       AnchorPane.setRightAnchor( tabPane, 1.0 );
       AnchorPane.setLeftAnchor( tabPane, 1.0 );
@@ -67,8 +67,8 @@ public class NutsTabs extends AnchorPane {
       return tabPane;
    }//End Method
    
-   Button saveButton(){
-      return saveButton;
+   CoreInterfaceOperationControls controls(){
+      return controls;
    }//End Method
    
 }//End Class

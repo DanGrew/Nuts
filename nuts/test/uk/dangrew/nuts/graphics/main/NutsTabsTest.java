@@ -3,7 +3,6 @@ package uk.dangrew.nuts.graphics.main;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,11 +35,8 @@ public class NutsTabsTest {
       assertThat( systemUnderTest.getChildren().contains( systemUnderTest.tabPane() ), is( true ) );
    }//End Method
    
-   @Test public void shouldProvideSaveButton(){
-      systemUnderTest.saveButton().fire();
-      verify( operations ).save();
-      
-      assertThat( systemUnderTest.getChildren().contains( systemUnderTest.saveButton() ), is( true ) );
+   @Test public void shouldProvideControls(){
+      assertThat( systemUnderTest.getChildren().contains( systemUnderTest.controls() ), is( true ) );
    }//End Method
    
 }//End Class

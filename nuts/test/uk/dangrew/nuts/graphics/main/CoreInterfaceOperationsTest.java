@@ -8,10 +8,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.graphics.tutorial.architecture.tutorial.TutorialWindow;
 import uk.dangrew.nuts.persistence.fooditems.FoodSessions;
 
 public class CoreInterfaceOperationsTest {
 
+   @Mock private TutorialWindow tutorialWindow;
    @Mock private FoodSessions sessions;
    private CoreInterfaceOperations systemUnderTest;
 
@@ -19,7 +21,7 @@ public class CoreInterfaceOperationsTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      systemUnderTest = new CoreInterfaceOperations( sessions );
+      systemUnderTest = new CoreInterfaceOperations( tutorialWindow, sessions );
    }//End Method
 
    @Test public void shouldReadAutomatically() {
@@ -29,6 +31,11 @@ public class CoreInterfaceOperationsTest {
    @Test public void shouldSaveOnCommand() {
       systemUnderTest.save();
       verify( sessions ).write();
+   }//End Method
+   
+   @Test public void shouldShowTutorial() {
+      systemUnderTest.showTutorial();
+      verify( tutorialWindow ).show();
    }//End Method
 
 }//End Class
