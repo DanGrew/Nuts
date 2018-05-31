@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
-public class InformationPanelTest {
+public class StandardDietIntroductionPaneTest {
 
-   private InformationPane systemUnderTest;
+   private StandardDietIntroductionPane systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
-      systemUnderTest = new InformationPane();
+      systemUnderTest = new StandardDietIntroductionPane();
    }//End Method
 
    @Ignore

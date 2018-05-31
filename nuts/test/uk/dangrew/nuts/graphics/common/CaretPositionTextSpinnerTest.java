@@ -19,7 +19,7 @@ import uk.dangrew.kode.utility.event.TestKeyEvent;
 
 public class CaretPositionTextSpinnerTest {
 
-   private static final LocalDateTime NOW = LocalDateTime.now();
+   private static final LocalDateTime NOW = LocalDateTime.of( 2018, 5, 25, 8, 9 );
    
    private TimestampFormat format;
    
