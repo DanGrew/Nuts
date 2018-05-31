@@ -3749,5 +3749,16 @@
       "name": "Heck 6 97% Pork Sausages 400G (133g)",
       "id": "1ea78c38-9fa2-4105-88aa-de907c6b4012",
       "calories": 314
+   },
+   {
+      "carbohydrates": 7.4,
+      "fiber": 6.7,
+      "fats": 54.3,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 27.7,
+      "name": "Whole Earth Crunchy Peanut Butter 1Kg (100g)",
+      "id": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+      "calories": 643
    }
 ]}

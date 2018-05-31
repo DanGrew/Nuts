@@ -2003,7 +2003,7 @@
       "id": "d610a804-f314-4bfc-8059-7d816f535bfa",
       "portions": [
          {
-            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
+            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
             "portionValue": 250
          },
          {
@@ -3523,6 +3523,60 @@
          {
             "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
             "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Almond Flax Cookies (with coconut)",
+      "id": "4943775b-54c3-4708-9b90-3d5d4e9f2053",
+      "portions": [
+         {
+            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
+            "portionValue": 200
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 25
+         }
+      ]
+   },
+   {
+      "name": "Keto Chocolate (100g)",
+      "id": "c81d3048-fba8-4581-b2ec-12b6323f4759",
+      "portions": [
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Chocolate Almond Cookies",
+      "id": "a7fe2469-09a4-49c0-ad1b-c1102a49c242",
+      "portions": [
+         {
+            "foodId": "4943775b-54c3-4708-9b90-3d5d4e9f2053",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c81d3048-fba8-4581-b2ec-12b6323f4759",
+            "portionValue": 100
          }
       ]
    }
