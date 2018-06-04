@@ -41,7 +41,7 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
       tutorUser( 
             new TutorMessageBuilder()
                .withMessage( new TextFlowBuilder()
-                        .withPadding( 10 )
+                        .withFlowPadding( 10 )
                         .normal( "Welcome to the Nuts Database Manager!" )
                         .build()
                 )
@@ -53,8 +53,8 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
    private void introduceTable(){
       tutorUser( 
             new TutorMessageBuilder()
-               .withMessage(  new TextFlowBuilder()
-                        .withPadding( 10 )
+               .withMessage( new TextFlowBuilder()
+                        .withFlowPadding( 10 )
                         .normal( "This table shows all foods within the system and their " ).newLine()
                         .normal( "properties, including their calories, macro nutrient breakdown" ).newLine()
                         .normal( "and fibre." )
@@ -69,7 +69,7 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                .withMessage(  new TextFlowBuilder()
-                        .withPadding( 10 )
+                        .withFlowPadding( 10 )
                         .normal( "You can add a food item, such as an ingredient, single product " ).newLine()
                         .normal( "or a packaged product, by clicking the plus button next to the table." ).newLine()
                         .normal( "I'm going to click it for you this time! A dialog will popup to select the " ).newLine()
@@ -86,15 +86,12 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
             new TutorActionBuilder()
                   .graphicalBlockingAction( glass()::clearMessageAndHighlight )
                   .graphicalNonBlockingAction( () -> {
-                      components().mainTableFoodTypeDialog().getDialogPane().setMouseTransparent( true );
-                      components().mainTableFoodTypeDialog().getDialogPane().addEventFilter( Event.ANY, Event::consume );
+                      components().mainTableFoodTypeDialogManipulator().disableInput();
                       components().mainTableAddButton().fire();
                   } )
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
-                     components().mainTableFoodTypeDialog().setSelectedItem( FoodTypes.FoodItems );
-                     components().mainTableFoodTypeDialog().setResult( FoodTypes.FoodItems );
-                     components().mainTableFoodTypeDialog().close();
+                     components().mainTableFoodTypeDialogManipulator().selectAndClose( FoodTypes.FoodItems );
                   } )
                   .pauseFor( 2 )
       );
@@ -104,7 +101,7 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Different types of foods can be added. Since we've chosen a FoodItem, " ).newLine()
                            .normal( "a new 'Unnamed' food item has been created in the table." )
                            .build()
@@ -117,7 +114,7 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage( new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Each concept in Nuts has its own unique id making it no problem to rename things!" ).newLine()
                            .normal( "If you double click on the name - currently 'Unnamed' - you can edit it. " ).newLine()
                            .normal( "I'll show you... I'll double click it for you, change the name and then I'll hit the enter " ).newLine()
@@ -143,7 +140,7 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage( new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Similarly, you can edit the other properties associated with the item - Calories, " ).newLine()
                            .normal( "Carbohydrates, Fat, Protein and Fibre. By default they are all set to 0.0 so they are " ).newLine()
                            .normal( "optional. I'll go ahead and set these values to show you how it works - simply follow " ).newLine()
@@ -160,20 +157,35 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
                      .graphicalBlockingAction( glass()::clearMessageAndHighlight )
                      .graphicalNonBlockingAction( () -> components().mainTableComponents().triggerCellEdit( 0, 2 ) )
                      .pauseFor( 1 )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().row( 0 ).changeCalories( 23 ) )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().triggerCellEdit( 0, 3 ) )
+                     .graphicalNonBlockingAction( () -> {
+                        components().mainTableComponents().row( 0 )
+                              .changeCalories( 23 )
+                              .triggerCellEdit( 3 );
+                     } )
                      .pauseFor( 1 )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().row( 0 ).changeMacro( MacroNutrient.Carbohydrates, 0.1 ) )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().triggerCellEdit( 0, 4 ) )
+                     .graphicalNonBlockingAction( () -> {
+                        components().mainTableComponents().row( 0 )
+                              .changeMacro( MacroNutrient.Carbohydrates, 0.1 )
+                              .triggerCellEdit( 4 );
+                     } )
                      .pauseFor( 1 )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().row( 0 ).changeMacro( MacroNutrient.Fats, 0.4 ) )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().triggerCellEdit( 0, 5 ) )
+                     .graphicalNonBlockingAction( () -> {
+                        components().mainTableComponents().row( 0 )
+                              .changeMacro( MacroNutrient.Fats, 0.4 )
+                              .triggerCellEdit( 5 );
+                     } )
                      .pauseFor( 1 )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().row( 0 ).changeMacro( MacroNutrient.Protein, 2.9 ) )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().triggerCellEdit( 0, 6 ) )
+                     .graphicalNonBlockingAction( () -> {
+                        components().mainTableComponents().row( 0 )
+                              .changeMacro( MacroNutrient.Protein, 2.9 )
+                              .triggerCellEdit( 6 );
+                     } )
                      .pauseFor( 1 )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().row( 0 ).changeFibre( 2.2 ) )
-                     .graphicalNonBlockingAction( () -> components().mainTableComponents().finishCellEdit() )
+                     .graphicalNonBlockingAction( () -> {
+                        components().mainTableComponents().row( 0 )
+                              .changeFibre( 2.2 )
+                              .finishCellEdit();
+                     } )
                      .pauseFor( 1 )
       );
    }//End Method
@@ -182,7 +194,7 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
       tutorUser( 
             new TutorMessageBuilder()
                .withMessage( new TextFlowBuilder()
-                        .withPadding( 10 )
+                        .withFlowPadding( 10 )
                         .normal( "That completes the tutorial! You are now fully trained in adding FoodItems to " ).newLine()
                         .normal( "Nuts database (certificate in the post :P). Go check out some of the other tutorials " ).newLine()
                         .normal( "to become a Nuts master! See you soon!" )

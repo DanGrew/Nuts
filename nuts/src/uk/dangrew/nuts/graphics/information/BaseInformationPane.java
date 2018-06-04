@@ -22,8 +22,8 @@ public abstract class BaseInformationPane extends BorderPane {
    
    public BaseInformationPane() {
       this.desktop = new FriendlyDesktop();
-      this.setPadding( new Insets( 10.0 ) );
       this.textWrapper = new VBox();
+      this.textWrapper.setPadding( new Insets( 10.0 ) );
       
       GridPane wrapper = new GridPane();
       new JavaFxStyle().configureConstraintsForColumnPercentages( wrapper, 10, 80, 10 );

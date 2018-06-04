@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.manipulation;
 
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -89,6 +90,12 @@ public class FoodRowManipulatorTest {
    @Test public void shouldSelectInTable(){
       systemUnderTest.selectInTable();
       assertThat( table.getSelectionModel().getSelectedItem(), is( systemUnderTest.node().getItem() ) );
+   }//End Method
+   
+   @Test public void shouldFinishEdit(){
+      systemUnderTest.triggerCellEdit( 4 );
+      systemUnderTest.finishCellEdit();
+      assertThat( table.editingCellProperty().get(), is( nullValue() ) );
    }//End Method
 
 }//End Class

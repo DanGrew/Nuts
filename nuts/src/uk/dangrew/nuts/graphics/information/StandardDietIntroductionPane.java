@@ -23,9 +23,9 @@ public class StandardDietIntroductionPane extends BaseInformationPane {
       
       textWrapper.getChildren().add( 
             new TextFlowBuilder()
-               .withColour( ERROR_COLOUR ).withSize( 18 ).bold( "Original Introduction" )
+               .withTextColour( ERROR_COLOUR ).withFontSize( 18 ).bold( "Original Introduction" )
                .newLine().newLine()
-               .resetFontSize()
+               .resetTextSize()
                .normal( "Welcome! You're here to set some goals - but why? I guess your objective is to lose "
                         + "weight? Well, let's be more specific - noone wants to cut off a limb, and likewise noone wants to lose muscle. "
                         + "The risk with 'losing weight' is we're so focussed on the number we're not concerned where it comes from. "
@@ -33,7 +33,7 @@ public class StandardDietIntroductionPane extends BaseInformationPane {
                .newLine().newLine()
                .normal( "Simple, figure out how many calories you need a day, and create a deficit - eat less than you need!" )
                .newLine()
-               .withColour( COMMENT_COLOUR )
+               .withTextColour( COMMENT_COLOUR )
                .bold( "Ahhhh, how wrong I was. This lead me down a dark path - hormones, not calories, insulin is the key." )
                .newLine().newLine()
                .build() 
@@ -41,9 +41,9 @@ public class StandardDietIntroductionPane extends BaseInformationPane {
       
       textWrapper.getChildren().add( 
                new TextFlowBuilder()
-                  .withColour( ERROR_COLOUR ).withSize( 18 ).bold( "Equations" )
+                  .withTextColour( ERROR_COLOUR ).withFontSize( 18 ).bold( "Equations" )
                   .newLine().newLine()
-                  .resetFontSize()
+                  .resetTextSize()
                   .normal( "To start with, we need to figure out how many calories we need a day to maintain our weight. There are some "
                            + "guideline equations that allow you calculate this. I could go in to detail but wouldn't do the source I've "
                            + "used justice, so have a look when you get 5 minutes if you want more information:" )
@@ -59,7 +59,7 @@ public class StandardDietIntroductionPane extends BaseInformationPane {
                            + "BMR. This leaves you with your TEE (total energy expenditure). In simple terms, this is how many calories your "
                            + "body burns and therefore how many you can eat to maintain your weight - maintenance calories." )
                   .newLine()
-                  .withColour( COMMENT_COLOUR )
+                  .withTextColour( COMMENT_COLOUR )
                   .bold( "The problem here is that we don't want to fiddle our BMR, we don't want to lower our metabolism, and simply "
                            + "restricting what we give it will do just that! Your body adapts to everything... everything... eating less, "
                            + "training more, lifting more, doing the same exercises/reps, everything. You want improvement, you can't "
@@ -70,16 +70,16 @@ public class StandardDietIntroductionPane extends BaseInformationPane {
       
       textWrapper.getChildren().add( 
                new TextFlowBuilder()
-                  .withColour( ERROR_COLOUR ).withSize( 18 ).bold( "Adjustments" )
+                  .withTextColour( ERROR_COLOUR ).withFontSize( 18 ).bold( "Adjustments" )
                   .newLine().newLine()
-                  .resetFontSize()
+                  .resetTextSize()
                   .normal( "There are mixed opinions on exercise with calorie counting. How I like to figure it out is, if I exercise "
                            + "and burn calories, those are extra calories in my daily allowance. Therefore, my daily allowance and plans "
                            + "either goes up with the amount of exercise I do, or I create a deficit with those burnt calories. When you "
                            + "configure your goals you can specify exercise which gets added to your TEE and you can set a deficit which "
                            + "gets taken away from your TEE. Use these as you prefer - leaving them blank will ignore them." )
                   .newLine()
-                  .withColour( COMMENT_COLOUR )
+                  .withTextColour( COMMENT_COLOUR )
                   .bold( "Oh gosh, another kick in the teeth - and no! no calories burnt for that kick! - Eating back calories "
                            + "only works so far, eventually you get to a point where it's either not accurate with your fitness level "
                            + "and metabolism, or you form an obsession with exercising in order to overeat... or both! Again, your "
@@ -93,9 +93,9 @@ public class StandardDietIntroductionPane extends BaseInformationPane {
       
       textWrapper.getChildren().add( 
                new TextFlowBuilder()
-                  .withColour( ERROR_COLOUR ).withSize( 18 ).bold( "Goals" )
+                  .withTextColour( ERROR_COLOUR ).withFontSize( 18 ).bold( "Goals" )
                   .newLine().newLine()
-                  .resetFontSize()
+                  .resetTextSize()
                   .normal( "We have our calorie goal calculated, so what do we do now? Well, as I said before, eat less than you need. "
                            + "That will get you going and you'll probably be losing some fat like me. I could make a speach about nutrition "
                            + "and heathly eating but again, I won't do it justice - listen to the people who know:" )
@@ -128,7 +128,7 @@ public class StandardDietIntroductionPane extends BaseInformationPane {
                            + "Protein = 4kcal per 1g. So it's simple, carbohydrates (g) =  ( TTE - ( 4kcal x protein (g) + 9kcal x fats (g) ) ) / 4kcal. If "
                            + "you haven't followed that don't worry, this application calculates it for you - either trust it or do some research." )
                   .newLine()
-                  .withColour( COMMENT_COLOUR )
+                  .withTextColour( COMMENT_COLOUR )
                   .bold( "Yeah, well, this isn't all bad really... the calculations are reasonable, I stil count macros, just with different "
                            + "targets. Personally, not a fan of high carbohydrates any more, but that's up to you. Lots of successful "
                            + "people eating high carbohydrates (but I bet not cookies and belvitas - evil things!)." )
@@ -138,7 +138,7 @@ public class StandardDietIntroductionPane extends BaseInformationPane {
       
       textWrapper.getChildren().add( 
                new TextFlowBuilder()
-                  .withColour( ERROR_COLOUR )
+                  .withTextColour( ERROR_COLOUR )
                   .bold( "Disclaimer: " )
                   .normal( "I'm not an expert, I've just watched some videos and summarized some information. This tool will not necessarily "
                            + "work for you, or calculate your perfect macros - no system "

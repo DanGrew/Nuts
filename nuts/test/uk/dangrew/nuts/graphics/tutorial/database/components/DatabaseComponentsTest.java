@@ -22,6 +22,7 @@ import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.DatabaseManipulator;
+import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.EnumDialogManipulator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.FoodTableManipulator;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
 import uk.dangrew.nuts.store.Database;
@@ -61,6 +62,7 @@ public class DatabaseComponentsTest {
       FoodTableManipulator< Food > mainTableManipulator = systemUnderTest.mainTableComponents();
       Node mainTableButton = systemUnderTest.mainTableAddButton();
       UiEnumTypeSelectionDialog< FoodTypes > dialog = systemUnderTest.mainTableFoodTypeDialog();
+      EnumDialogManipulator< FoodTypes > dialogManipulator = systemUnderTest.mainTableFoodTypeDialogManipulator();
       
       Node mealTable = systemUnderTest.mealTable();
       FoodTableManipulator< FoodPortion > mealTableManipulator = systemUnderTest.mealTableComponents();
@@ -80,6 +82,7 @@ public class DatabaseComponentsTest {
       assertThat( systemUnderTest.mainTableComponents(), is( not( mainTableManipulator ) ) );
       assertThat( systemUnderTest.mainTableAddButton(), is( not( mainTableButton ) ) );
       assertThat( systemUnderTest.mainTableFoodTypeDialog(), is( not( dialog ) ) );
+      assertThat( systemUnderTest.mainTableFoodTypeDialogManipulator(), is( not( dialogManipulator ) ) );
       
       assertThat( systemUnderTest.mealTable(), is( not( mealTable ) ) );
       assertThat( systemUnderTest.mealTableAddButton(), is( not( mealTableAddButton ) ) );

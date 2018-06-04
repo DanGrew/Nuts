@@ -25,28 +25,38 @@ public class FoodRowManipulator< FoodT extends Food > extends TableRowManipulato
       return node().getItem().concept();
    }//End Method
    
-   public void changeName( String name ) {
+   public FoodRowManipulator< FoodT > changeName( String name ) {
       node().getItem().concept().properties().nameProperty().set( name );
+      return this;
    }//End Method
    
-   public void changeCalories( double calories ) {
+   public FoodRowManipulator< FoodT > changeCalories( double calories ) {
       node().getItem().concept().properties().calories().set( calories );
+      return this;
    }//End Method
    
-   public void changeMacro( MacroNutrient macro, double value ) {
+   public FoodRowManipulator< FoodT > changeMacro( MacroNutrient macro, double value ) {
       node().getItem().concept().properties().nutritionFor( macro ).set( value );
+      return this;
    }//End Method
    
-   public void changeFibre( double fibre ) {
+   public FoodRowManipulator< FoodT > changeFibre( double fibre ) {
       node().getItem().concept().properties().fiber().set( fibre );
+      return this;
    }//End Method
    
-   public void triggerCellEdit( int column ) {
+   public FoodRowManipulator< FoodT > triggerCellEdit( int column ) {
       table.edit( rowIndex, table.getColumns().get( column ) );
+      return this;
    }//End Method
    
-   public void selectInTable(){
+   public void finishCellEdit() {
+      table.edit( -1, null );
+   }//End Method
+   
+   public FoodRowManipulator< FoodT > selectInTable(){
       table.getSelectionModel().select( node().getItem() );
+      return this;
    }//End Method
 
 }//End Class

@@ -11,6 +11,7 @@ import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.DatabaseManipulator;
+import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.EnumDialogManipulator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.FoodTableManipulator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.PortionTableManipulator;
 import uk.dangrew.nuts.store.Database;
@@ -25,6 +26,7 @@ public class DatabaseComponents {
    private FoodTableManipulator< Food > mainTableManipulator;
    private Button mainTableAddButton;
    private UiEnumTypeSelectionDialog< FoodTypes > mainTableFoodTypeDialog;
+   private EnumDialogManipulator< FoodTypes > mainTableFoodTypeDialogManipulator;
    
    private MealTable mealTable;
    private FoodTableManipulator< FoodPortion > mealTableManipulator;
@@ -83,11 +85,16 @@ public class DatabaseComponents {
    
    public DatabaseComponents withMainTableFoodTypeDialog( UiEnumTypeSelectionDialog< FoodTypes > mainTableFoodTypeDialog ) {
       this.mainTableFoodTypeDialog = mainTableFoodTypeDialog;
+      this.mainTableFoodTypeDialogManipulator = new EnumDialogManipulator<>( mainTableFoodTypeDialog );
       return this;
    }//End Method
    
    public UiEnumTypeSelectionDialog< FoodTypes > mainTableFoodTypeDialog() {
       return mainTableFoodTypeDialog;
+   }//End Method
+   
+   public EnumDialogManipulator< FoodTypes > mainTableFoodTypeDialogManipulator() {
+      return mainTableFoodTypeDialogManipulator;
    }//End Method
    
    public DatabaseComponents withMealTable( MealTable mealTable ) {
@@ -148,5 +155,5 @@ public class DatabaseComponents {
    public Button mealTableDownButton() {
       return mealTableDownButton;
    }//End Method
-   
+
 }//End Class

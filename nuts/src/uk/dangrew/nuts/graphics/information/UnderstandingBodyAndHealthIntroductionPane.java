@@ -8,9 +8,9 @@ public class UnderstandingBodyAndHealthIntroductionPane extends BaseInformationP
    @Override protected void populateText( VBox textWrapper ) {
       textWrapper.getChildren().add( 
             new TextFlowBuilder()
-               .withSize( 18 ).bold( "A New Introduction! 31/05/18" )
+               .withFontSize( 18 ).bold( "A New Introduction! 31/05/18" )
                .newLine().newLine()
-               .resetFontSize()
+               .resetTextSize()
                .normal( "Headline - nutrition is hard! Understanding precisely what a person should do to "
                         + "get the body they want is so, so, so variable. I've learnt a lot since writing this "
                         + "original introduction and I'm not afraid to say I'm wrong, and in fact where results "
@@ -24,9 +24,9 @@ public class UnderstandingBodyAndHealthIntroductionPane extends BaseInformationP
       
       textWrapper.getChildren().add( 
                new TextFlowBuilder()
-                  .withSize( 18 ).bold( "Targets" )
+                  .withFontSize( 18 ).bold( "Targets" )
                   .newLine().newLine()
-                  .resetFontSize()
+                  .resetTextSize()
                   .normal( "I start off by stating the difference between losing weight and losing fat - a very good "
                            + "and still correct point. However, why did I exclude building muscle? Well, I wasn't "
                            + "interested. That's a mistake... I'm still not interested in building muscle, as a "
@@ -47,9 +47,9 @@ public class UnderstandingBodyAndHealthIntroductionPane extends BaseInformationP
       
       textWrapper.getChildren().add( 
                new TextFlowBuilder()
-                  .withSize( 18 ).bold( "Calories" )
+                  .withFontSize( 18 ).bold( "Calories" )
                   .newLine().newLine()
-                  .resetFontSize()
+                  .resetTextSize()
                   .normal( "Oh my gosh, what a topic... Calories in Vs carlories out (CICO)... I just have to reduce calories "
                            + "to lose fat... Sorry, no... no, no, no, no, no. Fat storage and burning is entirely controlled "
                            + "by insulin. Fantastic quote from Jason Fung.. 'I can make you fat!'... yes that's right, "
@@ -71,9 +71,9 @@ public class UnderstandingBodyAndHealthIntroductionPane extends BaseInformationP
       );
       textWrapper.getChildren().add( 
                new TextFlowBuilder()
-                  .withSize( 18 ).bold( "So what do I do with my macros?" )
+                  .withFontSize( 18 ).bold( "So what do I do with my macros?" )
                   .newLine().newLine()
-                  .resetFontSize()
+                  .resetTextSize()
                   .normal( "This is really difficult... basically, these calculations I refer to I no longer rate at all. "
                            + "They are a good starting point for finding what fuels your body, but you must figure it out "
                            + "yourself. If anyone disagrees, that's great! Hopefully you have evidence that I'm wrong "
@@ -98,9 +98,9 @@ public class UnderstandingBodyAndHealthIntroductionPane extends BaseInformationP
       
       textWrapper.getChildren().add( 
                new TextFlowBuilder()
-                  .withSize( 18 ).bold( "Guide me oh master!" )
+                  .withFontSize( 18 ).bold( "Guide me oh master!" )
                   .newLine().newLine()
-                  .resetFontSize()
+                  .resetTextSize()
                   .normal( "Damn, yes, what's my advice?... Honestly, sorry x 1000! Ketogenic Diet. That's my recommendation. "
                            + "I love it! Why? I could talk all day about it but google it you'll find why I love it - "
                            + "The feeling of euphoria, being on top of the world all the time, boundless energy, mental "

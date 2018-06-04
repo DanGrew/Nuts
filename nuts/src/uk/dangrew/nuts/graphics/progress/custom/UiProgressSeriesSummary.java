@@ -103,9 +103,9 @@ public class UiProgressSeriesSummary extends GridPane {
    
    private void addRowForText( LocalDateTime timestamp ) {
       addRow( new TextFlowBuilder()
-         .withBackground( CONTENT_BACKGROUND )
-         .withBorder( DATE_BACKGROUND, 0.5 )
-         .withPadding( 5 )
+         .withFlowBackground( CONTENT_BACKGROUND )
+         .withFlowBorder( DATE_BACKGROUND, 0.5 )
+         .withFlowPadding( 5 )
          .bold( series.headers().entryFor( timestamp ) )
          .newLine()
          .normal( series.notes().entryFor( timestamp ) )

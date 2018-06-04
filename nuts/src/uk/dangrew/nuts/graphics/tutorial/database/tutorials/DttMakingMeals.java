@@ -72,7 +72,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
             new TutorMessageBuilder()
                .withMessage( new TextFlowBuilder()
-                        .withPadding( 10 )
+                        .withFlowPadding( 10 )
                         .normal( "Welcome to the Nuts Database Manager!" )
                         .build()
                 )
@@ -85,7 +85,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
             new TutorMessageBuilder()
                .withMessage(  new TextFlowBuilder()
-                        .withPadding( 10 )
+                        .withFlowPadding( 10 )
                         .normal( "Hopefully by now you know how to add food items to the database and configure their " ).newLine()
                         .normal( "properties. If not, I'd recommend following the previous tutorial (" )
                            .normal( DatabaseTutorials.AddingFoodItemToTable.tutorialId() )
@@ -127,7 +127,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
             new TutorMessageBuilder()
                .withMessage(  new TextFlowBuilder()
-                        .withPadding( 10 )
+                        .withFlowPadding( 10 )
                         .normal( "A meal is made up of other food items and meals, with specific portions of each. " ).newLine()
                         .normal( "Let's create one! We just need to click the add button and select 'Meals' from the " ).newLine()
                         .normal( "popup dialog. I'll do that for you." ).newLine()
@@ -142,14 +142,13 @@ public class DttMakingMeals extends DatabaseTableTutorial {
             new TutorActionBuilder()
                   .graphicalBlockingAction( glass()::clearMessageAndHighlight )
                   .graphicalNonBlockingAction( () -> {
-                      components().mainTableFoodTypeDialog().getDialogPane().setMouseTransparent( true );
-                      components().mainTableFoodTypeDialog().getDialogPane().addEventFilter( Event.ANY, Event::consume );
-                      components().mainTableFoodTypeDialog().setSelectedItem( FoodTypes.Meals );
+                      components().mainTableFoodTypeDialogManipulator()
+                         .disableInput()
+                         .select( FoodTypes.Meals );
                       components().mainTableAddButton().fire();
                   } )
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
-                     components().mainTableFoodTypeDialog().setResult( FoodTypes.Meals );
                      components().mainTableFoodTypeDialog().close();
                   } )
                   .pauseFor( 1 )
@@ -160,7 +159,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "We now have a meal that we can edit. Let's rename it first." )
                            .build()
                   )
@@ -187,7 +186,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Whenever a meal is selected in the database table, this table shows the contents of " ).newLine()
                            .normal( "that meal. There's nothing in the meal at the moment, so there is nothing in the table. " ).newLine()
                            .build()
@@ -201,7 +200,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "We can add foods from the database to the meal. Here, the add button will launch the food " ).newLine()
                            .normal( "selection dialog. This dialog provides searching, filtering and multi-select to make the " ).newLine()
                            .normal( "creation of meals much quicker. More on that in later tutorials though... For now, I'll " ).newLine()
@@ -232,7 +231,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Now we can see that the meal has some ingredients!" ).newLine()
                            .build()
                   )
@@ -245,7 +244,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Notice here that there is a new column. This represents the portion of the ingredient used. " ).newLine()
                            .normal( "In this case, I've added 100% (one portion) of each food. That won't really make a good omelette " ).newLine()
                            .normal( "though. You can double click on the portion and enter a new value. Note that this portion is " ).newLine()
@@ -264,18 +263,21 @@ public class DttMakingMeals extends DatabaseTableTutorial {
             new TutorActionBuilder()
                   .graphicalBlockingAction( glass()::clearMessageAndHighlight )
                   .graphicalNonBlockingAction( () -> {
-                     components().mealTableComponents().findRow( EGG ).triggerCellEdit( 1 );
-                     components().mealTableComponents().findRow( EGG ).concept().setPortion( 300 );
+                     components().mealTableComponents().findRow( EGG )
+                        .triggerCellEdit( 1 )
+                        .concept().setPortion( 300 );
                   } )
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
-                     components().mealTableComponents().findRow( CREAM ).triggerCellEdit( 1 );
-                     components().mealTableComponents().findRow( CREAM ).concept().setPortion( 200 );
+                     components().mealTableComponents().findRow( CREAM )
+                        .triggerCellEdit( 1 )
+                        .concept().setPortion( 200 );
                   } )
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
-                     components().mealTableComponents().findRow( CHEESE ).triggerCellEdit( 1 );
-                     components().mealTableComponents().findRow( CHEESE ).concept().setPortion( 40 );
+                     components().mealTableComponents().findRow( CHEESE )
+                        .triggerCellEdit( 1 )
+                        .concept().setPortion( 40 );
                   } )
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
@@ -289,7 +291,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Notice that when I updated the portions of the ingredients, the properties of the ingredients " ).newLine()
                            .normal( "changed. Each property is scaled based on the portion used making it much easier to count " ).newLine()
                            .normal( "calories and macros." ).newLine()
@@ -304,7 +306,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Now if we look in the database at the meal, it has the same properties. The values " ).newLine()
                            .normal( "associated with the meal are the totals for each property, summing each ingredients value " ).newLine()
                            .normal( "accounting for it's portion. This is very powerful for building up the nutritional information " ).newLine()
@@ -319,7 +321,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "The meal table has some controls to make the creation of a meal a little easier. This " ).newLine()
                            .normal( "is the copy button. It simply duplicates the currently selected portion. This can be " ).newLine()
                            .normal( "useful if there is a logical breakdown to the meal, maybe some cheese for the filling and " ).newLine()
@@ -347,7 +349,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "There you go! Another bit of cheese for our omelette. " ).newLine()
                            .build()
                   )
@@ -360,7 +362,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Another control we have is the remove button, which will simply remove the " ).newLine()
                            .normal( "selected portion from the meal. I'll show you by removing the cheese we just added." ).newLine()
                            .build()
@@ -389,7 +391,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "There you go, back to where we were. Finally, navigation buttons are provided purely " ).newLine()
                            .normal( "to allow ingredients to be ordered however you'd like them be. It can be helpful " ).newLine()
                            .normal( "to show the breakdown of the ingredients, such as all of the filling then all of the " ).newLine()
@@ -405,7 +407,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Move all the way to the top..." ).newLine()
                            .build()
                   )
@@ -434,7 +436,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Move back to the bottom..." ).newLine()
                            .build()
                   )
@@ -462,7 +464,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
                new TutorMessageBuilder()
                   .withMessage(  new TextFlowBuilder()
-                           .withPadding( 10 )
+                           .withFlowPadding( 10 )
                            .normal( "Now, we can start to get clever by nesting meals within meals to make bigger meals, " ).newLine()
                            .normal( "plans and recipes. You know everything needed to do this, but just to be sure, I'll " ).newLine()
                            .normal( "show you how to do this as a series of steps... sit back and enjoy!" ).newLine()
@@ -481,14 +483,13 @@ public class DttMakingMeals extends DatabaseTableTutorial {
                   } )
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
-                      components().mainTableFoodTypeDialog().getDialogPane().setMouseTransparent( true );
-                      components().mainTableFoodTypeDialog().getDialogPane().addEventFilter( Event.ANY, Event::consume );
-                      components().mainTableFoodTypeDialog().setSelectedItem( FoodTypes.Meals );
+                      components().mainTableFoodTypeDialogManipulator()
+                         .disableInput()
+                         .select( FoodTypes.Meals );
                       components().mainTableAddButton().fire();
                   } )
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
-                     components().mainTableFoodTypeDialog().setResult( FoodTypes.Meals );
                      components().mainTableFoodTypeDialog().close();
                   } )
                   .pauseFor( 1 )
@@ -518,8 +519,9 @@ public class DttMakingMeals extends DatabaseTableTutorial {
                   } )
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
-                     components().mealTableComponents().findRow( BACON ).selectInTable();
-                     components().mealTableComponents().findRow( BACON ).triggerCellEdit( 1 );
+                     components().mealTableComponents().findRow( BACON )
+                        .selectInTable()
+                        .triggerCellEdit( 1 );
                   } ) 
                   .pauseFor( 1 )
                   .graphicalNonBlockingAction( () -> {
@@ -541,7 +543,7 @@ public class DttMakingMeals extends DatabaseTableTutorial {
       tutorUser( 
             new TutorMessageBuilder()
                .withMessage( new TextFlowBuilder()
-                        .withPadding( 10 )
+                        .withFlowPadding( 10 )
                         .normal( "That completes the tutorial! You are now fully trained in creating Meals. " ).newLine()
                         .normal( "Go check out some of the other tutorials to become a Nuts master! See you soon!" )
                         .build()
