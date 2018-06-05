@@ -118,6 +118,7 @@ public class DatabaseTest {
          .shouldProvideObject( Database::calorieGoals )
          .shouldProvideObject( Database::proportionGoals )
          .shouldProvideObject( Database::progressSeries )
+         .shouldProvideObject( Database::researchArticles )
          ;
    }//End Method
 

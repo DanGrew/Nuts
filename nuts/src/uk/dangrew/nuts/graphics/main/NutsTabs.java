@@ -14,6 +14,7 @@ import uk.dangrew.nuts.graphics.information.IntroductionPane;
 import uk.dangrew.nuts.graphics.label.UiLabelConfigurationView;
 import uk.dangrew.nuts.graphics.meal.TemplateManagerPane;
 import uk.dangrew.nuts.graphics.progress.custom.ProgressSeriesPane;
+import uk.dangrew.nuts.graphics.research.UiResearchPane;
 import uk.dangrew.nuts.graphics.shopping.ShoppingPane;
 import uk.dangrew.nuts.graphics.stock.StockTable;
 import uk.dangrew.nuts.graphics.tools.dryweight.DryWeightToolPane;
@@ -39,6 +40,7 @@ public class NutsTabs extends AnchorPane {
       AnchorPane.setBottomAnchor( tabPane, 1.0 );
       
       createConcreteTab( "Nutrition", new IntroductionPane() );
+      createConcreteTab( "Research Blog", new UiResearchPane( database.researchArticles() ) );
       createConcreteTab( "Goals", new GoalManagerPane( database ) );
       createConcreteTab( "Database", new UiDatabaseManagerPane( database ) );
       createConcreteTab( "Stock", new StockTable( database ) );

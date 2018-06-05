@@ -3760,5 +3760,16 @@
       "name": "Whole Earth Crunchy Peanut Butter 1Kg (100g)",
       "id": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
       "calories": 643
+   },
+   {
+      "carbohydrates": 0.1,
+      "fiber": 0,
+      "fats": 15.5,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 16.9,
+      "name": "Pek Chopped Pork 300G (Typical Values (per 100 g))",
+      "id": "35ea591e-aa12-48a9-aad9-6a9868a3c96f",
+      "calories": 207
    }
 ]}

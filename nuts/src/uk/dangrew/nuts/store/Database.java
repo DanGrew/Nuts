@@ -16,6 +16,7 @@ import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.meal.MealStore;
 import uk.dangrew.nuts.progress.custom.ProgressSeriesStore;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
+import uk.dangrew.nuts.research.ResearchArticleStore;
 import uk.dangrew.nuts.stock.StockStore;
 import uk.dangrew.nuts.template.TemplateStore;
 
@@ -36,6 +37,7 @@ public class Database {
    private final StockStore stockLists;
    private final LabelStore labels;
    private final ProgressSeriesStore progressSeries;
+   private final ResearchArticleStore researchArticles;
    
    /**
     * Constructs a new {@link Database}.
@@ -52,6 +54,7 @@ public class Database {
       this.stockLists = new StockStore();
       this.labels = new LabelStore();
       this.progressSeries = new ProgressSeriesStore();
+      this.researchArticles = new ResearchArticleStore();
    }//End Constructor
    
    /**
@@ -127,6 +130,10 @@ public class Database {
    
    public ProgressSeriesStore progressSeries() {
       return progressSeries;
+   }//End Method
+   
+   public ResearchArticleStore researchArticles() {
+      return researchArticles;
    }//End Method
    
 }//End Class

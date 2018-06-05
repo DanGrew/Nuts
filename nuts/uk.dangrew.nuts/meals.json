@@ -2770,11 +2770,11 @@
       "portions": [
          {
             "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
+            "portionValue": 400
          },
          {
             "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 200
+            "portionValue": 400
          },
          {
             "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
@@ -3625,16 +3625,16 @@
       "id": "92a92583-66ea-443e-bd82-723993933eab",
       "portions": [
          {
-            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 40
-         },
-         {
             "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
             "portionValue": 300
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 200
+         },
+         {
+            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
+            "portionValue": 40
          }
       ]
    },
@@ -3649,6 +3649,62 @@
          {
             "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
             "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Peanut (homemade) Cookie Batch",
+      "id": "f7ac421a-3606-48bf-b079-2bd88e4a4d30",
+      "portions": [
+         {
+            "foodId": "f4aa89b6-4b16-43d3-9e27-e4721861fac8",
+            "portionValue": 50
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Walnut Butter (300g) (homemade)",
+      "id": "c47d6235-f84c-469e-bbdc-48b688b37555",
+      "portions": [
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Walnut Cookie Batch",
+      "id": "d064d159-587e-4d93-989b-1716754a522b",
+      "portions": [
+         {
+            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
+            "portionValue": 50
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Macadamia Cookie Batch",
+      "id": "8d9a81c4-6a05-487d-b3b9-18e3ec39a186",
+      "portions": [
+         {
+            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
+            "portionValue": 50
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
          }
       ]
    }
