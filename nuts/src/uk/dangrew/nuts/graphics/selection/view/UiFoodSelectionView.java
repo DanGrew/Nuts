@@ -2,6 +2,7 @@ package uk.dangrew.nuts.graphics.selection.view;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.graphics.selection.model.FoodFilters;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionPaneManager;
 import uk.dangrew.nuts.store.Database;
 
@@ -16,7 +17,10 @@ public class UiFoodSelectionView extends GridPane {
       styling.configureConstraintsForRowPercentages( this, 10, 90 );
       
       add( new UiFoodSelectionControls( 
-               database.labels().objectList(), controller 
+               database.labels().objectList(), 
+               controller,
+               new FoodSelectionControlsConfiguration()
+                  .withoutFilter( FoodFilters.Default )
       ), 0, 0 );
       add( paneManager.selectionPane(), 0, 1 );
    }//End Constructor

@@ -8,7 +8,9 @@ import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.meal.MealTableWithControls;
 import uk.dangrew.nuts.graphics.meal.RecipeControls;
 import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
+import uk.dangrew.nuts.graphics.selection.model.FoodFilters;
 import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
+import uk.dangrew.nuts.graphics.selection.view.FoodSelectionControlsConfiguration;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodFilter;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodFilterImpl;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionControls;
@@ -37,7 +39,14 @@ public class UiDatabaseManagerPane extends GridPane {
       comparisonModel = new SimpleFoodModel();
       recipeController = new RecipeController( database, filterModel );
       
-      add( controls = new UiFoodSelectionControls( database.labels().objectList(), filter ), 0, 0 );
+      add( controls = new UiFoodSelectionControls( 
+               database.labels().objectList(), 
+               filter,
+               new FoodSelectionControlsConfiguration()
+                  .withoutReverseSorting()
+                  .withoutFilter( FoodFilters.Default )
+                  .withoutFilter( FoodFilters.Selection )
+      ), 0, 0 );
       add( foodTable = new ConceptTableWithControls<>( 
                "Foods", 
                new MixedFoodTable( 

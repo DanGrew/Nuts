@@ -29,9 +29,10 @@ public class UiFoodSelectionControls extends BorderPane {
    private final CheckBox invertSorting;
    
    public UiFoodSelectionControls( ObservableList< Label > labels, UiFoodFilter controller ) {
-      this.invertSorting = new CheckBox( "Reverse Sort" );
-      this.invertSorting.selectedProperty().addListener( ( s, o, n ) -> controller.invertSort( n ) );
-      
+      this( labels, controller, new FoodSelectionControlsConfiguration() );
+   }//End Constructor
+   
+   public UiFoodSelectionControls( ObservableList< Label > labels, UiFoodFilter controller, FoodSelectionControlsConfiguration configuration ) {
       this.filterWrapper = new GridPane();
       JavaFxStyle stying = new JavaFxStyle();
       stying.configureConstraintsForEvenRows( filterWrapper, 1 );
@@ -65,7 +66,7 @@ public class UiFoodSelectionControls extends BorderPane {
                   .asBold()
                   .build(), 
       6, 0 );
-      this.filterOptionsBox = new CheckComboBox<>( FXCollections.observableArrayList( FoodFilters.values() ) );
+      this.filterOptionsBox = new CheckComboBox<>( FXCollections.observableArrayList( configuration.filtersAllowed() ) );
       Consumer< FoodFilters > filterApplier = f -> controller.applyFilters( filterOptionsBox.getCheckModel().getCheckedItems() );
       this.filterOptionsBox.getCheckModel().getCheckedItems().addListener( new FunctionListChangeListenerImpl<>( 
                 filterApplier, filterApplier
@@ -84,8 +85,14 @@ public class UiFoodSelectionControls extends BorderPane {
                labelApplier, labelApplier
       ) );
       this.filterWrapper.add( labelsOptionsBox, 10, 0 );
-      
-      this.filterWrapper.add( invertSorting, 12, 0 );
+
+      if ( configuration.allowReverseSorting() ) {
+         this.invertSorting = new CheckBox( "Reverse Sort" );
+         this.invertSorting.selectedProperty().addListener( ( s, o, n ) -> controller.invertSort( n ) );
+         this.filterWrapper.add( invertSorting, 12, 0 );
+      } else {
+         this.invertSorting = null;
+      }
       
       this.setPadding( new Insets( 10 ) );
       this.setCenter( filterWrapper );

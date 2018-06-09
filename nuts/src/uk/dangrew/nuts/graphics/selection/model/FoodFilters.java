@@ -3,9 +3,9 @@ package uk.dangrew.nuts.graphics.selection.model;
 public enum FoodFilters {
 
    Default,
-   Selection,
-   Stock,
+   NameOnly,
    Labels,
-   NameOnly
+   Stock,
+   Selection
    
 }//End Enum
