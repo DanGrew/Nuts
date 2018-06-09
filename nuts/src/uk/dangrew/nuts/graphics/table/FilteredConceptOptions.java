@@ -63,15 +63,7 @@ public class FilteredConceptOptions< TypeT extends Concept > {
    private void refresh(){
       filtered.clear();
 
-      List< TypeT > filteredItems = null;
-      if ( filterString.get() != null && filterString.get().trim().length() > 0 ) {
-         filteredItems = backingOptions.options().stream()
-                  .filter( this::filter )
-                  .collect( Collectors.toList() );
-      } else {
-         filteredItems = new ArrayList<>( backingOptions.options() );
-      }
-      
+      List< TypeT > filteredItems = new ArrayList<>( backingOptions.options() );
       filtered.addAll( filteredItems );
       filters.forEach( filtered::removeIf );
       
@@ -82,11 +74,6 @@ public class FilteredConceptOptions< TypeT extends Concept > {
       }
    }//End Method 
    
-   private boolean filter( TypeT food ) {
-      String name = food.properties().nameProperty().get();
-      return name.toLowerCase().contains( filterString.get().toLowerCase() );
-   }//End Method
-
    public void applyFilter( Predicate< TypeT > filterIf ) {
       filters.add( filterIf );
       refresh();

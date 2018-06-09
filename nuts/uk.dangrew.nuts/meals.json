@@ -3634,7 +3634,7 @@
          },
          {
             "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 40
+            "portionValue": 33
          }
       ]
    },
@@ -3671,12 +3671,12 @@
       "id": "c47d6235-f84c-469e-bbdc-48b688b37555",
       "portions": [
          {
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 300
-         },
-         {
             "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
             "portionValue": 30
+         },
+         {
+            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+            "portionValue": 300
          }
       ]
    },
@@ -3705,6 +3705,108 @@
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Macadamia Flax Cookies",
+      "id": "04db836f-00f4-4a27-88f4-2ca3e7d327a2",
+      "portions": [
+         {
+            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
+            "portionValue": 100
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
+            "portionValue": 200
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Coconut Milk Nut Mousse",
+      "id": "7bd87072-bcff-43c0-bdd3-2362e085474a",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 200
+         },
+         {
+            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
+            "portionValue": 25
+         },
+         {
+            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Walnut Flax Cookies",
+      "id": "5d2708b8-3b83-45c6-a22e-8e4043c03897",
+      "portions": [
+         {
+            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
+            "portionValue": 50
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Pecan Flax Cookies",
+      "id": "6c5b35c9-ce7b-4bce-84f0-94053654d4fc",
+      "portions": [
+         {
+            "foodId": "bdee14a6-3c9f-4648-9966-b93393bebdfe",
+            "portionValue": 50
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Pecan Butter (300g) (homemade)",
+      "id": "bdee14a6-3c9f-4648-9966-b93393bebdfe",
+      "portions": [
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         },
+         {
+            "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
+            "portionValue": 300
          }
       ]
    }

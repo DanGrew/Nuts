@@ -2,8 +2,10 @@ package uk.dangrew.nuts.graphics.selection.model;
 
 public enum FoodFilters {
 
+   Default,
    Selection,
    Stock,
-   Labels
+   Labels,
+   NameOnly
    
 }//End Enum

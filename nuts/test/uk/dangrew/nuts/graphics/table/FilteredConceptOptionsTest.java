@@ -67,27 +67,29 @@ public class FilteredConceptOptionsTest {
       assertThat( systemUnderTest.options().get( 2 ), is( sausages ) );
    }//End Method
    
-   @Test public void shouldProvidefilteredOptions() {
+   @Test public void shouldNotFilerByDefault() {
       systemUnderTest.filterString().set( "chi" );
-      assertThat( systemUnderTest.options(), hasSize( 1 ) );
-      assertThat( systemUnderTest.options().get( 0 ), is( chicken ) );
+      assertThat( systemUnderTest.options().get( 0 ), is( beans ) );
+      assertThat( systemUnderTest.options().get( 1 ), is( chicken ) );
+      assertThat( systemUnderTest.options().get( 2 ), is( sausages ) );
       
       systemUnderTest.filterString().set( "s" );
-      assertThat( systemUnderTest.options(), hasSize( 2 ) );
       assertThat( systemUnderTest.options().get( 0 ), is( beans ) );
-      assertThat( systemUnderTest.options().get( 1 ), is( sausages ) );
-      
-      systemUnderTest.filterString().set( "x" );
-      assertThat( systemUnderTest.options(), hasSize( 0 ) );
-      
-//      Nice to have
-//      systemUnderTest.filterString().set( "as" );
-//      assertThat( systemUnderTest.options(), hasSize( 2 ) );
-//      assertThat( systemUnderTest.options().get( 0 ), is( beans ) );
-//      assertThat( systemUnderTest.options().get( 1 ), is( sausages ) );
+      assertThat( systemUnderTest.options().get( 1 ), is( chicken ) );
+      assertThat( systemUnderTest.options().get( 2 ), is( sausages ) );
    }//End Method
    
    @Test public void shouldReverseSortAndfilter() {
+      systemUnderTest.applyFilter( f -> {
+         String filter = systemUnderTest.filterString().get();
+         if ( filter == null ) {
+            return false;
+         }
+         filter = filter.toLowerCase();
+         String name = f.properties().nameProperty().get().toLowerCase();
+         return !name.contains( filter );
+      } );
+      
       systemUnderTest.filterString().set( "s" );
       assertThat( systemUnderTest.options().get( 0 ), is( beans ) );
       assertThat( systemUnderTest.options().get( 1 ), is( sausages ) );

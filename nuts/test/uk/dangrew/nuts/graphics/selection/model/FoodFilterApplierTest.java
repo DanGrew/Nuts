@@ -12,7 +12,9 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.FilteredConceptOptions;
+import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.store.Database;
 
@@ -98,5 +100,30 @@ public class FoodFilterApplierTest {
    @Test public void shouldNotFilterWhenNoLabelsSelected(){
       model.filters().add( FoodFilters.Labels );
       assertThat( options.options(), is( Arrays.asList( beans, chicken, sausages ) ) );
+   }//End Method
+   
+   @Test public void shouldIncludeIngredientsInStringFilter(){
+      Meal meal1 = database.meals().createConcept( "Meal1" );
+      Meal meal2 = database.meals().createConcept( "Meal2" );
+      Meal meal3 = database.meals().createConcept( "Meal3" );
+      
+      meal1.portions().add( new FoodPortion( chicken, 100 ) );
+      meal1.portions().add( new FoodPortion( sausages, 100 ) );
+      meal2.portions().add( new FoodPortion( beans, 100 ) );
+      meal3.portions().add( new FoodPortion( meal1, 100 ) );
+      
+      assertThat( options.options(), is( Arrays.asList( beans, chicken, meal1, meal2, meal3, sausages ) ) );
+      
+      model.filteredConcepts().filterString().set( "Chick" );
+      assertThat( options.options(), is( Arrays.asList( chicken, meal1, meal3 ) ) );
+      
+      model.filteredConcepts().filterString().set( "chick" );
+      assertThat( options.options(), is( Arrays.asList( chicken, meal1, meal3 ) ) );
+      
+      model.filters().add( FoodFilters.NameOnly );
+      assertThat( options.options(), is( Arrays.asList( chicken ) ) );
+      
+      model.filteredConcepts().filterString().set( "1" );
+      assertThat( options.options(), is( Arrays.asList( meal1 ) ) );
    }//End Method
 }//End Class

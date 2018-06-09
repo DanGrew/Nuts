@@ -3771,5 +3771,16 @@
       "name": "Pek Chopped Pork 300G (Typical Values (per 100 g))",
       "id": "35ea591e-aa12-48a9-aad9-6a9868a3c96f",
       "calories": 207
+   },
+   {
+      "carbohydrates": 7.83,
+      "fiber": 5.67,
+      "fats": 64.1,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 17.3,
+      "name": "Tesco Walnut Pieces 200G (100g)",
+      "id": "9f6eb628-5e8d-43ec-a5e4-8718e245b216",
+      "calories": 688.76
    }
 ]}
