@@ -11,8 +11,9 @@ import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.kode.observable.FunctionSetChangeListenerImpl;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.common.CheckBoxController;
 
-public class ConsumptionProperties {
+public class ConsumptionProperties implements CheckBoxController< FoodPortion > {
 
    private final Map< FoodPortion, BooleanProperty > consumption;
    private final Map< BooleanProperty, FoodPortion > properties;
@@ -61,7 +62,7 @@ public class ConsumptionProperties {
       this.dayPlan.portions().forEach( this::updateConsumption );
    }//End Method
    
-   public BooleanProperty propertyFor( FoodPortion portion ) {
+   @Override public BooleanProperty propertyFor( FoodPortion portion ) {
       return consumption.get( portion );
    }//End Method
    

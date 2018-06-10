@@ -15,8 +15,10 @@ import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.control.Label;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.food.FoodItemStore;
-import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
+import uk.dangrew.nuts.configuration.NutsSettings;
+import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
+import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
@@ -30,7 +32,15 @@ public class ConceptTableWithControlsTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      PlatformImpl.runAndWait( () -> table = new GeneralFoodTable<>( new Database(), new FoodItemStore() ) );
+      
+      Database database = new Database();
+      PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
+               .withSettings( new NutsSettings() )
+               .withDatabase( database )
+               .withColumns( FoodTableColumns< FoodItem >::new )
+               .withController( new GeneralConceptTableController<>( database.foodItems() ) )
+               .buildTable()
+      );
       systemUnderTest = new ConceptTableWithControls<>( styling, "anything", table, controls );
    }//End Method
 

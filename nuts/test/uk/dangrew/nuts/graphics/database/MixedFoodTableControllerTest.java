@@ -19,14 +19,15 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.goal.GoalTypes;
-import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.deletion.FoodDeletionMechanism;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -38,7 +39,7 @@ public class MixedFoodTableControllerTest {
    private Database database;
    
    private FoodFilterModel model;
-   private MixedFoodTable table;
+   private ConceptTable< Food > table;
    private MixedFoodTableController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -54,7 +55,12 @@ public class MixedFoodTableControllerTest {
       model = new FoodFilterModel( database );
       
       systemUnderTest = new MixedFoodTableController( deletionMechanism, dialog, database, model );
-      PlatformImpl.runAndWait( () -> table = new MixedFoodTable( new FoodTableColumns<>(), systemUnderTest ) );
+      PlatformImpl.runAndWait( () -> table = new TableComponents< Food >()
+               .withSettings( new NutsSettings() )
+               .withColumns( FoodTableColumns< Food >::new )
+               .withController( systemUnderTest )
+               .buildTable() 
+      );
    }//End Method
 
    @Test public void shouldProvideRows() {

@@ -11,9 +11,12 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
+import uk.dangrew.nuts.graphics.food.GeneralFoodTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
 
 public class SynchronizedTableSelectionModelTest {
@@ -32,8 +35,16 @@ public class SynchronizedTableSelectionModelTest {
       database.foodItems().createConcept( "Food3" );
       
       PlatformImpl.runAndWait( () -> {
-         table1 = new GeneralFoodTable<>( database, database.foodItems() );
-         table2 = new GeneralFoodTable<>( database, database.foodItems() );
+         table1 = new TableComponents< FoodItem >()
+                     .withSettings( new NutsSettings() )
+                     .withColumns( FoodTableColumns< FoodItem >::new )
+                     .withController( new GeneralFoodTableController<>( database, database.foodItems() ) )
+                     .buildTable();
+         table2 = new TableComponents< FoodItem >()
+                     .withSettings( new NutsSettings() )
+                     .withColumns( FoodTableColumns< FoodItem >::new )
+                     .withController( new GeneralFoodTableController<>( database, database.foodItems() ) )
+                     .buildTable();
       } );
       systemUnderTest = new SynchronizedTableSelectionModel<>( table1, table2 );
    }//End Method

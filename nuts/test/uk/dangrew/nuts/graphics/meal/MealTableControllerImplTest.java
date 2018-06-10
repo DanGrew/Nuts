@@ -18,9 +18,12 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
@@ -34,7 +37,7 @@ public class MealTableControllerImplTest {
    @Captor private ArgumentCaptor< Event< Meal > > eventCaptor;
    
    private Meal meal;
-   private MealTable table; 
+   private ConceptTable< FoodPortion > table; 
    private MealTableControllerImpl systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -46,9 +49,13 @@ public class MealTableControllerImplTest {
       meal.portions().add( portion2 = new FoodPortion( new FoodItem( "Food2" ), 200 ) );
       meal.portions().add( portion3 = new FoodPortion( new FoodItem( "Food3" ), 50 ) );
       
-      Database database = new Database();
-      table = new MealTable( database );
       systemUnderTest = new MealTableControllerImpl( mealSelectionEvents );
+      table = new TableComponents< FoodPortion >()
+               .withSettings( new NutsSettings() )
+               .withDatabase( new Database() )
+               .withColumns( MealTableColumns::new )
+               .withController( systemUnderTest )
+               .buildTable();
       systemUnderTest.associate( table );
       
       systemUnderTest.showMeal( meal );

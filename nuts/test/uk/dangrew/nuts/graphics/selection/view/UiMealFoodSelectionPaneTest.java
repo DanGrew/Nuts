@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
@@ -33,7 +34,7 @@ public class UiMealFoodSelectionPaneTest {
       database = new Database();
       database.stockLists().createConcept( "Stock" );
       
-      systemUnderTest = new UiMealFoodSelectionPane( database, stageControls );
+      systemUnderTest = new UiMealFoodSelectionPane( new NutsSettings(), database, stageControls );
    }//End Method
 
    @Test public void shouldSyncMealProperties() {

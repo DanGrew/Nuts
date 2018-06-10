@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
@@ -34,7 +34,11 @@ public class GeneralConceptTableControllerTest {
       database.foodItems().store( eggs );
       
       systemUnderTest = new GeneralConceptTableController<>( database.foodItems() );
-      table = new ConceptTable<>( new FoodTableColumns<>(), systemUnderTest );
+      table = new TableComponents< FoodItem >()
+               .withSettings( new NutsSettings() )
+               .withColumns( FoodTableColumns< FoodItem >::new )
+               .withController( systemUnderTest )
+               .buildTable();
    }//End Method
 
    @Test public void shouldCreateFoodInDatabase() {

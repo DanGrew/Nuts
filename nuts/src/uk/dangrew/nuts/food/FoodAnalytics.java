@@ -8,12 +8,10 @@
  */
 package uk.dangrew.nuts.food;
 
-import java.util.EnumMap;
-import java.util.Map;
-
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
  * {@link FoodAnalytics} provides analytical information inferred from the properties such as
@@ -21,36 +19,43 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
  */
 public class FoodAnalytics {
 
-   private final ObjectProperty< Double > calorieDensity;
-   private final ObjectProperty< Double > fiberRatio;
-   private final Map< MacroNutrient, ObjectProperty< Double > > macroRatios;
+   private final Nutrition nutrition;
    
    /**
     * Constructs a new {@link FoodAnalytics}.
     */
    public FoodAnalytics() {
-      this.calorieDensity = new SimpleObjectProperty<>( 0.0 );
-      this.fiberRatio = new SimpleObjectProperty<>( 0.0 );
-      this.macroRatios = new EnumMap<>( MacroNutrient.class );
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.macroRatios.put( macro, new SimpleObjectProperty< Double >( 0.0 ) );
-      }
+      this.nutrition = new Nutrition();
    }//End Constructor
+   
+   public Nutrition nutrition(){
+      return nutrition;
+   }//End Method
    
    /**
     * Access to the ratio for the given {@link MacroNutrient} property.
     * @param macro the {@link MacroNutrient} in question.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > nutrientRatioFor( MacroNutrient macro ) {
-      return macroRatios.get( macro );
+   @Deprecated public ObjectProperty< Double > nutrientRatioFor( MacroNutrient macro ) {
+      switch ( macro ) {
+         case Carbohydrates:
+            return nutrition.of( NutritionalUnit.Carbohydrate );
+         case Fats:
+            return nutrition.of( NutritionalUnit.Fat );
+         case Protein:
+            return nutrition.of( NutritionalUnit.Protein );
+         default:
+            break;
+      }
+      return null;
    }//End Method
    
    /**
     * Access to the {@link MacroNutrient#Carbohydrates} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > carbohydratesRatioProperty() {
+   @Deprecated public ObjectProperty< Double > carbohydratesRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Carbohydrates );
    }//End Method
    
@@ -58,7 +63,7 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Fats} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > fatsRatioProperty() {
+   @Deprecated public ObjectProperty< Double > fatsRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Fats );
    }//End Method
    
@@ -66,7 +71,7 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Protein} ratio property.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > proteinRatioProperty() {
+   @Deprecated public ObjectProperty< Double > proteinRatioProperty() {
       return nutrientRatioFor( MacroNutrient.Protein );
    }//End Method
    
@@ -74,19 +79,19 @@ public class FoodAnalytics {
     * Access to the calorie density {@link ObjectProperty}.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > calorieDensityProperty() {
-      return calorieDensity;
+   @Deprecated public ObjectProperty< Double > calorieDensityProperty() {
+      return nutrition.of( NutritionalUnit.Calories );
    }//End Method
    
-   public ObjectProperty< Double > fiberRatioProperty() {
-      return fiberRatio;
+   @Deprecated public ObjectProperty< Double > fiberRatioProperty() {
+      return nutrition.of( NutritionalUnit.Fibre );
    }//End Method
    
    /**
     * Access to the {@link MacroNutrient#Carbohydrates} ratio.
     * @return the value.
     */
-   public double carbohydratesRatio() {
+   @Deprecated public double carbohydratesRatio() {
       return nutrientRatioFor( MacroNutrient.Carbohydrates ).get();
    }//End Method
    
@@ -94,7 +99,7 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Fats} ratio.
     * @return the value.
     */
-   public double fatsRatio() {
+   @Deprecated public double fatsRatio() {
       return nutrientRatioFor( MacroNutrient.Fats ).get();
    }//End Method
    
@@ -102,7 +107,7 @@ public class FoodAnalytics {
     * Access to the {@link MacroNutrient#Protein} ratio.
     * @return the value.
     */
-   public double proteinRatio() {
+   @Deprecated public double proteinRatio() {
       return nutrientRatioFor( MacroNutrient.Protein ).get();
    }//End Method
 
@@ -110,8 +115,8 @@ public class FoodAnalytics {
     * Access to the calorie density value.
     * @return the {@link ObjectProperty}.
     */
-   public double calorieDensity() {
-      return calorieDensity.get();
+   @Deprecated public double calorieDensity() {
+      return calorieDensityProperty().get();
    }//End Method
 
 }//End Class

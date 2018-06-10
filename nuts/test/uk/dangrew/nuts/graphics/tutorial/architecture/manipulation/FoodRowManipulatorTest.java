@@ -12,16 +12,19 @@ import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.control.TableRow;
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
+import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.FoodRowManipulator;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.store.Database;
 
 public class FoodRowManipulatorTest {
 
-   private GeneralFoodTable< FoodItem > table;
+   private ConceptTable< FoodItem > table;
    private TableRow< ConceptTableRow< FoodItem > > row;
    private FoodItem food;
    
@@ -36,7 +39,13 @@ public class FoodRowManipulatorTest {
       row.setItem( new ConceptTableRow<>( food ) );
       
       Database database = new Database();
-      PlatformImpl.runAndWait( () -> table = new GeneralFoodTable<>( database, database.foodItems() ) );
+      PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
+               .withSettings( new NutsSettings() )
+               .withDatabase( database )
+               .withColumns( FoodTableColumns< FoodItem >::new )
+               .withController( new GeneralConceptTableController<>( database.foodItems() ) )
+               .buildTable()
+       );
       row.updateTableView( table );
       systemUnderTest = new FoodRowManipulator<>( row, 3 );
    }//End Method

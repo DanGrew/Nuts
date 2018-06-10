@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
@@ -29,7 +30,7 @@ public class UiDatabaseManagerPaneTest {
       MockitoAnnotations.initMocks( this );
       Database database = new Database();
       DataLocation.loadSampleFoodData( database );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new UiDatabaseManagerPane( database ) );
+      PlatformImpl.runAndWait( () -> systemUnderTest = new UiDatabaseManagerPane( new NutsSettings(), database ) );
    }//End Method
 
    @Ignore
@@ -37,7 +38,7 @@ public class UiDatabaseManagerPaneTest {
       Database database = new Database();
       DataLocation.loadSampleFoodData( database );
       
-      TestApplication.launch( () -> new UiDatabaseManagerPane( database ) );
+      TestApplication.launch( () -> new UiDatabaseManagerPane( new NutsSettings(), database ) );
       
       Thread.sleep( 99999999 );
    }//End Method
@@ -45,13 +46,13 @@ public class UiDatabaseManagerPaneTest {
    @Test public void shouldShowSelectedMeal(){
       systemUnderTest.foodTable().getSelectionModel().select( 15 );
       Food selected = systemUnderTest.foodTable().getSelectionModel().getSelectedItem().concept();
-      assertThat( systemUnderTest.mealTable().controller().getShowingMeal(), is( selected ) );
+      assertThat( systemUnderTest.mealTableController().getShowingMeal(), is( selected ) );
       
       systemUnderTest.comparisonTable().getItems().add( new ConceptTableRow< Food >( new Meal( "Anything" ) ) );
       systemUnderTest.comparisonTable().getSelectionModel().select( 0 );
       selected = systemUnderTest.comparisonTable().getSelectionModel().getSelectedItem().concept();
       assertThat( systemUnderTest.foodTable().getSelectionModel().getSelectedItem(), is( nullValue() ) );
-      assertThat( systemUnderTest.mealTable().controller().getShowingMeal(), is( selected ) );
+      assertThat( systemUnderTest.mealTableController().getShowingMeal(), is( selected ) );
    }//End Method
    
    @Test public void shouldProvidePopulatedComponents(){

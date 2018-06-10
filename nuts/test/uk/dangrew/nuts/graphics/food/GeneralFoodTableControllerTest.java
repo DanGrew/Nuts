@@ -5,7 +5,6 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -19,9 +18,12 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.graphics.deletion.FoodDeletionMechanism;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
 
 public class GeneralFoodTableControllerTest {
@@ -30,18 +32,25 @@ public class GeneralFoodTableControllerTest {
    private FoodItem onlyFoodItem;
    
    @Mock private FoodDeletionMechanism deletionMechanism;
-   private GeneralFoodTable< FoodItem > table;
+   private ConceptTable< FoodItem > table;
    private GeneralFoodTableController< FoodItem > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      PlatformImpl.runAndWait( () -> table = new GeneralFoodTable<>( 
-               new Database(), 
-               foodItems = new FoodItemStore() 
-      ) );
+      
+      Database database  = new Database();
+      foodItems = database.foodItems();
+      
       onlyFoodItem = foodItems.createConcept( "Anything" );
       systemUnderTest = new GeneralFoodTableController<>( deletionMechanism, foodItems );
+      PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
+               .withSettings( new NutsSettings() )
+               .withDatabase( database )
+               .withColumns( FoodTableColumns< FoodItem >::new )
+               .withController( systemUnderTest )
+               .buildTable()
+      );
       systemUnderTest.associate( table );
    }//End Method
 

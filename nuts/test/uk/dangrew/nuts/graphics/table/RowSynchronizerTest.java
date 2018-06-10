@@ -13,9 +13,10 @@ import com.sun.javafx.application.PlatformImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.food.FoodItemStore;
-import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
+import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.store.Database;
 
 public class RowSynchronizerTest {
@@ -26,7 +27,15 @@ public class RowSynchronizerTest {
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
-      PlatformImpl.runAndWait( () -> table = new GeneralFoodTable<>( new Database(), new FoodItemStore() ) );
+      
+      Database database = new Database();
+      PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
+               .withSettings( new NutsSettings() )
+               .withDatabase( database )
+               .withColumns( FoodTableColumns< FoodItem >::new )
+               .withController( new GeneralConceptTableController<>( database.foodItems() ) )
+               .buildTable()
+      );
       items = FXCollections.observableArrayList();
       systemUnderTest = new RowSynchronizer<>( table, items );
    }//End Method

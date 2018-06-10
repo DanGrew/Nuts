@@ -4,6 +4,7 @@ import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionApplier;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForTemplateEvent;
@@ -17,10 +18,10 @@ public class FoodSelectionWindow {
    private final FoodSelectionApplier selectionApplier;
    private final UiMealFoodSelectionPane selectionPane;
    
-   public FoodSelectionWindow( Database database ) {
+   public FoodSelectionWindow( NutsSettings settings, Database database ) {
       this.stage = new Stage();
       this.selectionApplier = new FoodSelectionApplier( stage, database.foodItems() );
-      this.stage.setScene( new Scene( selectionPane = new UiMealFoodSelectionPane( database, selectionApplier ) ) );
+      this.stage.setScene( new Scene( selectionPane = new UiMealFoodSelectionPane( settings, database, selectionApplier ) ) );
       this.stage.setAlwaysOnTop( true );
       this.stage.hide();
       

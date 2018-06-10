@@ -11,18 +11,21 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
 public class RecipeControllerTest {
 
-   private MixedFoodTable table;
+   private ConceptTable< Food > table;
    
    @Mock private RecipeSummaryWindow window;
    private RecipeController systemUnderTest;
@@ -39,7 +42,11 @@ public class RecipeControllerTest {
       
       PlatformImpl.runAndWait( () -> {
          systemUnderTest = new RecipeController( window, database, model );
-         table = new MixedFoodTable( new FoodTableColumns<>(), systemUnderTest );
+         table = new TableComponents< Food >()
+                  .withSettings( new NutsSettings() )
+                  .withColumns( FoodTableColumns< Food >::new )
+                  .withController( systemUnderTest )
+                  .buildTable();
       } );
    }//End Method
 

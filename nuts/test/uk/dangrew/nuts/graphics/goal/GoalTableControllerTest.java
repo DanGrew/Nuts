@@ -19,11 +19,14 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
 
 public class GoalTableControllerTest {
@@ -42,7 +45,12 @@ public class GoalTableControllerTest {
       database.proportionGoals().createConcept( "ProportionGoal1" );
       
       systemUnderTest = new GoalTableController( dialog, database.calorieGoals(), database.proportionGoals() );
-      PlatformImpl.runAndWait( () -> table = new GoalTable( systemUnderTest ) );
+      PlatformImpl.runAndWait( () -> table = new TableComponents< Goal >()
+               .withSettings( new NutsSettings() )
+               .withColumns( FoodTableColumns< Goal >::new )
+               .withController( systemUnderTest )
+               .buildTable() 
+      );
    }//End Method
 
    @Test public void shouldProvideRows() {

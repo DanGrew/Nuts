@@ -3,12 +3,12 @@ package uk.dangrew.nuts.graphics.tutorial.database.components;
 import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.control.Button;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
-import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.DatabaseManipulator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.EnumDialogManipulator;
@@ -28,7 +28,7 @@ public class DatabaseComponents {
    private UiEnumTypeSelectionDialog< FoodTypes > mainTableFoodTypeDialog;
    private EnumDialogManipulator< FoodTypes > mainTableFoodTypeDialogManipulator;
    
-   private MealTable mealTable;
+   private ConceptTable< FoodPortion > mealTable;
    private FoodTableManipulator< FoodPortion > mealTableManipulator;
    private Button mealTableAddButton;
    private Button mealTableCopyButton;
@@ -44,7 +44,7 @@ public class DatabaseComponents {
       this.database = new Database();
       this.databaseManipulator = new DatabaseManipulator( database );
       this.database.stockLists().createConcept( "" );
-      PlatformImpl.runAndWait( () -> this.parent = new UiDatabaseManagerPane( database ) );
+      PlatformImpl.runAndWait( () -> this.parent = new UiDatabaseManagerPane( new NutsSettings(), database ) );
       this.parent.populateComponents( this );
    }//End Method
    
@@ -97,13 +97,13 @@ public class DatabaseComponents {
       return mainTableFoodTypeDialogManipulator;
    }//End Method
    
-   public DatabaseComponents withMealTable( MealTable mealTable ) {
+   public DatabaseComponents withMealTable( ConceptTable< FoodPortion > mealTable ) {
       this.mealTable = mealTable;
       this.mealTableManipulator = new PortionTableManipulator( mealTable );
       return this;
    }//End Method
    
-   public MealTable mealTable() {
+   public ConceptTable< FoodPortion > mealTable() {
       return mealTable;
    }//End Method
 

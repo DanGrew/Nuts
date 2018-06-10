@@ -3631,10 +3631,6 @@
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 200
-         },
-         {
-            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 33
          }
       ]
    },
@@ -3778,10 +3774,6 @@
       "name": "Pecan Flax Cookies",
       "id": "6c5b35c9-ce7b-4bce-84f0-94053654d4fc",
       "portions": [
-         {
-            "foodId": "bdee14a6-3c9f-4648-9966-b93393bebdfe",
-            "portionValue": 50
-         },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 100

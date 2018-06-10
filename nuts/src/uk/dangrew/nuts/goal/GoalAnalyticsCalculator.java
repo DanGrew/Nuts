@@ -14,6 +14,7 @@ import javafx.beans.value.ChangeListener;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.Nutrition;
 
 public class GoalAnalyticsCalculator {
 
@@ -46,11 +47,7 @@ public class GoalAnalyticsCalculator {
       }
       
       this.properties = properties;
-      this.properties.carbohydrates().addListener( updater );
-      this.properties.fats().addListener( updater );
-      this.properties.protein().addListener( updater );
-      this.properties.calories().addListener( updater );
-      this.properties.fiber().addListener( updater );
+      Nutrition.of( properties ).listen( updater );
       this.analytics = analytics;
       this.analytics.goal().addListener( ( s, o, n ) -> setGoal( n ) );
    }//End Method
@@ -61,11 +58,7 @@ public class GoalAnalyticsCalculator {
     */
    private void setGoal( Goal goal ) {
       if ( this.goal != null ) {
-         for ( MacroNutrient macro : MacroNutrient.values() ) {
-            this.goal.properties().nutritionFor( macro ).removeListener( updater );
-         }
-         this.goal.properties().calories().removeListener( updater );
-         this.goal.properties().fiber().removeListener( updater );
+         Nutrition.of( this.goal.properties() ).stopListening( updater );
       }
       
       this.goal = goal;
@@ -76,11 +69,7 @@ public class GoalAnalyticsCalculator {
          analytics.fiberRatioProperty().set( 0.0 );
          return;
       } else {
-         for ( MacroNutrient macro : MacroNutrient.values() ) {
-            this.goal.properties().nutritionFor( macro ).addListener( updater );
-         }
-         this.goal.properties().calories().addListener( updater );
-         this.goal.properties().fiber().addListener( updater );
+         Nutrition.of( this.goal.properties() ).listen( updater );
          updateRatios();
       }
    }//End Method

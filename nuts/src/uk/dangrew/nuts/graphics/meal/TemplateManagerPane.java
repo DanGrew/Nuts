@@ -10,9 +10,14 @@ package uk.dangrew.nuts.graphics.meal;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
+import uk.dangrew.nuts.graphics.table.ConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
-import uk.dangrew.nuts.graphics.template.TemplateTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
+import uk.dangrew.nuts.graphics.template.TemplateTableColumns;
 import uk.dangrew.nuts.graphics.template.TemplateTableController;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
@@ -28,11 +33,14 @@ public class TemplateManagerPane extends GridPane {
    static final double MEAL_VIEW_HEIGHT_PROPORTION = 35.0;
 
    private final ConceptTableWithControls< Template > templatesTable;
-   private final MealTableWithControls planView;
-   private final MealTableWithControls mealView;
+   private final GeneralConceptTableController< Template > templateController;
+   private final ConceptTableWithControls< FoodPortion > planView;
+   private final TemplateTableController planController;
+   private final ConceptTableWithControls< FoodPortion > mealView;
+   private final MealTableController mealController;
 
-   public TemplateManagerPane( Database database ) {
-      this( new JavaFxStyle(), database );
+   public TemplateManagerPane( NutsSettings settings, Database database ) {
+      this( settings, new JavaFxStyle(), database );
    }// End Constructor
 
    /**
@@ -40,7 +48,7 @@ public class TemplateManagerPane extends GridPane {
     * @param styling the {@link JavaFxStyle}.
     * @param database the {@link Database}.
     */
-   TemplateManagerPane( JavaFxStyle styling, Database database ) {
+   TemplateManagerPane( NutsSettings settings, JavaFxStyle styling, Database database ) {
       styling.configureConstraintsForRowPercentages( 
                this, 
                PLANS_HEIGHT_PROPORTION,
@@ -49,30 +57,47 @@ public class TemplateManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
 
-      add( templatesTable = new ConceptTableWithControls<>( "Templates", new TemplateTable( database ) ), 0, 0 );
-      add( planView = new MealTableWithControls( "Selected Template", new MealTable( new MealTableColumns( database ), new TemplateTableController() ) ), 0, 1 );
-      add( mealView = new MealTableWithControls( "Selected Meal", database ), 0, 2 );
+      add( templatesTable = new TableComponents< Template >()
+               .withSettings( settings )
+               .withDatabase( database )
+               .withColumns( TemplateTableColumns::new )
+               .withController( templateController = new GeneralConceptTableController<>( database.templates() ) )
+               .withControls( new ConceptControls( templateController ) )
+               .buildTableWithControls( "Templates" ), 
+      0, 0 );
+      add( planView = new TableComponents< FoodPortion >()
+               .withSettings( settings )
+               .withDatabase( database )
+               .withColumns( MealTableColumns::new )
+               .withController( planController = new TemplateTableController() )
+               .withControls( new MealControls( planController ) )
+               .buildTableWithControls( "Selected Template" ), 
+      0, 1 );
+      add( mealView = new TableComponents< FoodPortion >()
+               .withSettings( settings )
+               .withDatabase( database )
+               .withColumns( MealTableColumns::new )
+               .withController( mealController = new MealTableControllerImpl() )
+               .withControls( new MealControls( mealController ) )
+               .buildTableWithControls( "Selected Meal" ), 
+      0, 2 );
       
       templatesTable.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
-         planView.table().controller().showMeal( n.concept() );
+         planController.showMeal( n.concept() );
       } );
       
       planView.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
          Food food = n.concept().food().get();
          if ( food instanceof Meal ) {
-            mealView.table().controller().showMeal( ( Meal )food );
+            mealController.showMeal( ( Meal )food );
          } else {
-            mealView.table().controller().showMeal( null );
+            mealController.showMeal( null );
          }
       } );
    }// End Constructor
 
    ConceptTableWithControls< Template > templatesTable() {
       return templatesTable;
-   }// End Method
-
-   MealTableWithControls mealTable() {
-      return planView;
    }// End Method
 
 }//End Class

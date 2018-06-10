@@ -19,18 +19,16 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
-import uk.dangrew.nuts.graphics.meal.MealTable;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.DatabaseManipulator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.EnumDialogManipulator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.FoodTableManipulator;
-import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
 import uk.dangrew.nuts.store.Database;
 
 public class DatabaseComponentsTest {
 
    @Mock private ConceptTable< Food > mainTable;
-   @Mock private MealTable mealTable;
+   @Mock private ConceptTable< FoodPortion > mealTable;
    @Mock private UiEnumTypeSelectionDialog< FoodTypes > dialog;
    private DatabaseComponents systemUnderTest;
 

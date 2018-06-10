@@ -11,9 +11,12 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.food.GeneralFoodTable;
-import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.FoodTableManipulator;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
+import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
 
 public class FoodTableManipulatorTest {
@@ -23,13 +26,20 @@ public class FoodTableManipulatorTest {
    private static final String CHEESE = "Cheese";
    
    private Database database;
-   private GeneralFoodTable< FoodItem > table;
+   private ConceptTable< FoodItem > table;
    private FoodTableManipulator< FoodItem > systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() throws InterruptedException {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      TestApplication.launch( () -> table = new GeneralFoodTable<>( database = new Database(), database.foodItems() ) );
+      database = new Database();
+      TestApplication.launch( () -> table = new TableComponents< FoodItem >()
+               .withSettings( new NutsSettings() )
+               .withDatabase( database )
+               .withColumns( FoodTableColumns< FoodItem >::new )
+               .withController( new GeneralConceptTableController<>( database.foodItems() ) )
+               .buildTable()
+      );
       systemUnderTest = new FoodTableManipulator<>( table );
    }//End Method
 

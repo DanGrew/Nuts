@@ -5,6 +5,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.graphics.day.UiCalendarPane;
 import uk.dangrew.nuts.graphics.day.balance.UiBalanceSummary;
@@ -16,7 +17,7 @@ import uk.dangrew.nuts.graphics.meal.TemplateManagerPane;
 import uk.dangrew.nuts.graphics.progress.custom.ProgressSeriesPane;
 import uk.dangrew.nuts.graphics.research.UiResearchPane;
 import uk.dangrew.nuts.graphics.shopping.ShoppingPane;
-import uk.dangrew.nuts.graphics.stock.StockTable;
+import uk.dangrew.nuts.graphics.stock.StockPane;
 import uk.dangrew.nuts.graphics.tools.dryweight.DryWeightToolPane;
 import uk.dangrew.nuts.store.Database;
 
@@ -25,7 +26,7 @@ public class NutsTabs extends AnchorPane {
    private final TabPane tabPane;
    private final CoreInterfaceOperationControls controls;
    
-   public NutsTabs( Database database, CoreInterfaceOperations operations ) {
+   public NutsTabs( NutsSettings settings, Database database, CoreInterfaceOperations operations ) {
       this.tabPane = new TabPane();
       this.controls = new CoreInterfaceOperationControls( operations );
       
@@ -41,11 +42,11 @@ public class NutsTabs extends AnchorPane {
       
       createConcreteTab( "Nutrition", new IntroductionPane() );
       createConcreteTab( "Research Blog", new UiResearchPane( database.researchArticles() ) );
-      createConcreteTab( "Goals", new GoalManagerPane( database ) );
-      createConcreteTab( "Database", new UiDatabaseManagerPane( database ) );
-      createConcreteTab( "Stock", new StockTable( database ) );
-      createConcreteTab( "Templates", new TemplateManagerPane( database ) );
-      createConcreteTab( "Day Plans", new UiCalendarPane( database ) );
+      createConcreteTab( "Goals", new GoalManagerPane( settings, database ) );
+      createConcreteTab( "Database", new UiDatabaseManagerPane( settings, database ) );
+      createConcreteTab( "Stock", new StockPane( database ) );
+      createConcreteTab( "Templates", new TemplateManagerPane( settings, database ) );
+      createConcreteTab( "Day Plans", new UiCalendarPane( settings, database ) );
       createConcreteTab( "Graph", new ProgressSeriesPane( database ) );
       createConcreteTab( "Labels", new UiLabelConfigurationView( database ) );
       createConcreteTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );

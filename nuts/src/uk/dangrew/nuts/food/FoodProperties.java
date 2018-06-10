@@ -8,12 +8,12 @@
  */
 package uk.dangrew.nuts.food;
 
-import java.util.EnumMap;
 import java.util.UUID;
 
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.system.Properties;
 
 /**
@@ -22,9 +22,7 @@ import uk.dangrew.nuts.system.Properties;
  */
 public class FoodProperties extends Properties {
 
-   private final ObjectProperty< Double > calories;
-   private final ObjectProperty< Double > fiber;
-   private final EnumMap< MacroNutrient, ObjectProperty< Double > > macros;
+   private final Nutrition nutrition;
    
    /**
     * Constructs a new {@link FoodProperties}.
@@ -42,24 +40,23 @@ public class FoodProperties extends Properties {
     */
    public FoodProperties( String id, String name ) {
       super( id, name );
-      this.calories = new SimpleObjectProperty<>( 0.0 );
-      this.fiber = new SimpleObjectProperty<>( 0.0 );
-      this.macros = new EnumMap<>( MacroNutrient.class );
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.macros.put( macro, new SimpleObjectProperty<>( 0.0 ) );
-      }
+      this.nutrition = new Nutrition();
    }//End Constructor
+   
+   public Nutrition nutrition() {
+      return nutrition;
+   }//End Method
    
    /**
     * Access to the calories.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > calories() {
-      return calories;
+   @Deprecated public ObjectProperty< Double > calories() {
+      return nutrition.of( NutritionalUnit.Calories );
    }//End Method
    
-   public ObjectProperty< Double > fiber() {
-      return fiber;
+   @Deprecated public ObjectProperty< Double > fiber() {
+      return nutrition.of( NutritionalUnit.Fibre );
    }//End Method
 
    /**
@@ -67,15 +64,25 @@ public class FoodProperties extends Properties {
     * @param nutrient the {@link MacroNutrient} in question.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > nutritionFor( MacroNutrient nutrient ) {
-      return macros.get( nutrient );
+   @Deprecated public ObjectProperty< Double > nutritionFor( MacroNutrient nutrient ) {
+      switch ( nutrient ) {
+         case Carbohydrates:
+            return nutrition.of( NutritionalUnit.Carbohydrate );
+         case Fats:
+            return nutrition.of( NutritionalUnit.Fat );
+         case Protein:
+            return nutrition.of( NutritionalUnit.Protein );
+         default:
+            break;
+      }
+      return null;
    }//End Method
    
    /**
     * Access to the {@link MacroNutrient#Carbohydrates} {@link ObjectProperty}.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > carbohydrates() {
+   @Deprecated public ObjectProperty< Double > carbohydrates() {
       return nutritionFor( MacroNutrient.Carbohydrates );
    }//End Method
    
@@ -83,7 +90,7 @@ public class FoodProperties extends Properties {
     * Access to the {@link MacroNutrient#Fats} {@link ObjectProperty}.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > fats() {
+   @Deprecated public ObjectProperty< Double > fats() {
       return nutritionFor( MacroNutrient.Fats );
    }//End Method
    
@@ -91,7 +98,7 @@ public class FoodProperties extends Properties {
     * Access to the {@link MacroNutrient#Protein} {@link ObjectProperty}.
     * @return the {@link ObjectProperty}.
     */
-   public ObjectProperty< Double > protein() {
+   @Deprecated public ObjectProperty< Double > protein() {
       return nutritionFor( MacroNutrient.Protein );
    }//End Method
 
@@ -101,7 +108,7 @@ public class FoodProperties extends Properties {
     * @param fGrams the {@link MacroNutrient#Fats} in grams.
     * @param pGrams the {@link MacroNutrient#Protein} in grams.
     */
-   public void setMacros( double cGrams, double fGrams, double pGrams ) {
+   @Deprecated public void setMacros( double cGrams, double fGrams, double pGrams ) {
       carbohydrates().set( cGrams );
       fats().set( fGrams );
       protein().set( pGrams );

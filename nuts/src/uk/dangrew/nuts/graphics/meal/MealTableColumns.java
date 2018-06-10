@@ -12,64 +12,50 @@ import java.util.Arrays;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.ConceptOptions;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
-import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
  * {@link MealTableColumns} provides the {@link TableColumn} configuration for a {@link MealTable}.
  */
-public class MealTableColumns implements ConceptTableColumnsPopulator< FoodPortion > {
+public class MealTableColumns extends FoodTableColumns< FoodPortion > {
 
-   static final String COLUMN_TITLE_FOOD = "Food";
-   static final String COLUMN_TITLE_CALORIES = "Calories";
-   static final String COLUMN_TITLE_CALORIE_DENSITY = "Density";
+   static final double COLUMN_WIDTH_PORTION = 0.10;
+   static final double COLUMN_WIDTH_FOOD = 0.25;
+   
    static final String COLUMN_TITLE_PORTION = "Portion %";
-   static final String COLUMN_TITLE_CARBS = "Carbs";
-   static final String COLUMN_TITLE_FIBER = "Fiber";
-   static final String COLUMN_TITLE_FATS = "Fats";
-   static final String COLUMN_TITLE_PROTEINS = "Protein";
-   static final String COLUMN_TITLE_CALORIES_PROPORTION = "Calories %";
-   static final String COLUMN_TITLE_CARBS_PROPORTION = "Carbs %";
-   static final String COLUMN_TITLE_FATS_PROPORTION = "Fats %";
-   static final String COLUMN_TITLE_PROTEINS_PROPORTION = "Protein %";
-   static final String COLUMN_TITLE_FIBER_PROPORTION = "Fiber %";
    
    private final ConceptOptions< Food > conceptOptions;
    private final TableConfiguration configuration;
 
-   /**
-    * Constructs a new {@link MealTableColumns}.
-    * @param database the {@link Database} for the {@link uk.dangrew.nuts.meal.Meal} {@link uk.dangrew.nuts.system.Concept}s.
-    */
-   public MealTableColumns( Database database ) {
+   public MealTableColumns( TableComponents< FoodPortion > components ) {
+      super( components );
       this.configuration = new TableConfiguration();
-      this.conceptOptions = new ConceptOptionsImpl<>( Arrays.asList( database.foodItems(), database.meals() ) );
+      this.conceptOptions = new ConceptOptionsImpl<>( Arrays.asList( 
+               components.database().foodItems(), 
+               components.database().meals() 
+      ) );
    }//End Constructor
    
-   /**
-    * {@inheritDoc}
-    */
    @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
       configuration.initialiseFoodDropDownColumn( 
                table, 
                COLUMN_TITLE_FOOD, 
-               0.25, 
+               COLUMN_WIDTH_FOOD, 
                r -> r.concept().food(), 
                ( r, v ) -> r.concept().setFood( v ), 
                conceptOptions 
       );
       
-      configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.10 );
+      configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, COLUMN_WIDTH_PORTION );
       
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CALORIES, 0.12, f -> f.properties().calories(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_CARBS, 0.12, f -> f.properties().carbohydrates(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FATS, 0.12, f -> f.properties().fats(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_PROTEINS, 0.12, f -> f.properties().protein(), false );
-      configuration.initialiseNutrientColumn( table, COLUMN_TITLE_FIBER, 0.12, f -> f.properties().fiber(), false );
+      double remainingWidth = 0.98 - COLUMN_WIDTH_FOOD - COLUMN_WIDTH_PORTION;
+      columnsForShowing( table, f -> f.properties().nutrition(), NutritionalUnit::name, remainingWidth );
       
       table.getColumns().forEach( c -> c.setSortable( false ) );
    }//End Method

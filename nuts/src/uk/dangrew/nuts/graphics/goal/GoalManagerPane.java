@@ -11,13 +11,13 @@ package uk.dangrew.nuts.graphics.goal;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.goal.Goal;
+import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
 
-/**
- * {@link GoalManagerPane} provides the pane for managing {@link Goal}s.
- */
 public class GoalManagerPane extends GridPane {
 
    static final double GOALS_HEIGHT_PROPORTION = 25.0;
@@ -26,20 +26,11 @@ public class GoalManagerPane extends GridPane {
    private final ConceptTableWithControls< Goal > goalsTable;
    private final GoalCalculationView goalView;
 
-   /**
-    * Constructs a new {@link GoalManagerPane}.
-    * @param database the {@link Database}.
-    */
-   public GoalManagerPane( Database database ) {
-      this( new JavaFxStyle(), database );
+   public GoalManagerPane( NutsSettings settings, Database database ) {
+      this( settings, new JavaFxStyle(), database );
    }// End Constructor
 
-   /**
-    * Constructs a new {@link GoalManagerPane}.
-    * @param styling the {@link JavaFxStyle}.
-    * @param database the {@link Database}.
-    */
-   GoalManagerPane( JavaFxStyle styling, Database database ) {
+   GoalManagerPane( NutsSettings settings, JavaFxStyle styling, Database database ) {
       styling.configureConstraintsForRowPercentages( 
                this, 
                GOALS_HEIGHT_PROPORTION,
@@ -47,7 +38,14 @@ public class GoalManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
 
-      add( goalsTable = new ConceptTableWithControls<>( "Goals", new GoalTable( database ) ), 0, 0 );
+      add( goalsTable = new ConceptTableWithControls<>( 
+               "Goals", 
+               new TableComponents< Goal >()
+                  .withSettings( settings )
+                  .withColumns( FoodTableColumns< Goal >::new )
+                  .withController( new GoalTableController( database.calorieGoals(), database.proportionGoals() ) )
+                  .buildTable() 
+      ), 0, 0 );
       ScrollPane scroller = new ScrollPane( goalView = new GoalCalculationView() );
       scroller.setFitToWidth( true );
       add( scroller, 0, 1 );

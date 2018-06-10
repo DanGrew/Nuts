@@ -46,6 +46,7 @@ public class UiFoodSelectionControls extends BorderPane {
       
       this.filterBox = new TextField();
       this.filterBox.textProperty().addListener( ( s, o, n ) -> controller.filterOptions( n ) );
+      this.filterBox.setFocusTraversable( false );
       this.filterWrapper.add( filterBox, 1, 0 );
       
       this.filterWrapper.add( 
