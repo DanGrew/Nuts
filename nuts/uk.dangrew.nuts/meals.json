@@ -2217,24 +2217,6 @@
       ]
    },
    {
-      "name": "Flax Bread",
-      "id": "b8335cb7-2d0a-4e13-9a45-5eb15c16d326",
-      "portions": [
-         {
-            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
-            "portionValue": 400
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 300
-         },
-         {
-            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
       "name": "Bread (KetoConnect)",
       "id": "ad09e135-9624-4a46-8d1b-a914936c52d5",
       "portions": [
@@ -3631,6 +3613,10 @@
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 200
+         },
+         {
+            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
+            "portionValue": 50
          }
       ]
    },
@@ -3799,6 +3785,178 @@
          {
             "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
             "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Coconut Flax Cookies",
+      "id": "9b20756e-5d77-4ee5-98bb-2b77a339051b",
+      "portions": [
+         {
+            "foodId": "647d9237-5d58-4086-bc62-a2fbfae1c895",
+            "portionValue": 25
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Vegetable Calzone",
+      "id": "d11af98d-4659-4cce-ba4e-9deed1830444",
+      "portions": [
+         {
+            "foodId": "1847a9cb-8c9d-46f0-8f10-85c00b4e745f",
+            "portionValue": 50
+         },
+         {
+            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+            "portionValue": 200
+         },
+         {
+            "foodId": "77328e66-d56b-4075-b38f-32a72311261c",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Fathead Pizza Base (Modified)",
+      "id": "b0625eaa-823b-447f-a2a4-0d0b42f5c2bd",
+      "portions": [
+         {
+            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
+            "portionValue": 80
+         },
+         {
+            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 100
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 30
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Flax Bread",
+      "id": "162c14d0-e5e0-4484-8e0e-21730dd4e53c",
+      "portions": [
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 400
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Coconut Bread",
+      "id": "b5ce6d0a-df1d-4f15-ba31-30286b98bd74",
+      "portions": [
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
+            "portionValue": 50
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 200
+         },
+         {
+            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+            "portionValue": 100
+         },
+         {
+            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Brazil Nut Butter (300g) (homemade)",
+      "id": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
+      "portions": [
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         },
+         {
+            "foodId": "62ef626f-f15f-4f51-aae4-58e11c1c87e9",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Brazil Nut Butter Pancake",
+      "id": "e92a63e4-8cb3-4212-b059-9363b2bb524d",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Walnut Butter Pancake",
+      "id": "93f76804-e8e5-4ead-9063-84df9d442e54",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
+            "portionValue": 50
          }
       ]
    }

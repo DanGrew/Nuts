@@ -3782,5 +3782,16 @@
       "name": "Tesco Walnut Pieces 200G (100g)",
       "id": "9f6eb628-5e8d-43ec-a5e4-8718e245b216",
       "calories": 688.76
+   },
+   {
+      "carbohydrates": 0,
+      "fiber": 0,
+      "fats": 14,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 23,
+      "name": "John West Sardines Olive Oil 120Gm (100g)",
+      "id": "67b6db90-8bdd-464d-8da6-2a90b7dd681e",
+      "calories": 218
    }
 ]}
