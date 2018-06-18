@@ -12,9 +12,10 @@ package uk.dangrew.nuts.persistence.meals;
 import java.util.ArrayList;
 import java.util.List;
 
-import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.food.FoodPortion;
+import javafx.util.Pair;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.persistence.resolution.MealPortionResolution;
+import uk.dangrew.nuts.persistence.resolution.Resolver;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.ConceptStore;
 
@@ -24,15 +25,15 @@ import uk.dangrew.nuts.system.ConceptStore;
  */
 public class MealParseModel< FoodTypeT extends Meal > {
    
+   private final Resolver resolver;
    private final Database database;
    private final ConceptStore< FoodTypeT > meals;
    
-   private String id;
+   protected String id;
    private String name;
-   private final List< FoodPortion > portions;
    
-   private String foodId;
-   private Double portionValue;
+   protected String foodId;
+   protected Double portionValue;
    
    /**
     * Constructs a new {@link MealParseModel}.
@@ -41,8 +42,8 @@ public class MealParseModel< FoodTypeT extends Meal > {
     */
    protected MealParseModel( Database database, ConceptStore< FoodTypeT > meals ) {
       this.database = database;
+      this.resolver = database.resolver();
       this.meals = meals;
-      this.portions = new ArrayList<>();
    }//End Constructor
    
    /**
@@ -75,7 +76,6 @@ public class MealParseModel< FoodTypeT extends Meal > {
    protected void startMeal() {
       this.id = null;
       this.name = null;
-      this.portions.clear();;
       this.foodId = null;
       this.portionValue = null;
    }//End Method
@@ -86,10 +86,8 @@ public class MealParseModel< FoodTypeT extends Meal > {
    protected void finishMeal() {
       FoodTypeT meal = meals.get( id );
       if ( meal == null ) {
-         meal = meals.createConcept( id, name );
+         meals.createConcept( id, name );
       }
-      meal.portions().clear();
-      meal.portions().addAll( portions );
    }//End Method
    
    /**
@@ -120,33 +118,17 @@ public class MealParseModel< FoodTypeT extends Meal > {
     * Triggered when finished to parsing a new {@link FoodPortion}.
     * @return the finished {@link FoodPortion}.
     */
-   protected FoodPortion finishPortion(){
-      Food food = null;
-      if ( !foodId.isEmpty() ) {
-         food = database.foodItems().get( foodId );
-         if ( food == null ) {
-            food = database.meals().get( foodId );
-         }
-         
-         if ( food == null ) {
-            food = database.templates().get( foodId );
-         }
-         
-         if ( food == null ) {
-            System.out.println( "Can't find food for: " + foodId );
-            return null;
-         }
-      }
-      FoodPortion portion = new FoodPortion( food, portionValue );
-      portions.add( portion );
-      return portion;
+   protected void finishPortion(){
+      resolver.submitStrategy( new MealPortionResolution( 
+               meals, id, foodId, portionValue 
+      ) );
    }//End Method
    
    /**
     * Sets the id of the {@link Food} associated with the current {@link FoodPortion}.
     * @param value the parsed value.
     */
-   void setFoodId( String value ) {
+   protected void setFoodId( String value ) {
       this.foodId = value;
    }//End Method
    
@@ -154,7 +136,7 @@ public class MealParseModel< FoodTypeT extends Meal > {
     * Sets the portion value as a percentage for the current {@link FoodPortion}. 
     * @param value the parsed value.
     */
-   void setPortionValue( Double value ) {
+   protected void setPortionValue( Double value ) {
       this.portionValue = value;
    }//End Method
    

@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.persistence.dayplan;
+package uk.dangrew.nuts.persistence.stock;
 
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
@@ -9,42 +9,39 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.store.Database;
 
-public class DayPlanParseModelTest {
+public class StockParseModelTest {
 
-   private DayPlan dayPlan;
+   private Stock stock;
    private FoodItem item;
    
    private Database database;
-   private DayPlanParseModel systemUnderTest;
+   private StockParseModel systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
       database = new Database();
-      dayPlan = database.dayPlans().createConcept( "DayPlan" );
+      stock = database.stockLists().createConcept( "Stock" );
       item = database.foodItems().createConcept( "Item" );
       
-      systemUnderTest = new DayPlanParseModel( database );
+      systemUnderTest = new StockParseModel( database );
    }//End Method
 
    @Test public void shouldAddResolutionToDatabase() {
-      systemUnderTest.setId( dayPlan.properties().id() );
+      systemUnderTest.setId( stock.properties().id() );
       systemUnderTest.setFoodId( item.properties().id() );
       systemUnderTest.setPortionValue( 125.0 );
-      systemUnderTest.setConsumed( true );
       systemUnderTest.finishPortion();
       
-      assertThat( dayPlan.portions(), is( empty() ) );
+      assertThat( stock.portions(), is( empty() ) );
       database.resolver().resolve();
-      assertThat( dayPlan.portions().get( 0 ).food().get(), is( item ) );
-      assertThat( dayPlan.portions().get( 0 ).portion().get(), is( 125.0 ) );
-      assertThat( dayPlan.consumed().iterator().next().food().get(), is( item ) );
-      assertThat( dayPlan.consumed().iterator().next().portion().get(), is( 125.0 ) );
+      assertThat( stock.portions().get( 0 ).food().get(), is( item ) );
+      assertThat( stock.portions().get( 0 ).portion().get(), is( 125.0 ) );
    }//End Method
 
 }//End Class

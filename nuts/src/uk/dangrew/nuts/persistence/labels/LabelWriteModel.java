@@ -10,6 +10,8 @@ package uk.dangrew.nuts.persistence.labels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.label.LabelStore;
@@ -50,7 +52,7 @@ public class LabelWriteModel {
       }
       this.currentLabel = labelBuffer.remove( 0 );
       this.conceptBuffer.clear();
-      this.conceptBuffer.addAll( currentLabel.concepts() );
+      this.conceptBuffer.addAll( currentLabel.concepts().stream().filter( Objects::nonNull ).collect( Collectors.toList() ) );
    }//End Method
 
    String getId() {

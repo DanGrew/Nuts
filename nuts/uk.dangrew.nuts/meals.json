@@ -2775,10 +2775,6 @@
          {
             "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
             "portionValue": 40
-         },
-         {
-            "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
-            "portionValue": 10
          }
       ]
    },
@@ -3594,7 +3590,7 @@
          },
          {
             "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
+            "portionValue": 400
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
@@ -3952,11 +3948,127 @@
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Butter Cream (Almond Butter)",
+      "id": "04162a9d-a895-4f37-8333-7d30a23edaa5",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 200
+         },
+         {
+            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
+            "portionValue": 40
+         },
+         {
+            "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
+            "portionValue": 10
+         }
+      ]
+   },
+   {
+      "name": "Coconut Butter Pancake",
+      "id": "e5954734-7d0d-48a8-89a3-ea2374285ad2",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "647d9237-5d58-4086-bc62-a2fbfae1c895",
+            "portionValue": 33
+         }
+      ]
+   },
+   {
+      "name": "Mayo Homemade (200g)",
+      "id": "c10694a7-c837-4fe5-bbeb-e0cce0efb2de",
+      "portions": [
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 200
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Walnut Pancake (Milk)",
+      "id": "bf9f9e38-d440-4572-8709-41304588e4e7",
+      "portions": [
+         {
+            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
+            "portionValue": 100
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 200
          },
          {
             "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
             "portionValue": 50
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter Pancake (Milk)",
+      "id": "ca7d6ff9-1418-4a2e-9939-31476ec2dbed",
+      "portions": [
+         {
+            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
+            "portionValue": 100
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+            "portionValue": 100
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 200
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter Pancake (xtra)",
+      "id": "23476b45-e920-4f43-9c0c-ab9ee508bd54",
+      "portions": [
+         {
+            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+            "portionValue": 150
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
          }
       ]
    }

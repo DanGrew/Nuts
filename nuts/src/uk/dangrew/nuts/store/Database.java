@@ -14,6 +14,7 @@ import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.meal.MealStore;
+import uk.dangrew.nuts.persistence.resolution.Resolver;
 import uk.dangrew.nuts.progress.custom.ProgressSeriesStore;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
 import uk.dangrew.nuts.research.ResearchArticleStore;
@@ -25,6 +26,8 @@ import uk.dangrew.nuts.template.TemplateStore;
  */
 public class Database {
 
+   private final Resolver resolver;
+   
    private final WeightProgress weightProgress;
    private final CalorieGoalStore calorieGoals;
    private final ProportionGoalStore proportionGoals;
@@ -43,6 +46,7 @@ public class Database {
     * Constructs a new {@link Database}.
     */
    public Database() {
+      this.resolver = new Resolver( this );
       this.weightProgress = new WeightProgress();
       this.calorieGoals = new CalorieGoalStore();
       this.proportionGoals = new ProportionGoalStore();
@@ -56,6 +60,10 @@ public class Database {
       this.progressSeries = new ProgressSeriesStore();
       this.researchArticles = new ResearchArticleStore();
    }//End Constructor
+   
+   public Resolver resolver(){
+      return resolver;
+   }//End Method
    
    /**
     * Access to the {@link WeightProgress}.

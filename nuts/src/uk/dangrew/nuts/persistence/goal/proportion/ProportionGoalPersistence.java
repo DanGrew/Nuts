@@ -19,8 +19,9 @@ import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionType;
+import uk.dangrew.nuts.persistence.fooditems.ConceptPersistence;
 
-public class ProportionGoalPersistence {
+public class ProportionGoalPersistence implements ConceptPersistence {
    
    static final String GOALS = "goals";
    static final String GOAL = "goal";
@@ -108,15 +109,15 @@ public class ProportionGoalPersistence {
       parserWithWriteHandles.when( FIBER_PROPORTION_VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFiberProportionValue ) ) );
    }//End Method
    
-   public JsonStructure structure(){
+   @Override public JsonStructure structure(){
       return structure;
    }//End Method
    
-   public JsonParser readHandles(){
+   @Override public JsonParser readHandles(){
       return parserWithReadHandles;
    }//End Method
 
-   public JsonParser writeHandles(){
+   @Override public JsonParser writeHandles(){
       return parserWithWriteHandles;
    }//End Method
 }//End Class

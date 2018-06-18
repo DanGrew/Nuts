@@ -31,7 +31,7 @@ public class MealWriteModel< FoodTypeT extends Meal > {
     * Constructs a new {@link FoodItemWriteModel}.
     * @param meals the {@link ConceptStore} providing the {@link Meal}s.
     */
-   protected MealWriteModel( ConceptStore< FoodTypeT > meals ) {
+   public MealWriteModel( ConceptStore< FoodTypeT > meals ) {
       this.meals = meals;
       this.foodBuffer = new ArrayList<>();
       this.portionBuffer = new ArrayList<>();

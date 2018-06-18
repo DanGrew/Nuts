@@ -17,13 +17,14 @@ import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.persistence.fooditems.ConceptPersistence;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link MealPersistence} provides the architecture for reading and writing {@link uk.dangrew.nuts.meal.Meal}s.
  */
-public class MealPersistence< FoodTypeT extends Meal > {
+public class MealPersistence< FoodTypeT extends Meal > implements ConceptPersistence {
    
    static final String MEALS = "meals";
    public static final String MEAL = "meal";
@@ -118,27 +119,15 @@ public class MealPersistence< FoodTypeT extends Meal > {
       parserWithWriteHandles.when( FOOD_ID, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFoodId ) ) );
    }//End Method
    
-   /**
-    * Access to the {@link JsonStructure}.
-    * @return the {@link JsonStructure}.
-    */
-   public JsonStructure structure(){
+   @Override public JsonStructure structure(){
       return structure;
    }//End Method
    
-   /**
-    * Access to the {@link JsonParser} reader.
-    * @return the {@link JsonParser}.
-    */
-   public JsonParser readHandles(){
+   @Override public JsonParser readHandles(){
       return parserWithReadHandles;
    }//End Method
 
-   /**
-    * Access to the {@link JsonParser} writer.
-    * @return the {@link JsonParser}.
-    */
-   public JsonParser writeHandles(){
+   @Override public JsonParser writeHandles(){
       return parserWithWriteHandles;
    }//End Method
 }//End Class

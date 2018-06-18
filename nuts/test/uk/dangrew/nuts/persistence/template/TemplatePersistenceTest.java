@@ -42,6 +42,8 @@ public class TemplatePersistenceTest {
       json = new JSONObject( value );
       persistence.readHandles().parse( json );
       
+      database.resolver().resolve();
+      
       Template meal = database.templates().objectList().get( 0 );
       assertMealProperties( 
                meal, "99987", "Meal1", 
@@ -134,18 +136,19 @@ public class TemplatePersistenceTest {
       
       assertThat( database.foodItems().objectList(), is( empty() ) );
       foodItemPersistence.readHandles().parse( foodItemJson );
-      assertThat( database.foodItems().objectList(), hasSize( 4 ) );
       
       calorieGoalPersistence = new CalorieGoalPersistence( database.calorieGoals() );
-      
       assertThat( database.calorieGoals().objectList(), is( empty() ) );
       calorieGoalPersistence.readHandles().parse( goalJson );
-      assertThat( database.calorieGoals().objectList(), hasSize( 2 ) );
       
       persistence = new TemplatePersistence<>( database, database.templates() );
-      
       assertThat( database.templates().objectList(), is( empty() ) );
       persistence.readHandles().parse( mealJson );
+      
+      database.resolver().resolve();
+      
+      assertThat( database.foodItems().objectList(), hasSize( 4 ) );
+      assertThat( database.calorieGoals().objectList(), hasSize( 2 ) );
       assertThat( database.templates().objectList(), hasSize( 3 ) );
       
       Template meal = database.templates().objectList().get( 0 );
@@ -180,11 +183,12 @@ public class TemplatePersistenceTest {
       planPersistence = new TemplatePersistence<>( database, database.templates() );
       assertThat( database.templates().objectList(), is( empty() ) );
       planPersistence.readHandles().parse( planJson );
-      assertThat( database.templates().objectList(), hasSize( 1 ) );
-      
       shoppingPersistence = new MealPersistence<>( database, database.shoppingLists() );
       assertThat( database.shoppingLists().objectList(), is( empty() ) );
       shoppingPersistence.readHandles().parse( shoppingJson );
+
+      database.resolver().resolve();
+      assertThat( database.templates().objectList(), hasSize( 1 ) );
       assertThat( database.shoppingLists().objectList(), hasSize( 1 ) );
       
       Meal readPlan = database.shoppingLists().objectList().get( 0 );

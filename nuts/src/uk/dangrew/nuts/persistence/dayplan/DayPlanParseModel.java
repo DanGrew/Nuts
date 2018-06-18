@@ -15,8 +15,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import uk.dangrew.nuts.day.DayPlan;
-import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.persistence.resolution.DayPlanConsumedResolution;
+import uk.dangrew.nuts.persistence.resolution.Resolver;
 import uk.dangrew.nuts.persistence.template.TemplateParseModel;
 import uk.dangrew.nuts.store.Database;
 
@@ -25,6 +26,8 @@ import uk.dangrew.nuts.store.Database;
  * parsing {@link DayPlan}s.
  */
 class DayPlanParseModel extends TemplateParseModel< DayPlan > {
+   
+   private final Resolver resolver;
    
    private String dateString;
    private double consumedCalories;
@@ -35,8 +38,9 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
    
    private Set< FoodPortion > consumedPortions;
    
-   DayPlanParseModel( Database database, DayPlanStore templates ) {
-      super( database, templates );
+   DayPlanParseModel( Database database ) {
+      super( database, database.dayPlans() );
+      this.resolver = database.resolver();
       this.consumedPortions = new HashSet<>();
    }//End Constructor
    
@@ -80,40 +84,45 @@ class DayPlanParseModel extends TemplateParseModel< DayPlan > {
       this.consumed = false;
    }//End Method
    
-   @Override protected FoodPortion finishPortion() {
-      FoodPortion portion = super.finishPortion();
-      if ( portion == null ) {
-         return null;
-      }
-      
-      if ( consumed ) {
-         consumedPortions.add( portion );
-      }
-      
-      return portion;
+   @Override protected void finishPortion() {
+      resolver.submitStrategy( new DayPlanConsumedResolution( 
+         meals(), id, foodId, portionValue, consumed 
+      ) );
    }//End Method
    
-   void setDateString( String key, String value ) {
+   @Override protected void setId( String value ) {
+      super.setId( value );
+   }//End Method
+   
+   @Override protected void setFoodId( String value ) {
+      super.setFoodId( value );
+   }//End Method
+   
+   @Override protected void setPortionValue( Double value ) {
+      super.setPortionValue( value );
+   }//End Method
+   
+   void setDateString( String value ) {
       this.dateString = value;
    }//End Method
    
-   void setConsumedCalories( String key, Double value ) {
+   void setConsumedCalories( Double value ) {
       this.consumedCalories = value;
    }//End Method
    
-   void setAllowedCalories( String key, Double value ) {
+   void setAllowedCalories( Double value ) {
       this.allowedCalories = value;
    }//End Method
    
-   void setCalorieBalance( String key, Double value ) {
+   void setCalorieBalance( Double value ) {
       this.calorieBalance = value;
    }//End Method
    
-   void setIsBalanceReset( String key, Boolean value ) {
+   void setIsBalanceReset( Boolean value ) {
       this.isBalanceReset = value;
    }//End Method
    
-   void setConsumed( String key, Boolean value ) {
+   void setConsumed( Boolean value ) {
       this.consumed = value;
    }//End Method
    

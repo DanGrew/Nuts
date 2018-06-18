@@ -38,7 +38,7 @@ public class DayPlanPersistenceTest {
    @Test public void shouldReadData() {
       Database database = new Database();
       FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      DayPlanPersistence persistence = new DayPlanPersistence( database, database.dayPlans() );
+      DayPlanPersistence persistence = new DayPlanPersistence( database );
       CalorieGoalPersistence calorieGoalPersistence = new CalorieGoalPersistence( database.calorieGoals() );
       
       String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
@@ -52,6 +52,8 @@ public class DayPlanPersistenceTest {
       value = TestCommon.readFileIntoString( getClass(), "dayplans.txt" );
       json = new JSONObject( value );
       persistence.readHandles().parse( json );
+      
+      database.resolver().resolve();
       
       DayPlan meal = database.dayPlans().objectList().get( 0 );
       assertMealProperties( 
@@ -150,7 +152,7 @@ public class DayPlanPersistenceTest {
       foodItemPersistence.structure().build( foodItemJson );
       foodItemPersistence.writeHandles().parse( foodItemJson );
       
-      DayPlanPersistence persistence = new DayPlanPersistence( database, database.dayPlans() );
+      DayPlanPersistence persistence = new DayPlanPersistence( database );
       JSONObject mealJson = new JSONObject();
       persistence.structure().build( mealJson );
       persistence.writeHandles().parse( mealJson );
@@ -168,18 +170,17 @@ public class DayPlanPersistenceTest {
       
       assertThat( database.foodItems().objectList(), is( empty() ) );
       foodItemPersistence.readHandles().parse( foodItemJson );
-      assertThat( database.foodItems().objectList(), hasSize( 4 ) );
-      
       calorieGoalPersistence = new CalorieGoalPersistence( database.calorieGoals() );
-      
       assertThat( database.calorieGoals().objectList(), is( empty() ) );
       calorieGoalPersistence.readHandles().parse( goalJson );
-      assertThat( database.calorieGoals().objectList(), hasSize( 2 ) );
-      
-      persistence = new DayPlanPersistence( database, database.dayPlans() );
-      
+      persistence = new DayPlanPersistence( database );
       assertThat( database.dayPlans().objectList(), is( empty() ) );
       persistence.readHandles().parse( mealJson );
+
+      database.resolver().resolve();
+      
+      assertThat( database.foodItems().objectList(), hasSize( 4 ) );
+      assertThat( database.calorieGoals().objectList(), hasSize( 2 ) );
       assertThat( database.dayPlans().objectList(), hasSize( 3 ) );
       
       DayPlan meal = database.dayPlans().get( meal1.properties().id() );

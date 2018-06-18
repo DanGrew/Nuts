@@ -33,6 +33,10 @@
             {  
                "foodId":"1324",
                "portionValue":100
+            },
+            {  
+               "foodId":"8878886",
+               "portionValue":99
             }
          ]
       },

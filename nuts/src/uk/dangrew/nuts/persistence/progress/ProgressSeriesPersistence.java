@@ -16,9 +16,10 @@ import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
+import uk.dangrew.nuts.persistence.fooditems.ConceptPersistence;
 import uk.dangrew.nuts.store.Database;
 
-public class ProgressSeriesPersistence {
+public class ProgressSeriesPersistence implements ConceptPersistence {
    
    static final String SERIES_LIST = "seriesList";
    public static final String SERIES = "series";
@@ -102,15 +103,15 @@ public class ProgressSeriesPersistence {
       parserWithWriteHandles.when( NOTES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getNotes ) ) );
    }//End Method
    
-   public JsonStructure structure(){
+   @Override public JsonStructure structure(){
       return structure;
    }//End Method
    
-   public JsonParser readHandles(){
+   @Override public JsonParser readHandles(){
       return parserWithReadHandles;
    }//End Method
 
-   public JsonParser writeHandles(){
+   @Override public JsonParser writeHandles(){
       return parserWithWriteHandles;
    }//End Method
 }//End Class

@@ -3009,7 +3009,7 @@
       "loggedWeight": 0,
       "soldInWeight": 0,
       "protein": 1.9,
-      "name": "Avacado (100g)",
+      "name": "Avocado (100g)",
       "id": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
       "calories": 198
    },
@@ -3793,5 +3793,16 @@
       "name": "John West Sardines Olive Oil 120Gm (100g)",
       "id": "67b6db90-8bdd-464d-8da6-2a90b7dd681e",
       "calories": 218
+   },
+   {
+      "carbohydrates": 1.49,
+      "fiber": 0.17,
+      "fats": 26.52,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 18.87,
+      "name": "Tesco Finest British Traditional Pork Sausages 400G (102g)",
+      "id": "9397a5c1-259a-4f1f-b3c0-a0e10bc20f6e",
+      "calories": 320.45
    }
 ]}

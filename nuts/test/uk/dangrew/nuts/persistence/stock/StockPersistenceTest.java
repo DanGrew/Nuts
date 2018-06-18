@@ -30,6 +30,7 @@ public class StockPersistenceTest {
       value = TestCommon.readFileIntoString( getClass(), "stockLists.txt" );
       json = new JSONObject( value );
       persistence.readHandles().parse( json );
+      database.resolver().resolve();
       
       Stock stock = database.stockLists().objectList().get( 0 );
       assertThat( stock.portions(), hasSize( 4 ) );
@@ -81,12 +82,14 @@ public class StockPersistenceTest {
       
       assertThat( database.foodItems().objectList(), is( empty() ) );
       foodItemPersistence.readHandles().parse( foodItemJson );
-      assertThat( database.foodItems().objectList(), hasSize( 4 ) );
       
       persistence = new MealPersistence<>( database, database.stockLists() );
-      
       assertThat( database.stockLists().objectList(), is( empty() ) );
       persistence.readHandles().parse( stockJson );
+
+      database.resolver().resolve();
+      
+      assertThat( database.foodItems().objectList(), hasSize( 4 ) );
       assertThat( database.stockLists().objectList(), hasSize( 1 ) );
       
       Stock readStock = database.stockLists().objectList().get( 0 );

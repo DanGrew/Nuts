@@ -9,28 +9,28 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutorial.TutorialWindow;
-import uk.dangrew.nuts.persistence.fooditems.FoodSessions;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 
 public class CoreInterfaceOperationsTest {
 
    @Mock private TutorialWindow tutorialWindow;
-   @Mock private FoodSessions sessions;
+   @Mock private DatabaseIo databaseIo;
    private CoreInterfaceOperations systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      systemUnderTest = new CoreInterfaceOperations( tutorialWindow, sessions );
+      systemUnderTest = new CoreInterfaceOperations( tutorialWindow, databaseIo );
    }//End Method
 
    @Test public void shouldReadAutomatically() {
-      verify( sessions ).read();
+      verify( databaseIo ).read();
    }//End Method
    
    @Test public void shouldSaveOnCommand() {
       systemUnderTest.save();
-      verify( sessions ).write();
+      verify( databaseIo ).write();
    }//End Method
    
    @Test public void shouldShowTutorial() {

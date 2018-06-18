@@ -19,11 +19,12 @@ import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.calorie.Gender;
+import uk.dangrew.nuts.persistence.fooditems.ConceptPersistence;
 
 /**
  * {@link GoalPersistence} provides the architecture for reading and writing the {@link uk.dangrew.nuts.goal.Goal}.
  */
-public class CalorieGoalPersistence {
+public class CalorieGoalPersistence implements ConceptPersistence {
    
    static final String GOALS = "goals";
    static final String GOAL = "goal";
@@ -162,27 +163,15 @@ public class CalorieGoalPersistence {
       parserWithWriteHandles.when( PROTEIN_GOAL, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProteinGoal ) ) );
    }//End Method
    
-   /**
-    * Access to the {@link JsonStructure}.
-    * @return the {@link JsonStructure}.
-    */
-   public JsonStructure structure(){
+   @Override public JsonStructure structure(){
       return structure;
    }//End Method
    
-   /**
-    * Access to the {@link JsonParser} reader.
-    * @return the {@link JsonParser}.
-    */
-   public JsonParser readHandles(){
+   @Override public JsonParser readHandles(){
       return parserWithReadHandles;
    }//End Method
 
-   /**
-    * Access to the {@link JsonParser} writer.
-    * @return the {@link JsonParser}.
-    */
-   public JsonParser writeHandles(){
+   @Override public JsonParser writeHandles(){
       return parserWithWriteHandles;
    }//End Method
 }//End Class

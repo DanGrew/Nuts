@@ -48,6 +48,7 @@ public class DataLocation {
       planPersistence.readHandles().parse( json );
       
       database.stockLists().createConcept( "Stock" );
+      database.resolver().resolve();
    }//End Method
    
    /**
