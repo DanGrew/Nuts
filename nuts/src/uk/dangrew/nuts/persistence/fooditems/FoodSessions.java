@@ -12,19 +12,13 @@ package uk.dangrew.nuts.persistence.fooditems;
 
 import uk.dangrew.jupa.file.protocol.JarJsonPersistingProtocol;
 import uk.dangrew.jupa.file.protocol.JsonPersistingProtocol;
-import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
-import uk.dangrew.jupa.json.marshall.ModelMarshaller;
 import uk.dangrew.nuts.main.Nuts;
 import uk.dangrew.nuts.persistence.dayplan.DayPlanPersistence;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.persistence.goal.proportion.ProportionGoalPersistence;
-import uk.dangrew.nuts.persistence.labels.LabelPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
-import uk.dangrew.nuts.persistence.progress.ProgressSeriesPersistence;
 import uk.dangrew.nuts.persistence.setup.DataSetup;
 import uk.dangrew.nuts.persistence.stock.StockPersistence;
-import uk.dangrew.nuts.persistence.template.TemplatePersistence;
-import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -101,53 +95,44 @@ public class FoodSessions {
       this.databaseIo = new DatabaseIo( database )
                
                //goals must come first due to day plan dependency - should be fixed with resolver.
-               .withMarshaller( 
-                        marshallerFor( new CalorieGoalPersistence( database.calorieGoals() ), legacyGoalFileLocation ),
-                        FileIoProtocol.ReadOnly
+               .withMarshallerFor( 
+                        new CalorieGoalPersistence( database.calorieGoals() ), 
+                        legacyGoalFileLocation, 
+                        FileIoProtocol.ReadOnly 
                )
-               .withMarshaller( marshallerFor( new CalorieGoalPersistence( database.calorieGoals() ), calorieGoalsLocation ) )
-               .withMarshaller( 
-                        marshallerFor( new ProportionGoalPersistence( database.proportionGoals() ), proportionGoalsFileLocation ),
+               .withCalorieGoals( calorieGoalsLocation )
+               .withMarshallerFor(
+                        new ProportionGoalPersistence( database.proportionGoals() ), 
+                        proportionGoalsFileLocation,
                         setup::configureDefaultGoal
                )
                
-               .withMarshaller( marshallerFor( new FoodItemPersistence( database ), foodItemFileLocation ) )
-               .withMarshaller( marshallerFor( new MealPersistence<>( database, database.meals() ), mealFileLocation ) )
-               .withMarshaller( 
-                        marshallerFor( new MealPersistence<>( database, database.shoppingLists() ), shoppingListFileLocation ),
+               .withFoodItems( foodItemFileLocation )
+               .withMeals( mealFileLocation )
+               .withMarshallerFor( 
+                        new MealPersistence<>( database, database.shoppingLists() ), 
+                        shoppingListFileLocation,
                         setup::configureDefaultShoppingList
                )
-               .withMarshaller( 
-                        marshallerFor( new StockPersistence( database ), stockListFileLocation ),
+               .withMarshallerFor( 
+                        new StockPersistence( database ), 
+                        stockListFileLocation,
                         setup::configureDefaultStockListAndConnect
                )
-               .withMarshaller( marshallerFor( new TemplatePersistence<>( database, database.templates() ), templateFileLocation ) )
-               .withMarshaller( 
-                        marshallerFor( new DayPlanPersistence( database ), dayPlanFileLocation ),
+               .withTemplates( templateFileLocation )
+               .withMarshallerFor( new DayPlanPersistence( database ), 
+                        dayPlanFileLocation,
                         setup::configureDefaultDayPlans
                )
-               .withMarshaller( marshallerFor( new WeightRecordingPersistence( database ), weightRecordingLocation ) )
-               .withMarshaller( marshallerFor( new LabelPersistence( database ), labelFileLocation ) )
-               .withMarshaller( marshallerFor( new ProgressSeriesPersistence( database ), progressSeriesFileLocation ) )
+               .withWeightRecordings( weightRecordingLocation )
+               .withLabels( labelFileLocation )
+               .withProgressSeries( progressSeriesFileLocation )
                ;  
    }//End Constructor
    
    private static JarJsonPersistingProtocol protocolFor( String fileName ) {
       return new JarJsonPersistingProtocol( 
                FOLDER_NAME, fileName, Nuts.class 
-      );
-   }//End Method
-   
-   public ModelMarshaller marshallerFor( ConceptPersistence persistence, String filename, Class< ? > relativeTo ) {
-      return marshallerFor( persistence, new WorkspaceJsonPersistingProtocol( filename, relativeTo ) );
-   }//End Method
-   
-   public ModelMarshaller marshallerFor( ConceptPersistence persistence, JsonPersistingProtocol protocol ) {
-      return new ModelMarshaller( 
-               persistence.structure(), 
-               persistence.readHandles(), 
-               persistence.writeHandles(), 
-               protocol 
       );
    }//End Method
    

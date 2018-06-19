@@ -10,12 +10,13 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import javafx.util.Pair;
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
@@ -26,23 +27,11 @@ public class TemplatePersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      TemplatePersistence< Template > persistence = new TemplatePersistence<>( database, database.templates() );
-      CalorieGoalPersistence calorieGoalPersistence = new CalorieGoalPersistence( database.calorieGoals() );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
-      JSONObject json = new JSONObject( value );
-      foodItemPersistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
-      json = new JSONObject( value );
-      calorieGoalPersistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( getClass(), "templates.txt" );
-      json = new JSONObject( value );
-      persistence.readHandles().parse( json );
-      
-      database.resolver().resolve();
+      new DatabaseIo( database )
+         .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )
+         .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
+         .withTemplates( new WorkspaceJsonPersistingProtocol( "templates.txt", getClass() ) )
+         .read();
       
       Template meal = database.templates().objectList().get( 0 );
       assertMealProperties( 

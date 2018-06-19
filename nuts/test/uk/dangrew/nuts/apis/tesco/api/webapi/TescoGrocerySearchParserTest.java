@@ -12,10 +12,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.dangrew.jtt.connection.data.json.conversion.ApiResponseToJsonConverter;
-import uk.dangrew.kode.TestCommon;
-import uk.dangrew.nuts.apis.tesco.api.webapi.TescoApiConnector;
-import uk.dangrew.nuts.apis.tesco.api.webapi.TescoGrocerySearchParser;
-import uk.dangrew.nuts.apis.tesco.api.webapi.TescoParseRecorder;
+import uk.dangrew.kode.utility.io.IoCommon;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
@@ -42,7 +39,7 @@ public class TescoGrocerySearchParserTest {
    }//End Method
    
    @Test public void shouldParseSampleFile(){
-      JSONObject json = new JSONObject( TestCommon.readFileIntoString( getClass(), "grocery-search-sample.txt" ) );
+      JSONObject json = new JSONObject( new IoCommon().readFileIntoString( getClass(), "grocery-search-sample.txt" ) );
       systemUnderTest.parse( json );
       
       List< TescoFoodDescription > descriptions = recorder.getAndClearRecordedDescriptions();

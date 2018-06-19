@@ -3,7 +3,7 @@ package uk.dangrew.nuts.manual.data;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.kode.utility.io.IoCommon;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 
 public class TescoExamples {
@@ -23,7 +23,7 @@ public class TescoExamples {
    }//End Method
    
    public static Document readHtmlIntoDocument( String file ) {
-      String content = TestCommon.readFileIntoString( TescoExamples.class, file );
+      String content = new IoCommon().readFileIntoString( TescoExamples.class, file );
       return Jsoup.parse( content );
    }//End Method
 }//End Class

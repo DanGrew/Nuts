@@ -8,9 +8,10 @@ import static org.junit.Assert.assertThat;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.stock.Stock;
@@ -20,17 +21,10 @@ public class StockPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      MealPersistence< Stock > persistence = new MealPersistence<>( database, database.stockLists() );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
-      JSONObject json = new JSONObject( value );
-      foodItemPersistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( getClass(), "stockLists.txt" );
-      json = new JSONObject( value );
-      persistence.readHandles().parse( json );
-      database.resolver().resolve();
+      new DatabaseIo( database )
+         .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )
+         .withStockLists( new WorkspaceJsonPersistingProtocol( "stockLists.txt", getClass() ) )
+         .read();
       
       Stock stock = database.stockLists().objectList().get( 0 );
       assertThat( stock.portions(), hasSize( 4 ) );

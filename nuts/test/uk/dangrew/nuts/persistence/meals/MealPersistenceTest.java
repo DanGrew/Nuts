@@ -10,10 +10,11 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import javafx.util.Pair;
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -22,18 +23,10 @@ public class MealPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      MealPersistence< Meal > persistence = new MealPersistence<>( database, database.meals() );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
-      JSONObject json = new JSONObject( value );
-      foodItemPersistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( getClass(), "meals.txt" );
-      json = new JSONObject( value );
-      persistence.readHandles().parse( json );
-      
-      database.resolver().resolve();
+      new DatabaseIo( database )
+         .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )
+         .withMeals( new WorkspaceJsonPersistingProtocol( "meals.txt", getClass() ) )
+         .read();
       
       Meal meal = database.meals().objectList().get( 0 );
       assertMealProperties( 

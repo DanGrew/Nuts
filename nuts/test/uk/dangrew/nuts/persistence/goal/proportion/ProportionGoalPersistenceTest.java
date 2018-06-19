@@ -7,21 +7,20 @@ import static org.junit.Assert.assertThat;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionType;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.store.Database;
 
 public class ProportionGoalPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      ProportionGoalPersistence persistence = new ProportionGoalPersistence( database.proportionGoals() );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+         .withProportionGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
+         .read();
 
       assertGoal1IsParsed( database.proportionGoals().objectList().get( 0 ) );
       assertGoal2IsParsed( database.proportionGoals().objectList().get( 1 ) );

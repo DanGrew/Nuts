@@ -11,7 +11,8 @@ import java.util.List;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
 
@@ -21,11 +22,9 @@ public class ProgressSeriesPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      
-      ProgressSeriesPersistence persistence = new ProgressSeriesPersistence( database );
-      String value = TestCommon.readFileIntoString( getClass(), "progress-series.txt" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+         .withProgressSeries( new WorkspaceJsonPersistingProtocol( "progress-series.txt", getClass() ) )
+         .read();
       
       assertParsedSeries( database );
    }//End Method

@@ -7,10 +7,12 @@ import static org.junit.Assert.assertThat;
 import org.json.JSONObject;
 import org.junit.Test;
 
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.calorie.Gender;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.store.Database;
 
@@ -18,11 +20,9 @@ public class GoalPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      CalorieGoalPersistence persistence = new CalorieGoalPersistence( database.calorieGoals() );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+         .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
+         .read();
 
       assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), true );
       assertGoal2IsParsed( database.calorieGoals().objectList().get( 1 ) );
@@ -30,27 +30,20 @@ public class GoalPersistenceTest {
    
    @Test public void shouldReadFirstVersionData() {
       Database database = new Database();
-      CalorieGoalPersistence persistence = new CalorieGoalPersistence( database.calorieGoals() );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "goal-no-id-name.txt" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+         .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goal-no-id-name.txt", getClass() ) )
+         .read();
 
       assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), false );
    }//End Method
    
    @Test public void shouldRetainNewNameOfOriginalGoal() {
       Database database = new Database();
-      CalorieGoalPersistence persistence = new CalorieGoalPersistence( database.calorieGoals() );
+      new DatabaseIo( database )
+         .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goal-no-id-name.txt", getClass() ) )
+         .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
+         .read();
       
-      String value = TestCommon.readFileIntoString( getClass(), "goal-no-id-name.txt" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
-      json = new JSONObject( value );
-      persistence.readHandles().parse( json );
-
       assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), false );
       assertThat( database.calorieGoals().objectList().get( 0 ).properties().nameProperty().get(), is( "some-name" ) );
    }//End Method

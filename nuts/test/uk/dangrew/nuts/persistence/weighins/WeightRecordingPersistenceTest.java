@@ -9,7 +9,8 @@ import java.time.LocalDate;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.progress.weight.WeightRecording;
 import uk.dangrew.nuts.store.Database;
 
@@ -17,11 +18,9 @@ public class WeightRecordingPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      WeightRecordingPersistence persistence = new WeightRecordingPersistence( database );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "weight-progress.txt" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+         .withWeightRecordings( new WorkspaceJsonPersistingProtocol( "weight-progress.txt", getClass() ) )
+         .read();
 
       final WeightRecording first = database.weightProgress().records().get( 0 );
       assertThat( first.date(), is( LocalDate.of( 2017, 4, 24 ) ) );

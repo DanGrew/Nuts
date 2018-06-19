@@ -8,18 +8,11 @@
  */
 package uk.dangrew.nuts.manual.data;
 
-import org.json.JSONObject;
-
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.Gender;
-import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
-import uk.dangrew.nuts.persistence.meals.MealPersistence;
-import uk.dangrew.nuts.persistence.progress.ProgressSeriesPersistence;
-import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.template.Template;
 
 /**
  * Locator for test files.
@@ -31,22 +24,11 @@ public class DataLocation {
     * @param database the {@link Database} to load in to.
     */
    public static void loadSampleFoodData( Database database ) {
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      MealPersistence< Meal > mealPersistence = new MealPersistence<>( database, database.meals() );
-      MealPersistence< Template > planPersistence = new MealPersistence<>( database, database.templates() );
-      
-      String value = TestCommon.readFileIntoString( DataLocation.class, "food-items.json" );
-      JSONObject json = new JSONObject( value );
-      foodItemPersistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( DataLocation.class, "meals.json" );
-      json = new JSONObject( value );
-      mealPersistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( DataLocation.class, "plans.json" );
-      json = new JSONObject( value );
-      planPersistence.readHandles().parse( json );
-      
+      new DatabaseIo( database )
+               .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.json", DataLocation.class ) )
+               .withMeals( new WorkspaceJsonPersistingProtocol( "meals.json", DataLocation.class ) )
+               .withTemplates( new WorkspaceJsonPersistingProtocol( "plans.json", DataLocation.class ) )
+               .read();
       database.stockLists().createConcept( "Stock" );
       database.resolver().resolve();
    }//End Method
@@ -56,19 +38,17 @@ public class DataLocation {
     * @param database the {@link Database} to load in to.
     */
    public static void loadSampleWeightRecordings( Database database ) {
-      WeightRecordingPersistence persistence = new WeightRecordingPersistence( database );
-      
-      String value = TestCommon.readFileIntoString( DataLocation.class, "weightRecordings.json" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+               .withWeightRecordings( new WorkspaceJsonPersistingProtocol( "weightRecordings.json", DataLocation.class ) )
+               .read();
+      database.resolver().resolve();
    }//End Method
    
    public static void loadSampleProgressSeries( Database database ) {
-      ProgressSeriesPersistence persistence = new ProgressSeriesPersistence( database );
-      
-      String value = TestCommon.readFileIntoString( DataLocation.class, "progressSeries.json" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+               .withProgressSeries( new WorkspaceJsonPersistingProtocol( "progressSeries.json", DataLocation.class ) )
+               .read();
+      database.resolver().resolve();
    }//End Method
    
    public static void configureExampleGoal( CalorieGoal calorieGoal ) {

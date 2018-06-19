@@ -8,9 +8,10 @@ import static org.junit.Assert.assertThat;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.label.Label;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.Concept;
@@ -19,17 +20,10 @@ public class LabelPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
-      JSONObject json = new JSONObject( value );
-      foodItemPersistence.readHandles().parse( json );
-      
-      LabelPersistence persistence = new LabelPersistence( database );
-      
-      value = TestCommon.readFileIntoString( getClass(), "labels.txt" );
-      json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+         .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )
+         .withLabels( new WorkspaceJsonPersistingProtocol( "labels.txt", getClass() ) )
+         .read();
       
       Label label = database.labels().objectList().get( 0 );
       assertLabelProperties( 

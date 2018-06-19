@@ -7411,13 +7411,34 @@
    {
       "date": "2018-06-19",
       "allowedCalories": 0,
-      "goalId": "java.lang.Object@5f5513be",
+      "goalId": "7a663267-6a0a-4e51-b5be-a66d11a62510",
       "isBalanceReset": false,
       "name": "2018-06-19",
       "id": "ed8a6cd7-84d2-4c05-b617-7182c4ed57ef",
       "consumedCalories": 0,
       "calorieBalance": -14300,
-      "portions": []
+      "portions": [
+         {
+            "consumed": true,
+            "foodId": "7ced4d79-d83d-4393-819c-027bc2eef1ef",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
+            "portionValue": 100
+         },
+         {
+            "consumed": true,
+            "foodId": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
+            "portionValue": 200
+         },
+         {
+            "consumed": true,
+            "foodId": "5d2708b8-3b83-45c6-a22e-8e4043c03897",
+            "portionValue": 100
+         }
+      ]
    },
    {
       "date": "2017-04-30",

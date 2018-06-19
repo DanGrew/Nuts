@@ -1999,7 +1999,7 @@
       ]
    },
    {
-      "name": "Almond Flax Cookies",
+      "name": "Peanut Flax Cookies",
       "id": "d610a804-f314-4bfc-8059-7d816f535bfa",
       "portions": [
          {
@@ -3505,7 +3505,7 @@
       ]
    },
    {
-      "name": "Almond Flax Cookies (with coconut)",
+      "name": "Peanut Flax Cookies (with coconut)",
       "id": "4943775b-54c3-4708-9b90-3d5d4e9f2053",
       "portions": [
          {
@@ -3567,7 +3567,7 @@
             "portionValue": 250
          },
          {
-            "foodId": "77328e66-d56b-4075-b38f-32a72311261c",
+            "foodId": "d7499f84-6888-4584-af84-e242abc1c2cc",
             "portionValue": 10
          },
          {

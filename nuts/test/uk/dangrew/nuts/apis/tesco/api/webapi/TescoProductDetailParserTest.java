@@ -2,15 +2,14 @@ package uk.dangrew.nuts.apis.tesco.api.webapi;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
 
 import org.json.JSONObject;
 import org.junit.Test;
 
-import uk.dangrew.kode.TestCommon;
-import uk.dangrew.nuts.apis.tesco.api.webapi.TescoProductDetailParser;
+import uk.dangrew.kode.utility.io.IoCommon;
 import uk.dangrew.nuts.apis.tesco.database.TescoFoodDescriptionStore;
 import uk.dangrew.nuts.apis.tesco.model.api.GuidelineDailyAmountReference;
 import uk.dangrew.nuts.apis.tesco.model.api.ProductDetail;
@@ -19,7 +18,7 @@ import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 public class TescoProductDetailParserTest {
 
    @Test public void shouldParseSampleDate() {
-      String data = TestCommon.readFileIntoString( getClass(), "product-detail-sample.txt" );
+      String data = new IoCommon().readFileIntoString( getClass(), "product-detail-sample.txt" );
       JSONObject json = new JSONObject( data );
       
       TescoFoodDescriptionStore store = new TescoFoodDescriptionStore();

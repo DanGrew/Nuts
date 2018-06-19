@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.store.Database;
 
@@ -16,11 +16,9 @@ public class FoodItemPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      FoodItemPersistence persistence = new FoodItemPersistence( database );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
-      JSONObject json = new JSONObject( value );
-      persistence.readHandles().parse( json );
+      new DatabaseIo( database )
+         .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )
+         .read();
       
       FoodItem item = database.foodItems().objectList().get( 0 );
       assertFoodItemProperties( item, "de3c984c-f742-4cf7-98fd-501e40fa2291", "Egg", 0.6, 5.0, 6.0, 0.45, 1.0, 15.0 );

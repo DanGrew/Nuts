@@ -11,12 +11,13 @@ import java.time.LocalDate;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import uk.dangrew.kode.TestCommon;
+import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
+import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.store.Database;
@@ -37,22 +38,11 @@ public class DayPlanPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
-      DayPlanPersistence persistence = new DayPlanPersistence( database );
-      CalorieGoalPersistence calorieGoalPersistence = new CalorieGoalPersistence( database.calorieGoals() );
-      
-      String value = TestCommon.readFileIntoString( getClass(), "food-items.txt" );
-      JSONObject json = new JSONObject( value );
-      foodItemPersistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( getClass(), "goals.txt" );
-      json = new JSONObject( value );
-      calorieGoalPersistence.readHandles().parse( json );
-      
-      value = TestCommon.readFileIntoString( getClass(), "dayplans.txt" );
-      json = new JSONObject( value );
-      persistence.readHandles().parse( json );
-      
+      new DatabaseIo( database )
+               .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )
+               .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
+               .withDayPlans( new WorkspaceJsonPersistingProtocol( "dayplans.txt", getClass() ) )
+               .read();
       database.resolver().resolve();
       
       DayPlan meal = database.dayPlans().objectList().get( 0 );
