@@ -47,6 +47,9 @@ public class TemplateParseModel< FoodTypeT extends Template > extends MealParseM
       super.finishMeal();
       Template template = meals().get( id() );
       
+      if ( goalId == null || goalId.trim().length() == 0 ) {
+         return;
+      }
       Goal resolvedGoal = database().calorieGoals().get( goalId );
       if ( resolvedGoal == null ) {
          resolvedGoal = database().proportionGoals().get( goalId );

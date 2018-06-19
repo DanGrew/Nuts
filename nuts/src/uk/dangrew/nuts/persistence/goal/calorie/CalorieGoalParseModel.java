@@ -109,156 +109,71 @@ class CalorieGoalParseModel {
       goalImpl.properties().protein().set( proteinGoal );
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setId( String key, String value ) {
+   void setId( String value ) {
       this.id = value;
    }//End Method
    
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setName( String key, String value ) {
+   void setName( String value ) {
       this.name = value;
    }//End Method
    
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setAge( String key, Double value ) {
+   void setAge( Double value ) {
       this.age = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setWeight( String key, Double value ) {
+   void setWeight( Double value ) {
       this.weight = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setHeight( String key, Double value ) {
+   void setHeight( Double value ) {
       this.height = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setGender( String key, Gender value ) {
+   void setGender( Gender value ) {
       this.gender = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setBmr( String key, Double value ) {
+   void setBmr( Double value ) {
       this.bmr = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setPal( String key, Double value ) {
+   void setPal( Double value ) {
       this.pal = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setTee( String key, Double value ) {
+   void setTee( Double value ) {
       this.tee = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setExerciseCalories( String key, Double value ) {
+   void setExerciseCalories( Double value ) {
       this.exerciseCalories = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setCalorieDeficit( String key, Double value ) {
+   void setCalorieDeficit( Double value ) {
       this.calorieDeficit = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setProteinPerPound( String key, Double value ) {
+   void setProteinPerPound( Double value ) {
       this.proteinPerPound = value;
    }//End Method
 
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setFatPerPound( String key, Double value ) {
+   void setFatPerPound( Double value ) {
       this.fatPerPound = value;
    }//End Method
    
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setCalorieGoal( String key, Double value ) {
+   void setCalorieGoal( Double value ) {
       this.calorieGoal = value;
    }//End Method
    
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setCarbohydratesGoal( String key, Double value ) {
+   void setCarbohydratesGoal( Double value ) {
       this.carbohydratesGoal = value;
    }//End Method
    
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setFatsGoal( String key, Double value ) {
+   void setFatsGoal( Double value ) {
       this.fatGoal = value;
    }//End Method
    
-   /**
-    * Setter for the property.
-    * @param key the parse key.
-    * @param value the value.
-    */
-   void setProteinGoal( String key, Double value ) {
+   void setProteinGoal( Double value ) {
       this.proteinGoal = value;
    }//End Method
    

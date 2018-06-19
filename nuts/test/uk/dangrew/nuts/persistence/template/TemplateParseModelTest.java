@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.persistence.template;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -33,6 +34,14 @@ public class TemplateParseModelTest {
       systemUnderTest = new TemplateParseModel<>( database, database.templates() );
    }//End Method
 
+   @Test public void shouldIgnoreEmptyReference(){
+      systemUnderTest.setId( parsedTemplate.properties().id() );
+      systemUnderTest.setGoalId( "  " );
+      systemUnderTest.finishMeal();
+      
+      assertThat( parsedTemplate.goalAnalytics().goal().get(), is( nullValue() ) );
+   }//End Method
+   
    @Test public void shouldResolveCalorieGoal(){
       systemUnderTest.setId( parsedTemplate.properties().id() );
       systemUnderTest.setGoalId( calorieGoal.properties().id() );
