@@ -11,6 +11,7 @@ package uk.dangrew.nuts.persistence.weighins;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javafx.beans.property.ObjectProperty;
 import uk.dangrew.nuts.progress.weight.WeightRecording;
@@ -51,6 +52,22 @@ class WeightRecordingWriteModel {
    void startWritingWeighIns( String key ) {
       buffer.clear();
       buffer.addAll( database.weightProgress().records() );
+      buffer.removeIf( this::hasNoData );
+   }//End Method
+   
+   private boolean hasNoData( WeightRecording recording ) {
+      return 
+               isNullOrEmpty( recording.morningWeighIn().leanMass() ) && 
+               isNullOrEmpty( recording.morningWeighIn().bodyFat() ) && 
+               isNullOrEmpty( recording.morningWeighIn().weight() ) &&
+               isNullOrEmpty( recording.eveningWeighIn().leanMass() ) && 
+               isNullOrEmpty( recording.eveningWeighIn().bodyFat() ) && 
+               isNullOrEmpty( recording.eveningWeighIn().weight() )
+      ;
+   }//End Method
+   
+   private boolean isNullOrEmpty( ObjectProperty< Double > property ) {
+      return Optional.ofNullable( property.get() ).orElse( 0.0 ) == 0.0;
    }//End Method
    
    /**

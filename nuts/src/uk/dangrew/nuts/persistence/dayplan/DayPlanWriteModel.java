@@ -37,8 +37,9 @@ class DayPlanWriteModel extends TemplateWriteModel< DayPlan > {
       buffer().clear();
       buffer().addAll( meals().objectList().stream()
                .filter( d -> d.date() != null )
-               .collect( Collectors.toSet() ) 
+               .collect( Collectors.toList() ) 
       );
+      buffer().sort( ( a, b ) -> a.date().compareTo( b.date() ) );
    }//End Method
    
    String getDateString( String key ) {
