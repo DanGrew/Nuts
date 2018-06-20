@@ -1,28 +1,27 @@
 package uk.dangrew.nuts.graphics.database;
 
-import java.util.function.Function;
-
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
+import uk.dangrew.nuts.store.DatabaseType;
 import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
 
 public enum FoodTypes {
 
-   FoodItems( Database::foodItems ),
-   Meals( Database::meals ),
-   Templates( Database::templates );
+   FoodItems( DatabaseType.FoodItems ),
+   Meals( DatabaseType.Meals ),
+   Templates( DatabaseType.Templates );
    
-   private final Function< Database, ConceptStore< ? extends Food > > conceptRedirect;
+   private final DatabaseType type;
    
-   private FoodTypes( Function< Database, ConceptStore< ? extends Food > > conceptRedirect ) {
-      this.conceptRedirect = conceptRedirect;
+   private FoodTypes( DatabaseType type ) {
+      this.type = type;
    }//End Constructor
    
    public ConceptStore< Food > redirect( Database database ) {
-      return ( ConceptStore< Food > )conceptRedirect.apply( database );
+      return type.redirect( database );
    }//End Method
    
    public static FoodTypes typeOf( Food food ) {

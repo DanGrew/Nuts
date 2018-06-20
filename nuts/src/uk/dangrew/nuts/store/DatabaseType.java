@@ -20,8 +20,8 @@ public enum DatabaseType {
       this.conceptRedirect = conceptRedirect;
    }//End Constructor
    
-   public ConceptStore< Concept > redirect( Database database ) {
-      return ( ConceptStore< Concept > )conceptRedirect.apply( database );
+   public < ConceptT > ConceptStore< ConceptT > redirect( Database database ) {
+      return ( ConceptStore< ConceptT > )conceptRedirect.apply( database );
    }//End Method
 
 }//End Class
