@@ -29,8 +29,8 @@ public class TemplatePersistenceTest {
       Database database = new Database();
       new DatabaseIo( database )
          .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )
-         .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
          .withTemplates( new WorkspaceJsonPersistingProtocol( "templates.txt", getClass() ) )
+         .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
          .read();
       
       Template meal = database.templates().objectList().get( 0 );

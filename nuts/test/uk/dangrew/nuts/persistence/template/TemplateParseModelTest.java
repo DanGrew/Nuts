@@ -38,6 +38,7 @@ public class TemplateParseModelTest {
       systemUnderTest.setId( parsedTemplate.properties().id() );
       systemUnderTest.setGoalId( "  " );
       systemUnderTest.finishMeal();
+      database.resolver().resolve();
       
       assertThat( parsedTemplate.goalAnalytics().goal().get(), is( nullValue() ) );
    }//End Method
@@ -46,6 +47,7 @@ public class TemplateParseModelTest {
       systemUnderTest.setId( parsedTemplate.properties().id() );
       systemUnderTest.setGoalId( calorieGoal.properties().id() );
       systemUnderTest.finishMeal();
+      database.resolver().resolve();
       
       assertThat( parsedTemplate.goalAnalytics().goal().get(), is( calorieGoal ) );
    }//End Method
@@ -54,6 +56,7 @@ public class TemplateParseModelTest {
       systemUnderTest.setId( parsedTemplate.properties().id() );
       systemUnderTest.setGoalId( proportionGoal.properties().id() );
       systemUnderTest.finishMeal();
+      database.resolver().resolve();
       
       assertThat( parsedTemplate.goalAnalytics().goal().get(), is( proportionGoal ) );
    }//End Method

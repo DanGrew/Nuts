@@ -94,18 +94,6 @@ public class FoodSessions {
       this.setup = new DataSetup( database );
       this.databaseIo = new DatabaseIo( database )
                
-               //goals must come first due to day plan dependency - should be fixed with resolver.
-               .withMarshallerFor( 
-                        new CalorieGoalPersistence( database.calorieGoals() ), 
-                        legacyGoalFileLocation, 
-                        FileIoProtocol.ReadOnly 
-               )
-               .withCalorieGoals( calorieGoalsLocation )
-               .withMarshallerFor(
-                        new ProportionGoalPersistence( database.proportionGoals() ), 
-                        proportionGoalsFileLocation,
-                        setup::configureDefaultGoal
-               )
                
                .withFoodItems( foodItemFileLocation )
                .withMeals( mealFileLocation )
@@ -123,6 +111,17 @@ public class FoodSessions {
                .withMarshallerFor( new DayPlanPersistence( database ), 
                         dayPlanFileLocation,
                         setup::configureDefaultDayPlans
+               )
+               .withMarshallerFor( 
+                        new CalorieGoalPersistence( database.calorieGoals() ), 
+                        legacyGoalFileLocation, 
+                        FileIoProtocol.ReadOnly 
+               )
+               .withCalorieGoals( calorieGoalsLocation )
+               .withMarshallerFor(
+                        new ProportionGoalPersistence( database.proportionGoals() ), 
+                        proportionGoalsFileLocation,
+                        setup::configureDefaultGoal
                )
                .withWeightRecordings( weightRecordingLocation )
                .withLabels( labelFileLocation )

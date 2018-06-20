@@ -11,6 +11,7 @@ package uk.dangrew.nuts.persistence.template;
 
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.persistence.meals.MealParseModel;
+import uk.dangrew.nuts.persistence.resolution.TemplateGoalResolution;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
@@ -45,20 +46,7 @@ public class TemplateParseModel< FoodTypeT extends Template > extends MealParseM
     */
    @Override protected void finishMeal() {
       super.finishMeal();
-      Template template = meals().get( id() );
-      
-      if ( goalId == null || goalId.trim().length() == 0 ) {
-         return;
-      }
-      Goal resolvedGoal = database().calorieGoals().get( goalId );
-      if ( resolvedGoal == null ) {
-         resolvedGoal = database().proportionGoals().get( goalId );
-      }
-      if ( resolvedGoal == null ) {
-         System.out.println( "Cannot find goal: " + goalId );
-         return;
-      }
-      template.goalAnalytics().goal().set( resolvedGoal );
+      database().resolver().submitStrategy( new TemplateGoalResolution( meals(), id(), goalId ) );
    }//End Method
    
    @Override protected void setId( String value ) {

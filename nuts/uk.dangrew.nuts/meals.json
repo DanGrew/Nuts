@@ -3608,7 +3608,7 @@
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
+            "portionValue": 100
          },
          {
             "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
@@ -3692,19 +3692,19 @@
       "portions": [
          {
             "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 100
+            "portionValue": 50
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
+            "portionValue": 100
          },
          {
             "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
-            "portionValue": 200
+            "portionValue": 100
          },
          {
             "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 200
+            "portionValue": 100
          }
       ]
    },
@@ -3930,7 +3930,7 @@
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
+            "portionValue": 100
          },
          {
             "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
@@ -4069,6 +4069,50 @@
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Brazil Flax Cookies",
+      "id": "670a289f-b362-4728-bb05-f8b766cffde4",
+      "portions": [
+         {
+            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
+            "portionValue": 50
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Macadamia (Splice) Pancake",
+      "id": "3504c371-cd5e-4ce2-802e-0fb15f34e689",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
+            "portionValue": 33
+         },
+         {
+            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+            "portionValue": 50
          }
       ]
    }
