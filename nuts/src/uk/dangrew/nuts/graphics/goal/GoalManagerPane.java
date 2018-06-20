@@ -14,6 +14,7 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
+import uk.dangrew.nuts.graphics.table.ConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
@@ -24,6 +25,7 @@ public class GoalManagerPane extends GridPane {
    static final double CALCULATION_VIEW_HEIGHT_PROPORTION = 75.0;
 
    private final ConceptTableWithControls< Goal > goalsTable;
+   private final GoalTableController goalsController;
    private final GoalCalculationView goalView;
 
    public GoalManagerPane( NutsSettings settings, Database database ) {
@@ -38,14 +40,14 @@ public class GoalManagerPane extends GridPane {
       );
       styling.configureConstraintsForEvenColumns( this, 1 );
 
-      add( goalsTable = new ConceptTableWithControls<>( 
-               "Goals", 
+      add( goalsTable =  
                new TableComponents< Goal >()
                   .withSettings( settings )
                   .withColumns( FoodTableColumns< Goal >::new )
-                  .withController( new GoalTableController( database.calorieGoals(), database.proportionGoals() ) )
-                  .buildTable() 
-      ), 0, 0 );
+                  .withController( goalsController = new GoalTableController( database.calorieGoals(), database.proportionGoals() ) )
+                  .withControls( new ConceptControls( goalsController ) )
+                  .buildTableWithControls( "Goals" ),
+      0, 0 );
       ScrollPane scroller = new ScrollPane( goalView = new GoalCalculationView() );
       scroller.setFitToWidth( true );
       add( scroller, 0, 1 );

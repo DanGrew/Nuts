@@ -50,7 +50,6 @@ public class NutsTabs extends AnchorPane {
       createConcreteTab( "Graph", new ProgressSeriesPane( database ) );
       createConcreteTab( "Labels", new UiLabelConfigurationView( database ) );
       createConcreteTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );
-      createConcreteTab( "Shopping", new ShoppingPane( database, database.shoppingLists().objectList().get( 0 ) ) );
       createConcreteTab( "Weigh Ins", new WeightRecordingsPane( database.weightProgress() ) );
       createConcreteTab( "Tools", new TitledPane( "Dry Weight Conversion", new DryWeightToolPane() ) );
    }//End Constructor

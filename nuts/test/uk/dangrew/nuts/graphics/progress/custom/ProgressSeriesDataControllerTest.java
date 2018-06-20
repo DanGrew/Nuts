@@ -4,9 +4,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
@@ -23,6 +21,8 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.common.UiTimestampInputDialog;
 import uk.dangrew.nuts.graphics.graph.custom.GraphSeriesVisibility;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
 
@@ -32,7 +32,7 @@ public class ProgressSeriesDataControllerTest {
    private ProgressSeries second;
    
    private Database database;
-   private ProgressSeriesTable seriesTable;
+   private ConceptTable< ProgressSeries > seriesTable;
    private ProgressSeriesDataTable dataTable;
    private ProgressEntryTextPane textPane;
    
@@ -46,7 +46,11 @@ public class ProgressSeriesDataControllerTest {
       systemUnderTest = new ProgressSeriesDataController( timestampInput );
       
       dataTable = new ProgressSeriesDataTable( systemUnderTest );
-      seriesTable = new ProgressSeriesTable( database = new Database(), graphController );
+      seriesTable = new TableComponents< ProgressSeries >()
+               .withDatabase( database = new Database() )
+               .withColumns( new ProgressSeriesTableColumns( graphController ) )
+               .withController( new ProgressSeriesTableController( database.progressSeries(), graphController ) )
+               .buildTable();
       textPane = new ProgressEntryTextPane( systemUnderTest );
       systemUnderTest.associate( seriesTable );
       systemUnderTest.associate( textPane );

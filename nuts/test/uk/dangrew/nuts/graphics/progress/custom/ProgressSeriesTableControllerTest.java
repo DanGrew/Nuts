@@ -9,13 +9,15 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.graph.custom.GraphSeriesVisibility;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
 
 public class ProgressSeriesTableControllerTest {
 
    private Database database;
-   private ProgressSeriesTable table;
+   private ConceptTable< ProgressSeries > table;
    
    @Mock private GraphSeriesVisibility seriesVisibility;
    private ProgressSeriesTableController systemUnderTest;
@@ -25,7 +27,11 @@ public class ProgressSeriesTableControllerTest {
       MockitoAnnotations.initMocks( this );
       database = new Database();
       database.progressSeries().createConcept( "Anything" );
-      table = new ProgressSeriesTable( database, seriesVisibility );
+      table = new TableComponents< ProgressSeries >()
+               .withDatabase( database )
+               .withColumns( new ProgressSeriesTableColumns( seriesVisibility ) )
+               .withController( new ProgressSeriesTableController( database.progressSeries(), seriesVisibility ) )
+               .buildTable();
       systemUnderTest = new ProgressSeriesTableController( database.progressSeries(), seriesVisibility );;
       systemUnderTest.associate( table );
    }//End Method

@@ -43,6 +43,11 @@ public class TableComponents< TypeT extends Concept >{
       return this;
    }//End Method
    
+   public TableComponents< TypeT > withColumns( ConceptTableColumnsPopulator< TypeT > columns ) {
+      this.columnsPopulator = columns;
+      return this;
+   }//End Method
+   
    public TableComponents< TypeT > withController( ConceptTableController< TypeT > controller ) {
       this.controller = controller;
       return this;

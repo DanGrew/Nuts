@@ -16,8 +16,8 @@ import uk.dangrew.nuts.graphics.table.ConceptOptions;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
+import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
-import uk.dangrew.nuts.store.Database;
 
 /**
  * {@link ShoppingNeedsTableColumns} provides a {@link FoodTableColumnsPopulator} for a {@link FoodTable}.
@@ -30,18 +30,11 @@ public class ShoppingNeedsTableColumns implements ConceptTableColumnsPopulator< 
    private final TableConfiguration configuration;
    private final ConceptOptions< Food > conceptOptions;
 
-   /**
-    * Constructs a new {@link ShoppingNeedsTableColumns}.
-    * @param database the {@link Database} for access to plans.
-    */
-   public ShoppingNeedsTableColumns( Database database ) {
-      this.conceptOptions = new ConceptOptionsImpl<>( Arrays.asList( database.templates() ) );
+   public ShoppingNeedsTableColumns( TableComponents< FoodPortion > components ) {
+      this.conceptOptions = new ConceptOptionsImpl<>( Arrays.asList( components.database().templates() ) );
       this.configuration = new TableConfiguration();
    }//End Constructor
       
-   /**
-    * {@inheritDoc}
-    */
    @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
       configuration.initialiseFoodDropDownColumn( 
                table, 

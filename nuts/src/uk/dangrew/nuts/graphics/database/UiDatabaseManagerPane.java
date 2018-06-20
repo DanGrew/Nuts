@@ -60,16 +60,14 @@ public class UiDatabaseManagerPane extends GridPane {
                   .withoutFilter( FoodFilters.Default )
                   .withoutFilter( FoodFilters.Selection )
       ), 0, 0 );
-      add( foodTable = new ConceptTableWithControls<>( 
-               "Foods", 
-               new TableComponents< Food >()
+      add( foodTable = new TableComponents< Food >()
                         .withSettings( settings )
                         .withFoodModel( comparisonModel )
                         .withColumns( UiComparableFoodTableColumns::new ) 
                         .withController( recipeController )
-                        .buildTable(),
-               new RecipeControls( recipeController )
-      ), 0, 1 );
+                        .withControls( new RecipeControls( recipeController ) )
+                        .buildTableWithControls( "Foods" ), 
+      0, 1 );
       add( comparisonTable = new TableComponents< Food >()
                   .withSettings( settings )
                   .withColumns( FoodTableColumns< Food >::new )

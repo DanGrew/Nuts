@@ -16,15 +16,11 @@ import uk.dangrew.nuts.system.Concept;
  */
 public class ConceptTableWithControls< TypeT extends Concept > extends TableWithControls< ConceptTableRow< TypeT >, TypeT > {
 
-   public ConceptTableWithControls( String title, ConceptTable< TypeT > table ) {
-      this( new JavaFxStyle(), title, table, new ConceptControls( table.controller() ) );
-   }//End Constructor
-   
-   public ConceptTableWithControls( String title, ConceptTable< TypeT > table, ConceptControls controls ) {
+   ConceptTableWithControls( String title, ConceptTable< TypeT > table, ConceptControls controls ) {
       this( new JavaFxStyle(), title, table, controls );
    }//End Constructor
    
-   public ConceptTableWithControls( 
+   ConceptTableWithControls( 
             JavaFxStyle styling, 
             String title, 
             ConceptTable< TypeT > table,
