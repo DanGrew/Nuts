@@ -38,7 +38,10 @@ public class FoodSelectionWindow {
    public void show( Template template ){
       selectionApplier.focus( template );
       selectionPane.selectForTemplate( template );
-      PlatformImpl.runAndWait( stage::showAndWait );
+      
+      if ( !stage.isShowing() ) {
+         PlatformImpl.runAndWait( stage::showAndWait );
+      }
    }//End Method
    
 }//End Class

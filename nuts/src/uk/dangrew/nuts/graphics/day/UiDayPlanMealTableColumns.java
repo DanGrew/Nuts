@@ -13,7 +13,6 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.graphics.meal.MealTableColumns;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 
@@ -26,14 +25,14 @@ public class UiDayPlanMealTableColumns extends MealTableColumns {
       this.consumptionProperties = components.checkBoxController();
    }//End Constructor
    
-   @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
+   @Override protected void changeColumns() {
       TableColumn< ConceptTableRow< FoodPortion >, Boolean > column = new TableColumn<>();
       column.setCellValueFactory( param -> consumptionProperties.propertyFor( param.getValue().concept() ) );
       column.setCellFactory( CheckBoxTableCell.forTableColumn( column ) );
       column.setEditable( true );
-      table.getColumns().add( column );
+      table().getColumns().add( column );
       
-      super.populateColumns( table );
+      super.changeColumns();
    }//End Method
 
 }//End Class

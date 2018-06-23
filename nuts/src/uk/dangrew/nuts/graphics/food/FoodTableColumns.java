@@ -13,6 +13,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import uk.dangrew.nuts.configuration.NutritionalUnitShowingListenerImpl;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodProperties;
@@ -34,13 +35,31 @@ public class FoodTableColumns< FoodTypeT extends Food > implements ConceptTableC
    
    private final NutsSettings settings;
    private final TableConfiguration configuration;
+   private ConceptTable< FoodTypeT > table;
 
    public FoodTableColumns( TableComponents< FoodTypeT > components ) {
       this.settings = components.settings();
       this.configuration = new TableConfiguration();
+      this.settings.registrations().registerForUnitShowing( new NutritionalUnitShowingListenerImpl( 
+               u -> populateColumns( table ), u -> populateColumns( table )
+      ) );
    }//End Constructor
    
-   @Override public void populateColumns( ConceptTable< FoodTypeT > table ) {
+   protected ConceptTable< FoodTypeT > table() {
+      return table;
+   }//End Method
+   
+   @Override public final void populateColumns( ConceptTable< FoodTypeT > table ) {
+      allocateTable( table );
+      changeColumns();
+   }//End Method
+   
+   private void allocateTable( ConceptTable< FoodTypeT > table ) {
+      this.table = table;
+      this.table.getColumns().clear();
+   }//End Method
+   
+   protected void changeColumns() {
       standardNameColumn( table, COLUMN_TITLE_FOOD, COLUMN_WIDTH_NAME );
       columnsForShowing( 
                table, 

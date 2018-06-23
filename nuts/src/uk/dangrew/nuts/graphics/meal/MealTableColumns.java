@@ -15,7 +15,6 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.ConceptOptions;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
@@ -42,9 +41,9 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
       ) );
    }//End Constructor
    
-   @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
+   @Override protected void changeColumns() {
       configuration.initialiseFoodDropDownColumn( 
-               table, 
+               table(), 
                COLUMN_TITLE_FOOD, 
                COLUMN_WIDTH_FOOD, 
                r -> r.concept().food(), 
@@ -52,12 +51,12 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
                conceptOptions 
       );
       
-      configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, COLUMN_WIDTH_PORTION );
+      configuration.initialisePortionColumn( table(), COLUMN_TITLE_PORTION, COLUMN_WIDTH_PORTION );
       
       double remainingWidth = 0.98 - COLUMN_WIDTH_FOOD - COLUMN_WIDTH_PORTION;
-      columnsForShowing( table, f -> f.properties().nutrition(), NutritionalUnit::name, remainingWidth );
+      columnsForShowing( table(), f -> f.properties().nutrition(), NutritionalUnit::name, remainingWidth );
       
-      table.getColumns().forEach( c -> c.setSortable( false ) );
+      table().getColumns().forEach( c -> c.setSortable( false ) );
    }//End Method
 
 }//End Class

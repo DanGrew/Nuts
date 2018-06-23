@@ -36,5 +36,9 @@ public class NutsSettingsTest {
       assertThat( systemUnderTest.showingPropertyFor( NutritionalUnit.Protein ).get(), is( true ) );
       assertThat( systemUnderTest.showingPropertyFor( NutritionalUnit.Fibre ).get(), is( true ) );
    }//End Method
+   
+   @Test public void shouldProvideRegistrations(){
+      assertThat( systemUnderTest.registrations(), is( notNullValue() ) );
+   }//End Method
 
 }//End Class

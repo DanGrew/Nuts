@@ -12,7 +12,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import uk.dangrew.jupa.javafx.platform.PlatformLifecycle;
-import uk.dangrew.nuts.graphics.goal.CoreInterface;
+import uk.dangrew.nuts.graphics.main.CoreInterface;
 
 /**
  * Entry point to the system for launching.

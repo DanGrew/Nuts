@@ -58,5 +58,17 @@
       "id": "7a663267-6a0a-4e51-b5be-a66d11a62510",
       "proteinProportionType": "Weight",
       "fatProportionValue": 2560
+   },
+   {
+      "fiberProportionValue": 40,
+      "carbohydrateProportionType": "Weight",
+      "proteinProportionValue": 90,
+      "fiberProportionType": "Weight",
+      "name": "Keto Omad (2500)",
+      "carbohydrateProportionValue": 20,
+      "fatProportionType": "Calorie",
+      "id": "c57876c8-7f43-40d1-9b72-5b3a972c4a97",
+      "proteinProportionType": "Weight",
+      "fatProportionValue": 2000
    }
 ]}

@@ -43,10 +43,10 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
       this.configuration = new TableConfiguration();
    }//End Constructor
    
-   @Override public void populateColumns( ConceptTable< Template > table ) {
-      standardNameColumn( table, COLUMN_TITLE_TEMPLATE, COLUMN_WIDTH_TEMPLATE );
+   @Override protected void changeColumns() {
+      standardNameColumn( table(), COLUMN_TITLE_TEMPLATE, COLUMN_WIDTH_TEMPLATE );
       configuration.initialiseFoodDropDownColumn( 
-               table, 
+               table(), 
                COLUMN_TITLE_GOAL, 
                COLUMN_WIDTH_GOAL, 
                r -> r.concept().goalAnalytics().goal(), 
@@ -56,8 +56,8 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
 
       double remaingWidth = 0.98 - COLUMN_WIDTH_TEMPLATE - COLUMN_WIDTH_GOAL;
       double widthForEachPart = remaingWidth / 2;
-      columnsForShowing( table, f -> f.properties().nutrition(), NutritionalUnit::name, widthForEachPart );
-      columnsForShowing( table, f -> f.goalAnalytics().nutrition(), u -> u.name() + " %", widthForEachPart );
+      columnsForShowing( table(), f -> f.properties().nutrition(), NutritionalUnit::name, widthForEachPart );
+      columnsForShowing( table(), f -> f.goalAnalytics().nutrition(), u -> u.name() + " %", widthForEachPart );
    }//End Method
    
 }//End Class

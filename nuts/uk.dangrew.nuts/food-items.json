@@ -3804,5 +3804,16 @@
       "name": "Tesco Finest British Traditional Pork Sausages 400G (102g)",
       "id": "9397a5c1-259a-4f1f-b3c0-a0e10bc20f6e",
       "calories": 320.45
+   },
+   {
+      "carbohydrates": 0,
+      "fiber": 0,
+      "fats": 12,
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "protein": 25.3,
+      "name": "Tesco 2 Boneless Salmon Fillets 260G (100g)",
+      "id": "398bf91e-6adc-4821-9266-82bf5d9101da",
+      "calories": 209.2
    }
 ]}

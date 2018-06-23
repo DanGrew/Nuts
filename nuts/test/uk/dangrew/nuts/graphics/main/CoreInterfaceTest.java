@@ -1,9 +1,10 @@
-package uk.dangrew.nuts.graphics.goal;
+package uk.dangrew.nuts.graphics.main;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
 import javafx.scene.layout.BorderPane;
+import uk.dangrew.nuts.graphics.main.CoreInterface;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class CoreInterfaceTest {
