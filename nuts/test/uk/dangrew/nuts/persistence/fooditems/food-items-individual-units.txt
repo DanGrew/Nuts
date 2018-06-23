@@ -1,0 +1,371 @@
+{"foodItems": [
+   {
+      "carbohydrates": 0.6,
+      "fats": 5,
+      "protein": 6,
+      "name": "Egg",
+      "id": "de3c984c-f742-4cf7-98fd-501e40fa2291",
+      "calories": 78,
+      "loggedWeight": 1,
+      "soldInWeight": 15,
+      "fiber": 0.45,
+      "extra":25
+   },
+   {
+      "carbohydrates": 26.3,
+      "fats": 2.2,
+      "protein": 3.2,
+      "name": "Oats So Simple",
+      "id": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
+      "calories": 143,
+      "loggedWeight": 1,
+      "soldInWeight": 20
+   },
+   {
+      "carbohydrates": 31.4,
+      "fats": 0.2,
+      "protein": 1,
+      "name": "Apple",
+      "id": "64303ce3-d19e-4ed6-b44f-9b59be6ca31d",
+      "calories": 71,
+      "loggedWeight": 1,
+      "soldInWeight": 6,
+      "fiber": 79.01
+   },
+   {
+      "carbohydrates": 14.8,
+      "fats": 8.3,
+      "protein": 22.7,
+      "name": "Banana Carb Killa",
+      "id": "21224fdc-7444-465e-a425-e4423c935d3d",
+      "calories": 217,
+      "loggedWeight": 1,
+      "soldInWeight": 12
+   },
+   {
+      "carbohydrates": 34,
+      "fats": 7.6,
+      "protein": 3.6,
+      "name": "Belvita Duos",
+      "id": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
+      "calories": 220,
+      "loggedWeight": 1,
+      "soldInWeight": 5
+   },
+   {
+      "carbohydrates": 13.6,
+      "fats": 8.2,
+      "protein": 23.3,
+      "name": "Cookies & Cream Carb Killa",
+      "id": "e17dc19e-a19b-4647-9e1b-58be498ee542",
+      "calories": 217,
+      "loggedWeight": 1,
+      "soldInWeight": 12
+   },
+   {
+      "carbohydrates": 14,
+      "fats": 8,
+      "protein": 4.6,
+      "name": "Graze Protein Bite",
+      "id": "da8afe9d-dc3f-4296-9e37-48bd6d4b28a2",
+      "calories": 145,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 60.4,
+      "fats": 2.8,
+      "protein": 16,
+      "name": "Wholemeal Bread (4 Slices)",
+      "id": "11a08090-3b8a-46b1-8efd-732aa4b546fc",
+      "calories": 352,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 4.1,
+      "fats": 8.2,
+      "protein": 6.2,
+      "name": "Tuna & Sweetcorn (62.5g)",
+      "id": "1e68dc89-a717-4ed7-b4b9-653cb7cb1a71",
+      "calories": 72,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 21.6,
+      "fats": 0.1,
+      "protein": 0.6,
+      "name": "Grapes (140g)",
+      "id": "fbe95d98-216d-4534-be62-df0cc1b0590f",
+      "calories": 92,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 1.6,
+      "fats": 10.2,
+      "protein": 2.1,
+      "name": "Brazil Nuts (15g)",
+      "id": "62ef626f-f15f-4f51-aae4-58e11c1c87e9",
+      "calories": 99,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 0.7,
+      "fats": 13.7,
+      "protein": 3,
+      "name": "Walnut Halves (20g)",
+      "id": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+      "calories": 139,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 0.6,
+      "fats": 21.1,
+      "protein": 28.9,
+      "name": "Salmon (130g)",
+      "id": "30531235-26c5-4a22-bccd-27315ccc741e",
+      "calories": 308,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 26,
+      "fats": 1.4,
+      "protein": 4.5,
+      "name": "Brown Basmati (125g)",
+      "id": "382133bb-eba1-4692-a25e-aea25ee534c1",
+      "calories": 143,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 11.9,
+      "fats": 2.8,
+      "protein": 1,
+      "name": "90c Squares",
+      "id": "1b2c1dc1-7020-4003-9f61-aed3f900eaac",
+      "calories": 87,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 3.4,
+      "fats": 3.7,
+      "protein": 3.7,
+      "name": "Yoghurt (Onken)",
+      "id": "008815b7-c67b-465c-9004-a996ac0e3827",
+      "calories": 68,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 26,
+      "fats": 14,
+      "protein": 8,
+      "name": "Graze Banana Flapjack",
+      "id": "7bffd233-7880-44c5-a949-a586b7c1f29f",
+      "calories": 260,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 31,
+      "fats": 11,
+      "protein": 3,
+      "name": "Summer Berry Flapjack",
+      "id": "372bae59-1cd9-4360-bdb3-b850aa955810",
+      "calories": 236,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 7.1,
+      "protein": 33.9,
+      "name": "Lean Mince (166g)",
+      "id": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
+      "calories": 201,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 52.5,
+      "fats": 1,
+      "protein": 8.9,
+      "name": "Spaghetti (75g dry)",
+      "id": "93f37599-8bf0-4cc0-8f59-28aec3db3a2e",
+      "calories": 260,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 10.4,
+      "fats": 0.1,
+      "protein": 2.5,
+      "name": "Dolmios Sauce (166g)",
+      "id": "f701d927-96bd-46b6-a9db-90259104f192",
+      "calories": 73,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 23,
+      "fats": 0.3,
+      "protein": 1,
+      "name": "Banana",
+      "id": "30990ba4-3c94-4a25-a991-7cec9e3cf3d2",
+      "calories": 89,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 38.5,
+      "fats": 1,
+      "protein": 50,
+      "name": "Soya Mince (100g)",
+      "id": "204990f0-6bc8-4de7-8e40-1335a59b8a95",
+      "calories": 171,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 10.4,
+      "fats": 0.4,
+      "protein": 4.7,
+      "name": "Butter Beans (80g)",
+      "id": "ca71c78d-958e-490a-b184-971223817dfa",
+      "calories": 71,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 7.2,
+      "fats": 0.4,
+      "protein": 2.6,
+      "name": "Canned Chopped Tomatoes (0.5 can)",
+      "id": "daf5df70-0946-4d16-aacd-f11d8620205e",
+      "calories": 25,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 14.3,
+      "fats": 0.5,
+      "protein": 5.5,
+      "name": "Red Kidney Beans (80g)",
+      "id": "02ce99af-2cb8-492d-a11c-6bdbc081194c",
+      "calories": 93,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 12.9,
+      "fats": 2.3,
+      "protein": 5.8,
+      "name": "Chickpeas (80g)",
+      "id": "6a5cf962-cd9e-447b-ad30-e9334f06c4c9",
+      "calories": 102,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 4.8,
+      "fats": 0.3,
+      "protein": 0,
+      "name": "Mixed Peppers (1)",
+      "id": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
+      "calories": 10,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 4,
+      "fats": 0.1,
+      "protein": 0.6,
+      "name": "Red Onion",
+      "id": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
+      "calories": 15,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 19,
+      "fats": 10,
+      "protein": 38,
+      "name": "MyProtein Cookie",
+      "id": "bf13ed4c-cf63-4a30-9321-faedb5c4e055",
+      "calories": 319,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 16,
+      "fats": 0.2,
+      "protein": 4.9,
+      "name": "Yoghurt Apricot (100g)",
+      "id": "c274dee9-d0b2-4af6-9828-6b47ce94d096",
+      "calories": 90,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 0.5,
+      "protein": 27,
+      "name": "Sandwich Tuna (100g)",
+      "id": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
+      "calories": 113,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 6.9,
+      "fats": 56,
+      "protein": 21,
+      "name": "Almonds (100g)",
+      "id": "d237cede-3537-426f-9f28-a69116b4baa8",
+      "calories": 612,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 0.2,
+      "fats": 0.1,
+      "protein": 3.6,
+      "name": "Egg (without yolk)",
+      "id": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
+      "calories": 17,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 0,
+      "fats": 5.8,
+      "protein": 48.9,
+      "name": "Chicken Breast (162g)",
+      "id": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
+      "calories": 248,
+      "loggedWeight": 1,
+      "soldInWeight": 1
+   },
+   {
+      "carbohydrates": 11.5,
+      "fats": 8.5,
+      "protein": 2.2,
+      "name": "Tikka Sauce (150g)",
+      "id": "72807440-1b59-4b44-ae3f-2e559ac0fd00",
+      "calories": 137
+   },
+   {
+      "carbohydrates": 10,
+      "fats": 5,
+      "protein": 11,
+      "name": "Edemame Beans (100g)",
+      "id": "5d4eb56d-2247-4887-918c-aacb572f0431",
+      "calories": 106
+   }
+]}

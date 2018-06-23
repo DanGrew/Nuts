@@ -16,6 +16,7 @@ import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -28,13 +29,16 @@ public class FoodItemPersistence implements ConceptPersistence {
    
    static final String ID = "id";
    static final String NAME = "name";
-   static final String CARBOHYDRATES = "carbohydrates";
-   static final String FATS = "fats";
-   static final String PROTEIN = "protein";
-   static final String CALORIES = "calories";
-   static final String FIBER = "fiber";
    static final String LOGGED_WEIGHT = "loggedWeight";
    static final String SOLD_IN_WEIGHT = "soldInWeight";
+   
+   static final String NUTRITIONAL_UNITS = "nutritionalUnits";
+   
+   @Deprecated static final String CARBOHYDRATES = "carbohydrates";
+   @Deprecated static final String FATS = "fats";
+   @Deprecated static final String PROTEIN = "protein";
+   @Deprecated static final String CALORIES = "calories";
+   @Deprecated static final String FIBER = "fiber";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -75,32 +79,43 @@ public class FoodItemPersistence implements ConceptPersistence {
       structure.child( FOOD_ITEM, FOOD_ITEMS );
       structure.child( ID, FOOD_ITEM );
       structure.child( NAME, FOOD_ITEM );
-      structure.child( CARBOHYDRATES, FOOD_ITEM );
-      structure.child( FATS, FOOD_ITEM );
-      structure.child( PROTEIN, FOOD_ITEM );
-      structure.child( CALORIES, FOOD_ITEM );
-      structure.optionalChild( FIBER, FOOD_ITEM );
       structure.optionalChild( LOGGED_WEIGHT, FOOD_ITEM );
       structure.optionalChild( SOLD_IN_WEIGHT, FOOD_ITEM );
+      
+      structure.optionalChild( NUTRITIONAL_UNITS, FOOD_ITEM );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         structure.optionalChild( unit.name().toLowerCase(), NUTRITIONAL_UNITS );
+      }
    }//End Method
    
-   /**
-    * Method to construct the {@link JsonParser} for reading.
-    */
    private void constructReadHandles(){
+      //we append the deprecated handles first so that if a key is reused, it is overridden the most recent
+      //for example, 'fats' will not collide with 'fat' but 'protein' will collide.
+      appendDeprecatedReadHandles();
+      appendCurrentReadHandles();
+   }//End Method
+   
+   private void appendCurrentReadHandles(){
       parserWithReadHandles.when( FOOD_ITEMS, new StringParseHandle( new JsonArrayWithObjectParseHandler<>( 
                parseModel::startFoodItem, parseModel::finishFoodItem, null, null ) 
       ) );
       
       parserWithReadHandles.when( ID, new StringParseHandle( parseModel::setId ) );
       parserWithReadHandles.when( NAME, new StringParseHandle( parseModel::setName ) );
+      parserWithReadHandles.when( LOGGED_WEIGHT, new DoubleParseHandle( parseModel::setLoggedWeight ) );
+      parserWithReadHandles.when( SOLD_IN_WEIGHT, new DoubleParseHandle( parseModel::setSoldInWeight ) );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         parserWithReadHandles.when( unit.name().toLowerCase(), new DoubleParseHandle( v -> parseModel.setNutritionalUnit( unit, v ) ) );
+      }
+   }//End Method
+   
+   private void appendDeprecatedReadHandles(){
       parserWithReadHandles.when( CARBOHYDRATES, new DoubleParseHandle( parseModel::setCarbohydrates ) );
       parserWithReadHandles.when( FATS, new DoubleParseHandle( parseModel::setFats ) );
       parserWithReadHandles.when( PROTEIN, new DoubleParseHandle( parseModel::setProtein ) );
       parserWithReadHandles.when( CALORIES, new DoubleParseHandle( parseModel::setCalories ) );
       parserWithReadHandles.when( FIBER, new DoubleParseHandle( parseModel::setFiber ) );
-      parserWithReadHandles.when( LOGGED_WEIGHT, new DoubleParseHandle( parseModel::setLoggedWeight ) );
-      parserWithReadHandles.when( SOLD_IN_WEIGHT, new DoubleParseHandle( parseModel::setSoldInWeight ) );
    }//End Method
    
    /**
@@ -113,13 +128,12 @@ public class FoodItemPersistence implements ConceptPersistence {
       
       parserWithWriteHandles.when( ID, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getId ) ) );
       parserWithWriteHandles.when( NAME, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getName ) ) );
-      parserWithWriteHandles.when( CARBOHYDRATES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCarbohydrates ) ) );
-      parserWithWriteHandles.when( FATS, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFats ) ) );
-      parserWithWriteHandles.when( PROTEIN, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProtein ) ) );
-      parserWithWriteHandles.when( CALORIES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCalories ) ) );
-      parserWithWriteHandles.when( FIBER, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFiber ) ) );
       parserWithWriteHandles.when( LOGGED_WEIGHT, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getLoggedWeight ) ) );
       parserWithWriteHandles.when( SOLD_IN_WEIGHT, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getSoldInWeight ) ) );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         parserWithWriteHandles.when( unit.name().toLowerCase(), new JsonWriteHandleImpl( new JsonValueWriteHandler( () -> writeModel.getNutritionalUnit( unit ) ) ) );
+      }
    }//End Method
    
    @Override public JsonStructure structure(){

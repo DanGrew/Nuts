@@ -14,7 +14,21 @@ import uk.dangrew.nuts.store.Database;
 
 public class FoodItemPersistenceTest {
 
-   @Test public void shouldReadData() {
+   @Test public void shouldReadDataWithIndividualNutritionalUnits() {
+      Database database = new Database();
+      new DatabaseIo( database )
+         .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items-individual-units.txt", getClass() ) )
+         .read();
+      
+      FoodItem item = database.foodItems().objectList().get( 0 );
+      assertFoodItemProperties( item, "de3c984c-f742-4cf7-98fd-501e40fa2291", "Egg", 0.6, 5.0, 6.0, 0.45, 1.0, 15.0 );
+      item = database.foodItems().objectList().get( 1 );
+      assertFoodItemProperties( item, "be66258a-d0ff-4e54-a13a-e6069c333a2a", "Oats So Simple", 26.3, 2.2, 3.2, 0.0, 1.0, 20.0 );
+      item = database.foodItems().objectList().get( 2 );
+      assertFoodItemProperties( item, "64303ce3-d19e-4ed6-b44f-9b59be6ca31d", "Apple", 31.4, 0.2, 1.0, 79.01, 1.0, 6.0 );
+   }//End Method
+   
+   @Test public void shouldReadDataWithNutritionalUnitList() {
       Database database = new Database();
       new DatabaseIo( database )
          .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )

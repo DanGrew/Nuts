@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -57,23 +58,23 @@ class FoodItemWriteModel {
       return currentFood.properties().nameProperty().get();
    }//End Method
    
-   Double getCarbohydrates() {
+   @Deprecated Double getCarbohydrates() {
       return currentFood.properties().carbohydrates().get();
    }//End Method
    
-   Double getFats() {
+   @Deprecated Double getFats() {
       return currentFood.properties().fats().get();
    }//End Method
    
-   Double getProtein() {
+   @Deprecated Double getProtein() {
       return currentFood.properties().protein().get();
    }//End Method
    
-   Double getCalories() {
+   @Deprecated Double getCalories() {
       return currentFood.properties().calories().get();
    }//End Method
    
-   Double getFiber() {
+   @Deprecated Double getFiber() {
       return currentFood.properties().fiber().get();
    }//End Method
    
@@ -83,6 +84,10 @@ class FoodItemWriteModel {
    
    Double getSoldInWeight() {
       return currentFood.stockProperties().soldInWeight().get();
+   }//End Method
+
+   public Double getNutritionalUnit( NutritionalUnit unit ) {
+      return currentFood.properties().nutrition().of( unit ).get();
    }//End Method
    
 }//End Class
