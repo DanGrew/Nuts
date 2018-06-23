@@ -11,7 +11,6 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralFoodTableController;
@@ -36,12 +35,12 @@ public class SynchronizedTableSelectionModelTest {
       
       PlatformImpl.runAndWait( () -> {
          table1 = new TableComponents< FoodItem >()
-                     .withSettings( new NutsSettings() )
+                     .withDatabase( database )
                      .withColumns( FoodTableColumns< FoodItem >::new )
                      .withController( new GeneralFoodTableController<>( database, database.foodItems() ) )
                      .buildTable();
          table2 = new TableComponents< FoodItem >()
-                     .withSettings( new NutsSettings() )
+                     .withDatabase( database )
                      .withColumns( FoodTableColumns< FoodItem >::new )
                      .withController( new GeneralFoodTableController<>( database, database.foodItems() ) )
                      .buildTable();

@@ -19,7 +19,7 @@ public class UiMealFoodSelectionPane extends GridPane {
    private final UiFoodSelectionController controller;
    private final Template liveSelectionProperties;
    
-   public UiMealFoodSelectionPane( NutsSettings settings, Database database, FoodSelectionWindowStageControls stageControls ) {
+   public UiMealFoodSelectionPane( Database database, FoodSelectionWindowStageControls stageControls ) {
       this.stageControls = stageControls;
       
       JavaFxStyle styling = new JavaFxStyle();
@@ -30,7 +30,6 @@ public class UiMealFoodSelectionPane extends GridPane {
       this.controller = new UiFoodSelectionController( database, liveSelectionProperties );
       
       add( table = new TableComponents< Template >()
-               .withSettings( settings )
                .withDatabase( database )
                .withColumns( TemplateTableColumns::new )
                .withController( new UnresponsiveConceptTableController<>() )

@@ -9,14 +9,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForTemplateEvent;
-import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindow;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.stock.Stock;
@@ -43,7 +41,7 @@ public class FoodSelectionWindowTest {
       }
       
       PlatformImpl.runAndWait( () -> {
-         window = new FoodSelectionWindow( new NutsSettings(), sample );
+         window = new FoodSelectionWindow( sample );
       } );
    
       Meal meal = new Meal( "Test Meal" );

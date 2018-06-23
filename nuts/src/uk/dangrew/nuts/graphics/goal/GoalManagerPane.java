@@ -28,11 +28,11 @@ public class GoalManagerPane extends GridPane {
    private final GoalTableController goalsController;
    private final GoalCalculationView goalView;
 
-   public GoalManagerPane( NutsSettings settings, Database database ) {
-      this( settings, new JavaFxStyle(), database );
+   public GoalManagerPane( Database database ) {
+      this( new JavaFxStyle(), database );
    }// End Constructor
 
-   GoalManagerPane( NutsSettings settings, JavaFxStyle styling, Database database ) {
+   GoalManagerPane( JavaFxStyle styling, Database database ) {
       styling.configureConstraintsForRowPercentages( 
                this, 
                GOALS_HEIGHT_PROPORTION,
@@ -42,7 +42,7 @@ public class GoalManagerPane extends GridPane {
 
       add( goalsTable =  
                new TableComponents< Goal >()
-                  .withSettings( settings )
+                  .withDatabase( database )
                   .withColumns( FoodTableColumns< Goal >::new )
                   .withController( goalsController = new GoalTableController( database.calorieGoals(), database.proportionGoals() ) )
                   .withControls( new ConceptControls( goalsController ) )

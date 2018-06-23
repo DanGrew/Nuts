@@ -22,12 +22,11 @@ public class CoreInterface extends BorderPane {
       this.database = new Database();
       this.setPrefSize( 800, 600 );
       
-      NutsSettings settings = new NutsSettings();
-      CoreInterfaceOperations operations = new CoreInterfaceOperations( settings, database );
+      CoreInterfaceOperations operations = new CoreInterfaceOperations( database );
       
-      new FoodSelectionWindow( settings, database );
+      new FoodSelectionWindow( database );
       
-      this.tabPane = new NutsTabs( settings, database, operations );
+      this.tabPane = new NutsTabs( database, operations );
       this.setCenter( tabPane );
       this.setTop( new NutsMenuBar() );
    }//End Constructor

@@ -13,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
@@ -30,7 +29,7 @@ public class UiDatabaseManagerPaneTest {
       MockitoAnnotations.initMocks( this );
       Database database = new Database();
       DataLocation.loadSampleFoodData( database );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new UiDatabaseManagerPane( new NutsSettings(), database ) );
+      PlatformImpl.runAndWait( () -> systemUnderTest = new UiDatabaseManagerPane( database ) );
    }//End Method
 
    @Ignore
@@ -38,7 +37,7 @@ public class UiDatabaseManagerPaneTest {
       Database database = new Database();
       DataLocation.loadSampleFoodData( database );
       
-      TestApplication.launch( () -> new UiDatabaseManagerPane( new NutsSettings(), database ) );
+      TestApplication.launch( () -> new UiDatabaseManagerPane( database ) );
       
       Thread.sleep( 99999999 );
    }//End Method

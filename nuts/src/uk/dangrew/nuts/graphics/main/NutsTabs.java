@@ -26,7 +26,7 @@ public class NutsTabs extends AnchorPane {
    private final TabPane tabPane;
    private final CoreInterfaceOperationControls controls;
    
-   public NutsTabs( NutsSettings settings, Database database, CoreInterfaceOperations operations ) {
+   public NutsTabs( Database database, CoreInterfaceOperations operations ) {
       this.tabPane = new TabPane();
       this.controls = new CoreInterfaceOperationControls( operations );
       
@@ -42,11 +42,11 @@ public class NutsTabs extends AnchorPane {
       
       createConcreteTab( "Nutrition", new IntroductionPane() );
       createConcreteTab( "Research Blog", new UiResearchPane( database.researchArticles() ) );
-      createConcreteTab( "Goals", new GoalManagerPane( settings, database ) );
-      createConcreteTab( "Database", new UiDatabaseManagerPane( settings, database ) );
+      createConcreteTab( "Goals", new GoalManagerPane( database ) );
+      createConcreteTab( "Database", new UiDatabaseManagerPane( database ) );
       createConcreteTab( "Stock", new StockPane( database ) );
-      createConcreteTab( "Templates", new TemplateManagerPane( settings, database ) );
-      createConcreteTab( "Day Plans", new UiCalendarPane( settings, database ) );
+      createConcreteTab( "Templates", new TemplateManagerPane( database ) );
+      createConcreteTab( "Day Plans", new UiCalendarPane( database ) );
       createConcreteTab( "Graph", new ProgressSeriesPane( database ) );
       createConcreteTab( "Labels", new UiLabelConfigurationView( database ) );
       createConcreteTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );

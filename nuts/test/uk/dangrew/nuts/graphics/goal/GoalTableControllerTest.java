@@ -19,7 +19,6 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
@@ -46,7 +45,7 @@ public class GoalTableControllerTest {
       
       systemUnderTest = new GoalTableController( dialog, database.calorieGoals(), database.proportionGoals() );
       PlatformImpl.runAndWait( () -> table = new TableComponents< Goal >()
-               .withSettings( new NutsSettings() )
+               .withDatabase( database )
                .withColumns( FoodTableColumns< Goal >::new )
                .withController( systemUnderTest )
                .buildTable() 

@@ -10,8 +10,6 @@ import org.mockito.MockitoAnnotations;
 import javafx.scene.control.TableColumn;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.configuration.NutsSettings;
-import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
@@ -32,8 +30,8 @@ public class TemplateTableColumnsTest {
       MockitoAnnotations.initMocks( this );
       
       Database database = new Database();
+      settings = database.settings();
       components = new TableComponents< Template >()
-               .withSettings( settings = new NutsSettings() )
                .withDatabase( database )
                .withController( new GeneralConceptTableController<>( database.templates() ) );
       systemUnderTest = new TemplateTableColumns( components );

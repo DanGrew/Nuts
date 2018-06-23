@@ -43,7 +43,7 @@ public class RecipeControllerTest {
       PlatformImpl.runAndWait( () -> {
          systemUnderTest = new RecipeController( window, database, model );
          table = new TableComponents< Food >()
-                  .withSettings( new NutsSettings() )
+                  .withDatabase( database )
                   .withColumns( FoodTableColumns< Food >::new )
                   .withController( systemUnderTest )
                   .buildTable();

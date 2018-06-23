@@ -1999,7 +1999,7 @@
       ]
    },
    {
-      "name": "Peanut Flax Cookies",
+      "name": "Peanut Flax Cookies (Large)",
       "id": "d610a804-f314-4bfc-8059-7d816f535bfa",
       "portions": [
          {
@@ -4113,6 +4113,36 @@
          {
             "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
             "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Cheesecake (OMAD)",
+      "id": "08208ce8-3e8e-417f-a6da-38400cf95c8f",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 300
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 100
+         },
+         {
+            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+            "portionValue": 75
          }
       ]
    }

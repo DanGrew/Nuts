@@ -3,7 +3,6 @@ package uk.dangrew.nuts.graphics.tutorial.database.components;
 import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.control.Button;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
@@ -44,7 +43,7 @@ public class DatabaseComponents {
       this.database = new Database();
       this.databaseManipulator = new DatabaseManipulator( database );
       this.database.stockLists().createConcept( "" );
-      PlatformImpl.runAndWait( () -> this.parent = new UiDatabaseManagerPane( new NutsSettings(), database ) );
+      PlatformImpl.runAndWait( () -> this.parent = new UiDatabaseManagerPane( database ) );
       this.parent.populateComponents( this );
    }//End Method
    

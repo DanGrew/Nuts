@@ -18,7 +18,6 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.graphics.deletion.FoodDeletionMechanism;
@@ -45,7 +44,6 @@ public class GeneralFoodTableControllerTest {
       onlyFoodItem = foodItems.createConcept( "Anything" );
       systemUnderTest = new GeneralFoodTableController<>( deletionMechanism, foodItems );
       PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
-               .withSettings( new NutsSettings() )
                .withDatabase( database )
                .withColumns( FoodTableColumns< FoodItem >::new )
                .withController( systemUnderTest )

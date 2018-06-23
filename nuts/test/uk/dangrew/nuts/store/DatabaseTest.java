@@ -120,6 +120,7 @@ public class DatabaseTest {
          .shouldProvideObject( Database::progressSeries )
          .shouldProvideObject( Database::researchArticles )
          .shouldProvideObject( Database::resolver )
+         .shouldProvideObject( Database::settings )
          ;
    }//End Method
 

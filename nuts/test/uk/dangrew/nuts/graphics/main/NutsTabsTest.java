@@ -12,7 +12,6 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.store.Database;
 
 public class NutsTabsTest {
@@ -28,7 +27,7 @@ public class NutsTabsTest {
       database = new Database();
       database.shoppingLists().createConcept( "anything" );
       database.stockLists().createConcept( "anything" );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new NutsTabs( new NutsSettings(), database, operations ) );
+      PlatformImpl.runAndWait( () -> systemUnderTest = new NutsTabs( database, operations ) );
    }//End Method
 
    @Test public void shouldProvideConcreteTabs() {

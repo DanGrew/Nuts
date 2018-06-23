@@ -18,10 +18,10 @@ public class FoodSelectionWindow {
    private final FoodSelectionApplier selectionApplier;
    private final UiMealFoodSelectionPane selectionPane;
    
-   public FoodSelectionWindow( NutsSettings settings, Database database ) {
+   public FoodSelectionWindow( Database database ) {
       this.stage = new Stage();
       this.selectionApplier = new FoodSelectionApplier( stage, database.foodItems() );
-      this.stage.setScene( new Scene( selectionPane = new UiMealFoodSelectionPane( settings, database, selectionApplier ) ) );
+      this.stage.setScene( new Scene( selectionPane = new UiMealFoodSelectionPane( database, selectionApplier ) ) );
       this.stage.setAlwaysOnTop( true );
       this.stage.hide();
       

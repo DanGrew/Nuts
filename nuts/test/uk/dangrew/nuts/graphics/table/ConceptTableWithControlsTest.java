@@ -15,7 +15,6 @@ import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.control.Label;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
@@ -35,7 +34,6 @@ public class ConceptTableWithControlsTest {
       
       Database database = new Database();
       PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
-               .withSettings( new NutsSettings() )
                .withDatabase( database )
                .withColumns( FoodTableColumns< FoodItem >::new )
                .withController( new GeneralConceptTableController<>( database.foodItems() ) )

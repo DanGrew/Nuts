@@ -10,7 +10,6 @@ package uk.dangrew.nuts.graphics.day;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.food.UnresponsiveConceptTableController;
@@ -45,11 +44,11 @@ public class UiCalendarPane extends GridPane {
    
    private final ConsumptionProperties consumptionProperties;
 
-   public UiCalendarPane( NutsSettings settings, Database database ) {
-      this( settings, new JavaFxStyle(), database );
+   public UiCalendarPane( Database database ) {
+      this( new JavaFxStyle(), database );
    }// End Constructor
 
-   UiCalendarPane( NutsSettings settings, JavaFxStyle styling, Database database ) {
+   UiCalendarPane( JavaFxStyle styling, Database database ) {
       this.uiCalendar = new UiCalendar( database );
       this.consumptionProperties = new ConsumptionProperties();
       
@@ -64,7 +63,6 @@ public class UiCalendarPane extends GridPane {
 
       add( uiCalendar, 0, 0 );
       add( templatesTable = new TableComponents< Template >()
-               .withSettings( settings )
                .withDatabase( database )
                .withColumns( TemplateTableColumns::new )
                .withController( new UnresponsiveConceptTableController<>() )
@@ -72,7 +70,6 @@ public class UiCalendarPane extends GridPane {
       0, 1 );
       add( templateView = new TableComponents< FoodPortion >()
                .withCheckBoxController( consumptionProperties )
-               .withSettings( settings )
                .withDatabase( database )
                .withColumns( UiDayPlanMealTableColumns::new )
                .withController( templateController = new TemplateTableController() )
@@ -80,7 +77,6 @@ public class UiCalendarPane extends GridPane {
                .buildTableWithControls( "Selected Day" )
       , 0, 2 );
       add( mealView = new TableComponents< FoodPortion >()
-               .withSettings( settings )
                .withDatabase( database )
                .withColumns( MealTableColumns::new )
                .withController( mealTableController = new MealTableControllerImpl() )

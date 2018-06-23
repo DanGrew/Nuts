@@ -14,12 +14,12 @@ public class CoreInterfaceOperations {
    private final DatabaseIo databaseIo;
    private final TutorialWindow tutorialWindow;
    
-   public CoreInterfaceOperations( NutsSettings settings, Database database ) {
+   public CoreInterfaceOperations( Database database ) {
       this( 
                new TutorialWindow(), 
                new FoodSessions( database ).databaseIo(),
                new SettingsWindowController(),
-               settings 
+               database.settings()
       );
    }//End Class
    

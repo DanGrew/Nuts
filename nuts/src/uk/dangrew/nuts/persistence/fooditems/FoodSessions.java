@@ -27,6 +27,7 @@ import uk.dangrew.nuts.store.Database;
 public class FoodSessions {
 
    static final String FOLDER_NAME = "uk.dangrew.nuts";
+   static final String SETTINGS_FILE_NAME = "settings.json";
    static final String FOOD_ITEM_FILE_NAME = "food-items.json";
    static final String MEAL_FILE_NAME = "meals.json";
    static final String TEMPLATE_FILE_NAME = "plans.json";
@@ -41,6 +42,7 @@ public class FoodSessions {
    
    static final String LEGACY_GOAL_FILE_NAME = "goal.json";
    
+   private static final JarJsonPersistingProtocol settingsFileLocation = protocolFor( SETTINGS_FILE_NAME );
    private static final JarJsonPersistingProtocol foodItemFileLocation = protocolFor( FOOD_ITEM_FILE_NAME );
    private static final JarJsonPersistingProtocol mealFileLocation = protocolFor( MEAL_FILE_NAME );
    private static final JarJsonPersistingProtocol templateFileLocation = protocolFor( TEMPLATE_FILE_NAME );
@@ -60,6 +62,7 @@ public class FoodSessions {
    public FoodSessions( Database database ) {
       this( 
                database,
+               settingsFileLocation,
                foodItemFileLocation,
                mealFileLocation,
                templateFileLocation,
@@ -77,6 +80,7 @@ public class FoodSessions {
    
    FoodSessions( 
             Database database,
+            JsonPersistingProtocol settingsFileLocation,
             JsonPersistingProtocol foodItemFileLocation,
             JsonPersistingProtocol mealFileLocation,
             JsonPersistingProtocol templateFileLocation,
@@ -93,8 +97,7 @@ public class FoodSessions {
    
       this.setup = new DataSetup( database );
       this.databaseIo = new DatabaseIo( database )
-               
-               
+               .withSettings( settingsFileLocation )
                .withFoodItems( foodItemFileLocation )
                .withMeals( mealFileLocation )
                .withMarshallerFor( 

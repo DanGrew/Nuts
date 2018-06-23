@@ -1,0 +1,9 @@
+{  
+   "showNutritionalUnits":{  
+      "protein":true,
+      "fat":false,
+      "calories":true,
+      "fibre":false,
+      "carbohydrate":false
+   }
+}

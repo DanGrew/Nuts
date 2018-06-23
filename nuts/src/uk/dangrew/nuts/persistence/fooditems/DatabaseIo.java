@@ -14,6 +14,7 @@ import uk.dangrew.nuts.persistence.goal.proportion.ProportionGoalPersistence;
 import uk.dangrew.nuts.persistence.labels.LabelPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
 import uk.dangrew.nuts.persistence.progress.ProgressSeriesPersistence;
+import uk.dangrew.nuts.persistence.settings.SettingsPersistence;
 import uk.dangrew.nuts.persistence.stock.StockPersistence;
 import uk.dangrew.nuts.persistence.template.TemplatePersistence;
 import uk.dangrew.nuts.persistence.weighins.WeightRecordingPersistence;
@@ -115,6 +116,10 @@ public class DatabaseIo {
                null,
                null
       );
+   }//End Method
+   
+   public DatabaseIo withSettings( JsonPersistingProtocol protocol ) {
+      return withMarshallerFor( new SettingsPersistence( database.settings() ), protocol );
    }//End Method
    
    public DatabaseIo withFoodItems( JsonPersistingProtocol protocol ) {

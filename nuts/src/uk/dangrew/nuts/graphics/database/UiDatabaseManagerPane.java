@@ -3,7 +3,6 @@ package uk.dangrew.nuts.graphics.database;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
@@ -42,7 +41,7 @@ public class UiDatabaseManagerPane extends GridPane {
    
    private final SimpleFoodModel comparisonModel;
    
-   public UiDatabaseManagerPane( NutsSettings settings, Database database ) {
+   public UiDatabaseManagerPane( Database database ) {
       JavaFxStyle styling = new JavaFxStyle();
       styling.configureConstraintsForColumnPercentages( this, 50, 50 );
       
@@ -61,7 +60,7 @@ public class UiDatabaseManagerPane extends GridPane {
                   .withoutFilter( FoodFilters.Selection )
       ), 0, 0 );
       add( foodTable = new TableComponents< Food >()
-                        .withSettings( settings )
+                        .withDatabase( database )
                         .withFoodModel( comparisonModel )
                         .withColumns( UiComparableFoodTableColumns::new ) 
                         .withController( recipeController )
@@ -69,14 +68,13 @@ public class UiDatabaseManagerPane extends GridPane {
                         .buildTableWithControls( "Foods" ), 
       0, 1 );
       add( comparisonTable = new TableComponents< Food >()
-                  .withSettings( settings )
+                  .withDatabase( database )
                   .withColumns( FoodTableColumns< Food >::new )
                   .withController( mixedTableController = new MixedFoodTableController( database, comparisonModel ) )
                   .withControls( new ConceptControls( mixedTableController ) )
                   .buildTableWithControls( "Comparison" ), 
       1, 1 );
       add( mealTable = new TableComponents< FoodPortion >()
-               .withSettings( settings )
                .withDatabase( database )
                .withColumns( MealTableColumns::new )
                .withController( mealTableController = new MealTableControllerImpl() )

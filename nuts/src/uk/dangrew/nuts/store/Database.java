@@ -8,6 +8,7 @@
  */
 package uk.dangrew.nuts.store;
 
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
@@ -26,6 +27,7 @@ import uk.dangrew.nuts.template.TemplateStore;
  */
 public class Database {
 
+   private final NutsSettings settings;
    private final Resolver resolver;
    
    private final WeightProgress weightProgress;
@@ -46,6 +48,7 @@ public class Database {
     * Constructs a new {@link Database}.
     */
    public Database() {
+      this.settings = new NutsSettings();
       this.resolver = new Resolver( this );
       this.weightProgress = new WeightProgress();
       this.calorieGoals = new CalorieGoalStore();
@@ -63,6 +66,10 @@ public class Database {
    
    public Resolver resolver(){
       return resolver;
+   }//End Method
+   
+   public NutsSettings settings() {
+      return settings;
    }//End Method
    
    /**
@@ -143,5 +150,5 @@ public class Database {
    public ResearchArticleStore researchArticles() {
       return researchArticles;
    }//End Method
-   
+
 }//End Class

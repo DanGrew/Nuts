@@ -12,7 +12,6 @@ import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.control.TableRow;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
@@ -40,7 +39,6 @@ public class FoodRowManipulatorTest {
       
       Database database = new Database();
       PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
-               .withSettings( new NutsSettings() )
                .withDatabase( database )
                .withColumns( FoodTableColumns< FoodItem >::new )
                .withController( new GeneralConceptTableController<>( database.foodItems() ) )

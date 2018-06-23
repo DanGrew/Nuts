@@ -19,7 +19,6 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
@@ -56,7 +55,7 @@ public class MixedFoodTableControllerTest {
       
       systemUnderTest = new MixedFoodTableController( deletionMechanism, dialog, database, model );
       PlatformImpl.runAndWait( () -> table = new TableComponents< Food >()
-               .withSettings( new NutsSettings() )
+               .withDatabase( database )
                .withColumns( FoodTableColumns< Food >::new )
                .withController( systemUnderTest )
                .buildTable() 

@@ -21,6 +21,7 @@ public class FoodSessionsTest {
       Database database = new Database();
       FoodSessions sessions = new FoodSessions( 
                database,
+               mock( JarJsonPersistingProtocol.class ),
                new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
@@ -43,6 +44,7 @@ public class FoodSessionsTest {
       Database database = new Database();
       FoodSessions sessions = new FoodSessions( 
                database,
+               mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),

@@ -18,7 +18,6 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
@@ -51,7 +50,6 @@ public class MealTableControllerImplTest {
       
       systemUnderTest = new MealTableControllerImpl( mealSelectionEvents );
       table = new TableComponents< FoodPortion >()
-               .withSettings( new NutsSettings() )
                .withDatabase( new Database() )
                .withColumns( MealTableColumns::new )
                .withController( systemUnderTest )

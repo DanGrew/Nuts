@@ -34,7 +34,7 @@ public class UiMealFoodSelectionPaneTest {
       database = new Database();
       database.stockLists().createConcept( "Stock" );
       
-      systemUnderTest = new UiMealFoodSelectionPane( new NutsSettings(), database, stageControls );
+      systemUnderTest = new UiMealFoodSelectionPane( database, stageControls );
    }//End Method
 
    @Test public void shouldSyncMealProperties() {

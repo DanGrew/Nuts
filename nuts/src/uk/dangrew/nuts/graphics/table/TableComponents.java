@@ -10,7 +10,6 @@ import uk.dangrew.nuts.system.Concept;
 
 public class TableComponents< TypeT extends Concept >{
 
-   private NutsSettings settings;
    private Database database;
    
    private ConceptTableColumnsPopulator< TypeT > columnsPopulator; 
@@ -21,12 +20,7 @@ public class TableComponents< TypeT extends Concept >{
    private SimpleFoodModel foodModel;
    
    public NutsSettings settings(){
-      return settings;
-   }//End Method
-   
-   public TableComponents< TypeT > withSettings( NutsSettings settings ) {
-      this.settings = settings;
-      return this;
+      return database.settings();
    }//End Method
    
    public Database database(){

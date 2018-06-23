@@ -10,7 +10,6 @@ package uk.dangrew.nuts.graphics.meal;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
@@ -39,16 +38,11 @@ public class TemplateManagerPane extends GridPane {
    private final ConceptTableWithControls< FoodPortion > mealView;
    private final MealTableController mealController;
 
-   public TemplateManagerPane( NutsSettings settings, Database database ) {
-      this( settings, new JavaFxStyle(), database );
+   public TemplateManagerPane( Database database ) {
+      this( new JavaFxStyle(), database );
    }// End Constructor
 
-   /**
-    * Constructs a new {@link PlanManagerPane}.
-    * @param styling the {@link JavaFxStyle}.
-    * @param database the {@link Database}.
-    */
-   TemplateManagerPane( NutsSettings settings, JavaFxStyle styling, Database database ) {
+   TemplateManagerPane( JavaFxStyle styling, Database database ) {
       styling.configureConstraintsForRowPercentages( 
                this, 
                PLANS_HEIGHT_PROPORTION,
@@ -58,7 +52,6 @@ public class TemplateManagerPane extends GridPane {
       styling.configureConstraintsForEvenColumns( this, 1 );
 
       add( templatesTable = new TableComponents< Template >()
-               .withSettings( settings )
                .withDatabase( database )
                .withColumns( TemplateTableColumns::new )
                .withController( templateController = new GeneralConceptTableController<>( database.templates() ) )
@@ -66,7 +59,6 @@ public class TemplateManagerPane extends GridPane {
                .buildTableWithControls( "Templates" ), 
       0, 0 );
       add( planView = new TableComponents< FoodPortion >()
-               .withSettings( settings )
                .withDatabase( database )
                .withColumns( MealTableColumns::new )
                .withController( planController = new TemplateTableController() )
@@ -74,7 +66,6 @@ public class TemplateManagerPane extends GridPane {
                .buildTableWithControls( "Selected Template" ), 
       0, 1 );
       add( mealView = new TableComponents< FoodPortion >()
-               .withSettings( settings )
                .withDatabase( database )
                .withColumns( MealTableColumns::new )
                .withController( mealController = new MealTableControllerImpl() )
