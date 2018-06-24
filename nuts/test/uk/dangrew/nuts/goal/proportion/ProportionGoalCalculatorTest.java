@@ -89,7 +89,7 @@ public class ProportionGoalCalculatorTest {
       //406kcal
       assertRatios( 85, 76.8, 102.5, 0.0 );
       
-      properties.fiber().set( 20.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 20.0 );
       assertRatios( 85, 76.8, 102.5, 133.3 );
    }//End Method
    
@@ -227,51 +227,51 @@ public class ProportionGoalCalculatorTest {
       goal.configuration().fiberTargetValue().set( 500.0 );
       
       assertRatios( 0, 0, 0, 0 );
-      properties.fiber().set( 50.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 50.0 );
       assertRatios( 0, 0, 0, 40 );
-      properties.fiber().set( 125.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 125.0 );
       assertRatios( 0, 0, 0, 100 );
-      properties.fiber().set( 250.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 250.0 );
       assertRatios( 0, 0, 0, 200 );
       
       goal.configuration().fiberProportionType().set( ProportionType.Weight );
       goal.configuration().fiberTargetValue().set( 500.0 );
       
-      properties.fiber().set( 50.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 50.0 );
       assertRatios( 0, 0, 0, 10 );
-      properties.fiber().set( 500.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 500.0 );
       assertRatios( 0, 0, 0, 100 );
-      properties.fiber().set( 2000.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 2000.0 );
       assertRatios( 0, 0, 0, 400 );
       
       goal.configuration().fiberProportionType().set( ProportionType.PercentageOfCalories );
       goal.configuration().fiberTargetValue().set( 20.0 );
       
       properties.nutrition().setMacroNutrients( 45, 20, 10 );
-      properties.fiber().set( 10.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 10.0 );
       assertRatios( 0, 0, 0, 50 );
       
       properties.nutrition().setMacroNutrients( 35, 20, 20 );
-      properties.fiber().set( 20.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 20.0 );
       assertRatios( 0, 0, 0, 100 );
       
       properties.nutrition().setMacroNutrients( 15, 20, 40 );
-      properties.fiber().set( 40.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 40.0 );
       assertRatios( 0, 0, 0, 200 );
       
       goal.configuration().fiberProportionType().set( ProportionType.PercentageOfWeight );
       goal.configuration().fiberTargetValue().set( 20.0 );
       
       properties.nutrition().setMacroNutrients( 55, 35, 10 );
-      properties.fiber().set( 10.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 10.0 );
       assertRatios( 0, 0, 0, 50 );
       
       properties.nutrition().setMacroNutrients( 55, 25, 20 );
-      properties.fiber().set( 20.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 20.0 );
       assertRatios( 0, 0, 0, 100 );
       
       properties.nutrition().setMacroNutrients( 35, 25, 40 );
-      properties.fiber().set( 40.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 40.0 );
       assertRatios( 0, 0, 0, 200 );
    }//End Method
    

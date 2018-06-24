@@ -94,7 +94,7 @@ public class MealRegistrationsTest {
       food1.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );
       verify( listener, times( 4 ) ).mealChanged();
       
-      food1.properties().fiber().set( 1.5 );
+      food1.properties().nutrition().of( NutritionalUnit.Fibre ).set( 1.5 );
       verify( listener, times( 5 ) ).mealChanged();
    }//End Method
    
@@ -135,7 +135,7 @@ public class MealRegistrationsTest {
       food2.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( 100.0 );
       food2.properties().nutritionFor( MacroNutrient.Fats ).set( 100.0 );
       food2.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );
-      food2.properties().fiber().set( 100.0 );
+      food2.properties().nutrition().of( NutritionalUnit.Fibre ).set( 100.0 );
       
       verify( listener, times( 1 ) ).mealChanged();
    }//End Method
@@ -153,7 +153,7 @@ public class MealRegistrationsTest {
       food2.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( 100.0 );
       food2.properties().nutritionFor( MacroNutrient.Fats ).set( 100.0 );
       food2.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );
-      food2.properties().fiber().set( 100.0 );
+      food2.properties().nutrition().of( NutritionalUnit.Fibre ).set( 100.0 );
       
       verifyNoMoreInteractions( listener );
    }//End Method

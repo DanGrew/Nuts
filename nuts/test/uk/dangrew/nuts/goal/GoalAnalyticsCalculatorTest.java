@@ -78,7 +78,7 @@ public class GoalAnalyticsCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Calories ).set( 1800.0 );
       assertThatCalculationTriggered( calorieGoal, 12 );
       
-      properties.fiber().set( 0.08 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 0.08 );
       assertThatCalculationTriggered( calorieGoal, 13 );
    }//End Method
    
@@ -101,7 +101,7 @@ public class GoalAnalyticsCalculatorTest {
       calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 20.0 );
       assertThatCalculationTriggered( calorieGoal, 8 );
       
-      calorieGoal.properties().fiber().set( 0.01 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Fibre ).set( 0.01 );
       assertThatCalculationTriggered( calorieGoal, 9 );
       
       calorieGoal.nutrition().of( NutritionalUnit.Calories ).set( 20.0 );
@@ -138,13 +138,13 @@ public class GoalAnalyticsCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
       properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       properties.nutrition().of( NutritionalUnit.Protein ).set( 40.0 );
-      properties.fiber().set( 2.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 2.0 );
       assertThatCalculationTriggered( calorieGoal, 8 );
       
       analytics.goal().set( null );
       assertThatCalculationTriggered( calorieGoal, 8 );
       properties.nutrition().setMacroNutrients( 23, 456, 980 );
-      properties.fiber().set( 200.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 200.0 );
       calorieGoal.properties().nutrition().setMacroNutrients( 100, 23, 987 );
       assertThatCalculationTriggered( calorieGoal, 8 );
    }//End Method
@@ -152,7 +152,7 @@ public class GoalAnalyticsCalculatorTest {
    @Test public void shouldRespondToPropertyChanges() {
       analytics.goal().set( calorieGoal );
       calorieGoal.properties().nutrition().setMacroNutrients( 100, 60, 200 );
-      calorieGoal.properties().fiber().set( 45.4 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Fibre ).set( 45.4 );
       assertThatCalculationTriggered( calorieGoal, 5 );
    }//End Method
    

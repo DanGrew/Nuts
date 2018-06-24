@@ -30,7 +30,7 @@ public class MacroRatioCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
       properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       properties.nutrition().of( NutritionalUnit.Protein ).set( 40.0 );
-      properties.fiber().set( 1.0 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 1.0 );
       
       systemUnderTest = new MacroRatioCalculator();
       systemUnderTest.associate( properties, analytics );
@@ -49,7 +49,7 @@ public class MacroRatioCalculatorTest {
       properties.nutritionFor( MacroNutrient.Protein ).set( 75.0 );
       assertPropertyProportions( 10, 15, 75, 0 );
       
-      properties.fiber().set( 1.75 );
+      properties.nutrition().of( NutritionalUnit.Fibre ).set( 1.75 );
       assertPropertyProportions( 10, 15, 75, 1.75 );
       
       properties.nutritionFor( MacroNutrient.Fats ).set( 115.0 );

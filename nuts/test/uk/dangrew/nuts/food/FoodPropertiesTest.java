@@ -77,9 +77,4 @@ public class FoodPropertiesTest {
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Protein ).get(), is( 89.0 ) );
    }//End Method
    
-   @Test public void shouldProvideProperties(){
-      new ModelVerifier<>( systemUnderTest )
-         .shouldProvideDoubleProperty( FoodProperties::fiber, 0.0 );
-   }//End Method
-
 }//End Class

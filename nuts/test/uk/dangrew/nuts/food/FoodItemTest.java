@@ -59,7 +59,7 @@ public class FoodItemTest {
    
    @Test public void shouldDuplicate(){
       systemUnderTest.nutrition().of( NutritionalUnit.Calories ).set( 100.0 );
-      systemUnderTest.properties().fiber().set( 0.567 );
+      systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).set( 0.567 );
       systemUnderTest.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 101.0 );
       systemUnderTest.properties().nutrition().of( NutritionalUnit.Fat ).set( 102.0 );
       systemUnderTest.properties().nutrition().of( NutritionalUnit.Protein ).set( 103.0 );
@@ -69,7 +69,7 @@ public class FoodItemTest {
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "-anything" ) );
       assertThat( duplicate.nutrition().of( NutritionalUnit.Calories ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get() ) );
-      assertThat( duplicate.properties().fiber().get(), is( systemUnderTest.properties().fiber().get() ) );
+      assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get() ) );
       assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get() ) );
       assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fat ).get() ) );
       assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Protein ).get() ) );

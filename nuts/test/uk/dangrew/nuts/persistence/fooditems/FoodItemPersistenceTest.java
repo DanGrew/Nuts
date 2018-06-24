@@ -48,7 +48,7 @@ public class FoodItemPersistenceTest {
       
       FoodItem item1 = new FoodItem( "12345", "Food1" );
       item1.properties().nutrition().setMacroNutrients( 45, 3.4, 98.1 );
-      item1.properties().fiber().set( 87.34 );
+      item1.properties().nutrition().of( NutritionalUnit.Fibre ).set( 87.34 );
       item1.stockProperties().setWeighting( 100, 750 );
       database.foodItems().store( item1 );
       
@@ -76,7 +76,7 @@ public class FoodItemPersistenceTest {
                item1.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(),
                item1.properties().nutrition().of( NutritionalUnit.Fat ).get(),
                item1.properties().nutrition().of( NutritionalUnit.Protein ).get(),
-               item1.properties().fiber().get(),
+               item1.properties().nutrition().of( NutritionalUnit.Fibre ).get(),
                item1.stockProperties().loggedWeight().get(),
                item1.stockProperties().soldInWeight().get()
       );
@@ -87,7 +87,7 @@ public class FoodItemPersistenceTest {
                item2.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(),
                item2.properties().nutrition().of( NutritionalUnit.Fat ).get(),
                item2.properties().nutrition().of( NutritionalUnit.Protein ).get(),
-               item2.properties().fiber().get(),
+               item2.properties().nutrition().of( NutritionalUnit.Fibre ).get(),
                item2.stockProperties().loggedWeight().get(),
                item2.stockProperties().soldInWeight().get()
       );
@@ -104,7 +104,7 @@ public class FoodItemPersistenceTest {
       assertThat( item.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
       assertThat( item.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( f ) );
       assertThat( item.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( p ) );
-      assertThat( item.properties().fiber().get(), is( i ) );
+      assertThat( item.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( i ) );
       assertThat( item.stockProperties().loggedWeight().get(), is( lw ) );
       assertThat( item.stockProperties().soldInWeight().get(), is( siw ) );
    }//End Method

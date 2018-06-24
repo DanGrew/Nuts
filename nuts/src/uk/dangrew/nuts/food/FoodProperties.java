@@ -47,10 +47,6 @@ public class FoodProperties extends Properties {
       return nutrition;
    }//End Method
    
-   @Deprecated public ObjectProperty< Double > fiber() {
-      return nutrition.of( NutritionalUnit.Fibre );
-   }//End Method
-
    /**
     * Access to the {@link ObjectProperty} for the {@link MacroNutrient} given.
     * @param nutrient the {@link MacroNutrient} in question.

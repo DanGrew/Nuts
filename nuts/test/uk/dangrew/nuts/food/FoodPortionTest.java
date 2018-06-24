@@ -238,30 +238,30 @@ public class FoodPortionTest {
    }//End Method
    
    @Test public void shouldUpdateFiberWhenPortionChanges(){
-      assertThat( systemUnderTest.properties().fiber().get(), is( 0.0 ) );
-      food.properties().fiber().set( 250.0 );
-      assertThat( systemUnderTest.properties().fiber().get(), is( 250.0 ) );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
+      food.properties().nutrition().of( NutritionalUnit.Fibre ).set( 250.0 );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 250.0 ) );
       systemUnderTest.setPortion( 50 );
-      assertThat( systemUnderTest.properties().fiber().get(), is( 125.0 ) );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 125.0 ) );
    }//End Method
    
    @Test public void shouldIgnorePreviousFoodFiber(){
       systemUnderTest.setPortion( 50 );
-      food.properties().fiber().set( 250.0 );
-      assertThat( systemUnderTest.properties().fiber().get(), is( 125.0 ) );
+      food.properties().nutrition().of( NutritionalUnit.Fibre ).set( 250.0 );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 125.0 ) );
       
       systemUnderTest.setFood( new FoodItem( "anything" ) );
-      assertThat( systemUnderTest.properties().fiber().get(), is( 0.0 ) );
-      food.properties().fiber().set( 250.0 );
-      assertThat( systemUnderTest.properties().fiber().get(), is( 0.0 ) );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
+      food.properties().nutrition().of( NutritionalUnit.Fibre ).set( 250.0 );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldUpdateFiberWhenFiberChanges(){
-      assertThat( systemUnderTest.properties().fiber().get(), is( 0.0 ) );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
       systemUnderTest.setPortion( 50 );
-      assertThat( systemUnderTest.properties().fiber().get(), is( 0.0 ) );
-      food.properties().fiber().set( 250.0 );
-      assertThat( systemUnderTest.properties().fiber().get(), is( 125.0 ) );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
+      food.properties().nutrition().of( NutritionalUnit.Fibre ).set( 250.0 );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 125.0 ) );
    }//End Method
    
    @Test public void shouldDuplicatePortion(){

@@ -58,7 +58,7 @@ public class TescoFoodItemGeneratorTest {
                groceryName + " (100g)" 
       ) );
       assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( kcal ) );
-      assertThat( first.properties().fiber().get(), is( fiber ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( fiber ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( carbs ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( fat ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( protein ) );
@@ -91,7 +91,7 @@ public class TescoFoodItemGeneratorTest {
                groceryName + " (15g)" 
       ) );
       assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( kcal ) );
-      assertThat( first.properties().fiber().get(), is( fiber ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( fiber ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( carbs ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( fat ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( protein ) );
@@ -125,7 +125,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
-      assertThat( first.properties().fiber().get(), is( 0.0 ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldConstructPerServingItemEvenIfDataInvalid() {
@@ -145,7 +145,7 @@ public class TescoFoodItemGeneratorTest {
       FoodItem first = ( FoodItem )items.get( 0 );
       assertThat( first.properties().nameProperty().get(), is( groceryName + " (unparsable)" ) );
       assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
-      assertThat( first.properties().fiber().get(), is( 0.0 ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );

@@ -32,7 +32,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
       double carbWeight = properties.nutrition().of( NutritionalUnit.Carbohydrate ).get();
       double fatWeight = properties.nutrition().of( NutritionalUnit.Fat ).get();
       double proteinWeight = properties.nutrition().of( NutritionalUnit.Protein ).get();
-      double fiberWeight = properties.fiber().get();
+      double fiberWeight = properties.nutrition().of( NutritionalUnit.Fibre ).get();
       
       double carbCalories = carbWeight * 4;
       double fatCalories = fatWeight * 9;
