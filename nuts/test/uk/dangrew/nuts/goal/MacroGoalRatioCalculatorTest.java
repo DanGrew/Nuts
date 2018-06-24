@@ -37,7 +37,7 @@ public class MacroGoalRatioCalculatorTest {
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
       properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
-      properties.protein().set( 40.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 40.0 );
       
       analytics.goal().set( calorieGoal );
       assertMacroProportions( 15, 25, 20 );
@@ -55,7 +55,7 @@ public class MacroGoalRatioCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Fat ).set( 30.0 );
       assertMacroProportions( 10, 50, 0 );
       
-      properties.protein().set( 75.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 75.0 );
       assertMacroProportions( 10, 50, 37.5 );
       
       properties.nutrition().of( NutritionalUnit.Fat ).set( 180.0 );
@@ -70,7 +70,7 @@ public class MacroGoalRatioCalculatorTest {
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 20.0 );
       properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
-      properties.protein().set( 10.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
       
       calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
       assertMacroProportions( 40, 0, 0 );
@@ -78,7 +78,7 @@ public class MacroGoalRatioCalculatorTest {
       calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 150.0 );
       assertMacroProportions( 40, 10, 0 );
       
-      calorieGoal.properties().protein().set( 80.0 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Protein ).set( 80.0 );
       assertMacroProportions( 40, 10, 12.5 );
       
       calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 20.0 );

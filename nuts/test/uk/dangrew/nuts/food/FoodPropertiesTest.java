@@ -63,10 +63,10 @@ public class FoodPropertiesTest {
    }//End Method
    
    @Test public void shouldProvideProteinIndividually(){
-      assertThat( systemUnderTest.protein(), is( notNullValue() ) );
-      assertThat( systemUnderTest.protein().get(), is( 0.0 ) );
-      systemUnderTest.protein().set( 24.8 );
-      assertThat( systemUnderTest.protein().get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Protein ), is( notNullValue() ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
+      systemUnderTest.nutrition().of( NutritionalUnit.Protein ).set( 24.8 );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Protein ).get(), is( 24.8 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Protein ).get(), is( 24.8 ) );
    }//End Method
    
@@ -74,7 +74,7 @@ public class FoodPropertiesTest {
       systemUnderTest.nutrition().setMacroNutrients( 45, 67, 89 );
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 45.0 ) );
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Fat ).get(), is( 67.0 ) );
-      assertThat( systemUnderTest.protein().get(), is( 89.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Protein ).get(), is( 89.0 ) );
    }//End Method
    
    @Test public void shouldProvideProperties(){

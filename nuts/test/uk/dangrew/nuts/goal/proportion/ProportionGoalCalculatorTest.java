@@ -68,7 +68,7 @@ public class ProportionGoalCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Fat ).set( 12.0 );
       //148kcal
       assertRatios( 50, 97.3, 0.0, 0.0 );
-      properties.protein().set( 4.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 4.0 );
       //164kcal
       assertRatios( 50, 87.8, 39.0, 0.0 );
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 0.0 );
@@ -79,7 +79,7 @@ public class ProportionGoalCalculatorTest {
       assertRatios( 0.0, 100.0, 100.0, 0.0 );
       
       properties.nutrition().of( NutritionalUnit.Fat ).set( 22.0 );
-      properties.protein().set( 26.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 26.0 );
       assertRatios( 0.0, 87.4, 137.7, 0.0 );
       
       properties.nutrition().of( NutritionalUnit.Fat ).set( 26.0 );
@@ -184,21 +184,21 @@ public class ProportionGoalCalculatorTest {
       goal.configuration().proteinTargetValue().set( 500.0 );
       
       assertRatios( 0, 0, 0, 0 );
-      properties.protein().set( 50.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 50.0 );
       assertRatios( 0, 0, 40, 0 );
-      properties.protein().set( 125.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 125.0 );
       assertRatios( 0, 0, 100, 0 );
-      properties.protein().set( 250.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 250.0 );
       assertRatios( 0, 0, 200, 0 );
       
       goal.configuration().proteinProportionType().set( ProportionType.Weight );
       goal.configuration().proteinTargetValue().set( 500.0 );
       
-      properties.protein().set( 50.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 50.0 );
       assertRatios( 0, 0, 10, 0 );
-      properties.protein().set( 500.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 500.0 );
       assertRatios( 0, 0, 100, 0 );
-      properties.protein().set( 2000.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 2000.0 );
       assertRatios( 0, 0, 400, 0 );
       
       goal.configuration().proteinProportionType().set( ProportionType.PercentageOfCalories );

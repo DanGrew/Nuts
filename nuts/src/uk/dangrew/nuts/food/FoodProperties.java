@@ -70,12 +70,4 @@ public class FoodProperties extends Properties {
       return null;
    }//End Method
    
-   /**
-    * Access to the {@link MacroNutrient#Protein} {@link ObjectProperty}.
-    * @return the {@link ObjectProperty}.
-    */
-   @Deprecated public ObjectProperty< Double > protein() {
-      return nutritionFor( MacroNutrient.Protein );
-   }//End Method
-
 }//End Class

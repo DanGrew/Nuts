@@ -61,7 +61,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().fiber().get(), is( fiber ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( carbs ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( fat ) );
-      assertThat( first.properties().protein().get(), is( protein ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( protein ) );
    }//End Method
    
    @Test public void shouldConstructPerServingItemIfDataPresent() {
@@ -94,7 +94,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().fiber().get(), is( fiber ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( carbs ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( fat ) );
-      assertThat( first.properties().protein().get(), is( protein ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( protein ) );
    }//End Method
    
    @Test public void shouldNotConstructIfNameNotPresent() {
@@ -124,7 +124,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
-      assertThat( first.properties().protein().get(), is( 0.0 ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
       assertThat( first.properties().fiber().get(), is( 0.0 ) );
    }//End Method
    
@@ -148,7 +148,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().fiber().get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       assertThat( first.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
-      assertThat( first.properties().protein().get(), is( 0.0 ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
    }//End Method
    
 }//End Class
