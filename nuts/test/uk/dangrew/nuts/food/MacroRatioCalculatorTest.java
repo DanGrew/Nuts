@@ -40,19 +40,19 @@ public class MacroRatioCalculatorTest {
    @Test public void shouldProvideMacroProportions() {
       assertPropertyProportions( 0, 0, 0, 0 );
       
-      properties.nutritionFor( MacroNutrient.Carbohydrates ).set( 10.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
       assertPropertyProportions( 100, 0, 0, 0 );
       
-      properties.nutritionFor( MacroNutrient.Fats ).set( 15.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       assertPropertyProportions( 40, 60, 0, 0 );
       
-      properties.nutritionFor( MacroNutrient.Protein ).set( 75.0 );
+      properties.nutrition().of( NutritionalUnit.Protein ).set( 75.0 );
       assertPropertyProportions( 10, 15, 75, 0 );
       
       properties.nutrition().of( NutritionalUnit.Fibre ).set( 1.75 );
       assertPropertyProportions( 10, 15, 75, 1.75 );
       
-      properties.nutritionFor( MacroNutrient.Fats ).set( 115.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 115.0 );
       assertPropertyProportions( 5, 57.5, 37.5, 0.875 );
    }//End Method
    

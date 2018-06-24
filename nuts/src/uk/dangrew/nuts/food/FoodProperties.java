@@ -10,10 +10,7 @@ package uk.dangrew.nuts.food;
 
 import java.util.UUID;
 
-import javafx.beans.property.ObjectProperty;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.nutrients.Nutrition;
-import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.system.Properties;
 
 /**
@@ -45,25 +42,6 @@ public class FoodProperties extends Properties {
    
    public Nutrition nutrition() {
       return nutrition;
-   }//End Method
-   
-   /**
-    * Access to the {@link ObjectProperty} for the {@link MacroNutrient} given.
-    * @param nutrient the {@link MacroNutrient} in question.
-    * @return the {@link ObjectProperty}.
-    */
-   @Deprecated public ObjectProperty< Double > nutritionFor( MacroNutrient nutrient ) {
-      switch ( nutrient ) {
-         case Carbohydrates:
-            return nutrition.of( NutritionalUnit.Carbohydrate );
-         case Fats:
-            return nutrition.of( NutritionalUnit.Fat );
-         case Protein:
-            return nutrition.of( NutritionalUnit.Protein );
-         default:
-            break;
-      }
-      return null;
    }//End Method
    
 }//End Class

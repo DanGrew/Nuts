@@ -39,11 +39,11 @@ public class FoodPropertiesTest {
    }//End Method
    
    @Test public void shouldProvideMacroNutrient() {
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ), is( notNullValue() ) );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 0.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ), is( notNullValue() ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       
-      systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).set( 24.8 );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 24.8 ) );
+      systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).set( 24.8 );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 24.8 ) );
    }//End Method
    
    @Test public void shouldProvideCarbsIndividually(){
@@ -51,7 +51,7 @@ public class FoodPropertiesTest {
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).set( 24.8 );
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 24.8 ) );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 24.8 ) );
    }//End Method
    
    @Test public void shouldProvideFatIndividually(){
@@ -59,7 +59,7 @@ public class FoodPropertiesTest {
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
       systemUnderTest.nutrition().of( NutritionalUnit.Fat ).set( 24.8 );
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Fat ).get(), is( 24.8 ) );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Fat ).get(), is( 24.8 ) );
    }//End Method
    
    @Test public void shouldProvideProteinIndividually(){
@@ -67,7 +67,7 @@ public class FoodPropertiesTest {
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
       systemUnderTest.nutrition().of( NutritionalUnit.Protein ).set( 24.8 );
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Protein ).get(), is( 24.8 ) );
-      assertThat( systemUnderTest.nutritionFor( MacroNutrient.Protein ).get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Protein ).get(), is( 24.8 ) );
    }//End Method
    
    @Test public void shouldSetMacrosTogether(){

@@ -136,15 +136,6 @@ public class FoodPortion implements Food {
    }//End Method
 
    /**
-    * Access to the portioned {@link MacroNutrient} property.
-    * @param macro the {@link MacroNutrient} in question.
-    * @return the {@link ObjectProperty}.
-    */
-   public ReadOnlyObjectProperty< Double > nutritionFor( MacroNutrient macro ) {
-      return properties.nutritionFor( macro );
-   }//End Method
-   
-   /**
     * Access to the ratio of the given {@link MacroNutrient}.
     * @param macro the {@link MacroNutrient} in question.
     * @return the {@link ObjectProperty}.

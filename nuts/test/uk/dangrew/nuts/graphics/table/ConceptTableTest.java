@@ -9,7 +9,7 @@ import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
@@ -54,9 +54,9 @@ public class ConceptTableTest {
    
    private Food addNewFood( String name, double c, double f, double p ) {
       FoodItem foodItem = database.foodItems().createConcept( name );
-      foodItem.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( c );
-      foodItem.properties().nutritionFor( MacroNutrient.Fats ).set( f );
-      foodItem.properties().nutritionFor( MacroNutrient.Protein ).set( p );
+      foodItem.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( c );
+      foodItem.properties().nutrition().of( NutritionalUnit.Fat ).set( f );
+      foodItem.properties().nutrition().of( NutritionalUnit.Protein ).set( p );
       return foodItem;
    }//End Method
    
