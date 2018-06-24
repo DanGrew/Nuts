@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public enum FoodSelectionTypes {
    
@@ -12,17 +13,17 @@ public enum FoodSelectionTypes {
    ),
    Carbohydrates( 
             Comparators.reverseComparator(
-                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().carbohydratesRatioProperty().get() ) 
+                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().nutrition().of( NutritionalUnit.Carbohydrate ).get() ) 
             )
    ),
    Fats( 
             Comparators.reverseComparator(
-                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().fatsRatioProperty().get() ) 
+                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().nutrition().of( NutritionalUnit.Fat ).get() ) 
             )
    ), 
    Protein( 
             Comparators.reverseComparator(
-                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().proteinRatioProperty().get() ) 
+                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).get() ) 
             )
    );
    

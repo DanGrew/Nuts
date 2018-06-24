@@ -12,8 +12,8 @@ import java.util.function.Function;
 
 import javafx.beans.value.ChangeListener;
 import uk.dangrew.nuts.food.GoalAnalytics;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class GoalAnalyticsCalculator {
 
@@ -56,10 +56,9 @@ public class GoalAnalyticsCalculator {
       
       this.goal = goal;
       if ( this.goal == null ) {
-         for ( MacroNutrient macro : MacroNutrient.values() ) {
-            analytics.nutrientRatioFor( macro ).set( 0.0 );
+         for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+            analytics.nutrition().of( unit ).set( 0.0 );
          }
-         analytics.fiberRatioProperty().set( 0.0 );
          return;
       } else {
          Nutrition.of( this.goal ).listen( updater );

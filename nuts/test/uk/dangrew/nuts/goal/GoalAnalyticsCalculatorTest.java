@@ -120,10 +120,10 @@ public class GoalAnalyticsCalculatorTest {
    
    @Test public void shouldResetProportionsWhenGoalRemoved(){
       calorieGoal.nutrition().setMacroNutrients( 300, 60, 200 );
-      analytics.carbohydratesRatioProperty().set( 45.0 );
-      analytics.fatsRatioProperty().set( 15.0 );
-      analytics.proteinRatioProperty().set( 40.0 );
-      analytics.fiberRatioProperty().set( 2.0 );
+      analytics.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
+      analytics.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
+      analytics.nutrition().of( NutritionalUnit.Protein ).set( 40.0 );
+      analytics.nutrition().of( NutritionalUnit.Fibre ).set( 2.0 );
       
       assertThatCalculationTriggered( calorieGoal, 0 );
       analytics.goal().set( calorieGoal );
@@ -160,18 +160,10 @@ public class GoalAnalyticsCalculatorTest {
    }//End Method
    
    private void assertMacroProportions( double c, double f, double p, double i ) {
-      assertThat( analytics.nutrientRatioFor( MacroNutrient.Carbohydrates ).get(), is( c ) );
-      assertThat( analytics.nutrientRatioFor( MacroNutrient.Fats ).get(), is( f ) );
-      assertThat( analytics.nutrientRatioFor( MacroNutrient.Protein ).get(), is( p ) );
-      
-      assertThat( analytics.carbohydratesRatioProperty().get(), is( c ) );
-      assertThat( analytics.fatsRatioProperty().get(), is( f ) );
-      assertThat( analytics.proteinRatioProperty().get(), is( p ) );
-      assertThat( analytics.fiberRatioProperty().get(), is( i ) );
-      
-      assertThat( analytics.carbohydratesRatio(), is( c ) );
-      assertThat( analytics.fatsRatio(), is( f ) );
-      assertThat( analytics.proteinRatio(), is( p ) );  
+      assertThat( analytics.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
+      assertThat( analytics.nutrition().of( NutritionalUnit.Fat ).get(), is( f ) );
+      assertThat( analytics.nutrition().of( NutritionalUnit.Protein ).get(), is( p ) );
+      assertThat( analytics.nutrition().of( NutritionalUnit.Fibre ).get(), is( i ) );
    }//End Method
 
    @Test( expected = IllegalStateException.class ) public void shouldNotAllowMultipleAssociation(){

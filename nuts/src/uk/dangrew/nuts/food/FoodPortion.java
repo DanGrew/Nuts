@@ -135,15 +135,6 @@ public class FoodPortion implements Food {
    }//End Method
 
    /**
-    * Access to the ratio of the given {@link MacroNutrient}.
-    * @param macro the {@link MacroNutrient} in question.
-    * @return the {@link ObjectProperty}.
-    */
-   public ReadOnlyObjectProperty< Double > nutritionRatioFor( MacroNutrient macro ) {
-      return analytics.nutrientRatioFor( macro );
-   }//End Method
-   
-   /**
     * Method to detach listeners from the current {@link Food}.
     */
    private void detachFromFood(){

@@ -81,10 +81,10 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
       assertThat( meal.nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
       
-      assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 0.0 ) );
-      assertThat( meal.foodAnalytics().fatsRatio(), is( 0.0 ) );
-      assertThat( meal.foodAnalytics().proteinRatio(), is( 0.0 ) );
-      assertThat( meal.foodAnalytics().fiberRatioProperty().get(), is( 0.0 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldResetPropertiesWhenEmptyMeal(){
@@ -98,10 +98,10 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.nutrition().of( NutritionalUnit.Protein ).get(), is( 50.0 ) );
       assertThat( meal.nutrition().of( NutritionalUnit.Fibre ).get(), is( 5.6 ) );
       
-      assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 48.8 ) );
-      assertThat( meal.foodAnalytics().fatsRatio(), is( 11.2 ) );
-      assertThat( meal.foodAnalytics().proteinRatio(), is( 40.0 ) );
-      assertThat( meal.foodAnalytics().fiberRatioProperty().get(), is( 4.48 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 48.8 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Fat ).get(), is( 11.2 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).get(), is( 40.0 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Fibre ).get(), is( 4.48 ) );
    }//End Method
    
    @Test public void shouldIgnorePortionsWithNoFood(){
@@ -115,10 +115,10 @@ public class MealPropertiesCalculatorTest {
       assertThat( meal.nutrition().of( NutritionalUnit.Protein ).get(), is( 50.0 ) );
       assertThat( meal.nutrition().of( NutritionalUnit.Fibre ).get(), is( 5.6 ) );
       
-      assertThat( meal.foodAnalytics().carbohydratesRatio(), is( 48.8 ) );
-      assertThat( meal.foodAnalytics().fatsRatio(), is( 11.2 ) );
-      assertThat( meal.foodAnalytics().proteinRatio(), is( 40.0 ) );
-      assertThat( meal.foodAnalytics().fiberRatioProperty().get(), is( 4.48 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 48.8 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Fat ).get(), is( 11.2 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).get(), is( 40.0 ) );
+      assertThat( meal.foodAnalytics().nutrition().of( NutritionalUnit.Fibre ).get(), is( 4.48 ) );
    }//End Method
 
 }//End Class

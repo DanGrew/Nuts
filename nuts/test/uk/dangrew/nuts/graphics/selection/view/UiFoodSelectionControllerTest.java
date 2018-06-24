@@ -25,6 +25,7 @@ import uk.dangrew.nuts.graphics.selection.model.FoodSelectionPaneManager;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionTypes;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionController;
 import uk.dangrew.nuts.label.Label;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -50,11 +51,11 @@ public class UiFoodSelectionControllerTest {
       
       database = new Database();
       chicken = database.foodItems().createConcept( "Chicken" );
-      chicken.foodAnalytics().proteinRatioProperty().set( 100.0 );
+      chicken.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
       beans = database.foodItems().createConcept( "Beans" );
-      beans.foodAnalytics().proteinRatioProperty().set( 10.0 );
+      beans.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
       sausages = database.foodItems().createConcept( "Sausages" );
-      sausages.foodAnalytics().proteinRatioProperty().set( 20.0 );
+      sausages.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 20.0 );
       stock = database.stockLists().createConcept( "Stock" );
       stock.linkWithFoodItems( database.foodItems() );
       

@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.system.Properties;
@@ -87,9 +86,9 @@ public class FoodPortionTest {
       
       food.nutrition().setMacroNutrients( 100, 560, 990 );
       
-      assertThat( systemUnderTest.nutritionRatioFor( MacroNutrient.Carbohydrates ).get(), is( 0.0 ) );
-      assertThat( systemUnderTest.nutritionRatioFor( MacroNutrient.Fats ).get(), is( 0.0 ) );
-      assertThat( systemUnderTest.nutritionRatioFor( MacroNutrient.Protein ).get(), is( 0.0 ) );
+      assertThat( systemUnderTest.foodAnalytics().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
+      assertThat( systemUnderTest.foodAnalytics().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
+      assertThat( systemUnderTest.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldSetNoFood(){
@@ -137,16 +136,16 @@ public class FoodPortionTest {
    @Test public void shouldNotAllowPortionBelowZero(){
       systemUnderTest.setPortion( -10 );
       assertThat( systemUnderTest.portion().get(), is( 0.0 ) );
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( 0.0 ) );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         assertThat( systemUnderTest.foodAnalytics().nutrition().of( unit ).get(), is( 0.0 ) );
       }
    }//End Method
    
    @Test public void shouldAllowPortionZero(){
       systemUnderTest.setPortion( 0 );
       assertThat( systemUnderTest.portion().get(), is( 0.0 ) );
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( 0.0 ) );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         assertThat( systemUnderTest.foodAnalytics().nutrition().of( unit ).get(), is( 0.0 ) );
       }
    }//End Method
    
@@ -157,8 +156,8 @@ public class FoodPortionTest {
       
       food.nutrition().setMacroNutrients( 40, 60, 20 );
       
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( food.foodAnalytics().nutrientRatioFor( macro ).get() ) );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         assertThat( systemUnderTest.foodAnalytics().nutrition().of( unit ).get(), is( food.foodAnalytics().nutrition().of( unit ).get() ) );
       }
    }//End Method
    
@@ -171,14 +170,14 @@ public class FoodPortionTest {
       otherFood.nutrition().setMacroNutrients( 40, 60, 20 );
       systemUnderTest.setFood( otherFood );
       
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( otherFood.foodAnalytics().nutrientRatioFor( macro ).get() ) );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         assertThat( systemUnderTest.foodAnalytics().nutrition().of( unit ).get(), is( otherFood.foodAnalytics().nutrition().of( unit ).get() ) );
       }
       
       food.nutrition().setMacroNutrients( 3476, 90, 234 );
       
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( otherFood.foodAnalytics().nutrientRatioFor( macro ).get() ) );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         assertThat( systemUnderTest.foodAnalytics().nutrition().of( unit ).get(), is( otherFood.foodAnalytics().nutrition().of( unit ).get() ) );
       }
    }//End Method
    
@@ -192,8 +191,8 @@ public class FoodPortionTest {
       
       systemUnderTest.setFood( null );
       
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( 0.0 ) );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         assertThat( systemUnderTest.foodAnalytics().nutrition().of( unit ).get(), is( 0.0 ) );
       }
    }//End Method
    

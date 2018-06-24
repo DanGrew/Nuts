@@ -14,6 +14,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.FilteredConceptOptions;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.stock.Stock;
 import uk.dangrew.nuts.store.Database;
 
@@ -37,11 +38,11 @@ public class FoodSelectionFilterApplierTest {
       
       database = new Database();
       chicken = database.foodItems().createConcept( "Chicken" );
-      chicken.foodAnalytics().proteinRatioProperty().set( 100.0 );
+      chicken.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
       beans = database.foodItems().createConcept( "Beans" );
-      beans.foodAnalytics().proteinRatioProperty().set( 10.0 );
+      beans.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
       sausages = database.foodItems().createConcept( "Sausages" );
-      sausages.foodAnalytics().proteinRatioProperty().set( 20.0 );
+      sausages.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 20.0 );
       stock = new Stock( "Stock" );
       
       model = new FoodFilterModel( database );

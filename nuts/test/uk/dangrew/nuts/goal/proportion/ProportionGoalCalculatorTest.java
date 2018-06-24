@@ -277,11 +277,11 @@ public class ProportionGoalCalculatorTest {
    
    private void assertRatios( double c, double f, double p, double i ) {
       triggerCalculation();
-      System.out.println( "C: " + analytics.carbohydratesRatio() + " F: " + analytics.fatsRatio() + " P: " + analytics.proteinRatio() + " I: " + analytics.fiberRatioProperty().get() );
-      assertThat( analytics.carbohydratesRatio(), is( closeTo( c, 0.1 ) ) );
-      assertThat( analytics.fatsRatio(), is( closeTo( f, 0.1 ) ) );
-      assertThat( analytics.proteinRatio(), is( closeTo( p, 0.1 ) ) );
-      assertThat( analytics.fiberRatioProperty().get(), is( closeTo( i, 0.1 ) ) );
+      System.out.println( "C: " + analytics.nutrition().of( NutritionalUnit.Carbohydrate ) + " F: " + analytics.nutrition().of( NutritionalUnit.Fat ) + " P: " + analytics.nutrition().of( NutritionalUnit.Protein ) + " I: " + analytics.nutrition().of( NutritionalUnit.Fibre ).get() );
+      assertThat( analytics.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( closeTo( c, 0.1 ) ) );
+      assertThat( analytics.nutrition().of( NutritionalUnit.Fat ).get(), is( closeTo( f, 0.1 ) ) );
+      assertThat( analytics.nutrition().of( NutritionalUnit.Protein ).get(), is( closeTo( p, 0.1 ) ) );
+      assertThat( analytics.nutrition().of( NutritionalUnit.Fibre ).get(), is( closeTo( i, 0.1 ) ) );
    }//End Method
    
    @Ignore
