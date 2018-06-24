@@ -1,5 +1,10 @@
 package uk.dangrew.nuts.graphics.goal;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.TreeSet;
+
 import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.control.ComboBox;
@@ -93,6 +98,24 @@ public class CalorieGoalView extends VBox {
                   .withLabelName( "Protein Goal (g)" )
                   .withBinding( new BoundTextProperty( NutritionalUnit.Protein.of( viewModel ).property(), true ) )
       ) );
+      
+      List< PropertyRowBuilder > builders = new ArrayList<>();
+      TreeSet< NutritionalUnit > orderedUnits = new TreeSet<>( ( a, b ) -> a.name().compareToIgnoreCase( b.name() ) );
+      orderedUnits.addAll( Arrays.asList( NutritionalUnit.values() ) );
+      
+      //these are covered by the calorie calculations
+      orderedUnits.remove( NutritionalUnit.Calories );
+      orderedUnits.remove( NutritionalUnit.Carbohydrate );
+      orderedUnits.remove( NutritionalUnit.Fat );
+      orderedUnits.remove( NutritionalUnit.Protein );
+      
+      for ( NutritionalUnit unit : orderedUnits ) {
+         builders.add( new PropertyRowBuilder()
+            .withLabelName( unit.name() )
+            .withBinding( new BoundTextProperty( unit.of( viewModel ).property(), true ) )
+         );
+      }
+      getChildren().add( new PropertiesPane( "Nutritional Units", builders ) );
    }//End Constructor
    
    /**
@@ -172,25 +195,16 @@ public class CalorieGoalView extends VBox {
       
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.exerciseCalories(), viewModel.exerciseCalories() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.calorieDeficit(), viewModel.calorieDeficit() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
-               NutritionalUnit.Calories.of( calorieGoal ).property(), 
-               NutritionalUnit.Calories.of( viewModel ).property() 
-      ) );
       
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.proteinPerPound(), viewModel.proteinPerPound() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.fatPerPound(), viewModel.fatPerPound() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
-               NutritionalUnit.Carbohydrate.of( calorieGoal ).property(),
-               NutritionalUnit.Carbohydrate.of( viewModel ).property()
-      ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
-               NutritionalUnit.Fat.of( calorieGoal ).property(),
-               NutritionalUnit.Fat.of( viewModel ).property()
-      ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
-               NutritionalUnit.Protein.of( calorieGoal ).property(),
-               NutritionalUnit.Protein.of( viewModel ).property()
-      ) );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
+                  unit.of( calorieGoal ).property(),
+                  unit.of( viewModel ).property()
+         ) );
+      }
    }//End Method
    
 }//End Class
