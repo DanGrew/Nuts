@@ -28,7 +28,7 @@ public class MacroRatioCalculatorTest {
    
    @Test public void shouldCalculateProportionsOnAssociation(){
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
-      properties.fats().set( 15.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       properties.protein().set( 40.0 );
       properties.fiber().set( 1.0 );
       

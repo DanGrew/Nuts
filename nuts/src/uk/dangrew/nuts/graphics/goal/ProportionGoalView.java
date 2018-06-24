@@ -138,7 +138,10 @@ public class ProportionGoalView extends VBox {
                NutritionalUnit.Carbohydrate.of( proportionGoal ).property(), 
                NutritionalUnit.Carbohydrate.of( viewModel ).property() 
       ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().fats(), viewModel.properties().fats() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
+               NutritionalUnit.Fat.of( proportionGoal ).property(), 
+               NutritionalUnit.Fat.of( viewModel ).property() 
+      ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().protein(), viewModel.properties().protein() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().fiber(), viewModel.properties().fiber() ) );
    }//End Method

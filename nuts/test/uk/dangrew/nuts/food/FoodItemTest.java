@@ -61,7 +61,7 @@ public class FoodItemTest {
       systemUnderTest.nutrition().of( NutritionalUnit.Calories ).set( 100.0 );
       systemUnderTest.properties().fiber().set( 0.567 );
       systemUnderTest.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 101.0 );
-      systemUnderTest.properties().fats().set( 102.0 );
+      systemUnderTest.properties().nutrition().of( NutritionalUnit.Fat ).set( 102.0 );
       systemUnderTest.properties().protein().set( 103.0 );
       
       FoodItem duplicate = systemUnderTest.duplicate( "-anything" );
@@ -71,7 +71,7 @@ public class FoodItemTest {
       assertThat( duplicate.nutrition().of( NutritionalUnit.Calories ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get() ) );
       assertThat( duplicate.properties().fiber().get(), is( systemUnderTest.properties().fiber().get() ) );
       assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get() ) );
-      assertThat( duplicate.properties().fats().get(), is( systemUnderTest.properties().fats().get() ) );
+      assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fat ).get() ) );
       assertThat( duplicate.properties().protein().get(), is( systemUnderTest.properties().protein().get() ) );
    }//End Method
    

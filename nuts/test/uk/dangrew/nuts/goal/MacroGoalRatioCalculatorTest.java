@@ -36,7 +36,7 @@ public class MacroGoalRatioCalculatorTest {
       calorieGoal.properties().nutrition().setMacroNutrients( 300, 60, 200 );
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
-      properties.fats().set( 15.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       properties.protein().set( 40.0 );
       
       analytics.goal().set( calorieGoal );
@@ -52,13 +52,13 @@ public class MacroGoalRatioCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 30.0 );
       assertMacroProportions( 10, 0, 0 );
       
-      properties.fats().set( 30.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 30.0 );
       assertMacroProportions( 10, 50, 0 );
       
       properties.protein().set( 75.0 );
       assertMacroProportions( 10, 50, 37.5 );
       
-      properties.fats().set( 180.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 180.0 );
       assertMacroProportions( 10, 300, 37.5 );
       
       calorieGoal.properties().nutrition().setMacroNutrients( 0.0, 0.0, 0.0 );
@@ -69,19 +69,19 @@ public class MacroGoalRatioCalculatorTest {
       analytics.goal().set( calorieGoal );
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 20.0 );
-      properties.fats().set( 15.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       properties.protein().set( 10.0 );
       
       calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
       assertMacroProportions( 40, 0, 0 );
       
-      calorieGoal.properties().fats().set( 150.0 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 150.0 );
       assertMacroProportions( 40, 10, 0 );
       
       calorieGoal.properties().protein().set( 80.0 );
       assertMacroProportions( 40, 10, 12.5 );
       
-      calorieGoal.properties().fats().set( 20.0 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 20.0 );
       assertMacroProportions( 40, 75, 12.5 );
    }//End Method
    

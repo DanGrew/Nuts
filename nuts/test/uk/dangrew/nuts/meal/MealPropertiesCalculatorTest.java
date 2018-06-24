@@ -75,7 +75,7 @@ public class MealPropertiesCalculatorTest {
       
       assertThat( meal.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       assertThat( meal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
-      assertThat( meal.properties().fats().get(), is( 0.0 ) );
+      assertThat( meal.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
       assertThat( meal.properties().protein().get(), is( 0.0 ) );
       assertThat( meal.properties().fiber().get(), is( 0.0 ) );
       
@@ -92,7 +92,7 @@ public class MealPropertiesCalculatorTest {
       
       assertThat( meal.nutrition().of( NutritionalUnit.Calories ).get(), is( 300.0 ) );
       assertThat( meal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 61.0 ) );
-      assertThat( meal.properties().fats().get(), is( 14.0 ) );
+      assertThat( meal.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 14.0 ) );
       assertThat( meal.properties().protein().get(), is( 50.0 ) );
       assertThat( meal.properties().fiber().get(), is( 5.6 ) );
       
@@ -109,7 +109,7 @@ public class MealPropertiesCalculatorTest {
       
       assertThat( meal.nutrition().of( NutritionalUnit.Calories ).get(), is( 300.0 ) );
       assertThat( meal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 61.0 ) );
-      assertThat( meal.properties().fats().get(), is( 14.0 ) );
+      assertThat( meal.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 14.0 ) );
       assertThat( meal.properties().protein().get(), is( 50.0 ) );
       assertThat( meal.properties().fiber().get(), is( 5.6 ) );
       

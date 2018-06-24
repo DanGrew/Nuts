@@ -74,9 +74,9 @@ public class FoodRowManipulatorTest {
       systemUnderTest.changeMacro( MacroNutrient.Carbohydrates, 45.3 );
       assertThat( food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 45.3 ) );
       
-      assertThat( food.properties().fats().get(), is( 0.0 ) );
+      assertThat( food.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
       systemUnderTest.changeMacro( MacroNutrient.Fats, 25.3 );
-      assertThat( food.properties().fats().get(), is( 25.3 ) );
+      assertThat( food.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 25.3 ) );
       
       assertThat( food.properties().protein().get(), is( 0.0 ) );
       systemUnderTest.changeMacro( MacroNutrient.Protein, 5.3 );

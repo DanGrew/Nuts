@@ -55,10 +55,10 @@ public class FoodPropertiesTest {
    }//End Method
    
    @Test public void shouldProvideFatIndividually(){
-      assertThat( systemUnderTest.fats(), is( notNullValue() ) );
-      assertThat( systemUnderTest.fats().get(), is( 0.0 ) );
-      systemUnderTest.fats().set( 24.8 );
-      assertThat( systemUnderTest.fats().get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Fat ), is( notNullValue() ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
+      systemUnderTest.nutrition().of( NutritionalUnit.Fat ).set( 24.8 );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Fat ).get(), is( 24.8 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 24.8 ) );
    }//End Method
    
@@ -73,7 +73,7 @@ public class FoodPropertiesTest {
    @Test public void shouldSetMacrosTogether(){
       systemUnderTest.nutrition().setMacroNutrients( 45, 67, 89 );
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 45.0 ) );
-      assertThat( systemUnderTest.fats().get(), is( 67.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Fat ).get(), is( 67.0 ) );
       assertThat( systemUnderTest.protein().get(), is( 89.0 ) );
    }//End Method
    

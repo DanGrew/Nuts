@@ -65,7 +65,7 @@ public class ProportionGoalCalculatorTest {
       assertRatios( 125, 0.0, 0.0, 0.0 );
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
-      properties.fats().set( 12.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 12.0 );
       //148kcal
       assertRatios( 50, 97.3, 0.0, 0.0 );
       properties.protein().set( 4.0 );
@@ -74,15 +74,15 @@ public class ProportionGoalCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 0.0 );
       //124kcal - 108:16 
       assertRatios( 0.0, 116.1, 51.6, 0.0 );
-      properties.fats().set( 5.33 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 5.33 );
       //216:16kcal
       assertRatios( 0.0, 100.0, 100.0, 0.0 );
       
-      properties.fats().set( 22.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 22.0 );
       properties.protein().set( 26.0 );
       assertRatios( 0.0, 87.4, 137.7, 0.0 );
       
-      properties.fats().set( 26.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 26.0 );
       assertRatios( 0.0, 92.3, 123.1, 0.0 );
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 17.0 );
@@ -141,21 +141,21 @@ public class ProportionGoalCalculatorTest {
       goal.configuration().fatTargetValue().set( 450.0 );
       
       assertRatios( 0, 0, 0, 0 );
-      properties.fats().set( 25.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 25.0 );
       assertRatios( 0, 50.0, 0, 0 );
-      properties.fats().set( 50.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 50.0 );
       assertRatios( 0, 100.0, 0, 0 );
-      properties.fats().set( 100.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
       assertRatios( 0, 200.0, 0, 0 );
       
       goal.configuration().fatProportionType().set( ProportionType.Weight );
       goal.configuration().fatTargetValue().set( 500.0 );
       
-      properties.fats().set( 50.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 50.0 );
       assertRatios( 0, 10.0, 0, 0 );
-      properties.fats().set( 500.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 500.0 );
       assertRatios( 0, 100.0, 0, 0 );
-      properties.fats().set( 2000.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 2000.0 );
       assertRatios( 0, 400.0, 0, 0 );
       
       goal.configuration().fatProportionType().set( ProportionType.PercentageOfCalories );

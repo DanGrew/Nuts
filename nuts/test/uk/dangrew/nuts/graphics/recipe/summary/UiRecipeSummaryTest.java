@@ -87,7 +87,7 @@ public class UiRecipeSummaryTest {
       assertLabelTextIs( 1, row, food.portion().get() );
       assertLabelTextIs( 2, row, food.nutrition().of( NutritionalUnit.Calories ).get() );
       assertLabelTextIs( 3, row, food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get() );
-      assertLabelTextIs( 4, row, food.properties().fats().get() );
+      assertLabelTextIs( 4, row, food.properties().nutrition().of( NutritionalUnit.Fat ).get() );
       assertLabelTextIs( 5, row, food.properties().protein().get() );
    }//End Method
    

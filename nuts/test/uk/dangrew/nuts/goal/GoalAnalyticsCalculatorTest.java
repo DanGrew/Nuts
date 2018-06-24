@@ -63,13 +63,13 @@ public class GoalAnalyticsCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 30.0 );
       assertThatCalculationTriggered( calorieGoal, 5 );
       
-      properties.fats().set( 30.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 30.0 );
       assertThatCalculationTriggered( calorieGoal, 6 );
       
       properties.protein().set( 75.0 );
       assertThatCalculationTriggered( calorieGoal, 7 );
       
-      properties.fats().set( 180.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 180.0 );
       assertThatCalculationTriggered( calorieGoal, 8 );
       
       calorieGoal.properties().nutrition().setMacroNutrients( 0.0, 0.0, 0.0 );
@@ -86,19 +86,19 @@ public class GoalAnalyticsCalculatorTest {
       analytics.goal().set( calorieGoal );
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 20.0 );
-      properties.fats().set( 15.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       properties.protein().set( 10.0 );
       
       calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
       assertThatCalculationTriggered( calorieGoal, 5 );
       
-      calorieGoal.properties().fats().set( 150.0 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 150.0 );
       assertThatCalculationTriggered( calorieGoal, 6 );
       
       calorieGoal.properties().protein().set( 80.0 );
       assertThatCalculationTriggered( calorieGoal, 7 );
       
-      calorieGoal.properties().fats().set( 20.0 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 20.0 );
       assertThatCalculationTriggered( calorieGoal, 8 );
       
       calorieGoal.properties().fiber().set( 0.01 );
@@ -136,7 +136,7 @@ public class GoalAnalyticsCalculatorTest {
       
       calorieGoal.properties().nutrition().setMacroNutrients( 300, 60, 200 );
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
-      properties.fats().set( 15.0 );
+      properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       properties.protein().set( 40.0 );
       properties.fiber().set( 2.0 );
       assertThatCalculationTriggered( calorieGoal, 8 );
