@@ -37,7 +37,7 @@ public class ProportionGoalCalculatorTest {
 
    @Test public void shouldProvideNoProgressForCalories() {
       triggerCalculation();
-      assertThat( analytics.caloriesRatio(), is( 0.0 ) );
+      assertThat( analytics.of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldProvideKetoFlexibleCalories() {

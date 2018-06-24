@@ -9,7 +9,6 @@ import org.junit.Test;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
@@ -109,19 +108,19 @@ public class MacroGoalRatioCalculatorTest {
       analytics.goal().set( calorieGoal );
       
       triggerCalculation();
-      assertThat( analytics.caloriesRatio(), is( 0.0 ) );
+      assertThat( analytics.of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       
       calorieGoal.nutrition().of( NutritionalUnit.Calories ).set( 600.0 );
       triggerCalculation();
-      assertThat( analytics.caloriesRatio(), is( 0.0 ) );
+      assertThat( analytics.of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       
       nutrition.of( NutritionalUnit.Calories ).set( 150.0 );
       triggerCalculation();
-      assertThat( analytics.caloriesRatio(), is( 25.0 ) );
+      assertThat( analytics.of( NutritionalUnit.Calories ).get(), is( 25.0 ) );
       
       calorieGoal.nutrition().of( NutritionalUnit.Calories ).set( 1000.0 );
       triggerCalculation();
-      assertThat( analytics.caloriesRatio(), is( 15.0 ) );
+      assertThat( analytics.of( NutritionalUnit.Calories ).get(), is( 15.0 ) );
    }//End Method
    
 }//End Class

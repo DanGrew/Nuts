@@ -11376,27 +11376,27 @@
       "calorieBalance": -14300,
       "portions": [
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
             "portionValue": 200
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 400
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
             "portionValue": 30
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
             "portionValue": 100
          },
          {
-            "consumed": false,
+            "consumed": true,
             "foodId": "08208ce8-3e8e-417f-a6da-38400cf95c8f",
             "portionValue": 100
          }
@@ -11706,6 +11706,17 @@
       "isBalanceReset": false,
       "name": "2018-07-22",
       "id": "599d5463-1717-42a9-bcad-764a6f8fdbac",
+      "consumedCalories": 0,
+      "calorieBalance": -14300,
+      "portions": []
+   },
+   {
+      "date": "2018-07-23",
+      "allowedCalories": 0,
+      "goalId": null,
+      "isBalanceReset": false,
+      "name": "2018-07-23",
+      "id": "ad434185-e9c8-432f-a703-1e686f2c0f83",
       "consumedCalories": 0,
       "calorieBalance": -14300,
       "portions": []

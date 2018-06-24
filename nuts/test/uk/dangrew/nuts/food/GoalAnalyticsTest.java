@@ -19,9 +19,4 @@ public class GoalAnalyticsTest {
       assertThat( systemUnderTest.goal().get(), is( nullValue() ) );
    }//End Method
    
-   @Test public void shouldProvideCalorieRatio(){
-      systemUnderTest.caloriesRatioProperty().set( 342.0 );
-      assertThat( systemUnderTest.caloriesRatio(), is( 342.0 ) );
-   }//End Method
-
 }//End Class
