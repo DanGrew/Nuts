@@ -5,7 +5,6 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -19,10 +18,8 @@ import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
-import uk.dangrew.nuts.goal.calorie.CalorieGoal;
-import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
-import uk.dangrew.nuts.goal.calorie.DerivedCalorieGoal;
 import uk.dangrew.nuts.manual.data.DataLocation;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class DerivedCalorieGoalTest {
 
@@ -73,14 +70,14 @@ public class DerivedCalorieGoalTest {
       assertThat( systemUnderTest.properties().carbohydrates().get(), is( closeTo( 292.633, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.properties().fats().get(), is( closeTo( 68.95, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.properties().protein().get(), is( closeTo( 197.0, TestCommon.precision() ) ) );
-      assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
       
       systemUnderTest.calorieOffset().set( 100.0 );
       
       assertThat( systemUnderTest.properties().carbohydrates().get(), is( closeTo( 317.633, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.properties().fats().get(), is( closeTo( 68.95, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.properties().protein().get(), is( closeTo( 197.0, TestCommon.precision() ) ) );
-      assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 2679.085, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2679.085, TestCommon.precision() ) ) );
    }//End Method
    
    @Test public void shouldProvideRecalculatedCaloriesWhenOffsetChanges(){
@@ -89,26 +86,26 @@ public class DerivedCalorieGoalTest {
       assertThat( systemUnderTest.calorieDeficit(), is( not( baseGoal.calorieDeficit() ) ) );
       assertThat( systemUnderTest.calorieDeficit().get(), is( baseGoal.calorieDeficit().get() ) );
       assertThat( systemUnderTest.calorieOffset().get(), is( 0.0 ) );
-      assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
       
       systemUnderTest.calorieOffset().set( 100.0 );
-      assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 2679.085, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2679.085, TestCommon.precision() ) ) );
    }//End Method
    
    @Test public void shouldProvideRecalculatedCaloriesWhenBaseDeficitChanges(){
       DataLocation.configureExampleGoal( baseGoal );
-      assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
       
       baseGoal.calorieDeficit().set( 200.0 );
-      assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 3079.085, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 3079.085, TestCommon.precision() ) ) );
    }//End Method
    
    @Test public void shouldProvideRecalculatedCaloriesWhenDeficitChanges(){
       DataLocation.configureExampleGoal( baseGoal );
-      assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
       
       systemUnderTest.calorieDeficit().set( 200.0 );
-      assertThat( systemUnderTest.properties().calories().get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
    }//End Method
    
    @Test public void shouldDuplicateWithBaseGoal(){

@@ -6,9 +6,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +14,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class FoodPortionTest {
 
@@ -212,30 +211,30 @@ public class FoodPortionTest {
    }//End Method
    
    @Test public void shouldUpdateCaloriesWhenPortionChanges(){
-      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
-      food.properties().calories().set( 250.0 );
-      assertThat( systemUnderTest.properties().calories().get(), is( 250.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
+      food.nutrition().of( NutritionalUnit.Calories ).set( 250.0 );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 250.0 ) );
       systemUnderTest.setPortion( 50 );
-      assertThat( systemUnderTest.properties().calories().get(), is( 125.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 125.0 ) );
    }//End Method
    
    @Test public void shouldIgnorePreviousFoodCalories(){
       systemUnderTest.setPortion( 50 );
-      food.properties().calories().set( 250.0 );
-      assertThat( systemUnderTest.properties().calories().get(), is( 125.0 ) );
+      food.nutrition().of( NutritionalUnit.Calories ).set( 250.0 );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 125.0 ) );
       
       systemUnderTest.setFood( new FoodItem( "anything" ) );
-      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
-      food.properties().calories().set( 250.0 );
-      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
+      food.nutrition().of( NutritionalUnit.Calories ).set( 250.0 );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
    }//End Method
    
    @Test public void shouldUpdateCaloriesWhenCaloriesChanges(){
-      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       systemUnderTest.setPortion( 50 );
-      assertThat( systemUnderTest.properties().calories().get(), is( 0.0 ) );
-      food.properties().calories().set( 250.0 );
-      assertThat( systemUnderTest.properties().calories().get(), is( 125.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
+      food.nutrition().of( NutritionalUnit.Calories ).set( 250.0 );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( 125.0 ) );
    }//End Method
    
    @Test public void shouldUpdateFiberWhenPortionChanges(){

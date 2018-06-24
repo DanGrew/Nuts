@@ -14,10 +14,9 @@ import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
-import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
-import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class MealRegistrationsTest {
 
@@ -105,7 +104,7 @@ public class MealRegistrationsTest {
       portion1.setFood( food1 );
       verify( listener, times( 1 ) ).mealChanged();
       
-      food1.properties().calories().set( 100.0 );
+      food1.nutrition().of( NutritionalUnit.Calories ).set( 100.0 );
       verify( listener, times( 2 ) ).mealChanged();
    }//End Method
    
@@ -116,7 +115,7 @@ public class MealRegistrationsTest {
       portion1.setFood( null );
       verify( listener, times( 1 ) ).mealChanged();
       
-      food1.properties().calories().set( 230.0 );
+      food1.nutrition().of( NutritionalUnit.Calories ).set( 230.0 );
       food1.properties().nutritionFor( MacroNutrient.Carbohydrates ).set( 100.0 );
       food1.properties().nutritionFor( MacroNutrient.Fats ).set( 100.0 );
       food1.properties().nutritionFor( MacroNutrient.Protein ).set( 100.0 );

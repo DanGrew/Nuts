@@ -69,11 +69,6 @@ public class FoodPropertiesTest {
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Protein ).get(), is( 24.8 ) );
    }//End Method
    
-   @Test public void shouldProvideCalories(){
-      assertThat( systemUnderTest.calories(), is( notNullValue() ) );
-      assertThat( systemUnderTest.calories().get(), is( 0.0 ) );
-   }//End Method
-   
    @Test public void shouldSetMacrosTogether(){
       systemUnderTest.setMacros( 45, 67, 89 );
       assertThat( systemUnderTest.carbohydrates().get(), is( 45.0 ) );

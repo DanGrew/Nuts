@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
+
 public class FoodItemTest {
 
    private FoodProperties properties;
@@ -56,7 +58,7 @@ public class FoodItemTest {
    }//End Method
    
    @Test public void shouldDuplicate(){
-      systemUnderTest.properties().calories().set( 100.0 );
+      systemUnderTest.nutrition().of( NutritionalUnit.Calories ).set( 100.0 );
       systemUnderTest.properties().fiber().set( 0.567 );
       systemUnderTest.properties().carbohydrates().set( 101.0 );
       systemUnderTest.properties().fats().set( 102.0 );
@@ -66,7 +68,7 @@ public class FoodItemTest {
       assertTrue( duplicate != systemUnderTest );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "-anything" ) );
-      assertThat( duplicate.properties().calories().get(), is( systemUnderTest.properties().calories().get() ) );
+      assertThat( duplicate.nutrition().of( NutritionalUnit.Calories ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get() ) );
       assertThat( duplicate.properties().fiber().get(), is( systemUnderTest.properties().fiber().get() ) );
       assertThat( duplicate.properties().carbohydrates().get(), is( systemUnderTest.properties().carbohydrates().get() ) );
       assertThat( duplicate.properties().fats().get(), is( systemUnderTest.properties().fats().get() ) );

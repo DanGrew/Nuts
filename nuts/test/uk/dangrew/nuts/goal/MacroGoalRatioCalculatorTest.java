@@ -2,7 +2,6 @@ package uk.dangrew.nuts.goal;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +11,7 @@ import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class MacroGoalRatioCalculatorTest {
 
@@ -119,15 +119,15 @@ public class MacroGoalRatioCalculatorTest {
       triggerCalculation();
       assertThat( analytics.caloriesRatio(), is( 0.0 ) );
       
-      calorieGoal.properties().calories().set( 600.0 );
+      calorieGoal.nutrition().of( NutritionalUnit.Calories ).set( 600.0 );
       triggerCalculation();
       assertThat( analytics.caloriesRatio(), is( 0.0 ) );
       
-      properties.calories().set( 150.0 );
+      properties.nutrition().of( NutritionalUnit.Calories ).set( 150.0 );
       triggerCalculation();
       assertThat( analytics.caloriesRatio(), is( 25.0 ) );
       
-      calorieGoal.properties().calories().set( 1000.0 );
+      calorieGoal.nutrition().of( NutritionalUnit.Calories ).set( 1000.0 );
       triggerCalculation();
       assertThat( analytics.caloriesRatio(), is( 15.0 ) );
    }//End Method

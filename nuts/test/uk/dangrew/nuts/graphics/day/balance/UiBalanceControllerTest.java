@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class UiBalanceControllerTest {
 
@@ -24,7 +25,7 @@ public class UiBalanceControllerTest {
    }//End Method
    
    @Test public void shouldSyncDayPlanCalories(){
-      plan.properties().calories().set( 567.9 );
+      plan.nutrition().of( NutritionalUnit.Calories ).set( 567.9 );
       assertThat( plan.consumedCalories().get(), is( 0.0 ) );
       
       systemUnderTest.syncCalories( plan );

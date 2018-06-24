@@ -18,6 +18,7 @@ import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class GoalAnalyticsCalculatorTest {
 
@@ -74,7 +75,7 @@ public class GoalAnalyticsCalculatorTest {
       calorieGoal.properties().setMacros( 0.0, 0.0, 0.0 );
       assertThatCalculationTriggered( calorieGoal, 11 );
       
-      properties.calories().set( 1800.0 );
+      properties.nutrition().of( NutritionalUnit.Calories ).set( 1800.0 );
       assertThatCalculationTriggered( calorieGoal, 12 );
       
       properties.fiber().set( 0.08 );
@@ -103,7 +104,7 @@ public class GoalAnalyticsCalculatorTest {
       calorieGoal.properties().fiber().set( 0.01 );
       assertThatCalculationTriggered( calorieGoal, 9 );
       
-      calorieGoal.properties().calories().set( 20.0 );
+      calorieGoal.nutrition().of( NutritionalUnit.Calories ).set( 20.0 );
       //calculator triggered
       assertThatCalculationTriggered( calorieGoal, 13 );
    }//End Method

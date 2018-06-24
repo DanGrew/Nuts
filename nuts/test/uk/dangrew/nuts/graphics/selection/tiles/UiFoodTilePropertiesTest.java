@@ -10,8 +10,8 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.selection.tiles.UiFoodTileProperties;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class UiFoodTilePropertiesTest {
 
@@ -24,7 +24,7 @@ public class UiFoodTilePropertiesTest {
       
       food = new FoodItem( "Food Item" );
       food.properties().setMacros( 20, 35, 45 );
-      food.properties().calories().set( 56.4 );
+      food.nutrition().of( NutritionalUnit.Calories ).set( 56.4 );
       
       systemUnderTest = new UiFoodTileProperties( food );
    }//End Method
@@ -55,7 +55,7 @@ public class UiFoodTilePropertiesTest {
    
    @Test public void shouldSyncCalories() {
       assertThat( systemUnderTest.calorieValueLabel().getText(), is( "56.40kcal" ) );
-      food.properties().calories().set( 10.0 );
+      food.nutrition().of( NutritionalUnit.Calories ).set( 10.0 );
       assertThat( systemUnderTest.calorieValueLabel().getText(), is( "10.00kcal" ) );
    }//End Method
    
@@ -73,7 +73,7 @@ public class UiFoodTilePropertiesTest {
       food.properties().carbohydrates().set( 10.0 );
       food.properties().fats().set( 10.0 );
       food.properties().protein().set( 10.0 );
-      food.properties().calories().set( 10.0 );
+      food.nutrition().of( NutritionalUnit.Calories ).set( 10.0 );
       
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 20.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 20.00%" ) );

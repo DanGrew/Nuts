@@ -11,11 +11,7 @@ import org.junit.Test;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
-import uk.dangrew.nuts.goal.calorie.CalorieGoal;
-import uk.dangrew.nuts.goal.calorie.CalorieGoalCalculator;
-import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
-import uk.dangrew.nuts.goal.calorie.Gender;
-import uk.dangrew.nuts.goal.calorie.MacroCalorieGoalCalculator;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class CalorieGoalCalculatorTest {
 
@@ -38,19 +34,19 @@ public class CalorieGoalCalculatorTest {
    }//End Method
 
    @Test public void shouldCalculateGoal() {
-      assertThat( calorieGoal.properties().calories().get(), is( 0.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       
       calorieGoal.tee().set( 1000.0 );
-      assertThat( calorieGoal.properties().calories().get(), is( 1000.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 1000.0 ) );
       
       calorieGoal.exerciseCalories().set( 500.0 );
-      assertThat( calorieGoal.properties().calories().get(), is( 1500.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 1500.0 ) );
       
       calorieGoal.calorieDeficit().set( 300.0 );
-      assertThat( calorieGoal.properties().calories().get(), is( 1200.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 1200.0 ) );
       
       calorieGoal.tee().set( 750.0 );
-      assertThat( calorieGoal.properties().calories().get(), is( 950.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 950.0 ) );
    }//End Method
    
    @Test public void shouldCalculateMaleBmrWithZeros(){

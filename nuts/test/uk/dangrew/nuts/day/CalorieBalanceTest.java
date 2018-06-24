@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
+
 public class CalorieBalanceTest {
 
    private DayPlan plan1;
@@ -21,7 +23,7 @@ public class CalorieBalanceTest {
       systemUnderTest = new CalorieBalance( store );
       
       store.store( plan1 = new DayPlan( LocalDate.now() ) );
-      plan1.properties().calories().set( 0.0 );
+      plan1.nutrition().of( NutritionalUnit.Calories ).set( 0.0 );
       store.store( plan2 = new DayPlan( LocalDate.now().minusDays( 1 ) ) );
    }//End Method
    

@@ -19,6 +19,7 @@ import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
 public class FoodRowManipulatorTest {
@@ -63,9 +64,9 @@ public class FoodRowManipulatorTest {
    }//End Method
    
    @Test public void shouldChangeCalories() {
-      assertThat( food.properties().calories().get(), is( 0.0 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       systemUnderTest.changeCalories( 45.3 );
-      assertThat( food.properties().calories().get(), is( 45.3 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Calories ).get(), is( 45.3 ) );
    }//End Method
    
    @Test public void shouldChangeMacros() {

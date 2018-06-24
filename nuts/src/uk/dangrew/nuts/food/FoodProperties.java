@@ -47,14 +47,6 @@ public class FoodProperties extends Properties {
       return nutrition;
    }//End Method
    
-   /**
-    * Access to the calories.
-    * @return the {@link ObjectProperty}.
-    */
-   @Deprecated public ObjectProperty< Double > calories() {
-      return nutrition.of( NutritionalUnit.Calories );
-   }//End Method
-   
    @Deprecated public ObjectProperty< Double > fiber() {
       return nutrition.of( NutritionalUnit.Fibre );
    }//End Method

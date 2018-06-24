@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
@@ -17,6 +16,7 @@ import uk.dangrew.nuts.apis.tesco.model.api.CalculatedNutrition;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class TescoFoodItemGeneratorTest {
 
@@ -57,7 +57,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().nameProperty().get(), is( 
                groceryName + " (100g)" 
       ) );
-      assertThat( first.properties().calories().get(), is( kcal ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( kcal ) );
       assertThat( first.properties().fiber().get(), is( fiber ) );
       assertThat( first.properties().carbohydrates().get(), is( carbs ) );
       assertThat( first.properties().fats().get(), is( fat ) );
@@ -90,7 +90,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().nameProperty().get(), is( 
                groceryName + " (15g)" 
       ) );
-      assertThat( first.properties().calories().get(), is( kcal ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( kcal ) );
       assertThat( first.properties().fiber().get(), is( fiber ) );
       assertThat( first.properties().carbohydrates().get(), is( carbs ) );
       assertThat( first.properties().fats().get(), is( fat ) );
@@ -121,7 +121,7 @@ public class TescoFoodItemGeneratorTest {
       
       FoodItem first = ( FoodItem )items.get( 0 );
       assertThat( first.properties().nameProperty().get(), is( groceryName + " (unparsable)" ) );
-      assertThat( first.properties().calories().get(), is( 0.0 ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
       assertThat( first.properties().fats().get(), is( 0.0 ) );
       assertThat( first.properties().protein().get(), is( 0.0 ) );
@@ -144,7 +144,7 @@ public class TescoFoodItemGeneratorTest {
       
       FoodItem first = ( FoodItem )items.get( 0 );
       assertThat( first.properties().nameProperty().get(), is( groceryName + " (unparsable)" ) );
-      assertThat( first.properties().calories().get(), is( 0.0 ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       assertThat( first.properties().fiber().get(), is( 0.0 ) );
       assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
       assertThat( first.properties().fats().get(), is( 0.0 ) );

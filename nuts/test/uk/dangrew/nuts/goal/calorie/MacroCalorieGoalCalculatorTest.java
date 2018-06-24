@@ -9,10 +9,7 @@ import org.junit.Test;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
-import uk.dangrew.nuts.goal.calorie.CalorieGoal;
-import uk.dangrew.nuts.goal.calorie.CalorieGoalCalculator;
-import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
-import uk.dangrew.nuts.goal.calorie.MacroCalorieGoalCalculator;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class MacroCalorieGoalCalculatorTest {
 
@@ -39,7 +36,7 @@ public class MacroCalorieGoalCalculatorTest {
    }//End Method
    
    @Test public void shouldCalculateMacros(){
-      assertThat( calorieGoal.properties().calories().get(), is( 3000.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 3000.0 ) );
       assertThat( calorieGoal.properties().carbohydrates().get(), is( 370.0 ) );
       assertThat( calorieGoal.properties().fats().get(), is( 80.0 ) );
       assertThat( calorieGoal.properties().protein().get(), is( 200.0 ) );
@@ -47,9 +44,9 @@ public class MacroCalorieGoalCalculatorTest {
    
    @Test public void shouldRespondToCalorieChange(){
       shouldCalculateMacros();
-      calorieGoal.properties().calories().set( 2000.0 );
+      calorieGoal.nutrition().of( NutritionalUnit.Calories ).set( 2000.0 );
       
-      assertThat( calorieGoal.properties().calories().get(), is( 2000.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 2000.0 ) );
       assertThat( calorieGoal.properties().carbohydrates().get(), is( 120.0 ) );
       assertThat( calorieGoal.properties().fats().get(), is( 80.0 ) );
       assertThat( calorieGoal.properties().protein().get(), is( 200.0 ) );
@@ -59,7 +56,7 @@ public class MacroCalorieGoalCalculatorTest {
       shouldCalculateMacros();
       calorieGoal.weight().set( 160.0 );
       
-      assertThat( calorieGoal.properties().calories().get(), is( 3000.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 3000.0 ) );
       assertThat( calorieGoal.properties().carbohydrates().get(), is( 446.0 ) );
       assertThat( calorieGoal.properties().fats().get(), is( 64.0 ) );
       assertThat( calorieGoal.properties().protein().get(), is( 160.0 ) );
@@ -69,7 +66,7 @@ public class MacroCalorieGoalCalculatorTest {
       shouldCalculateMacros();
       calorieGoal.proteinPerPound().set( 0.5 );
       
-      assertThat( calorieGoal.properties().calories().get(), is( 3000.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 3000.0 ) );
       assertThat( calorieGoal.properties().carbohydrates().get(), is( 470.0 ) );
       assertThat( calorieGoal.properties().fats().get(), is( 80.0 ) );
       assertThat( calorieGoal.properties().protein().get(), is( 100.0 ) );
@@ -79,7 +76,7 @@ public class MacroCalorieGoalCalculatorTest {
       shouldCalculateMacros();
       calorieGoal.fatPerPound().set( 0.3 );
       
-      assertThat( calorieGoal.properties().calories().get(), is( 3000.0 ) );
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( 3000.0 ) );
       assertThat( calorieGoal.properties().carbohydrates().get(), is( 415.0 ) );
       assertThat( calorieGoal.properties().fats().get(), is( 60.0 ) );
       assertThat( calorieGoal.properties().protein().get(), is( 200.0 ) );

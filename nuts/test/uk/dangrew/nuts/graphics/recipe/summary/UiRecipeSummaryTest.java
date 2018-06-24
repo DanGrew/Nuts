@@ -14,6 +14,7 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
 public class UiRecipeSummaryTest {
@@ -84,7 +85,7 @@ public class UiRecipeSummaryTest {
    private void assertFoodDisplayedInRow( int row, FoodPortion food, String indentation ) {
       assertLabelTextIs( 0, row, indentation + food.food().get().properties().nameProperty().get() );
       assertLabelTextIs( 1, row, food.portion().get() );
-      assertLabelTextIs( 2, row, food.properties().calories().get() );
+      assertLabelTextIs( 2, row, food.nutrition().of( NutritionalUnit.Calories ).get() );
       assertLabelTextIs( 3, row, food.properties().carbohydrates().get() );
       assertLabelTextIs( 4, row, food.properties().fats().get() );
       assertLabelTextIs( 5, row, food.properties().protein().get() );
