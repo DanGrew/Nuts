@@ -57,7 +57,7 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
       double remaingWidth = 0.98 - COLUMN_WIDTH_TEMPLATE - COLUMN_WIDTH_GOAL;
       double widthForEachPart = remaingWidth / 2;
       columnsForShowing( table(), Food::nutrition, NutritionalUnit::name, widthForEachPart );
-      columnsForShowing( table(), f -> f.goalAnalytics().nutrition(), u -> u.name() + " %", widthForEachPart );
+      columnsForShowing( table(), f -> f.goalAnalytics(), u -> u.name() + " %", widthForEachPart );
    }//End Method
    
 }//End Class

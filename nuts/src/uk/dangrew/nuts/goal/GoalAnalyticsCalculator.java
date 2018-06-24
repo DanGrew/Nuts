@@ -57,7 +57,7 @@ public class GoalAnalyticsCalculator {
       this.goal = goal;
       if ( this.goal == null ) {
          for ( NutritionalUnit unit : NutritionalUnit.values() ) {
-            analytics.nutrition().of( unit ).set( 0.0 );
+            analytics.of( unit ).set( 0.0 );
          }
          return;
       } else {

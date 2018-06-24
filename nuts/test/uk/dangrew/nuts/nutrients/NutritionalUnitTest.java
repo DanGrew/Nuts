@@ -27,7 +27,7 @@ public class NutritionalUnitTest {
    @Test public void shouldProvideProperty() {
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {
          assertThat( unit.of( food ).property(), is( food.nutrition().of( unit ) ) );
-         assertThat( unit.of( food.foodAnalytics() ).property(), is( food.foodAnalytics().nutrition().of( unit ) ) );
+         assertThat( unit.of( food.foodAnalytics() ).property(), is( food.foodAnalytics().of( unit ) ) );
          assertThat( unit.of( food.nutrition() ).property(), is( food.nutrition().of( unit ) ) );
       }
    }//End Method

@@ -99,9 +99,9 @@ public class MacroGoalRatioCalculatorTest {
    private void assertMacroProportions( double c, double f, double p ) {
       triggerCalculation();
       
-      assertThat( analytics.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
-      assertThat( analytics.nutrition().of( NutritionalUnit.Fat ).get(), is( f ) );
-      assertThat( analytics.nutrition().of( NutritionalUnit.Protein ).get(), is( p ) );
+      assertThat( analytics.of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
+      assertThat( analytics.of( NutritionalUnit.Fat ).get(), is( f ) );
+      assertThat( analytics.of( NutritionalUnit.Protein ).get(), is( p ) );
    }//End Method
    
    @Test public void shouldCalculateCalorieRatio(){

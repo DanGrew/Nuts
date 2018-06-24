@@ -24,14 +24,6 @@ public enum NutritionalUnit {
       return macros;
    }//End Method
    
-   public OptionalNutritionalUnit of( FoodAnalytics analytics ) {
-      if ( analytics == null ) {
-         return new OptionalNutritionalUnit();
-      }
-      
-      return new OptionalNutritionalUnit( analytics.nutrition().of( this ) );
-   }//End Method
-   
    public OptionalNutritionalUnit of( Food food ) {
       if ( food == null ) {
          return new OptionalNutritionalUnit();

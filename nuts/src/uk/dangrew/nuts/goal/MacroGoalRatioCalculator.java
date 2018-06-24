@@ -34,13 +34,13 @@ public class MacroGoalRatioCalculator implements GoalCalculator {
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {
          OptionalNutritionalUnit unitGoal = unit.of( calorieGoal );
          if ( !unitGoal.isPresent() || unitGoal.get() == 0 ) {
-            analytics.nutrition().of( unit ).set( 0.0 );
+            analytics.of( unit ).set( 0.0 );
             continue;
          }
          
          OptionalNutritionalUnit unitUsage = unit.of( nutrition );
          double proportion = unitUsage.get() * 100 / unitGoal.get();
-         analytics.nutrition().of( unit ).set( proportion );
+         analytics.of( unit ).set( proportion );
       }
    }//End Method
 

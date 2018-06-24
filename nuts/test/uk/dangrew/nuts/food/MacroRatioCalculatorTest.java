@@ -58,10 +58,10 @@ public class MacroRatioCalculatorTest {
    }//End Method
    
    private void assertPropertyProportions( double c, double f, double p, double i ) {
-      assertThat( analytics.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
-      assertThat( analytics.nutrition().of( NutritionalUnit.Fat ).get(), is( f ) );
-      assertThat( analytics.nutrition().of( NutritionalUnit.Protein ).get(), is( p ) );
-      assertThat( analytics.nutrition().of( NutritionalUnit.Fibre ).get(), is( i ) );
+      assertThat( analytics.of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
+      assertThat( analytics.of( NutritionalUnit.Fat ).get(), is( f ) );
+      assertThat( analytics.of( NutritionalUnit.Protein ).get(), is( p ) );
+      assertThat( analytics.of( NutritionalUnit.Fibre ).get(), is( i ) );
    }//End Method
    
 }//End Class

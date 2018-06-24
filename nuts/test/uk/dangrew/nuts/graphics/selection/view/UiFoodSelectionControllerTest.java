@@ -51,11 +51,11 @@ public class UiFoodSelectionControllerTest {
       
       database = new Database();
       chicken = database.foodItems().createConcept( "Chicken" );
-      chicken.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
+      chicken.foodAnalytics().of( NutritionalUnit.Protein ).set( 100.0 );
       beans = database.foodItems().createConcept( "Beans" );
-      beans.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
+      beans.foodAnalytics().of( NutritionalUnit.Protein ).set( 10.0 );
       sausages = database.foodItems().createConcept( "Sausages" );
-      sausages.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).set( 20.0 );
+      sausages.foodAnalytics().of( NutritionalUnit.Protein ).set( 20.0 );
       stock = database.stockLists().createConcept( "Stock" );
       stock.linkWithFoodItems( database.foodItems() );
       

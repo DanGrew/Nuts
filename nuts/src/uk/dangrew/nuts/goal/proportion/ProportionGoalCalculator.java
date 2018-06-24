@@ -50,7 +50,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
                totalWeight, 
                carbCalories, 
                carbWeight, 
-               analytics.nutrition().of( NutritionalUnit.Carbohydrate ) 
+               analytics.of( NutritionalUnit.Carbohydrate ) 
       );
       calculateAndSet( 
                proportionGoal.configuration().fatProportionType(), 
@@ -59,7 +59,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
                totalWeight, 
                fatCalories, 
                fatWeight, 
-               analytics.nutrition().of( NutritionalUnit.Fat )
+               analytics.of( NutritionalUnit.Fat )
       );
       calculateAndSet( 
                proportionGoal.configuration().proteinProportionType(), 
@@ -68,7 +68,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
                totalWeight, 
                proteinCalories, 
                proteinWeight, 
-               analytics.nutrition().of( NutritionalUnit.Protein )
+               analytics.of( NutritionalUnit.Protein )
       );
       calculateAndSet( 
                proportionGoal.configuration().fiberProportionType(), 
@@ -77,7 +77,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
                totalWeight, 
                fiberCalories, 
                fiberWeight, 
-               analytics.nutrition().of( NutritionalUnit.Fibre ) 
+               analytics.of( NutritionalUnit.Fibre ) 
       );
    }//End Method
    

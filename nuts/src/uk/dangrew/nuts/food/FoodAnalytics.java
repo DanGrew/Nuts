@@ -16,8 +16,4 @@ import uk.dangrew.nuts.nutrients.Nutrition;
  */
 public class FoodAnalytics extends Nutrition {
 
-   public Nutrition nutrition(){
-      return this;
-   }//End Method
-   
 }//End Class

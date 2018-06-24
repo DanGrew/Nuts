@@ -30,16 +30,16 @@ public class ShoppingPlanInteractionTest {
       defaultGoal.height().set( 1.87 );
       
       Template plan = database.templates().objectList().get( 0 );
-      assertThat( plan.goalAnalytics().nutrition().of( NutritionalUnit.Protein ).get(), is( lessThan( 200.0 ) ) );
+      assertThat( plan.goalAnalytics().of( NutritionalUnit.Protein ).get(), is( lessThan( 200.0 ) ) );
       
       Meal shoppingList = new Meal( "Shopping" );
       database.shoppingLists().store( shoppingList );
       shoppingList.portions().add( new FoodPortion( plan, 100 ) );
       
-      assertThat( plan.goalAnalytics().nutrition().of( NutritionalUnit.Protein ).get(), is( lessThan( 200.0 ) ) );
+      assertThat( plan.goalAnalytics().of( NutritionalUnit.Protein ).get(), is( lessThan( 200.0 ) ) );
       
       shoppingList.portions().get( 0 ).setPortion( 200.0 );
-      assertThat( plan.goalAnalytics().nutrition().of( NutritionalUnit.Protein ).get(), is( lessThan( 200.0 ) ) );
+      assertThat( plan.goalAnalytics().of( NutritionalUnit.Protein ).get(), is( lessThan( 200.0 ) ) );
    }//End Method
 
 }//End Class

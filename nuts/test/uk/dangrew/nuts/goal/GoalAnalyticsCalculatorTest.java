@@ -120,10 +120,10 @@ public class GoalAnalyticsCalculatorTest {
    
    @Test public void shouldResetProportionsWhenGoalRemoved(){
       calorieGoal.nutrition().setMacroNutrients( 300, 60, 200 );
-      analytics.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
-      analytics.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
-      analytics.nutrition().of( NutritionalUnit.Protein ).set( 40.0 );
-      analytics.nutrition().of( NutritionalUnit.Fibre ).set( 2.0 );
+      analytics.of( NutritionalUnit.Carbohydrate ).set( 45.0 );
+      analytics.of( NutritionalUnit.Fat ).set( 15.0 );
+      analytics.of( NutritionalUnit.Protein ).set( 40.0 );
+      analytics.of( NutritionalUnit.Fibre ).set( 2.0 );
       
       assertThatCalculationTriggered( calorieGoal, 0 );
       analytics.goal().set( calorieGoal );
@@ -160,10 +160,10 @@ public class GoalAnalyticsCalculatorTest {
    }//End Method
    
    private void assertMacroProportions( double c, double f, double p, double i ) {
-      assertThat( analytics.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
-      assertThat( analytics.nutrition().of( NutritionalUnit.Fat ).get(), is( f ) );
-      assertThat( analytics.nutrition().of( NutritionalUnit.Protein ).get(), is( p ) );
-      assertThat( analytics.nutrition().of( NutritionalUnit.Fibre ).get(), is( i ) );
+      assertThat( analytics.of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
+      assertThat( analytics.of( NutritionalUnit.Fat ).get(), is( f ) );
+      assertThat( analytics.of( NutritionalUnit.Protein ).get(), is( p ) );
+      assertThat( analytics.of( NutritionalUnit.Fibre ).get(), is( i ) );
    }//End Method
 
    @Test( expected = IllegalStateException.class ) public void shouldNotAllowMultipleAssociation(){

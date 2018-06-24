@@ -13,17 +13,17 @@ public enum FoodSelectionTypes {
    ),
    Carbohydrates( 
             Comparators.reverseComparator(
-                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().nutrition().of( NutritionalUnit.Carbohydrate ).get() ) 
+                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().of( NutritionalUnit.Carbohydrate ).get() ) 
             )
    ),
    Fats( 
             Comparators.reverseComparator(
-                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().nutrition().of( NutritionalUnit.Fat ).get() ) 
+                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().of( NutritionalUnit.Fat ).get() ) 
             )
    ), 
    Protein( 
             Comparators.reverseComparator(
-                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().nutrition().of( NutritionalUnit.Protein ).get() ) 
+                     Comparators.doubleExtractionComparater( f -> f.foodAnalytics().of( NutritionalUnit.Protein ).get() ) 
             )
    );
    
