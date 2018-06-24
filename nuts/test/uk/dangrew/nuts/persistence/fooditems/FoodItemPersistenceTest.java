@@ -46,13 +46,13 @@ public class FoodItemPersistenceTest {
       Database database = new Database();
       
       FoodItem item1 = new FoodItem( "12345", "Food1" );
-      item1.properties().setMacros( 45, 3.4, 98.1 );
+      item1.properties().nutrition().setMacroNutrients( 45, 3.4, 98.1 );
       item1.properties().fiber().set( 87.34 );
       item1.stockProperties().setWeighting( 100, 750 );
       database.foodItems().store( item1 );
       
       FoodItem item2 = new FoodItem( "67890", "Food2" );
-      item2.properties().setMacros( 2.11, 0.56, 123 );
+      item2.properties().nutrition().setMacroNutrients( 2.11, 0.56, 123 );
       item2.stockProperties().setWeighting( 10, 500 );
       database.foodItems().store( item2 );
       

@@ -70,7 +70,7 @@ public class FoodPropertiesTest {
    }//End Method
    
    @Test public void shouldSetMacrosTogether(){
-      systemUnderTest.setMacros( 45, 67, 89 );
+      systemUnderTest.nutrition().setMacroNutrients( 45, 67, 89 );
       assertThat( systemUnderTest.carbohydrates().get(), is( 45.0 ) );
       assertThat( systemUnderTest.fats().get(), is( 67.0 ) );
       assertThat( systemUnderTest.protein().get(), is( 89.0 ) );

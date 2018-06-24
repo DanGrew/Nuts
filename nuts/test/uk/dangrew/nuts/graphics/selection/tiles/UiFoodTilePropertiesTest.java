@@ -23,7 +23,7 @@ public class UiFoodTilePropertiesTest {
       MockitoAnnotations.initMocks( this );
       
       food = new FoodItem( "Food Item" );
-      food.properties().setMacros( 20, 35, 45 );
+      food.properties().nutrition().setMacroNutrients( 20, 35, 45 );
       food.nutrition().of( NutritionalUnit.Calories ).set( 56.4 );
       
       systemUnderTest = new UiFoodTileProperties( food );

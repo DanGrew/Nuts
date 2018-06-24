@@ -57,14 +57,14 @@ public class FoodPortionTest {
    
    @Test public void shouldSetNewFood(){
       FoodItem otherFood = new FoodItem( "another" );
-      otherFood.properties().setMacros( 4, 6, 2 );
+      otherFood.properties().nutrition().setMacroNutrients( 4, 6, 2 );
       
       systemUnderTest.setFood( otherFood );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 4.0 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 6.0 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Protein ).get(), is( 2.0 ) );
       
-      otherFood.properties().setMacros( 100, 560, 990 );
+      otherFood.properties().nutrition().setMacroNutrients( 100, 560, 990 );
       
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 100.0 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 560.0 ) );
@@ -72,7 +72,7 @@ public class FoodPortionTest {
    }//End Method
    
    @Test public void shouldNotRespondToPreviousFood(){
-      food.properties().setMacros( 40, 60, 20 );
+      food.properties().nutrition().setMacroNutrients( 40, 60, 20 );
       
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 40.0 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 60.0 ) );
@@ -80,7 +80,7 @@ public class FoodPortionTest {
       
       systemUnderTest.setFood( null );
       
-      food.properties().setMacros( 100, 560, 990 );
+      food.properties().nutrition().setMacroNutrients( 100, 560, 990 );
       
       assertThat( systemUnderTest.nutritionRatioFor( MacroNutrient.Carbohydrates ).get(), is( 0.0 ) );
       assertThat( systemUnderTest.nutritionRatioFor( MacroNutrient.Fats ).get(), is( 0.0 ) );
@@ -100,7 +100,7 @@ public class FoodPortionTest {
    }//End Method
    
    @Test public void shouldUpdateMacrosWithPortion() {
-      food.properties().setMacros( 40, 60, 20 );
+      food.properties().nutrition().setMacroNutrients( 40, 60, 20 );
       
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 40.0 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 60.0 ) );
@@ -118,7 +118,7 @@ public class FoodPortionTest {
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 0.0 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Protein ).get(), is( 0.0 ) );
       
-      food.properties().setMacros( 40, 60, 20 );
+      food.properties().nutrition().setMacroNutrients( 40, 60, 20 );
       
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 40.0 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Fats ).get(), is( 60.0 ) );
@@ -150,7 +150,7 @@ public class FoodPortionTest {
          assertThat( systemUnderTest.nutritionFor( macro ).get(), is( food.properties().nutritionFor( macro ).get() ) );
       }
       
-      food.properties().setMacros( 40, 60, 20 );
+      food.properties().nutrition().setMacroNutrients( 40, 60, 20 );
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( food.foodAnalytics().nutrientRatioFor( macro ).get() ) );
@@ -163,14 +163,14 @@ public class FoodPortionTest {
       }
       
       FoodItem otherFood = new FoodItem( "another" );
-      otherFood.properties().setMacros( 40, 60, 20 );
+      otherFood.properties().nutrition().setMacroNutrients( 40, 60, 20 );
       systemUnderTest.setFood( otherFood );
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( otherFood.foodAnalytics().nutrientRatioFor( macro ).get() ) );
       }
       
-      food.properties().setMacros( 3476, 90, 234 );
+      food.properties().nutrition().setMacroNutrients( 3476, 90, 234 );
       
       for ( MacroNutrient macro : MacroNutrient.values() ) {
          assertThat( systemUnderTest.nutritionRatioFor( macro ).get(), is( otherFood.foodAnalytics().nutrientRatioFor( macro ).get() ) );

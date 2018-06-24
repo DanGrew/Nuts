@@ -30,19 +30,19 @@ public class MealPropertiesCalculatorTest {
       MockitoAnnotations.initMocks( this );
       
       FoodItem item1 = new FoodItem( "Food1" );
-      item1.properties().setMacros( 1, 2, 7 );
+      item1.properties().nutrition().setMacroNutrients( 1, 2, 7 );
       item1.properties().fiber().set( 1.2 );
       item1.nutrition().of( NutritionalUnit.Calories ).set( 100.0 );
       portion1 = new FoodPortion();
       portion1.setFood( item1 );
       FoodItem item2 = new FoodItem( "Food2" );
-      item2.properties().setMacros( 10, 2, 3 );
+      item2.properties().nutrition().setMacroNutrients( 10, 2, 3 );
       item2.properties().fiber().set( 0.5 );
       item2.nutrition().of( NutritionalUnit.Calories ).set( 150.0 );
       portion2 = new FoodPortion();
       portion2.setFood( item2 );
       FoodItem item3 = new FoodItem( "Food3" );
-      item3.properties().setMacros( 50, 10, 40 );
+      item3.properties().nutrition().setMacroNutrients( 50, 10, 40 );
       item3.properties().fiber().set( 3.9 );
       item3.nutrition().of( NutritionalUnit.Calories ).set( 50.0 );
       portion3 = new FoodPortion();

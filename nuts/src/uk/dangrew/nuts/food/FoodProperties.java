@@ -94,16 +94,4 @@ public class FoodProperties extends Properties {
       return nutritionFor( MacroNutrient.Protein );
    }//End Method
 
-   /**
-    * Method to set the {@link MacroNutrient} for convenience.
-    * @param cGrams the {@link MacroNutrient#Carbohydrates} in grams.
-    * @param fGrams the {@link MacroNutrient#Fats} in grams.
-    * @param pGrams the {@link MacroNutrient#Protein} in grams.
-    */
-   @Deprecated public void setMacros( double cGrams, double fGrams, double pGrams ) {
-      carbohydrates().set( cGrams );
-      fats().set( fGrams );
-      protein().set( pGrams );
-   }//End Method
-
 }//End Class
