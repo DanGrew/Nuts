@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class MacroRatioCalculatorTest {
 
@@ -26,7 +27,7 @@ public class MacroRatioCalculatorTest {
    }//End Method
    
    @Test public void shouldCalculateProportionsOnAssociation(){
-      properties.carbohydrates().set( 45.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 40.0 );
       properties.fiber().set( 1.0 );

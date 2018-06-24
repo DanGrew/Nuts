@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
 public class FoodItemPersistenceTest {
@@ -72,7 +73,7 @@ public class FoodItemPersistenceTest {
       assertFoodItemProperties( 
                item, 
                item1.properties().id(), item1.properties().nameProperty().get(),
-               item1.properties().carbohydrates().get(),
+               item1.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(),
                item1.properties().fats().get(),
                item1.properties().protein().get(),
                item1.properties().fiber().get(),
@@ -83,7 +84,7 @@ public class FoodItemPersistenceTest {
       assertFoodItemProperties( 
                item, 
                item2.properties().id(), item2.properties().nameProperty().get(),
-               item2.properties().carbohydrates().get(),
+               item2.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(),
                item2.properties().fats().get(),
                item2.properties().protein().get(),
                item2.properties().fiber().get(),
@@ -100,7 +101,7 @@ public class FoodItemPersistenceTest {
    ){
       assertThat( item.properties().id(), is( id ) );
       assertThat( item.properties().nameProperty().get(), is( name ) );
-      assertThat( item.properties().carbohydrates().get(), is( c ) );
+      assertThat( item.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
       assertThat( item.properties().fats().get(), is( f ) );
       assertThat( item.properties().protein().get(), is( p ) );
       assertThat( item.properties().fiber().get(), is( i ) );

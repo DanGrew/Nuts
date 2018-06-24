@@ -70,9 +70,9 @@ public class FoodRowManipulatorTest {
    }//End Method
    
    @Test public void shouldChangeMacros() {
-      assertThat( food.properties().carbohydrates().get(), is( 0.0 ) );
+      assertThat( food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       systemUnderTest.changeMacro( MacroNutrient.Carbohydrates, 45.3 );
-      assertThat( food.properties().carbohydrates().get(), is( 45.3 ) );
+      assertThat( food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 45.3 ) );
       
       assertThat( food.properties().fats().get(), is( 0.0 ) );
       systemUnderTest.changeMacro( MacroNutrient.Fats, 25.3 );

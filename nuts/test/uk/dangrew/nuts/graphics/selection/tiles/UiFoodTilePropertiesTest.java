@@ -32,7 +32,7 @@ public class UiFoodTilePropertiesTest {
    @Test public void shouldSyncCarbs() {
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 20.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 20.00%" ) );
-      food.properties().carbohydrates().set( 10.0 );
+      food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 10.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 11.11%" ) );
    }//End Method
@@ -70,7 +70,7 @@ public class UiFoodTilePropertiesTest {
 
       systemUnderTest.detach();
       
-      food.properties().carbohydrates().set( 10.0 );
+      food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
       food.properties().fats().set( 10.0 );
       food.properties().protein().set( 10.0 );
       food.nutrition().of( NutritionalUnit.Calories ).set( 10.0 );

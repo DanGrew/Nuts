@@ -59,7 +59,7 @@ public class TescoFoodItemGeneratorTest {
       ) );
       assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( kcal ) );
       assertThat( first.properties().fiber().get(), is( fiber ) );
-      assertThat( first.properties().carbohydrates().get(), is( carbs ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( carbs ) );
       assertThat( first.properties().fats().get(), is( fat ) );
       assertThat( first.properties().protein().get(), is( protein ) );
    }//End Method
@@ -92,7 +92,7 @@ public class TescoFoodItemGeneratorTest {
       ) );
       assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( kcal ) );
       assertThat( first.properties().fiber().get(), is( fiber ) );
-      assertThat( first.properties().carbohydrates().get(), is( carbs ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( carbs ) );
       assertThat( first.properties().fats().get(), is( fat ) );
       assertThat( first.properties().protein().get(), is( protein ) );
    }//End Method
@@ -122,7 +122,7 @@ public class TescoFoodItemGeneratorTest {
       FoodItem first = ( FoodItem )items.get( 0 );
       assertThat( first.properties().nameProperty().get(), is( groceryName + " (unparsable)" ) );
       assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
-      assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       assertThat( first.properties().fats().get(), is( 0.0 ) );
       assertThat( first.properties().protein().get(), is( 0.0 ) );
       assertThat( first.properties().fiber().get(), is( 0.0 ) );
@@ -146,7 +146,7 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.properties().nameProperty().get(), is( groceryName + " (unparsable)" ) );
       assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
       assertThat( first.properties().fiber().get(), is( 0.0 ) );
-      assertThat( first.properties().carbohydrates().get(), is( 0.0 ) );
+      assertThat( first.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       assertThat( first.properties().fats().get(), is( 0.0 ) );
       assertThat( first.properties().protein().get(), is( 0.0 ) );
    }//End Method

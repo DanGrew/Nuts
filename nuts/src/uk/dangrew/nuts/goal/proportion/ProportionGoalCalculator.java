@@ -6,6 +6,7 @@ import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class ProportionGoalCalculator implements GoalCalculator {
 
@@ -28,7 +29,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
    }//End Method
    
    private void calculate(){
-      double carbWeight = properties.carbohydrates().get();
+      double carbWeight = properties.nutrition().of( NutritionalUnit.Carbohydrate ).get();
       double fatWeight = properties.fats().get();
       double proteinWeight = properties.protein().get();
       double fiberWeight = properties.fiber().get();

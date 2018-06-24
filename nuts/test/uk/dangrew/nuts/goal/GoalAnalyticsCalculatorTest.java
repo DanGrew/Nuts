@@ -60,7 +60,7 @@ public class GoalAnalyticsCalculatorTest {
       assertThatCalculationTriggered( calorieGoal, 1 );
       calorieGoal.properties().nutrition().setMacroNutrients( 300, 60, 200 );
       
-      properties.carbohydrates().set( 30.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 30.0 );
       assertThatCalculationTriggered( calorieGoal, 5 );
       
       properties.fats().set( 30.0 );
@@ -85,11 +85,11 @@ public class GoalAnalyticsCalculatorTest {
    @Test public void shouldRespondToGoalChanges() {
       analytics.goal().set( calorieGoal );
       
-      properties.carbohydrates().set( 20.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 20.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 10.0 );
       
-      calorieGoal.properties().carbohydrates().set( 50.0 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
       assertThatCalculationTriggered( calorieGoal, 5 );
       
       calorieGoal.properties().fats().set( 150.0 );
@@ -111,7 +111,7 @@ public class GoalAnalyticsCalculatorTest {
    
    @Test public void shouldNotCalculateProportionsWhenNoGoal(){
       assertThatCalculationTriggered( calorieGoal, 0 );
-      properties.carbohydrates().set( 100.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
       assertThatCalculationTriggered( calorieGoal, 0 );
    }//End Method
    
@@ -135,7 +135,7 @@ public class GoalAnalyticsCalculatorTest {
       analytics.goal().set( calorieGoal );
       
       calorieGoal.properties().nutrition().setMacroNutrients( 300, 60, 200 );
-      properties.carbohydrates().set( 45.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 40.0 );
       properties.fiber().set( 2.0 );

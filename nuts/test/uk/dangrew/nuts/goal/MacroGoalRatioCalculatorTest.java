@@ -35,7 +35,7 @@ public class MacroGoalRatioCalculatorTest {
    @Test public void shouldCalculateProportionsWhenFoodSet(){
       calorieGoal.properties().nutrition().setMacroNutrients( 300, 60, 200 );
       
-      properties.carbohydrates().set( 45.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 40.0 );
       
@@ -49,7 +49,7 @@ public class MacroGoalRatioCalculatorTest {
       assertMacroProportions( 0, 0, 0 );
       calorieGoal.properties().nutrition().setMacroNutrients( 300, 60, 200 );
       
-      properties.carbohydrates().set( 30.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 30.0 );
       assertMacroProportions( 10, 0, 0 );
       
       properties.fats().set( 30.0 );
@@ -68,11 +68,11 @@ public class MacroGoalRatioCalculatorTest {
    @Test public void shouldRespondToGoalChanges() {
       analytics.goal().set( calorieGoal );
       
-      properties.carbohydrates().set( 20.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 20.0 );
       properties.fats().set( 15.0 );
       properties.protein().set( 10.0 );
       
-      calorieGoal.properties().carbohydrates().set( 50.0 );
+      calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
       assertMacroProportions( 40, 0, 0 );
       
       calorieGoal.properties().fats().set( 150.0 );
@@ -87,7 +87,7 @@ public class MacroGoalRatioCalculatorTest {
    
    @Test public void shouldNotCalculateProportionsWhenNoGoal(){
       assertMacroProportions( 0, 0, 0 );
-      properties.carbohydrates().set( 100.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
       assertMacroProportions( 0, 0, 0 );
    }//End Method
    

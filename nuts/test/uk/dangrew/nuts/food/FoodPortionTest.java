@@ -178,7 +178,7 @@ public class FoodPortionTest {
    }//End Method
    
    @Test public void shouldResetRatiosWithNewFood(){
-      food.properties().carbohydrates().set( 56.0 );
+      food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 56.0 );
       food.properties().fats().set( 56.0 );
       food.properties().protein().set( 56.0 );
       for ( MacroNutrient macro : MacroNutrient.values() ) {

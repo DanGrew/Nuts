@@ -10,6 +10,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.model.ModelVerifier;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class FoodPropertiesTest {
 
@@ -46,10 +47,10 @@ public class FoodPropertiesTest {
    }//End Method
    
    @Test public void shouldProvideCarbsIndividually(){
-      assertThat( systemUnderTest.carbohydrates(), is( notNullValue() ) );
-      assertThat( systemUnderTest.carbohydrates().get(), is( 0.0 ) );
-      systemUnderTest.carbohydrates().set( 24.8 );
-      assertThat( systemUnderTest.carbohydrates().get(), is( 24.8 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ), is( notNullValue() ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
+      systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).set( 24.8 );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 24.8 ) );
       assertThat( systemUnderTest.nutritionFor( MacroNutrient.Carbohydrates ).get(), is( 24.8 ) );
    }//End Method
    
@@ -71,7 +72,7 @@ public class FoodPropertiesTest {
    
    @Test public void shouldSetMacrosTogether(){
       systemUnderTest.nutrition().setMacroNutrients( 45, 67, 89 );
-      assertThat( systemUnderTest.carbohydrates().get(), is( 45.0 ) );
+      assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 45.0 ) );
       assertThat( systemUnderTest.fats().get(), is( 67.0 ) );
       assertThat( systemUnderTest.protein().get(), is( 89.0 ) );
    }//End Method

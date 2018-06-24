@@ -67,14 +67,14 @@ public class DerivedCalorieGoalTest {
    @Test public void shouldProvideMacrosWhenCaloriesChange(){
       DataLocation.configureExampleGoal( baseGoal );
       
-      assertThat( systemUnderTest.properties().carbohydrates().get(), is( closeTo( 292.633, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( closeTo( 292.633, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.properties().fats().get(), is( closeTo( 68.95, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.properties().protein().get(), is( closeTo( 197.0, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2579.085, TestCommon.precision() ) ) );
       
       systemUnderTest.calorieOffset().set( 100.0 );
       
-      assertThat( systemUnderTest.properties().carbohydrates().get(), is( closeTo( 317.633, TestCommon.precision() ) ) );
+      assertThat( systemUnderTest.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( closeTo( 317.633, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.properties().fats().get(), is( closeTo( 68.95, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.properties().protein().get(), is( closeTo( 197.0, TestCommon.precision() ) ) );
       assertThat( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2679.085, TestCommon.precision() ) ) );

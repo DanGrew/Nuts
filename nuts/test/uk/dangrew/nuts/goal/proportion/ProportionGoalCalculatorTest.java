@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class ProportionGoalCalculatorTest {
 
@@ -54,23 +55,23 @@ public class ProportionGoalCalculatorTest {
       
       assertRatios( 0, 0, 0, 0 );
       
-      properties.carbohydrates().set( 5.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 5.0 );
       assertRatios( 25, 0.0, 0.0, 0.0 );
-      properties.carbohydrates().set( 10.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
       assertRatios( 50, 0.0, 0.0, 0.0 );
-      properties.carbohydrates().set( 20.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 20.0 );
       assertRatios( 100, 0.0, 0.0, 0.0 );
-      properties.carbohydrates().set( 25.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 25.0 );
       assertRatios( 125, 0.0, 0.0, 0.0 );
       
-      properties.carbohydrates().set( 10.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
       properties.fats().set( 12.0 );
       //148kcal
       assertRatios( 50, 97.3, 0.0, 0.0 );
       properties.protein().set( 4.0 );
       //164kcal
       assertRatios( 50, 87.8, 39.0, 0.0 );
-      properties.carbohydrates().set( 0.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 0.0 );
       //124kcal - 108:16 
       assertRatios( 0.0, 116.1, 51.6, 0.0 );
       properties.fats().set( 5.33 );
@@ -84,7 +85,7 @@ public class ProportionGoalCalculatorTest {
       properties.fats().set( 26.0 );
       assertRatios( 0.0, 92.3, 123.1, 0.0 );
       
-      properties.carbohydrates().set( 17.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 17.0 );
       //406kcal
       assertRatios( 85, 76.8, 102.5, 0.0 );
       
@@ -97,21 +98,21 @@ public class ProportionGoalCalculatorTest {
       goal.configuration().carbohydrateTargetValue().set( 500.0 );
       
       assertRatios( 0, 0, 0, 0 );
-      properties.carbohydrates().set( 50.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
       assertRatios( 40.0, 0, 0, 0 );
-      properties.carbohydrates().set( 125.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 125.0 );
       assertRatios( 100.0, 0, 0, 0 );
-      properties.carbohydrates().set( 250.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 250.0 );
       assertRatios( 200.0, 0, 0, 0 );
       
       goal.configuration().carbohydrateProportionType().set( ProportionType.Weight );
       goal.configuration().carbohydrateTargetValue().set( 500.0 );
       
-      properties.carbohydrates().set( 50.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
       assertRatios( 10.0, 0, 0, 0 );
-      properties.carbohydrates().set( 500.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 500.0 );
       assertRatios( 100.0, 0, 0, 0 );
-      properties.carbohydrates().set( 2000.0 );
+      properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 2000.0 );
       assertRatios( 400.0, 0, 0, 0 );
       
       goal.configuration().carbohydrateProportionType().set( ProportionType.PercentageOfCalories );

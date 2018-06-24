@@ -17,6 +17,7 @@ import uk.dangrew.kode.javafx.style.Conversions;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionType;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class ProportionGoalView extends VBox {
 
@@ -133,7 +134,10 @@ public class ProportionGoalView extends VBox {
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fiberProportionType(), viewModel.configuration().fiberProportionType() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fiberTargetValue(), viewModel.configuration().fiberTargetValue() ) );
       
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().carbohydrates(), viewModel.properties().carbohydrates() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
+               NutritionalUnit.Carbohydrate.of( proportionGoal ).property(), 
+               NutritionalUnit.Carbohydrate.of( viewModel ).property() 
+      ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().fats(), viewModel.properties().fats() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().protein(), viewModel.properties().protein() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.properties().fiber(), viewModel.properties().fiber() ) );

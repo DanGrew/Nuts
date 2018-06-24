@@ -94,7 +94,7 @@ public class GoalPersistenceTest {
       assertThat( calorieGoal.bmr().get(), is( closeTo( 1113, TestCommon.precision() ) ) );
       assertThat( calorieGoal.weight().get(), is( closeTo( 1114, TestCommon.precision() ) ) );
       assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 1115, TestCommon.precision() ) ) );
-      assertThat( calorieGoal.properties().carbohydrates().get(), is( closeTo( 1117, TestCommon.precision() ) ) );
+      assertThat( calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( closeTo( 1117, TestCommon.precision() ) ) );
       assertThat( calorieGoal.properties().fats().get(), is( closeTo( 1118, TestCommon.precision() ) ) );
       assertThat( calorieGoal.properties().protein().get(), is( closeTo( 1125, TestCommon.precision() ) ) );
       assertThat( calorieGoal.calorieDeficit().get(), is( closeTo( 1116, TestCommon.precision() ) ) );
@@ -118,7 +118,7 @@ public class GoalPersistenceTest {
       assertThat( calorieGoal.bmr().get(), is( closeTo( 4446, TestCommon.precision() ) ) );
       assertThat( calorieGoal.weight().get(), is( closeTo( 4447, TestCommon.precision() ) ) );
       assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 4448, TestCommon.precision() ) ) );
-      assertThat( calorieGoal.properties().carbohydrates().get(), is( closeTo( 4450, TestCommon.precision() ) ) );
+      assertThat( calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( closeTo( 4450, TestCommon.precision() ) ) );
       assertThat( calorieGoal.properties().fats().get(), is( closeTo( 4451, TestCommon.precision() ) ) );
       assertThat( calorieGoal.properties().protein().get(), is( closeTo( 4457, TestCommon.precision() ) ) );
       assertThat( calorieGoal.calorieDeficit().get(), is( closeTo( 4449, TestCommon.precision() ) ) );
@@ -140,7 +140,7 @@ public class GoalPersistenceTest {
       assertThat( calorieGoal.bmr().get(), is( closeTo( 1985.0608352160002, TestCommon.precision() ) ) );
       assertThat( calorieGoal.weight().get(), is( closeTo( 197, TestCommon.precision() ) ) );
       assertThat( calorieGoal.nutrition().of( NutritionalUnit.Calories ).get(), is( closeTo( 2579.0851693024, TestCommon.precision() ) ) );
-      assertThat( calorieGoal.properties().carbohydrates().get(), is( closeTo( 292.63379232560004, TestCommon.precision() ) ) );
+      assertThat( calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( closeTo( 292.63379232560004, TestCommon.precision() ) ) );
       assertThat( calorieGoal.properties().fats().get(), is( closeTo( 68.94999999999999, TestCommon.precision() ) ) );
       assertThat( calorieGoal.properties().protein().get(), is( closeTo( 197, TestCommon.precision() ) ) );
       assertThat( calorieGoal.calorieDeficit().get(), is( closeTo( 700, TestCommon.precision() ) ) );
