@@ -53,7 +53,7 @@ class FoodItemParseModel {
       }
       
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {
-         item.properties().nutrition().of( unit ).set( 
+         item.nutrition().of( unit ).set( 
                   Optional.ofNullable( nutritionalUnitValues.get( unit ) ).orElse( 0.0 ) 
          );
       }

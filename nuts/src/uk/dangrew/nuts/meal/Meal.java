@@ -16,6 +16,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.system.Properties;
 
 /**
  * The {@link Meal} represents a collection of {@link FoodPortion}s and provides notifications
@@ -96,12 +97,16 @@ public class Meal implements Food {
    /**
     * {@inheritDoc}
     */
-   @Override public FoodProperties properties() {
+   @Override public Properties properties() {
       return properties;
    }//End Method
    
+   @Override public FoodProperties foodproperties() {
+      return properties;
+   }
+   
    @Override public Nutrition nutrition() {
-      return properties().nutrition();
+      return foodproperties().nutrition();
    }//End Method
    
    /**

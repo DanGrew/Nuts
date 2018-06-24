@@ -28,7 +28,9 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.system.Concept;
+import uk.dangrew.nuts.system.Properties;
 
 /**
  * {@link TableConfiguration} provides configuration for the {@link FoodTable}.
@@ -49,7 +51,7 @@ public class TableConfiguration {
             TableView< ConceptTableRow< FoodTypeT > > table,
             String title, 
             double widthProportion,
-            Function< FoodProperties, ObjectProperty< String > > propertyRetriever, 
+            Function< Properties, ObjectProperty< String > > propertyRetriever, 
             boolean editable
    ){
       initialiseStringColumn( 

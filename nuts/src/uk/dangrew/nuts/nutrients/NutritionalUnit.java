@@ -46,7 +46,7 @@ public enum NutritionalUnit {
          return new OptionalNutritionalUnit();
       }
       
-      return of( food.properties() );
+      return new OptionalNutritionalUnit( food.nutrition().of( this ) );
    }//End Method
    
 }//End Enum

@@ -6,6 +6,7 @@ import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.system.Properties;
 
 public class ProportionGoal implements Goal {
 
@@ -40,12 +41,16 @@ public class ProportionGoal implements Goal {
       return configuration;
    }//End Method
    
-   @Override public FoodProperties properties() {
+   @Override public Properties properties() {
       return properties;
    }//End Method
    
+   @Override public FoodProperties foodproperties() {
+      return properties;
+   }
+   
    @Override public Nutrition nutrition() {
-      return properties().nutrition();
+      return foodproperties().nutrition();
    }//End Method
    
    @Override public FoodAnalytics foodAnalytics() {

@@ -85,16 +85,16 @@ public class MealRegistrationsTest {
       portion1.setFood( food1 );
       verify( listener, times( 1 ) ).mealChanged();
       
-      food1.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
+      food1.nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
       verify( listener, times( 2 ) ).mealChanged();
       
-      food1.properties().nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
+      food1.nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
       verify( listener, times( 3 ) ).mealChanged();
       
-      food1.properties().nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
+      food1.nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
       verify( listener, times( 4 ) ).mealChanged();
       
-      food1.properties().nutrition().of( NutritionalUnit.Fibre ).set( 1.5 );
+      food1.nutrition().of( NutritionalUnit.Fibre ).set( 1.5 );
       verify( listener, times( 5 ) ).mealChanged();
    }//End Method
    
@@ -116,9 +116,9 @@ public class MealRegistrationsTest {
       verify( listener, times( 1 ) ).mealChanged();
       
       food1.nutrition().of( NutritionalUnit.Calories ).set( 230.0 );
-      food1.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
-      food1.properties().nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
-      food1.properties().nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
+      food1.nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
+      food1.nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
+      food1.nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
       
       verify( listener, times( 1 ) ).mealChanged();
    }//End Method
@@ -132,10 +132,10 @@ public class MealRegistrationsTest {
       
       portion1.setFood( food2 );
       portion1.setPortion( 89 );
-      food2.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
-      food2.properties().nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
-      food2.properties().nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
-      food2.properties().nutrition().of( NutritionalUnit.Fibre ).set( 100.0 );
+      food2.nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
+      food2.nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
+      food2.nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
+      food2.nutrition().of( NutritionalUnit.Fibre ).set( 100.0 );
       
       verify( listener, times( 1 ) ).mealChanged();
    }//End Method
@@ -150,10 +150,10 @@ public class MealRegistrationsTest {
       
       portion1.setFood( food2 );
       portion1.setPortion( 89 );
-      food2.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
-      food2.properties().nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
-      food2.properties().nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
-      food2.properties().nutrition().of( NutritionalUnit.Fibre ).set( 100.0 );
+      food2.nutrition().of( NutritionalUnit.Carbohydrate ).set( 100.0 );
+      food2.nutrition().of( NutritionalUnit.Fat ).set( 100.0 );
+      food2.nutrition().of( NutritionalUnit.Protein ).set( 100.0 );
+      food2.nutrition().of( NutritionalUnit.Fibre ).set( 100.0 );
       
       verifyNoMoreInteractions( listener );
    }//End Method

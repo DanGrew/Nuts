@@ -10,11 +10,11 @@ package uk.dangrew.nuts.graphics.template;
 
 import java.util.Arrays;
 
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
@@ -56,7 +56,7 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
 
       double remaingWidth = 0.98 - COLUMN_WIDTH_TEMPLATE - COLUMN_WIDTH_GOAL;
       double widthForEachPart = remaingWidth / 2;
-      columnsForShowing( table(), f -> f.properties().nutrition(), NutritionalUnit::name, widthForEachPart );
+      columnsForShowing( table(), Food::nutrition, NutritionalUnit::name, widthForEachPart );
       columnsForShowing( table(), f -> f.goalAnalytics().nutrition(), u -> u.name() + " %", widthForEachPart );
    }//End Method
    

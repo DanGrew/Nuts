@@ -32,7 +32,7 @@ public class Nutrition {
          return new OptionalNutrition();
       }
       
-      return of( food.properties() );
+      return new OptionalNutrition( food.nutrition() );
    }//End Method
    
    public void setMacroNutrients( double c, double f, double p ) {

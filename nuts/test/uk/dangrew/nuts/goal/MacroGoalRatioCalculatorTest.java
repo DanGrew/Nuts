@@ -33,7 +33,7 @@ public class MacroGoalRatioCalculatorTest {
    }//End Method
 
    @Test public void shouldCalculateProportionsWhenFoodSet(){
-      calorieGoal.properties().nutrition().setMacroNutrients( 300, 60, 200 );
+      calorieGoal.nutrition().setMacroNutrients( 300, 60, 200 );
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 45.0 );
       properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
@@ -47,7 +47,7 @@ public class MacroGoalRatioCalculatorTest {
       analytics.goal().set( calorieGoal );
       
       assertMacroProportions( 0, 0, 0 );
-      calorieGoal.properties().nutrition().setMacroNutrients( 300, 60, 200 );
+      calorieGoal.nutrition().setMacroNutrients( 300, 60, 200 );
       
       properties.nutrition().of( NutritionalUnit.Carbohydrate ).set( 30.0 );
       assertMacroProportions( 10, 0, 0 );
@@ -61,7 +61,7 @@ public class MacroGoalRatioCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Fat ).set( 180.0 );
       assertMacroProportions( 10, 300, 37.5 );
       
-      calorieGoal.properties().nutrition().setMacroNutrients( 0.0, 0.0, 0.0 );
+      calorieGoal.nutrition().setMacroNutrients( 0.0, 0.0, 0.0 );
       assertMacroProportions( 0, 0, 0 );
    }//End Method
    
@@ -72,16 +72,16 @@ public class MacroGoalRatioCalculatorTest {
       properties.nutrition().of( NutritionalUnit.Fat ).set( 15.0 );
       properties.nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
       
-      calorieGoal.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
+      calorieGoal.nutrition().of( NutritionalUnit.Carbohydrate ).set( 50.0 );
       assertMacroProportions( 40, 0, 0 );
       
-      calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 150.0 );
+      calorieGoal.nutrition().of( NutritionalUnit.Fat ).set( 150.0 );
       assertMacroProportions( 40, 10, 0 );
       
-      calorieGoal.properties().nutrition().of( NutritionalUnit.Protein ).set( 80.0 );
+      calorieGoal.nutrition().of( NutritionalUnit.Protein ).set( 80.0 );
       assertMacroProportions( 40, 10, 12.5 );
       
-      calorieGoal.properties().nutrition().of( NutritionalUnit.Fat ).set( 20.0 );
+      calorieGoal.nutrition().of( NutritionalUnit.Fat ).set( 20.0 );
       assertMacroProportions( 40, 75, 12.5 );
    }//End Method
    

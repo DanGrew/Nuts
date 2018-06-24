@@ -58,7 +58,7 @@ public class GoalAnalyticsCalculator {
     */
    private void setGoal( Goal goal ) {
       if ( this.goal != null ) {
-         Nutrition.of( this.goal.properties() ).stopListening( updater );
+         Nutrition.of( this.goal ).stopListening( updater );
       }
       
       this.goal = goal;
@@ -69,7 +69,7 @@ public class GoalAnalyticsCalculator {
          analytics.fiberRatioProperty().set( 0.0 );
          return;
       } else {
-         Nutrition.of( this.goal.properties() ).listen( updater );
+         Nutrition.of( this.goal ).listen( updater );
          updateRatios();
       }
    }//End Method

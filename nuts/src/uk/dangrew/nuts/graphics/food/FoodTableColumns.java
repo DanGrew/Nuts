@@ -16,13 +16,13 @@ import java.util.stream.Stream;
 import uk.dangrew.nuts.configuration.NutritionalUnitShowingListenerImpl;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.system.Properties;
 
 /**
  * {@link FoodTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 
@@ -63,7 +63,7 @@ public class FoodTableColumns< FoodTypeT extends Food > implements ConceptTableC
       standardNameColumn( table, COLUMN_TITLE_FOOD, COLUMN_WIDTH_NAME );
       columnsForShowing( 
                table, 
-               f -> f.properties().nutrition(),
+               Food::nutrition,
                NutritionalUnit::name,
                0.98 - COLUMN_WIDTH_NAME 
       );
@@ -78,7 +78,7 @@ public class FoodTableColumns< FoodTypeT extends Food > implements ConceptTableC
                table, 
                title, 
                width, 
-               FoodProperties::nameProperty, 
+               Properties::nameProperty, 
                true 
       );  
    }//End Method

@@ -87,7 +87,7 @@ class FoodItemWriteModel {
    }//End Method
 
    public Double getNutritionalUnit( NutritionalUnit unit ) {
-      return currentFood.properties().nutrition().of( unit ).get();
+      return currentFood.nutrition().of( unit ).get();
    }//End Method
    
 }//End Class

@@ -47,13 +47,13 @@ public class FoodItemPersistenceTest {
       Database database = new Database();
       
       FoodItem item1 = new FoodItem( "12345", "Food1" );
-      item1.properties().nutrition().setMacroNutrients( 45, 3.4, 98.1 );
-      item1.properties().nutrition().of( NutritionalUnit.Fibre ).set( 87.34 );
+      item1.nutrition().setMacroNutrients( 45, 3.4, 98.1 );
+      item1.nutrition().of( NutritionalUnit.Fibre ).set( 87.34 );
       item1.stockProperties().setWeighting( 100, 750 );
       database.foodItems().store( item1 );
       
       FoodItem item2 = new FoodItem( "67890", "Food2" );
-      item2.properties().nutrition().setMacroNutrients( 2.11, 0.56, 123 );
+      item2.nutrition().setMacroNutrients( 2.11, 0.56, 123 );
       item2.stockProperties().setWeighting( 10, 500 );
       database.foodItems().store( item2 );
       
@@ -73,10 +73,10 @@ public class FoodItemPersistenceTest {
       assertFoodItemProperties( 
                item, 
                item1.properties().id(), item1.properties().nameProperty().get(),
-               item1.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(),
-               item1.properties().nutrition().of( NutritionalUnit.Fat ).get(),
-               item1.properties().nutrition().of( NutritionalUnit.Protein ).get(),
-               item1.properties().nutrition().of( NutritionalUnit.Fibre ).get(),
+               item1.nutrition().of( NutritionalUnit.Carbohydrate ).get(),
+               item1.nutrition().of( NutritionalUnit.Fat ).get(),
+               item1.nutrition().of( NutritionalUnit.Protein ).get(),
+               item1.nutrition().of( NutritionalUnit.Fibre ).get(),
                item1.stockProperties().loggedWeight().get(),
                item1.stockProperties().soldInWeight().get()
       );
@@ -84,10 +84,10 @@ public class FoodItemPersistenceTest {
       assertFoodItemProperties( 
                item, 
                item2.properties().id(), item2.properties().nameProperty().get(),
-               item2.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(),
-               item2.properties().nutrition().of( NutritionalUnit.Fat ).get(),
-               item2.properties().nutrition().of( NutritionalUnit.Protein ).get(),
-               item2.properties().nutrition().of( NutritionalUnit.Fibre ).get(),
+               item2.nutrition().of( NutritionalUnit.Carbohydrate ).get(),
+               item2.nutrition().of( NutritionalUnit.Fat ).get(),
+               item2.nutrition().of( NutritionalUnit.Protein ).get(),
+               item2.nutrition().of( NutritionalUnit.Fibre ).get(),
                item2.stockProperties().loggedWeight().get(),
                item2.stockProperties().soldInWeight().get()
       );
@@ -101,10 +101,10 @@ public class FoodItemPersistenceTest {
    ){
       assertThat( item.properties().id(), is( id ) );
       assertThat( item.properties().nameProperty().get(), is( name ) );
-      assertThat( item.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
-      assertThat( item.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( f ) );
-      assertThat( item.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( p ) );
-      assertThat( item.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( i ) );
+      assertThat( item.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( c ) );
+      assertThat( item.nutrition().of( NutritionalUnit.Fat ).get(), is( f ) );
+      assertThat( item.nutrition().of( NutritionalUnit.Protein ).get(), is( p ) );
+      assertThat( item.nutrition().of( NutritionalUnit.Fibre ).get(), is( i ) );
       assertThat( item.stockProperties().loggedWeight().get(), is( lw ) );
       assertThat( item.stockProperties().soldInWeight().get(), is( siw ) );
    }//End Method

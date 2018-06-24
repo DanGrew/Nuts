@@ -54,9 +54,9 @@ public class ConceptTableTest {
    
    private Food addNewFood( String name, double c, double f, double p ) {
       FoodItem foodItem = database.foodItems().createConcept( name );
-      foodItem.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( c );
-      foodItem.properties().nutrition().of( NutritionalUnit.Fat ).set( f );
-      foodItem.properties().nutrition().of( NutritionalUnit.Protein ).set( p );
+      foodItem.nutrition().of( NutritionalUnit.Carbohydrate ).set( c );
+      foodItem.nutrition().of( NutritionalUnit.Fat ).set( f );
+      foodItem.nutrition().of( NutritionalUnit.Protein ).set( p );
       return foodItem;
    }//End Method
    

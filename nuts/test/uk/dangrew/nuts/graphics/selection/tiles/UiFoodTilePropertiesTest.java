@@ -23,7 +23,7 @@ public class UiFoodTilePropertiesTest {
       MockitoAnnotations.initMocks( this );
       
       food = new FoodItem( "Food Item" );
-      food.properties().nutrition().setMacroNutrients( 20, 35, 45 );
+      food.nutrition().setMacroNutrients( 20, 35, 45 );
       food.nutrition().of( NutritionalUnit.Calories ).set( 56.4 );
       
       systemUnderTest = new UiFoodTileProperties( food );
@@ -32,7 +32,7 @@ public class UiFoodTilePropertiesTest {
    @Test public void shouldSyncCarbs() {
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 20.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 20.00%" ) );
-      food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
+      food.nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 10.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 11.11%" ) );
    }//End Method
@@ -40,7 +40,7 @@ public class UiFoodTilePropertiesTest {
    @Test public void shouldSyncFats() {
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Fats ).getText(), is( "F: 35.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Fats ).getText(), is( "F: 35.00%" ) );
-      food.properties().nutrition().of( NutritionalUnit.Fat ).set( 10.0 );
+      food.nutrition().of( NutritionalUnit.Fat ).set( 10.0 );
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Fats ).getText(), is( "F: 10.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Fats ).getText(), is( "F: 13.33%" ) );
    }//End Method
@@ -48,7 +48,7 @@ public class UiFoodTilePropertiesTest {
    @Test public void shouldSyncProtein() {
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Protein ).getText(), is( "P: 45.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Protein ).getText(), is( "P: 45.00%" ) );
-      food.properties().nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
+      food.nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Protein ).getText(), is( "P: 10.00g" ) );
       assertThat( systemUnderTest.ratioLabelFor( MacroNutrient.Protein ).getText(), is( "P: 15.38%" ) );
    }//End Method
@@ -70,9 +70,9 @@ public class UiFoodTilePropertiesTest {
 
       systemUnderTest.detach();
       
-      food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
-      food.properties().nutrition().of( NutritionalUnit.Fat ).set( 10.0 );
-      food.properties().nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
+      food.nutrition().of( NutritionalUnit.Carbohydrate ).set( 10.0 );
+      food.nutrition().of( NutritionalUnit.Fat ).set( 10.0 );
+      food.nutrition().of( NutritionalUnit.Protein ).set( 10.0 );
       food.nutrition().of( NutritionalUnit.Calories ).set( 10.0 );
       
       assertThat( systemUnderTest.valueLabelFor( MacroNutrient.Carbohydrates ).getText(), is( "C: 20.00g" ) );

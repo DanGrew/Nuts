@@ -38,8 +38,7 @@ public class NutritionTest {
    
    @Test public void shouldRedirect(){
       Food food = new FoodItem( "Anything" );
-      assertThat( Nutrition.of( food ).get(), is( food.properties().nutrition() ) );
-      assertThat( Nutrition.of( food.properties() ).get(), is( food.properties().nutrition() ) );
+      assertThat( Nutrition.of( food ).get(), is( food.nutrition() ) );
    }//End Method
    
    @Test public void shouldListenToAllChanges(){

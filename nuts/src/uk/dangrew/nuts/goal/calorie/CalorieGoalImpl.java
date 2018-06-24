@@ -16,6 +16,7 @@ import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.system.Properties;
 
 /**
  * {@link Goal} represents the properties associated with {@link uk.dangrew.nuts.nutrients.MacroNutrient} targets.
@@ -108,12 +109,16 @@ public class CalorieGoalImpl implements CalorieGoal {
       this.macroCalculator.associate( this );
    }//End Constructor
 
-   @Override public FoodProperties properties() {
+   @Override public Properties properties() {
       return properties;
    }//End Method
    
+   @Override public FoodProperties foodproperties() {
+      return properties;
+   }
+   
    @Override public Nutrition nutrition() {
-      return properties().nutrition();
+      return foodproperties().nutrition();
    }//End Method
    
    @Override public FoodAnalytics foodAnalytics() {

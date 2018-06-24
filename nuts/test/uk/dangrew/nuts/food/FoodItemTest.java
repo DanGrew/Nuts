@@ -59,20 +59,20 @@ public class FoodItemTest {
    
    @Test public void shouldDuplicate(){
       systemUnderTest.nutrition().of( NutritionalUnit.Calories ).set( 100.0 );
-      systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).set( 0.567 );
-      systemUnderTest.properties().nutrition().of( NutritionalUnit.Carbohydrate ).set( 101.0 );
-      systemUnderTest.properties().nutrition().of( NutritionalUnit.Fat ).set( 102.0 );
-      systemUnderTest.properties().nutrition().of( NutritionalUnit.Protein ).set( 103.0 );
+      systemUnderTest.nutrition().of( NutritionalUnit.Fibre ).set( 0.567 );
+      systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).set( 101.0 );
+      systemUnderTest.nutrition().of( NutritionalUnit.Fat ).set( 102.0 );
+      systemUnderTest.nutrition().of( NutritionalUnit.Protein ).set( 103.0 );
       
       FoodItem duplicate = systemUnderTest.duplicate( "-anything" );
       assertTrue( duplicate != systemUnderTest );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "-anything" ) );
       assertThat( duplicate.nutrition().of( NutritionalUnit.Calories ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get() ) );
-      assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fibre ).get() ) );
-      assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get() ) );
-      assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Fat ).get() ) );
-      assertThat( duplicate.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( systemUnderTest.properties().nutrition().of( NutritionalUnit.Protein ).get() ) );
+      assertThat( duplicate.nutrition().of( NutritionalUnit.Fibre ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Fibre ).get() ) );
+      assertThat( duplicate.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get() ) );
+      assertThat( duplicate.nutrition().of( NutritionalUnit.Fat ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Fat ).get() ) );
+      assertThat( duplicate.nutrition().of( NutritionalUnit.Protein ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Protein ).get() ) );
    }//End Method
    
 }//End Class

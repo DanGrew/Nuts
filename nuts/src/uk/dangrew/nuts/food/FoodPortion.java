@@ -17,6 +17,7 @@ import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.nutrients.OptionalNutritionalUnit;
+import uk.dangrew.nuts.system.Properties;
 
 /**
  * The {@link FoodPortion} wraps a {@link Food} item to portion it linearly, as a percentage.
@@ -177,12 +178,16 @@ public class FoodPortion implements Food {
    /**
     * {@inheritDoc}
     */
-   @Override public FoodProperties properties() {
+   @Override public Properties properties() {
       return properties;
    }//End Method
    
+   @Override public FoodProperties foodproperties() {
+      return properties;
+   }
+   
    @Override public Nutrition nutrition() {
-      return properties().nutrition();
+      return foodproperties().nutrition();
    }//End Method
    
    /**

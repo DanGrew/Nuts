@@ -70,23 +70,23 @@ public class FoodRowManipulatorTest {
    }//End Method
    
    @Test public void shouldChangeMacros() {
-      assertThat( food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
       systemUnderTest.changeMacro( MacroNutrient.Carbohydrates, 45.3 );
-      assertThat( food.properties().nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 45.3 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 45.3 ) );
       
-      assertThat( food.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
       systemUnderTest.changeMacro( MacroNutrient.Fats, 25.3 );
-      assertThat( food.properties().nutrition().of( NutritionalUnit.Fat ).get(), is( 25.3 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Fat ).get(), is( 25.3 ) );
       
-      assertThat( food.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
       systemUnderTest.changeMacro( MacroNutrient.Protein, 5.3 );
-      assertThat( food.properties().nutrition().of( NutritionalUnit.Protein ).get(), is( 5.3 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Protein ).get(), is( 5.3 ) );
    }//End Method
    
    @Test public void shouldChangeFibre() {
-      assertThat( food.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
       systemUnderTest.changeFibre( 45.3 );
-      assertThat( food.properties().nutrition().of( NutritionalUnit.Fibre ).get(), is( 45.3 ) );
+      assertThat( food.nutrition().of( NutritionalUnit.Fibre ).get(), is( 45.3 ) );
    }//End Method
    
    @Test public void shouldTriggerCellEdit(){

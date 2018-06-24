@@ -54,19 +54,19 @@ public class MealPersistenceTest {
       Database database = new Database();
       
       FoodItem item1 = new FoodItem( "12345", "Food1" );
-      item1.properties().nutrition().setMacroNutrients( 45, 3.4, 98.1 );
+      item1.nutrition().setMacroNutrients( 45, 3.4, 98.1 );
       database.foodItems().store( item1 );
       
       FoodItem item2 = new FoodItem( "67890", "Food2" );
-      item2.properties().nutrition().setMacroNutrients( 2.11, 0.56, 123 );
+      item2.nutrition().setMacroNutrients( 2.11, 0.56, 123 );
       database.foodItems().store( item2 );
       
       FoodItem item3 = new FoodItem( "3421", "Food3" );
-      item3.properties().nutrition().setMacroNutrients( 2.3, 3.8, 8.6 );
+      item3.nutrition().setMacroNutrients( 2.3, 3.8, 8.6 );
       database.foodItems().store( item3 );
       
       FoodItem item4 = new FoodItem( "1324", "Food4" );
-      item4.properties().nutrition().setMacroNutrients( 0.1, 1.1, 0.3 );
+      item4.nutrition().setMacroNutrients( 0.1, 1.1, 0.3 );
       database.foodItems().store( item4 );
       
       Meal meal1 = new Meal( "99987", "Meal1" );

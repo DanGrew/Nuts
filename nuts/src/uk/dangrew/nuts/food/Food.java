@@ -20,7 +20,7 @@ public interface Food extends Concept {
     * Access to the {@link FoodProperties} associated.
     * @return the {@link FoodProperties}.
     */
-   @Deprecated @Override public FoodProperties properties();
+   @Deprecated public FoodProperties foodproperties();
    
    public Nutrition nutrition();
    

@@ -29,7 +29,7 @@ public class ProportionGoalTest {
    }//End Method
    
    @Test public void shouldProvideNutrition() {
-      assertThat( systemUnderTest.nutrition(), is( systemUnderTest.properties().nutrition() ) );
+      assertThat( systemUnderTest.nutrition(), is( systemUnderTest.nutrition() ) );
    }//End Method
    
    @Test public void shouldProvideType(){

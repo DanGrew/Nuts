@@ -54,7 +54,7 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
       configuration.initialisePortionColumn( table(), COLUMN_TITLE_PORTION, COLUMN_WIDTH_PORTION );
       
       double remainingWidth = 0.98 - COLUMN_WIDTH_FOOD - COLUMN_WIDTH_PORTION;
-      columnsForShowing( table(), f -> f.properties().nutrition(), NutritionalUnit::name, remainingWidth );
+      columnsForShowing( table(), Food::nutrition, NutritionalUnit::name, remainingWidth );
       
       table().getColumns().forEach( c -> c.setSortable( false ) );
    }//End Method
