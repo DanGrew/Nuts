@@ -14,6 +14,7 @@ import java.util.List;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.calorie.Gender;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
  * {@link GoalWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}
@@ -186,7 +187,7 @@ class CalorieGoalWriteModel {
     * @return the value.
     */
    Double getCalorieGoal( String key ) {
-      return current.properties().calories().get();
+      return NutritionalUnit.Calories.of( current ).get();
    }//End Method
    
    /**
@@ -195,7 +196,7 @@ class CalorieGoalWriteModel {
     * @return the value.
     */
    Double getCarbohydratesGoal( String key ) {
-      return current.properties().carbohydrates().get();
+      return NutritionalUnit.Carbohydrate.of( current ).get();
    }//End Method
    
    /**
@@ -204,7 +205,7 @@ class CalorieGoalWriteModel {
     * @return the value.
     */
    Double getFatsGoal( String key ) {
-      return current.properties().fats().get();
+      return NutritionalUnit.Fat.of( current ).get();
    }//End Method
    
    /**
@@ -213,7 +214,7 @@ class CalorieGoalWriteModel {
     * @return the value.
     */
    Double getProteinGoal( String key ) {
-      return current.properties().protein().get();
+      return NutritionalUnit.Protein.of( current ).get();
    }//End Method
    
 }//End Class

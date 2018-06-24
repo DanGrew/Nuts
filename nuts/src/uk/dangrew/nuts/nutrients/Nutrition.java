@@ -35,6 +35,12 @@ public class Nutrition {
       return of( food.properties() );
    }//End Method
    
+   public void setMacroNutrients( double c, double f, double p ) {
+      of( NutritionalUnit.Carbohydrate ).set( c );
+      of( NutritionalUnit.Fat ).set( f );
+      of( NutritionalUnit.Protein ).set( p );
+   }//End Method
+   
    public ObjectProperty< Double > of( NutritionalUnit nutritionalUnit ) {
       return nutrition.get( nutritionalUnit );
    }//End Method

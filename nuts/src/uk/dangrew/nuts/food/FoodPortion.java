@@ -13,8 +13,10 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import uk.dangrew.kode.javafx.registrations.RegistrationManager;
-import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.nutrients.OptionalNutritionalUnit;
 
 /**
  * The {@link FoodPortion} wraps a {@link Food} item to portion it linearly, as a percentage.
@@ -82,18 +84,17 @@ public class FoodPortion implements Food {
     */
    private void updateMacros(){
       if ( food.get() == null ) {
-         for ( MacroNutrient macro : MacroNutrient.values() ) {
-            properties.nutritionFor( macro ).set( 0.0 );
+         for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+            unit.of( properties ).set( 0.0 );
          }
          return;
       }
       
       double proportion = portion.get() / 100.0;
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         properties.nutritionFor( macro ).set( food.get().properties().nutritionFor( macro ).get() * proportion );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         OptionalNutritionalUnit unitValue = unit.of( this.food.get() );
+         unit.of( properties ).set( unitValue.get() * proportion );
       }
-      properties.calories().set( food.get().properties().calories().get() * proportion );
-      properties.fiber().set( food.get().properties().fiber().get() * proportion );
    }//End Method
    
    /**
@@ -160,11 +161,9 @@ public class FoodPortion implements Food {
          return;
       }
       
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         this.food.get().properties().nutritionFor( macro ).removeListener( macroUpdater );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         unit.of( this.food.get() ).property().removeListener( macroUpdater );
       }
-      this.food.get().properties().calories().removeListener( macroUpdater );
-      this.food.get().properties().fiber().removeListener( macroUpdater );
       registrations.shutdown();
    }//End Method
    
@@ -178,11 +177,10 @@ public class FoodPortion implements Food {
       if ( food == null ) {
          return;
       }
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         food.properties().nutritionFor( macro ).addListener( macroUpdater );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         unit.of( this.food.get() ).property().addListener( macroUpdater );
       }
-      food.properties().calories().addListener( macroUpdater );
-      food.properties().fiber().addListener( macroUpdater );
    }//End Method
 
    /**
@@ -190,6 +188,10 @@ public class FoodPortion implements Food {
     */
    @Override public FoodProperties properties() {
       return properties;
+   }//End Method
+   
+   @Override public Nutrition nutrition() {
+      return properties().nutrition();
    }//End Method
    
    /**

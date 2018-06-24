@@ -8,6 +8,9 @@
  */
 package uk.dangrew.nuts.food;
 
+import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
+
 /**
  * {@link FoodItem} represents a single item of food and the properties of that food. The {@link Food}
  * has a size, but is not portioned and simply measured in some amount.
@@ -74,6 +77,10 @@ public class FoodItem implements Food {
       return properties;
    }//End Method
    
+   @Override public Nutrition nutrition() {
+      return properties().nutrition();
+   }//End Method
+   
    /**
     * Access to the {@link StockProperties}.
     * @return the {@link StockProperties}.
@@ -94,11 +101,9 @@ public class FoodItem implements Food {
     */
    @Override public FoodItem duplicate( String referenceId ) {
       FoodItem duplicate = new FoodItem( properties().nameProperty().get() + referenceId );
-      duplicate.properties().calories().set( properties().calories().get() );
-      duplicate.properties().fiber().set( properties().fiber().get() );
-      duplicate.properties().carbohydrates().set( properties().carbohydrates().get() );
-      duplicate.properties().fats().set( properties().fats().get() );
-      duplicate.properties().protein().set( properties().protein().get() );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         unit.of( duplicate ).set( unit.of( this ).get() );
+      }
       return duplicate;
    }//End Method
    

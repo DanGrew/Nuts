@@ -8,6 +8,7 @@ import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
+import uk.dangrew.nuts.nutrients.Nutrition;
 
 public class DerivedCalorieGoal implements CalorieGoal {
    
@@ -66,6 +67,10 @@ public class DerivedCalorieGoal implements CalorieGoal {
    
    @Override public FoodProperties properties() {
       return properties;
+   }//End Method
+   
+   @Override public Nutrition nutrition() {
+      return properties().nutrition();
    }//End Method
 
    @Override public FoodAnalytics foodAnalytics() {

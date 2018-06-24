@@ -8,8 +8,11 @@
  */
 package uk.dangrew.nuts.meal;
 
+import java.util.EnumMap;
+import java.util.Map;
+
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
  * The {@link MealPropertiesCalculator} is responsible for monitoring changes made to the {@link Meal}
@@ -36,26 +39,26 @@ public class MealPropertiesCalculator implements MealChangeListener {
     * {@inheritDoc}
     */
    @Override public void mealChanged() {
-      double totalCarbs = 0;
-      double totalfiber = 0;
-      double totalFats = 0;
-      double totalProtein = 0;
-      double totalCalories = 0;
+      Map< NutritionalUnit, Double > totals = new EnumMap<>( NutritionalUnit.class );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         totals.put( unit, 0.0 );
+      }
       
       for ( FoodPortion portion : meal.portions() ) {
          if ( portion.food().get() == null ) {
             continue;
          }
-         totalCarbs += portion.nutritionFor( MacroNutrient.Carbohydrates ).get();
-         totalFats += portion.nutritionFor( MacroNutrient.Fats ).get();
-         totalProtein += portion.nutritionFor( MacroNutrient.Protein ).get();
-         totalfiber += portion.properties().fiber().get();
-         totalCalories += portion.properties().calories().get();
+         
+         for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+            double total = totals.get( unit );
+            total += unit.of( portion ).get();
+            totals.put( unit, total );
+         }
       }
 
-      meal.properties().setMacros( totalCarbs, totalFats, totalProtein );
-      meal.properties().fiber().set( totalfiber );
-      meal.properties().calories().set( totalCalories );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         unit.of( meal ).set( totals.get( unit ) );
+      }
    }//End Method
 
 }//End Class

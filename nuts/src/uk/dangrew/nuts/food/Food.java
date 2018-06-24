@@ -8,6 +8,7 @@
  */
 package uk.dangrew.nuts.food;
 
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.system.Concept;
 
 /**
@@ -19,7 +20,9 @@ public interface Food extends Concept {
     * Access to the {@link FoodProperties} associated.
     * @return the {@link FoodProperties}.
     */
-   @Override public FoodProperties properties();
+   @Deprecated @Override public FoodProperties properties();
+   
+   public Nutrition nutrition();
    
    /**
     * Access to the {@link FoodAnalytics} associated.

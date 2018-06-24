@@ -15,6 +15,18 @@ public enum MacroNutrient {
    
    Carbohydrates,
    Fats,
-   Protein
+   Protein;
+   
+   public NutritionalUnit toUnit() {
+      switch ( this ) {
+         case Carbohydrates:
+            return NutritionalUnit.Carbohydrate;
+         case Fats:
+            return NutritionalUnit.Fat;
+         case Protein:
+            return NutritionalUnit.Protein;
+      }
+      return null;
+   }//End Method
 
 }//End Enum

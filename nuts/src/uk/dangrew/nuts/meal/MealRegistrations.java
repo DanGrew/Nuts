@@ -15,7 +15,7 @@ import javafx.beans.value.ChangeListener;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
  * {@link MealRegistrations} provides a mechanism for notifying changes made to the {@link Meal}.
@@ -60,11 +60,10 @@ public class MealRegistrations {
    private void portionAdded( FoodPortion portion ) {
       portion.food().addListener( foodNotifier );
       portion.portion().addListener( valueNotifier );
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         portion.nutritionFor( macro ).addListener( valueNotifier );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         unit.of( portion ).property().addListener( valueNotifier );
       }
-      portion.properties().fiber().addListener( valueNotifier );
-      portion.properties().calories().addListener( valueNotifier );
       notifyListeners();
    }//End Method
    
@@ -75,11 +74,10 @@ public class MealRegistrations {
    private void portionRemoved( FoodPortion portion ) {
       portion.food().removeListener( foodNotifier );
       portion.portion().removeListener( valueNotifier );
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         portion.nutritionFor( macro ).removeListener( valueNotifier );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         unit.of( portion ).property().removeListener( valueNotifier );
       }
-      portion.properties().fiber().removeListener( valueNotifier );
-      portion.properties().calories().removeListener( valueNotifier );
       notifyListeners();
    }//End Method
    

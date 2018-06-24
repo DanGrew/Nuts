@@ -36,8 +36,9 @@ public class CalorieGoalImplTest {
       systemUnderTest = new CalorieGoalImpl( properties, analytics, calorieCalculator, macroCalculator, ratioCalculator );
    }//End Method
 
-   @Test public void shouldProvideProperties(){
+   @Test public void shouldProvideNutrition(){
       assertThat( systemUnderTest.properties(), is( properties ) );
+      assertThat( systemUnderTest.nutrition(), is( properties.nutrition() ) );
    }//End Method
    
    @Test public void shouldProvideAnalytics(){

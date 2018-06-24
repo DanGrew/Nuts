@@ -59,23 +59,23 @@ class FoodItemWriteModel {
    }//End Method
    
    @Deprecated Double getCarbohydrates() {
-      return currentFood.properties().carbohydrates().get();
+      return NutritionalUnit.Carbohydrate.of( currentFood ).get();
    }//End Method
    
    @Deprecated Double getFats() {
-      return currentFood.properties().fats().get();
+      return NutritionalUnit.Fat.of( currentFood ).get();
    }//End Method
    
    @Deprecated Double getProtein() {
-      return currentFood.properties().protein().get();
+      return NutritionalUnit.Protein.of( currentFood ).get();
    }//End Method
    
    @Deprecated Double getCalories() {
-      return currentFood.properties().calories().get();
+      return NutritionalUnit.Calories.of( currentFood ).get();
    }//End Method
    
    @Deprecated Double getFiber() {
-      return currentFood.properties().fiber().get();
+      return NutritionalUnit.Fibre.of( currentFood ).get();
    }//End Method
    
    Double getLoggedWeight() {

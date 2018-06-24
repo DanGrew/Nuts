@@ -22,6 +22,7 @@ import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
 import uk.dangrew.nuts.goal.calorie.Gender;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class CalorieGoalView extends VBox {
 
@@ -71,7 +72,7 @@ public class CalorieGoalView extends VBox {
                   .withBinding( new BoundTextProperty( viewModel.calorieDeficit(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Calorie Goal (kcal)" )
-                  .withBinding( new BoundTextProperty( viewModel.properties().calories(), true ) )
+                  .withBinding( new BoundTextProperty( NutritionalUnit.Calories.of( viewModel ).property(), true ) )
       ) );
       
       getChildren().add( new PropertiesPane( 
@@ -84,13 +85,13 @@ public class CalorieGoalView extends VBox {
                   .withBinding( new BoundTextProperty( viewModel.fatPerPound(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Carbohydrates Goal (g)" )
-                  .withBinding( new BoundTextProperty( viewModel.properties().carbohydrates(), true ) ),
+                  .withBinding( new BoundTextProperty( NutritionalUnit.Carbohydrate.of( viewModel ).property(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Fats Goal (g)" )
-                  .withBinding( new BoundTextProperty( viewModel.properties().fats(), true ) ),
+                  .withBinding( new BoundTextProperty( NutritionalUnit.Fat.of( viewModel ).property(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Protein Goal (g)" )
-                  .withBinding( new BoundTextProperty( viewModel.properties().protein(), true ) )
+                  .withBinding( new BoundTextProperty( NutritionalUnit.Protein.of( viewModel ).property(), true ) )
       ) );
    }//End Constructor
    
@@ -171,13 +172,25 @@ public class CalorieGoalView extends VBox {
       
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.exerciseCalories(), viewModel.exerciseCalories() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.calorieDeficit(), viewModel.calorieDeficit() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().calories(), viewModel.properties().calories() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
+               NutritionalUnit.Calories.of( calorieGoal ).property(), 
+               NutritionalUnit.Calories.of( viewModel ).property() 
+      ) );
       
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.proteinPerPound(), viewModel.proteinPerPound() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.fatPerPound(), viewModel.fatPerPound() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().carbohydrates(), viewModel.properties().carbohydrates() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().fats(), viewModel.properties().fats() ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( calorieGoal.properties().protein(), viewModel.properties().protein() ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
+               NutritionalUnit.Carbohydrate.of( calorieGoal ).property(),
+               NutritionalUnit.Carbohydrate.of( viewModel ).property()
+      ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
+               NutritionalUnit.Fat.of( calorieGoal ).property(),
+               NutritionalUnit.Fat.of( viewModel ).property()
+      ) );
+      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
+               NutritionalUnit.Protein.of( calorieGoal ).property(),
+               NutritionalUnit.Protein.of( viewModel ).property()
+      ) );
    }//End Method
    
 }//End Class

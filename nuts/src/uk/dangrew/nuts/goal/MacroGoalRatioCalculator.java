@@ -11,6 +11,8 @@ package uk.dangrew.nuts.goal;
 import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.nutrients.OptionalNutritionalUnit;
 
 /**
  * {@link MacroGoalRatioCalculator} calculates the ratio of {@link MacroNutrient}s against the 
@@ -30,22 +32,16 @@ public class MacroGoalRatioCalculator implements GoalCalculator {
    }//End Method
    
    private void calculate(){
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         double macroGoal = calorieGoal.properties().nutritionFor( macro ).get();
-         if ( macroGoal == 0 ) {
-            analytics.nutrientRatioFor( macro ).set( 0.0 );   
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         OptionalNutritionalUnit unitGoal = unit.of( calorieGoal );
+         if ( !unitGoal.isPresent() || unitGoal.get() == 0 ) {
+            analytics.nutrition().of( unit ).set( 0.0 );
             continue;
          }
-         double macroUsage = properties.nutritionFor( macro ).get();
-         double proportion = macroUsage * 100 / macroGoal;
-         analytics.nutrientRatioFor( macro ).set( proportion );
-      }
-      
-      if ( calorieGoal.properties().calories().get() == 0.0 ) {
-         analytics.caloriesRatioProperty().set( 0.0 );   
-      } else {
-         double calorieProprtion = properties.calories().get() * 100 / calorieGoal.properties().calories().get();
-         analytics.caloriesRatioProperty().set( calorieProprtion );
+         
+         OptionalNutritionalUnit unitUsage = unit.of( properties );
+         double proportion = unitUsage.get() * 100 / unitGoal.get();
+         analytics.nutrition().of( unit ).set( proportion );
       }
    }//End Method
 

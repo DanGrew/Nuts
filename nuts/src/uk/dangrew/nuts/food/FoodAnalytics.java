@@ -75,14 +75,6 @@ public class FoodAnalytics {
       return nutrientRatioFor( MacroNutrient.Protein );
    }//End Method
    
-   /**
-    * Access to the calorie density {@link ObjectProperty}.
-    * @return the {@link ObjectProperty}.
-    */
-   @Deprecated public ObjectProperty< Double > calorieDensityProperty() {
-      return nutrition.of( NutritionalUnit.Calories );
-   }//End Method
-   
    @Deprecated public ObjectProperty< Double > fiberRatioProperty() {
       return nutrition.of( NutritionalUnit.Fibre );
    }//End Method
@@ -109,14 +101,6 @@ public class FoodAnalytics {
     */
    @Deprecated public double proteinRatio() {
       return nutrientRatioFor( MacroNutrient.Protein ).get();
-   }//End Method
-
-   /**
-    * Access to the calorie density value.
-    * @return the {@link ObjectProperty}.
-    */
-   @Deprecated public double calorieDensity() {
-      return calorieDensityProperty().get();
    }//End Method
 
 }//End Class

@@ -11,6 +11,7 @@ package uk.dangrew.nuts.persistence.goal.calorie;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.calorie.Gender;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
  * {@link GoalParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when
@@ -103,10 +104,10 @@ class CalorieGoalParseModel {
       goalImpl.calorieDeficit().set( calorieDeficit );
       goalImpl.proteinPerPound().set( proteinPerPound );
       goalImpl.fatPerPound().set( fatPerPound );
-      goalImpl.properties().calories().set( calorieGoal );
-      goalImpl.properties().carbohydrates().set( carbohydratesGoal );
-      goalImpl.properties().fats().set( fatGoal );
-      goalImpl.properties().protein().set( proteinGoal );
+      NutritionalUnit.Calories.of( goalImpl ).set( calorieGoal );
+      NutritionalUnit.Carbohydrate.of( goalImpl ).set( carbohydratesGoal );
+      NutritionalUnit.Fat.of( goalImpl ).set( fatGoal );
+      NutritionalUnit.Protein.of( goalImpl ).set( proteinGoal );
    }//End Method
 
    void setId( String value ) {

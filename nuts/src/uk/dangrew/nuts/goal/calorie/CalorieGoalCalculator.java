@@ -9,6 +9,7 @@
 package uk.dangrew.nuts.goal.calorie;
 
 import javafx.beans.value.ChangeListener;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
  * {@link CalorieGoalCalculator} calculates the calorie goal from the other {@link Goal}
@@ -135,7 +136,7 @@ class CalorieGoalCalculator {
    private void calculateCalorieGoal(){
       double caloriesEarned = calorieGoal.tee().get() + calorieGoal.exerciseCalories().get();
       double caloriesToSpend = caloriesEarned - calorieGoal.calorieDeficit().get();
-      calorieGoal.properties().calories().set( caloriesToSpend );
+      NutritionalUnit.Calories.of( calorieGoal ).set( caloriesToSpend );
    }//End Method
 
 }//End Class

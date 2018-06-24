@@ -31,12 +31,6 @@ public class FoodAnalyticsTest {
       assertThat( systemUnderTest.nutrientRatioFor( MacroNutrient.Protein ).get(), is( 54.0 ) );
    }//End Method
    
-   @Test public void shouldProvideCalorieDensity(){
-      systemUnderTest.calorieDensityProperty().set( 101.0 );
-      assertThat( systemUnderTest.calorieDensity(), is( 101.0 ) );
-      assertThat( systemUnderTest.calorieDensityProperty().get(), is( 101.0 ) );
-   }//End Method
-   
    @Test public void shouldProvideProperties(){
       new ModelVerifier<>( systemUnderTest )
          .shouldProvideDoubleProperty( FoodAnalytics::fiberRatioProperty, 0.0 );

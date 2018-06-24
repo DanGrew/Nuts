@@ -38,8 +38,9 @@ public class FoodItemTest {
       assertThat( systemUnderTest.properties().nameProperty().get(), is( "skdjnvs." ) );
    }//End Method
 
-   @Test public void shouldProvideProperties(){
+   @Test public void shouldProvideNutrition(){
       assertThat( systemUnderTest.properties(), is( properties ) );
+      assertThat( systemUnderTest.nutrition(), is( properties.nutrition() ) );
    }//End Method
    
    @Test public void shouldProvideStockProperties(){

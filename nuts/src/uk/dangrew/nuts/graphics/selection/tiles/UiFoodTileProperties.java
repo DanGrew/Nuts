@@ -12,6 +12,7 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.number.NumberFormats;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class UiFoodTileProperties extends GridPane {
    
@@ -81,14 +82,14 @@ public class UiFoodTileProperties extends GridPane {
       this.add( this.calorieValue = createMacroLabel( Color.PINK ), 0, 2 );
       GridPane.setColumnSpan( calorieValue, 3 );
       
-      this.carbsValueSetter = new PropertyTextSetter( carbsValue, food.properties().carbohydrates(), "C: ", "g" );
-      this.carbsRatioSetter = new PropertyTextSetter( carbsRatio, food.foodAnalytics().carbohydratesRatioProperty(), "C: ", "%" );
-      this.fatsValueSetter = new PropertyTextSetter( fatsValue, food.properties().fats(), "F: ", "g" );
-      this.fatsRatioSetter = new PropertyTextSetter( fatsRatio, food.foodAnalytics().fatsRatioProperty(), "F: ", "%" );
-      this.proteinValueSetter = new PropertyTextSetter( proteinValue, food.properties().protein(), "P: ", "g" );
-      this.proteinRatioSetter = new PropertyTextSetter( proteinRatio, food.foodAnalytics().proteinRatioProperty(), "P: ", "%" );
+      this.carbsValueSetter = new PropertyTextSetter( carbsValue, NutritionalUnit.Carbohydrate.of( food ).property(), "C: ", "g" );
+      this.carbsRatioSetter = new PropertyTextSetter( carbsRatio, NutritionalUnit.Carbohydrate.of( food.foodAnalytics() ).property(), "C: ", "%" );
+      this.fatsValueSetter = new PropertyTextSetter( fatsValue, NutritionalUnit.Fat.of( food ).property(), "F: ", "g" );
+      this.fatsRatioSetter = new PropertyTextSetter( fatsRatio, NutritionalUnit.Fat.of( food.foodAnalytics() ).property(), "F: ", "%" );
+      this.proteinValueSetter = new PropertyTextSetter( proteinValue, NutritionalUnit.Protein.of( food ).property(), "P: ", "g" );
+      this.proteinRatioSetter = new PropertyTextSetter( proteinRatio, NutritionalUnit.Protein.of( food.foodAnalytics() ).property(), "P: ", "%" );
       
-      this.calorieValueSetter = new PropertyTextSetter( calorieValue, food.properties().calories(), "", "kcal" );
+      this.calorieValueSetter = new PropertyTextSetter( calorieValue, NutritionalUnit.Calories.of( food ).property(), "", "kcal" );
    }//End Constructor
    
    private Label createMacroLabel( Color background ) {
@@ -101,14 +102,14 @@ public class UiFoodTileProperties extends GridPane {
    }//End Method
 
    public void detach() {
-      food.properties().carbohydrates().removeListener( carbsValueSetter );
-      food.properties().fats().removeListener( fatsValueSetter );
-      food.properties().protein().removeListener( proteinValueSetter );
-      food.properties().calories().removeListener( calorieValueSetter );
+      NutritionalUnit.Carbohydrate.of( food ).property().removeListener( carbsValueSetter );
+      NutritionalUnit.Fat.of( food ).property().removeListener( fatsValueSetter );
+      NutritionalUnit.Protein.of( food ).property().removeListener( proteinValueSetter );
+      NutritionalUnit.Calories.of( food ).property().removeListener( calorieValueSetter );
       
-      food.foodAnalytics().carbohydratesRatioProperty().removeListener( carbsRatioSetter );
-      food.foodAnalytics().fatsRatioProperty().removeListener( fatsRatioSetter );
-      food.foodAnalytics().proteinRatioProperty().removeListener( proteinRatioSetter );
+      NutritionalUnit.Carbohydrate.of( food.foodAnalytics() ).property().removeListener( carbsRatioSetter );
+      NutritionalUnit.Fat.of( food.foodAnalytics() ).property().removeListener( fatsRatioSetter );
+      NutritionalUnit.Protein.of( food.foodAnalytics() ).property().removeListener( proteinRatioSetter );
    }//End Method
 
    Label valueLabelFor( MacroNutrient macro ) {

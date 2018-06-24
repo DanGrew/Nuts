@@ -60,5 +60,17 @@ public class NutritionTest {
          verify( listener, never() ).changed( systemUnderTest.of( nutritionalUnit ), 0.0, test );
       }
    }//End Method
+   
+   @Test public void shouldSetMacros(){
+      assertThat( systemUnderTest.of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
+      assertThat( systemUnderTest.of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
+      assertThat( systemUnderTest.of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
+      
+      systemUnderTest.setMacroNutrients( 34, 4.2, 100.9 );
+      
+      assertThat( systemUnderTest.of( NutritionalUnit.Carbohydrate ).get(), is( 34.0 ) );
+      assertThat( systemUnderTest.of( NutritionalUnit.Fat ).get(), is( 4.2 ) );
+      assertThat( systemUnderTest.of( NutritionalUnit.Protein ).get(), is( 100.9 ) );
+   }//End Method
 
 }//End Class

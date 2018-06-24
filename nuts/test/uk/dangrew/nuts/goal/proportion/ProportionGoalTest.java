@@ -28,6 +28,10 @@ public class ProportionGoalTest {
       assertThat( systemUnderTest.properties().nameProperty().get(), is( NAME ) );
    }//End Method
    
+   @Test public void shouldProvideNutrition() {
+      assertThat( systemUnderTest.nutrition(), is( systemUnderTest.properties().nutrition() ) );
+   }//End Method
+   
    @Test public void shouldProvideType(){
       assertThat( systemUnderTest.type(), is( GoalTypes.Proportion ) );
    }//End Method

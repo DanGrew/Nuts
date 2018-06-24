@@ -38,6 +38,11 @@ public class FoodPortionTest {
       );
       systemUnderTest.setFood( food );
    }//End Method
+   
+   @Test public void shouldProvideNutrition(){
+      assertThat( systemUnderTest.properties(), is( properties ) );
+      assertThat( systemUnderTest.nutrition(), is( properties.nutrition() ) );
+   }//End Method
 
    @Test public void shouldProvideFood() {
       assertThat( systemUnderTest.food().get(), is( food ) );

@@ -9,6 +9,7 @@ import uk.dangrew.nuts.apis.tesco.model.api.CalculatedNutrition;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class TescoFoodItemGenerator {
    
@@ -42,11 +43,11 @@ public class TescoFoodItemGenerator {
       
       String header = parser.parsePer100Header( nutrition.per100Header().get() );
       FoodItem item = generateFoodItem( description.groceryProperties().name().get(), header );
-      convertAndSetProperty( nutrition.energyInKcal().valuePer100(), item.properties().calories() );
-      convertAndSetProperty( nutrition.carbohydrates().valuePer100(), item.properties().carbohydrates() );
-      convertAndSetProperty( nutrition.fat().valuePer100(), item.properties().fats() );
-      convertAndSetProperty( nutrition.protein().valuePer100(), item.properties().protein() );
-      convertAndSetProperty( nutrition.fibre().valuePer100(), item.properties().fiber() );
+      convertAndSetProperty( nutrition.energyInKcal().valuePer100(), NutritionalUnit.Calories.of( item ).property() );
+      convertAndSetProperty( nutrition.carbohydrates().valuePer100(), NutritionalUnit.Carbohydrate.of( item ).property() );
+      convertAndSetProperty( nutrition.fat().valuePer100(), NutritionalUnit.Fat.of( item ).property() );
+      convertAndSetProperty( nutrition.protein().valuePer100(), NutritionalUnit.Protein.of( item ).property() );
+      convertAndSetProperty( nutrition.fibre().valuePer100(), NutritionalUnit.Fibre.of( item ).property() );
       items.add( item );
    }//End Method
    
@@ -58,11 +59,11 @@ public class TescoFoodItemGenerator {
       
       String header = parser.parsePerServingHeader( nutrition.perServingHeader().get() );
       FoodItem item = generateFoodItem( description.groceryProperties().name().get(), header );
-      convertAndSetProperty( nutrition.energyInKcal().valuePerServing(), item.properties().calories() );
-      convertAndSetProperty( nutrition.carbohydrates().valuePerServing(), item.properties().carbohydrates() );
-      convertAndSetProperty( nutrition.fat().valuePerServing(), item.properties().fats() );
-      convertAndSetProperty( nutrition.protein().valuePerServing(), item.properties().protein() );
-      convertAndSetProperty( nutrition.fibre().valuePerServing(), item.properties().fiber() );
+      convertAndSetProperty( nutrition.energyInKcal().valuePerServing(), NutritionalUnit.Calories.of( item ).property() );
+      convertAndSetProperty( nutrition.carbohydrates().valuePerServing(), NutritionalUnit.Carbohydrate.of( item ).property() );
+      convertAndSetProperty( nutrition.fat().valuePerServing(), NutritionalUnit.Fat.of( item ).property() );
+      convertAndSetProperty( nutrition.protein().valuePerServing(), NutritionalUnit.Protein.of( item ).property() );
+      convertAndSetProperty( nutrition.fibre().valuePerServing(), NutritionalUnit.Fibre.of( item ).property() );
       items.add( item );
    }//End Method
    

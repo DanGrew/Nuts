@@ -9,6 +9,7 @@ import uk.dangrew.kode.javafx.style.LabelBuilder;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class UiRecipeSummary extends GridPane {
    
@@ -92,10 +93,10 @@ public class UiRecipeSummary extends GridPane {
    private void addFoodRow( FoodPortion meal, Color backgroundColour, Color textColour ) {
       Label itemLabel = basicLabel( withIndentation( meal.food().get().properties().nameProperty().get() ), backgroundColour, textColour );
       Label portionLabel = basicLabel( textWrap( meal.portion().get() ), backgroundColour, textColour );
-      Label caloriesLabel = basicLabel( textWrap( meal.properties().calories().get() ), backgroundColour, textColour );
-      Label carbsLabel = basicLabel( textWrap( meal.properties().carbohydrates().get() ), backgroundColour, textColour );
-      Label fatsLabel = basicLabel( textWrap( meal.properties().fats().get() ), backgroundColour, textColour );
-      Label proteinLabel = basicLabel( textWrap( meal.properties().protein().get() ), backgroundColour, textColour );
+      Label caloriesLabel = basicLabel( textWrap( NutritionalUnit.Calories.of( meal ).get() ), backgroundColour, textColour );
+      Label carbsLabel = basicLabel( textWrap( NutritionalUnit.Carbohydrate.of( meal ).get() ), backgroundColour, textColour );
+      Label fatsLabel = basicLabel( textWrap( NutritionalUnit.Fat.of( meal ).get() ), backgroundColour, textColour );
+      Label proteinLabel = basicLabel( textWrap( NutritionalUnit.Protein.of( meal ).get() ), backgroundColour, textColour );
       addRow( itemLabel, portionLabel, caloriesLabel, carbsLabel, fatsLabel, proteinLabel );
    }//End Method
    

@@ -21,6 +21,10 @@ public class OptionalNutritionalUnit {
       return property.isPresent() ? property.get() : null;
    }//End Method
    
+   public boolean isPresent(){
+      return property.isPresent();
+   }//End Method
+   
    public boolean set( Double value ) {
       property.ifPresent( p -> p.set( value ) );
       return property.isPresent();

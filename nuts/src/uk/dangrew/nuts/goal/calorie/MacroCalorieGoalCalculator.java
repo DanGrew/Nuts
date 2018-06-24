@@ -9,6 +9,7 @@
 package uk.dangrew.nuts.goal.calorie;
 
 import javafx.beans.value.ChangeListener;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
  * {@link MacroGoalCalculator} calculates the {@link uk.dangrew.nuts.nutrients.MacroNutrient} goals
@@ -34,7 +35,7 @@ class MacroCalorieGoalCalculator {
       this.calorieGoal = calorieGoal;
       
       ChangeListener< Double > listener = ( s, o, n ) -> calculate();
-      calorieGoal.properties().calories().addListener( listener );
+      NutritionalUnit.Calories.of( calorieGoal ).property().addListener( listener );
       calorieGoal.weight().addListener( listener );
       calorieGoal.proteinPerPound().addListener( listener );
       calorieGoal.fatPerPound().addListener( listener );
@@ -45,17 +46,17 @@ class MacroCalorieGoalCalculator {
     */
    private void calculate(){
       double proteinGoal = calorieGoal.weight().get() * calorieGoal.proteinPerPound().get();
-      calorieGoal.properties().protein().set( proteinGoal );
+      NutritionalUnit.Protein.of( calorieGoal ).set( proteinGoal );
       
       double fatGoal = calorieGoal.weight().get() * calorieGoal.fatPerPound().get();
-      calorieGoal.properties().fats().set( fatGoal );
+      NutritionalUnit.Fat.of( calorieGoal ).set( fatGoal );
       
       double proteinCalories = proteinGoal * CALORIES_PER_PROTEIN_GRAM;
       double fatCalories = fatGoal * CALORIES_PER_FAT_GRAM;
       
-      double remainingCalories = calorieGoal.properties().calories().get() - proteinCalories - fatCalories;
+      double remainingCalories = NutritionalUnit.Calories.of( calorieGoal ).get() - proteinCalories - fatCalories;
       double carbohydrateGoal = remainingCalories / CALORIES_PER_CARBOHYDRATE_GRAM;
-      calorieGoal.properties().carbohydrates().set( carbohydrateGoal );
+      NutritionalUnit.Carbohydrate.of( calorieGoal ).set( carbohydrateGoal );
    }//End Method
 
 }//End Class

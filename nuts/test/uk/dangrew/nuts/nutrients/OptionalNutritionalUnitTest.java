@@ -12,6 +12,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.value.ChangeListener;
 import uk.dangrew.kode.launch.TestApplication;
@@ -30,6 +32,11 @@ public class OptionalNutritionalUnitTest {
       when( property.get() ).thenReturn( 20.0 );
       sutPopulated = new OptionalNutritionalUnit( property );
       sutUnpopulated = new OptionalNutritionalUnit();
+   }//End Method
+   
+   @Test public void shouldProvidePresence(){
+      assertThat( sutPopulated.isPresent(), is( true ) );
+      assertThat( sutUnpopulated.isPresent(), is( false ) );
    }//End Method
 
    @Test public void shouldProvideValue() {

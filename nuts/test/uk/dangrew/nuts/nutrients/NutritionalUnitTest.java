@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.nutrients;
 
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -30,6 +31,7 @@ public class NutritionalUnitTest {
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {
          assertThat( unit.of( food ).property(), is( food.properties().nutrition().of( unit ) ) );
          assertThat( unit.of( food.properties() ).property(), is( food.properties().nutrition().of( unit ) ) );
+         assertThat( unit.of( food.foodAnalytics() ).property(), is( food.foodAnalytics().nutrition().of( unit ) ) );
       }
    }//End Method
    
@@ -45,6 +47,14 @@ public class NutritionalUnitTest {
          unit.of( food ).set( 20.0 );
          assertThat( unit.of( food ).get(), is( 20.0 ) );
       }
+   }//End Method
+   
+   @Test public void shouldProvideMacros(){
+      assertThat( NutritionalUnit.macros(), contains( 
+               NutritionalUnit.Carbohydrate, 
+               NutritionalUnit.Fat, 
+               NutritionalUnit.Protein 
+      ) );
    }//End Method
    
 }//End Class

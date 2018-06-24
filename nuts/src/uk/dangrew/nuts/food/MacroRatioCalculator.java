@@ -9,7 +9,8 @@
 package uk.dangrew.nuts.food;
 
 import javafx.beans.value.ChangeListener;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.nutrients.OptionalNutritionalUnit;
 
 /**
  * The {@link MacroRatioCalculator} calculates the ratio of {@link MacroNutrient}s in {@link FoodProperties}
@@ -34,10 +35,8 @@ public class MacroRatioCalculator {
       this.analytics = analytics;
       
       ChangeListener< Object > listener = ( s, o, n ) -> updateRatios();
-      properties.calories().addListener( listener );
-      properties.fiber().addListener( listener );
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         properties.nutritionFor( macro ).addListener( listener );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         unit.of( properties ).property().addListener( listener );
       }
       updateRatios();
    }//End Method
@@ -47,24 +46,14 @@ public class MacroRatioCalculator {
     */
    private void updateRatios(){
       double total = 0;
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         total += properties.nutritionFor( macro ).get();
-      }
-      for ( MacroNutrient macro : MacroNutrient.values() ) {
-         double value = properties.nutritionFor( macro ).get();
-         double proportion = total == 0 ? 0 : value * 100 / total;
-         analytics.nutrientRatioFor( macro ).set( proportion );
+      for ( NutritionalUnit unit : NutritionalUnit.macros() ) {
+         total += unit.of( properties ).get();
       }
       
-      double fiber = properties.fiber().get();
-      double proportion = total == 0 ? 0 : fiber * 100 / total;
-      analytics.fiberRatioProperty().set( proportion );
-      
-      if ( properties.calories().get() == 0.0 ) {
-         analytics.calorieDensityProperty().set( 0.0 );
-      } else {
-         double calorieDensity = total * 100.0 / properties.calories().get();
-         analytics.calorieDensityProperty().set( calorieDensity );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         OptionalNutritionalUnit unitValue = unit.of( properties );
+         double proportion = total == 0 ? 0 : unitValue.get() * 100 / total;
+         unit.of( analytics ).set( proportion );
       }
    }//End Method
 

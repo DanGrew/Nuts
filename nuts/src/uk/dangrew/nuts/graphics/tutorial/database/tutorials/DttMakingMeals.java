@@ -19,6 +19,7 @@ import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseTableTutorial;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseTutorials;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
 public class DttMakingMeals extends DatabaseTableTutorial {
@@ -104,20 +105,20 @@ public class DttMakingMeals extends DatabaseTableTutorial {
                   .graphicalBlockingAction( glass()::clearMessageAndHighlight )
                   .graphicalNonBlockingAction( () -> {
                         FoodItem egg = components().database().foodItems().createConcept( EGG );
-                        egg.properties().calories().set( 70.0 );
-                        egg.properties().setMacros( 0.35, 6.3, 8.82 );
+                        NutritionalUnit.Calories.of( egg ).set( 70.0 );
+                        egg.nutrition().setMacroNutrients( 0.35, 6.3, 8.82 );
                      
                         FoodItem cream = components().database().foodItems().createConcept( CREAM );
-                        cream.properties().calories().set( 140.0 );
-                        cream.properties().setMacros( 0.48, 15.15, 0.45 );
+                        NutritionalUnit.Calories.of( cream ).set( 140.0 );
+                        cream.nutrition().setMacroNutrients( 0.48, 15.15, 0.45 );
                         
                         FoodItem cheese = components().database().foodItems().createConcept( CHEESE );
-                        cheese.properties().calories().set( 416.0 );
-                        cheese.properties().setMacros( 0.1, 34.9, 25.4 );
+                        NutritionalUnit.Calories.of( cheese ).set( 416.0 );
+                        cheese.nutrition().setMacroNutrients( 0.1, 34.9, 25.4 );
                         
                         FoodItem bacon = components().database().foodItems().createConcept( BACON );
-                        bacon.properties().calories().set( 274.9 );
-                        bacon.properties().setMacros( 1.4, 22.5, 16.7 );
+                        NutritionalUnit.Calories.of( bacon ).set( 274.9 );
+                        bacon.nutrition().setMacroNutrients( 1.4, 22.5, 16.7 );
                   } )
                   .pauseFor( 1 )
       );

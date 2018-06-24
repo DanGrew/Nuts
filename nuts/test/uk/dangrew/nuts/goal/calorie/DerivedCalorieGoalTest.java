@@ -41,6 +41,11 @@ public class DerivedCalorieGoalTest {
       systemUnderTest.setBaseGoal( baseGoal );
    }//End Method
    
+   @Test public void shouldProvideNutrition(){
+      assertThat( systemUnderTest.properties(), is( properties ) );
+      assertThat( systemUnderTest.nutrition(), is( properties.nutrition() ) );
+   }//End Method
+   
    @Test public void shouldProvideGoalRatios(){
       verify( marcoRatioCalculator ).associate( properties, analytics );
    }//End Method
