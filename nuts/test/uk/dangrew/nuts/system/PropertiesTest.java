@@ -7,8 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-import uk.dangrew.nuts.food.FoodProperties;
-
 public class PropertiesTest {
 
    private static final String ID = "some id";
@@ -22,7 +20,7 @@ public class PropertiesTest {
    }//End Method
    
    @Test public void shouldCreateWithId(){
-      systemUnderTest = new FoodProperties( "3487653", "skdjnvs." );
+      systemUnderTest = new Properties( "3487653", "skdjnvs." );
       assertThat( systemUnderTest.id(), is( "3487653" ) );
       assertThat( systemUnderTest.nameProperty().get(), is( "skdjnvs." ) );
    }//End Method

@@ -17,7 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodProperties;
+import uk.dangrew.nuts.system.Properties;
 import uk.dangrew.nuts.template.Template;
 
 /**
@@ -43,14 +43,14 @@ public class DayPlan extends Template {
    }//End Constructor
    
    public DayPlan( String name ) {
-      this( new FoodProperties( name ) );
+      this( new Properties( name ) );
    }//End Constructor
    
    public DayPlan( String id, String name ) {
-      this( new FoodProperties( id, name ) );
+      this( new Properties( id, name ) );
    }//End Constructor
    
-   DayPlan( FoodProperties properties ) {
+   DayPlan( Properties properties ) {
       super( properties );
       this.consumedCalories = new SimpleObjectProperty<>( DEFAULT_CONSUMED_CALORIES );
       this.allowedCalories = new SimpleObjectProperty<>( DEFAULT_ALLOWED_CALORIES );

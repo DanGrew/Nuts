@@ -20,8 +20,9 @@ import org.mockito.Spy;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.system.Properties;
 
 public class MealTest {
 
@@ -32,7 +33,8 @@ public class MealTest {
    private FoodPortion portion1;
    private FoodPortion portion2;
    
-   private FoodProperties properties;
+   private Properties properties;
+   private Nutrition nutrition;
    private FoodAnalytics foodAnalytics;
    @Spy private MacroRatioCalculator ratioCalculator;
    @Mock private MealRegistrations registrations;
@@ -48,10 +50,12 @@ public class MealTest {
       portion1 = new FoodPortion();
       portion2 = new FoodPortion();
       
-      properties = new FoodProperties( "anything" );
+      properties = new Properties( "anything" );
+      nutrition = new Nutrition();
       foodAnalytics = new FoodAnalytics();
       systemUnderTest = new Meal(
                properties, 
+               nutrition,
                foodAnalytics, 
                registrations, 
                propertiesCalculator, 
@@ -85,7 +89,7 @@ public class MealTest {
    
    @Test public void shouldProvideNutrition(){
       assertThat( systemUnderTest.properties(), is( properties ) );
-      assertThat( systemUnderTest.nutrition(), is( properties.nutrition() ) );
+      assertThat( systemUnderTest.nutrition(), is( nutrition ) );
    }//End Method
    
    @Test public void shouldProvideFoodAnalytics(){
@@ -93,7 +97,7 @@ public class MealTest {
    }//End Method
    
    @Test public void shouldAssociateRatioCalculator(){
-      verify( ratioCalculator ).associate( properties, foodAnalytics );
+      verify( ratioCalculator ).associate( nutrition, foodAnalytics );
    }//End Method
    
    @Test public void shouldProvideStockUsage(){

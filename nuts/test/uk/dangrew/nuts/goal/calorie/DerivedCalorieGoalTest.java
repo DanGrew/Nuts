@@ -14,17 +14,19 @@ import org.mockito.Spy;
 
 import uk.dangrew.kode.TestCommon;
 import uk.dangrew.nuts.food.FoodAnalytics;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.manual.data.DataLocation;
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.system.Properties;
 
 public class DerivedCalorieGoalTest {
 
    @Spy private MacroRatioCalculator marcoRatioCalculator;
-   private FoodProperties properties;
+   private Properties properties;
+   private Nutrition nutrition;
    private FoodAnalytics analytics;
    private CalorieGoal baseGoal;
    private DerivedCalorieGoal systemUnderTest;
@@ -32,19 +34,20 @@ public class DerivedCalorieGoalTest {
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
       baseGoal = new CalorieGoalImpl( "Base" );
-      properties = new FoodProperties( "Goal" );
+      properties = new Properties( "Goal" );
+      nutrition = new Nutrition();
       analytics = new GoalAnalytics();
-      systemUnderTest = new DerivedCalorieGoal( properties, analytics, marcoRatioCalculator );
+      systemUnderTest = new DerivedCalorieGoal( properties, nutrition, analytics, marcoRatioCalculator );
       systemUnderTest.setBaseGoal( baseGoal );
    }//End Method
    
    @Test public void shouldProvideNutrition(){
       assertThat( systemUnderTest.properties(), is( properties ) );
-      assertThat( systemUnderTest.nutrition(), is( properties.nutrition() ) );
+      assertThat( systemUnderTest.nutrition(), is( nutrition ) );
    }//End Method
    
    @Test public void shouldProvideGoalRatios(){
-      verify( marcoRatioCalculator ).associate( properties, analytics );
+      verify( marcoRatioCalculator ).associate( nutrition, analytics );
    }//End Method
 
    @Test public void shouldProvideGoal() {

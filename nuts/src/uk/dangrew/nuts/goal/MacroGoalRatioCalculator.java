@@ -8,9 +8,8 @@
  */
 package uk.dangrew.nuts.goal;
 
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.nutrients.OptionalNutritionalUnit;
 
@@ -20,12 +19,12 @@ import uk.dangrew.nuts.nutrients.OptionalNutritionalUnit;
  */
 public class MacroGoalRatioCalculator implements GoalCalculator {
 
-   private FoodProperties properties;
+   private Nutrition nutrition;
    private GoalAnalytics analytics;
    private Goal calorieGoal;
    
-   @Override public void calculate( FoodProperties properties, GoalAnalytics analytics, Goal goal ) {
-      this.properties = properties;
+   @Override public void calculate( Nutrition nutrition, GoalAnalytics analytics, Goal goal ) {
+      this.nutrition = nutrition;
       this.analytics = analytics;
       this.calorieGoal = goal;
       calculate();
@@ -39,7 +38,7 @@ public class MacroGoalRatioCalculator implements GoalCalculator {
             continue;
          }
          
-         OptionalNutritionalUnit unitUsage = unit.of( properties );
+         OptionalNutritionalUnit unitUsage = unit.of( nutrition );
          double proportion = unitUsage.get() * 100 / unitGoal.get();
          analytics.nutrition().of( unit ).set( proportion );
       }

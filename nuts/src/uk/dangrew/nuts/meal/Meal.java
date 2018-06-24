@@ -13,7 +13,6 @@ import javafx.collections.ObservableList;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.system.Properties;
@@ -24,7 +23,8 @@ import uk.dangrew.nuts.system.Properties;
  */
 public class Meal implements Food {
 
-   private final FoodProperties properties;
+   private final Properties properties;
+   private final Nutrition nutrition;
    private final FoodAnalytics foodAnalytics;
    private final MealPropertiesCalculator propertiesCalculator;
    
@@ -37,7 +37,7 @@ public class Meal implements Food {
     * @param name the name of the {@link Meal}.
     */
    public Meal( String name ) {
-      this( new FoodProperties( name ) );
+      this( new Properties( name ) );
    }//End Constructor
    
    /**
@@ -46,16 +46,13 @@ public class Meal implements Food {
     * @param name the name of the {@link Meal}.
     */
    public Meal( String id, String name ) {
-      this( new FoodProperties( id, name ) );
+      this( new Properties( id, name ) );
    }//End Constructor
    
-   /**
-    * Constructs a new {@link Meal}.
-    * @param properties the {@link FoodProperties}.
-    */
-   protected Meal( FoodProperties properties ) {
+   protected Meal( Properties properties ) {
       this( 
                properties, 
+               new Nutrition(),
                new FoodAnalytics(), 
                new MealRegistrations(), 
                new MealPropertiesCalculator(),
@@ -64,17 +61,9 @@ public class Meal implements Food {
       );
    }//End Constructor
    
-   /**
-    * Constructs a new {@link Meal}.
-    * @param properties the {@link FoodProperties}.
-    * @param foodAnalytics the {@link FoodAnalytics}.
-    * @param registrations the {@link MealRegistrations}.
-    * @param propertiesCalculator the {@link MealPropertiesCalculator}.
-    * @param ratioCalculator the {@link MacroRatioCalculator}.
-    * @param stockUsage the {@link StockUsage}.
-    */
    protected Meal( 
-            FoodProperties properties,
+            Properties properties,
+            Nutrition nutrition,
             FoodAnalytics foodAnalytics,
             MealRegistrations registrations, 
             MealPropertiesCalculator propertiesCalculator,
@@ -84,6 +73,7 @@ public class Meal implements Food {
       this.registrations = registrations;
       this.portions = FXCollections.observableArrayList();
       this.properties = properties;
+      this.nutrition = nutrition;
       this.foodAnalytics = foodAnalytics;
       this.propertiesCalculator = propertiesCalculator;
       this.stockUsage = stockUsage;
@@ -91,7 +81,7 @@ public class Meal implements Food {
       this.propertiesCalculator.associate( this );
       this.registrations.associate( this );
       this.stockUsage.associate( portions );
-      ratioCalculator.associate( properties, foodAnalytics );
+      ratioCalculator.associate( nutrition, foodAnalytics );
    }//End Constructor
    
    /**
@@ -101,12 +91,8 @@ public class Meal implements Food {
       return properties;
    }//End Method
    
-   @Override public FoodProperties foodproperties() {
-      return properties;
-   }
-   
    @Override public Nutrition nutrition() {
-      return foodproperties().nutrition();
+      return nutrition;
    }//End Method
    
    /**

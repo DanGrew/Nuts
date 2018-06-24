@@ -13,10 +13,10 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.system.Properties;
 
 public class MealRegistrationsTest {
 
@@ -28,7 +28,8 @@ public class MealRegistrationsTest {
    private FoodPortion portion2;
    
    private Meal meal;
-   private FoodProperties properties;
+   private Properties properties;
+   private Nutrition nutrition;
    private MealRegistrations systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -39,10 +40,13 @@ public class MealRegistrationsTest {
       portion1 = new FoodPortion();
       portion2 = new FoodPortion();
       
-      properties = new FoodProperties( "anything" );
+      properties = new Properties( "anything" );
+      nutrition = new Nutrition();
       systemUnderTest = new MealRegistrations();
       meal = new Meal( 
-               properties, new FoodAnalytics(), 
+               properties,
+               nutrition,
+               new FoodAnalytics(), 
                systemUnderTest, 
                mock( MealPropertiesCalculator.class ), new MacroRatioCalculator(), 
                new StockUsage()

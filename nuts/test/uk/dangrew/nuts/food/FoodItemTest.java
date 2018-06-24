@@ -11,11 +11,14 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.system.Properties;
 
 public class FoodItemTest {
 
-   private FoodProperties properties;
+   private Properties properties;
+   private Nutrition nutrition;
    private StockProperties stockProperties;
    private FoodAnalytics foodAnalytics;
    @Spy private MacroRatioCalculator ratioCalculator;
@@ -23,11 +26,13 @@ public class FoodItemTest {
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
-      properties = new FoodProperties( "anything" );
+      properties = new Properties( "anything" );
+      nutrition = new Nutrition();
       stockProperties = new StockProperties();
       foodAnalytics = new FoodAnalytics();
       systemUnderTest = new FoodItem( 
                properties, 
+               nutrition,
                stockProperties,
                foodAnalytics, 
                ratioCalculator 
@@ -42,7 +47,7 @@ public class FoodItemTest {
 
    @Test public void shouldProvideNutrition(){
       assertThat( systemUnderTest.properties(), is( properties ) );
-      assertThat( systemUnderTest.nutrition(), is( properties.nutrition() ) );
+      assertThat( systemUnderTest.nutrition(), is( nutrition ) );
    }//End Method
    
    @Test public void shouldProvideStockProperties(){
@@ -54,7 +59,7 @@ public class FoodItemTest {
    }//End Method
    
    @Test public void shouldAssociateRatioCalculator(){
-      verify( ratioCalculator ).associate( properties, foodAnalytics );
+      verify( ratioCalculator ).associate( nutrition, foodAnalytics );
    }//End Method
    
    @Test public void shouldDuplicate(){

@@ -5,8 +5,6 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import java.util.function.Consumer;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
@@ -14,7 +12,6 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.food.FoodProperties;
 
 public class NutritionalUnitTest {
 
@@ -31,13 +28,13 @@ public class NutritionalUnitTest {
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {
          assertThat( unit.of( food ).property(), is( food.nutrition().of( unit ) ) );
          assertThat( unit.of( food.foodAnalytics() ).property(), is( food.foodAnalytics().nutrition().of( unit ) ) );
+         assertThat( unit.of( food.nutrition() ).property(), is( food.nutrition().of( unit ) ) );
       }
    }//End Method
    
    @Test public void shouldHandleEmptyRequests(){
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {
          assertThat( unit.of( ( Food )null ).property(), is( nullValue() ) );
-         assertThat( unit.of( ( FoodProperties )null ).property(), is( nullValue() ) );
       }
    }//End Method
    

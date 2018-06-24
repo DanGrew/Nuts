@@ -9,24 +9,20 @@
 package uk.dangrew.nuts.food;
 
 import javafx.beans.value.ChangeListener;
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.nutrients.OptionalNutritionalUnit;
 
 /**
  * The {@link MacroRatioCalculator} calculates the ratio of {@link MacroNutrient}s in {@link FoodProperties}
- * of the total weight within those {@link FoodProperties}.
+ * of the total weight within those {@link Nutrition}.
  */
 public class MacroRatioCalculator {
 
-   private FoodProperties properties;
+   private Nutrition properties;
    private FoodAnalytics analytics;
    
-   /**
-    * Associate the {@link MacroRatioCalculator} with the given {@link FoodProperties} and {@link FoodAnalytics}.
-    * @param properties the {@link FoodProperties}.
-    * @param analytics the {@link FoodAnalytics}.
-    */
-   public void associate( FoodProperties properties, FoodAnalytics analytics ) {
+   public void associate( Nutrition properties, FoodAnalytics analytics ) {
       if ( this.properties != null || this.analytics != null ) {
          throw new IllegalStateException( "Allredy associated." );
       }

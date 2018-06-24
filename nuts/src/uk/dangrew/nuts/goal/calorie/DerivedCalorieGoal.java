@@ -4,7 +4,6 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import uk.dangrew.nuts.food.FoodAnalytics;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
@@ -13,7 +12,8 @@ import uk.dangrew.nuts.system.Properties;
 
 public class DerivedCalorieGoal implements CalorieGoal {
    
-   private final FoodProperties properties;
+   private final Properties properties;
+   private final Nutrition nutrition;
    private final FoodAnalytics analytics;
    private final ObjectProperty< Double > calorieOffset;
    private final ObjectProperty< Double > calorieDeficit;
@@ -21,15 +21,26 @@ public class DerivedCalorieGoal implements CalorieGoal {
    private CalorieGoal baseGoal;
    
    public DerivedCalorieGoal( String name ) {
-      this( new FoodProperties( name ), new GoalAnalytics(), new MacroRatioCalculator() );
+      this(
+               new Properties( name ), 
+               new Nutrition(), 
+               new GoalAnalytics(), 
+               new MacroRatioCalculator() 
+      );
    }//End Constructor
    
-   DerivedCalorieGoal( FoodProperties properties, FoodAnalytics analytics, MacroRatioCalculator macroRatioCalc ) {
+   DerivedCalorieGoal( 
+            Properties properties,
+            Nutrition nutrition,
+            FoodAnalytics analytics, 
+            MacroRatioCalculator macroRatioCalc 
+   ) {
       this.properties = properties;
+      this.nutrition = nutrition;
       this.analytics = analytics;
       this.calorieOffset = new SimpleObjectProperty<>( 0.0 );
       this.calorieDeficit = new SimpleObjectProperty<>( 0.0 );
-      macroRatioCalc.associate( properties, analytics );
+      macroRatioCalc.associate( nutrition, analytics );
    }//End Constructor
    
    @Override public GoalTypes type() {
@@ -70,12 +81,8 @@ public class DerivedCalorieGoal implements CalorieGoal {
       return properties;
    }//End Method
    
-   @Override public FoodProperties foodproperties() {
-      return properties;
-   }
-   
    @Override public Nutrition nutrition() {
-      return foodproperties().nutrition();
+      return nutrition;
    }//End Method
 
    @Override public FoodAnalytics foodAnalytics() {

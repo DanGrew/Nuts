@@ -16,12 +16,6 @@ import uk.dangrew.nuts.system.Concept;
  */
 public interface Food extends Concept {
 
-   /**
-    * Access to the {@link FoodProperties} associated.
-    * @return the {@link FoodProperties}.
-    */
-   @Deprecated public FoodProperties foodproperties();
-   
    public Nutrition nutrition();
    
    /**

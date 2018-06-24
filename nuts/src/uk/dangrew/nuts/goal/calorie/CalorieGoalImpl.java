@@ -12,7 +12,6 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.nutrients.Nutrition;
@@ -31,7 +30,8 @@ public class CalorieGoalImpl implements CalorieGoal {
    private final CalorieGoalCalculator calorieCalculator;
    private final MacroCalorieGoalCalculator macroCalculator;
    
-   private final FoodProperties properties;
+   private final Properties properties;
+   private final Nutrition nutrition;
    private final FoodAnalytics analytics;
    private final ObjectProperty< Double > age;
    private final ObjectProperty< Double > weight;
@@ -51,7 +51,8 @@ public class CalorieGoalImpl implements CalorieGoal {
     */
    public CalorieGoalImpl( String name ) {
       this( 
-               new FoodProperties( name ), 
+               new Properties( name ), 
+               new Nutrition(),
                new FoodAnalytics(), 
                new CalorieGoalCalculator(), 
                new MacroCalorieGoalCalculator(),
@@ -65,7 +66,8 @@ public class CalorieGoalImpl implements CalorieGoal {
     */
    public CalorieGoalImpl( String id, String name ) {
       this( 
-               new FoodProperties( id, name ), 
+               new Properties( id, name ), 
+               new Nutrition(),
                new FoodAnalytics(), 
                new CalorieGoalCalculator(), 
                new MacroCalorieGoalCalculator(),
@@ -73,22 +75,16 @@ public class CalorieGoalImpl implements CalorieGoal {
       );
    }//End Constructor
    
-   /**
-    * Constructs a new {@link GoalImpl}.
-    * @param properties the {@link FoodProperties}.
-    * @param analytics the {@link FoodAnalytics}.
-    * @param calorieCalculator the {@link CalorieGoalCalculator}.
-    * @param macroCalculator the {@link MacroGoalCalculator}.
-    * @param ratioCalculator the {@link MacroRatioCalculator}.
-    */
    CalorieGoalImpl( 
-            FoodProperties properties, 
+            Properties properties, 
+            Nutrition nutrition,
             FoodAnalytics analytics, 
             CalorieGoalCalculator calorieCalculator, 
             MacroCalorieGoalCalculator macroCalculator,
             MacroRatioCalculator ratioCalculator
    ) {
       this.properties = properties;
+      this.nutrition = nutrition;
       this.analytics = analytics;
       this.age = new SimpleObjectProperty<>( 0.0 );
       this.weight = new SimpleObjectProperty<>( 0.0 );
@@ -102,7 +98,7 @@ public class CalorieGoalImpl implements CalorieGoal {
       this.proteinPerPound = new SimpleObjectProperty<>( RECOMMENDED_PROTEIN_PER_POUND );
       this.fatPerPound = new SimpleObjectProperty<>( RECOMMENDED_FAT_PER_POUND );
       
-      ratioCalculator.associate( properties, analytics );
+      ratioCalculator.associate( nutrition, analytics );
       this.calorieCalculator = calorieCalculator;
       this.calorieCalculator.associate( this );
       this.macroCalculator = macroCalculator;
@@ -113,12 +109,8 @@ public class CalorieGoalImpl implements CalorieGoal {
       return properties;
    }//End Method
    
-   @Override public FoodProperties foodproperties() {
-      return properties;
-   }
-   
    @Override public Nutrition nutrition() {
-      return foodproperties().nutrition();
+      return nutrition;
    }//End Method
    
    @Override public FoodAnalytics foodAnalytics() {

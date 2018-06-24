@@ -7,9 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.dangrew.nuts.food.FoodAnalytics;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.system.Properties;
 
 public class MacroCalorieGoalCalculatorTest {
 
@@ -19,7 +20,8 @@ public class MacroCalorieGoalCalculatorTest {
    @Before public void initialiseSystemUnderTest() {
       systemUnderTest = new MacroCalorieGoalCalculator();
       calorieGoal = new CalorieGoalImpl( 
-               new FoodProperties( "Goal" ), 
+               new Properties( "Goal" ),
+               new Nutrition(),
                new FoodAnalytics(),
                new CalorieGoalCalculator(), 
                systemUnderTest ,

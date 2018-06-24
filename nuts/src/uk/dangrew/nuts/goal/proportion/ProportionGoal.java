@@ -2,7 +2,6 @@ package uk.dangrew.nuts.goal.proportion;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.nutrients.Nutrition;
@@ -10,29 +9,34 @@ import uk.dangrew.nuts.system.Properties;
 
 public class ProportionGoal implements Goal {
 
-   private final FoodProperties properties;
+   private final Properties properties;
+   private final Nutrition nutrition;
    private final FoodAnalytics analytics;
    private final ProportionConfiguration configuration;
    
    public ProportionGoal( String name ) {
       this( 
-               new FoodProperties( name ), 
+               new Properties( name ), 
+               new Nutrition(),
                new FoodAnalytics() 
       );
    }//End Constructor
    
    public ProportionGoal( String id, String name ) {
       this( 
-               new FoodProperties( id, name ), 
+               new Properties( id, name ), 
+               new Nutrition(),
                new FoodAnalytics() 
       );
    }//End Constructor
    
    ProportionGoal( 
-            FoodProperties properties, 
+            Properties properties, 
+            Nutrition nutrition,
             FoodAnalytics analytics 
    ) {
       this.properties = properties;
+      this.nutrition = nutrition;
       this.analytics = analytics;
       this.configuration = new ProportionConfiguration();
    }//End Constructor
@@ -45,12 +49,8 @@ public class ProportionGoal implements Goal {
       return properties;
    }//End Method
    
-   @Override public FoodProperties foodproperties() {
-      return properties;
-   }
-   
    @Override public Nutrition nutrition() {
-      return foodproperties().nutrition();
+      return nutrition;
    }//End Method
    
    @Override public FoodAnalytics foodAnalytics() {

@@ -18,7 +18,8 @@ import uk.dangrew.nuts.system.Properties;
  */
 public class FoodItem implements Food {
 
-   private final FoodProperties properties;
+   private final Properties properties;
+   private final Nutrition nutrition;
    private final StockProperties stockProperties;
    private final FoodAnalytics foodAnalytics;
    
@@ -27,7 +28,7 @@ public class FoodItem implements Food {
     * @param name the name of the {@link FoodItem}.
     */
    public FoodItem( String name ) {
-      this( new FoodProperties( name ) );
+      this( new Properties( name ) );
    }//End Constructor
    
    /**
@@ -36,39 +37,35 @@ public class FoodItem implements Food {
     * @param name the name.
     */
    public FoodItem( String id, String name ) {
-      this( new FoodProperties( id, name ) );
+      this( new Properties( id, name ) );
    }//End Constructor
    
    /**
-    * Constructs a new {@link FoodItem} with the given {@link FoodProperties}.
-    * @param properties the {@link FoodProperties}.
+    * Constructs a new {@link FoodItem}.
+    * @param properties the {@link Properties}.
     */
-   protected FoodItem( FoodProperties properties ) {
+   protected FoodItem( Properties properties ) {
       this( 
                properties,
+               new Nutrition(),
                new StockProperties(),
                new FoodAnalytics(),
                new MacroRatioCalculator()
       );
    }//End Constructor
    
-   /**
-    * Constructs a new {@link FoodItem}.
-    * @param properties the {@link FoodProperties}.
-    * @param stockProperties the {@link StockProperties}.
-    * @param foodAnalytics the {@link FoodAnalytics}.
-    * @param ratioCalculator the {@link MacroRatioCalculator}.
-    */
    FoodItem( 
-            FoodProperties properties, 
+            Properties properties, 
+            Nutrition nutrition,
             StockProperties stockProperties,
             FoodAnalytics foodAnalytics, 
             MacroRatioCalculator ratioCalculator
    ) {
       this.properties = properties;
+      this.nutrition = nutrition;
       this.stockProperties = stockProperties;
       this.foodAnalytics = foodAnalytics;
-      ratioCalculator.associate( properties, foodAnalytics );
+      ratioCalculator.associate( nutrition, foodAnalytics );
    }//End Constructor
 
    /**
@@ -78,12 +75,8 @@ public class FoodItem implements Food {
       return properties;
    }//End Method
    
-   @Override public FoodProperties foodproperties() {
-      return properties;
-   }//End Method
-   
    @Override public Nutrition nutrition() {
-      return foodproperties().nutrition();
+      return nutrition;
    }//End Method
    
    /**

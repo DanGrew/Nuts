@@ -12,9 +12,10 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.system.Properties;
 
 public class MealPropertiesCalculatorTest {
 
@@ -50,7 +51,8 @@ public class MealPropertiesCalculatorTest {
       
       systemUnderTest = new MealPropertiesCalculator();
       meal = new Meal( 
-               new FoodProperties( "anything" ), 
+               new Properties( "anything" ),
+               new Nutrition(),
                new FoodAnalytics(), 
                registrations, 
                systemUnderTest, 

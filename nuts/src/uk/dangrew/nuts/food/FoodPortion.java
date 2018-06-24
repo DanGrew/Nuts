@@ -27,7 +27,8 @@ public class FoodPortion implements Food {
    private final ChangeListener< Object > macroUpdater;
    private final RegistrationManager registrations;
    
-   private final FoodProperties properties;
+   private final Properties properties;
+   private final Nutrition nutrition;
    private final FoodAnalytics analytics;
    
    private final ObjectProperty< Food > food;
@@ -49,30 +50,27 @@ public class FoodPortion implements Food {
     */
    public FoodPortion() {
       this( 
-               new FoodProperties( "Portion" ), 
+               new Properties( "Portion" ), 
+               new Nutrition(),
                new FoodAnalytics(),
                new MacroRatioCalculator()
       );
    }//End Constructor
    
-   /**
-    * Constructs a new {@link FoodPortion}.
-    * @param properties the {@link FoodProperties}.
-    * @param foodAnalytics the {@link FoodAnalytics}.
-    * @param ratioCalculator the {@link MacroRatioCalculator}.
-    */
    FoodPortion( 
-            FoodProperties properties, 
+            Properties properties, 
+            Nutrition nutrition,
             FoodAnalytics foodAnalytics, 
             MacroRatioCalculator ratioCalculator
    ) {
       this.food = new SimpleObjectProperty<>();
       this.portion = new SimpleObjectProperty<>( 100.0 );
       this.properties = properties;
+      this.nutrition = nutrition;
       this.analytics = foodAnalytics;
       
       //TODO think these two calculators should be removed and the logic in this class relocated
-      ratioCalculator.associate( properties, foodAnalytics );
+      ratioCalculator.associate( nutrition, foodAnalytics );
       
       //need to bind macros
       this.macroUpdater = ( s, o, n ) -> updateMacros();
@@ -86,7 +84,7 @@ public class FoodPortion implements Food {
    private void updateMacros(){
       if ( food.get() == null ) {
          for ( NutritionalUnit unit : NutritionalUnit.values() ) {
-            unit.of( properties ).set( 0.0 );
+            unit.of( nutrition ).set( 0.0 );
          }
          return;
       }
@@ -94,7 +92,7 @@ public class FoodPortion implements Food {
       double proportion = portion.get() / 100.0;
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {
          OptionalNutritionalUnit unitValue = unit.of( this.food.get() );
-         unit.of( properties ).set( unitValue.get() * proportion );
+         unit.of( nutrition ).set( unitValue.get() * proportion );
       }
    }//End Method
    
@@ -182,12 +180,8 @@ public class FoodPortion implements Food {
       return properties;
    }//End Method
    
-   @Override public FoodProperties foodproperties() {
-      return properties;
-   }
-   
    @Override public Nutrition nutrition() {
-      return foodproperties().nutrition();
+      return nutrition;
    }//End Method
    
    /**

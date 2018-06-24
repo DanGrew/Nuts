@@ -26,9 +26,7 @@ import uk.dangrew.kode.javafx.style.Conversions;
 import uk.dangrew.kode.javafx.table.EditCommitHandler;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
-import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.Properties;
 

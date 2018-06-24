@@ -16,16 +16,16 @@ import org.mockito.Spy;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalAnalyticsCalculator;
-import uk.dangrew.nuts.goal.MacroGoalRatioCalculator;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
 import uk.dangrew.nuts.meal.MealChangeListener;
 import uk.dangrew.nuts.meal.MealPropertiesCalculator;
 import uk.dangrew.nuts.meal.MealRegistrations;
 import uk.dangrew.nuts.meal.StockUsage;
+import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.system.Properties;
 
 public class TemplateTest {
 
@@ -36,7 +36,8 @@ public class TemplateTest {
    private FoodPortion portion1;
    private FoodPortion portion2;
    
-   private FoodProperties properties;
+   private Properties properties;
+   private Nutrition nutrition;
    private FoodAnalytics foodAnalytics;
    private GoalAnalytics goalAnalytics;
    @Spy private MacroRatioCalculator ratioCalculator;
@@ -54,11 +55,13 @@ public class TemplateTest {
       portion1 = new FoodPortion();
       portion2 = new FoodPortion();
       
-      properties = new FoodProperties( "anything" );
+      properties = new Properties( "anything" );
+      nutrition = new Nutrition();
       foodAnalytics = new FoodAnalytics();
       goalAnalytics = new GoalAnalytics();
       systemUnderTest = new Template(
                properties, 
+               nutrition,
                foodAnalytics, 
                goalAnalytics,
                registrations, 
@@ -101,7 +104,7 @@ public class TemplateTest {
    }//End Method
    
    @Test public void shouldAssociateRatioCalculator(){
-      verify( ratioCalculator ).associate( properties, foodAnalytics );
+      verify( ratioCalculator ).associate( nutrition, foodAnalytics );
    }//End Method
    
    @Test public void shouldProvideGoalAnalytics(){
@@ -109,7 +112,7 @@ public class TemplateTest {
    }//End Method
    
    @Test public void shouldAssociateGoalRatioCalculator(){
-      verify( goalRatioCalculator ).associate( properties, goalAnalytics );
+      verify( goalRatioCalculator ).associate( nutrition, goalAnalytics );
    }//End Method
    
    @Test public void shouldProvideStockUsage(){

@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
-import uk.dangrew.nuts.food.FoodProperties;
 
 public enum NutritionalUnit {
 
@@ -25,14 +24,6 @@ public enum NutritionalUnit {
       return macros;
    }//End Method
    
-   public OptionalNutritionalUnit of( FoodProperties properties ) {
-      if ( properties == null ) {
-         return new OptionalNutritionalUnit();
-      }
-      
-      return new OptionalNutritionalUnit( properties.nutrition().of( this ) );
-   }//End Method
-   
    public OptionalNutritionalUnit of( FoodAnalytics analytics ) {
       if ( analytics == null ) {
          return new OptionalNutritionalUnit();
@@ -47,6 +38,14 @@ public enum NutritionalUnit {
       }
       
       return new OptionalNutritionalUnit( food.nutrition().of( this ) );
+   }//End Method
+   
+   public OptionalNutritionalUnit of( Nutrition nutrition ) {
+      if ( nutrition == null ) {
+         return new OptionalNutritionalUnit();
+      }
+      
+      return new OptionalNutritionalUnit( nutrition.of( this ) );
    }//End Method
    
 }//End Enum

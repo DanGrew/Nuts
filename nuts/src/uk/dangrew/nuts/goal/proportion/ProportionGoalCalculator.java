@@ -1,38 +1,38 @@
 package uk.dangrew.nuts.goal.proportion;
 
 import javafx.beans.property.ObjectProperty;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
+import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class ProportionGoalCalculator implements GoalCalculator {
 
-   private FoodProperties properties;
+   private Nutrition nutrition;
    private GoalAnalytics analytics;
    private ProportionGoal proportionGoal;
    
    @Override public void calculate( 
-            FoodProperties properties, 
+            Nutrition nutrition, 
             GoalAnalytics analytics, 
             Goal goal 
    ) {
       if ( goal.type() != GoalTypes.Proportion ) {
          return;
       }
-      this.properties = properties;
+      this.nutrition = nutrition;
       this.analytics = analytics;
       this.proportionGoal = ( ProportionGoal ) goal;
       calculate();
    }//End Method
    
    private void calculate(){
-      double carbWeight = properties.nutrition().of( NutritionalUnit.Carbohydrate ).get();
-      double fatWeight = properties.nutrition().of( NutritionalUnit.Fat ).get();
-      double proteinWeight = properties.nutrition().of( NutritionalUnit.Protein ).get();
-      double fiberWeight = properties.nutrition().of( NutritionalUnit.Fibre ).get();
+      double carbWeight = nutrition.of( NutritionalUnit.Carbohydrate ).get();
+      double fatWeight = nutrition.of( NutritionalUnit.Fat ).get();
+      double proteinWeight = nutrition.of( NutritionalUnit.Protein ).get();
+      double fiberWeight = nutrition.of( NutritionalUnit.Fibre ).get();
       
       double carbCalories = carbWeight * 4;
       double fatCalories = fatWeight * 9;

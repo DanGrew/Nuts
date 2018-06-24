@@ -9,15 +9,15 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.system.Properties;
 
 public class Stock extends Meal {
 
    private final Map< Food, FoodPortion > portionMapping;
    
    public Stock( String name ) {
-      this( new FoodProperties( name ) );
+      this( new Properties( name ) );
    }//End Constructor
    
    /**
@@ -26,14 +26,14 @@ public class Stock extends Meal {
     * @param name the name of the {@link Meal}.
     */
    public Stock( String id, String name ) {
-      this( new FoodProperties( id, name ) );
+      this( new Properties( id, name ) );
    }//End Constructor
    
    /**
     * Constructs a new {@link Meal}.
     * @param properties the {@link FoodProperties}.
     */
-   private Stock( FoodProperties properties ) {
+   private Stock( Properties properties ) {
       super( properties );
       this.portionMapping = new HashMap<>();
       this.portions().addListener( new FunctionListChangeListenerImpl<>( 

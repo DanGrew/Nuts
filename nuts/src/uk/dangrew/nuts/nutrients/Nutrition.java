@@ -7,7 +7,6 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.food.FoodProperties;
 
 public class Nutrition {
 
@@ -18,14 +17,6 @@ public class Nutrition {
       Stream.of( NutritionalUnit.values() )
          .forEach( n -> nutrition.put( n, new SimpleObjectProperty<>( 0.0 ) ) );
    }//End Constructor
-   
-   public static OptionalNutrition of( FoodProperties properties ) {
-      if ( properties == null ) {
-         return new OptionalNutrition();
-      }
-      
-      return new OptionalNutrition( properties.nutrition() );
-   }//End Method
    
    public static OptionalNutrition of( Food food ) {
       if ( food == null ) {

@@ -4,7 +4,6 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -13,16 +12,15 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import uk.dangrew.nuts.food.FoodAnalytics;
-import uk.dangrew.nuts.food.FoodProperties;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
-import uk.dangrew.nuts.goal.calorie.CalorieGoalCalculator;
-import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
-import uk.dangrew.nuts.goal.calorie.MacroCalorieGoalCalculator;
+import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.system.Properties;
 
 public class CalorieGoalImplTest {
    
-   private FoodProperties properties;
+   private Properties properties;
+   private Nutrition nutrition;
    private FoodAnalytics analytics;
    @Spy private CalorieGoalCalculator calorieCalculator;
    @Spy private MacroCalorieGoalCalculator macroCalculator;
@@ -31,14 +29,15 @@ public class CalorieGoalImplTest {
 
    @Before public void initialiseSystemUnderTest() {
       MockitoAnnotations.initMocks( this );
-      properties = new FoodProperties( "Goal" );
+      properties = new Properties( "Goal" );
+      nutrition = new Nutrition();
       analytics = new FoodAnalytics();
-      systemUnderTest = new CalorieGoalImpl( properties, analytics, calorieCalculator, macroCalculator, ratioCalculator );
+      systemUnderTest = new CalorieGoalImpl( properties, nutrition, analytics, calorieCalculator, macroCalculator, ratioCalculator );
    }//End Method
 
    @Test public void shouldProvideNutrition(){
       assertThat( systemUnderTest.properties(), is( properties ) );
-      assertThat( systemUnderTest.nutrition(), is( properties.nutrition() ) );
+      assertThat( systemUnderTest.nutrition(), is( nutrition ) );
    }//End Method
    
    @Test public void shouldProvideAnalytics(){
@@ -46,7 +45,7 @@ public class CalorieGoalImplTest {
    }//End Method
    
    @Test public void shouldAssociateRatioCalculator(){
-      verify( ratioCalculator ).associate( properties, analytics );
+      verify( ratioCalculator ).associate( nutrition, analytics );
    }//End Method
 
    @Test public void shouldProvideWeight() {
