@@ -1,5 +1,10 @@
 package uk.dangrew.nuts.graphics.goal;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.TreeSet;
+
 import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.control.ComboBox;
@@ -8,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import uk.dangrew.kode.javafx.custom.BoundTextProperty;
+import uk.dangrew.kode.javafx.custom.PropertiesPane;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerBindingImpl;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerMismatchBindingImpl;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerRegistrationImpl;
@@ -15,6 +22,7 @@ import uk.dangrew.kode.javafx.registrations.ReadOnlyChangeListenerRegistrationIm
 import uk.dangrew.kode.javafx.registrations.RegistrationManager;
 import uk.dangrew.kode.javafx.style.Conversions;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionType;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
@@ -59,6 +67,8 @@ public class ProportionGoalView extends VBox {
                viewModel.configuration().fiberProportionType(),
                viewModel.configuration().fiberTargetValue()
       );
+      
+      createSimpleWeightGoals();
    }//End Constructor
    
    private final GridPane createMacroPane( 
@@ -95,6 +105,20 @@ public class ProportionGoalView extends VBox {
       getChildren().add( title );
       
       return pane;
+   }//End Method
+   
+   private void createSimpleWeightGoals(){
+      List< PropertyRowBuilder > builders = new ArrayList<>();
+      TreeSet< NutritionalUnit > orderedUnits = new TreeSet<>( ( a, b ) -> a.name().compareToIgnoreCase( b.name() ) );
+      orderedUnits.addAll( ProportionGoal.weightedGoalUnits() );
+      
+      for ( NutritionalUnit unit : orderedUnits ) {
+         builders.add( new PropertyRowBuilder()
+            .withLabelName( unit.name() )
+            .withBinding( new BoundTextProperty( unit.of( viewModel ).property(), true ) )
+         );
+      }
+      getChildren().add( new PropertiesPane( "Nutritional Units", builders ) );
    }//End Method
    
    /**
@@ -134,22 +158,12 @@ public class ProportionGoalView extends VBox {
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fiberProportionType(), viewModel.configuration().fiberProportionType() ) );
       modelRegistrations.apply( new ChangeListenerBindingImpl<>( proportionGoal.configuration().fiberTargetValue(), viewModel.configuration().fiberTargetValue() ) );
       
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
-               NutritionalUnit.Carbohydrate.of( proportionGoal ).property(), 
-               NutritionalUnit.Carbohydrate.of( viewModel ).property() 
-      ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
-               NutritionalUnit.Fat.of( proportionGoal ).property(), 
-               NutritionalUnit.Fat.of( viewModel ).property() 
-      ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
-               NutritionalUnit.Protein.of( proportionGoal ).property(), 
-               NutritionalUnit.Protein.of( viewModel ).property() 
-      ) );
-      modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
-               NutritionalUnit.Fibre.of( proportionGoal ).property(), 
-               NutritionalUnit.Fibre.of( viewModel ).property() 
-      ) );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         modelRegistrations.apply( new ChangeListenerBindingImpl<>( 
+                  unit.of( proportionGoal ).property(),
+                  unit.of( viewModel ).property()
+         ) );
+      }
    }//End Method
 
 }//End Class

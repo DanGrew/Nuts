@@ -19,6 +19,7 @@ import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.calorie.Gender;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.persistence.fooditems.ConceptPersistence;
 
 /**
@@ -43,10 +44,12 @@ public class CalorieGoalPersistence implements ConceptPersistence {
    static final String PROTEIN_PER_POUND = "proteinPerPound";
    static final String FAT_PER_POUND = "fatPerPound";
    
-   static final String CALORIE_GOAL = "calorieGoal";
-   static final String CARB_GOAL = "carbohydratesGoal";
-   static final String FAT_GOAL = "fatsGoal";
-   static final String PROTEIN_GOAL = "proteinGoal";
+   static final String UNIT_GOALS = "nutritionalUnitGoals";
+   
+   @Deprecated static final String CALORIE_GOAL = "calorieGoal";
+   @Deprecated static final String CARB_GOAL = "carbohydratesGoal";
+   @Deprecated static final String FAT_GOAL = "fatsGoal";
+   @Deprecated static final String PROTEIN_GOAL = "proteinGoal";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -99,16 +102,23 @@ public class CalorieGoalPersistence implements ConceptPersistence {
       structure.child( DEFICIT, GOAL );
       structure.child( PROTEIN_PER_POUND, GOAL );
       structure.child( FAT_PER_POUND, GOAL );
-      structure.child( CALORIE_GOAL, GOAL );
-      structure.child( CARB_GOAL, GOAL );
-      structure.child( FAT_GOAL, GOAL );
-      structure.child( PROTEIN_GOAL, GOAL );
+      structure.optionalChild( UNIT_GOALS, GOAL );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         structure.optionalChild( unit.name().toLowerCase(), UNIT_GOALS );
+      }
    }//End Method
    
    /**
     * Method to construct the {@link JsonParser} for reading.
     */
    private void constructReadHandles(){
+      //we append the deprecated handles first so that if a key is reused, it is overridden the most recent
+      //for example, 'fats' will not collide with 'fat' but 'protein' will collide.
+      appendDeprecatedReadHandles();
+      appendCurrentReadHandles();
+   }//End Method
+   
+   private void appendCurrentReadHandles(){
       parserWithReadHandles.when( GOALS, new StringParseHandle( new JsonArrayWithObjectParseHandler<>( 
                parseModel::startGoal, parseModel::finishGoal, null, null ) 
       ) );
@@ -130,6 +140,13 @@ public class CalorieGoalPersistence implements ConceptPersistence {
       parserWithReadHandles.when( DEFICIT, new DoubleParseHandle( parseModel::setCalorieDeficit ) );
       parserWithReadHandles.when( PROTEIN_PER_POUND, new DoubleParseHandle( parseModel::setProteinPerPound ) );
       parserWithReadHandles.when( FAT_PER_POUND, new DoubleParseHandle( parseModel::setFatPerPound ) );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         parserWithReadHandles.when( unit.name().toLowerCase(), new DoubleParseHandle( v -> parseModel.setNutritionalUnitGoal( unit, v ) ) );
+      }
+   }//End Method
+   
+   private void appendDeprecatedReadHandles(){
       parserWithReadHandles.when( CALORIE_GOAL, new DoubleParseHandle( parseModel::setCalorieGoal ) );
       parserWithReadHandles.when( CARB_GOAL, new DoubleParseHandle( parseModel::setCarbohydratesGoal ) );
       parserWithReadHandles.when( FAT_GOAL, new DoubleParseHandle( parseModel::setFatsGoal ) );
@@ -157,10 +174,10 @@ public class CalorieGoalPersistence implements ConceptPersistence {
       parserWithWriteHandles.when( DEFICIT, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCalorieDeficit ) ) );
       parserWithWriteHandles.when( PROTEIN_PER_POUND, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProteinPerPound ) ) );
       parserWithWriteHandles.when( FAT_PER_POUND, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFatPerPound ) ) );
-      parserWithWriteHandles.when( CALORIE_GOAL, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCalorieGoal ) ) );
-      parserWithWriteHandles.when( CARB_GOAL, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCarbohydratesGoal ) ) );
-      parserWithWriteHandles.when( FAT_GOAL, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFatsGoal ) ) );
-      parserWithWriteHandles.when( PROTEIN_GOAL, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProteinGoal ) ) );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         parserWithWriteHandles.when( unit.name().toLowerCase(), new JsonWriteHandleImpl( new JsonValueWriteHandler( () -> writeModel.getNutritionalUnitGoal( unit ) ) ) );
+      }
    }//End Method
    
    @Override public JsonStructure structure(){

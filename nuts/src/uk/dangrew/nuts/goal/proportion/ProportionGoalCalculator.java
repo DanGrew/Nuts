@@ -5,6 +5,7 @@ import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
+import uk.dangrew.nuts.goal.SimpleGoalRatioCalculator;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
@@ -13,6 +14,8 @@ public class ProportionGoalCalculator implements GoalCalculator {
    private Nutrition nutrition;
    private GoalAnalytics analytics;
    private ProportionGoal proportionGoal;
+   
+   private SimpleGoalRatioCalculator simpleGoalCalculator;
    
    @Override public void calculate( 
             Nutrition nutrition, 
@@ -25,6 +28,7 @@ public class ProportionGoalCalculator implements GoalCalculator {
       this.nutrition = nutrition;
       this.analytics = analytics;
       this.proportionGoal = ( ProportionGoal ) goal;
+      this.simpleGoalCalculator = new SimpleGoalRatioCalculator( proportionGoal, analytics, nutrition );
       calculate();
    }//End Method
    
@@ -41,7 +45,6 @@ public class ProportionGoalCalculator implements GoalCalculator {
       
       double totalCalories = carbCalories + fatCalories + proteinCalories;
       double totalWeight = carbWeight + fatWeight + proteinWeight;
-      
       
       calculateAndSet( 
                proportionGoal.configuration().carbohydrateProportionType(), 
@@ -79,6 +82,8 @@ public class ProportionGoalCalculator implements GoalCalculator {
                fiberWeight, 
                analytics.of( NutritionalUnit.Fibre ) 
       );
+      
+      ProportionGoal.weightedGoalUnits().forEach( simpleGoalCalculator::calculate );
    }//End Method
    
    private void calculateAndSet(

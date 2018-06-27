@@ -8,13 +8,19 @@
  */
 package uk.dangrew.nuts.persistence.goal.proportion;
 
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.Optional;
+
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionType;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 class ProportionGoalParseModel {
    
    private final ProportionGoalStore goals;
+   private final Map< NutritionalUnit, Double > nutritionalUnitGoals;
    
    private String id;
    private String name;
@@ -29,6 +35,7 @@ class ProportionGoalParseModel {
    
    ProportionGoalParseModel( ProportionGoalStore goals ) {
       this.goals = goals;
+      this.nutritionalUnitGoals = new EnumMap<>( NutritionalUnit.class );
    }//End Constructor
    
    /**
@@ -46,6 +53,7 @@ class ProportionGoalParseModel {
       proteinProportionValue = null;
       fiberProportionType = null;
       fiberProportionValue = null;
+      nutritionalUnitGoals.clear();
    }//End Method
    
    /**
@@ -75,6 +83,12 @@ class ProportionGoalParseModel {
       goal.configuration().fatTargetValue().set( fatProportionValue );
       goal.configuration().proteinTargetValue().set( proteinProportionValue );
       goal.configuration().fiberTargetValue().set( fiberProportionValue );
+      
+      for ( NutritionalUnit unit : ProportionGoal.weightedGoalUnits() ) {
+         Optional.ofNullable( nutritionalUnitGoals.get( unit ) ).ifPresent( 
+                  v -> unit.of( goal ).set( v ) 
+         );
+      }
    }//End Method
 
    void setId( String value ) {
@@ -115,6 +129,10 @@ class ProportionGoalParseModel {
    
    void setFiberProportionValue( Double value ) {
       this.fiberProportionValue = value;
+   }//End Method
+   
+   void setNutritionalUnitGoal( NutritionalUnit unit, Double value ) {
+      this.nutritionalUnitGoals.put( unit, value );
    }//End Method
    
 }//End Class

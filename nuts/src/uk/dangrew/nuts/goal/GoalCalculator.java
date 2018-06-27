@@ -10,4 +10,5 @@ public interface GoalCalculator {
             GoalAnalytics analytics,
             Goal goal
    );
+   
 }//End Interface

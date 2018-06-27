@@ -11,6 +11,7 @@ import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionType;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.store.Database;
 
@@ -39,6 +40,7 @@ public class ProportionGoalPersistenceTest {
       proportionGoal.configuration().fatTargetValue().set( 75.0 );
       proportionGoal.configuration().proteinTargetValue().set( 25.0 );
       proportionGoal.configuration().fiberTargetValue().set( 15.0 );
+      proportionGoal.nutrition().of( NutritionalUnit.Calories ).set( 2531.4 );
       assertGoalsAreRealistic( proportionGoal );
       
       goals.createConcept( "Empty" );
@@ -82,6 +84,8 @@ public class ProportionGoalPersistenceTest {
       assertThat( goal.configuration().fatTargetValue().get(), is( 11.0 ) );
       assertThat( goal.configuration().proteinTargetValue().get(), is( 2343.0 ) );
       assertThat( goal.configuration().fiberTargetValue().get(), is( nullValue() ) );
+      
+      assertThat( goal.nutrition().of( NutritionalUnit.Calories ).get(), is( 231.4 ) );
    }//End Method
    
    private void assertGoal2IsParsed( ProportionGoal goal ) {
@@ -99,6 +103,8 @@ public class ProportionGoalPersistenceTest {
       assertThat( goal.configuration().fatTargetValue().get(), is( 75.0 ) );
       assertThat( goal.configuration().proteinTargetValue().get(), is( 25.0 ) );
       assertThat( goal.configuration().fiberTargetValue().get(), is( 15.0 ) );
+      
+      assertThat( goal.nutrition().of( NutritionalUnit.Calories ).get(), is( 2531.4 ) );
    }//End Method
 
 }//End Class

@@ -14,6 +14,7 @@ import java.util.List;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionType;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 class ProportionGoalWriteModel {
    
@@ -80,6 +81,10 @@ class ProportionGoalWriteModel {
    
    Double getFiberProportionValue() {
       return current.configuration().fiberTargetValue().get();
+   }//End Method
+   
+   Double getNutritionalUnitGoal( NutritionalUnit unit ) {
+      return current.nutrition().of( unit ).get();
    }//End Method
 
 }//End Class

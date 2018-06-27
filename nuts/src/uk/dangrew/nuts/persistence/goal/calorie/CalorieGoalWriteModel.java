@@ -181,40 +181,8 @@ class CalorieGoalWriteModel {
       return current.fatPerPound().get();
    }//End Method
    
-   /**
-    * Getter for the property from the {@link uk.dangrew.nuts.goal.Goal}.
-    * @param key the parse key.
-    * @return the value.
-    */
-   Double getCalorieGoal( String key ) {
-      return NutritionalUnit.Calories.of( current ).get();
-   }//End Method
-   
-   /**
-    * Getter for the property from the {@link uk.dangrew.nuts.goal.Goal}.
-    * @param key the parse key.
-    * @return the value.
-    */
-   Double getCarbohydratesGoal( String key ) {
-      return NutritionalUnit.Carbohydrate.of( current ).get();
-   }//End Method
-   
-   /**
-    * Getter for the property from the {@link uk.dangrew.nuts.goal.Goal}.
-    * @param key the parse key.
-    * @return the value.
-    */
-   Double getFatsGoal( String key ) {
-      return NutritionalUnit.Fat.of( current ).get();
-   }//End Method
-   
-   /**
-    * Getter for the property from the {@link uk.dangrew.nuts.goal.Goal}.
-    * @param key the parse key.
-    * @return the value.
-    */
-   Double getProteinGoal( String key ) {
-      return NutritionalUnit.Protein.of( current ).get();
+   Double getNutritionalUnitGoal( NutritionalUnit unit ) {
+      return current.nutrition().of( unit ).get();
    }//End Method
    
 }//End Class

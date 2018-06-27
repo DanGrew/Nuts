@@ -17,8 +17,10 @@ import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
+import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionType;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.persistence.fooditems.ConceptPersistence;
 
 public class ProportionGoalPersistence implements ConceptPersistence {
@@ -36,6 +38,8 @@ public class ProportionGoalPersistence implements ConceptPersistence {
    static final String FAT_PROPORTION_VALUE = "fatProportionValue";
    static final String PROTEIN_PROPORTION_VALUE = "proteinProportionValue";
    static final String FIBER_PROPORTION_VALUE = "fiberProportionValue";
+   
+   static final String UNIT_GOALS = "nutritionalUnitGoals";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -73,6 +77,11 @@ public class ProportionGoalPersistence implements ConceptPersistence {
       structure.child( PROTEIN_PROPORTION_VALUE, GOAL );
       structure.optionalChild( FIBER_PROPORTION_TYPE, GOAL ); 
       structure.optionalChild( FIBER_PROPORTION_VALUE, GOAL );
+      
+      structure.optionalChild( UNIT_GOALS, GOAL );
+      for ( NutritionalUnit unit : ProportionGoal.weightedGoalUnits() ) {
+         structure.optionalChild( unit.name().toLowerCase(), UNIT_GOALS );
+      }
    }//End Method
    
    private void constructReadHandles(){
@@ -90,6 +99,10 @@ public class ProportionGoalPersistence implements ConceptPersistence {
       parserWithReadHandles.when( FAT_PROPORTION_VALUE, new DoubleParseHandle( parseModel::setFatProportionValue ) );
       parserWithReadHandles.when( PROTEIN_PROPORTION_VALUE, new DoubleParseHandle( parseModel::setProteinProportionValue ) );
       parserWithReadHandles.when( FIBER_PROPORTION_VALUE, new DoubleParseHandle( parseModel::setFiberProportionValue ) );
+      
+      for ( NutritionalUnit unit : ProportionGoal.weightedGoalUnits() ) {
+         parserWithReadHandles.when( unit.name().toLowerCase(), new DoubleParseHandle( v -> parseModel.setNutritionalUnitGoal( unit, v ) ) );
+      }
    }//End Method
    
    private void constructWriteHandles(){
@@ -107,6 +120,10 @@ public class ProportionGoalPersistence implements ConceptPersistence {
       parserWithWriteHandles.when( FAT_PROPORTION_VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFatProportionValue ) ) );
       parserWithWriteHandles.when( PROTEIN_PROPORTION_VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getProteinProportionValue ) ) );
       parserWithWriteHandles.when( FIBER_PROPORTION_VALUE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getFiberProportionValue ) ) );
+      
+      for ( NutritionalUnit unit : ProportionGoal.weightedGoalUnits() ) {
+         parserWithWriteHandles.when( unit.name().toLowerCase(), new JsonWriteHandleImpl( new JsonValueWriteHandler( () -> writeModel.getNutritionalUnitGoal( unit ) ) ) );
+      }
    }//End Method
    
    @Override public JsonStructure structure(){

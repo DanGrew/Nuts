@@ -17,12 +17,30 @@ import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.store.Database;
 
-public class GoalPersistenceTest {
+public class CalorieGoalPersistenceTest {
 
    @Test public void shouldReadData() {
       Database database = new Database();
       new DatabaseIo( database )
          .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
+         .read();
+
+      CalorieGoalPersistence p = new CalorieGoalPersistence( database.calorieGoals() );
+      JSONObject object = new JSONObject();
+      p.structure().build( object );
+      p.writeHandles().parse( object );
+      System.out.println( object.toString() );
+      
+      assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), true );
+      assertThat( database.calorieGoals().objectList().get( 0 ).nutrition().of( NutritionalUnit.Fibre ).get(), is( 34.5 ) );
+      assertGoal2IsParsed( database.calorieGoals().objectList().get( 1 ) );
+      assertThat( database.calorieGoals().objectList().get( 1 ).nutrition().of( NutritionalUnit.Fibre ).get(), is( 101.5 ) );
+   }//End Method
+   
+   @Test public void shouldReadDataOfIndividualMacros() {
+      Database database = new Database();
+      new DatabaseIo( database )
+         .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals-with-individual-macros.txt", getClass() ) )
          .read();
 
       assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), true );
@@ -60,6 +78,8 @@ public class GoalPersistenceTest {
       calorieGoal.exerciseCalories().set( 500.0 );
       calorieGoal.calorieDeficit().set( 700.0 );
       calorieGoal.fatPerPound().set( 0.35 );
+      
+      calorieGoal.nutrition().of( NutritionalUnit.Fibre ).set( 56.7 );
       
       assertGoalsAreRealistic( calorieGoal );
       
@@ -150,6 +170,8 @@ public class GoalPersistenceTest {
       assertThat( calorieGoal.exerciseCalories().get(), is( closeTo( 500, TestCommon.precision() ) ) );
       assertThat( calorieGoal.age().get(), is( closeTo( 28, TestCommon.precision() ) ) );
       assertThat( calorieGoal.height().get(), is( closeTo( 1.87, TestCommon.precision() ) ) );
+      
+      assertThat( calorieGoal.nutrition().of( NutritionalUnit.Fibre ).get(), is( 56.7 ) );
    }//End Method
 
 }//End Class

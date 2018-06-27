@@ -1,14 +1,29 @@
 package uk.dangrew.nuts.goal.proportion;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.system.Properties;
 
 public class ProportionGoal implements Goal {
 
+   private static final Collection< NutritionalUnit > weightedGoalUnits;
+   
+   static {
+      weightedGoalUnits = new ArrayList<>( Arrays.asList( NutritionalUnit.values() ) );
+      weightedGoalUnits.remove( NutritionalUnit.Carbohydrate );
+      weightedGoalUnits.remove( NutritionalUnit.Fat );
+      weightedGoalUnits.remove( NutritionalUnit.Protein );
+      weightedGoalUnits.remove( NutritionalUnit.Fibre );
+   }
+   
    private final Properties properties;
    private final Nutrition nutrition;
    private final FoodAnalytics analytics;
@@ -40,6 +55,10 @@ public class ProportionGoal implements Goal {
       this.analytics = analytics;
       this.configuration = new ProportionConfiguration();
    }//End Constructor
+   
+   public static Collection< NutritionalUnit > weightedGoalUnits(){
+      return weightedGoalUnits;
+   }//End Method
 
    public ProportionConfiguration configuration(){
       return configuration;

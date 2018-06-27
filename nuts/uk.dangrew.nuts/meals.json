@@ -3909,16 +3909,10 @@
    {
       "name": "Brazil Nut Butter (300g) (homemade)",
       "id": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-      "portions": [
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 30
-         },
-         {
-            "foodId": "62ef626f-f15f-4f51-aae4-58e11c1c87e9",
-            "portionValue": 300
-         }
-      ]
+      "portions": [{
+         "foodId": "62ef626f-f15f-4f51-aae4-58e11c1c87e9",
+         "portionValue": 300
+      }]
    },
    {
       "name": "Brazil Nut Butter Pancake",
@@ -4143,6 +4137,46 @@
          {
             "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
             "portionValue": 75
+         }
+      ]
+   },
+   {
+      "name": "Brazil (Splice) Pancake",
+      "id": "63f6a673-13d8-4805-ab08-eff3fc87e41b",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
+            "portionValue": 33
+         },
+         {
+            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Brazil Nut Butter Pancake (less)",
+      "id": "127ed9fa-4d58-46e0-87ea-724c0fff88c5",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
+            "portionValue": 33
          }
       ]
    }

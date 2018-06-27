@@ -8,6 +8,10 @@
  */
 package uk.dangrew.nuts.persistence.goal.calorie;
 
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.Optional;
+
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.calorie.Gender;
@@ -20,6 +24,7 @@ import uk.dangrew.nuts.nutrients.NutritionalUnit;
 class CalorieGoalParseModel {
    
    private final CalorieGoalStore goals;
+   private final Map< NutritionalUnit, Double > nutritionalUnitGoals;
    
    private String id;
    private String name;
@@ -34,10 +39,6 @@ class CalorieGoalParseModel {
    private Double calorieDeficit;
    private Double proteinPerPound;
    private Double fatPerPound;
-   private Double calorieGoal;
-   private Double carbohydratesGoal;
-   private Double fatGoal;
-   private Double proteinGoal;
    
    /**
     * Constructs a new {@link GoalParseModel}.
@@ -45,6 +46,7 @@ class CalorieGoalParseModel {
     */
    CalorieGoalParseModel( CalorieGoalStore goals ) {
       this.goals = goals;
+      this.nutritionalUnitGoals = new EnumMap<>( NutritionalUnit.class );
    }//End Constructor
    
    /**
@@ -65,6 +67,7 @@ class CalorieGoalParseModel {
       calorieDeficit = null;
       proteinPerPound = null;
       fatPerPound = null;
+      this.nutritionalUnitGoals.clear();
    }//End Method
    
    /**
@@ -104,10 +107,12 @@ class CalorieGoalParseModel {
       goalImpl.calorieDeficit().set( calorieDeficit );
       goalImpl.proteinPerPound().set( proteinPerPound );
       goalImpl.fatPerPound().set( fatPerPound );
-      NutritionalUnit.Calories.of( goalImpl ).set( calorieGoal );
-      NutritionalUnit.Carbohydrate.of( goalImpl ).set( carbohydratesGoal );
-      NutritionalUnit.Fat.of( goalImpl ).set( fatGoal );
-      NutritionalUnit.Protein.of( goalImpl ).set( proteinGoal );
+      
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         Optional.ofNullable( nutritionalUnitGoals.get( unit ) ).ifPresent( 
+                  v -> unit.of( goalImpl ).set( v ) 
+         );
+      }
    }//End Method
 
    void setId( String value ) {
@@ -162,20 +167,24 @@ class CalorieGoalParseModel {
       this.fatPerPound = value;
    }//End Method
    
-   void setCalorieGoal( Double value ) {
-      this.calorieGoal = value;
+   @Deprecated void setCalorieGoal( Double value ) {
+      this.nutritionalUnitGoals.put( NutritionalUnit.Calories, value );
    }//End Method
    
-   void setCarbohydratesGoal( Double value ) {
-      this.carbohydratesGoal = value;
+   @Deprecated void setCarbohydratesGoal( Double value ) {
+      this.nutritionalUnitGoals.put( NutritionalUnit.Carbohydrate, value );
    }//End Method
    
-   void setFatsGoal( Double value ) {
-      this.fatGoal = value;
+   @Deprecated void setFatsGoal( Double value ) {
+      this.nutritionalUnitGoals.put( NutritionalUnit.Fat, value );
    }//End Method
    
-   void setProteinGoal( Double value ) {
-      this.proteinGoal = value;
+   @Deprecated void setProteinGoal( Double value ) {
+      this.nutritionalUnitGoals.put( NutritionalUnit.Protein, value );
+   }//End Method
+   
+   void setNutritionalUnitGoal( NutritionalUnit unit, Double value ) {
+      this.nutritionalUnitGoals.put( unit, value );
    }//End Method
    
 }//End Class

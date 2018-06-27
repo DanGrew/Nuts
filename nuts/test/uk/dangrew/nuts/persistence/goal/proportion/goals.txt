@@ -1,8 +1,13 @@
 {  
    "goals":[  
       {  
+         "fiberProportionValue":null,
          "carbohydrateProportionType":"PercentageOfCalories",
          "proteinProportionValue":2343,
+         "fiberProportionType":null,
+         "nutritionalUnitGoals":{  
+            "calories":231.4
+         },
          "name":"some-name",
          "carbohydrateProportionValue":65,
          "fatProportionType":"PercentageOfWeight",
@@ -11,27 +16,33 @@
          "fatProportionValue":11
       },
       {  
+         "fiberProportionValue":15,
          "carbohydrateProportionType":"Weight",
          "proteinProportionValue":25,
+         "fiberProportionType":"Weight",
+         "nutritionalUnitGoals":{  
+            "calories":2531.4
+         },
          "name":"Keto",
          "carbohydrateProportionValue":20,
          "fatProportionType":"PercentageOfCalories",
          "id":"alwieufh0182347huflsd",
          "proteinProportionType":"PercentageOfCalories",
-         "fatProportionValue":75,
-         "fiberProportionValue":15,
-         "fiberProportionType":"Weight",
-      },      
+         "fatProportionValue":75
+      },
       {  
          "fiberProportionValue":0,
-         "carbohydrateProportionType":"java.lang.Object@34ce8af7",
+         "carbohydrateProportionType":null,
          "proteinProportionValue":0,
-         "fiberProportionType":"java.lang.Object@34ce8af7",
+         "fiberProportionType":null,
+         "nutritionalUnitGoals":{  
+            "calories":0
+         },
          "name":"Empty",
          "carbohydrateProportionValue":0,
-         "fatProportionType":"java.lang.Object@34ce8af7",
+         "fatProportionType":null,
          "id":"60f2409a-92ee-4d89-be98-f8132ec15ad5",
-         "proteinProportionType":"java.lang.Object@34ce8af7",
+         "proteinProportionType":null,
          "fatProportionValue":0
       }
    ]

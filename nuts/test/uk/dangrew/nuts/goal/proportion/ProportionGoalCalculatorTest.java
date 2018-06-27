@@ -284,6 +284,13 @@ public class ProportionGoalCalculatorTest {
       assertThat( analytics.of( NutritionalUnit.Fibre ).get(), is( closeTo( i, 0.1 ) ) );
    }//End Method
    
+   @Test public void shouldCalculateSimpleRatios(){
+      goal.nutrition().of( NutritionalUnit.Calories ).set( 1000.0 );
+      nutrition.of( NutritionalUnit.Calories ).set( 250.0 );
+      triggerCalculation();
+      assertThat( analytics.of( NutritionalUnit.Calories ).get(), is( 25.0 ) );
+   }//End Method
+   
    @Ignore
    @Test public void shouldAutoUpdateAssociationsWithGoalWhenPropertiesChange(){
       fail();
