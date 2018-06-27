@@ -151,4 +151,106 @@ public class TescoFoodItemGeneratorTest {
       assertThat( first.nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
    }//End Method
    
+   @Test public void shouldConstructPer100ItemForAllUnits() {
+      String groceryName = "Some elaborate name";
+      String per100Header = "per (100g) of product";
+      
+      double kcal = 101.3;
+      double calcium = 20.7;
+      double folicAcid = 21.7;
+      double iron = 10.7;
+      double niacin = 120.7;
+      double omega3 = 0.7;
+      double ribo = 4.5;
+      double salt = 20.9;
+      double sugars = 1.0;
+      double saturates = 4.32;
+      double thiamin = 2109;
+      
+      description.groceryProperties().name().set( groceryName );
+      CalculatedNutrition nutrition = description.productDetail().nutrition();
+      nutrition.per100Header().set( per100Header );
+      nutrition.energyInKcal().valuePer100().set( Double.toString( kcal ) );
+      nutrition.calcium().valuePer100().set( Double.toString( calcium ) );
+      nutrition.folicAcid().valuePer100().set( Double.toString( folicAcid ) );
+      nutrition.iron().valuePer100().set( Double.toString( iron ) );
+      nutrition.niacin().valuePer100().set( Double.toString( niacin ) );
+      nutrition.omega3().valuePer100().set( Double.toString( omega3 ) );
+      nutrition.riboflavin().valuePer100().set( Double.toString( ribo ) );
+      nutrition.salt().valuePer100().set( Double.toString( salt ) );
+      nutrition.saturates().valuePer100().set( Double.toString( saturates ) );
+      nutrition.sugars().valuePer100().set( Double.toString( sugars ) );
+      nutrition.thiamin().valuePer100().set( Double.toString( thiamin ) );
+      
+      List< Food > items = systemUnderTest.generateFoodItemsFor( description );
+      assertThat( items, hasSize( 1 ) );
+      
+      FoodItem first = ( FoodItem )items.get( 0 );
+      assertThat( first.properties().nameProperty().get(), is( 
+               groceryName + " (100g)" 
+      ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( kcal ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Calcium ).get(), is( calcium ) );
+      assertThat( first.nutrition().of( NutritionalUnit.FolicAcid ).get(), is( folicAcid ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Iron ).get(), is( iron ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Niacin ).get(), is( niacin ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Omega3 ).get(), is( omega3 ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Riboflavin ).get(), is( ribo ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Salt ).get(), is( salt ) );
+      assertThat( first.nutrition().of( NutritionalUnit.SaturatedFat ).get(), is( saturates ) );
+      assertThat( first.nutrition().of( NutritionalUnit.CarbohydrateSugars ).get(), is( sugars ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Thiamin ).get(), is( thiamin ) );
+   }//End Method
+   
+   @Test public void shouldConstructPerServingItemForAllUnits() {
+      String groceryName = "Some elaborate name";
+      String ServingHeader = "per (15g) serving";
+      
+      double kcal = 101.3;
+      double calcium = 20.7;
+      double folicAcid = 21.7;
+      double iron = 10.7;
+      double niacin = 120.7;
+      double omega3 = 0.7;
+      double ribo = 4.5;
+      double salt = 20.9;
+      double sugars = 1.0;
+      double saturates = 4.32;
+      double thiamin = 2109;
+      
+      description.groceryProperties().name().set( groceryName );
+      CalculatedNutrition nutrition = description.productDetail().nutrition();
+      nutrition.perServingHeader().set( ServingHeader );
+      nutrition.energyInKcal().valuePerServing().set( Double.toString( kcal ) );
+      nutrition.calcium().valuePerServing().set( Double.toString( calcium ) );
+      nutrition.folicAcid().valuePerServing().set( Double.toString( folicAcid ) );
+      nutrition.iron().valuePerServing().set( Double.toString( iron ) );
+      nutrition.niacin().valuePerServing().set( Double.toString( niacin ) );
+      nutrition.omega3().valuePerServing().set( Double.toString( omega3 ) );
+      nutrition.riboflavin().valuePerServing().set( Double.toString( ribo ) );
+      nutrition.salt().valuePerServing().set( Double.toString( salt ) );
+      nutrition.saturates().valuePerServing().set( Double.toString( saturates ) );
+      nutrition.sugars().valuePerServing().set( Double.toString( sugars ) );
+      nutrition.thiamin().valuePerServing().set( Double.toString( thiamin ) );
+      
+      List< Food > items = systemUnderTest.generateFoodItemsFor( description );
+      assertThat( items, hasSize( 1 ) );
+      
+      FoodItem first = ( FoodItem )items.get( 0 );
+      assertThat( first.properties().nameProperty().get(), is( 
+               groceryName + " (15g)" 
+      ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Calories ).get(), is( kcal ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Calcium ).get(), is( calcium ) );
+      assertThat( first.nutrition().of( NutritionalUnit.FolicAcid ).get(), is( folicAcid ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Iron ).get(), is( iron ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Niacin ).get(), is( niacin ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Omega3 ).get(), is( omega3 ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Riboflavin ).get(), is( ribo ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Salt ).get(), is( salt ) );
+      assertThat( first.nutrition().of( NutritionalUnit.SaturatedFat ).get(), is( saturates ) );
+      assertThat( first.nutrition().of( NutritionalUnit.CarbohydrateSugars ).get(), is( sugars ) );
+      assertThat( first.nutrition().of( NutritionalUnit.Thiamin ).get(), is( thiamin ) );
+   }//End Method
+   
 }//End Class

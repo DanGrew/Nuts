@@ -48,6 +48,17 @@ public class TescoFoodItemGenerator {
       convertAndSetProperty( nutrition.fat().valuePer100(), NutritionalUnit.Fat.of( item ).property() );
       convertAndSetProperty( nutrition.protein().valuePer100(), NutritionalUnit.Protein.of( item ).property() );
       convertAndSetProperty( nutrition.fibre().valuePer100(), NutritionalUnit.Fibre.of( item ).property() );
+      
+      convertAndSetProperty( nutrition.calcium().valuePer100(), NutritionalUnit.Calcium.of( item ).property() );
+      convertAndSetProperty( nutrition.folicAcid().valuePer100(), NutritionalUnit.FolicAcid.of( item ).property() );
+      convertAndSetProperty( nutrition.iron().valuePer100(), NutritionalUnit.Iron.of( item ).property() );
+      convertAndSetProperty( nutrition.niacin().valuePer100(), NutritionalUnit.Niacin.of( item ).property() );
+      convertAndSetProperty( nutrition.omega3().valuePer100(), NutritionalUnit.Omega3.of( item ).property() );
+      convertAndSetProperty( nutrition.riboflavin().valuePer100(), NutritionalUnit.Riboflavin.of( item ).property() );
+      convertAndSetProperty( nutrition.salt().valuePer100(), NutritionalUnit.Salt.of( item ).property() );
+      convertAndSetProperty( nutrition.saturates().valuePer100(), NutritionalUnit.SaturatedFat.of( item ).property() );
+      convertAndSetProperty( nutrition.sugars().valuePer100(), NutritionalUnit.CarbohydrateSugars.of( item ).property() );
+      convertAndSetProperty( nutrition.thiamin().valuePer100(), NutritionalUnit.Thiamin.of( item ).property() );
       items.add( item );
    }//End Method
    
@@ -64,6 +75,17 @@ public class TescoFoodItemGenerator {
       convertAndSetProperty( nutrition.fat().valuePerServing(), NutritionalUnit.Fat.of( item ).property() );
       convertAndSetProperty( nutrition.protein().valuePerServing(), NutritionalUnit.Protein.of( item ).property() );
       convertAndSetProperty( nutrition.fibre().valuePerServing(), NutritionalUnit.Fibre.of( item ).property() );
+      
+      convertAndSetProperty( nutrition.calcium().valuePerServing(), NutritionalUnit.Calcium.of( item ).property() );
+      convertAndSetProperty( nutrition.folicAcid().valuePerServing(), NutritionalUnit.FolicAcid.of( item ).property() );
+      convertAndSetProperty( nutrition.iron().valuePerServing(), NutritionalUnit.Iron.of( item ).property() );
+      convertAndSetProperty( nutrition.niacin().valuePerServing(), NutritionalUnit.Niacin.of( item ).property() );
+      convertAndSetProperty( nutrition.omega3().valuePerServing(), NutritionalUnit.Omega3.of( item ).property() );
+      convertAndSetProperty( nutrition.riboflavin().valuePerServing(), NutritionalUnit.Riboflavin.of( item ).property() );
+      convertAndSetProperty( nutrition.salt().valuePerServing(), NutritionalUnit.Salt.of( item ).property() );
+      convertAndSetProperty( nutrition.saturates().valuePerServing(), NutritionalUnit.SaturatedFat.of( item ).property() );
+      convertAndSetProperty( nutrition.sugars().valuePerServing(), NutritionalUnit.CarbohydrateSugars.of( item ).property() );
+      convertAndSetProperty( nutrition.thiamin().valuePerServing(), NutritionalUnit.Thiamin.of( item ).property() );
       items.add( item );
    }//End Method
    
