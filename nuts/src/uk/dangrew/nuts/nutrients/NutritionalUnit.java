@@ -16,12 +16,41 @@ public enum NutritionalUnit {
    
    Fibre,
    
+   Potassium,
+   Magnesium,
+   Sodium,
+   Calcium,
+   
+   SaturatedFat( "Saturated Fat" ),
+   CarbohydrateSugars( "Carbohydrate Sugars" ),
+   Salt,
+   Thiamin( "Thiamin (B1)" ),
+   Riboflavin( "Riboflavin (B2)" ),
+   Niacin( "Niacin (B3)" ),
+   FolicAcid( "Folic Acid (B9)" ),
+   Iron,
+   Omega3
+   
    ;
 
    private static final Collection< NutritionalUnit > macros = Arrays.asList( Carbohydrate, Fat, Protein );
    
    public static Collection< NutritionalUnit > macros(){
       return macros;
+   }//End Method
+   
+   private final String displayName;
+   
+   private NutritionalUnit() {
+      this.displayName = name();
+   }//End Constructor
+   
+   private NutritionalUnit( String displayName ) {
+      this.displayName = displayName;
+   }//End Constructor
+   
+   public String displayName(){
+      return displayName;
    }//End Method
    
    public OptionalNutritionalUnit of( Food food ) {

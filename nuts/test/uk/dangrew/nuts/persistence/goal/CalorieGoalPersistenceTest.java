@@ -34,7 +34,8 @@ public class CalorieGoalPersistenceTest {
       assertGoal1IsParsed( database.calorieGoals().objectList().get( 0 ), true );
       assertThat( database.calorieGoals().objectList().get( 0 ).nutrition().of( NutritionalUnit.Fibre ).get(), is( 34.5 ) );
       assertGoal2IsParsed( database.calorieGoals().objectList().get( 1 ) );
-      assertThat( database.calorieGoals().objectList().get( 1 ).nutrition().of( NutritionalUnit.Fibre ).get(), is( 101.5 ) );
+      assertThat( database.calorieGoals().objectList().get( 1 ).nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
+      assertThat( database.calorieGoals().objectList().get( 1 ).nutrition().of( NutritionalUnit.Potassium ).get(), is( 101.5 ) );
    }//End Method
    
    @Test public void shouldReadDataOfIndividualMacros() {

@@ -85,7 +85,7 @@ public class ProportionGoalPersistenceTest {
       assertThat( goal.configuration().proteinTargetValue().get(), is( 2343.0 ) );
       assertThat( goal.configuration().fiberTargetValue().get(), is( nullValue() ) );
       
-      assertThat( goal.nutrition().of( NutritionalUnit.Calories ).get(), is( 231.4 ) );
+      assertThat( goal.nutrition().of( NutritionalUnit.Potassium ).get(), is( 231.4 ) );
    }//End Method
    
    private void assertGoal2IsParsed( ProportionGoal goal ) {

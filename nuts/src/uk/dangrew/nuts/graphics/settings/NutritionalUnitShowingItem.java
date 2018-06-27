@@ -1,15 +1,14 @@
 package uk.dangrew.nuts.graphics.settings;
 
+import uk.dangrew.kode.settings.item.ScrollableSettingsItem;
 import uk.dangrew.kode.settings.item.SimpleSettingsContentTitle;
-import uk.dangrew.kode.settings.item.SimpleSettingsItem;
 import uk.dangrew.kode.settings.tree.SettingsController;
 import uk.dangrew.nuts.configuration.NutsSettings;
 
-public class NutritionalUnitShowingItem extends SimpleSettingsItem {
+public class NutritionalUnitShowingItem extends ScrollableSettingsItem {
 
    public NutritionalUnitShowingItem( SettingsController controller, NutsSettings settings ) {
       super( 
-               controller,
                NutsSettingsTreeItemType.NutritionalUnitShowing,
                "Nutritional Units", 
                new SimpleSettingsContentTitle( 
@@ -18,6 +17,7 @@ public class NutritionalUnitShowingItem extends SimpleSettingsItem {
                         + "will show/hide the relevant columns throughout the tables within the "
                         + "system." 
                ),
+               controller,
                new NutritionalUnitShowingSettingsPane( settings )
       );
    }//End Constructor

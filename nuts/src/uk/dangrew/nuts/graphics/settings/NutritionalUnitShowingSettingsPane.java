@@ -33,7 +33,7 @@ public class NutritionalUnitShowingSettingsPane extends GridPane {
       
       for ( NutritionalUnit unit : orderedUnits ) {
          builders.add( new PropertyRowBuilder()
-            .withLabelName( unit.name() )
+            .withLabelName( unit.displayName() )
             .withBinding( checkBoxBinding( settings.showingPropertyFor( unit ) ) )
          );
       }

@@ -114,7 +114,7 @@ public class ProportionGoalView extends VBox {
       
       for ( NutritionalUnit unit : orderedUnits ) {
          builders.add( new PropertyRowBuilder()
-            .withLabelName( unit.name() )
+            .withLabelName( unit.displayName() )
             .withBinding( new BoundTextProperty( unit.of( viewModel ).property(), true ) )
          );
       }

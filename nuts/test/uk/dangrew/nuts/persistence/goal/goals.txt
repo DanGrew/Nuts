@@ -30,7 +30,7 @@
             "protein":4457,
             "fat":4451,
             "calories":4448,
-            "fibre":101.5,
+            "potassium":101.5,
             "carbohydrate":4450
          },
          "weight":4447,
