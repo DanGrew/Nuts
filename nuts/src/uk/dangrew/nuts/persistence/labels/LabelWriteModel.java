@@ -52,7 +52,11 @@ public class LabelWriteModel {
       }
       this.currentLabel = labelBuffer.remove( 0 );
       this.conceptBuffer.clear();
-      this.conceptBuffer.addAll( currentLabel.concepts().stream().filter( Objects::nonNull ).collect( Collectors.toList() ) );
+      this.conceptBuffer.addAll( 
+               currentLabel.concepts().stream()
+                  .filter( Objects::nonNull )
+                  .collect( Collectors.toList() ) 
+      );
    }//End Method
 
    String getId() {

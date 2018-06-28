@@ -77,5 +77,18 @@ public class LabelParseModelTest {
       assertThat( database.labels().objectList().get( 0 ).concepts(), hasSize( 3 ) );
       assertThat( database.labels().objectList().get( 0 ).concepts(), contains( foodItem, meal, calorieGoal ) );
    }//End Method
+   
+   @Test public void shouldNotAddNullResolution() {
+      database.labels().objectList().get( 0 ).concepts().add( new FoodItem( "anything" ) );
+      
+      systemUnderTest.setId( database.labels().objectList().get( 0 ).properties().id() );
+      systemUnderTest.setName( "name" );
+      systemUnderTest.startConcept();
+      systemUnderTest.setConceptId( "1" );
+      systemUnderTest.finishConcept();
+      systemUnderTest.finishLabel();
+      
+      assertThat( database.labels().objectList().get( 0 ).concepts(), hasSize( 0 ) );
+   }//End Method
 
 }//End Class

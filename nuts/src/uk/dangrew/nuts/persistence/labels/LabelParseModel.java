@@ -11,6 +11,7 @@ package uk.dangrew.nuts.persistence.labels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.label.LabelStore;
@@ -73,7 +74,7 @@ public class LabelParseModel {
             }
          }
       }
-      concepts.add( concept );
+      Optional.ofNullable( concept ).ifPresent( concepts::add );
    }//End Method
    
    void setConceptId( String value ) {
