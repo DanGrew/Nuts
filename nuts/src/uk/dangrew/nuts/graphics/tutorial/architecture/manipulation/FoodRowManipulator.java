@@ -4,7 +4,6 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class FoodRowManipulator< FoodT extends Food > extends TableRowManipulator< ConceptTableRow< FoodT > >{
@@ -34,18 +33,6 @@ public class FoodRowManipulator< FoodT extends Food > extends TableRowManipulato
    public FoodRowManipulator< FoodT > change( NutritionalUnit unit, double value ) {
       unit.of( node().getItem().concept() ).set( value );
       return this;
-   }//End Method
-   
-   @Deprecated public FoodRowManipulator< FoodT > changeCalories( double value ) {
-      return change( NutritionalUnit.Calories, value );
-   }//End Method
-   
-   @Deprecated public FoodRowManipulator< FoodT > changeMacro( MacroNutrient macro, double value ) {
-      return change( macro.toUnit(), value );
-   }//End Method
-   
-   @Deprecated public FoodRowManipulator< FoodT > changeFibre( double value ) {
-      return change( NutritionalUnit.Fibre, value );
    }//End Method
    
    public FoodRowManipulator< FoodT > triggerCellEdit( int column ) {

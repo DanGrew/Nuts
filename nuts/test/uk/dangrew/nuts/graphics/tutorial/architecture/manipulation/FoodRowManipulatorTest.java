@@ -18,7 +18,6 @@ import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.table.TableComponents;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
@@ -65,27 +64,27 @@ public class FoodRowManipulatorTest {
    
    @Test public void shouldChangeCalories() {
       assertThat( food.nutrition().of( NutritionalUnit.Calories ).get(), is( 0.0 ) );
-      systemUnderTest.changeCalories( 45.3 );
+      systemUnderTest.change( NutritionalUnit.Calories, 45.3 );
       assertThat( food.nutrition().of( NutritionalUnit.Calories ).get(), is( 45.3 ) );
    }//End Method
    
    @Test public void shouldChangeMacros() {
       assertThat( food.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 0.0 ) );
-      systemUnderTest.changeMacro( MacroNutrient.Carbohydrates, 45.3 );
+      systemUnderTest.change( NutritionalUnit.Carbohydrate, 45.3 );
       assertThat( food.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( 45.3 ) );
       
       assertThat( food.nutrition().of( NutritionalUnit.Fat ).get(), is( 0.0 ) );
-      systemUnderTest.changeMacro( MacroNutrient.Fats, 25.3 );
+      systemUnderTest.change( NutritionalUnit.Fat, 25.3 );
       assertThat( food.nutrition().of( NutritionalUnit.Fat ).get(), is( 25.3 ) );
       
       assertThat( food.nutrition().of( NutritionalUnit.Protein ).get(), is( 0.0 ) );
-      systemUnderTest.changeMacro( MacroNutrient.Protein, 5.3 );
+      systemUnderTest.change( NutritionalUnit.Protein, 5.3 );
       assertThat( food.nutrition().of( NutritionalUnit.Protein ).get(), is( 5.3 ) );
    }//End Method
    
    @Test public void shouldChangeFibre() {
       assertThat( food.nutrition().of( NutritionalUnit.Fibre ).get(), is( 0.0 ) );
-      systemUnderTest.changeFibre( 45.3 );
+      systemUnderTest.change( NutritionalUnit.Fibre, 45.3 );
       assertThat( food.nutrition().of( NutritionalUnit.Fibre ).get(), is( 45.3 ) );
    }//End Method
    

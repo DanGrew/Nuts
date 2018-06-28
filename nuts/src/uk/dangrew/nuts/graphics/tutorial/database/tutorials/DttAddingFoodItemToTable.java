@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.controlsfx.control.PopOver.ArrowLocation;
 
-import javafx.event.Event;
 import uk.dangrew.kode.javafx.style.TextFlowBuilder;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorActionBuilder;
@@ -14,7 +13,7 @@ import uk.dangrew.nuts.graphics.tutorial.architecture.tutorial.TutorialGlass;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutorial.TutorialSelector;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseTableTutorial;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
 
@@ -159,31 +158,31 @@ public class DttAddingFoodItemToTable extends DatabaseTableTutorial {
                      .pauseFor( 1 )
                      .graphicalNonBlockingAction( () -> {
                         components().mainTableComponents().row( 0 )
-                              .changeCalories( 23 )
+                              .change( NutritionalUnit.Calories, 23 )
                               .triggerCellEdit( 3 );
                      } )
                      .pauseFor( 1 )
                      .graphicalNonBlockingAction( () -> {
                         components().mainTableComponents().row( 0 )
-                              .changeMacro( MacroNutrient.Carbohydrates, 0.1 )
+                              .change( NutritionalUnit.Carbohydrate, 0.1 )
                               .triggerCellEdit( 4 );
                      } )
                      .pauseFor( 1 )
                      .graphicalNonBlockingAction( () -> {
                         components().mainTableComponents().row( 0 )
-                              .changeMacro( MacroNutrient.Fats, 0.4 )
+                              .change( NutritionalUnit.Fat, 0.4 )
                               .triggerCellEdit( 5 );
                      } )
                      .pauseFor( 1 )
                      .graphicalNonBlockingAction( () -> {
                         components().mainTableComponents().row( 0 )
-                              .changeMacro( MacroNutrient.Protein, 2.9 )
+                              .change( NutritionalUnit.Protein, 2.9 )
                               .triggerCellEdit( 6 );
                      } )
                      .pauseFor( 1 )
                      .graphicalNonBlockingAction( () -> {
                         components().mainTableComponents().row( 0 )
-                              .changeFibre( 2.2 )
+                              .change( NutritionalUnit.Fibre, 2.2 )
                               .finishCellEdit();
                      } )
                      .pauseFor( 1 )

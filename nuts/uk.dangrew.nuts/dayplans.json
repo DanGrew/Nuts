@@ -11566,12 +11566,22 @@
          {
             "consumed": false,
             "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
-            "portionValue": 200
+            "portionValue": 100
          },
          {
             "consumed": false,
             "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
-            "portionValue": 200
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "2197f9ef-55da-4e5b-ade0-1c0ed5c007c6",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
+            "portionValue": 150
          },
          {
             "consumed": false,

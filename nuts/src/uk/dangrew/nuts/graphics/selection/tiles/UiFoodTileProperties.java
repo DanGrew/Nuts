@@ -11,7 +11,6 @@ import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.number.NumberFormats;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.nutrients.MacroNutrient;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class UiFoodTileProperties extends GridPane {
@@ -112,11 +111,11 @@ public class UiFoodTileProperties extends GridPane {
       NutritionalUnit.Protein.of( food.foodAnalytics() ).property().removeListener( proteinRatioSetter );
    }//End Method
 
-   Label valueLabelFor( MacroNutrient macro ) {
+   Label valueLabelFor( NutritionalUnit macro ) {
       switch ( macro ) {
-         case Carbohydrates:
+         case Carbohydrate:
             return carbsValue;
-         case Fats:
+         case Fat:
             return fatsValue;
          case Protein:
             return proteinValue;
@@ -124,11 +123,11 @@ public class UiFoodTileProperties extends GridPane {
       return null;
    }//End Method
 
-   Label ratioLabelFor( MacroNutrient macro ) {
+   Label ratioLabelFor( NutritionalUnit macro ) {
       switch ( macro ) {
-         case Carbohydrates:
+         case Carbohydrate:
             return carbsRatio;
-         case Fats:
+         case Fat:
             return fatsRatio;
          case Protein:
             return proteinRatio;
