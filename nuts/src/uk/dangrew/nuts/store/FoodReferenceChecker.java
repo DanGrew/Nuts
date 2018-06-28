@@ -31,6 +31,7 @@ public class FoodReferenceChecker {
       findFoodReferencesInStore( database.templates() );
       findFoodReferencesInStore( database.dayPlans() );
       findFoodReferencesInStore( database.shoppingLists() );
+      findFoodReferencesInStore( database.stockLists() );
       findConceptReferencesInStore( database.labels() );
    }//End Method
    
