@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
@@ -99,34 +100,30 @@ public class MixedFoodTableControllerTest {
       assertThat( systemUnderTest.createConcept(), is( nullValue() ) );
    }//End Method
    
-   @Test public void shouldRemoveConcepts(){
-      assertThat( database.foodItems().objectList(), is( not( empty() ) ) );
-      assertThat( database.meals().objectList(), is( not( empty() ) ) );
-      assertThat( database.templates().objectList(), is( not( empty() ) ) );
+   @Test public void shouldUseDeletionMechanismWhenSelected() {
+      FoodItem foodItem = database.foodItems().objectList().get( 0 );
+      when( deletionMechanism.delete( foodItem ) ).thenReturn( true );
       
       table.getSelectionModel().select( 0 );
       systemUnderTest.removeSelectedConcept();
-      table.getSelectionModel().select( 0 );
-      systemUnderTest.removeSelectedConcept();
-      assertThat( database.foodItems().objectList(), is( empty() ) );
-      assertThat( database.meals().objectList(), is( not( empty() ) ) );
-      assertThat( database.templates().objectList(), is( not( empty() ) ) );
+      verify( deletionMechanism ).delete( foodItem );
+      assertThat( database.foodItems().objectList(), hasSize( 1 ) );
       
-      table.getSelectionModel().select( 0 );
-      systemUnderTest.removeSelectedConcept();
-      table.getSelectionModel().select( 0 );
-      systemUnderTest.removeSelectedConcept();
-      assertThat( database.foodItems().objectList(), is( empty() ) );
-      assertThat( database.meals().objectList(), is( empty() ) );
-      assertThat( database.templates().objectList(), is( not( empty() ) ) );
+      Meal meal = database.meals().objectList().get( 0 );
+      when( deletionMechanism.delete( meal ) ).thenReturn( true );
       
-      table.getSelectionModel().select( 0 );
+      table.getSelectionModel().select( 1 );
       systemUnderTest.removeSelectedConcept();
-      table.getSelectionModel().select( 0 );
+      verify( deletionMechanism ).delete( meal );
+      assertThat( database.meals().objectList(), hasSize( 1 ) );
+      
+      Template template = database.templates().objectList().get( 0 );
+      when( deletionMechanism.delete( template ) ).thenReturn( true );
+      
+      table.getSelectionModel().select( 2 );
       systemUnderTest.removeSelectedConcept();
-      assertThat( database.foodItems().objectList(), is( empty() ) );
-      assertThat( database.meals().objectList(), is( empty() ) );
-      assertThat( database.templates().objectList(), is( empty() ) );
+      verify( deletionMechanism ).delete( template );
+      assertThat( database.meals().objectList(), hasSize( 1 ) );
    }//End Method
    
    @Test public void shouldNotRemoveConceptIfNotSelected(){

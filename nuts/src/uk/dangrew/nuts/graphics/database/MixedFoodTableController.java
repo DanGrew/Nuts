@@ -99,7 +99,9 @@ public class MixedFoodTableController implements ConceptTableController< Food > 
       if ( type == null ) {
          return;
       }
-      type.redirect( database ).removeConcept( selection.concept() );
+      if ( deletionMechanism.delete( selection.concept() ) ){
+         type.redirect( database ).removeConcept( selection.concept() );
+      }
    }//End Method
    
    /**

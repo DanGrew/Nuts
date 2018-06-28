@@ -3692,18 +3692,18 @@
       "portions": [
          {
             "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 50
+            "portionValue": 33
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 100
          },
          {
-            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
-            "portionValue": 100
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
          },
          {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
             "portionValue": 100
          }
       ]
@@ -3756,6 +3756,10 @@
       "name": "Pecan Flax Cookies",
       "id": "6c5b35c9-ce7b-4bce-84f0-94053654d4fc",
       "portions": [
+         {
+            "foodId": "bdee14a6-3c9f-4648-9966-b93393bebdfe",
+            "portionValue": 50
+         },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 100
@@ -4072,7 +4076,7 @@
       "portions": [
          {
             "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-            "portionValue": 50
+            "portionValue": 33
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
@@ -4177,6 +4181,20 @@
          {
             "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
             "portionValue": 33
+         }
+      ]
+   },
+   {
+      "name": "Brazil Cookies",
+      "id": "8e20764c-bac8-4f35-92ce-97ffe95fea93",
+      "portions": [
+         {
+            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
+            "portionValue": 33.3
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
          }
       ]
    }
