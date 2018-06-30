@@ -26,7 +26,7 @@ public class StockTableColumns implements ConceptTableColumnsPopulator< FoodPort
    }//End Constructor
    
    @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
-      configuration.initialiseStringColumn( table, COLUMN_TITLE_FOOD, 0.5, r -> r.concept().food().get().properties().nameProperty().get() );
+      configuration.initialiseStringColumn( table, COLUMN_TITLE_FOOD, 0.5, r -> r.food().get().properties().nameProperty().get() );
       configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.5 );
       
       table.getColumns().forEach( c -> c.setSortable( false ) );

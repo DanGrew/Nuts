@@ -41,19 +41,19 @@ public class WeighInTableColumns {
     * @param table the {@link WeighInTable}.
     */
    public void populateColumns( WeighInTable table ) {
-      configuration.initialiseStringColumn( table, COLUMN_TITLE_DATE, 0.1, r -> r.recording().date().toString() );
+      configuration.initialiseCustomStringColumn( table, COLUMN_TITLE_DATE, 0.1, r -> r.recording().date().toString() );
       
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_M_WEIGHT, 0.1, r -> r.recording().morningWeighIn().weight(), true );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_M_BODY_FAT, 0.1, r -> r.recording().morningWeighIn().bodyFat(), true );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_M_LEAN_MASS, 0.1, r -> r.recording().morningWeighIn().leanMass(), true );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_M_WEIGHT, 0.1, r -> r.recording().morningWeighIn().weight(), true );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_M_BODY_FAT, 0.1, r -> r.recording().morningWeighIn().bodyFat(), true );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_M_LEAN_MASS, 0.1, r -> r.recording().morningWeighIn().leanMass(), true );
       
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_E_WEIGHT, 0.1, r -> r.recording().eveningWeighIn().weight(), true );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_E_BODY_FAT, 0.1, r -> r.recording().eveningWeighIn().bodyFat(), true );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_E_LEAN_MASS, 0.1, r -> r.recording().eveningWeighIn().leanMass(), true );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_E_WEIGHT, 0.1, r -> r.recording().eveningWeighIn().weight(), true );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_E_BODY_FAT, 0.1, r -> r.recording().eveningWeighIn().bodyFat(), true );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_E_LEAN_MASS, 0.1, r -> r.recording().eveningWeighIn().leanMass(), true );
       
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_A_WEIGHT, 0.1, r -> r.recording().runningAverage().weight(), false );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_A_BODY_FAT, 0.1, r -> r.recording().runningAverage().bodyFat(), false );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_A_LEAN_MASS, 0.1, r -> r.recording().runningAverage().leanMass(), false );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_A_WEIGHT, 0.1, r -> r.recording().runningAverage().weight(), false );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_A_BODY_FAT, 0.1, r -> r.recording().runningAverage().bodyFat(), false );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_A_LEAN_MASS, 0.1, r -> r.recording().runningAverage().leanMass(), false );
    }//End Method
    
 }//End Class

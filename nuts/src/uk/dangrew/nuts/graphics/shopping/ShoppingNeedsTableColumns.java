@@ -40,8 +40,8 @@ public class ShoppingNeedsTableColumns implements ConceptTableColumnsPopulator< 
                table, 
                COLUMN_TITLE_FOOD, 
                0.6, 
-               r -> r.concept().food(), 
-               ( r, v ) -> r.concept().setFood( v ),
+               FoodPortion::food, 
+               ( r, v ) -> r.setFood( v ),
                conceptOptions 
       );
       

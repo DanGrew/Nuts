@@ -22,8 +22,8 @@ public class ProgressSeriesDataTableColumns {
    }//End Constructor
    
    public void populateColumns( ProgressSeriesDataTable table ) {
-      configuration.initialiseStringColumn( table, COLUMN_TITLE_TIMESTAMP, 0.5, r -> r.timestamp().toString() );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_VALUE, 0.5, ProgressSeriesDataRow::valueProperty, true );
+      configuration.initialiseCustomStringColumn( table, COLUMN_TITLE_TIMESTAMP, 0.5, r -> r.timestamp().toString() );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_VALUE, 0.5, ProgressSeriesDataRow::valueProperty, true );
    }//End Method
    
 }//End Class

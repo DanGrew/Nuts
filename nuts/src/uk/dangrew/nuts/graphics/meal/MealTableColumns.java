@@ -46,8 +46,8 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
                table(), 
                COLUMN_TITLE_FOOD, 
                COLUMN_WIDTH_FOOD, 
-               r -> r.concept().food(), 
-               ( r, v ) -> r.concept().setFood( v ), 
+               FoodPortion::food, 
+               ( r, v ) -> r.setFood( v ), 
                conceptOptions 
       );
       

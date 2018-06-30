@@ -49,8 +49,8 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
                table(), 
                COLUMN_TITLE_GOAL, 
                COLUMN_WIDTH_GOAL, 
-               r -> r.concept().goalAnalytics().goal(), 
-               ( r, v ) -> r.concept().goalAnalytics().goal().set( v ),
+               r -> r.goalAnalytics().goal(), 
+               ( r, v ) -> r.goalAnalytics().goal().set( v ),
                new ConceptOptionsImpl<>( Arrays.asList( goals, proportionGoals ) )
       );
 

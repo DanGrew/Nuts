@@ -43,11 +43,11 @@ public class ShoppingListTableColumns {
       column.setEditable( false );
       table.getColumns().add( column );
       
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_LOGGED_IN, 0.15, r -> r.food().stockProperties().loggedWeight(), true );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_SOLD_IN, 0.15, r -> r.food().stockProperties().soldInWeight(), true );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_LOGGED_IN, 0.15, r -> r.food().stockProperties().loggedWeight(), true );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_SOLD_IN, 0.15, r -> r.food().stockProperties().soldInWeight(), true );
 
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_REQUIRED, 0.15, ShoppingListRow::requiredWeight, false );
-      configuration.initialiseDoubleColumn( table, COLUMN_TITLE_TO_BUY, 0.15, ShoppingListRow::toBuy, false );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_REQUIRED, 0.15, ShoppingListRow::requiredWeight, false );
+      configuration.initialiseCustomDoubleColumn( table, COLUMN_TITLE_TO_BUY, 0.15, ShoppingListRow::toBuy, false );
    }//End Method
    
 }//End Class

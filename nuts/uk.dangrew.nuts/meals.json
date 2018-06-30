@@ -4115,7 +4115,7 @@
       ]
    },
    {
-      "name": "Cheesecake (OMAD)",
+      "name": "Peanut Cheesecake (OMAD)",
       "id": "08208ce8-3e8e-417f-a6da-38400cf95c8f",
       "portions": [
          {
@@ -4195,6 +4195,58 @@
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Brazil Flax Cookies (experimental)",
+      "id": "d1bf3519-aa1e-4319-8f63-fe94d731621f",
+      "portions": [
+         {
+            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
+            "portionValue": 33
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Walnut Cheesecake (OMAD)",
+      "id": "178459b0-2f32-4322-8419-1b093bf2e8ee",
+      "portions": [
+         {
+            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
+            "portionValue": 300
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 100
+         },
+         {
+            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
+            "portionValue": 25
          }
       ]
    }

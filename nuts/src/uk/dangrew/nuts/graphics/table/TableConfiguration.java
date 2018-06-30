@@ -17,21 +17,21 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
 import uk.dangrew.kode.javafx.style.Conversions;
-import uk.dangrew.kode.javafx.table.EditCommitHandler;
+import uk.dangrew.kode.javafx.table.TableViewEditCommitHandler;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
+import uk.dangrew.nuts.graphics.table.configuration.TableColumnConfigurer;
+import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.Properties;
 
 /**
- * {@link TableConfiguration} provides configuration for the {@link FoodTable}.
+ * {@link TableConfiguration} provides common configuration for JavaFx tables using {@link TableColumnConfigurer}s.
  */
 public class TableConfiguration {
    
@@ -74,16 +74,30 @@ public class TableConfiguration {
             Function< TypeT, ObjectProperty< String > > propertyRetriever, 
             boolean editable
    ){
-      TableColumn< ConceptTableRow< TypeT >, String > column = new TableColumn<>( title );
-      column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().concept() ) );
-      
-      column.setCellFactory(TextFieldTableCell.forTableColumn());
-      column.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> 
-               propertyRetriever.apply( r.concept() ).set( v )
-      ) );
-      column.setEditable( editable );
-      table.getColumns().add( column );
+      initialiseStringColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               title, 
+               widthProportion, 
+               propertyRetriever, 
+               editable
+      );
+   }//End Method
+   
+   public < TypeT extends Concept > void initialiseStringColumn(
+            TableColumnConfigurer< TypeT, String > configurer,
+            String title, 
+            double widthProportion,
+            Function< TypeT, ObjectProperty< String > > propertyRetriever, 
+            boolean editable
+   ){
+      configurer.setTitle( title );
+      configurer.bindPrefWidth( widthProportion );
+      configurer.setCellValueFactory( propertyRetriever );
+      configurer.setTextFieldCellFactory();
+      configurer.setOnEditCommit( ( r, v ) -> 
+         propertyRetriever.apply( r ).set( v ) 
+      );
+      configurer.setEditable( editable );
    }//End Method
    
    /**
@@ -93,7 +107,21 @@ public class TableConfiguration {
     * @param width the proportion of the width the {@link TableColumn} should be.
     * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
     */
-   public < RowTypeT > void initialiseStringColumn(
+   public < ConceptTypeT > void initialiseStringColumn(
+            TableView< ConceptTableRow< ConceptTypeT > > table,
+            String title,
+            double width,
+            Function< ConceptTypeT, String > propertyRetriever
+   ){
+      initialiseStringColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               title, 
+               width, 
+               propertyRetriever 
+      );
+   }//End Method
+   
+   @Deprecated public < RowTypeT > void initialiseCustomStringColumn(
             TableView< RowTypeT > table,
             String title,
             double width,
@@ -104,6 +132,46 @@ public class TableConfiguration {
       date.setCellValueFactory( object -> new SimpleObjectProperty<>( propertyetriever.apply( object.getValue() ) ) );
       date.setEditable( false );
       table.getColumns().add( date );
+   }//End Method
+   
+   @Deprecated public < RowTypeT > void initialiseCustomDoubleColumn(
+            TableView< RowTypeT > table,
+            String title, 
+            double widthProportion,
+            Function< RowTypeT, ObjectProperty< Double > > propertyRetriever,
+            boolean editable
+   ){
+      TableColumn< RowTypeT, String > column = new TableColumn<>( title );
+      column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
+      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue() ).asString() );
+      column.comparatorProperty().set( Comparators.STRING_AS_NUMBER_ASCENDING );
+      
+      if ( editable ) {
+         column.setCellFactory(TextFieldTableCell.forTableColumn());
+         column.setOnEditCommit( new TableViewEditCommitHandler<>( ( r, v ) -> 
+                  propertyRetriever.apply( r ).set( conversions.nullableStringToDoubleFunction().apply( v ) )
+         ) );
+      }
+      table.getColumns().add( column );
+   }//End Method
+   
+   /**
+    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.
+    * @param table the {@link TableView} to configure.
+    * @param title the title of the {@link TableColumn}.
+    * @param width the proportion of the width the {@link TableColumn} should be.
+    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
+    */
+   public < ConceptTypeT > void initialiseStringColumn(
+            TableColumnConfigurer< ConceptTypeT, String > configurer,
+            String title,
+            double width,
+            Function< ConceptTypeT, String > propertyRetriever
+   ){
+      configurer.setTitle( title );
+      configurer.bindPrefWidth( width );
+      configurer.setFixedCellValueFactory( propertyRetriever );
+      configurer.setEditable( false );
    }//End Method
    
    /**
@@ -125,7 +193,7 @@ public class TableConfiguration {
                table, 
                title, 
                widthProportion, 
-               row -> propertyRetriever.apply( row.concept() ), 
+               propertyRetriever, 
                editable 
       );
    }//End Method
@@ -138,25 +206,40 @@ public class TableConfiguration {
     * @param propertyRetriever the {@link Function} to retrieve the value from the row.
     * @param editable whether the column is editable.
     */
-   public < RowTypeT > void initialiseDoubleColumn(
-            TableView< RowTypeT > table,
+   public < ConceptTypeT > void initialiseDoubleColumn(
+            TableView< ConceptTableRow< ConceptTypeT > > table,
             String title, 
             double widthProportion,
-            Function< RowTypeT, ObjectProperty< Double > > propertyRetriever,
+            Function< ConceptTypeT, ObjectProperty< Double > > propertyRetriever,
             boolean editable
    ){
-      TableColumn< RowTypeT, String > column = new TableColumn<>( title );
-      column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue() ).asString() );
-      column.comparatorProperty().set( Comparators.STRING_AS_NUMBER_ASCENDING );
+      initialiseDoubleColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               title, 
+               widthProportion, 
+               propertyRetriever, 
+               editable 
+      );
+   }//End Method
+   
+   public < ConceptTypeT > void initialiseDoubleColumn(
+            TableColumnConfigurer< ConceptTypeT, String > configurer,
+            String title, 
+            double widthProportion,
+            Function< ConceptTypeT, ObjectProperty< Double > > propertyRetriever,
+            boolean editable
+   ){
+      configurer.setTitle( title );
+      configurer.bindPrefWidth( widthProportion );
+      configurer.setCellValueFactoryAsString( propertyRetriever );
+      configurer.setComparator( Comparators.STRING_AS_NUMBER_ASCENDING );
       
       if ( editable ) {
-         column.setCellFactory(TextFieldTableCell.forTableColumn());
-         column.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> 
+         configurer.setTextFieldCellFactory();
+         configurer.setOnEditCommit( ( r, v ) -> 
                   propertyRetriever.apply( r ).set( conversions.nullableStringToDoubleFunction().apply( v ) )
-         ) );
+         );
       }
-      table.getColumns().add( column );
    }//End Method
    
    /**
@@ -172,11 +255,24 @@ public class TableConfiguration {
             double widthProportion,
             Function< FoodTypeT, ReadOnlyObjectProperty< Double > > propertyRetriever 
    ){
-      TableColumn< ConceptTableRow< FoodTypeT >, String > column = new TableColumn<>( title );
-      column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().concept() ).asString() );
-      column.comparatorProperty().set( Comparators.STRING_AS_NUMBER_ASCENDING );
-      table.getColumns().add( column );
+      initialiseRatioColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               title, 
+               widthProportion, 
+               propertyRetriever 
+      );
+   }//End Method
+   
+   public < FoodTypeT extends Food > void initialiseRatioColumn(
+            TableColumnConfigurer< FoodTypeT, String > configurer,
+            String title, 
+            double widthProportion,
+            Function< FoodTypeT, ReadOnlyObjectProperty< Double > > propertyRetriever 
+   ){
+      configurer.setTitle( title );
+      configurer.bindPrefWidth( widthProportion );
+      configurer.setCellValueFactoryAsString( propertyRetriever );
+      configurer.setComparator( Comparators.STRING_AS_NUMBER_ASCENDING );
    }//End Method
    
    /**
@@ -188,24 +284,43 @@ public class TableConfiguration {
     * @param propertySetter the {@link BiConsumer} to set the {@link Food} when selected.
     * @param foodOptions the {@link FoodOptions} for the {@link javafx.scene.control.ComboBox}.
     */
-   public < RowTypeT, FoodTypeT extends Food > void initialiseFoodDropDownColumn(
-            TableView< RowTypeT > table,
+   public < ConceptTypeT, FoodTypeT extends Food > void initialiseFoodDropDownColumn(
+            TableView< ConceptTableRow< ConceptTypeT > > table,
             String title, 
             double widthProportion,
-            Function< RowTypeT, ObservableValue< FoodTypeT > > propertyRetriever,
-            BiConsumer< RowTypeT, FoodTypeT > propertySetter,
+            Function< ConceptTypeT, ObservableValue< FoodTypeT > > propertyRetriever,
+            BiConsumer< ConceptTypeT, FoodTypeT > propertySetter,
             ConceptOptions< FoodTypeT > foodOptions
    ){
-      TableColumn< RowTypeT, FoodTypeT > nameColumn = new TableColumn<>( title );
-      nameColumn.setCellFactory( ComboBoxTableCell.forTableColumn( new StringExtractConverter<>( 
-               object -> object.properties().nameProperty().get(),
-               foodOptions::find,
-               "None"
-      ), foodOptions.options() ) );
-      nameColumn.setCellValueFactory( object -> propertyRetriever.apply( object.getValue() ) );
-      nameColumn.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      nameColumn.setOnEditCommit( new EditCommitHandler<>( propertySetter::accept ) );
-      table.getColumns().add( nameColumn );
+      initialiseFoodDropDownColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               title, 
+               widthProportion, 
+               propertyRetriever, 
+               propertySetter, 
+               foodOptions 
+      );
+   }//End Method
+   
+   public < ConceptTypeT, FoodTypeT extends Food > void initialiseFoodDropDownColumn(
+            TableColumnConfigurer< ConceptTypeT, FoodTypeT > configurer,
+            String title, 
+            double widthProportion,
+            Function< ConceptTypeT, ObservableValue< FoodTypeT > > propertyRetriever,
+            BiConsumer< ConceptTypeT, FoodTypeT > propertySetter,
+            ConceptOptions< FoodTypeT > foodOptions
+   ){
+      configurer.setTitle( title );
+      configurer.setComboBoxCellFactory( 
+               new StringExtractConverter<>( 
+                  object -> object.properties().nameProperty().get(),
+                  foodOptions::find,
+                  "None"
+               ), foodOptions.options() 
+      );
+      configurer.setCellValueFactory( propertyRetriever );
+      configurer.bindPrefWidth( widthProportion );
+      configurer.setOnEditCommit( propertySetter::accept );
    }//End Method
    
    /**
@@ -219,14 +334,24 @@ public class TableConfiguration {
             String title, 
             double widthProportion
    ){
-      TableColumn< ConceptTableRow< FoodPortion >, String > portionColumn = new TableColumn<>( title );
-      portionColumn.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      portionColumn.setCellValueFactory( object -> object.getValue().concept().portion().asString() );
-      table.getColumns().add( portionColumn );
-      
-      portionColumn.setEditable( true );
-      portionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-      portionColumn.setOnEditCommit( new EditCommitHandler<>( ( r, v ) -> r.concept().setPortion( Double.valueOf( v ) ) ) );
+      initialisePortionColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               title, 
+               widthProportion 
+      );
+   }//End Method
+   
+   public void initialisePortionColumn(
+            TableColumnConfigurer< FoodPortion, String > configurer,
+            String title, 
+            double widthProportion
+   ){
+      configurer.setTitle( title );
+      configurer.bindPrefWidth( widthProportion );
+      configurer.setCellValueFactoryAsString( FoodPortion::portion );
+      configurer.setEditable( true );
+      configurer.setTextFieldCellFactory();
+      configurer.setOnEditCommit( ( portion, v ) -> portion.setPortion( Double.valueOf( v ) ) );
    }//End Method
    
    public < TypeT extends Concept > void configureCheckBoxController(
@@ -234,12 +359,22 @@ public class TableConfiguration {
             CheckBoxController< TypeT > controller,
             double widthProportion
    ) {
-      TableColumn< ConceptTableRow< TypeT >, Boolean > column = new TableColumn<>();
-      column.prefWidthProperty().bind( table.widthProperty().multiply( widthProportion ) );
-      column.setCellValueFactory( param -> controller.propertyFor( param.getValue().concept() ) );
-      column.setCellFactory( CheckBoxTableCell.forTableColumn( column ) );
-      column.setEditable( true );
-      table.getColumns().add( column );
+      configureCheckBoxController( 
+               new TableViewColumnConfigurer<>( table ),
+               controller, 
+               widthProportion 
+      );
+   }//End Method
+   
+   public < ConceptTypeT extends Concept > void configureCheckBoxController(
+            TableColumnConfigurer< ConceptTypeT, Boolean > configurer,
+            CheckBoxController< ConceptTypeT > controller,
+            double widthProportion
+   ) {
+      configurer.bindPrefWidth( widthProportion );
+      configurer.setCellValueFactory( controller::propertyFor );
+      configurer.setCheckBoxCellFactory();
+      configurer.setEditable( true );
    }//End Method
 
 }//End Class
