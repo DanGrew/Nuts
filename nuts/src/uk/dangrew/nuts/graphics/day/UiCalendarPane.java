@@ -15,7 +15,6 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.food.UnresponsiveConceptTableController;
 import uk.dangrew.nuts.graphics.meal.MealControls;
 import uk.dangrew.nuts.graphics.meal.MealTableColumns;
-import uk.dangrew.nuts.graphics.meal.MealTableController;
 import uk.dangrew.nuts.graphics.meal.MealTableControllerImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
@@ -40,7 +39,7 @@ public class UiCalendarPane extends GridPane {
    private final TemplateTableController templateController;
    
    private final ConceptTableWithControls< FoodPortion > mealView;
-   private final MealTableController mealTableController;
+   private final MealTableControllerImpl mealTableController;
    
    private final ConsumptionProperties consumptionProperties;
 

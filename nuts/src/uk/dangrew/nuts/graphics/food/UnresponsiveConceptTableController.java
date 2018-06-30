@@ -9,10 +9,10 @@
 package uk.dangrew.nuts.graphics.food;
 
 import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableController;
+import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.system.Concept;
 
-public class UnresponsiveConceptTableController< TypeT extends Concept > implements ConceptTableController< TypeT > {
+public class UnresponsiveConceptTableController< TypeT extends Concept > implements ConceptTableViewController< TypeT > {
 
    @Override public void associate( ConceptTable< TypeT > table ) {}//End Method
    

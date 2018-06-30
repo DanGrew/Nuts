@@ -16,12 +16,6 @@ import uk.dangrew.nuts.system.Concept;
 public interface ConceptTableController< TypeT extends Concept > {
 
    /**
-    * Associated the {@link ConceptTableController} with the {@link ConceptTable}.
-    * @param table the {@link ConceptTable} to control.
-    */
-   public void associate( ConceptTable< TypeT > table );
-   
-   /**
     * Instruction to create a new {@link Concept} of the associated type.
     * @return the created {@link Concept}.
     */

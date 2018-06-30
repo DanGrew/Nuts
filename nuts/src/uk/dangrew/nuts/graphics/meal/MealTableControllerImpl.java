@@ -18,12 +18,13 @@ import uk.dangrew.nuts.graphics.FriendlyTableView;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.meal.Meal;
 
 /**
  * The {@link MealTableController} is responsible for controlling and updating the {@link MealTable}.
  */
-public class MealTableControllerImpl implements MealTableController {
+public class MealTableControllerImpl implements MealTableController, ConceptTableViewController< FoodPortion > {
 
    private final FunctionListChangeListenerImpl< FoodPortion > mealListener;
    private final FoodSelectionForMealEvent mealSelectionEvents;

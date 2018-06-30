@@ -17,6 +17,7 @@ import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
+import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.template.Template;
 
@@ -56,8 +57,22 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
 
       double remaingWidth = 0.98 - COLUMN_WIDTH_TEMPLATE - COLUMN_WIDTH_GOAL;
       double widthForEachPart = remaingWidth / 2;
-      columnsForShowing( table(), Food::nutrition, NutritionalUnit::name, widthForEachPart );
-      columnsForShowing( table(), f -> f.goalAnalytics(), u -> u.name() + " %", widthForEachPart );
+      configuration.configureVisibleNutrientUnitColumns( 
+               () -> new TableViewColumnConfigurer<>( table() ), 
+               Food::nutrition, 
+               NutritionalUnit::displayName, 
+               widthForEachPart,
+               false,
+               settings() 
+      );
+      configuration.configureVisibleNutrientUnitColumns( 
+               () -> new TableViewColumnConfigurer<>( table() ), 
+               Template::goalAnalytics, 
+               u -> u.displayName() + " %", 
+               widthForEachPart, 
+               false,
+               settings() 
+      );
    }//End Method
    
 }//End Class

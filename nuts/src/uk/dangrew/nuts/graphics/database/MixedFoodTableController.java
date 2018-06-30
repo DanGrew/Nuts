@@ -12,9 +12,10 @@ import uk.dangrew.nuts.graphics.selection.model.FoodModel;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.store.Database;
 
-public class MixedFoodTableController implements ConceptTableController< Food > {
+public class MixedFoodTableController implements ConceptTableController< Food >, ConceptTableViewController< Food > {
 
    private final UiEnumTypeSelectionDialog< FoodTypes > dialog;
    private final Database database;

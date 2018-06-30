@@ -13,8 +13,8 @@ import java.util.Set;
 
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.ConceptStore;
 
@@ -22,7 +22,7 @@ import uk.dangrew.nuts.system.ConceptStore;
  * The {@link GeneralConceptTableController} is responsible for monitoring the {@link uk.dangrew.nuts.store.Database} and
  * updating the {@link ConceptTable}, as well as performing operations on the {@link ConceptTable}.
  */
-public class GeneralConceptTableController< TypeT extends Concept > implements ConceptTableController< TypeT > {
+public class GeneralConceptTableController< TypeT extends Concept > implements ConceptTableViewController< TypeT > {
 
    private final ConceptStore< TypeT > concepts;
    

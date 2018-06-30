@@ -36,7 +36,7 @@ public class UiDatabaseManagerPane extends GridPane {
    private final ConceptTableWithControls< FoodPortion > mealTable;
    
    private final MixedFoodTableController mixedTableController;
-   private final MealTableController mealTableController;
+   private final MealTableControllerImpl mealTableController;
    private final RecipeController recipeController;
    
    private final SimpleFoodModel comparisonModel;

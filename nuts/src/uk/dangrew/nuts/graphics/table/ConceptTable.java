@@ -21,11 +21,11 @@ public class ConceptTable< TypeT extends Concept >
    implements FriendlyTableView< ConceptTableRow< TypeT > > 
 {
 
-   private final ConceptTableController< TypeT > controller;
+   private final ConceptTableViewController< TypeT > controller;
 
    public ConceptTable( 
             ConceptTableColumnsPopulator< TypeT > columnsPopulator, 
-            ConceptTableController< TypeT > controller
+            ConceptTableViewController< TypeT > controller
    ) {
       this.controller = controller;
       this.controller.associate( this );
@@ -41,8 +41,4 @@ public class ConceptTable< TypeT extends Concept >
       return getItems();
    }//End Method
    
-   public ConceptTableController< TypeT > controller() {
-      return controller;
-   }//End Method
-
 }//End Class

@@ -6,10 +6,10 @@ import java.util.function.BiConsumer;
 
 import uk.dangrew.nuts.graphics.common.UiTimestampInputDialog;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableController;
+import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
-public class ProgressSeriesDataController implements ConceptTableController< ProgressSeries > {
+public class ProgressSeriesDataController implements ConceptTableViewController< ProgressSeries > {
 
    private final UiTimestampInputDialog timestampInput;
    private final BiConsumer< LocalDateTime, Double > valueUpdater;

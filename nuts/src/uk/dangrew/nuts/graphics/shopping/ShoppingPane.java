@@ -11,7 +11,6 @@ package uk.dangrew.nuts.graphics.shopping;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.meal.MealTableController;
 import uk.dangrew.nuts.graphics.meal.MealTableControllerImpl;
 import uk.dangrew.nuts.graphics.table.ConceptControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
@@ -24,7 +23,7 @@ import uk.dangrew.nuts.store.Database;
 @Deprecated //Not in use and food selection not quite right for it: 20/06/18
 public class ShoppingPane extends GridPane {
 
-   private final MealTableController shoppingController;
+   private final MealTableControllerImpl shoppingController;
    
    /**
     * Constructs a new {@link ShoppingPane}.

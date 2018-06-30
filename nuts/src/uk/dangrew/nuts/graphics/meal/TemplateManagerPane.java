@@ -36,7 +36,7 @@ public class TemplateManagerPane extends GridPane {
    private final ConceptTableWithControls< FoodPortion > planView;
    private final TemplateTableController planController;
    private final ConceptTableWithControls< FoodPortion > mealView;
-   private final MealTableController mealController;
+   private final MealTableControllerImpl mealController;
 
    public TemplateManagerPane( Database database ) {
       this( new JavaFxStyle(), database );

@@ -17,6 +17,7 @@ import uk.dangrew.nuts.graphics.table.ConceptOptions;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
+import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 /**
@@ -54,7 +55,15 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
       configuration.initialisePortionColumn( table(), COLUMN_TITLE_PORTION, COLUMN_WIDTH_PORTION );
       
       double remainingWidth = 0.98 - COLUMN_WIDTH_FOOD - COLUMN_WIDTH_PORTION;
-      columnsForShowing( table(), Food::nutrition, NutritionalUnit::name, remainingWidth );
+      configuration.configureVisibleNutrientUnitColumns( 
+               () -> new TableViewColumnConfigurer<>( table() ), 
+               Food::nutrition, 
+               NutritionalUnit::name, 
+               remainingWidth,
+               false,
+               settings()
+               
+      );
       
       table().getColumns().forEach( c -> c.setSortable( false ) );
    }//End Method

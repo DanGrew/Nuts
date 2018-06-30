@@ -20,10 +20,10 @@ import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 
-public class GoalTableController implements ConceptTableController< Goal > {
+public class GoalTableController implements ConceptTableViewController< Goal > {
 
    private final UiGoalTypeSelectionDialog dialog;
    private final CalorieGoalStore calorieGoals;

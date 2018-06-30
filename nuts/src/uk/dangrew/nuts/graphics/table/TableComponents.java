@@ -13,7 +13,7 @@ public class TableComponents< TypeT extends Concept >{
    private Database database;
    
    private ConceptTableColumnsPopulator< TypeT > columnsPopulator; 
-   private ConceptTableController< TypeT > controller;
+   private ConceptTableViewController< TypeT > controller;
    private CheckBoxController< TypeT > checkBoxController;
    
    private ConceptControls tableControls;
@@ -42,7 +42,7 @@ public class TableComponents< TypeT extends Concept >{
       return this;
    }//End Method
    
-   public TableComponents< TypeT > withController( ConceptTableController< TypeT > controller ) {
+   public TableComponents< TypeT > withController( ConceptTableViewController< TypeT > controller ) {
       this.controller = controller;
       return this;
    }//End Method

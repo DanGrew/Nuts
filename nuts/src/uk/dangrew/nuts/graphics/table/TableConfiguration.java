@@ -8,8 +8,12 @@
  */
 package uk.dangrew.nuts.graphics.table;
 
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
@@ -22,11 +26,14 @@ import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
 import uk.dangrew.kode.javafx.style.Conversions;
 import uk.dangrew.kode.javafx.table.TableViewEditCommitHandler;
+import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnConfigurer;
 import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
+import uk.dangrew.nuts.nutrients.Nutrition;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.Properties;
 
@@ -182,7 +189,7 @@ public class TableConfiguration {
     * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
     * @param editable whether the column is editable.
     */
-   public < FoodTypeT extends Food > void initialiseNutrientColumn(
+   @Deprecated public < FoodTypeT extends Food > void initialiseNutrientColumn(
             TableView< ConceptTableRow< FoodTypeT > > table,
             String title, 
             double widthProportion,
@@ -377,4 +384,28 @@ public class TableConfiguration {
       configurer.setEditable( true );
    }//End Method
 
+   public <FoodTypeT extends Food > void configureVisibleNutrientUnitColumns( 
+            Supplier< TableColumnConfigurer< FoodTypeT, String > > configurerSupplier, 
+            Function< FoodTypeT, Nutrition > source, 
+            Function< NutritionalUnit, String > unitNaming,
+            double availableWidth,
+            boolean editableUnits,
+            NutsSettings settings
+   ) {
+      List< NutritionalUnit > showingUnits = Stream.of( NutritionalUnit.values() )
+               .filter( u -> settings.showingPropertyFor( u ).get() )
+               .collect( Collectors.toList() );
+      
+      double width = availableWidth / showingUnits.size();
+      for ( NutritionalUnit unit : showingUnits ) {
+         initialiseDoubleColumn( 
+                  configurerSupplier.get(), 
+                  unitNaming.apply( unit ), 
+                  width, 
+                  f -> source.apply( f ).of( unit ), 
+                  editableUnits 
+         );
+      }
+   }//End Method
+   
 }//End Class

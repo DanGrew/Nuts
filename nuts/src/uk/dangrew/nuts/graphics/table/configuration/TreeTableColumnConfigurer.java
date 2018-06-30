@@ -19,10 +19,10 @@ import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 
 public class TreeTableColumnConfigurer< ConceptTypeT, DataTypeT > implements TableColumnConfigurer< ConceptTypeT, DataTypeT >{
    
-   private TreeTableView< ConceptTableRow< ConceptTypeT > > table;
+   private TreeTableView< ? extends ConceptTableRow< ConceptTypeT > > table;
    private TreeTableColumn< ConceptTableRow< ConceptTypeT >, DataTypeT > column;
    
-   public TreeTableColumnConfigurer( TreeTableView< ConceptTableRow< ConceptTypeT > > table ) {
+   public TreeTableColumnConfigurer( TreeTableView< ? extends ConceptTableRow< ConceptTypeT > > table ) {
       this.table = table;
       this.column = new TreeTableColumn<>();
       this.table.getColumns().add( column );
