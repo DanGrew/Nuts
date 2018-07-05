@@ -21,7 +21,7 @@ import uk.dangrew.nuts.system.Properties;
  * The {@link Meal} represents a collection of {@link FoodPortion}s and provides notifications
  * as they change.
  */
-public class Meal implements Food {
+public class Meal implements Food, FoodHolder {
 
    private final Properties properties;
    private final Nutrition nutrition;
@@ -106,7 +106,7 @@ public class Meal implements Food {
     * Access to the {@link FoodPortion}s in the {@link Meal}.
     * @return the {@link FoodPortion}s.
     */
-   public ObservableList< FoodPortion > portions() {
+   @Override public ObservableList< FoodPortion > portions() {
       return portions;
    }//End Method
 
@@ -126,7 +126,7 @@ public class Meal implements Food {
       return stockUsage;
    }//End Method
    
-   public void swap( FoodPortion portion1, FoodPortion portion2 ) {
+   @Override public void swap( FoodPortion portion1, FoodPortion portion2 ) {
       if ( !portions().contains( portion1 ) || !portions().contains( portion2 ) ) {
          return;
       }

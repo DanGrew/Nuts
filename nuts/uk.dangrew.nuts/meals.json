@@ -3645,7 +3645,7 @@
       ]
    },
    {
-      "name": "Walnut Butter (300g) (homemade)",
+      "name": "Walnut Butter (300g) (homemade - w/ oil)",
       "id": "c47d6235-f84c-469e-bbdc-48b688b37555",
       "portions": [
          {
@@ -4247,6 +4247,132 @@
          {
             "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
             "portionValue": 25
+         }
+      ]
+   },
+   {
+      "name": "Chia Pudding",
+      "id": "25988fcf-c3f2-40c0-babf-1af0c2751edf",
+      "portions": [
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 400
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 60
+         },
+         {
+            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Macadamia (Splice-2) Pancake",
+      "id": "f2d38359-57d5-441b-b04e-a3db4572dc47",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 300
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
+            "portionValue": 17
+         },
+         {
+            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
+            "portionValue": 5
+         },
+         {
+            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Coconut Milk Mousse (with Peanut)",
+      "id": "0cf716d3-aeb4-42ba-9dde-bcc98f9eb59d",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 400
+         },
+         {
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 400
+         },
+         {
+            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
+            "portionValue": 50
+         },
+         {
+            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+            "portionValue": 35
+         }
+      ]
+   },
+   {
+      "name": "Walnut Flax Cookies (experimental)",
+      "id": "d8cd2a73-64ba-44eb-828a-f5c4445ce4fc",
+      "portions": [
+         {
+            "foodId": "58b70f2a-bff5-430b-ab0c-29263d7e882f",
+            "portionValue": 33
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Walnut Butter (300g) (homemade)",
+      "id": "58b70f2a-bff5-430b-ab0c-29263d7e882f",
+      "portions": [{
+         "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
+         "portionValue": 300
+      }]
+   },
+   {
+      "name": "Coconut Butter (300g)",
+      "id": "df15a419-a2f7-49a0-a9e1-9a492f421b60",
+      "portions": [{
+         "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
+         "portionValue": 300
+      }]
+   },
+   {
+      "name": "Coconut Cookies (experimental)",
+      "id": "83819a0f-e287-4b8b-a5a0-8db9bb091927",
+      "portions": [
+         {
+            "foodId": "df15a419-a2f7-49a0-a9e1-9a492f421b60",
+            "portionValue": 33
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 15
+         },
+         {
+            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
+            "portionValue": 100
          }
       ]
    }

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.meal.Meal;
 
 public class ConceptTableRowTest {
@@ -16,7 +16,7 @@ public class ConceptTableRowTest {
 
    @Before public void initialiseSystemUnderTest() {
       meal = new Meal( "Meal" );
-      systemUnderTest = new ConceptTableRow<>( meal );
+      systemUnderTest = new ConceptTableRowImpl<>( meal );
    }//End Method
 
    @Test public void shouldProvideFood() {

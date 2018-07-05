@@ -17,6 +17,7 @@ import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
@@ -35,7 +36,7 @@ public class FoodRowManipulatorTest {
       
       food = new FoodItem( "Name" );
       row = new TableRow<>();
-      row.setItem( new ConceptTableRow<>( food ) );
+      row.setItem( new ConceptTableRowImpl<>( food ) );
       
       Database database = new Database();
       PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()

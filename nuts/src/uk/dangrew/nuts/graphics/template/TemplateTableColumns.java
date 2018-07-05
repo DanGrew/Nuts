@@ -17,6 +17,7 @@ import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
+import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;
 import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.template.Template;
@@ -38,7 +39,13 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
    private final TableConfiguration configuration;
 
    public TemplateTableColumns( TableComponents< Template > components ) {
-      super( components );
+      super(
+               new TableColumnWidths()
+                  .withFoodNameWidth( 0.2 )
+                  .withGoalWidth( 0.1 )
+                  .withCombinedUnitWidth( 0.35 ),
+               components 
+      );
       this.goals = components.database().calorieGoals();
       this.proportionGoals = components.database().proportionGoals();
       this.configuration = new TableConfiguration();
@@ -55,21 +62,19 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
                new ConceptOptionsImpl<>( Arrays.asList( goals, proportionGoals ) )
       );
 
-      double remaingWidth = 0.98 - COLUMN_WIDTH_TEMPLATE - COLUMN_WIDTH_GOAL;
-      double widthForEachPart = remaingWidth / 2;
       configuration.configureVisibleNutrientUnitColumns( 
-               () -> new TableViewColumnConfigurer<>( table() ), 
+               () -> new TableViewColumnConfigurer<>( table() ),
+               tableWidths(),
                Food::nutrition, 
                NutritionalUnit::displayName, 
-               widthForEachPart,
                false,
                settings() 
       );
       configuration.configureVisibleNutrientUnitColumns( 
-               () -> new TableViewColumnConfigurer<>( table() ), 
+               () -> new TableViewColumnConfigurer<>( table() ),
+               tableWidths(),
                Template::goalAnalytics, 
                u -> u.displayName() + " %", 
-               widthForEachPart, 
                false,
                settings() 
       );

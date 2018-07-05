@@ -112,7 +112,7 @@ public class FoodPortion implements Food {
    public ReadOnlyObjectProperty< Food > food() {
       return food;
    }//End Method
-
+   
    /**
     * Access to the portion property
     * @return the {@link ObjectProperty}.

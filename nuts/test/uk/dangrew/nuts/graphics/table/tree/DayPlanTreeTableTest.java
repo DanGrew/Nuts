@@ -1,24 +1,36 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyBoolean;
+import static org.mockito.Matchers.anyDouble;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.verify;
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.dayplan.DayPlan;
+import uk.dangrew.nuts.dayplan.DayPlanController;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindow;
+import uk.dangrew.nuts.graphics.table.TableConfiguration;
+import uk.dangrew.nuts.graphics.table.configuration.TableColumnConfigurer;
+import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
 public class DayPlanTreeTableTest {
-
-   private MealTreePane pane;
-   private DayPlanTreeTable systemUnderTest; 
    
    private FoodItem item1;
    private FoodItem item2;
@@ -29,13 +41,23 @@ public class DayPlanTreeTableTest {
    private Meal subMeal2;
    
    private DayPlan focus;
+
+   private DayPlanController controller;
+   private DayPlanTreePane pane;
+   
+   @Spy private TableConfiguration configuration;
+   @Spy private TableColumnWidths widths;
+   private DayPlanTreeTable systemUnderTest; 
    
    @Before public void initialiseSystemUnderTest(){
       TestApplication.startPlatform();
+      MockitoAnnotations.initMocks( this );
       
       Database database = new Database();
       database.stockLists().createConcept( "" );
       PlatformImpl.runAndWait( () -> new FoodSelectionWindow( database ) );
+      
+      controller = new DayPlanController();
       
       item1 = database.foodItems().createConcept( "Item1" );
       item1.nutrition().of( NutritionalUnit.Calories ).set( 101.0 );
@@ -62,20 +84,48 @@ public class DayPlanTreeTableTest {
                new FoodPortion( item3, 250 )
       );
       
-      focus = database.dayPlans().createConcept( "Focus" );
-      focus.portions().addAll( 
-               new FoodPortion( subMeal1, 100 ),
-               new FoodPortion( subMeal2, 100 )
-      );
+      focus = new DayPlan( "Focus" );
+      controller.add( new FoodPortion( subMeal1, 100 ), focus );
+      controller.add( new FoodPortion( subMeal2, 100 ), focus );
+      
+      systemUnderTest = new DayPlanTreeTable( configuration, widths );
    }//End Method
    
    @Ignore
    @Test public void manual() throws InterruptedException {
-      TestApplication.launch( () -> pane = new MealTreePane() );
+      TestApplication.launch( () -> pane = new DayPlanTreePane() );
       
-      pane.controller().showMeal( focus );
+      pane.controller().show( focus );
       
       Thread.sleep( 9999999 );
+   }//End Method
+   
+   @Test public void shouldSetFocus(){
+      systemUnderTest.setFocus( focus );
+      assertThat( systemUnderTest.getFocus(), is( focus ) );
+      assertThat( systemUnderTest.getRoot().getValue().concept().food().get(), is( focus ) );
+   }//End Method
+   
+   @Test public void shouldProvideColumns(){
+      verify( configuration ).initialiseStringColumn( 
+               Mockito.< TableColumnConfigurer< FoodPortion, String > >any(), 
+               any(), 
+               anyDouble(), 
+               any() 
+      );
+      verify( configuration ).initialisePortionColumn( 
+               Mockito.< TableColumnConfigurer< FoodPortion, String > >any(), 
+               any(), 
+               anyDouble() 
+      );
+      verify( configuration ).configureVisibleNutrientUnitColumns(  
+               any(),
+               eq( widths ),
+               any(), 
+               any(), 
+               anyBoolean(), 
+               any() 
+      );
    }//End Method
 
 }//End Class

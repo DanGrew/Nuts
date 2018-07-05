@@ -22,11 +22,11 @@ public class MealControls extends ConceptControls {
    private final Button up;
    private final Button down;
    
-   public MealControls( MealTableController controller ) {
+   public MealControls( FoodHolderOperations controller ) {
       this( new JavaFxStyle(), controller );
    }//End Constructor
    
-   MealControls( JavaFxStyle styling, MealTableController controller ) {
+   MealControls( JavaFxStyle styling, FoodHolderOperations controller ) {
       super( styling, controller );
       
       MaterialDesignIconView upGlyph = new MaterialDesignIconView( MaterialDesignIcon.CHEVRON_UP );

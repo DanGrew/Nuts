@@ -45,7 +45,7 @@ public class Template extends Meal implements Food {
       this( new Properties( id, name ) );
    }//End Constructor
    
-   protected Template( Properties properties ) {
+   public Template( Properties properties ) {
       this( 
                properties, 
                new Nutrition(),

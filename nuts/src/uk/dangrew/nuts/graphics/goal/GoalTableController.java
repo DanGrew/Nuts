@@ -21,6 +21,7 @@ import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 
 public class GoalTableController implements ConceptTableViewController< Goal > {
@@ -70,7 +71,7 @@ public class GoalTableController implements ConceptTableViewController< Goal > {
    }//End Method
    
    private void addRow( Goal concept ) {
-      table.getItems().add( new ConceptTableRow<>( concept ) );
+      table.getItems().add( new ConceptTableRowImpl<>( concept ) );
    }//End Method
    
    private void removeRow( Goal food ) {

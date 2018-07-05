@@ -1,5 +1,7 @@
 package uk.dangrew.nuts.graphics.database;
 
+import java.util.Optional;
+
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
@@ -32,6 +34,13 @@ public enum FoodTypes {
       } else if ( food instanceof Meal ) {
          return Meals;
       } else return null;
+   }//End Method
+   
+   public static < FoodTypeT > Optional< FoodTypeT > ofType( Food food, Class< FoodTypeT > type ) {
+      if ( food.getClass().equals( type ) ) {
+         return Optional.of( type.cast( food ) );
+      }
+      return Optional.empty();
    }//End Method
 
 }//End Enum

@@ -19,6 +19,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 
 public class TableViewColumnConfigurerTest {
 
@@ -35,7 +36,7 @@ public class TableViewColumnConfigurerTest {
       column = new TableColumn<>();
       systemUnderTest = new TableViewColumnConfigurer<>( table, column );
       
-      table.getItems().add( firstRow = new ConceptTableRow<>( new Object() ) );
+      table.getItems().add( firstRow = new ConceptTableRowImpl<>( new Object() ) );
    }//End Method
 
    @Test public void shouldAddColumn() {

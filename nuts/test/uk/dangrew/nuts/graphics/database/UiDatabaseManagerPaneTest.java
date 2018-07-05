@@ -14,7 +14,7 @@ import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
@@ -47,7 +47,7 @@ public class UiDatabaseManagerPaneTest {
       Food selected = systemUnderTest.foodTable().getSelectionModel().getSelectedItem().concept();
       assertThat( systemUnderTest.mealTableController().getShowingMeal(), is( selected ) );
       
-      systemUnderTest.comparisonTable().getItems().add( new ConceptTableRow< Food >( new Meal( "Anything" ) ) );
+      systemUnderTest.comparisonTable().getItems().add( new ConceptTableRowImpl< Food >( new Meal( "Anything" ) ) );
       systemUnderTest.comparisonTable().getSelectionModel().select( 0 );
       selected = systemUnderTest.comparisonTable().getSelectionModel().getSelectedItem().concept();
       assertThat( systemUnderTest.foodTable().getSelectionModel().getSelectedItem(), is( nullValue() ) );

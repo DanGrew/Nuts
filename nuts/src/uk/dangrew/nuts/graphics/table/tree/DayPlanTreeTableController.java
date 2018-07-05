@@ -9,46 +9,28 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
 import javafx.scene.control.TreeItem;
+import uk.dangrew.nuts.dayplan.DayPlan;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.meal.MealTableController;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
-import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.graphics.meal.FoodHolderOperations;
 
-/**
- * The {@link MealTableController} is responsible for controlling and updating the {@link MealTable}.
- */
-public class MealTreeTableControllerImpl implements MealTableController, ConceptTreeTableController< FoodPortion > {
+public class DayPlanTreeTableController implements FoodHolderOperations, ConceptTreeTableController< FoodPortion > {
 
    private DayPlanTreeTable table;
-   
-   public MealTreeTableControllerImpl() {
-   }//End Constructor
    
    @Override public void associate( DayPlanTreeTable table ) {
       this.table = table;
    }//End Method
    
-   /**
-    * Method to show the given {@link Meal} in the {@link MealTable}.
-    * @param meal the {@link Meal} to show.
-    */
-   @Override public void showMeal( Meal meal ) {
-      table.setFocus( meal );
+   public void show( DayPlan plan ) {
+      table.setFocus( plan );
    }//End Method
    
-   /**
-    * Getter for the {@link Meal} being shown.
-    * @return the {@link Meal} being shown.
-    */
-   @Override public Meal getShowingMeal(){
+   public DayPlan getShowing(){
       return table.getFocus();
    }//End Method
    
-   /**
-    * {@inheritDoc}
-    */
    @Override public FoodPortion createConcept() {
-      TreeItem< TreeTableBranchController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return null;
       }
@@ -58,11 +40,8 @@ public class MealTreeTableControllerImpl implements MealTableController, Concept
       return null;
    }//End Method
    
-   /**
-    * {@inheritDoc}
-    */
    @Override public void removeSelectedConcept() {
-      TreeItem< TreeTableBranchController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -71,7 +50,7 @@ public class MealTreeTableControllerImpl implements MealTableController, Concept
    }//End Method
    
    @Override public void copySelectedConcept() {
-      TreeItem< TreeTableBranchController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -80,7 +59,7 @@ public class MealTreeTableControllerImpl implements MealTableController, Concept
    }//End Method 
 
    @Override public void moveUp() {
-      TreeItem< TreeTableBranchController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -89,7 +68,7 @@ public class MealTreeTableControllerImpl implements MealTableController, Concept
    }//End Method
    
    @Override public void moveDown() {
-      TreeItem< TreeTableBranchController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }

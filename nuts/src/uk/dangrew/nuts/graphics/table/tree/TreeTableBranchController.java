@@ -1,107 +1,57 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
-import java.util.Optional;
-
 import javafx.scene.control.TreeItem;
-import uk.dangrew.kode.event.structure.Event;
-import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.FoodHolder;
 
-public class TreeTableBranchController extends ConceptTableRow< FoodPortion >{
+public class TreeTableBranchController extends TreeTableHolderControlsImpl implements TreeTableHolderControls{
 
-   private final TreeTableBranchItem treeItem;
+   private final TreeTableHolderControls parent;
    
-   public TreeTableBranchController( FoodPortion concept, TreeTableBranchItem treeItem ) {
-      super( concept );
-      this.treeItem = treeItem;
-      
-      meal().ifPresent( this::monitorMealPortions );
+   public TreeTableBranchController( 
+            FoodPortion concept, 
+            FoodHolder holder,
+            TreeTableBranchItem treeItem, 
+            TreeTableHolderControls parent
+   ) {
+      super( concept, holder, treeItem );
+      this.parent = parent;
    }//End Constructor
    
-   private Optional< Meal > meal(){
-      if ( concept().food().get() instanceof Meal ) {
-         return Optional.of( ( Meal )concept().food().get() );
-      }
-      return Optional.empty();
+   @Override public void add() {
+      parent.requestAddTo( foodHolder() );
    }//End Method
    
-   private void monitorMealPortions( Meal meal ) {
-      meal.portions().forEach( this::add );
-      meal.portions().addListener( new FunctionListChangeListenerImpl<>( 
-               this::add, this::remove, null 
-      ) );
+   @Override public void requestAddTo( FoodHolder holder ) {
+      parent.requestAddTo( holder );
    }//End Method
    
-   private void raiseFoodSelectionEvent( Meal meal ){
-      new FoodSelectionForMealEvent().fire( new Event<>( meal ) );
+   @Override public void copy(){
+      this.parent.copy( concept() );
    }//End Method
    
-   public void add( FoodPortion portion ){
-      treeItem.getChildren().add( new TreeTableBranchItem( portion ) );
+   @Override public void copy( FoodPortion concept ) {
+      this.parent.copy( concept, foodHolder() );
    }//End Method
    
-   public void add() {
-      meal().ifPresent( this::raiseFoodSelectionEvent );
+   @Override public void copy( FoodPortion concept, FoodHolder holder ) {
+      this.parent.copy( concept, holder );
    }//End Method
    
-   public void copy(){
-      
+   @Override public void remove(){
+      this.parent.remove( treeItem() );
    }//End Method
    
-   public void remove(){
-      TreeItem< TreeTableBranchController > parent = treeItem.getParent();
-      if ( parent == null ) {
-         return;
-      }
-      parent.getValue().remove( treeItem );
+   @Override public void remove( TreeItem< TreeTableController > treeItem ) {
+      this.parent.remove( treeItem );
    }//End Method
    
-   private void remove( FoodPortion portion ) {
-      treeItem.getChildren().stream()
-         .filter( t -> t.getValue().concept() == portion )
-         .findFirst()
-         .ifPresent( this::remove );
+   @Override public void moveUp(){
+      this.parent.moveUp( concept() );
    }//End Method
    
-   public void remove( TreeItem< TreeTableBranchController > treeItem ) {
-      if ( concept().food().get() instanceof Meal ) {
-         Meal meal = ( Meal ) concept().food().get();
-         meal.portions().remove( treeItem.getValue().concept() );
-      }
-      this.treeItem.getChildren().remove( treeItem );
+   @Override public void moveDown(){
+      this.parent.moveDown( concept() );
    }//End Method
    
-   public void moveUp(){
-      TreeItem< TreeTableBranchController > parent = treeItem.getParent();
-      if ( parent == null ) {
-         return;
-      }
-      
-      int index = parent.getChildren().indexOf( treeItem );
-      if ( index == 0 ) {
-         return;
-      }
-      
-      TreeItem< TreeTableBranchController > current = parent.getChildren().set( index - 1, treeItem );
-      parent.getChildren().set( index, current );
-   }//End Method
-   
-   public void moveDown(){
-      TreeItem< TreeTableBranchController > parent = treeItem.getParent();
-      if ( parent == null ) {
-         return;
-      }
-      
-      int index = parent.getChildren().indexOf( treeItem );
-      if ( index == parent.getChildren().size() - 1 ) {
-         return;
-      }
-      
-      TreeItem< TreeTableBranchController > current = parent.getChildren().set( index + 1, treeItem );
-      parent.getChildren().set( index, current );
-   }//End Method
-
 }//End Class

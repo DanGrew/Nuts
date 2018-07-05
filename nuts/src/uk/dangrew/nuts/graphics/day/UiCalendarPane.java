@@ -17,7 +17,7 @@ import uk.dangrew.nuts.graphics.meal.MealControls;
 import uk.dangrew.nuts.graphics.meal.MealTableColumns;
 import uk.dangrew.nuts.graphics.meal.MealTableControllerImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.template.TemplateTableColumns;
@@ -96,7 +96,7 @@ public class UiCalendarPane extends GridPane {
       uiCalendar.controller().selector().selection().addListener( ( s, o, n ) -> {
          templateController.showMeal( n );
          templatesTable.getRows().clear();
-         templatesTable.getRows().add( new ConceptTableRow<>( n ) );
+         templatesTable.getRows().add( new ConceptTableRowImpl<>( n ) );
          consumptionProperties.setDayPlan( n );
       } );
    }// End Constructor

@@ -5,7 +5,7 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.graphics.food.UnresponsiveConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.template.TemplateTableColumns;
 import uk.dangrew.nuts.meal.Meal;
@@ -39,7 +39,7 @@ public class UiMealFoodSelectionPane extends GridPane {
       add( new UiFoodSelectionWindowControls( controller, stageControls ), 0, 2 );
       
       table.getRows().clear();
-      table.getRows().add( new ConceptTableRow<>( liveSelectionProperties ) );
+      table.getRows().add( new ConceptTableRowImpl<>( liveSelectionProperties ) );
    }//End Constructor
 
    public void selectForMeal( Meal meal ) {

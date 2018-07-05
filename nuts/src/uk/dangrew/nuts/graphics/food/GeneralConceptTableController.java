@@ -14,6 +14,7 @@ import java.util.Set;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.ConceptStore;
@@ -52,7 +53,7 @@ public class GeneralConceptTableController< TypeT extends Concept > implements C
    }//End Method
    
    private void addRow( TypeT concept ) {
-      table.getItems().add( new ConceptTableRow<>( concept ) );
+      table.getItems().add( new ConceptTableRowImpl<>( concept ) );
    }//End Method
    
    private void removeRow( TypeT food ) {

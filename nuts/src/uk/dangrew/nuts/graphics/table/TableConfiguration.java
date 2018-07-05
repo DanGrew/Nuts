@@ -31,6 +31,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnConfigurer;
+import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;
 import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
@@ -385,10 +386,10 @@ public class TableConfiguration {
    }//End Method
 
    public <FoodTypeT extends Food > void configureVisibleNutrientUnitColumns( 
-            Supplier< TableColumnConfigurer< FoodTypeT, String > > configurerSupplier, 
+            Supplier< TableColumnConfigurer< FoodTypeT, String > > configurerSupplier,
+            TableColumnWidths widths,
             Function< FoodTypeT, Nutrition > source, 
             Function< NutritionalUnit, String > unitNaming,
-            double availableWidth,
             boolean editableUnits,
             NutsSettings settings
    ) {
@@ -396,12 +397,11 @@ public class TableConfiguration {
                .filter( u -> settings.showingPropertyFor( u ).get() )
                .collect( Collectors.toList() );
       
-      double width = availableWidth / showingUnits.size();
       for ( NutritionalUnit unit : showingUnits ) {
          initialiseDoubleColumn( 
                   configurerSupplier.get(), 
                   unitNaming.apply( unit ), 
-                  width, 
+                  widths.individualUnitWidthFor( showingUnits.size() ), 
                   f -> source.apply( f ).of( unit ), 
                   editableUnits 
          );

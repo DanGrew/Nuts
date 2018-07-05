@@ -4,9 +4,12 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
+import java.util.Optional;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
@@ -30,6 +33,12 @@ public class FoodTypesTest {
       assertThat( FoodTypes.typeOf( mock( FoodItem.class ) ), is( FoodTypes.FoodItems ) );
       assertThat( FoodTypes.typeOf( mock( Meal.class ) ), is( FoodTypes.Meals ) );
       assertThat( FoodTypes.typeOf( mock( Template.class ) ), is( FoodTypes.Templates ) );
+   }//End Method
+   
+   @Test public void shouldCheckForSpecificType(){
+      Food item = new FoodItem( "Item" );
+      assertThat( FoodTypes.ofType( item, FoodItem.class ), is( Optional.of( item ) ) );
+      assertThat( FoodTypes.ofType( item, Meal.class ), is( Optional.empty() ) );
    }//End Method
 
 }//End Class

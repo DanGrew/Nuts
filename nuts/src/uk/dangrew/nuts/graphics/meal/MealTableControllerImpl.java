@@ -18,6 +18,7 @@ import uk.dangrew.nuts.graphics.FriendlyTableView;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.meal.Meal;
 
@@ -83,7 +84,7 @@ public class MealTableControllerImpl implements MealTableController, ConceptTabl
     * @param portion the {@link FoodPortion} added.
     */
    private void portionAddedToMeal( FoodPortion portion ) {
-      table.getRows().add( meal.portions().indexOf( portion ), new ConceptTableRow<>( portion ) );
+      table.getRows().add( meal.portions().indexOf( portion ), new ConceptTableRowImpl<>( portion ) );
    }//End Method
 
    /**

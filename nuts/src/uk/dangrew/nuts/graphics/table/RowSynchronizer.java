@@ -25,7 +25,7 @@ public class RowSynchronizer< TypeT extends Concept > {
    }//End Constructor
    
    private void addRow( TypeT concept ) {
-      table.getItems().add( new ConceptTableRow<>( concept ) );
+      table.getItems().add( new ConceptTableRowImpl<>( concept ) );
    }//End Method
    
    private void removeRow( TypeT food ) {
