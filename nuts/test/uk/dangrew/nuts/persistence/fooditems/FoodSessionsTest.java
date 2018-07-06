@@ -33,6 +33,8 @@ public class FoodSessionsTest {
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class )
       );
       sessions.databaseIo().read();
@@ -44,6 +46,8 @@ public class FoodSessionsTest {
       Database database = new Database();
       FoodSessions sessions = new FoodSessions( 
                database,
+               mock( JarJsonPersistingProtocol.class ),
+               mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),
                mock( JarJsonPersistingProtocol.class ),

@@ -121,6 +121,7 @@ public class DatabaseTest {
          .shouldProvideObject( Database::researchArticles )
          .shouldProvideObject( Database::resolver )
          .shouldProvideObject( Database::settings )
+         .shouldProvideObject( Database::dayPlanController )
          ;
    }//End Method
 

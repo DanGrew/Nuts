@@ -13,8 +13,8 @@ import java.util.Map;
 import java.util.Optional;
 
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
-import uk.dangrew.nuts.store.Database;
 
 /**
  * {@link FoodItemParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when
@@ -22,7 +22,7 @@ import uk.dangrew.nuts.store.Database;
  */
 class FoodItemParseModel {
    
-   private final Database database;
+   private final FoodItemStore store;
    
    private String id;
    private String name;
@@ -30,12 +30,8 @@ class FoodItemParseModel {
    private double soldInWeight;
    private final Map< NutritionalUnit, Double > nutritionalUnitValues;
    
-   /**
-    * Constructs a new {@link FoodItemParseModel}.
-    * @param database the {@link Database}.
-    */
-   FoodItemParseModel( Database database ) {
-      this.database = database;
+   FoodItemParseModel( FoodItemStore store ) {
+      this.store = store;
       this.nutritionalUnitValues = new EnumMap<>( NutritionalUnit.class );
    }//End Constructor
    
@@ -46,10 +42,10 @@ class FoodItemParseModel {
    }//End Method
 
    void finishFoodItem() {
-      FoodItem item = database.foodItems().get( id );
+      FoodItem item = store.get( id );
       if ( item == null ) {
          item = new FoodItem( id, name );
-         database.foodItems().store( item );
+         store.store( item );
       }
       
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {

@@ -1,7 +1,9 @@
-package uk.dangrew.nuts.dayplan;
+package uk.dangrew.nuts.day;
 
 import static uk.dangrew.nuts.graphics.database.FoodTypes.ofType;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -29,31 +31,45 @@ public class DayPlanController {
       this.meals = meals;
    }//End Constructor
    
-   public void add( FoodPortion portion, FoodHolder subject ) {
-      ofType( portion.food().get(), FoodItem.class ).ifPresent( foodItem -> {
-         add( foodItem, portion.portion().get(), subject );
-      } );
-      ofType( portion.food().get(), Meal.class ).ifPresent( meal -> {
-         add( meal, portion.portion().get(), subject );
-      } );
+   public FoodItemStore foodItems(){
+      return foodItems;
    }//End Method
    
-   private void add( 
+   public MealStore meals(){
+      return meals;
+   }//End Method
+   
+   public FoodPortion add( FoodPortion portion, FoodHolder subject ) {
+      ObjectProperty< FoodPortion > createdPortion = new SimpleObjectProperty<>();
+      ofType( portion.food().get(), FoodItem.class ).ifPresent( foodItem -> {
+         createdPortion.set( add( foodItem, portion.portion().get(), subject ) );
+      } );
+      ofType( portion.food().get(), Meal.class ).ifPresent( meal -> {
+         createdPortion.set( add( meal, portion.portion().get(), subject ) );
+      } );
+      return createdPortion.get();
+   }//End Method
+   
+   private FoodPortion add( 
             FoodItem food, 
             double portion, 
             FoodHolder subject
    ) {
       FoodItem copy = copy( food );
-      subject.portions().add( new FoodPortion( copy, portion ) );
+      FoodPortion newPortion = new FoodPortion( copy, portion );
+      subject.portions().add( newPortion );
+      return newPortion;
    }//End Method
    
-   private void add( 
+   private FoodPortion add( 
             Meal food, 
             double portion, 
             FoodHolder subject
    ) {
       Meal copy = copy( food );
-      subject.portions().add( new FoodPortion( copy, portion ) );
+      FoodPortion newPortion = new FoodPortion( copy, portion );
+      subject.portions().add( newPortion );
+      return newPortion;
    }//End Method
    
    private FoodItem copy( FoodItem item ) {

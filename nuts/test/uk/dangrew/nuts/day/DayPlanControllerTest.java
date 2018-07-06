@@ -1,4 +1,4 @@
-package uk.dangrew.nuts.dayplan;
+package uk.dangrew.nuts.day;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
@@ -47,14 +49,20 @@ public class DayPlanControllerTest {
                meals 
       );
    }//End Method
+   
+   @Test public void shouldProvideStores(){
+      assertThat( systemUnderTest.foodItems(), is( foodItems ) );
+      assertThat( systemUnderTest.meals(), is( meals ) );
+   }//End Method
 
    @Test public void shouldAddCopyOfFoodItemToDayPlan() {
-      systemUnderTest.add( new FoodPortion( foodItem1, 34.0 ), dayPlan );
+      FoodPortion added = systemUnderTest.add( new FoodPortion( foodItem1, 34.0 ), dayPlan );
       assertThat( foodItems.objectList().contains( foodItem1 ), is( false ) );
       
       FoodItem stored = foodItems.objectList().get( 0 );
       assertThat( stored.properties().nameProperty().get(), is( foodItem1.properties().nameProperty().get() ) );
       
+      assertThat( added, is( dayPlan.portions().get( 0 ) ) );
       assertThat( dayPlan.portions(), hasSize( 1 ) );
       assertThat( dayPlan.portions().get( 0 ).food().get(), is( stored ) );
       assertThat( dayPlan.portions().get( 0 ).portion().get(), is( 34.0 ) );

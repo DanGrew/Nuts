@@ -9,6 +9,7 @@
 package uk.dangrew.nuts.day;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 
 import javafx.beans.property.ObjectProperty;
@@ -17,6 +18,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.database.FoodTypes;
+import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.system.Properties;
 import uk.dangrew.nuts.template.Template;
 
@@ -101,6 +104,21 @@ public class DayPlan extends Template {
    
    @Override public Template duplicate( String referenceId ) {
       return this;
+   }//End Method
+   
+   void remove( FoodPortion toRemove ) {
+      remove( toRemove, this );
+   }//End Method
+   
+   void remove( FoodPortion toRemove, Meal from ) {
+      for ( Iterator< FoodPortion > iterator = from.portions().iterator(); iterator.hasNext(); ) {
+         FoodPortion next = iterator.next();
+         if ( next == toRemove ) {
+            iterator.remove();
+            return;
+         }
+         FoodTypes.ofType( next.food().get(), Meal.class ).ifPresent( meal -> remove( toRemove, meal ) );
+      }
    }//End Method
 
 }//End Class

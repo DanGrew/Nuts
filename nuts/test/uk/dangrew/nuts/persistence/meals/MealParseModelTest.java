@@ -11,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.persistence.resolution.MealPortionResolution;
 import uk.dangrew.nuts.store.Database;
 
 public class MealParseModelTest {
@@ -29,7 +30,7 @@ public class MealParseModelTest {
       meal = database.meals().createConcept( "Meal" );
       item = database.foodItems().createConcept( "Item" );
       
-      systemUnderTest = new MealParseModel<>( database, database.meals() );
+      systemUnderTest = new MealParseModel<>( database, database.meals(), MealPortionResolution::new );
    }//End Method
 
    @Test public void shouldAddResolutionToDatabase() {

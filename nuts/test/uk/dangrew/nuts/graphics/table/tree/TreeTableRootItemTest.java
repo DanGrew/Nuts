@@ -11,8 +11,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.dayplan.DayPlan;
-import uk.dangrew.nuts.dayplan.DayPlanController;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanController;
 
 public class TreeTableRootItemTest {
 

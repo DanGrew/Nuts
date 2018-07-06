@@ -13,8 +13,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.dayplan.DayPlan;
-import uk.dangrew.nuts.dayplan.DayPlanController;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;

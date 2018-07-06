@@ -3,6 +3,7 @@ package uk.dangrew.nuts.graphics.table.tree;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
@@ -13,7 +14,8 @@ import org.mockito.MockitoAnnotations;
 
 import javafx.scene.control.TreeItem;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.dayplan.DayPlan;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanController;
 
 public class DayPlanTreeTableControllerTest {
 
@@ -29,7 +31,7 @@ public class DayPlanTreeTableControllerTest {
       MockitoAnnotations.initMocks( this );
       
       dayPlan = new DayPlan( "Plan" );
-      table = new DayPlanTreeTable();
+      table = new DayPlanTreeTable( mock( DayPlanController.class ) );
       selection = new TreeItem<>( selectionController );
       
       systemUnderTest = new DayPlanTreeTableController();

@@ -39,6 +39,7 @@ public class FoodTypesTest {
       Food item = new FoodItem( "Item" );
       assertThat( FoodTypes.ofType( item, FoodItem.class ), is( Optional.of( item ) ) );
       assertThat( FoodTypes.ofType( item, Meal.class ), is( Optional.empty() ) );
+      assertThat( FoodTypes.ofType( null, Meal.class ), is( Optional.empty() ) );
    }//End Method
 
 }//End Class

@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
@@ -13,6 +15,7 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.database.FoodTypes;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.ConceptStore;
@@ -32,7 +35,13 @@ public class AbstractMealPortionResolutionTest {
    private class TestResolution extends AbstractMealPortionResolution< Meal > {
 
       public TestResolution( ConceptStore< ? extends Meal > store, String subjectId, String referenceId, Double portion ) {
-         super( store, subjectId, referenceId, portion );
+         super( 
+                  store, 
+                  Arrays.asList( FoodTypes.FoodItems, FoodTypes.Meals, FoodTypes.Templates ), 
+                  subjectId, 
+                  referenceId, 
+                  portion 
+         );
       }//End Constructor
       
       @Override protected void applyPortion( Meal subject, FoodPortion portion, Database database ) {
@@ -52,6 +61,17 @@ public class AbstractMealPortionResolutionTest {
       
       subject = database.meals().createConcept( "Subject" );
    }//End Method
+   
+   @Test public void shouldProvideConfiguration(){
+      Meal item = database.meals().createConcept( "anything" );
+      systemUnderTest = new TestResolution( 
+               database.meals(), subject.properties().id(), item.properties().id(), 123.0
+      );
+      assertThat( systemUnderTest.subjectId(), is( subject.properties().id() ) );
+      assertThat( systemUnderTest.referenceId(), is( item.properties().id() ) );
+      assertThat( systemUnderTest.store(), is( database.meals() ) );
+      assertThat( systemUnderTest.portion(), is( 123.0 ) );
+   }//End Method
 
    @Test public void shouldResolveFoodItemPortion() {
       FoodItem item = database.foodItems().createConcept( "anything" );
@@ -67,7 +87,7 @@ public class AbstractMealPortionResolutionTest {
       
       assertPortionApplied( item );
    }//End Method
-
+   
    private void assertPortionApplied( Food item ) {
       assertThat( providedSubject, is( subject ) );
       assertThat( providedPortion.food().get(), is( item ) );

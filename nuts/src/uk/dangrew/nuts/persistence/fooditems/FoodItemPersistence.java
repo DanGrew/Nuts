@@ -16,6 +16,7 @@ import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
+import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
@@ -46,12 +47,12 @@ public class FoodItemPersistence implements ConceptPersistence {
    private final JsonParser parserWithWriteHandles;
    private final FoodItemWriteModel writeModel;
    
-  /**
-    * Constructs a new {@link FoodItemPersistence}.
-    * @param database the {@link Database}.
-    */
-   public FoodItemPersistence( Database database ) {
-      this( new FoodItemParseModel( database ), new FoodItemWriteModel( database ) );
+   @Deprecated public FoodItemPersistence( Database database ) {
+      this( database.foodItems() );
+   }//End Constructor
+   
+   public FoodItemPersistence( FoodItemStore store ) {
+      this( new FoodItemParseModel( store ), new FoodItemWriteModel( store ) );
    }//End Constructor
    
    /**

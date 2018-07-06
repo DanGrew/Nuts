@@ -18,6 +18,8 @@ import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.ConceptPersistence;
+import uk.dangrew.nuts.persistence.resolution.MealPortionResolution;
+import uk.dangrew.nuts.persistence.resolution.MealResolutionSupplier;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.ConceptStore;
 
@@ -49,7 +51,11 @@ public class MealPersistence< FoodTypeT extends Meal > implements ConceptPersist
     * @param meals the {@link ConceptStore} providing the {@link Meal}s.
     */
    public MealPersistence( Database database, ConceptStore< FoodTypeT > meals ) {
-      this( new MealParseModel<>( database, meals ), new MealWriteModel<>( meals ) );
+      this( database, meals, MealPortionResolution::new );
+   }//End Constructor
+   
+   public MealPersistence( Database database, ConceptStore< FoodTypeT > meals, MealResolutionSupplier resolutionSupplier ) {
+      this( new MealParseModel<>( database, meals, resolutionSupplier ), new MealWriteModel<>( meals ) );
    }//End Constructor
    
    /**

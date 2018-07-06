@@ -9,7 +9,7 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
 import javafx.scene.control.TreeItem;
-import uk.dangrew.nuts.dayplan.DayPlan;
+import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.meal.FoodHolderOperations;
 

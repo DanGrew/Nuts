@@ -37,7 +37,7 @@ public enum FoodTypes {
    }//End Method
    
    public static < FoodTypeT > Optional< FoodTypeT > ofType( Food food, Class< FoodTypeT > type ) {
-      if ( food.getClass().equals( type ) ) {
+      if ( food != null && food.getClass().equals( type ) ) {
          return Optional.of( type.cast( food ) );
       }
       return Optional.empty();

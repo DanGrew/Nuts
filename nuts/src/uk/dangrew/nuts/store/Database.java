@@ -9,6 +9,7 @@
 package uk.dangrew.nuts.store;
 
 import uk.dangrew.nuts.configuration.NutsSettings;
+import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.day.DayPlanStore;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
@@ -38,6 +39,7 @@ public class Database {
    private final MealStore meals;
    private final TemplateStore templates;
    private final DayPlanStore dayPlans;
+   private final DayPlanController dayPlanController;
    private final MealStore shoppingLists;
    private final StockStore stockLists;
    private final LabelStore labels;
@@ -57,6 +59,7 @@ public class Database {
       this.meals = new MealStore();
       this.templates = new TemplateStore();
       this.dayPlans = new DayPlanStore();
+      this.dayPlanController = new DayPlanController();
       this.shoppingLists = new MealStore();
       this.stockLists = new StockStore();
       this.labels = new LabelStore();
@@ -124,6 +127,10 @@ public class Database {
     */
    public DayPlanStore dayPlans() {
       return dayPlans;
+   }//End Method
+   
+   public DayPlanController dayPlanController() {
+      return dayPlanController;
    }//End Method
    
    /**

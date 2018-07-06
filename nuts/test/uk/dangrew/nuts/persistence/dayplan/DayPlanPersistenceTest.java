@@ -39,7 +39,10 @@ public class DayPlanPersistenceTest {
    @Test public void shouldReadData() {
       Database database = new Database();
       new DatabaseIo( database )
-               .withFoodItems( new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) )
+               .withMarshallerFor( 
+                        new FoodItemPersistence( database.dayPlanController().foodItems() ), 
+                        new WorkspaceJsonPersistingProtocol( "food-items.txt", getClass() ) 
+               )
                .withCalorieGoals( new WorkspaceJsonPersistingProtocol( "goals.txt", getClass() ) )
                .withDayPlans( new WorkspaceJsonPersistingProtocol( "dayplans.txt", getClass() ) )
                .read();
@@ -83,19 +86,19 @@ public class DayPlanPersistenceTest {
       
       FoodItem item1 = new FoodItem( "12345", "Food1" );
       item1.nutrition().setMacroNutrients( 45, 3.4, 98.1 );
-      database.foodItems().store( item1 );
+      database.dayPlanController().foodItems().store( item1 );
       
       FoodItem item2 = new FoodItem( "67890", "Food2" );
       item2.nutrition().setMacroNutrients( 2.11, 0.56, 123 );
-      database.foodItems().store( item2 );
+      database.dayPlanController().foodItems().store( item2 );
       
       FoodItem item3 = new FoodItem( "3421", "Food3" );
       item3.nutrition().setMacroNutrients( 2.3, 3.8, 8.6 );
-      database.foodItems().store( item3 );
+      database.dayPlanController().foodItems().store( item3 );
       
       FoodItem item4 = new FoodItem( "1324", "Food4" );
       item4.nutrition().setMacroNutrients( 0.1, 1.1, 0.3 );
-      database.foodItems().store( item4 );
+      database.dayPlanController().foodItems().store( item4 );
       
       CalorieGoal goal1 = new CalorieGoalImpl( "Goal 1" );
       database.calorieGoals().store( goal1 );
@@ -137,7 +140,7 @@ public class DayPlanPersistenceTest {
       meal4.setDate( LocalDate.now() );
       database.dayPlans().store( meal4 );
       
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
+      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database.dayPlanController().foodItems() );
       JSONObject foodItemJson = new JSONObject();
       foodItemPersistence.structure().build( foodItemJson );
       foodItemPersistence.writeHandles().parse( foodItemJson );
@@ -156,7 +159,7 @@ public class DayPlanPersistenceTest {
       
       
       database = new Database();
-      foodItemPersistence = new FoodItemPersistence( database );
+      foodItemPersistence = new FoodItemPersistence( database.dayPlanController().foodItems() );
       
       assertThat( database.foodItems().objectList(), is( empty() ) );
       foodItemPersistence.readHandles().parse( foodItemJson );
@@ -169,13 +172,15 @@ public class DayPlanPersistenceTest {
 
       database.resolver().resolve();
       
-      assertThat( database.foodItems().objectList(), hasSize( 4 ) );
+      assertThat( database.dayPlanController().foodItems().objectList(), hasSize( 4 ) );
       assertThat( database.calorieGoals().objectList(), hasSize( 2 ) );
       assertThat( database.dayPlans().objectList(), hasSize( 3 ) );
       
       DayPlan meal = database.dayPlans().get( meal1.properties().id() );
       assertMealProperties( meal, meal1 );
       meal = database.dayPlans().get( meal2.properties().id() );
+      //remove empty - dont expect to write
+      meal2.portions().remove( 3 );
       assertMealProperties( meal, meal2 );
       meal = database.dayPlans().get( meal4.properties().id() );
       assertMealProperties( meal, meal4 );

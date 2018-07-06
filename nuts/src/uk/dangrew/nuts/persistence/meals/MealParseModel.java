@@ -15,6 +15,7 @@ import java.util.List;
 import javafx.util.Pair;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.resolution.MealPortionResolution;
+import uk.dangrew.nuts.persistence.resolution.MealResolutionSupplier;
 import uk.dangrew.nuts.persistence.resolution.Resolver;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.system.ConceptStore;
@@ -26,6 +27,7 @@ import uk.dangrew.nuts.system.ConceptStore;
 public class MealParseModel< FoodTypeT extends Meal > {
    
    private final Resolver resolver;
+   private final MealResolutionSupplier resolutionSupplier;
    private final Database database;
    private final ConceptStore< FoodTypeT > meals;
    
@@ -41,8 +43,13 @@ public class MealParseModel< FoodTypeT extends Meal > {
     * @param meals {@link ConceptStore} providing the {@link Meal}s.
     */
    protected MealParseModel( Database database, ConceptStore< FoodTypeT > meals ) {
+      this( database, meals, MealPortionResolution::new );
+   }//End Constructor
+   
+   protected MealParseModel( Database database, ConceptStore< FoodTypeT > meals, MealResolutionSupplier resolutionSupplier ) {
       this.database = database;
       this.resolver = database.resolver();
+      this.resolutionSupplier = resolutionSupplier;
       this.meals = meals;
    }//End Constructor
    
@@ -119,7 +126,7 @@ public class MealParseModel< FoodTypeT extends Meal > {
     * @return the finished {@link FoodPortion}.
     */
    protected void finishPortion(){
-      resolver.submitStrategy( new MealPortionResolution( 
+      resolver.submitStrategy( resolutionSupplier.generate(  
                meals, id, foodId, portionValue 
       ) );
    }//End Method

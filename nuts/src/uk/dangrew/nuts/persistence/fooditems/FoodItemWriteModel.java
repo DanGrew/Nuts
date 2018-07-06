@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
-import uk.dangrew.nuts.store.Database;
 
 /**
  * {@link FoodItemWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}
@@ -21,26 +21,22 @@ import uk.dangrew.nuts.store.Database;
  */
 class FoodItemWriteModel {
    
-   private final Database database;
+   private final FoodItemStore store;
    private final List< FoodItem > foodBuffer;
    private FoodItem currentFood; 
    
-   /**
-    * Constructs a new {@link FoodItemWriteModel}.
-    * @param database the {@link Database}.
-    */
-   FoodItemWriteModel( Database database ) {
-      this.database = database;
+   FoodItemWriteModel( FoodItemStore store ) {
+      this.store = store;
       this.foodBuffer = new ArrayList<>();
    }//End Constructor
 
    Integer getNumberOfFoodItems( String key ){
-      return database.foodItems().objectList().size();
+      return store.objectList().size();
    }//End Method
    
    void startWritingFoodItems() {
       foodBuffer.clear();
-      foodBuffer.addAll( database.foodItems().objectList() );
+      foodBuffer.addAll( store.objectList() );
    }//End Method
    
    void startWritingFoodItem() {

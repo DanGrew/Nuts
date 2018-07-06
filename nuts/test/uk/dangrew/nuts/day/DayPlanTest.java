@@ -3,8 +3,10 @@ package uk.dangrew.nuts.day;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 
 import java.time.LocalDate;
@@ -14,6 +16,7 @@ import org.junit.Test;
 
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.meal.Meal;
 
 public class DayPlanTest {
 
@@ -95,6 +98,39 @@ public class DayPlanTest {
    
    @Test public void shouldProvideBalanceResetProperty(){
       assertThat( systemUnderTest.isBalanceReset().get(), is( DayPlan.DEFAULT_BALANCE_IS_RESET ) );
+   }//End Method
+   
+   @Test public void shouldNotExtendTemplateAndShouldNotBeCompatibleWithTemplateOperations(){
+      fail();
+   }//End Method
+   
+   @Test public void shouldRemoveFromPlan(){
+      Meal meal1 = new Meal( "Meal1" );
+      Meal meal2 = new Meal( "Meal2" );
+      Meal meal3 = new Meal( "Meal3" );
+      Meal meal4 = new Meal( "Meal4" );
+      
+      FoodItem item1 = new FoodItem( "Item1" );
+      FoodItem item2 = new FoodItem( "Item2" );
+      
+      meal3.portions().add( new FoodPortion( meal4, 100.0 ) );
+      meal2.portions().add( new FoodPortion( meal3, 100.0 ) );
+      meal1.portions().add( new FoodPortion( meal2, 100.0 ) );
+      
+      meal3.portions().add( new FoodPortion( item1, 100.0 ) );
+      meal1.portions().add( new FoodPortion( item2, 100.0 ) );
+      
+      systemUnderTest.portions().add( new FoodPortion( meal1, 0 ) );
+      
+      systemUnderTest.remove( meal3.portions().get( 0 ) );
+      assertThat( meal3.portions(), hasSize( 1 ) );
+      assertThat( meal3.portions().get( 0 ).food().get(), is( item1 ) );
+      
+      systemUnderTest.remove( meal3.portions().get( 0 ) );
+      assertThat( meal3.portions(), hasSize( 0 ) );
+      
+      systemUnderTest.remove( systemUnderTest.portions().get( 0 ) );
+      assertThat( systemUnderTest.portions(), hasSize( 0 ) );
    }//End Method
    
 }//End Class

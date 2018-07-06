@@ -2,6 +2,7 @@ package uk.dangrew.nuts.graphics.table.tree;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyBoolean;
 import static org.mockito.Matchers.anyDouble;
@@ -18,8 +19,8 @@ import org.mockito.Spy;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.dayplan.DayPlan;
-import uk.dangrew.nuts.dayplan.DayPlanController;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindow;
@@ -88,12 +89,12 @@ public class DayPlanTreeTableTest {
       controller.add( new FoodPortion( subMeal1, 100 ), focus );
       controller.add( new FoodPortion( subMeal2, 100 ), focus );
       
-      systemUnderTest = new DayPlanTreeTable( configuration, widths );
+      systemUnderTest = new DayPlanTreeTable( configuration, widths, controller );
    }//End Method
    
    @Ignore
    @Test public void manual() throws InterruptedException {
-      TestApplication.launch( () -> pane = new DayPlanTreePane() );
+      TestApplication.launch( () -> pane = new DayPlanTreePane( controller ) );
       
       pane.controller().show( focus );
       
@@ -126,6 +127,14 @@ public class DayPlanTreeTableTest {
                anyBoolean(), 
                any() 
       );
+   }//End Method
+   
+   @Test public void shouldUseSystemSettings(){
+      fail();
+   }//End Method
+   
+   @Test public void movementUpAndDownShouldLeaveCorrectItemSelected(){
+      fail();
    }//End Method
 
 }//End Class

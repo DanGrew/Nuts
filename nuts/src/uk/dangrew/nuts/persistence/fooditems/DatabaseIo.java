@@ -123,7 +123,7 @@ public class DatabaseIo {
    }//End Method
    
    public DatabaseIo withFoodItems( JsonPersistingProtocol protocol ) {
-      return withMarshallerFor( new FoodItemPersistence( database ), protocol );
+      return withMarshallerFor( new FoodItemPersistence( database.foodItems() ), protocol );
    }//End Method
    
    public DatabaseIo withMeals( JsonPersistingProtocol protocol ) {

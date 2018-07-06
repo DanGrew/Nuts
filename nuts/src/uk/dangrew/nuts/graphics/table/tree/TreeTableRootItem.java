@@ -1,8 +1,8 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
 import javafx.scene.control.TreeItem;
-import uk.dangrew.nuts.dayplan.DayPlan;
-import uk.dangrew.nuts.dayplan.DayPlanController;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanController;
 
 public class TreeTableRootItem extends TreeItem< TreeTableController >{
 

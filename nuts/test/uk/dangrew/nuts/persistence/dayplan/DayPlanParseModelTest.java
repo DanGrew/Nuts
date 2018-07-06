@@ -41,9 +41,9 @@ public class DayPlanParseModelTest {
       
       assertThat( dayPlan.portions(), is( empty() ) );
       database.resolver().resolve();
-      assertThat( dayPlan.portions().get( 0 ).food().get(), is( item ) );
+      assertThat( dayPlan.portions().get( 0 ).food().get().properties().nameProperty().get(), is( item.properties().nameProperty().get() ) );
       assertThat( dayPlan.portions().get( 0 ).portion().get(), is( 125.0 ) );
-      assertThat( dayPlan.consumed().iterator().next().food().get(), is( item ) );
+      assertThat( dayPlan.consumed().iterator().next().food().get().properties().nameProperty().get(), is( item.properties().nameProperty().get() ) );
       assertThat( dayPlan.consumed().iterator().next().portion().get(), is( 125.0 ) );
    }//End Method
 

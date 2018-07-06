@@ -4,8 +4,8 @@ import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.control.TreeTableView;
 import uk.dangrew.nuts.configuration.NutsSettings;
-import uk.dangrew.nuts.dayplan.DayPlan;
-import uk.dangrew.nuts.dayplan.DayPlanController;
+import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;
@@ -21,19 +21,24 @@ public class DayPlanTreeTable extends TreeTableView< TreeTableController >{
    
    private DayPlan plan;
    
-   public DayPlanTreeTable() {
+   public DayPlanTreeTable( DayPlanController dayPlanController ) {
       this( 
                new TableConfiguration(), 
                new TableColumnWidths()
                   .withFoodNameWidth( 0.3 )
                   .withPortionWidth( 0.1 )
-                  .withCombinedUnitWidth( 0.6 )
+                  .withCombinedUnitWidth( 0.6 ),
+               dayPlanController
       );
    }//End Constructor
    
-   DayPlanTreeTable( TableConfiguration configuration, TableColumnWidths widths ) {
+   DayPlanTreeTable( 
+            TableConfiguration configuration, 
+            TableColumnWidths widths,
+            DayPlanController dayPlanController
+   ) {
       this.settings = new NutsSettings();
-      this.dayPlanController = new DayPlanController();
+      this.dayPlanController = dayPlanController;
       this.configuration = configuration;
       this.widths = widths;
       this.setEditable( true );

@@ -17,6 +17,7 @@ import uk.dangrew.nuts.persistence.dayplan.DayPlanPersistence;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.persistence.goal.proportion.ProportionGoalPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
+import uk.dangrew.nuts.persistence.resolution.DayPlanMealPortionResolution;
 import uk.dangrew.nuts.persistence.setup.DataSetup;
 import uk.dangrew.nuts.persistence.stock.StockPersistence;
 import uk.dangrew.nuts.store.Database;
@@ -32,6 +33,8 @@ public class FoodSessions {
    static final String MEAL_FILE_NAME = "meals.json";
    static final String TEMPLATE_FILE_NAME = "plans.json";
    static final String DAY_PLANS_FILE_NAME = "dayplans.json";
+   static final String DAY_PLAN_FOOD_ITEMS_FILE_NAME = "dayplan-food-items.json";
+   static final String DAY_PLAN_MEALS_FILE_NAME = "dayplan-meals.json";
    static final String SHOPPING_LISTS_FILE_NAME = "shoppingLists.json";
    static final String STOCK_LISTS_FILE_NAME = "stockLists.json";
    static final String WEIGHT_RECORDING_FILE_NAME = "weightRecordings.json";
@@ -47,6 +50,8 @@ public class FoodSessions {
    private static final JarJsonPersistingProtocol mealFileLocation = protocolFor( MEAL_FILE_NAME );
    private static final JarJsonPersistingProtocol templateFileLocation = protocolFor( TEMPLATE_FILE_NAME );
    private static final JarJsonPersistingProtocol dayPlanFileLocation = protocolFor( DAY_PLANS_FILE_NAME );
+   private static final JarJsonPersistingProtocol dayPlanFoodItemsFileLocation = protocolFor( DAY_PLAN_FOOD_ITEMS_FILE_NAME );
+   private static final JarJsonPersistingProtocol dayPlanMealsFileLocation = protocolFor( DAY_PLAN_MEALS_FILE_NAME );
    private static final JarJsonPersistingProtocol shoppingListFileLocation = protocolFor( SHOPPING_LISTS_FILE_NAME );
    private static final JarJsonPersistingProtocol stockListFileLocation = protocolFor( STOCK_LISTS_FILE_NAME );
    private static final JarJsonPersistingProtocol legacyGoalFileLocation = protocolFor( LEGACY_GOAL_FILE_NAME );
@@ -67,6 +72,8 @@ public class FoodSessions {
                mealFileLocation,
                templateFileLocation,
                dayPlanFileLocation,
+               dayPlanFoodItemsFileLocation,
+               dayPlanMealsFileLocation,
                shoppingListFileLocation,
                stockListFileLocation,
                legacyGoalFileLocation,
@@ -85,6 +92,8 @@ public class FoodSessions {
             JsonPersistingProtocol mealFileLocation,
             JsonPersistingProtocol templateFileLocation,
             JsonPersistingProtocol dayPlanFileLocation,
+            JsonPersistingProtocol dayPlanFoodItemsFileLocation,
+            JsonPersistingProtocol dayPlanMealsFileLocation,
             JsonPersistingProtocol shoppingListFileLocation,
             JsonPersistingProtocol stockListFileLocation,
             JsonPersistingProtocol legacyGoalFileLocation,
@@ -111,6 +120,12 @@ public class FoodSessions {
                         setup::configureDefaultStockListAndConnect
                )
                .withTemplates( templateFileLocation )
+               .withMarshallerFor( new FoodItemPersistence( database.dayPlanController().foodItems() ), dayPlanFoodItemsFileLocation )
+               .withMarshallerFor( new MealPersistence<>( 
+                        database, 
+                        database.dayPlanController().meals(),
+                        DayPlanMealPortionResolution::new
+               ), dayPlanMealsFileLocation )
                .withMarshallerFor( new DayPlanPersistence( database ), 
                         dayPlanFileLocation,
                         setup::configureDefaultDayPlans
