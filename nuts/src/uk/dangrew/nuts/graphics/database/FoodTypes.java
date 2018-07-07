@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.store.DatabaseType;
@@ -39,6 +40,16 @@ public enum FoodTypes {
    public static < FoodTypeT > Optional< FoodTypeT > ofType( Food food, Class< FoodTypeT > type ) {
       if ( food != null && food.getClass().equals( type ) ) {
          return Optional.of( type.cast( food ) );
+      }
+      return Optional.empty();
+   }//End Method
+   
+   public static < FoodTypeT > Optional< FoodTypeT > ofTypeInPortion( FoodPortion food, Class< FoodTypeT > type ) {
+      if ( food == null || food.food().get() == null ) {
+         return Optional.empty();
+      } 
+      if ( food.food().get().getClass().equals( type ) ) {
+         return Optional.of( type.cast( food.food().get() ) );
       }
       return Optional.empty();
    }//End Method

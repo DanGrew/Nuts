@@ -24,7 +24,7 @@ public class UiCalendarController {
    
    public UiCalendarController( Database database ) {
       this.database = database;
-      this.operations = new DayPlanOperations( database.templates(), database.dayPlans() );
+      this.operations = new DayPlanOperations( database.dayPlans(), database.dayPlanController() );
       this.selector = new UiCalendarDatesSelector( this );
    }//End Constructor
    
@@ -58,15 +58,6 @@ public class UiCalendarController {
       }
       
       operations.addFromTemplate( selection, template );
-   }//End Method
-   
-   public void saveAsTemplate( String name ) {
-      DayPlan selection = selector.selection().get();
-      if ( selection == null ) {
-         return;
-      }
-      
-      operations.saveAsTemplate( name, selection );
    }//End Method
    
    public void clearSelection(){

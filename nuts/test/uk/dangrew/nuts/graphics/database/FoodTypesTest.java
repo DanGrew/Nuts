@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
+import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -40,6 +41,14 @@ public class FoodTypesTest {
       assertThat( FoodTypes.ofType( item, FoodItem.class ), is( Optional.of( item ) ) );
       assertThat( FoodTypes.ofType( item, Meal.class ), is( Optional.empty() ) );
       assertThat( FoodTypes.ofType( null, Meal.class ), is( Optional.empty() ) );
+   }//End Method
+   
+   @Test public void shouldCheckForSpecificTypeInPortion(){
+      Food item = new FoodItem( "Item" );
+      assertThat( FoodTypes.ofTypeInPortion( new FoodPortion( item, 100 ), FoodItem.class ), is( Optional.of( item ) ) );
+      assertThat( FoodTypes.ofTypeInPortion( new FoodPortion( item, 100 ), Meal.class ), is( Optional.empty() ) );
+      assertThat( FoodTypes.ofTypeInPortion( null, Meal.class ), is( Optional.empty() ) );
+      assertThat( FoodTypes.ofTypeInPortion( new FoodPortion(), FoodItem.class ), is( Optional.empty() ) );
    }//End Method
 
 }//End Class

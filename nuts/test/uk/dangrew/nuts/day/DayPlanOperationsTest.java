@@ -18,9 +18,8 @@ import org.mockito.MockitoAnnotations;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
-import uk.dangrew.nuts.template.TemplateStore;
 
 public class DayPlanOperationsTest {
 
@@ -30,11 +29,11 @@ public class DayPlanOperationsTest {
    private Food food2;
    private Food food3;
    
+   private Database database;
    private Template template;
    private DayPlan dayPlan;
    private DayPlan otherDay;
    
-   private TemplateStore templates;
    private DayPlanStore dayPlans;
    private DayPlanOperations systemUnderTest;
 
@@ -44,18 +43,18 @@ public class DayPlanOperationsTest {
       food2 = new FoodItem( "Food2" );
       food3 = new FoodItem( "Food3" );
       
-      templates = new TemplateStore();
-      dayPlans = new DayPlanStore();
+      database = new Database();
+      dayPlans = database.dayPlans();
       
       template = new Template( "Template" );
       dayPlan = new DayPlan( LocalDate.now() );
       dayPlans.store( otherDay = new DayPlan( LocalDate.now().plusDays( OTHER_DAY_OFFSET ) ) );
       
-      systemUnderTest = new DayPlanOperations( templates, dayPlans );
+      systemUnderTest = new DayPlanOperations( dayPlans, database.dayPlanController() );
    }//End Method
    
    @Test public void shouldCopyAllPortionsFromTemplateAndNotDuplicate() {
-      dayPlan.portions().add( mock( FoodPortion.class ) );
+      dayPlan.portions().add( new FoodPortion() );
       
       template.portions().add( new FoodPortion( food1, 100 ) );
       template.portions().add( new FoodPortion( food2, 125 ) );
@@ -69,13 +68,13 @@ public class DayPlanOperationsTest {
          FoodPortion expected = template.portions().get( i );
          assertFalse( copied == expected );
          
-         assertTrue( expected.food().get() == copied.food().get() );
+         assertThat( expected.food().get().properties().nameProperty().get(), is( copied.food().get().properties().nameProperty().get() ) );
          assertThat( expected.portion().get(), is( copied.portion().get() ) );
       }
    }//End Method
    
    @Test public void shouldAddFromTemplate(){
-      dayPlan.portions().add( mock( FoodPortion.class ) );
+      dayPlan.portions().add( new FoodPortion() );
       
       template.portions().add( new FoodPortion( food1, 100 ) );
       template.portions().add( new FoodPortion( food2, 125 ) );
@@ -89,31 +88,15 @@ public class DayPlanOperationsTest {
          FoodPortion expected = template.portions().get( i );
          assertFalse( copied == expected );
          
-         assertTrue( expected.food().get() == copied.food().get() );
+         assertThat( expected.food().get().properties().nameProperty().get(), is( copied.food().get().properties().nameProperty().get() ) );
          assertThat( expected.portion().get(), is( copied.portion().get() ) );
       }
    }//End Method
    
    @Test public void shouldClearDay(){
-      dayPlan.portions().add( mock( FoodPortion.class ) );
+      dayPlan.portions().add( new FoodPortion() );
       systemUnderTest.clearDayPlan( dayPlan );
       assertThat( dayPlan.portions(), is( empty() ) );
-   }//End Method
-   
-   @Test public void shouldSaveAsTemplate(){
-      dayPlan.portions().add( mock( FoodPortion.class ) );
-      dayPlan.portions().add( mock( FoodPortion.class ) );
-      dayPlan.portions().add( mock( FoodPortion.class ) );
-      
-      systemUnderTest.saveAsTemplate( "Name", dayPlan );
-      
-      assertThat( templates.objectList(), hasSize( 1 ) );
-      Template template = templates.objectList().get( 0 );
-      assertThat( template.properties().nameProperty().get(), is( "Name" ) );
-      assertThat( template.portions(), hasSize( dayPlan.portions().size() ) );
-      for ( int i = 0; i < dayPlan.portions().size(); i++ ) {
-         assertTrue( template.portions().get( i ) == dayPlan.portions().get( i ) );
-      }
    }//End Method
    
    @Test public void shouldCopyToOtherDay(){
@@ -132,7 +115,7 @@ public class DayPlanOperationsTest {
          FoodPortion expected = otherDay.portions().get( i + 1 );
          assertFalse( copied == expected );
          
-         assertTrue( expected.food().get() == copied.food().get() );
+         assertThat( expected.food().get().properties().nameProperty().get(), is( copied.food().get().properties().nameProperty().get() ) );
          assertThat( expected.portion().get(), is( copied.portion().get() ) );
       }
    }//End Method

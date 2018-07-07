@@ -9,13 +9,23 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
 import javafx.scene.control.TreeItem;
+import uk.dangrew.kode.javafx.tree.TreeStreamer;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.meal.FoodHolderOperations;
 
 public class DayPlanTreeTableController implements FoodHolderOperations, ConceptTreeTableController< FoodPortion > {
 
+   private final TreeStreamer treeStreamer;
    private DayPlanTreeTable table;
+   
+   public DayPlanTreeTableController() {
+      this( new TreeStreamer() );
+   }//End Constructor
+   
+   DayPlanTreeTableController( TreeStreamer treeStreamer ) {
+      this.treeStreamer = treeStreamer;
+   }//End Constructor
    
    @Override public void associate( DayPlanTreeTable table ) {
       this.table = table;
@@ -65,6 +75,7 @@ public class DayPlanTreeTableController implements FoodHolderOperations, Concept
       }
       
       selection.getValue().moveUp();
+      select( selection.getValue().concept() );
    }//End Method
    
    @Override public void moveDown() {
@@ -74,6 +85,14 @@ public class DayPlanTreeTableController implements FoodHolderOperations, Concept
       }
       
       selection.getValue().moveDown();
+      select( selection.getValue().concept() );
+   }//End Method
+   
+   private void select( FoodPortion portion ) {
+      treeStreamer.flatten( table.getRoot() )
+         .filter( item -> item.getValue().concept() == portion )
+         .findFirst()
+         .ifPresent( item -> table.getSelectionModel().select( item ) );
    }//End Method
    
 }//End Class

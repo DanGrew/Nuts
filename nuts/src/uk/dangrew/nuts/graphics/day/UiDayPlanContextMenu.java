@@ -37,9 +37,6 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
             "You can add food from a template to the selected day plan. Doing this will \n"
             + "not change the current contents of the day and add all food from the template \n"
             + "to the day. If you'd rather replace the contents of day, choose 'Apply Template'.";
-   static final String SAVE_AS_TEMPLATE_DESCRIPTION = 
-            "You can save the food in the selected day as a template for use with other days. \n"
-            + "To do this, enter a name for the template and it will be saved with the others.";
    static final String COPY_TO_DATE_DESCRIPTION = 
             "You can copy the food in the selected day to another day without saving as a template. \n"
             + "To do this, select the date to copy to and the food items will be added to that date.";
@@ -48,13 +45,11 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
    
    private final UiCalendarController controller;
    private final UiTemplateSelectionDialog uiTemplateSelectionDialog;
-   private final UiTemplateNameInputDialog uiTemplateNameInputDialog;
    private final UiDateSelectionDialog uiDateSelectionDialog;
    private final UiConfirmAlert confirmAlert;
    
    private final MenuItem applyTemplateMenu;
    private final MenuItem addFromTemplateMenu;
-   private final MenuItem saveAsTemplateMenu;
    private final MenuItem copyToDateMenu;
    private final MenuItem clearMenu;
    
@@ -64,7 +59,6 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
                new UiTemplateSelectionDialog( 
                         new ConceptOptionsImpl<>( controller.database().templates() ) 
                ),
-               new UiTemplateNameInputDialog(),
                new UiDateSelectionDialog( new SystemDateRange().get() ),
                new UiConfirmAlert()
       );
@@ -73,19 +67,16 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
    public UiDayPlanContextMenu( 
             UiCalendarController controller, 
             UiTemplateSelectionDialog uiTemplateSelectionDialog,
-            UiTemplateNameInputDialog uiTemplateNameInputDialog,
             UiDateSelectionDialog uiDateSelectionDialog,
             UiConfirmAlert confirmAlert
    ) {
       this.controller = controller;
       this.uiTemplateSelectionDialog = uiTemplateSelectionDialog;
-      this.uiTemplateNameInputDialog = uiTemplateNameInputDialog;
       this.uiDateSelectionDialog = uiDateSelectionDialog;
       this.confirmAlert = confirmAlert;
       
       this.applyTemplateMenu = new MenuItem( APPLY_TEMPLATE_TEXT );
       this.addFromTemplateMenu = new MenuItem( ADD_FROM_TEMPLATE_TEXT );
-      this.saveAsTemplateMenu = new MenuItem( SAVE_AS_TEMPLATE_TEXT );
       this.copyToDateMenu = new MenuItem( COPY_TO_DATE_TEXT );
       this.clearMenu = new MenuItem( CLEAR_TEXT );
       
@@ -95,7 +86,6 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
    @Override protected void applyControls() {
       applyTemplateMenu.setOnAction( event -> applyTemplate() );
       addFromTemplateMenu.setOnAction( event -> addFromTemplate() );
-      saveAsTemplateMenu.setOnAction( event -> saveAsTemplate() );
       copyToDateMenu.setOnAction( event -> copyToDate() );
       clearMenu.setOnAction( event -> clear() );
       
@@ -104,7 +94,6 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
                new SeparatorMenuItem(),
                applyTemplateMenu,
                addFromTemplateMenu,
-               saveAsTemplateMenu, 
                copyToDateMenu,
                clearMenu
       );
@@ -123,14 +112,6 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
          uiTemplateSelectionDialog.friendly_setHeaderText( ADD_FROM_TEMPLATE_DESCRIPTION );
          Optional< Template > result = uiTemplateSelectionDialog.friendly_showAndWait();
          result.ifPresent( controller::addFromTemplate );
-      } );
-   }//End Method
-   
-   private void saveAsTemplate(){
-      PlatformImpl.runAndWait( () -> {
-         uiTemplateNameInputDialog.friendly_setHeaderText( SAVE_AS_TEMPLATE_DESCRIPTION );
-         Optional< String > result = uiTemplateNameInputDialog.friendly_showAndWait();
-         result.ifPresent( controller::saveAsTemplate );
       } );
    }//End Method
    
@@ -158,10 +139,6 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
       return addFromTemplateMenu;
    }//End Method
 
-   MenuItem saveAsTemplateMenu(){
-      return saveAsTemplateMenu;
-   }//End Method
-   
    MenuItem clearMenu(){
       return clearMenu;
    }//End Method

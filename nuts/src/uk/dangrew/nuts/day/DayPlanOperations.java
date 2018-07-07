@@ -7,15 +7,14 @@ import java.util.stream.Collectors;
 
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.template.Template;
-import uk.dangrew.nuts.template.TemplateStore;
 
 public class DayPlanOperations {
 
    private final Map< LocalDate, DayPlan > mappedPlans;
-   private final TemplateStore templates;
+   private final DayPlanController dayPlanController;
    
-   public DayPlanOperations( TemplateStore templates, DayPlanStore dayPlans ) {
-      this.templates = templates;
+   public DayPlanOperations( DayPlanStore dayPlans, DayPlanController dayPlanController ) {
+      this.dayPlanController = dayPlanController;
       this.mappedPlans = dayPlans.objectList().stream()
                .collect( Collectors.toMap( DayPlan::date, Function.identity() ) );
    }//End Constructor
@@ -27,18 +26,14 @@ public class DayPlanOperations {
 
    public void addFromTemplate( DayPlan dayPlan, Template template ) {
       for ( FoodPortion portion : template.portions() ) {
-         FoodPortion copy = new FoodPortion( portion.food().get(), portion.portion().get() );
-         dayPlan.portions().add( copy );
+         dayPlanController.add( portion, dayPlan );
       }
    }//End Method
 
    public void clearDayPlan( DayPlan dayPlan ) {
-      dayPlan.portions().clear();
-   }//End Method
-
-   public void saveAsTemplate( String name, DayPlan dayPlan ) {
-      Template template = templates.createConcept( name );
-      template.portions().addAll( dayPlan.portions() );
+      while ( !dayPlan.portions().isEmpty() ) {
+         dayPlanController.remove( dayPlan.portions().get( 0 ), dayPlan );
+      }
    }//End Method
 
    public void copyToDay( DayPlan fromDay, LocalDate toDate ) {

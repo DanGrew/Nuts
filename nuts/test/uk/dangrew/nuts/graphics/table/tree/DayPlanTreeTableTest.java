@@ -43,7 +43,7 @@ public class DayPlanTreeTableTest {
    
    private DayPlan focus;
 
-   private DayPlanController controller;
+   private Database database;
    private DayPlanTreePane pane;
    
    @Spy private TableConfiguration configuration;
@@ -54,11 +54,9 @@ public class DayPlanTreeTableTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      Database database = new Database();
+      database = new Database();
       database.stockLists().createConcept( "" );
       PlatformImpl.runAndWait( () -> new FoodSelectionWindow( database ) );
-      
-      controller = new DayPlanController();
       
       item1 = database.foodItems().createConcept( "Item1" );
       item1.nutrition().of( NutritionalUnit.Calories ).set( 101.0 );
@@ -86,19 +84,24 @@ public class DayPlanTreeTableTest {
       );
       
       focus = new DayPlan( "Focus" );
-      controller.add( new FoodPortion( subMeal1, 100 ), focus );
-      controller.add( new FoodPortion( subMeal2, 100 ), focus );
+      database.dayPlanController().add( new FoodPortion( subMeal1, 100 ), focus );
+      database.dayPlanController().add( new FoodPortion( subMeal2, 100 ), focus );
       
-      systemUnderTest = new DayPlanTreeTable( configuration, widths, controller );
+      systemUnderTest = new DayPlanTreeTable( database, configuration, widths );
    }//End Method
    
    @Ignore
    @Test public void manual() throws InterruptedException {
-      TestApplication.launch( () -> pane = new DayPlanTreePane( controller ) );
+      TestApplication.launch( () -> pane = new DayPlanTreePane( database ) );
       
       pane.controller().show( focus );
       
       Thread.sleep( 9999999 );
+   }//End Method
+   
+   @Test public void shouldUseDatabaseStructures(){
+      assertThat( systemUnderTest.settings(), is( database.settings() ) );
+      assertThat( systemUnderTest.dayPlanController(), is( database.dayPlanController() ) );
    }//End Method
    
    @Test public void shouldSetFocus(){
@@ -112,7 +115,8 @@ public class DayPlanTreeTableTest {
                Mockito.< TableColumnConfigurer< FoodPortion, String > >any(), 
                any(), 
                anyDouble(), 
-               any() 
+               any(),
+               eq( true )
       );
       verify( configuration ).initialisePortionColumn( 
                Mockito.< TableColumnConfigurer< FoodPortion, String > >any(), 
@@ -129,12 +133,4 @@ public class DayPlanTreeTableTest {
       );
    }//End Method
    
-   @Test public void shouldUseSystemSettings(){
-      fail();
-   }//End Method
-   
-   @Test public void movementUpAndDownShouldLeaveCorrectItemSelected(){
-      fail();
-   }//End Method
-
 }//End Class

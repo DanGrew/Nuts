@@ -1,6 +1,7 @@
 package uk.dangrew.nuts.day;
 
 import static uk.dangrew.nuts.graphics.database.FoodTypes.ofType;
+import static uk.dangrew.nuts.graphics.database.FoodTypes.ofTypeInPortion;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -95,8 +96,8 @@ public class DayPlanController {
 
    public void remove( FoodPortion toRemove, DayPlan dayPlan ) {
       dayPlan.remove( toRemove );
-      ofType( toRemove.food().get(), FoodItem.class ).ifPresent( foodItems::removeConcept );
-      ofType( toRemove.food().get(), Meal.class ).ifPresent( meals::removeConcept );
+      ofTypeInPortion( toRemove, FoodItem.class ).ifPresent( foodItems::removeConcept );
+      ofTypeInPortion( toRemove, Meal.class ).ifPresent( meals::removeConcept );
    }//End Method
 
 }//End Class

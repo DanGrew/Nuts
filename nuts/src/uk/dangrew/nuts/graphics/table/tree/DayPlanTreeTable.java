@@ -11,6 +11,7 @@ import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;
 import uk.dangrew.nuts.graphics.table.configuration.TreeTableColumnConfigurer;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.store.Database;
 
 public class DayPlanTreeTable extends TreeTableView< TreeTableController >{
 
@@ -21,24 +22,24 @@ public class DayPlanTreeTable extends TreeTableView< TreeTableController >{
    
    private DayPlan plan;
    
-   public DayPlanTreeTable( DayPlanController dayPlanController ) {
+   public DayPlanTreeTable( Database database ) {
       this( 
+               database,
                new TableConfiguration(), 
                new TableColumnWidths()
                   .withFoodNameWidth( 0.3 )
                   .withPortionWidth( 0.1 )
-                  .withCombinedUnitWidth( 0.6 ),
-               dayPlanController
+                  .withCombinedUnitWidth( 0.6 )
       );
    }//End Constructor
    
    DayPlanTreeTable( 
+            Database database,
             TableConfiguration configuration, 
-            TableColumnWidths widths,
-            DayPlanController dayPlanController
+            TableColumnWidths widths
    ) {
-      this.settings = new NutsSettings();
-      this.dayPlanController = dayPlanController;
+      this.settings = database.settings();
+      this.dayPlanController = database.dayPlanController();
       this.configuration = configuration;
       this.widths = widths;
       this.setEditable( true );
@@ -47,7 +48,8 @@ public class DayPlanTreeTable extends TreeTableView< TreeTableController >{
                new TreeTableColumnConfigurer<>( this ), 
                "Food", 
                widths.foodNameWidth(), 
-               r -> r.food().get() == null ? "Empty" : r.food().get().properties().nameProperty().get()
+               r -> r.food().get().properties().nameProperty(),
+               true
       );
 //      configuration.configureCheckBoxController( 
 //               new TreeTableColumnConfigurer<>( this ), 
@@ -77,6 +79,14 @@ public class DayPlanTreeTable extends TreeTableView< TreeTableController >{
 
    public DayPlan getFocus() {
       return plan;
+   }//End Method
+   
+   NutsSettings settings(){
+      return settings;
+   }//End Method
+   
+   DayPlanController dayPlanController(){
+      return dayPlanController;
    }//End Method
 
 }//End Class

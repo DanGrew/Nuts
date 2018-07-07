@@ -1,6 +1,5 @@
 package uk.dangrew.nuts.graphics.day;
 
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -25,14 +24,11 @@ import uk.dangrew.nuts.template.Template;
 
 public class UiDayPlanContextMenuTest {
 
-   private static final String NAME_INPUT = "ThisIsTheName";
-   
    private Template selection;
    private LocalDate dateSelection;
    private UiCalendarController controller;
    @Mock private UiTemplateSelectionDialog templateSelection;
    @Mock private UiDateSelectionDialog dateSelectionDialog;
-   @Mock private UiTemplateNameInputDialog nameInput;
    @Mock private UiConfirmAlert confirmAlert;
    private UiDayPlanContextMenu systemUnderTest;
 
@@ -44,7 +40,7 @@ public class UiDayPlanContextMenuTest {
       
       PlatformImpl.runAndWait( () -> {
          controller = spy( new UiCalendarController( new Database() ) );
-         systemUnderTest = new UiDayPlanContextMenu( controller, templateSelection, nameInput, dateSelectionDialog, confirmAlert );  
+         systemUnderTest = new UiDayPlanContextMenu( controller, templateSelection, dateSelectionDialog, confirmAlert );  
       } );
    }//End Method
 
@@ -59,19 +55,6 @@ public class UiDayPlanContextMenuTest {
       when( templateSelection.friendly_showAndWait() ).thenReturn( Optional.empty() );
       systemUnderTest.applyTemplateMenu().getOnAction().handle( new ActionEvent() );
       verify( controller, never() ).applyTemplate( Mockito.any() );
-   }//End Method
-   
-   @Test public void shouldSaveAsTemplateAndSendToController() {
-      when( nameInput.friendly_showAndWait() ).thenReturn( Optional.of( NAME_INPUT ) );
-      systemUnderTest.saveAsTemplateMenu().getOnAction().handle( new ActionEvent() );
-      verify( controller ).saveAsTemplate( NAME_INPUT );
-      verify( nameInput ).friendly_setHeaderText( UiDayPlanContextMenu.SAVE_AS_TEMPLATE_DESCRIPTION );
-   }//End Method
-   
-   @Test public void shouldCancelSaveAsTemplateAndNotSendToController() {
-      when( nameInput.friendly_showAndWait() ).thenReturn( Optional.empty() );
-      systemUnderTest.saveAsTemplateMenu().getOnAction().handle( new ActionEvent() );
-      verify( controller, never() ).saveAsTemplate( anyString() );
    }//End Method
    
    @Test public void shouldAddFromTemplate(){

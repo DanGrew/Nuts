@@ -59,7 +59,7 @@ public class UiCalendarPaneWithTree extends GridPane {
                .withController( new UnresponsiveConceptTableController<>() )
                .buildTable(), 
       0, 1 );
-      add( dayPlanTree = new DayPlanTreePane( database.dayPlanController() ), 0, 2 );
+      add( dayPlanTree = new DayPlanTreePane( database ), 0, 2 );
       
 //      templateView.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
 //         Food food = n.concept().food().get();

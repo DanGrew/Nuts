@@ -4353,27 +4353,5 @@
          "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
          "portionValue": 300
       }]
-   },
-   {
-      "name": "Coconut Cookies (experimental)",
-      "id": "83819a0f-e287-4b8b-a5a0-8db9bb091927",
-      "portions": [
-         {
-            "foodId": "df15a419-a2f7-49a0-a9e1-9a492f421b60",
-            "portionValue": 33
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
-            "portionValue": 15
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 100
-         }
-      ]
    }
 ]}

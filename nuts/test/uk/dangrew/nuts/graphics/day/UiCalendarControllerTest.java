@@ -90,19 +90,6 @@ public class UiCalendarControllerTest {
       verify( operations, never() ).addFromTemplate( Mockito.any(), Mockito.any() );
    }//End Method
    
-   @Test public void shouldSaveAsTemplateToSelection(){
-      selector.select( uiDay );
-      assertThat( selector.selection().get(), is( day ) );
-      systemUnderTest.saveAsTemplate( "saving" );
-      verify( operations ).saveAsTemplate( "saving", day );
-   }//End Method
-   
-   @Test public void shouldIgnoreSaveAsTemplateWhenNoSelection(){
-      assertThat( selector.selection().get(), is( nullValue() ) );
-      systemUnderTest.saveAsTemplate( "anything" );
-      verify( operations, never() ).saveAsTemplate( Mockito.any(), Mockito.any() );
-   }//End Method
-   
    @Test public void shouldClearTemplateSelection(){
       selector.select( uiDay );
       assertThat( selector.selection().get(), is( day ) );

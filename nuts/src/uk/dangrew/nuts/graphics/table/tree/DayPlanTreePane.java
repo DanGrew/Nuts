@@ -1,8 +1,8 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
 import javafx.scene.layout.BorderPane;
-import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.graphics.meal.MealControls;
+import uk.dangrew.nuts.store.Database;
 
 public class DayPlanTreePane extends BorderPane {
 
@@ -10,8 +10,8 @@ public class DayPlanTreePane extends BorderPane {
    private final MealControls controls;
    private final DayPlanTreeTableController controller;
    
-   public DayPlanTreePane( DayPlanController dayPlanController ) {
-      this.setCenter( table = new DayPlanTreeTable( dayPlanController ) );
+   public DayPlanTreePane( Database database ) {
+      this.setCenter( table = new DayPlanTreeTable( database ) );
       this.controller = new DayPlanTreeTableController();
       this.controller.associate( table );
       this.setRight( controls = new MealControls( controller ) );
