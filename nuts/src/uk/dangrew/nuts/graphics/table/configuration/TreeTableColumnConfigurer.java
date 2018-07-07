@@ -17,12 +17,12 @@ import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
 import uk.dangrew.kode.javafx.table.TreeTableEditCommitHandler;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 
-public class TreeTableColumnConfigurer< ConceptTypeT, DataTypeT > implements TableColumnConfigurer< ConceptTypeT, DataTypeT >{
+public class TreeTableColumnConfigurer< ConceptTypeT, DataTypeT, RowTypeT extends ConceptTableRow< ConceptTypeT > > implements TableColumnConfigurer< ConceptTypeT, DataTypeT >{
    
-   private TreeTableView< ? extends ConceptTableRow< ConceptTypeT > > table;
-   private TreeTableColumn< ConceptTableRow< ConceptTypeT >, DataTypeT > column;
+   private TreeTableView< RowTypeT > table;
+   private TreeTableColumn< RowTypeT, DataTypeT > column;
    
-   public TreeTableColumnConfigurer( TreeTableView< ? extends ConceptTableRow< ConceptTypeT > > table ) {
+   public TreeTableColumnConfigurer( TreeTableView< RowTypeT > table ) {
       this.table = table;
       this.column = new TreeTableColumn<>();
       this.table.getColumns().add( column );
