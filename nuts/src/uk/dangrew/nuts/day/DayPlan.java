@@ -19,20 +19,23 @@ import javafx.collections.ObservableSet;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
+import uk.dangrew.nuts.meal.FoodHolder;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.TargetedFoodHolder;
 import uk.dangrew.nuts.system.Properties;
 import uk.dangrew.nuts.template.Template;
 
 /**
  * The {@link DayPlan} provides a specific {@link Template} for a day of the year.
  */
-public class DayPlan extends Template {
+public class DayPlan extends Template implements TargetedFoodHolder {
 
    static final double DEFAULT_CONSUMED_CALORIES = 0.0;
    static final double DEFAULT_ALLOWED_CALORIES = 0.0;
    static final double DEFAULT_CALORIE_BALANCE = 0.0;
    static final boolean DEFAULT_BALANCE_IS_RESET = false;
    
+//   private final Template structure;
    private final ObservableSet< FoodPortion > consumed; 
    private final ObjectProperty< Double > consumedCalories;
    private final ObjectProperty< Double > allowedCalories;
@@ -53,7 +56,12 @@ public class DayPlan extends Template {
       this( new Properties( id, name ) );
    }//End Constructor
    
-   DayPlan( Properties properties ) {
+   private DayPlan( Properties properties ) {
+//      this( new Template( properties ) );
+//   }//End Constructor
+   
+//   DayPlan( Template structure ) {
+//      this.structure = structure;
       super( properties );
       this.consumedCalories = new SimpleObjectProperty<>( DEFAULT_CONSUMED_CALORIES );
       this.allowedCalories = new SimpleObjectProperty<>( DEFAULT_ALLOWED_CALORIES );
@@ -69,6 +77,22 @@ public class DayPlan extends Template {
       }
       this.date = date;
    }//End Method
+   
+//   @Override public Properties properties() {
+//      return structure.properties();
+//   }//End Method
+//
+//   @Override public Nutrition nutrition() {
+//      return structure.nutrition();
+//   }//End Method
+//
+//   @Override public FoodAnalytics foodAnalytics() {
+//      return structure.foodAnalytics();
+//   }//End Method
+//   
+//   @Override public GoalAnalytics goalAnalytics(){
+//      return structure.goalAnalytics();
+//   }//End Method
    
    public LocalDate date() {
       return date;
@@ -94,6 +118,10 @@ public class DayPlan extends Template {
       return isBalanceReset;
    }//End Method
    
+//   @Override public ObservableList< FoodPortion > portions(){
+//      return structure.portions();
+//   }//End Method
+   
    @Override public void swap( FoodPortion portion1, FoodPortion portion2 ) {
       boolean consumedFirst = consumed().contains( portion1 );
       boolean consumedSecond = consumed().contains( portion2 );
@@ -102,7 +130,7 @@ public class DayPlan extends Template {
       if ( consumedSecond ) consumed().add( portion2 );
    }//End Method
    
-   @Override public Template duplicate( String referenceId ) {
+   @Override public DayPlan duplicate( String referenceId ) {
       return this;
    }//End Method
    
@@ -110,7 +138,7 @@ public class DayPlan extends Template {
       remove( toRemove, this );
    }//End Method
    
-   void remove( FoodPortion toRemove, Meal from ) {
+   void remove( FoodPortion toRemove, FoodHolder from ) {
       for ( Iterator< FoodPortion > iterator = from.portions().iterator(); iterator.hasNext(); ) {
          FoodPortion next = iterator.next();
          if ( next == toRemove ) {

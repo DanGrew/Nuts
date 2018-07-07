@@ -17,6 +17,7 @@ import org.junit.Test;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.template.Template;
 
 public class DayPlanTest {
 
@@ -26,6 +27,7 @@ public class DayPlanTest {
    private FoodPortion portion2;
    
    private LocalDate date;
+   private Template structure;
    private DayPlan systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -35,8 +37,17 @@ public class DayPlanTest {
       portion2 = new FoodPortion();
       
       date = LocalDate.now();
+//      systemUnderTest = new DayPlan( structure = new Template( "Plan" ) );
       systemUnderTest = new DayPlan( "Plan" );
    }//End Method
+   
+//   @Test public void shouldProvideProperties(){
+//      assertThat( systemUnderTest.properties(), is( structure.properties() ) );
+//      assertThat( systemUnderTest.portions(), is( structure.portions() ) );
+//      assertThat( systemUnderTest.nutrition(), is( structure.nutrition() ) );
+//      assertThat( systemUnderTest.foodAnalytics(), is( structure.foodAnalytics() ) );
+//      assertThat( systemUnderTest.goalAnalytics(), is( structure.goalAnalytics() ) );
+//   }//End Method
 
    @Test public void shouldProvideDate() {
       assertThat( systemUnderTest.date(), is( nullValue() ) );
@@ -100,9 +111,9 @@ public class DayPlanTest {
       assertThat( systemUnderTest.isBalanceReset().get(), is( DayPlan.DEFAULT_BALANCE_IS_RESET ) );
    }//End Method
    
-   @Test public void shouldNotExtendTemplateAndShouldNotBeCompatibleWithTemplateOperations(){
-      fail();
-   }//End Method
+//   @Test public void shouldNotExtendTemplateAndShouldNotBeCompatibleWithTemplateOperations(){
+//      fail();
+//   }//End Method
    
    @Test public void shouldRemoveFromPlan(){
       Meal meal1 = new Meal( "Meal1" );

@@ -8,7 +8,6 @@
  */
 package uk.dangrew.nuts.template;
 
-import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
@@ -17,6 +16,7 @@ import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.MealPropertiesCalculator;
 import uk.dangrew.nuts.meal.MealRegistrations;
 import uk.dangrew.nuts.meal.StockUsage;
+import uk.dangrew.nuts.meal.TargetedFoodHolder;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.system.Properties;
 
@@ -24,7 +24,7 @@ import uk.dangrew.nuts.system.Properties;
  * The {@link Template} represents a collection of {@link FoodPortion}s and provides notifications
  * as they change, and is associated with a {@link uk.dangrew.nuts.goal.Goal}.
  */
-public class Template extends Meal implements Food {
+public class Template extends Meal implements TargetedFoodHolder {
 
    private final GoalAnalytics goalAnalytics;
    
@@ -79,7 +79,7 @@ public class Template extends Meal implements Food {
     * Access to the {@link GoalAnalytics}.
     * @return the {@link GoalAnalytics}.
     */
-   public GoalAnalytics goalAnalytics() {
+   @Override public GoalAnalytics goalAnalytics() {
       return goalAnalytics;
    }//End Method
    
