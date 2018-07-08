@@ -1,13 +1,12 @@
 package uk.dangrew.nuts.persistence.fooditems;
 
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;import com.sun.swing.internal.plaf.metal.resources.metal;
+import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.jupa.json.marshall.ModelMarshaller;
 import uk.dangrew.kode.launch.TestApplication;

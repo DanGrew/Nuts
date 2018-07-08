@@ -37,7 +37,7 @@ public class ShoppingPane extends GridPane {
       add( new ShoppingListTable( shoppingList ), 0, 0 );
       add( new TableComponents< FoodPortion >()
                .withDatabase( database )
-               .withColumns( ShoppingNeedsTableColumns::new )
+               .applyColumns( ShoppingNeedsTableColumns::new )
                .withController( shoppingController = new MealTableControllerImpl() )
                .withControls( new ConceptControls( shoppingController ) )
                .buildTableWithControls( "Plans to shop for" ), 

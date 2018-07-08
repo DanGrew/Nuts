@@ -62,21 +62,21 @@ public class UiDatabaseManagerPane extends GridPane {
       add( foodTable = new TableComponents< Food >()
                         .withDatabase( database )
                         .withFoodModel( comparisonModel )
-                        .withColumns( UiComparableFoodTableColumns::new ) 
+                        .applyColumns( UiComparableFoodTableColumns::new ) 
                         .withController( recipeController )
                         .withControls( new RecipeControls( recipeController ) )
                         .buildTableWithControls( "Foods" ), 
       0, 1 );
       add( comparisonTable = new TableComponents< Food >()
                   .withDatabase( database )
-                  .withColumns( FoodTableColumns< Food >::new )
+                  .applyColumns( FoodTableColumns< Food >::new )
                   .withController( mixedTableController = new MixedFoodTableController( database, comparisonModel ) )
                   .withControls( new ConceptControls( mixedTableController ) )
                   .buildTableWithControls( "Comparison" ), 
       1, 1 );
       add( mealTable = new TableComponents< FoodPortion >()
                .withDatabase( database )
-               .withColumns( MealTableColumns::new )
+               .applyColumns( MealTableColumns::new )
                .withController( mealTableController = new MealTableControllerImpl() )
                .withControls( mealTableControls = new MealControls( mealTableController ) )
                .buildTableWithControls( "Contents of Selection" ), 

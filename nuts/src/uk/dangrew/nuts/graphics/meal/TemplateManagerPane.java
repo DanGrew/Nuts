@@ -53,21 +53,21 @@ public class TemplateManagerPane extends GridPane {
 
       add( templatesTable = new TableComponents< Template >()
                .withDatabase( database )
-               .withColumns( TemplateTableColumns::new )
+               .applyColumns( TemplateTableColumns::new )
                .withController( templateController = new GeneralConceptTableController<>( database.templates() ) )
                .withControls( new ConceptControls( templateController ) )
                .buildTableWithControls( "Templates" ), 
       0, 0 );
       add( planView = new TableComponents< FoodPortion >()
                .withDatabase( database )
-               .withColumns( MealTableColumns::new )
+               .applyColumns( MealTableColumns::new )
                .withController( planController = new TemplateTableController() )
                .withControls( new MealControls( planController ) )
                .buildTableWithControls( "Selected Template" ), 
       0, 1 );
       add( mealView = new TableComponents< FoodPortion >()
                .withDatabase( database )
-               .withColumns( MealTableColumns::new )
+               .applyColumns( MealTableColumns::new )
                .withController( mealController = new MealTableControllerImpl() )
                .withControls( new MealControls( mealController ) )
                .buildTableWithControls( "Selected Meal" ), 

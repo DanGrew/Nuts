@@ -55,7 +55,7 @@ public class UiCalendarPaneWithTree extends GridPane {
       add( uiCalendar, 0, 0 );
       add( templatesTable = new TableComponents< Template >()
                .withDatabase( database )
-               .withColumns( TemplateTableColumns::new )
+               .applyColumns( TemplateTableColumns::new )
                .withController( new UnresponsiveConceptTableController<>() )
                .buildTable(), 
       0, 1 );

@@ -4353,5 +4353,31 @@
          "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
          "portionValue": 300
       }]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "fe5b2e1e-f8eb-4781-8bd1-e1fdc8478152",
+      "portions": [
+         {
+            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
+            "portionValue": 100
+         },
+         {
+            "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
+            "portionValue": 100
+         },
+         {
+            "foodId": "898c2ac7-5a6f-4df1-8567-bf6e3eb64d50",
+            "portionValue": 125
+         },
+         {
+            "foodId": "2197f9ef-55da-4e5b-ade0-1c0ed5c007c6",
+            "portionValue": 50
+         },
+         {
+            "foodId": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
+            "portionValue": 200
+         }
+      ]
    }
 ]}

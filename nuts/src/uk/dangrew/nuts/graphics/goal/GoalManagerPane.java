@@ -43,7 +43,7 @@ public class GoalManagerPane extends GridPane {
       add( goalsTable =  
                new TableComponents< Goal >()
                   .withDatabase( database )
-                  .withColumns( FoodTableColumns< Goal >::new )
+                  .applyColumns( FoodTableColumns< Goal >::new )
                   .withController( goalsController = new GoalTableController( database.calorieGoals(), database.proportionGoals() ) )
                   .withControls( new ConceptControls( goalsController ) )
                   .buildTableWithControls( "Goals" ),

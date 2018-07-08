@@ -18,6 +18,7 @@ import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
+import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 
 /**
  * {@link ShoppingNeedsTableColumns} provides a {@link FoodTableColumnsPopulator} for a {@link FoodTable}.
@@ -37,7 +38,7 @@ public class ShoppingNeedsTableColumns implements ConceptTableColumnsPopulator< 
       
    @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
       configuration.initialiseFoodDropDownColumn( 
-               table, 
+               new TableViewColumnConfigurer<>( table ), 
                COLUMN_TITLE_FOOD, 
                0.6, 
                FoodPortion::food, 
@@ -45,7 +46,11 @@ public class ShoppingNeedsTableColumns implements ConceptTableColumnsPopulator< 
                conceptOptions 
       );
       
-      configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.4 );
+      configuration.initialisePortionColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               COLUMN_TITLE_PORTION, 
+               0.4 
+      );
    }//End Method
 
 }//End Class

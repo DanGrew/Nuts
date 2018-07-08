@@ -12,6 +12,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
+import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 
 public class UiComparableFoodTableColumns extends FoodTableColumns< Food > {
 
@@ -26,7 +27,11 @@ public class UiComparableFoodTableColumns extends FoodTableColumns< Food > {
    
    @Override public void changeColumns() {
       table().setEditable( true );
-      configuration.configureCheckBoxController( table(), controller, 0.05 );
+      configuration.configureCheckBoxController( 
+               new TableViewColumnConfigurer<>( table() ), 
+               controller, 
+               0.05 
+      );
       super.changeColumns();
    }//End Method
 

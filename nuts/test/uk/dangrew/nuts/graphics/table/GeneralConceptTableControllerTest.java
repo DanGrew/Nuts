@@ -35,7 +35,7 @@ public class GeneralConceptTableControllerTest {
       systemUnderTest = new GeneralConceptTableController<>( database.foodItems() );
       table = new TableComponents< FoodItem >()
                .withDatabase( database )
-               .withColumns( FoodTableColumns< FoodItem >::new )
+               .applyColumns( FoodTableColumns< FoodItem >::new )
                .withController( systemUnderTest )
                .buildTable();
    }//End Method

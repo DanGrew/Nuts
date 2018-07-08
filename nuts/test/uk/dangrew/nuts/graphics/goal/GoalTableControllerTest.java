@@ -46,7 +46,7 @@ public class GoalTableControllerTest {
       systemUnderTest = new GoalTableController( dialog, database.calorieGoals(), database.proportionGoals() );
       PlatformImpl.runAndWait( () -> table = new TableComponents< Goal >()
                .withDatabase( database )
-               .withColumns( FoodTableColumns< Goal >::new )
+               .applyColumns( FoodTableColumns< Goal >::new )
                .withController( systemUnderTest )
                .buildTable() 
       );

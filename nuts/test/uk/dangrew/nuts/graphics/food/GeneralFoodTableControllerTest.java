@@ -45,7 +45,7 @@ public class GeneralFoodTableControllerTest {
       systemUnderTest = new GeneralFoodTableController<>( deletionMechanism, foodItems );
       PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
                .withDatabase( database )
-               .withColumns( FoodTableColumns< FoodItem >::new )
+               .applyColumns( FoodTableColumns< FoodItem >::new )
                .withController( systemUnderTest )
                .buildTable()
       );

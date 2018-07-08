@@ -35,7 +35,7 @@ public class FoodTableColumnsTest {
                .withController( new GeneralConceptTableController<>( database.foodItems() ) );
       systemUnderTest = new FoodTableColumns<>( components );
       table = components
-               .withColumns( c -> systemUnderTest )
+               .applyColumns( c -> systemUnderTest )
                .buildTable();
    }//End Method
 

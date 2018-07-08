@@ -34,7 +34,7 @@ public class FoodTableManipulatorTest {
       database = new Database();
       TestApplication.launch( () -> table = new TableComponents< FoodItem >()
                .withDatabase( database )
-               .withColumns( FoodTableColumns< FoodItem >::new )
+               .applyColumns( FoodTableColumns< FoodItem >::new )
                .withController( new GeneralConceptTableController<>( database.foodItems() ) )
                .buildTable()
       );

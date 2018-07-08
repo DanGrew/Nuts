@@ -36,12 +36,12 @@ public class SynchronizedTableSelectionModelTest {
       PlatformImpl.runAndWait( () -> {
          table1 = new TableComponents< FoodItem >()
                      .withDatabase( database )
-                     .withColumns( FoodTableColumns< FoodItem >::new )
+                     .applyColumns( FoodTableColumns< FoodItem >::new )
                      .withController( new GeneralFoodTableController<>( database, database.foodItems() ) )
                      .buildTable();
          table2 = new TableComponents< FoodItem >()
                      .withDatabase( database )
-                     .withColumns( FoodTableColumns< FoodItem >::new )
+                     .applyColumns( FoodTableColumns< FoodItem >::new )
                      .withController( new GeneralFoodTableController<>( database, database.foodItems() ) )
                      .buildTable();
       } );

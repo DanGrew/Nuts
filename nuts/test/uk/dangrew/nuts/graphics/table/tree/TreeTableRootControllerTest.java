@@ -36,6 +36,7 @@ public class TreeTableRootControllerTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
+      tearDown();
       
       holder = new Meal( "Holder" );
       portion1 = new FoodPortion( new FoodItem( "Item" ), 23.0 );

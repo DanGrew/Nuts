@@ -32,7 +32,7 @@ public class TableComponents< TypeT extends Concept >{
       return this;
    }//End Method
    
-   public TableComponents< TypeT > withColumns( Function< TableComponents< TypeT >, ConceptTableColumnsPopulator< TypeT > > columns ) {
+   public TableComponents< TypeT > applyColumns( Function< TableComponents< TypeT >, ConceptTableColumnsPopulator< TypeT > > columns ) {
       this.columnsPopulator = columns.apply( this );
       return this;
    }//End Method

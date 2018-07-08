@@ -51,7 +51,7 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
    
    @Override protected void changeColumns() {
       configuration.initialiseFoodDropDownColumn( 
-               table(), 
+               new TableViewColumnConfigurer<>( table() ), 
                COLUMN_TITLE_FOOD, 
                COLUMN_WIDTH_FOOD, 
                FoodPortion::food, 
@@ -59,7 +59,11 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
                conceptOptions 
       );
       
-      configuration.initialisePortionColumn( table(), COLUMN_TITLE_PORTION, COLUMN_WIDTH_PORTION );
+      configuration.initialisePortionColumn( 
+               new TableViewColumnConfigurer<>( table() ), 
+               COLUMN_TITLE_PORTION, 
+               COLUMN_WIDTH_PORTION 
+      );
       
       configuration.configureVisibleNutrientUnitColumns( 
                () -> new TableViewColumnConfigurer<>( table() ),

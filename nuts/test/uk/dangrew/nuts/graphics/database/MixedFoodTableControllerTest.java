@@ -57,7 +57,7 @@ public class MixedFoodTableControllerTest {
       systemUnderTest = new MixedFoodTableController( deletionMechanism, dialog, database, model );
       PlatformImpl.runAndWait( () -> table = new TableComponents< Food >()
                .withDatabase( database )
-               .withColumns( FoodTableColumns< Food >::new )
+               .applyColumns( FoodTableColumns< Food >::new )
                .withController( systemUnderTest )
                .buildTable() 
       );

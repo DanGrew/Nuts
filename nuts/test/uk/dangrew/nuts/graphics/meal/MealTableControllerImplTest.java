@@ -51,7 +51,7 @@ public class MealTableControllerImplTest {
       systemUnderTest = new MealTableControllerImpl( mealSelectionEvents );
       table = new TableComponents< FoodPortion >()
                .withDatabase( new Database() )
-               .withColumns( MealTableColumns::new )
+               .applyColumns( MealTableColumns::new )
                .withController( systemUnderTest )
                .buildTable();
       systemUnderTest.associate( table );

@@ -45,49 +45,19 @@ public class TableConfiguration {
    
    private final static Conversions conversions = new Conversions();
    
-   /**
-    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.
-    * @param table the {@link TableView} to configure.
-    * @param title the title of the {@link TableColumn}.
-    * @param widthProportion the proportion of the width the {@link TableColumn} should be.
-    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
-    * @param editable whether the column should be editable.
-    */
    public < FoodTypeT extends Food > void initialiseFoodPropertyStringColumn( 
-            TableView< ConceptTableRow< FoodTypeT > > table,
+            TableColumnConfigurer< FoodTypeT, String > configurer,
             String title, 
             double widthProportion,
             Function< Properties, ObjectProperty< String > > propertyRetriever, 
             boolean editable
    ){
       initialiseStringColumn( 
-               table, title, widthProportion, 
-               f -> propertyRetriever.apply( f.properties() ), 
-               editable 
-      );
-   }//End Method
-   
-   /**
-    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.
-    * @param table the {@link TableView} to configure.
-    * @param title the title of the {@link TableColumn}.
-    * @param widthProportion the proportion of the width the {@link TableColumn} should be.
-    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
-    * @param editable whether the column should be editable.
-    */
-   public < TypeT extends Concept > void initialiseStringColumn( 
-            TableView< ConceptTableRow< TypeT > > table,
-            String title, 
-            double widthProportion,
-            Function< TypeT, ObjectProperty< String > > propertyRetriever, 
-            boolean editable
-   ){
-      initialiseStringColumn( 
-               new TableViewColumnConfigurer<>( table ), 
+               configurer, 
                title, 
                widthProportion, 
-               propertyRetriever, 
-               editable
+               f -> propertyRetriever.apply( f.properties() ), 
+               editable 
       );
    }//End Method
    
@@ -106,27 +76,6 @@ public class TableConfiguration {
          propertyRetriever.apply( r ).set( v ) 
       );
       configurer.setEditable( editable );
-   }//End Method
-   
-   /**
-    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.
-    * @param table the {@link TableView} to configure.
-    * @param title the title of the {@link TableColumn}.
-    * @param width the proportion of the width the {@link TableColumn} should be.
-    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
-    */
-   public < ConceptTypeT > void initialiseStringColumn(
-            TableView< ConceptTableRow< ConceptTypeT > > table,
-            String title,
-            double width,
-            Function< ConceptTypeT, String > propertyRetriever
-   ){
-      initialiseStringColumn( 
-               new TableViewColumnConfigurer<>( table ), 
-               title, 
-               width, 
-               propertyRetriever 
-      );
    }//End Method
    
    @Deprecated public < RowTypeT > void initialiseCustomStringColumn(
@@ -182,54 +131,6 @@ public class TableConfiguration {
       configurer.setEditable( false );
    }//End Method
    
-   /**
-    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link ObjectProperty}.
-    * @param table the {@link TableView} to configure.
-    * @param title the title of the {@link TableColumn}.
-    * @param widthProportion the proportion of the width the {@link TableColumn} should be.
-    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.
-    * @param editable whether the column is editable.
-    */
-   @Deprecated public < FoodTypeT extends Food > void initialiseNutrientColumn(
-            TableView< ConceptTableRow< FoodTypeT > > table,
-            String title, 
-            double widthProportion,
-            Function< FoodTypeT, ObjectProperty< Double > > propertyRetriever,
-            boolean editable
-   ){
-      initialiseDoubleColumn( 
-               table, 
-               title, 
-               widthProportion, 
-               propertyRetriever, 
-               editable 
-      );
-   }//End Method
-   
-   /**
-    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link ObjectProperty}.
-    * @param table the {@link TableView} to configure.
-    * @param title the title of the {@link TableColumn}.
-    * @param widthProportion the proportion of the width the {@link TableColumn} should be.
-    * @param propertyRetriever the {@link Function} to retrieve the value from the row.
-    * @param editable whether the column is editable.
-    */
-   public < ConceptTypeT > void initialiseDoubleColumn(
-            TableView< ConceptTableRow< ConceptTypeT > > table,
-            String title, 
-            double widthProportion,
-            Function< ConceptTypeT, ObjectProperty< Double > > propertyRetriever,
-            boolean editable
-   ){
-      initialiseDoubleColumn( 
-               new TableViewColumnConfigurer<>( table ), 
-               title, 
-               widthProportion, 
-               propertyRetriever, 
-               editable 
-      );
-   }//End Method
-   
    public < ConceptTypeT > void initialiseDoubleColumn(
             TableColumnConfigurer< ConceptTypeT, String > configurer,
             String title, 
@@ -250,27 +151,6 @@ public class TableConfiguration {
       }
    }//End Method
    
-   /**
-    * Method to initialise a {@link TableColumn} with the given properties/behaviour for a ratio of a {@link NutrientValue}.
-    * @param table the {@link TableView} to configure.
-    * @param title the title of the {@link TableColumn}.
-    * @param widthProportion the proportion of the width the {@link TableColumn} should be.
-    * @param propertyRetriever the {@link Function} to retrieve the value from the {@link Food}.
-    */
-   public < FoodTypeT extends Food > void initialiseRatioColumn(
-            TableView< ConceptTableRow< FoodTypeT > > table,
-            String title, 
-            double widthProportion,
-            Function< FoodTypeT, ReadOnlyObjectProperty< Double > > propertyRetriever 
-   ){
-      initialiseRatioColumn( 
-               new TableViewColumnConfigurer<>( table ), 
-               title, 
-               widthProportion, 
-               propertyRetriever 
-      );
-   }//End Method
-   
    public < FoodTypeT extends Food > void initialiseRatioColumn(
             TableColumnConfigurer< FoodTypeT, String > configurer,
             String title, 
@@ -281,33 +161,6 @@ public class TableConfiguration {
       configurer.bindPrefWidth( widthProportion );
       configurer.setCellValueFactoryAsString( propertyRetriever );
       configurer.setComparator( Comparators.STRING_AS_NUMBER_ASCENDING );
-   }//End Method
-   
-   /**
-    * Method to initialise a {@link TableColumn} with a drop down {@link javafx.scene.control.ComboBox} for the {@link Food}.
-    * @param table the {@link TableView} to configure.
-    * @param title the title of the {@link TableColumn}.
-    * @param widthProportion the proportion of the width the {@link TableColumn} should be.
-    * @param propertyRetriever the {@link Function} to retrieve the food from the row.
-    * @param propertySetter the {@link BiConsumer} to set the {@link Food} when selected.
-    * @param foodOptions the {@link FoodOptions} for the {@link javafx.scene.control.ComboBox}.
-    */
-   public < ConceptTypeT, FoodTypeT extends Food > void initialiseFoodDropDownColumn(
-            TableView< ConceptTableRow< ConceptTypeT > > table,
-            String title, 
-            double widthProportion,
-            Function< ConceptTypeT, ObservableValue< FoodTypeT > > propertyRetriever,
-            BiConsumer< ConceptTypeT, FoodTypeT > propertySetter,
-            ConceptOptions< FoodTypeT > foodOptions
-   ){
-      initialiseFoodDropDownColumn( 
-               new TableViewColumnConfigurer<>( table ), 
-               title, 
-               widthProportion, 
-               propertyRetriever, 
-               propertySetter, 
-               foodOptions 
-      );
    }//End Method
    
    public < ConceptTypeT, FoodTypeT extends Food > void initialiseFoodDropDownColumn(
@@ -331,24 +184,6 @@ public class TableConfiguration {
       configurer.setOnEditCommit( propertySetter::accept );
    }//End Method
    
-   /**
-    * Method to initialise a {@link TableColumn} with a {@link FoodPortion#portion()} configuration.
-    * @param table the {@link TableView} to configure.
-    * @param title the title of the {@link TableColumn}.
-    * @param widthProportion the proportion of the width the {@link TableColumn} should be.
-    */
-   public void initialisePortionColumn(
-            ConceptTable< FoodPortion > table,
-            String title, 
-            double widthProportion
-   ){
-      initialisePortionColumn( 
-               new TableViewColumnConfigurer<>( table ), 
-               title, 
-               widthProportion 
-      );
-   }//End Method
-   
    public void initialisePortionColumn(
             TableColumnConfigurer< FoodPortion, String > configurer,
             String title, 
@@ -360,18 +195,6 @@ public class TableConfiguration {
       configurer.setEditable( true );
       configurer.setTextFieldCellFactory();
       configurer.setOnEditCommit( ( portion, v ) -> portion.setPortion( Double.valueOf( v ) ) );
-   }//End Method
-   
-   public < TypeT extends Concept > void configureCheckBoxController(
-            ConceptTable< TypeT > table,
-            CheckBoxController< TypeT > controller,
-            double widthProportion
-   ) {
-      configureCheckBoxController( 
-               new TableViewColumnConfigurer<>( table ),
-               controller, 
-               widthProportion 
-      );
    }//End Method
    
    public < ConceptTypeT extends Concept > void configureCheckBoxController(

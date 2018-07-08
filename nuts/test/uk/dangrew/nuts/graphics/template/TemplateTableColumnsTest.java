@@ -36,7 +36,7 @@ public class TemplateTableColumnsTest {
                .withController( new GeneralConceptTableController<>( database.templates() ) );
       systemUnderTest = new TemplateTableColumns( components );
       table = components
-               .withColumns( c -> systemUnderTest )
+               .applyColumns( c -> systemUnderTest )
                .buildTable();
    }//End Method
 

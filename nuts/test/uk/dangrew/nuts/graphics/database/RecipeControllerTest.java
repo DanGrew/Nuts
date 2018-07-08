@@ -43,7 +43,7 @@ public class RecipeControllerTest {
          systemUnderTest = new RecipeController( window, database, model );
          table = new TableComponents< Food >()
                   .withDatabase( database )
-                  .withColumns( FoodTableColumns< Food >::new )
+                  .applyColumns( FoodTableColumns< Food >::new )
                   .withController( systemUnderTest )
                   .buildTable();
       } );

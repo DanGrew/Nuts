@@ -13,6 +13,7 @@ import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
+import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 
 public class StockTableColumns implements ConceptTableColumnsPopulator< FoodPortion > {
 
@@ -26,8 +27,17 @@ public class StockTableColumns implements ConceptTableColumnsPopulator< FoodPort
    }//End Constructor
    
    @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
-      configuration.initialiseStringColumn( table, COLUMN_TITLE_FOOD, 0.5, r -> r.food().get().properties().nameProperty().get() );
-      configuration.initialisePortionColumn( table, COLUMN_TITLE_PORTION, 0.5 );
+      configuration.initialiseStringColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               COLUMN_TITLE_FOOD, 
+               0.5, 
+               r -> r.food().get().properties().nameProperty().get() 
+      );
+      configuration.initialisePortionColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               COLUMN_TITLE_PORTION, 
+               0.5 
+      );
       
       table.getColumns().forEach( c -> c.setSortable( false ) );
    }//End Method

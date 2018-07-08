@@ -12,7 +12,7 @@ public class StockPane extends BorderPane {
    
    public StockPane( Database database ) {
       setCenter( new TableComponents< FoodPortion >()
-               .withColumns( StockTableColumns::new )
+               .applyColumns( StockTableColumns::new )
                .withController( controller = new MealTableControllerImpl() )
                .buildTable()
       );

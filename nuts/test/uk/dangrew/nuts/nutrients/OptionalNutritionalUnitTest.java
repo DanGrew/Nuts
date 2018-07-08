@@ -2,7 +2,7 @@ package uk.dangrew.nuts.nutrients;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -11,8 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.value.ChangeListener;

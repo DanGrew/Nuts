@@ -63,21 +63,21 @@ public class UiCalendarPane extends GridPane {
       add( uiCalendar, 0, 0 );
       add( templatesTable = new TableComponents< Template >()
                .withDatabase( database )
-               .withColumns( TemplateTableColumns::new )
+               .applyColumns( TemplateTableColumns::new )
                .withController( new UnresponsiveConceptTableController<>() )
                .buildTable(), 
       0, 1 );
       add( templateView = new TableComponents< FoodPortion >()
                .withCheckBoxController( consumptionProperties )
                .withDatabase( database )
-               .withColumns( UiDayPlanMealTableColumns::new )
+               .applyColumns( UiDayPlanMealTableColumns::new )
                .withController( templateController = new TemplateTableController() )
                .withControls( new MealControls( templateController ) )
                .buildTableWithControls( "Selected Day" )
       , 0, 2 );
       add( mealView = new TableComponents< FoodPortion >()
                .withDatabase( database )
-               .withColumns( MealTableColumns::new )
+               .applyColumns( MealTableColumns::new )
                .withController( mealTableController = new MealTableControllerImpl() )
                .withControls( new MealControls( mealTableController ) )
                .buildTableWithControls( "Selected Meal" ), 

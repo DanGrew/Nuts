@@ -30,7 +30,7 @@ public class UiMealFoodSelectionPane extends GridPane {
       
       add( table = new TableComponents< Template >()
                .withDatabase( database )
-               .withColumns( TemplateTableColumns::new )
+               .applyColumns( TemplateTableColumns::new )
                .withController( new UnresponsiveConceptTableController<>() )
                .buildTable(),  
       0, 0 );

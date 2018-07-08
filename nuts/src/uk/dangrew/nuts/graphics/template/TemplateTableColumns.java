@@ -54,7 +54,7 @@ public class TemplateTableColumns extends FoodTableColumns< Template > {
    @Override protected void changeColumns() {
       standardNameColumn( table(), COLUMN_TITLE_TEMPLATE, COLUMN_WIDTH_TEMPLATE );
       configuration.initialiseFoodDropDownColumn( 
-               table(), 
+               new TableViewColumnConfigurer<>( table() ), 
                COLUMN_TITLE_GOAL, 
                COLUMN_WIDTH_GOAL, 
                r -> r.goalAnalytics().goal(), 

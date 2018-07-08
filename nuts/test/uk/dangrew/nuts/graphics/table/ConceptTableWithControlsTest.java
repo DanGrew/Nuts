@@ -35,7 +35,7 @@ public class ConceptTableWithControlsTest {
       Database database = new Database();
       PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
                .withDatabase( database )
-               .withColumns( FoodTableColumns< FoodItem >::new )
+               .applyColumns( FoodTableColumns< FoodItem >::new )
                .withController( new GeneralConceptTableController<>( database.foodItems() ) )
                .buildTable()
       );

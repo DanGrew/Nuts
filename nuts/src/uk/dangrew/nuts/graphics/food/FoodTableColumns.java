@@ -92,7 +92,7 @@ public class FoodTableColumns< FoodTypeT extends Food > implements ConceptTableC
             double width
    ){
       configuration.initialiseFoodPropertyStringColumn( 
-               table, 
+               new TableViewColumnConfigurer<>( table ), 
                title, 
                width, 
                Properties::nameProperty, 
