@@ -42,9 +42,9 @@ public class TreeTableRootControllerTest {
       portion1 = new FoodPortion( new FoodItem( "Item" ), 23.0 );
       portion2 = new FoodPortion( new Meal( "Meal" ), 24.0 );
       new FoodSelectionForMealEvent().register( e -> {
-         assertThat( e.getValue(), is( instanceOf( Template.class ) ) );
-         e.getValue().portions().add( portion1 );
-         e.getValue().portions().add( portion2 );
+         assertThat( e.getValue().meal(), is( instanceOf( Template.class ) ) );
+         e.getValue().meal().portions().add( portion1 );
+         e.getValue().meal().portions().add( portion2 );
       } );
       
       plan = new DayPlan( "Anything" );

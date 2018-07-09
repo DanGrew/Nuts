@@ -15,7 +15,8 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForTemplateEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionRequest;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.template.Template;
 
@@ -24,8 +25,8 @@ public class TemplateTableControllerTest {
    private Template template;
    private Meal meal;
    
-   @Captor private ArgumentCaptor< Event< Template > > eventCaptor;
-   @Mock private FoodSelectionForTemplateEvent selectionEvents;
+   @Captor private ArgumentCaptor< Event< FoodSelectionRequest > > eventCaptor;
+   @Mock private FoodSelectionForMealEvent selectionEvents;
    private TemplateTableController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
@@ -42,7 +43,7 @@ public class TemplateTableControllerTest {
       systemUnderTest.createConcept();
       verify( selectionEvents ).fire( eventCaptor.capture() );
       
-      assertThat( eventCaptor.getValue().getValue(), is( template ) );
+      assertThat( eventCaptor.getValue().getValue().meal(), is( template ) );
    }//End Method
    
    @Test public void shouldNotFireSelectionEventWhenShowingMeal() {

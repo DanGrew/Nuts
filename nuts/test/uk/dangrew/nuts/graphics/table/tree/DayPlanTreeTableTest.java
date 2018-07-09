@@ -54,7 +54,6 @@ public class DayPlanTreeTableTest {
       
       database = new Database();
       database.stockLists().createConcept( "" );
-      PlatformImpl.runAndWait( () -> new FoodSelectionWindow( database ) );
       
       item1 = database.foodItems().createConcept( "Item1" );
       item1.nutrition().of( NutritionalUnit.Calories ).set( 101.0 );
@@ -90,6 +89,7 @@ public class DayPlanTreeTableTest {
    
    @Ignore
    @Test public void manual() throws InterruptedException {
+      PlatformImpl.runAndWait( () -> new FoodSelectionWindow( database ) );
       TestApplication.launch( () -> pane = new DayPlanTreePane( database ) );
       
       pane.controller().show( focus );

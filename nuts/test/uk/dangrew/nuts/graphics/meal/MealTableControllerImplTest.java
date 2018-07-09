@@ -21,6 +21,7 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionRequest;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.meal.Meal;
@@ -33,7 +34,7 @@ public class MealTableControllerImplTest {
    private FoodPortion portion3;
    
    @Mock private FoodSelectionForMealEvent mealSelectionEvents;
-   @Captor private ArgumentCaptor< Event< Meal > > eventCaptor;
+   @Captor private ArgumentCaptor< Event< FoodSelectionRequest > > eventCaptor;
    
    private Meal meal;
    private ConceptTable< FoodPortion > table; 
@@ -127,7 +128,7 @@ public class MealTableControllerImplTest {
    @Test public void shouldFireMealSelectionEvent() {
       systemUnderTest.createConcept();
       verify( mealSelectionEvents ).fire( eventCaptor.capture() );
-      assertThat( eventCaptor.getValue().getValue(), is( meal ) );
+      assertThat( eventCaptor.getValue().getValue().meal(), is( meal ) );
    }//End Method
    
    @Test public void shouldNotFireSelectionEventForNoSelection() {

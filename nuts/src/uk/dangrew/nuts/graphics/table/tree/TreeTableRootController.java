@@ -6,6 +6,7 @@ import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionRequest;
 import uk.dangrew.nuts.meal.FoodHolder;
 import uk.dangrew.nuts.template.Template;
 
@@ -37,7 +38,7 @@ public class TreeTableRootController extends TreeTableHolderControlsImpl impleme
       temporaryStorage.goalAnalytics().goal().set( plan.goalAnalytics().goal().get() );
       holder.portions().forEach( p -> temporaryStorage.portions().add( p ) );
       
-      new FoodSelectionForMealEvent().fire( new Event<>( temporaryStorage ) );
+      new FoodSelectionForMealEvent().fire( new Event<>( new FoodSelectionRequest( temporaryStorage ) ) );
       temporaryStorage.portions().stream()
          .filter( p -> !holder.portions().contains( p ) )
          .forEach( p -> addUsingController( holder, p ) );
