@@ -17,7 +17,7 @@ import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionEvent;
 import uk.dangrew.nuts.meal.FoodHolder;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.template.Template;
@@ -41,7 +41,7 @@ public class TreeTableRootControllerTest {
       holder = new Meal( "Holder" );
       portion1 = new FoodPortion( new FoodItem( "Item" ), 23.0 );
       portion2 = new FoodPortion( new Meal( "Meal" ), 24.0 );
-      new FoodSelectionForMealEvent().register( e -> {
+      new FoodSelectionEvent().register( e -> {
          assertThat( e.getValue().meal(), is( instanceOf( Template.class ) ) );
          e.getValue().meal().portions().add( portion1 );
          e.getValue().meal().portions().add( portion2 );
@@ -54,7 +54,7 @@ public class TreeTableRootControllerTest {
    }//End Method
    
    @After public void tearDown(){
-      new FoodSelectionForMealEvent().clearAllSubscriptions();
+      new FoodSelectionEvent().clearAllSubscriptions();
    }//End Method
 
    @Test public void shouldAddSelectionToDayPlan() {

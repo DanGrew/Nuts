@@ -20,7 +20,7 @@ import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionEvent;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionRequest;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
@@ -33,7 +33,7 @@ public class MealTableControllerImplTest {
    private FoodPortion portion2;
    private FoodPortion portion3;
    
-   @Mock private FoodSelectionForMealEvent mealSelectionEvents;
+   @Mock private FoodSelectionEvent mealSelectionEvents;
    @Captor private ArgumentCaptor< Event< FoodSelectionRequest > > eventCaptor;
    
    private Meal meal;

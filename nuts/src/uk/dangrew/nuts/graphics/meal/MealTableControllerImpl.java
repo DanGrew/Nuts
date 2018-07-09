@@ -15,7 +15,7 @@ import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.FriendlyTableView;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionEvent;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionRequest;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
@@ -29,16 +29,16 @@ import uk.dangrew.nuts.meal.Meal;
 public class MealTableControllerImpl implements MealTableController, ConceptTableViewController< FoodPortion > {
 
    private final FunctionListChangeListenerImpl< FoodPortion > mealListener;
-   private final FoodSelectionForMealEvent mealSelectionEvents;
+   private final FoodSelectionEvent mealSelectionEvents;
    
    private FriendlyTableView< ConceptTableRow< FoodPortion > > table;
    private Meal meal;
    
    public MealTableControllerImpl() {
-      this( new FoodSelectionForMealEvent() );
+      this( new FoodSelectionEvent() );
    }//End Constructor
    
-   MealTableControllerImpl( FoodSelectionForMealEvent selectionEvents ) {
+   MealTableControllerImpl( FoodSelectionEvent selectionEvents ) {
       this.mealSelectionEvents = selectionEvents;
       this.mealListener = new FunctionListChangeListenerImpl<>( 
                this::portionAddedToMeal, this::portionRemovedFromMeal, this::sort

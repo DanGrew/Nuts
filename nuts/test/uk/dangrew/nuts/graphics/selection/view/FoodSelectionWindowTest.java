@@ -13,7 +13,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalImpl;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionEvent;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionRequest;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
@@ -47,14 +47,14 @@ public class FoodSelectionWindowTest {
       Meal meal = new Meal( "Test Meal" );
       meal.portions().add( new FoodPortion( sample.foodItems().objectList().get( 3 ), 100.0 ) );
       meal.portions().add( new FoodPortion( sample.foodItems().objectList().get( 5 ), 125.0 ) );
-      new FoodSelectionForMealEvent().fire( new Event<>( new FoodSelectionRequest( meal ) ) );
+      new FoodSelectionEvent().fire( new Event<>( new FoodSelectionRequest( meal ) ) );
       
       Template template = new Template( "Test Template" );
       template.portions().add( new FoodPortion( meal, 100 ) );
       CalorieGoal calorieGoal = new CalorieGoalImpl( "Template Goal" );
       DataLocation.configureExampleGoal( calorieGoal );
       template.goalAnalytics().goal().set( calorieGoal );
-      new FoodSelectionForMealEvent().fire( new Event<>( new FoodSelectionRequest( template ) ) );
+      new FoodSelectionEvent().fire( new Event<>( new FoodSelectionRequest( template ) ) );
       
       Thread.sleep( 9999999 );
    }//End Method

@@ -7,13 +7,13 @@ import java.util.concurrent.locks.ReentrantLock;
 import uk.dangrew.kode.event.structure.EventManager;
 import uk.dangrew.kode.event.structure.EventSubscription;
 
-public class FoodSelectionForMealEvent extends EventManager< FoodSelectionRequest > {
+public class FoodSelectionEvent extends EventManager< FoodSelectionRequest > {
 
    private static final Collection< EventSubscription< FoodSelectionRequest > > subscriptions = 
             new LinkedHashSet<>();
    private static final ReentrantLock lock = new ReentrantLock();
    
-   public FoodSelectionForMealEvent() {
+   public FoodSelectionEvent() {
       super( subscriptions, lock );
    }//End Constructor
 

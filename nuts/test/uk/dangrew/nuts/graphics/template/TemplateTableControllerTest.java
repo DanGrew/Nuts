@@ -15,7 +15,7 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.event.structure.Event;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
+import uk.dangrew.nuts.graphics.selection.model.FoodSelectionEvent;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionRequest;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.template.Template;
@@ -26,7 +26,7 @@ public class TemplateTableControllerTest {
    private Meal meal;
    
    @Captor private ArgumentCaptor< Event< FoodSelectionRequest > > eventCaptor;
-   @Mock private FoodSelectionForMealEvent selectionEvents;
+   @Mock private FoodSelectionEvent selectionEvents;
    private TemplateTableController systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
