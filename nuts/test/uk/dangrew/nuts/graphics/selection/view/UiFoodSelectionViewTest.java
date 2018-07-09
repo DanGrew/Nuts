@@ -1,7 +1,5 @@
 package uk.dangrew.nuts.graphics.selection.view;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class UiFoodSelectionViewTest {

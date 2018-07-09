@@ -9,7 +9,6 @@
 package uk.dangrew.nuts.persistence.template;
 
 
-import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.persistence.meals.MealParseModel;
 import uk.dangrew.nuts.persistence.resolution.TemplateGoalResolution;
 import uk.dangrew.nuts.store.Database;

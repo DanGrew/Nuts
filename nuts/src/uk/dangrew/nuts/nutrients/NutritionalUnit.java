@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.food.FoodAnalytics;
 
 public enum NutritionalUnit {
 

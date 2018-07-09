@@ -1,6 +1,5 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;

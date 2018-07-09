@@ -1,7 +1,5 @@
 package uk.dangrew.nuts.apis.tesco.model.api;
 
-import java.util.UUID;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;

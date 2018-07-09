@@ -102,7 +102,7 @@ public class TemplatePersistenceTest {
       meal3.goalAnalytics().goal().set( goal1 );
       database.templates().store( meal3 );
       
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
+      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database.foodItems() );
       JSONObject foodItemJson = new JSONObject();
       foodItemPersistence.structure().build( foodItemJson );
       foodItemPersistence.writeHandles().parse( foodItemJson );
@@ -121,7 +121,7 @@ public class TemplatePersistenceTest {
       
       
       database = new Database();
-      foodItemPersistence = new FoodItemPersistence( database );
+      foodItemPersistence = new FoodItemPersistence( database.foodItems() );
       
       assertThat( database.foodItems().objectList(), is( empty() ) );
       foodItemPersistence.readHandles().parse( foodItemJson );

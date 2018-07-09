@@ -2,12 +2,7 @@ package uk.dangrew.nuts.graphics.common;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -16,8 +11,6 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
 import uk.dangrew.kode.datetime.TimestampFormat;
 import uk.dangrew.kode.launch.TestApplication;
 

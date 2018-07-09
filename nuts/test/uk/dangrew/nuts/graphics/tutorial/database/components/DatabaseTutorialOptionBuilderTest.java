@@ -4,8 +4,6 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.mock;
 
 import java.util.Optional;
 
@@ -14,12 +12,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import javafx.scene.control.Button;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutorial.TutorialSelector;
-import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
-import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseTutorialOptionBuilder;
 
 public class DatabaseTutorialOptionBuilderTest {
 

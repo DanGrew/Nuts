@@ -2,9 +2,6 @@ package uk.dangrew.nuts.graphics.tutorial.database.components;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorActionBuilder;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorMessageBuilder;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutorial.TutorialGlass;

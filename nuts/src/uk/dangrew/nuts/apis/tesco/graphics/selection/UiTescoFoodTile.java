@@ -7,7 +7,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
-import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.tiles.UiFoodTileConceptTitle;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionTile;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelector;

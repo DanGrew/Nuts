@@ -13,14 +13,11 @@ import uk.dangrew.nuts.template.Template;
 
 public class UiMealFoodSelectionPane extends GridPane {
 
-   private final FoodSelectionWindowStageControls stageControls;
    private final ConceptTable< Template > table;
    private final UiFoodSelectionController controller;
    private final Template liveSelectionProperties;
    
    public UiMealFoodSelectionPane( Database database, FoodSelectionWindowStageControls stageControls ) {
-      this.stageControls = stageControls;
-      
       JavaFxStyle styling = new JavaFxStyle();
       styling.configureConstraintsForRowPercentages( this, 10, 85, 5 );
       styling.configureConstraintsForEvenColumns( this, 1 );

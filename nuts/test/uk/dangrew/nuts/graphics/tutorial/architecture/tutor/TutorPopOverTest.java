@@ -1,11 +1,9 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.tutor;
 
 import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -21,7 +19,6 @@ import com.sun.javafx.application.PlatformImpl;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorMessageBuilder;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorPopOver;

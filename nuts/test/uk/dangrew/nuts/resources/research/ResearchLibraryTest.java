@@ -3,8 +3,6 @@ package uk.dangrew.nuts.resources.research;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;

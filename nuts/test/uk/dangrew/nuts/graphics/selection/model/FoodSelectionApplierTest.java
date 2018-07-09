@@ -1,7 +1,6 @@
 package uk.dangrew.nuts.graphics.selection.model;
 
 import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;

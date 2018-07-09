@@ -56,39 +56,19 @@ class FoodItemParseModel {
       item.stockProperties().setWeighting( loggedWeight, soldInWeight );
    }//End Method
    
-   void setId( String key, String value ) {
+   void setId( String value ) {
       this.id = value;
    }//End Method
    
-   void setName( String key, String value ) {
+   void setName( String value ) {
       this.name = value;
    }//End Method
-
-   @Deprecated void setCarbohydrates( String key, Double value ) {
-      setNutritionalUnit( NutritionalUnit.Carbohydrate, value );
-   }//End Method
    
-   @Deprecated void setFats( String key, Double value ) {
-      setNutritionalUnit( NutritionalUnit.Fat, value );
-   }//End Method
-   
-   @Deprecated void setProtein( String key, Double value ) {
-      setNutritionalUnit( NutritionalUnit.Protein, value );
-   }//End Method
-   
-   @Deprecated void setCalories( String key, Double value ) {
-      setNutritionalUnit( NutritionalUnit.Calories, value );
-   }//End Method
-   
-   @Deprecated void setFiber( String key, Double value ) {
-      setNutritionalUnit( NutritionalUnit.Fibre, value );
-   }//End Method
-   
-   void setLoggedWeight( String key, Double value ) {
+   void setLoggedWeight( Double value ) {
       this.loggedWeight = value;
    }//End Method
    
-   void setSoldInWeight( String key, Double value ) {
+   void setSoldInWeight( Double value ) {
       this.soldInWeight = value;
    }//End Method
 

@@ -4,7 +4,6 @@ import com.sun.javafx.application.PlatformImpl;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionApplier;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForMealEvent;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionForTemplateEvent;

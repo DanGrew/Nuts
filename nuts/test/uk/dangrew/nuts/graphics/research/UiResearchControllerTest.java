@@ -3,7 +3,6 @@ package uk.dangrew.nuts.graphics.research;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;

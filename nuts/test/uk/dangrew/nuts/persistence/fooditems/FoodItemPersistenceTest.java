@@ -57,13 +57,13 @@ public class FoodItemPersistenceTest {
       item2.stockProperties().setWeighting( 10, 500 );
       database.foodItems().store( item2 );
       
-      FoodItemPersistence persistence = new FoodItemPersistence( database );
+      FoodItemPersistence persistence = new FoodItemPersistence( database.foodItems() );
       JSONObject json = new JSONObject();
       persistence.structure().build( json );
       persistence.writeHandles().parse( json );
       
       database = new Database();
-      persistence = new FoodItemPersistence( database );
+      persistence = new FoodItemPersistence( database.foodItems() );
       assertThat( database.foodItems().objectList(), is( empty() ) );
       
       persistence.readHandles().parse( json );

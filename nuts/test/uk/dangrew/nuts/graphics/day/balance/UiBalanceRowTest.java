@@ -2,7 +2,6 @@ package uk.dangrew.nuts.graphics.day.balance;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;

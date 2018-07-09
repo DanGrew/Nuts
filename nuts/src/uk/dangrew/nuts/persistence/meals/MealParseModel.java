@@ -9,10 +9,6 @@
 package uk.dangrew.nuts.persistence.meals;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javafx.util.Pair;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.resolution.MealPortionResolution;
 import uk.dangrew.nuts.persistence.resolution.MealResolutionSupplier;

@@ -25,9 +25,6 @@ import uk.dangrew.kode.launch.TestApplication;
 
 public class EntryDataTest {
 
-   private static final String ID = "any id";
-   private static final String NAME = "any name";
-
    @Mock private ProgressChangedListener< LocalDateTime, Double > changeListener;
    private EntryData< LocalDateTime, Double > systemUnderTest;
 

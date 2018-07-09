@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionTile;
 
 public class UiFoodSelectionTileTest {

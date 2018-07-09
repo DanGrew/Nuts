@@ -18,7 +18,6 @@ import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
-import uk.dangrew.nuts.store.Database;
 
 /**
  * {@link FoodItemPersistence} provides the architecture for reading and writing {@link uk.dangrew.nuts.food.FoodItem}s.
@@ -46,10 +45,6 @@ public class FoodItemPersistence implements ConceptPersistence {
    private final FoodItemParseModel parseModel;
    private final JsonParser parserWithWriteHandles;
    private final FoodItemWriteModel writeModel;
-   
-   @Deprecated public FoodItemPersistence( Database database ) {
-      this( database.foodItems() );
-   }//End Constructor
    
    public FoodItemPersistence( FoodItemStore store ) {
       this( new FoodItemParseModel( store ), new FoodItemWriteModel( store ) );
@@ -112,11 +107,11 @@ public class FoodItemPersistence implements ConceptPersistence {
    }//End Method
    
    private void appendDeprecatedReadHandles(){
-      parserWithReadHandles.when( CARBOHYDRATES, new DoubleParseHandle( parseModel::setCarbohydrates ) );
-      parserWithReadHandles.when( FATS, new DoubleParseHandle( parseModel::setFats ) );
-      parserWithReadHandles.when( PROTEIN, new DoubleParseHandle( parseModel::setProtein ) );
-      parserWithReadHandles.when( CALORIES, new DoubleParseHandle( parseModel::setCalories ) );
-      parserWithReadHandles.when( FIBER, new DoubleParseHandle( parseModel::setFiber ) );
+      parserWithReadHandles.when( CARBOHYDRATES, new DoubleParseHandle( v -> parseModel.setNutritionalUnit( NutritionalUnit.Carbohydrate, v ) ) );
+      parserWithReadHandles.when( FATS, new DoubleParseHandle( v -> parseModel.setNutritionalUnit( NutritionalUnit.Fat, v ) ) );
+      parserWithReadHandles.when( PROTEIN, new DoubleParseHandle( v -> parseModel.setNutritionalUnit( NutritionalUnit.Protein, v ) ) );
+      parserWithReadHandles.when( CALORIES, new DoubleParseHandle( v -> parseModel.setNutritionalUnit( NutritionalUnit.Calories, v ) ) );
+      parserWithReadHandles.when( FIBER, new DoubleParseHandle( v -> parseModel.setNutritionalUnit( NutritionalUnit.Fibre, v ) ) );
    }//End Method
    
    /**

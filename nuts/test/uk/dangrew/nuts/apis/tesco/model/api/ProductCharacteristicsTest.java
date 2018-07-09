@@ -1,9 +1,5 @@
 package uk.dangrew.nuts.apis.tesco.model.api;
 
-import static org.junit.Assert.*;
-
-import java.util.function.Supplier;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;

@@ -9,7 +9,6 @@
 package uk.dangrew.nuts.graphics.main;
 
 import javafx.scene.layout.BorderPane;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindow;
 import uk.dangrew.nuts.store.Database;
 

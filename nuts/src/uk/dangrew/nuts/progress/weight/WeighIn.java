@@ -8,8 +8,6 @@
  */
 package uk.dangrew.nuts.progress.weight;
 
-import java.time.LocalDate;
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 

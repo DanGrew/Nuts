@@ -1,7 +1,6 @@
 package uk.dangrew.nuts.graphics.goal;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.TreeSet;
 

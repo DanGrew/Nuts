@@ -87,7 +87,7 @@ public class MealPersistenceTest {
       meal3.portions().add( new FoodPortion( item3, 100.0 ) );
       database.meals().store( meal3 );
       
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
+      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database.foodItems() );
       JSONObject foodItemJson = new JSONObject();
       foodItemPersistence.structure().build( foodItemJson );
       foodItemPersistence.writeHandles().parse( foodItemJson );
@@ -100,7 +100,7 @@ public class MealPersistenceTest {
       System.out.println( mealJson );
       
       database = new Database();
-      foodItemPersistence = new FoodItemPersistence( database );
+      foodItemPersistence = new FoodItemPersistence( database.foodItems() );
       
       assertThat( database.foodItems().objectList(), is( empty() ) );
       foodItemPersistence.readHandles().parse( foodItemJson );

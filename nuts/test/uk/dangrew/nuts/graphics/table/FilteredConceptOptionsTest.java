@@ -1,11 +1,8 @@
 package uk.dangrew.nuts.graphics.table;
 
 import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
 import java.util.Arrays;
 
 import org.junit.Before;

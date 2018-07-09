@@ -35,6 +35,7 @@ public class TableViewColumnConfigurer< ConceptTypeT, DataTypeT > implements Tab
       this.table.getColumns().add( column );
    }//End Constructor
    
+   @SuppressWarnings("unchecked") //responsibility of caller to test and verify 
    private < S, T > TableColumn< S, T > refine() {
       return ( TableColumn< S, T > ) column;
    }//End Method

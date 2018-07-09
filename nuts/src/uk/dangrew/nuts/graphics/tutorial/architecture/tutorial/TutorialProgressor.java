@@ -1,6 +1,5 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.tutorial;
 
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

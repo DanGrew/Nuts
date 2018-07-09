@@ -28,6 +28,7 @@ public class TreeTableColumnConfigurer< ConceptTypeT, DataTypeT, RowTypeT extend
       this.table.getColumns().add( column );
    }//End Constructor
    
+   @SuppressWarnings("unchecked") //responsibility of caller to test and verify 
    private < S, T > TreeTableColumn< S, T > refine() {
       return ( TreeTableColumn< S, T > ) column;
    }//End Method

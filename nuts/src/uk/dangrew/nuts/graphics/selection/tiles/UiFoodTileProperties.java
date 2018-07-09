@@ -119,8 +119,9 @@ public class UiFoodTileProperties extends GridPane {
             return fatsValue;
          case Protein:
             return proteinValue;
+         default:
+            return null;
       }
-      return null;
    }//End Method
 
    Label ratioLabelFor( NutritionalUnit macro ) {
@@ -131,8 +132,9 @@ public class UiFoodTileProperties extends GridPane {
             return fatsRatio;
          case Protein:
             return proteinRatio;
+         default:
+            return null;
       }
-      return null;
    }//End Method
 
    Labeled calorieValueLabel() {

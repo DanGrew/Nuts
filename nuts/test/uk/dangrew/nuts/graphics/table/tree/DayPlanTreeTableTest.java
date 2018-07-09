@@ -2,7 +2,6 @@ package uk.dangrew.nuts.graphics.table.tree;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyBoolean;
 import static org.mockito.Matchers.anyDouble;
@@ -20,7 +19,6 @@ import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.day.DayPlan;
-import uk.dangrew.nuts.day.DayPlanController;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindow;

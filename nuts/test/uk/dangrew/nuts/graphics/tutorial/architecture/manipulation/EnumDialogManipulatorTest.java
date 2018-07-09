@@ -2,20 +2,12 @@ package uk.dangrew.nuts.graphics.tutorial.architecture.manipulation;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
-
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.sun.javafx.application.PlatformImpl;
 
-import javafx.event.Event;
-import javafx.event.EventType;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.database.FoodTypes;

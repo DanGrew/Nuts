@@ -2,7 +2,6 @@ package uk.dangrew.nuts.graphics.selection.tiles;
 
 import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.FoodPortion;

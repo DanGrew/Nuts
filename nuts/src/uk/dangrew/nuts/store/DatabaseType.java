@@ -20,6 +20,7 @@ public enum DatabaseType {
       this.conceptRedirect = conceptRedirect;
    }//End Constructor
    
+   @SuppressWarnings("unchecked") //responsibility of caller to test and verify 
    public < ConceptT > ConceptStore< ConceptT > redirect( Database database ) {
       return ( ConceptStore< ConceptT > )conceptRedirect.apply( database );
    }//End Method

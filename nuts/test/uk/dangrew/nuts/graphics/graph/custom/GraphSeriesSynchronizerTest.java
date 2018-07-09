@@ -7,8 +7,6 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
@@ -17,7 +15,6 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import javafx.scene.control.Tooltip;
-import uk.dangrew.kode.TestCommon;
 import uk.dangrew.kode.launch.TestApplication;
 
 public class GraphSeriesSynchronizerTest {

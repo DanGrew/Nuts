@@ -2,8 +2,6 @@ package uk.dangrew.nuts.graphics.tutorial.architecture.tutor;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;

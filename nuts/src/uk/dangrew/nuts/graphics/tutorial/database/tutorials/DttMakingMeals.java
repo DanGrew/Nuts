@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.controlsfx.control.PopOver.ArrowLocation;
 
-import javafx.event.Event;
 import uk.dangrew.kode.javafx.style.TextFlowBuilder;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;

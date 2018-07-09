@@ -1,6 +1,5 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.tutorial;
 
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;

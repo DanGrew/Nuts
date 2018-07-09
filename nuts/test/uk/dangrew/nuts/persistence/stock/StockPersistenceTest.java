@@ -59,7 +59,7 @@ public class StockPersistenceTest {
       stock.portions().add( new FoodPortion( item3, 50.0 ) );
       database.stockLists().store( stock );
       
-      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database );
+      FoodItemPersistence foodItemPersistence = new FoodItemPersistence( database.foodItems() );
       JSONObject foodItemJson = new JSONObject();
       foodItemPersistence.structure().build( foodItemJson );
       foodItemPersistence.writeHandles().parse( foodItemJson );
@@ -72,7 +72,7 @@ public class StockPersistenceTest {
       System.out.println( stockJson );
       
       database = new Database();
-      foodItemPersistence = new FoodItemPersistence( database );
+      foodItemPersistence = new FoodItemPersistence( database.foodItems() );
       
       assertThat( database.foodItems().objectList(), is( empty() ) );
       foodItemPersistence.readHandles().parse( foodItemJson );

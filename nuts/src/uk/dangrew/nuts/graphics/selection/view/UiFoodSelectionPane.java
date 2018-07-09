@@ -10,7 +10,6 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 public class UiFoodSelectionPane extends BorderPane implements SelectionPane {
 
    private final int columns;
-   private final int rows;
    private final ScrollPane scrollPane;
    private final GridPane grid;
    
@@ -20,7 +19,6 @@ public class UiFoodSelectionPane extends BorderPane implements SelectionPane {
       
    public UiFoodSelectionPane( int columns, int rows ) {
       this.columns = columns;
-      this.rows = rows;
       JavaFxStyle styling = new JavaFxStyle();
       
       this.grid = new GridPane();

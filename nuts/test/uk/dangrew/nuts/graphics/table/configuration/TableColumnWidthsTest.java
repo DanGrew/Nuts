@@ -2,14 +2,11 @@ package uk.dangrew.nuts.graphics.table.configuration;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class TableColumnWidthsTest {

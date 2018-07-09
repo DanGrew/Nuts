@@ -167,22 +167,6 @@ class CalorieGoalParseModel {
       this.fatPerPound = value;
    }//End Method
    
-   @Deprecated void setCalorieGoal( Double value ) {
-      this.nutritionalUnitGoals.put( NutritionalUnit.Calories, value );
-   }//End Method
-   
-   @Deprecated void setCarbohydratesGoal( Double value ) {
-      this.nutritionalUnitGoals.put( NutritionalUnit.Carbohydrate, value );
-   }//End Method
-   
-   @Deprecated void setFatsGoal( Double value ) {
-      this.nutritionalUnitGoals.put( NutritionalUnit.Fat, value );
-   }//End Method
-   
-   @Deprecated void setProteinGoal( Double value ) {
-      this.nutritionalUnitGoals.put( NutritionalUnit.Protein, value );
-   }//End Method
-   
    void setNutritionalUnitGoal( NutritionalUnit unit, Double value ) {
       this.nutritionalUnitGoals.put( unit, value );
    }//End Method

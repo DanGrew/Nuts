@@ -3,8 +3,6 @@ package uk.dangrew.nuts.graphics.progress.custom;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
 import java.time.LocalDateTime;
 
 import org.junit.Before;

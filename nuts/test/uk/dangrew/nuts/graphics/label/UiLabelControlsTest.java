@@ -1,6 +1,5 @@
 package uk.dangrew.nuts.graphics.label;
 
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;

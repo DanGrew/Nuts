@@ -147,10 +147,10 @@ public class CalorieGoalPersistence implements ConceptPersistence {
    }//End Method
    
    private void appendDeprecatedReadHandles(){
-      parserWithReadHandles.when( CALORIE_GOAL, new DoubleParseHandle( parseModel::setCalorieGoal ) );
-      parserWithReadHandles.when( CARB_GOAL, new DoubleParseHandle( parseModel::setCarbohydratesGoal ) );
-      parserWithReadHandles.when( FAT_GOAL, new DoubleParseHandle( parseModel::setFatsGoal ) );
-      parserWithReadHandles.when( PROTEIN_GOAL, new DoubleParseHandle( parseModel::setProteinGoal ) );
+      parserWithReadHandles.when( CALORIE_GOAL, new DoubleParseHandle( v -> parseModel.setNutritionalUnitGoal( NutritionalUnit.Calories, v ) ) );
+      parserWithReadHandles.when( CARB_GOAL, new DoubleParseHandle( v -> parseModel.setNutritionalUnitGoal( NutritionalUnit.Carbohydrate, v ) ) );
+      parserWithReadHandles.when( FAT_GOAL, new DoubleParseHandle( v -> parseModel.setNutritionalUnitGoal( NutritionalUnit.Fat, v ) ) );
+      parserWithReadHandles.when( PROTEIN_GOAL, new DoubleParseHandle( v -> parseModel.setNutritionalUnitGoal( NutritionalUnit.Protein, v ) ) );
    }//End Method
    
    /**

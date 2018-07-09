@@ -3,9 +3,6 @@ package uk.dangrew.nuts.graphics.common;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.Matchers.startsWith;
-
 import java.time.LocalDateTime;
 
 import org.junit.Before;

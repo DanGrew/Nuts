@@ -11,7 +11,6 @@ package uk.dangrew.nuts.graphics.goal;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.table.ConceptControls;

@@ -32,7 +32,6 @@ import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnConfigurer;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;
-import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.system.Concept;
