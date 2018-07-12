@@ -108,7 +108,7 @@ public class ProportionGoalView extends VBox {
    
    private void createSimpleWeightGoals(){
       List< PropertyRowBuilder > builders = new ArrayList<>();
-      TreeSet< NutritionalUnit > orderedUnits = new TreeSet<>( ( a, b ) -> a.name().compareToIgnoreCase( b.name() ) );
+      TreeSet< NutritionalUnit > orderedUnits = new TreeSet<>( ( a, b ) -> a.displayName().compareToIgnoreCase( b.displayName() ) );
       orderedUnits.addAll( ProportionGoal.weightedGoalUnits() );
       
       for ( NutritionalUnit unit : orderedUnits ) {

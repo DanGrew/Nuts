@@ -28,12 +28,12 @@ public class NutritionalUnitShowingSettingsPane extends GridPane {
       new JavaFxStyle().configureConstraintsForEvenColumns( this, 1 );
       
       List< PropertyRowBuilder > builders = new ArrayList<>();
-      TreeSet< NutritionalUnit > orderedUnits = new TreeSet<>( ( a, b ) -> a.name().compareToIgnoreCase( b.name() ) );
+      TreeSet< NutritionalUnit > orderedUnits = new TreeSet<>( ( a, b ) -> a.displayName().compareToIgnoreCase( b.displayName() ) );
       orderedUnits.addAll( Arrays.asList( NutritionalUnit.values() ) );
       
       for ( NutritionalUnit unit : orderedUnits ) {
          builders.add( new PropertyRowBuilder()
-            .withLabelName( unit.displayName() )
+            .withLabelName( unit.descriptiveName() )
             .withBinding( checkBoxBinding( settings.showingPropertyFor( unit ) ) )
          );
       }

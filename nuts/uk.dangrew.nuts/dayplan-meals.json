@@ -11792,7 +11792,7 @@
          },
          {
             "foodId": "7f463b66-987c-4524-85e0-f973dcc9c427",
-            "portionValue": 100
+            "portionValue": 150
          },
          {
             "foodId": "0ef64b12-6d49-441e-b6cd-e32dfb837e64",
@@ -11823,6 +11823,154 @@
       "id": "50099826-8d9e-41d1-83f3-cae563b3f2df",
       "portions": [{
          "foodId": "8e7bb50c-e764-4afa-9cae-3ab14133f0c0",
+         "portionValue": 300
+      }]
+   },
+   {
+      "name": "Peanut Butter Pancake with Base",
+      "id": "3797a53d-5ccd-4323-88a9-a539b2eadd6b",
+      "portions": [
+         {
+            "foodId": "03d07e17-720b-4455-87d8-75a34e952275",
+            "portionValue": 200
+         },
+         {
+            "foodId": "f24a217b-7d36-40c5-81f8-669a33633478",
+            "portionValue": 100
+         },
+         {
+            "foodId": "25374534-fdb8-4785-92f9-a5e4848aaba5",
+            "portionValue": 33
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter (Homemade) (300g)",
+      "id": "25374534-fdb8-4785-92f9-a5e4848aaba5",
+      "portions": [
+         {
+            "foodId": "4822563f-c8ee-49d9-935a-ca854681f33e",
+            "portionValue": 300
+         },
+         {
+            "foodId": "8bba336d-91f0-4a97-9872-a75d20f703e3",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "23be9f44-688b-4d39-a6b4-e289df04d3c9",
+      "portions": [
+         {
+            "foodId": "fb5d1239-308c-40cf-aeee-a40029655653",
+            "portionValue": 100
+         },
+         {
+            "foodId": "8d2d2acf-b9ff-4b9b-a3b8-9d3487066863",
+            "portionValue": 200
+         },
+         {
+            "foodId": "bfa538a9-6fff-4d4c-8e7a-bc1004677cb7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "835a3b3d-87aa-4a44-b599-7823d0ef7178",
+            "portionValue": 125
+         },
+         {
+            "foodId": "619079c2-bda7-4c6b-af31-1d21ae5b1e5b",
+            "portionValue": 100
+         },
+         {
+            "foodId": "93d32e5b-a75d-462f-b4e2-8c2f4e1a6a7f",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Walnut Flax Cookies",
+      "id": "b0afcbed-7d97-4141-9e46-baef754c91e6",
+      "portions": [
+         {
+            "foodId": "ab559c65-2b06-4eb1-9201-3b3c681e3d9d",
+            "portionValue": 33
+         },
+         {
+            "foodId": "bae49b94-0618-48e1-a2e8-2392ca86735d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "a5c8b930-0270-4e41-a4d0-93a28add2519",
+            "portionValue": 0
+         },
+         {
+            "foodId": "f4c15668-353b-4faa-b4b7-4977d6c68e9d",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Walnut Butter (300g) (homemade - w/ oil)",
+      "id": "ab559c65-2b06-4eb1-9201-3b3c681e3d9d",
+      "portions": [{
+         "foodId": "85427a66-c384-401e-b25f-77cb9f36c76d",
+         "portionValue": 300
+      }]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "c0395d59-e482-4f3f-8464-b5651512ba6d",
+      "portions": [
+         {
+            "foodId": "9b158a3c-a4fd-4b20-bca6-64e9004da44d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "46663b46-6860-4dfc-923a-8d23f958d86d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "aac58ce4-0ad9-42c1-be95-975c49f4c77d",
+            "portionValue": 200
+         },
+         {
+            "foodId": "ed3f8c42-6132-428b-abfa-eb1c9e825726",
+            "portionValue": 125
+         },
+         {
+            "foodId": "34bf151a-97dc-495d-8f4c-db4dc0d89434",
+            "portionValue": 0
+         },
+         {
+            "foodId": "dd296851-6a62-46dc-a206-75939a31fcb4",
+            "portionValue": 250
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter Pancake",
+      "id": "f3070ca1-270f-4a68-91d9-386e686598ae",
+      "portions": [
+         {
+            "foodId": "8dfc65fc-72c0-4d32-8c5e-2dc46debf662",
+            "portionValue": 300
+         },
+         {
+            "foodId": "574e1d5a-893b-461e-bc41-563bff0f9070",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2877b166-8516-4ed2-9833-a7ca128c487d",
+            "portionValue": 33
+         }
+      ]
+   },
+   {
+      "name": "Walnut Butter (300g) (homemade)",
+      "id": "2877b166-8516-4ed2-9833-a7ca128c487d",
+      "portions": [{
+         "foodId": "5e99239a-6431-4bb7-a9a1-371a1554dec2",
          "portionValue": 300
       }]
    }

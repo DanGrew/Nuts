@@ -80,7 +80,7 @@ public class FoodTableColumns< FoodTypeT extends Food > implements ConceptTableC
                () -> new TableViewColumnConfigurer< FoodTypeT, String >( table ),
                widths,
                Food::nutrition,
-               NutritionalUnit::name,
+               NutritionalUnit::displayName,
                true,
                settings
       );

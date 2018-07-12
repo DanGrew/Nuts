@@ -100,7 +100,7 @@ public class CalorieGoalView extends VBox {
       ) );
       
       List< PropertyRowBuilder > builders = new ArrayList<>();
-      TreeSet< NutritionalUnit > orderedUnits = new TreeSet<>( ( a, b ) -> a.name().compareToIgnoreCase( b.name() ) );
+      TreeSet< NutritionalUnit > orderedUnits = new TreeSet<>( ( a, b ) -> a.displayName().compareToIgnoreCase( b.displayName() ) );
       orderedUnits.addAll( Arrays.asList( NutritionalUnit.values() ) );
       
       //these are covered by the calorie calculations

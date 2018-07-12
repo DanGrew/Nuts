@@ -69,7 +69,7 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
                () -> new TableViewColumnConfigurer<>( table() ),
                tableWidths(),
                Food::nutrition, 
-               NutritionalUnit::name, 
+               NutritionalUnit::displayName, 
                false,
                settings()
                

@@ -28,8 +28,9 @@ public enum NutritionalUnit {
    Niacin( "Niacin (B3)" ),
    FolicAcid( "Folic Acid (B9)" ),
    Iron,
-   Omega3
+   Omega3,
    
+   MonetaryValue( "Cost", "Monetary value for portion" )
    ;
 
    private static final Collection< NutritionalUnit > macros = Arrays.asList( Carbohydrate, Fat, Protein );
@@ -39,17 +40,31 @@ public enum NutritionalUnit {
    }//End Method
    
    private final String displayName;
+   private final String description;
    
    private NutritionalUnit() {
       this.displayName = name();
+      this.description = null;
+   }//End Constructor
+
+   private NutritionalUnit( String displayName ) {
+      this( displayName, null );
    }//End Constructor
    
-   private NutritionalUnit( String displayName ) {
+   private NutritionalUnit( String displayName, String description ) {
       this.displayName = displayName;
+      this.description = description;
    }//End Constructor
    
    public String displayName(){
       return displayName;
+   }//End Method
+   
+   public String descriptiveName() {
+      if ( description == null ) {
+         return displayName();
+      }
+      return displayName + " (" + description + ")";
    }//End Method
    
    public OptionalNutritionalUnit of( Food food ) {
