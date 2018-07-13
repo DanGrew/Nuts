@@ -12,6 +12,7 @@
    "folicacid": false,
    "sodium": false,
    "saturatedfat": false,
+   "monetaryvalue": false,
    "protein": true,
    "fat": true,
    "iron": false,

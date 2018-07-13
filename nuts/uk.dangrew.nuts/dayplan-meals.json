@@ -11928,7 +11928,7 @@
          },
          {
             "foodId": "46663b46-6860-4dfc-923a-8d23f958d86d",
-            "portionValue": 100
+            "portionValue": 150
          },
          {
             "foodId": "aac58ce4-0ad9-42c1-be95-975c49f4c77d",
@@ -11973,5 +11973,95 @@
          "foodId": "5e99239a-6431-4bb7-a9a1-371a1554dec2",
          "portionValue": 300
       }]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "751902f7-fc1b-41b6-9187-f9d36758c3da",
+      "portions": [
+         {
+            "foodId": "67fda87b-e6b7-42b1-872c-38e33a03a286",
+            "portionValue": 100
+         },
+         {
+            "foodId": "a71d9ffb-6ec3-450f-b902-4b2cf64ad855",
+            "portionValue": 100
+         },
+         {
+            "foodId": "caa737ce-46ae-4ba8-a056-2e1b203533cb",
+            "portionValue": 200
+         },
+         {
+            "foodId": "f89f345c-3830-418b-864e-f1c57e1034a4",
+            "portionValue": 125
+         },
+         {
+            "foodId": "96ae45fc-eb4d-4772-9b5b-ab1698d46a94",
+            "portionValue": 0
+         },
+         {
+            "foodId": "54ff3070-3489-47bd-866d-710f407457b7",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter Pancake",
+      "id": "0a4d9355-9360-43f7-9d8b-c9594cee734d",
+      "portions": [
+         {
+            "foodId": "1d887d4d-a30f-4cef-815e-a282416aaf45",
+            "portionValue": 300
+         },
+         {
+            "foodId": "2465b83f-db88-468d-8f5e-8316de11f819",
+            "portionValue": 100
+         },
+         {
+            "foodId": "96ff600e-f295-488b-8d14-8c46c5c9185e",
+            "portionValue": 33
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter (Homemade) (300g)",
+      "id": "96ff600e-f295-488b-8d14-8c46c5c9185e",
+      "portions": [{
+         "foodId": "ae9b1df5-89d6-4ced-914c-3295ea2b4b23",
+         "portionValue": 300
+      }]
+   },
+   {
+      "name": "Cheesecake (OMAD)",
+      "id": "19fa39c2-f872-4980-b2fa-dea4ad212021",
+      "portions": [
+         {
+            "foodId": "18261f9d-d16c-492f-87f4-e11828760a9b",
+            "portionValue": 200
+         },
+         {
+            "foodId": "f2ed11a9-a3c4-41f8-9eda-088121cc0586",
+            "portionValue": 300
+         },
+         {
+            "foodId": "68b6216b-df93-4862-a156-54982f8888ae",
+            "portionValue": 50
+         },
+         {
+            "foodId": "cfc54700-43b5-4e05-9ac7-51b9df2d628a",
+            "portionValue": 100
+         },
+         {
+            "foodId": "481b6618-d359-4c47-97cf-631b51f26514",
+            "portionValue": 15
+         },
+         {
+            "foodId": "0abdc13b-6fd0-4a2d-aeaf-2a3ab74db852",
+            "portionValue": 0
+         },
+         {
+            "foodId": "f51cbfc3-3eaa-4cdf-90c8-b5ccf6ae9c91",
+            "portionValue": 100
+         }
+      ]
    }
 ]}

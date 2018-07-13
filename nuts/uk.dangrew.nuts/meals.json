@@ -1,1223 +1,11 @@
 {"meals": [
    {
-      "name": "Belvita Breakfast",
-      "id": "f39000c1-249f-45f9-80c4-a645e6753b19",
-      "portions": [
-         {
-            "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
-            "portionValue": 200
-         },
-         {
-            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Soya Mince Ratatouille",
-      "id": "8905237a-b3eb-4c1a-aed0-8182ea8218f7",
-      "portions": [
-         {
-            "foodId": "204990f0-6bc8-4de7-8e40-1335a59b8a95",
-            "portionValue": 50
-         },
-         {
-            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
-            "portionValue": 66
-         },
-         {
-            "foodId": "daf5df70-0946-4d16-aacd-f11d8620205e",
-            "portionValue": 100
-         },
-         {
-            "foodId": "02ce99af-2cb8-492d-a11c-6bdbc081194c",
-            "portionValue": 80
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 100
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 100
-         },
-         {
-            "foodId": "44bd1712-53c2-4b4f-bea9-bb762cc87ee8",
-            "portionValue": 66
-         },
-         {
-            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 50
-         },
-         {
-            "foodId": "8f76b1b3-8601-456b-a8ae-9e4552263da8",
-            "portionValue": 80
-         }
-      ]
-   },
-   {
-      "name": "Egg Breakfast",
-      "id": "8ecc2bc1-a158-43eb-a220-2d6389a44d35",
-      "portions": [
-         {
-            "foodId": "be66258a-d0ff-4e54-a13a-e6069c333a2a",
-            "portionValue": 200
-         },
-         {
-            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
-            "portionValue": 200
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
-            "portionValue": 30
-         }
-      ]
-   },
-   {
-      "name": "Salmon & Rice",
-      "id": "0532306a-611b-4826-aa8f-c0f7da02c04e",
-      "portions": [
-         {
-            "foodId": "30531235-26c5-4a22-bccd-27315ccc741e",
-            "portionValue": 100
-         },
-         {
-            "foodId": "382133bb-eba1-4692-a25e-aea25ee534c1",
-            "portionValue": 100
-         },
-         {
-            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
-            "portionValue": 200
-         },
-         {
-            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Chicken Tikka",
-      "id": "71376593-3eb5-4095-8009-9e88a8ff6da0",
-      "portions": [
-         {
-            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
-            "portionValue": 220
-         },
-         {
-            "foodId": "da0203e0-1deb-4a5f-9d7c-6d40a1cb393c",
-            "portionValue": 100
-         },
-         {
-            "foodId": "ad55dc72-8a36-481a-b13e-c9e8296e3a0a",
-            "portionValue": 250
-         },
-         {
-            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 0
-         }
-      ]
-   },
-   {
-      "name": "Chicken Wraps",
-      "id": "0fbd2b8f-1e43-4f13-a705-6e5b09cd6a2a",
-      "portions": [
-         {
-            "foodId": "2b897bd8-0502-4b9b-a706-5a6b600a8cae",
-            "portionValue": 200
-         },
-         {
-            "foodId": "c53eaf9a-94de-404c-9720-e194a242f16f",
-            "portionValue": 200
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 100
-         },
-         {
-            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 200
-         },
-         {
-            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
-            "portionValue": 100
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 100
-         },
-         {
-            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
-            "portionValue": 0
-         },
-         {
-            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-            "portionValue": 100
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Spag Bol",
-      "id": "36d03f4e-7aeb-46b9-8bf8-2052ffe79e2d",
-      "portions": [
-         {
-            "foodId": "93f37599-8bf0-4cc0-8f59-28aec3db3a2e",
-            "portionValue": 100
-         },
-         {
-            "foodId": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
-            "portionValue": 150
-         },
-         {
-            "foodId": "f701d927-96bd-46b6-a9db-90259104f192",
-            "portionValue": 250
-         }
-      ]
-   },
-   {
-      "name": "Chicken Omelete (Low Fat)",
-      "id": "cd557551-5583-4e26-9fc1-d1f52dad5d8c",
-      "portions": [
-         {
-            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
-            "portionValue": 220
-         },
-         {
-            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
-            "portionValue": 400
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 20
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 20
-         },
-         {
-            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 20
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Turkey Burger Meal",
-      "id": "deb143d1-62fe-4efe-821b-a3ea480d4551",
-      "portions": [
-         {
-            "foodId": "62ea16cc-e207-4383-a026-6957007cd5da",
-            "portionValue": 200
-         },
-         {
-            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
-            "portionValue": 300
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Fish Cakes",
-      "id": "9e8bd6d5-b3c4-4260-8dd8-89ec96b844a7",
-      "portions": [
-         {
-            "foodId": "2fc47522-538f-4c44-943e-63866257d267",
-            "portionValue": 200
-         },
-         {
-            "foodId": "ab28e4a3-cd1a-41c5-93bb-ce8c105d20c7",
-            "portionValue": 0
-         },
-         {
-            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
-            "portionValue": 300
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Breakfast Omelette",
-      "id": "83c6ff8c-23b4-4f6e-bb47-0fce889caf3f",
-      "portions": [
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 100
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 100
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 20
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 20
-         },
-         {
-            "foodId": "de3c984c-f742-4cf7-98fd-501e40fa2291",
-            "portionValue": 200
-         },
-         {
-            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Chicken Curry",
-      "id": "72a855d5-e86e-4706-b395-aff67323747d",
-      "portions": [
-         {
-            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
-            "portionValue": 220
-         },
-         {
-            "foodId": "0315ab9b-6d5c-4de9-a27f-a6c6242abb79",
-            "portionValue": 250
-         },
-         {
-            "foodId": "382133bb-eba1-4692-a25e-aea25ee534c1",
-            "portionValue": 100
-         },
-         {
-            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Chicken Omelette",
-      "id": "36000569-3640-498a-8911-7abb877c6c89",
-      "portions": [
-         {
-            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
-            "portionValue": 220
-         },
-         {
-            "foodId": "de3c984c-f742-4cf7-98fd-501e40fa2291",
-            "portionValue": 400
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 25
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 25
-         },
-         {
-            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 30
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 50
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Chicken Korma",
-      "id": "0416f52a-bb2e-42e1-b95f-f9022cdc634d",
-      "portions": [
-         {
-            "foodId": "f494f86e-1ff8-4d49-8c91-f933e57f2e31",
-            "portionValue": 220
-         },
-         {
-            "foodId": "f6e0b1fa-354f-40d9-be1c-270c011a306c",
-            "portionValue": 200
-         },
-         {
-            "foodId": "da0203e0-1deb-4a5f-9d7c-6d40a1cb393c",
-            "portionValue": 100
-         },
-         {
-            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 0
-         },
-         {
-            "foodId": "128c5c55-7d83-46dc-a89e-3f22f0adfe50",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Whey Shake (Simple)",
-      "id": "33f14c3a-9c54-4cd5-8760-cb137a9b3c84",
-      "portions": [
-         {
-            "foodId": "98d49c0f-f691-4844-a2ed-88dffb7197d0",
-            "portionValue": 100
-         },
-         {
-            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Gnocchi & Eggs",
-      "id": "9632f3e8-7f9d-428a-bece-c44c776add48",
-      "portions": [
-         {
-            "foodId": "2c1c545a-c10e-485b-9918-f98f5dc69015",
-            "portionValue": 200
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 300
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 50
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 50
-         },
-         {
-            "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
-            "portionValue": 0
-         },
-         {
-            "foodId": "a555cb46-6962-4bea-b408-173862dc6427",
-            "portionValue": 0
-         }
-      ]
-   },
-   {
-      "name": "Omelette Plain",
-      "id": "1c4bd566-b8fa-4e2a-ba77-ae6b712e0e77",
-      "portions": [
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 300
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 50
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 50
-         },
-         {
-            "foodId": "a555cb46-6962-4bea-b408-173862dc6427",
-            "portionValue": 100
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 0
-         },
-         {
-            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
-            "portionValue": 0
-         },
-         {
-            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
-            "portionValue": 0
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 0
-         }
-      ]
-   },
-   {
-      "name": "Mince Bolognaise",
-      "id": "1ed2364a-946f-465b-b4b7-99466f143adb",
-      "portions": [
-         {
-            "foodId": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
-            "portionValue": 150
-         },
-         {
-            "foodId": "f701d927-96bd-46b6-a9db-90259104f192",
-            "portionValue": 250
-         },
-         {
-            "foodId": "ca71c78d-958e-490a-b184-971223817dfa",
-            "portionValue": 0
-         },
-         {
-            "foodId": "8f76b1b3-8601-456b-a8ae-9e4552263da8",
-            "portionValue": 0
-         },
-         {
-            "foodId": "02ce99af-2cb8-492d-a11c-6bdbc081194c",
-            "portionValue": 0
-         },
-         {
-            "foodId": "497b2962-7225-4448-9e44-ef9dd9e50134",
-            "portionValue": 0
-         },
-         {
-            "foodId": "44bd1712-53c2-4b4f-bea9-bb762cc87ee8",
-            "portionValue": 0
-         },
-         {
-            "foodId": "47277f97-b2f8-44ee-bb76-a890bd7a4bda",
-            "portionValue": 0
-         },
-         {
-            "foodId": "47697f0f-8d00-4bf8-a196-6216ad44b938",
-            "portionValue": 0
-         },
-         {
-            "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
-            "portionValue": 0
-         },
-         {
-            "foodId": "b6fbfa6e-dd62-4e4d-b06b-72e00f754028",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7c8ddcdd-e6ea-49fd-8320-1cd0a81ce100",
-            "portionValue": 0
-         },
-         {
-            "foodId": "c600d153-94a5-4d89-a874-7d7e133e88dd",
-            "portionValue": 0
-         },
-         {
-            "foodId": "44bd1712-53c2-4b4f-bea9-bb762cc87ee8",
-            "portionValue": 0
-         },
-         {
-            "foodId": "fb4b766a-baae-448f-9892-f15fd010ce9a",
-            "portionValue": 0
-         },
-         {
-            "foodId": "7635391d-3975-47cf-921e-5edd06c220d0",
-            "portionValue": 0
-         },
-         {
-            "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
-            "portionValue": 0
-         },
-         {
-            "foodId": "2b4cc1cc-1e50-4876-abaa-98909137a4ec",
-            "portionValue": 0
-         },
-         {
-            "foodId": "e7716114-4adf-4770-b638-315ca8f9fc6a",
-            "portionValue": 120
-         },
-         {
-            "foodId": "bb36c4e8-8a75-4763-a25e-1461bd51f228",
-            "portionValue": 120
-         }
-      ]
-   },
-   {
-      "name": "Tuna Jacket",
-      "id": "ccbc57d3-adcb-4e1c-9dbf-96be520dd9b7",
-      "portions": [
-         {
-            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
-            "portionValue": 400
-         },
-         {
-            "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
-            "portionValue": 200
-         },
-         {
-            "foodId": "58680bd8-1ce4-437c-8b57-02b5547856ff",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Tuna Omelette",
-      "id": "f758bba2-eabb-4a25-93fc-bf6897dc1576",
-      "portions": [
-         {
-            "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
-            "portionValue": 100
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 400
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 50
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 50
-         },
-         {
-            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
-            "portionValue": 0
-         },
-         {
-            "foodId": "5d4eb56d-2247-4887-918c-aacb572f0431",
-            "portionValue": 0
-         },
-         {
-            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
-            "portionValue": 40
-         }
-      ]
-   },
-   {
-      "name": "Chicken Nugget Meal",
-      "id": "34094c45-862e-4f3d-ae00-40de2f2e9c50",
-      "portions": [
-         {
-            "foodId": "093c4cce-e195-408b-85af-909a250c7625",
-            "portionValue": 400
-         },
-         {
-            "foodId": "aa9e464f-79f6-4cb4-ba7f-c39b3cbc36b2",
-            "portionValue": 300
-         },
-         {
-            "foodId": "fc9142f2-7e9a-4c4d-8a84-67ef136a510b",
-            "portionValue": 66
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Meatball Meal",
-      "id": "96b2ff99-a40b-4bfa-b0be-31fec6bfa71a",
-      "portions": [
-         {
-            "foodId": "95163ca8-8ee0-45d9-9234-311610c02d78",
-            "portionValue": 200
-         },
-         {
-            "foodId": "93f37599-8bf0-4cc0-8f59-28aec3db3a2e",
-            "portionValue": 100
-         },
-         {
-            "foodId": "f701d927-96bd-46b6-a9db-90259104f192",
-            "portionValue": 250
-         },
-         {
-            "foodId": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
-            "portionValue": 150
-         }
-      ]
-   },
-   {
-      "name": "Salad",
-      "id": "ecb58e83-6187-4fad-838b-43f0c552a772",
-      "portions": [
-         {
-            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
-            "portionValue": 100
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 100
-         },
-         {
-            "foodId": "25537031-a23f-421b-b991-f80104811537",
-            "portionValue": 100
-         },
-         {
-            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-            "portionValue": 100
-         },
-         {
-            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
-            "portionValue": 100
-         },
-         {
-            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
-            "portionValue": 0
-         },
-         {
-            "foodId": "4f4c7ca1-4804-4823-b778-150f76e9dc0d",
-            "portionValue": 0
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 100
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 0
-         }
-      ]
-   },
-   {
-      "name": "Tuna & Soya",
-      "id": "42572c74-fe0a-4b10-8ed2-b0f47f564527",
-      "portions": [
-         {
-            "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
-            "portionValue": 100
-         },
-         {
-            "foodId": "204990f0-6bc8-4de7-8e40-1335a59b8a95",
-            "portionValue": 50
-         },
-         {
-            "foodId": "bfde2715-8e4c-4bc8-8a76-c81927313538",
-            "portionValue": 200
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 100
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Sausage & Mash",
-      "id": "7e6f6482-49fb-4c8e-8779-bb7d886c5e72",
-      "portions": [
-         {
-            "foodId": "17ab1ee6-7fb4-4e80-a388-c1afc135c311",
-            "portionValue": 200
-         },
-         {
-            "foodId": "4fbf7124-fb94-455e-86e8-9eaa836ab1f3",
-            "portionValue": 100
-         },
-         {
-            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Jacket Potato",
-      "id": "785d916e-b61c-4d76-909f-1fda2b15ef1a",
-      "portions": [
-         {
-            "foodId": "60f2a615-ba1e-4b5e-b009-16d0d4089642",
-            "portionValue": 400
-         },
-         {
-            "foodId": "c53eaf9a-94de-404c-9720-e194a242f16f",
-            "portionValue": 200
-         },
-         {
-            "foodId": "4000035b-0c20-471a-9153-76aeb6d26eda",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Something and Veg",
-      "id": "75ca936a-04c3-4ae8-8b24-e3147e6a2068",
-      "portions": [
-         {
-            "foodId": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
-            "portionValue": 200
-         },
-         {
-            "foodId": "ab5462a4-3ee0-4ced-a9bf-247ce7b54ef3",
-            "portionValue": 100
-         },
-         {
-            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 300
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
       "name": "Quorn Bbg & Nuggets",
       "id": "c2a1fde9-cd81-4b4f-bfe6-87f784166d79",
-      "portions": [
-         {
-            "foodId": "ad810e1c-b0ce-4ad9-a4ed-1b2360b51210",
-            "portionValue": 140
-         },
-         {
-            "foodId": "b5feba83-d6c8-46ed-893b-4d9edb0b5ee4",
-            "portionValue": 200
-         },
-         {
-            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 300
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Belvita 4-Pack",
-      "id": "a5977ab7-7ed6-4699-b62e-6d22f3ee15e7",
       "portions": [{
-         "foodId": "c845cc3c-68e2-45b1-9b29-ed72e71216fc",
-         "portionValue": 400
+         "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
+         "portionValue": 300
       }]
-   },
-   {
-      "name": "Belvita Duo Pack",
-      "id": "ffcf6c10-dd14-47b5-962a-df61ab677f16",
-      "portions": [{
-         "foodId": "954d3372-5fd0-49c4-9bb8-94fe8a70dc33",
-         "portionValue": 200
-      }]
-   },
-   {
-      "name": "Tuna & Soya Clean",
-      "id": "76e3cab8-568a-4f41-b3ac-67021cab3293",
-      "portions": [
-         {
-            "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
-            "portionValue": 100
-         },
-         {
-            "foodId": "204990f0-6bc8-4de7-8e40-1335a59b8a95",
-            "portionValue": 0
-         },
-         {
-            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
-            "portionValue": 400
-         }
-      ]
-   },
-   {
-      "name": "Fry Up",
-      "id": "c4b16f04-1d0e-41f1-9f3f-1a213e396206",
-      "portions": [
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 400
-         },
-         {
-            "foodId": "55438126-6b29-4fb3-928d-4430d9cc46b5",
-            "portionValue": 50
-         },
-         {
-            "foodId": "17ab1ee6-7fb4-4e80-a388-c1afc135c311",
-            "portionValue": 200
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 300
-         },
-         {
-            "foodId": "b2478d14-8888-44bd-8693-2fc68e20d4a7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Salmon and Veg",
-      "id": "e6ccf087-e2f5-45b9-b58a-518c2981e6da",
-      "portions": [
-         {
-            "foodId": "25b9d7de-8d7f-4ab5-85ea-087023d4ed90",
-            "portionValue": 220
-         },
-         {
-            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Chicken Wraps Low",
-      "id": "874f7549-5723-4fc1-be30-ed776250cfed",
-      "portions": [
-         {
-            "foodId": "2b897bd8-0502-4b9b-a706-5a6b600a8cae",
-            "portionValue": 100
-         },
-         {
-            "foodId": "2e109bca-90d9-4791-8110-6ca11134206f",
-            "portionValue": 200
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 100
-         },
-         {
-            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 200
-         },
-         {
-            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
-            "portionValue": 100
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 100
-         },
-         {
-            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
-            "portionValue": 0
-         },
-         {
-            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-            "portionValue": 0
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 0
-         }
-      ]
-   },
-   {
-      "name": "Veg Pasta Lunch",
-      "id": "0a233197-6928-48ad-8e83-5556d6e270a4",
-      "portions": [
-         {
-            "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
-            "portionValue": 200
-         },
-         {
-            "foodId": "9ce660c9-c66f-406f-89d4-23c6b98def8d",
-            "portionValue": 100
-         },
-         {
-            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
-            "portionValue": 200
-         },
-         {
-            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 0
-         },
-         {
-            "foodId": "643be751-5956-4e52-9324-d12a191519a6",
-            "portionValue": 50
-         },
-         {
-            "foodId": "f99f4d94-630a-4cbe-b4f1-92d66d173c1e",
-            "portionValue": 50
-         },
-         {
-            "foodId": "32e5288e-459b-4818-a8ac-4bb950fac859",
-            "portionValue": 0
-         },
-         {
-            "foodId": "811ba02f-5d2f-4163-adac-3b80de40e027",
-            "portionValue": 0
-         },
-         {
-            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
-            "portionValue": 200
-         },
-         {
-            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-            "portionValue": 0
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Spag Bol With Meatballs",
-      "id": "9a1857de-5d4e-4f9d-966b-c162ee7d46ef",
-      "portions": [
-         {
-            "foodId": "cc50fa51-b24f-4327-909b-e63e3f844de1",
-            "portionValue": 100
-         },
-         {
-            "foodId": "47697f0f-8d00-4bf8-a196-6216ad44b938",
-            "portionValue": 120
-         },
-         {
-            "foodId": "93f37599-8bf0-4cc0-8f59-28aec3db3a2e",
-            "portionValue": 100
-         },
-         {
-            "foodId": "ee09af57-7f48-47b3-8c02-2ba2f22c58a7",
-            "portionValue": 150
-         },
-         {
-            "foodId": "f701d927-96bd-46b6-a9db-90259104f192",
-            "portionValue": 250
-         },
-         {
-            "foodId": "8b877326-70c2-4795-9b47-70373e173f62",
-            "portionValue": 133
-         }
-      ]
-   },
-   {
-      "name": "Shortbread Batch (Homemade) (10)",
-      "id": "95bfb95a-85aa-4569-9aaf-21806842b933",
-      "portions": [
-         {
-            "foodId": "a2cd09d5-9a89-4ca5-b89c-adc1367c3728",
-            "portionValue": 95
-         },
-         {
-            "foodId": "fa8c75e2-c36e-4f18-9843-2442d6c7eac5",
-            "portionValue": 63
-         },
-         {
-            "foodId": "b47f3188-38c9-463f-b76d-9f5b891e7b13",
-            "portionValue": 28
-         }
-      ]
-   },
-   {
-      "name": "Shortbread (Homemade) (1)",
-      "id": "d52e4c03-3a94-4d09-8529-a4448486b465",
-      "portions": [{
-         "foodId": "95bfb95a-85aa-4569-9aaf-21806842b933",
-         "portionValue": 10
-      }]
-   },
-   {
-      "name": "Sponge Cake (Homemade)",
-      "id": "d66da25b-f0f3-4d13-bda3-a601a5da3c3c",
-      "portions": [
-         {
-            "foodId": "fa8c75e2-c36e-4f18-9843-2442d6c7eac5",
-            "portionValue": 110
-         },
-         {
-            "foodId": "001d4ee1-fa56-4041-bcdd-b59fd1c46c0b",
-            "portionValue": 110
-         },
-         {
-            "foodId": "b47f3188-38c9-463f-b76d-9f5b891e7b13",
-            "portionValue": 110
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Sponge Cake with Protein (Homemade)",
-      "id": "729af1f4-a149-49e6-b0a0-3b353ba35bce",
-      "portions": [
-         {
-            "foodId": "fa8c75e2-c36e-4f18-9843-2442d6c7eac5",
-            "portionValue": 125
-         },
-         {
-            "foodId": "001d4ee1-fa56-4041-bcdd-b59fd1c46c0b",
-            "portionValue": 95
-         },
-         {
-            "foodId": "b47f3188-38c9-463f-b76d-9f5b891e7b13",
-            "portionValue": 125
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "98d49c0f-f691-4844-a2ed-88dffb7197d0",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Fairy Cake (Homemade)",
-      "id": "76e67258-633b-4b41-90e2-0220bb58d683",
-      "portions": [{
-         "foodId": "d66da25b-f0f3-4d13-bda3-a601a5da3c3c",
-         "portionValue": 8.33
-      }]
-   },
-   {
-      "name": "Chicken with Potatoes + Salad",
-      "id": "299d884a-7574-4014-a8f8-ad10000cca46",
-      "portions": [
-         {
-            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
-            "portionValue": 400
-         },
-         {
-            "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
-            "portionValue": 200
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 100
-         },
-         {
-            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 200
-         },
-         {
-            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
-            "portionValue": 100
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 100
-         },
-         {
-            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
-            "portionValue": 100
-         },
-         {
-            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-            "portionValue": 100
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Chicken with Toast + Salad",
-      "id": "24d2337c-3678-40ba-8051-725767ddcb7b",
-      "portions": [
-         {
-            "foodId": "f1b67d97-0b96-4c75-9413-a6854d4f8eb7",
-            "portionValue": 400
-         },
-         {
-            "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
-            "portionValue": 200
-         },
-         {
-            "foodId": "af248a40-c7c7-4b87-b99e-cfc1bed1f035",
-            "portionValue": 0
-         },
-         {
-            "foodId": "81da1ca1-300c-4a40-8092-068e8b33f861",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7ce3339d-75fe-470c-adb2-900f28b4584b",
-            "portionValue": 200
-         },
-         {
-            "foodId": "9688aa69-8c42-4274-9dc5-760335b2ca24",
-            "portionValue": 0
-         },
-         {
-            "foodId": "fdaa2ce3-a3a4-4938-8499-4358075e006b",
-            "portionValue": 0
-         },
-         {
-            "foodId": "dc30d54c-2283-4ad3-91d8-b2db7bfd8462",
-            "portionValue": 0
-         },
-         {
-            "foodId": "abae526a-7c34-42f0-91e6-d07de9773ba4",
-            "portionValue": 0
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Sausage & Mash (Chicken Sausages)",
-      "id": "80bc6978-2e3c-4518-a497-37dfd93e943f",
-      "portions": [
-         {
-            "foodId": "e7b80746-5fab-4fad-a172-5196d1b8b9d0",
-            "portionValue": 200
-         },
-         {
-            "foodId": "60f2a615-ba1e-4b5e-b009-16d0d4089642",
-            "portionValue": 400
-         },
-         {
-            "foodId": "33b1b2a8-7038-46c2-8642-f9b5725d8d4d",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Fish Cake Homemade",
-      "id": "10cc36fe-db1a-4f11-b751-6e1fde431593",
-      "portions": [
-         {
-            "foodId": "6f606511-3499-4712-92da-faa40594ad11",
-            "portionValue": 500
-         },
-         {
-            "foodId": "0ffe4c2d-3feb-4bfd-99f5-f03e2abbeff2",
-            "portionValue": 200
-         },
-         {
-            "foodId": "a2cd09d5-9a89-4ca5-b89c-adc1367c3728",
-            "portionValue": 10
-         },
-         {
-            "foodId": "0581f76a-4067-4535-b9f3-3e126327aa1c",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Fishcakes Homemade Meal",
-      "id": "e9d234c2-8854-4a07-b1ce-53ef186c62c8",
-      "portions": [
-         {
-            "foodId": "10cc36fe-db1a-4f11-b751-6e1fde431593",
-            "portionValue": 100
-         },
-         {
-            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 300
-         },
-         {
-            "foodId": "4e119ae7-0205-4e8e-8b0b-ffdfbe647007",
-            "portionValue": 50
-         },
-         {
-            "foodId": "d9ec0466-6275-488d-aebd-4e8f19daafb1",
-            "portionValue": 50
-         }
-      ]
    },
    {
       "name": "Almond Cookie Batch",
@@ -1234,20 +22,12 @@
       ]
    },
    {
-      "name": "Almond Cookie (1) (1/12th)",
-      "id": "b8ddfe42-9403-4de1-9404-343ad77ab06c",
-      "portions": [{
-         "foodId": "0ffeec3c-24eb-4eec-9d0a-fb4858fe463f",
-         "portionValue": 8.33
-      }]
-   },
-   {
-      "name": "Peanut Cookie Batch",
+      "name": "Nut Cookie Batch",
       "id": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
       "portions": [
          {
             "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
-            "portionValue": 170
+            "portionValue": 150
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
@@ -1256,24 +36,12 @@
       ]
    },
    {
-      "name": "Peanut Cookie (1) (1/12th)",
-      "id": "33d6cd07-137e-4fc3-9dfc-d1a72181d962",
-      "portions": [{
-         "foodId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
-         "portionValue": 8.33
-      }]
-   },
-   {
       "name": "Brownie Cheesecake Batch",
       "id": "5fa5c54d-a814-49c8-88ba-98b2490dbe12",
       "portions": [
          {
             "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
             "portionValue": 100
-         },
-         {
-            "foodId": "23efcd55-499e-4910-b93c-86408d4d9b1c",
-            "portionValue": 500
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
@@ -1288,14 +56,6 @@
             "portionValue": 200
          }
       ]
-   },
-   {
-      "name": "Brownie Cheesecake (1) (1/10)",
-      "id": "ca073b0c-36cd-4e59-85f2-77ebd52d1be2",
-      "portions": [{
-         "foodId": "5fa5c54d-a814-49c8-88ba-98b2490dbe12",
-         "portionValue": 10
-      }]
    },
    {
       "name": "Wraps Batch (Keto)",
@@ -1316,14 +76,6 @@
       ]
    },
    {
-      "name": "Wrap (Keto) (1)",
-      "id": "265d7df1-bd88-48c8-9029-eb3d0c66c27c",
-      "portions": [{
-         "foodId": "946fd7af-3a9b-4c13-8b56-9bdc1cefa635",
-         "portionValue": 18
-      }]
-   },
-   {
       "name": "Ice Cream Batch (Keto)",
       "id": "c85e6959-00d1-448e-8333-70b627128695",
       "portions": [
@@ -1336,40 +88,6 @@
             "portionValue": 284
          }
       ]
-   },
-   {
-      "name": "Ice Cream (Keto) (1/5)",
-      "id": "516c212a-ac44-4a49-b42d-414dbe602d35",
-      "portions": [{
-         "foodId": "c85e6959-00d1-448e-8333-70b627128695",
-         "portionValue": 20
-      }]
-   },
-   {
-      "name": "Honey Biscuits Batch (Keto)",
-      "id": "defbc811-8e39-43cd-98b5-51a962adb46d",
-      "portions": [
-         {
-            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
-            "portionValue": 60
-         },
-         {
-            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
-            "portionValue": 90
-         },
-         {
-            "foodId": "bff3cfa2-116d-4684-9ba4-dba2b9c07b75",
-            "portionValue": 30
-         }
-      ]
-   },
-   {
-      "name": "Honey Biscuit (Keto) (1/16) (1)",
-      "id": "8e2e86c3-1701-46ec-a905-f8c4984505fb",
-      "portions": [{
-         "foodId": "defbc811-8e39-43cd-98b5-51a962adb46d",
-         "portionValue": 6.25
-      }]
    },
    {
       "name": "Egg Mayo Wraps (Keto)",
@@ -1406,26 +124,12 @@
       ]
    },
    {
-      "name": "Chocolate Fluff",
-      "id": "c4efc36b-f42f-4204-b578-5dfaf524b13a",
-      "portions": [
-         {
-            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
-            "portionValue": 284
-         },
-         {
-            "foodId": "91d9afe3-2453-43df-9d97-9277bcce6167",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Peanut Cookie (+Flour) Batch",
+      "name": "Nut Cookie (+Flour) Batch",
       "id": "d34fcf67-917b-4ac0-9d63-a2c9abd5bae6",
       "portions": [
          {
             "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
-            "portionValue": 170
+            "portionValue": 150
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
@@ -1433,7 +137,7 @@
          },
          {
             "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
-            "portionValue": 45
+            "portionValue": 30
          }
       ]
    },
@@ -1528,24 +232,6 @@
          {
             "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
             "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Cheesecake (Keto)",
-      "id": "733d2c90-b261-4b3a-95fd-9ad781f6863d",
-      "portions": [
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 800
-         },
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 1000
-         },
-         {
-            "foodId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
-            "portionValue": 100
          }
       ]
    },
@@ -1664,36 +350,6 @@
       ]
    },
    {
-      "name": "Veg Fry",
-      "id": "d69c3c47-a682-449e-ae6f-2a1756193326",
-      "portions": [
-         {
-            "foodId": "330cf6e2-72f0-4e4b-b6b6-6d6765284661",
-            "portionValue": 100
-         },
-         {
-            "foodId": "23889b9d-6ad8-48d9-8f73-f91e858719a8",
-            "portionValue": 0
-         },
-         {
-            "foodId": "62f0cc0b-ee6a-4aa3-b5b4-9b1032506b8c",
-            "portionValue": 100
-         },
-         {
-            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
-            "portionValue": 100
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 150
-         },
-         {
-            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
       "name": "Chicken Madras",
       "id": "8ac5b15f-ad41-464c-91f3-d58bfa570c88",
       "portions": [
@@ -1754,24 +410,6 @@
       ]
    },
    {
-      "name": "Veg on the Side",
-      "id": "338fe815-9197-43f8-a6d1-af93601e2c36",
-      "portions": [
-         {
-            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 200
-         },
-         {
-            "foodId": "9c758ea2-3f1c-4884-81ab-7c25a1a3e441",
-            "portionValue": 100
-         },
-         {
-            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
-            "portionValue": 0
-         }
-      ]
-   },
-   {
       "name": "Flax Muffin",
       "id": "bf43a4eb-bb25-45a6-bb10-6c2ab71da972",
       "portions": [
@@ -1790,52 +428,7 @@
       ]
    },
    {
-      "name": "Chicken, Bacon, Avocado Sandwich",
-      "id": "f35818f5-0be5-41c5-9049-fc6b395646c9",
-      "portions": []
-   },
-   {
-      "name": "Chicken, Bacon, Avocado Sandwich Filling",
-      "id": "636e4c4b-310f-4ad9-8b6d-c4016cdb5066",
-      "portions": [
-         {
-            "foodId": "f5a4c05f-4a0d-430d-81c1-ee5f5471d4f0",
-            "portionValue": 30
-         },
-         {
-            "foodId": "c72cbaff-0778-4f3f-a527-d9b7e3433698",
-            "portionValue": 100
-         },
-         {
-            "foodId": "df7c1bad-91e4-4fbf-958a-274b884f39f0",
-            "portionValue": 80
-         },
-         {
-            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
-            "portionValue": 30
-         },
-         {
-            "foodId": "7157f3d0-f279-4bee-b24f-0987d0e913f2",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Chicken, Bacon, Avocado Sandwich Bread",
-      "id": "22687ad0-4ab9-4179-a4d6-61c20e715ded",
-      "portions": [
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 300
-         },
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Keto Bread (Almond Flour)",
+      "name": "Bread (Keto, Almond Flour)",
       "id": "758b1a28-dc70-4e2c-b4ec-f5d887e859f7",
       "portions": [
          {
@@ -1853,7 +446,7 @@
       ]
    },
    {
-      "name": "Peanut Butter Fudge",
+      "name": "Nut Butter Fudge",
       "id": "18bb4176-7385-4625-af4f-8541afa61c2f",
       "portions": [
          {
@@ -1885,7 +478,7 @@
       ]
    },
    {
-      "name": "Peanut Butter Mousse",
+      "name": "Nut Butter Mousse",
       "id": "ab66e672-0cfb-4501-b356-01176c30d88b",
       "portions": [
          {
@@ -1903,25 +496,7 @@
       ]
    },
    {
-      "name": "Cookies (No Bake Coconut)",
-      "id": "8d56bb1c-e2b9-4044-bb31-c66594107d9e",
-      "portions": [
-         {
-            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
-            "portionValue": 30
-         },
-         {
-            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
-            "portionValue": 170
-         }
-      ]
-   },
-   {
-      "name": "Cookie Dough (Keto)",
+      "name": "Cookie Dough",
       "id": "080f83f4-e46a-440d-b83a-6b176adef9af",
       "portions": [
          {
@@ -1999,28 +574,6 @@
       ]
    },
    {
-      "name": "Peanut Flax Cookies (Large)",
-      "id": "d610a804-f314-4bfc-8059-7d816f535bfa",
-      "portions": [
-         {
-            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
-            "portionValue": 250
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
-            "portionValue": 200
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
       "name": "Coconut Cream Pie",
       "id": "6e868156-3681-4e6d-91f6-277d302a17c3",
       "portions": [
@@ -2085,10 +638,6 @@
       "id": "da4311f2-4116-487b-ac28-df0008724e1a",
       "portions": [
          {
-            "foodId": "9a54c335-7836-4765-83b8-fe9cc661394b",
-            "portionValue": 240
-         },
-         {
             "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
             "portionValue": 30
          },
@@ -2099,62 +648,6 @@
          {
             "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
             "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Vanilla Butter Fudge (+Walnuts)",
-      "id": "c36e25ab-aef7-42f2-9bed-16a3901f3283",
-      "portions": [
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
-            "portionValue": 125
-         },
-         {
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Cheeseburger Casserole (First)",
-      "id": "052a538d-1389-44a7-9353-8b964483606f",
-      "portions": [
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 200
-         },
-         {
-            "foodId": "6dd04ef3-932c-4253-9f67-34070a3b0ad7",
-            "portionValue": 500
-         },
-         {
-            "foodId": "712cdfaf-21aa-474d-9c4b-dd39e35f172a",
-            "portionValue": 100
-         },
-         {
-            "foodId": "8f7941d7-fcdf-42f4-8948-0630fd470a67",
-            "portionValue": 200
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 300
-         },
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 400
-         },
-         {
-            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
-            "portionValue": 150
          }
       ]
    },
@@ -2195,28 +688,6 @@
       ]
    },
    {
-      "name": "Caramel Cheesecake (Keto)",
-      "id": "66e9a95a-6fc9-46c5-a63c-11a45611e1b4",
-      "portions": [
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 400
-         },
-         {
-            "foodId": "27acbb7c-5b19-411d-bfec-9659de41d31e",
-            "portionValue": 150
-         },
-         {
-            "foodId": "f3bee9eb-56bf-4912-b6fb-c1d7a7f4aadb",
-            "portionValue": 100
-         },
-         {
-            "foodId": "bff24735-3ed7-4d03-b5bb-1be5042a7b7c",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
       "name": "Bread (KetoConnect)",
       "id": "ad09e135-9624-4a46-8d1b-a914936c52d5",
       "portions": [
@@ -2231,36 +702,6 @@
          {
             "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
             "portionValue": 60
-         }
-      ]
-   },
-   {
-      "name": "Coconut Fudge with Flax",
-      "id": "3a2133c8-4f40-40fc-823a-1e10d525636c",
-      "portions": [
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 100
-         },
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 300
-         },
-         {
-            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
-            "portionValue": 50
-         },
-         {
-            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
-            "portionValue": 50
-         },
-         {
-            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
-            "portionValue": 100
-         },
-         {
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 50
          }
       ]
    },
@@ -2387,24 +828,6 @@
       ]
    },
    {
-      "name": "Keto Salad Filler",
-      "id": "2975dc93-f6f1-429d-afa7-12464115729a",
-      "portions": [
-         {
-            "foodId": "25537031-a23f-421b-b991-f80104811537",
-            "portionValue": 100
-         },
-         {
-            "foodId": "39e11cad-6a54-457e-8d05-93339c430c81",
-            "portionValue": 200
-         },
-         {
-            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
       "name": "Keto Chicken Pizza Crust",
       "id": "558a4409-1181-405f-b1cc-c47a27b4dc58",
       "portions": [
@@ -2499,52 +922,6 @@
       ]
    },
    {
-      "name": "Dream Almond Butter (300g)",
-      "id": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
-      "portions": [
-         {
-            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
-            "portionValue": 300
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 45
-         },
-         {
-            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Dream Almond Fudge",
-      "id": "a171b70e-b12c-4d11-90c8-4491ac86f061",
-      "portions": [
-         {
-            "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
-            "portionValue": 33
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Dream Coconut Butter (300g)",
-      "id": "647d9237-5d58-4086-bc62-a2fbfae1c895",
-      "portions": [
-         {
-            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
-            "portionValue": 300
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 60
-         }
-      ]
-   },
-   {
       "name": "Hemp Butter (300g)",
       "id": "33982176-8b85-4245-afef-b0513594566c",
       "portions": [
@@ -2569,20 +946,6 @@
          {
             "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
             "portionValue": 30
-         }
-      ]
-   },
-   {
-      "name": "Butter Sauce (Almond)",
-      "id": "b2c09860-b2d0-43de-9d7b-190dfe37a63e",
-      "portions": [
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 100
-         },
-         {
-            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
-            "portionValue": 50
          }
       ]
    },
@@ -2729,24 +1092,6 @@
       ]
    },
    {
-      "name": "Almond Butter Mousse",
-      "id": "e7e4ca70-0cf5-4cff-a55e-de92428c9d76",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
-         },
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 200
-         },
-         {
-            "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
-            "portionValue": 10
-         }
-      ]
-   },
-   {
       "name": "Coconut Milk Mousse",
       "id": "7128419f-9b1a-4fbf-9a56-56e5f430b37c",
       "portions": [
@@ -2819,28 +1164,6 @@
       ]
    },
    {
-      "name": "Peanut Butter Cookies (with Walnuts & Coconut)",
-      "id": "e9606585-cbcd-4679-bf6f-a5a9e26de4e4",
-      "portions": [
-         {
-            "foodId": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
-            "portionValue": 170
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 50
-         },
-         {
-            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
       "name": "Sunflower Butter Cookie Batch",
       "id": "ea89801c-3be5-4dcc-892f-b9f5288fc33b",
       "portions": [
@@ -2907,46 +1230,6 @@
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
             "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Cheesecake (Nut Base) (Keto)",
-      "id": "59d81fea-c3c5-438f-9201-63aa3c546079",
-      "portions": [
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 800
-         },
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 1000
-         },
-         {
-            "foodId": "d237cede-3537-426f-9f28-a69116b4baa8",
-            "portionValue": 240
-         },
-         {
-            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
-            "portionValue": 60
-         }
-      ]
-   },
-   {
-      "name": "Coconut Walnut Mousse",
-      "id": "1b7492de-f67f-4a81-abe8-bc24c28b70d4",
-      "portions": [
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 400
-         },
-         {
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 100
-         },
-         {
-            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
-            "portionValue": 50
          }
       ]
    },
@@ -3039,52 +1322,6 @@
       ]
    },
    {
-      "name": "Hemp Seed Bun Batch (Yolks)",
-      "id": "50be51f7-483e-4612-96c8-494dba26778e",
-      "portions": [
-         {
-            "foodId": "33982176-8b85-4245-afef-b0513594566c",
-            "portionValue": 25
-         },
-         {
-            "foodId": "457e8f68-e4c5-4ce5-bb9e-f05be2a6b487",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Hemp Seed Bun Batch (Whites)",
-      "id": "2be9da14-c59f-47d1-9307-18a3d083ebe0",
-      "portions": [
-         {
-            "foodId": "33982176-8b85-4245-afef-b0513594566c",
-            "portionValue": 25
-         },
-         {
-            "foodId": "3812bcb3-da94-4c7d-84cd-4b21757e3b8f",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Dream Coconut Butter (400g)",
-      "id": "7874db7b-2cfd-4a7f-9421-1847e801a50a",
-      "portions": [
-         {
-            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
-            "portionValue": 300
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 100
-         },
-         {
-            "foodId": "33526ea7-9f5b-4444-b7b7-c74cf8a83267",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
       "name": "Almond Butter (Homemade) (300g)",
       "id": "368e5d58-0ac7-449b-92b8-55c4738300ee",
       "portions": [
@@ -3099,52 +1336,12 @@
       ]
    },
    {
-      "name": "Nut Bar (Homemade)",
-      "id": "fd3b203e-bf5e-4d38-b7d8-7d27ac5b2587",
-      "portions": [
-         {
-            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
-            "portionValue": 400
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 200
-         },
-         {
-            "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
-            "portionValue": 60
-         },
-         {
-            "foodId": "fb9de09a-d7e6-4a21-8eff-618d492bb128",
-            "portionValue": 60
-         },
-         {
-            "foodId": "b2f07ea0-83a8-4748-afcd-46275968837f",
-            "portionValue": 60
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 30
-         },
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Peanut Butter (Homemade) (300g)",
+      "name": "Peanut Butter (Homemade) (100g)",
       "id": "f4aa89b6-4b16-43d3-9e27-e4721861fac8",
-      "portions": [
-         {
-            "foodId": "c9050dc5-9c9b-489d-ba80-6b79eb647e8b",
-            "portionValue": 300
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 30
-         }
-      ]
+      "portions": [{
+         "foodId": "c9050dc5-9c9b-489d-ba80-6b79eb647e8b",
+         "portionValue": 100
+      }]
    },
    {
       "name": "Keto Mash",
@@ -3169,88 +1366,6 @@
          {
             "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
             "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Nut Cake Base",
-      "id": "b99364ff-d48e-44c3-aad2-5712148729bc",
-      "portions": [
-         {
-            "foodId": "7e90c589-40eb-4f3f-a221-c86beae13899",
-            "portionValue": 50
-         },
-         {
-            "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
-            "portionValue": 30
-         },
-         {
-            "foodId": "b2f07ea0-83a8-4748-afcd-46275968837f",
-            "portionValue": 30
-         },
-         {
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 30
-         }
-      ]
-   },
-   {
-      "name": "Pecan Pie",
-      "id": "4cf016bd-4673-4428-bf78-49a68798851e",
-      "portions": [
-         {
-            "foodId": "b99364ff-d48e-44c3-aad2-5712148729bc",
-            "portionValue": 100
-         },
-         {
-            "foodId": "bff24735-3ed7-4d03-b5bb-1be5042a7b7c",
-            "portionValue": 100
-         },
-         {
-            "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Coconut Bar (Pecan)",
-      "id": "d3fbc9a4-d2c1-41e9-a0b9-99f3f0f049bb",
-      "portions": [
-         {
-            "foodId": "7874db7b-2cfd-4a7f-9421-1847e801a50a",
-            "portionValue": 10
-         },
-         {
-            "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
-            "portionValue": 150
-         },
-         {
-            "foodId": "b2f07ea0-83a8-4748-afcd-46275968837f",
-            "portionValue": 0
-         },
-         {
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 0
-         },
-         {
-            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
-            "portionValue": 0
-         },
-         {
-            "foodId": "bf0ba779-a882-4682-bb0d-b1d343ab17a9",
-            "portionValue": 0
-         },
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 0
-         },
-         {
-            "foodId": "53b25005-eb46-4c54-b876-90e2b5a2d203",
-            "portionValue": 0
-         },
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 400
          }
       ]
    },
@@ -3347,28 +1462,6 @@
       ]
    },
    {
-      "name": "Cheesecake (Almond Base)",
-      "id": "ec4fb86e-8f47-49a9-aad2-7e8a72fe3cab",
-      "portions": [
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 800
-         },
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 1000
-         },
-         {
-            "foodId": "0ffeec3c-24eb-4eec-9d0a-fb4858fe463f",
-            "portionValue": 100
-         },
-         {
-            "foodId": "b2c54c5d-ccec-4951-a31d-2776e6232241",
-            "portionValue": 40
-         }
-      ]
-   },
-   {
       "name": "Zucchini Boats",
       "id": "5d92ef86-0e51-4b50-9356-dbe4f2ea3e31",
       "portions": [
@@ -3387,20 +1480,6 @@
          {
             "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
             "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Almond Milk Boost",
-      "id": "e7cdd82b-d2fc-4de9-8773-edde95c407d6",
-      "portions": [
-         {
-            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
-            "portionValue": 300
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 30
          }
       ]
    },
@@ -3431,58 +1510,6 @@
       ]
    },
    {
-      "name": "Big Cheese Pizza",
-      "id": "7f6cb369-dca3-444b-907c-4a86ba75c45c",
-      "portions": [
-         {
-            "foodId": "55d5a677-e181-4643-9437-7c0567c08d83",
-            "portionValue": 100
-         },
-         {
-            "foodId": "77328e66-d56b-4075-b38f-32a72311261c",
-            "portionValue": 100
-         },
-         {
-            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
-            "portionValue": 100
-         },
-         {
-            "foodId": "1847a9cb-8c9d-46f0-8f10-85c00b4e745f",
-            "portionValue": 100
-         },
-         {
-            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "German Salami Calzone",
-      "id": "f8c8dbaa-fd05-4dc2-8f35-4fd905041a46",
-      "portions": [
-         {
-            "foodId": "55d5a677-e181-4643-9437-7c0567c08d83",
-            "portionValue": 100
-         },
-         {
-            "foodId": "77328e66-d56b-4075-b38f-32a72311261c",
-            "portionValue": 100
-         },
-         {
-            "foodId": "50836e97-165c-4a17-bcf7-67e44ad3913d",
-            "portionValue": 100
-         },
-         {
-            "foodId": "1847a9cb-8c9d-46f0-8f10-85c00b4e745f",
-            "portionValue": 100
-         },
-         {
-            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
       "name": "Pancakes",
       "id": "0cc0aa1b-bfca-4878-bd47-489f3d87cef3",
       "portions": [
@@ -3505,32 +1532,6 @@
       ]
    },
    {
-      "name": "Peanut Flax Cookies (with coconut)",
-      "id": "4943775b-54c3-4708-9b90-3d5d4e9f2053",
-      "portions": [
-         {
-            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
-            "portionValue": 300
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "8c101239-17ba-43e9-8b3e-55cf8b6d6420",
-            "portionValue": 200
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 100
-         },
-         {
-            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
-            "portionValue": 25
-         }
-      ]
-   },
-   {
       "name": "Keto Chocolate (100g)",
       "id": "c81d3048-fba8-4581-b2ec-12b6323f4759",
       "portions": [
@@ -3540,20 +1541,6 @@
          },
          {
             "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Chocolate Almond Cookies",
-      "id": "a7fe2469-09a4-49c0-ad1b-c1102a49c242",
-      "portions": [
-         {
-            "foodId": "4943775b-54c3-4708-9b90-3d5d4e9f2053",
-            "portionValue": 100
-         },
-         {
-            "foodId": "c81d3048-fba8-4581-b2ec-12b6323f4759",
             "portionValue": 100
          }
       ]
@@ -3581,289 +1568,23 @@
       ]
    },
    {
-      "name": "Peanut Butter Pancake",
-      "id": "e7065c11-40f6-4f3d-a652-21f82066ae3e",
-      "portions": [
-         {
-            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
-            "portionValue": 100
-         },
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 400
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Macadamia Butter Pancake",
-      "id": "92a92583-66ea-443e-bd82-723993933eab",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Macadamia Butter (Homemade) (300g)",
+      "name": "Macadamia Butter (Homemade) (100g)",
       "id": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-      "portions": [
-         {
-            "foodId": "b2f07ea0-83a8-4748-afcd-46275968837f",
-            "portionValue": 300
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 30
-         }
-      ]
+      "portions": [{
+         "foodId": "b2f07ea0-83a8-4748-afcd-46275968837f",
+         "portionValue": 100
+      }]
    },
    {
-      "name": "Peanut (homemade) Cookie Batch",
-      "id": "f7ac421a-3606-48bf-b079-2bd88e4a4d30",
-      "portions": [
-         {
-            "foodId": "f4aa89b6-4b16-43d3-9e27-e4721861fac8",
-            "portionValue": 50
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Walnut Butter (300g) (homemade - w/ oil)",
-      "id": "c47d6235-f84c-469e-bbdc-48b688b37555",
-      "portions": [
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 30
-         },
-         {
-            "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-            "portionValue": 300
-         }
-      ]
-   },
-   {
-      "name": "Walnut Cookie Batch",
-      "id": "d064d159-587e-4d93-989b-1716754a522b",
-      "portions": [
-         {
-            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
-            "portionValue": 50
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Macadamia Cookie Batch",
-      "id": "8d9a81c4-6a05-487d-b3b9-18e3ec39a186",
-      "portions": [
-         {
-            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 50
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Macadamia Flax Cookies",
-      "id": "04db836f-00f4-4a27-88f4-2ca3e7d327a2",
-      "portions": [
-         {
-            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 33
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
-            "portionValue": 15
-         },
-         {
-            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Coconut Milk Nut Mousse",
-      "id": "7bd87072-bcff-43c0-bdd3-2362e085474a",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 400
-         },
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 200
-         },
-         {
-            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
-            "portionValue": 25
-         },
-         {
-            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Walnut Flax Cookies",
-      "id": "5d2708b8-3b83-45c6-a22e-8e4043c03897",
-      "portions": [
-         {
-            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
-            "portionValue": 50
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
-            "portionValue": 15
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Pecan Flax Cookies",
-      "id": "6c5b35c9-ce7b-4bce-84f0-94053654d4fc",
-      "portions": [
-         {
-            "foodId": "bdee14a6-3c9f-4648-9966-b93393bebdfe",
-            "portionValue": 50
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
-            "portionValue": 15
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Pecan Butter (300g) (homemade)",
+      "name": "Pecan Butter (100g) (homemade)",
       "id": "bdee14a6-3c9f-4648-9966-b93393bebdfe",
-      "portions": [
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 30
-         },
-         {
-            "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
-            "portionValue": 300
-         }
-      ]
+      "portions": [{
+         "foodId": "fa3b431a-08e4-4761-b498-bae079d585bd",
+         "portionValue": 100
+      }]
    },
    {
-      "name": "Coconut Flax Cookies",
-      "id": "9b20756e-5d77-4ee5-98bb-2b77a339051b",
-      "portions": [
-         {
-            "foodId": "647d9237-5d58-4086-bc62-a2fbfae1c895",
-            "portionValue": 25
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
-            "portionValue": 15
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Vegetable Calzone",
-      "id": "d11af98d-4659-4cce-ba4e-9deed1830444",
-      "portions": [
-         {
-            "foodId": "1847a9cb-8c9d-46f0-8f10-85c00b4e745f",
-            "portionValue": 50
-         },
-         {
-            "foodId": "89d94399-75ed-40cf-a517-25fe039661f2",
-            "portionValue": 100
-         },
-         {
-            "foodId": "4a0a203c-f467-4b7c-a3be-b9bdad2f36d5",
-            "portionValue": 200
-         },
-         {
-            "foodId": "77328e66-d56b-4075-b38f-32a72311261c",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Fathead Pizza Base (Modified)",
-      "id": "b0625eaa-823b-447f-a2a4-0d0b42f5c2bd",
-      "portions": [
-         {
-            "foodId": "ffd9eba8-3178-41a5-ac29-ac8f21c24ce9",
-            "portionValue": 80
-         },
-         {
-            "foodId": "93fa4c74-c884-45a9-9803-478c83948829",
-            "portionValue": 100
-         },
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 100
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "c909a06c-b4dd-4f28-8bcd-bcc8babe26c2",
-            "portionValue": 30
-         },
-         {
-            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Flax Bread",
+      "name": "Bread (Flax)",
       "id": "162c14d0-e5e0-4484-8e0e-21730dd4e53c",
       "portions": [
          {
@@ -3881,7 +1602,7 @@
       ]
    },
    {
-      "name": "Coconut Bread",
+      "name": "Bread (Coconut)",
       "id": "b5ce6d0a-df1d-4f15-ba31-30286b98bd74",
       "portions": [
          {
@@ -3911,33 +1632,15 @@
       ]
    },
    {
-      "name": "Brazil Nut Butter (300g) (homemade)",
+      "name": "Brazil Nut Butter (100g)",
       "id": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
       "portions": [{
          "foodId": "62ef626f-f15f-4f51-aae4-58e11c1c87e9",
-         "portionValue": 300
+         "portionValue": 100
       }]
    },
    {
-      "name": "Brazil Nut Butter Pancake",
-      "id": "e92a63e4-8cb3-4212-b059-9363b2bb524d",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Walnut Butter Pancake",
+      "name": "Nut Butter Pancake",
       "id": "93f76804-e8e5-4ead-9063-84df9d442e54",
       "portions": [
          {
@@ -3949,8 +1652,8 @@
             "portionValue": 100
          },
          {
-            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
-            "portionValue": 50
+            "foodId": "58b70f2a-bff5-430b-ab0c-29263d7e882f",
+            "portionValue": 150
          }
       ]
    },
@@ -3967,26 +1670,8 @@
             "portionValue": 40
          },
          {
-            "foodId": "88885c6f-1a99-4c0a-86d0-c6e4680de900",
+            "foodId": "368e5d58-0ac7-449b-92b8-55c4738300ee",
             "portionValue": 10
-         }
-      ]
-   },
-   {
-      "name": "Coconut Butter Pancake",
-      "id": "e5954734-7d0d-48a8-89a3-ea2374285ad2",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "647d9237-5d58-4086-bc62-a2fbfae1c895",
-            "portionValue": 33
          }
       ]
    },
@@ -4005,7 +1690,7 @@
       ]
    },
    {
-      "name": "Walnut Pancake (Milk)",
+      "name": "Nut Pancake (Milk)",
       "id": "bf9f9e38-d440-4572-8709-41304588e4e7",
       "portions": [
          {
@@ -4017,66 +1702,22 @@
             "portionValue": 200
          },
          {
-            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
-            "portionValue": 50
-         },
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 200
-         }
-      ]
-   },
-   {
-      "name": "Peanut Butter Pancake (Milk)",
-      "id": "ca7d6ff9-1418-4a2e-9939-31476ec2dbed",
-      "portions": [
-         {
-            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
-            "portionValue": 100
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
-            "portionValue": 100
-         },
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 200
-         },
-         {
-            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Peanut Butter Pancake (xtra)",
-      "id": "23476b45-e920-4f43-9c0c-ab9ee508bd54",
-      "portions": [
-         {
-            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
+            "foodId": "58b70f2a-bff5-430b-ab0c-29263d7e882f",
             "portionValue": 150
          },
          {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 400
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
+            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
+            "portionValue": 200
          }
       ]
    },
    {
-      "name": "Brazil Flax Cookies",
+      "name": "Nut Flax Cookies",
       "id": "670a289f-b362-4728-bb05-f8b766cffde4",
       "portions": [
          {
             "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-            "portionValue": 33
+            "portionValue": 100
          },
          {
             "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
@@ -4093,29 +1734,7 @@
       ]
    },
    {
-      "name": "Macadamia (Splice) Pancake",
-      "id": "3504c371-cd5e-4ce2-802e-0fb15f34e689",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 33
-         },
-         {
-            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Peanut Cheesecake (OMAD)",
+      "name": "Cheesecake (OMAD)",
       "id": "08208ce8-3e8e-417f-a6da-38400cf95c8f",
       "portions": [
          {
@@ -4145,112 +1764,6 @@
       ]
    },
    {
-      "name": "Brazil (Splice) Pancake",
-      "id": "63f6a673-13d8-4805-ab08-eff3fc87e41b",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-            "portionValue": 33
-         },
-         {
-            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
-      "name": "Brazil Nut Butter Pancake (less)",
-      "id": "127ed9fa-4d58-46e0-87ea-724c0fff88c5",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-            "portionValue": 33
-         }
-      ]
-   },
-   {
-      "name": "Brazil Cookies",
-      "id": "8e20764c-bac8-4f35-92ce-97ffe95fea93",
-      "portions": [
-         {
-            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-            "portionValue": 33.3
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Brazil Flax Cookies (experimental)",
-      "id": "d1bf3519-aa1e-4319-8f63-fe94d731621f",
-      "portions": [
-         {
-            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-            "portionValue": 33
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
-            "portionValue": 15
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Walnut Cheesecake (OMAD)",
-      "id": "178459b0-2f32-4322-8419-1b093bf2e8ee",
-      "portions": [
-         {
-            "foodId": "b60eeb8f-fdf7-4ca7-8db4-ac399caa47fd",
-            "portionValue": 300
-         },
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 400
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
-            "portionValue": 15
-         },
-         {
-            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
-            "portionValue": 100
-         },
-         {
-            "foodId": "c47d6235-f84c-469e-bbdc-48b688b37555",
-            "portionValue": 25
-         }
-      ]
-   },
-   {
       "name": "Chia Pudding",
       "id": "25988fcf-c3f2-40c0-babf-1af0c2751edf",
       "portions": [
@@ -4269,89 +1782,19 @@
       ]
    },
    {
-      "name": "Macadamia (Splice-2) Pancake",
-      "id": "f2d38359-57d5-441b-b04e-a3db4572dc47",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 300
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 100
-         },
-         {
-            "foodId": "4662078a-6aa5-4f0c-a81e-0b176a519bdd",
-            "portionValue": 17
-         },
-         {
-            "foodId": "6c626dc5-13ea-40e4-983d-ea40958e69fa",
-            "portionValue": 5
-         },
-         {
-            "foodId": "ba6f9d73-940e-440c-9199-87a898832b33",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Coconut Milk Mousse (with Peanut)",
-      "id": "0cf716d3-aeb4-42ba-9dde-bcc98f9eb59d",
-      "portions": [
-         {
-            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
-            "portionValue": 400
-         },
-         {
-            "foodId": "0c5e2dce-bde5-4f62-9387-aa6d8eb58c2c",
-            "portionValue": 400
-         },
-         {
-            "foodId": "bff18e06-e42b-4710-a203-2d87f5c87c21",
-            "portionValue": 50
-         },
-         {
-            "foodId": "bfe19930-abe9-42c5-84a5-26ffa19e807f",
-            "portionValue": 35
-         }
-      ]
-   },
-   {
-      "name": "Walnut Flax Cookies (experimental)",
-      "id": "d8cd2a73-64ba-44eb-828a-f5c4445ce4fc",
-      "portions": [
-         {
-            "foodId": "58b70f2a-bff5-430b-ab0c-29263d7e882f",
-            "portionValue": 33
-         },
-         {
-            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
-            "portionValue": 200
-         },
-         {
-            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
-            "portionValue": 15
-         },
-         {
-            "foodId": "112a1b7e-d126-4589-a01c-45058008fcbc",
-            "portionValue": 100
-         }
-      ]
-   },
-   {
-      "name": "Walnut Butter (300g) (homemade)",
+      "name": "Walnut Butter (100g) (homemade)",
       "id": "58b70f2a-bff5-430b-ab0c-29263d7e882f",
       "portions": [{
          "foodId": "0f6bced7-c4db-413e-acdb-25826319d0d8",
-         "portionValue": 300
+         "portionValue": 100
       }]
    },
    {
-      "name": "Coconut Butter (300g)",
+      "name": "Coconut Butter (100g)",
       "id": "df15a419-a2f7-49a0-a9e1-9a492f421b60",
       "portions": [{
          "foodId": "194fb7a3-151a-47d2-ad19-d8327e46df0b",
-         "portionValue": 300
+         "portionValue": 100
       }]
    },
    {
