@@ -90,6 +90,19 @@ public class TableConfiguration {
       table.getColumns().add( date );
    }//End Method
    
+   @Deprecated public < RowTypeT > void initialiseCustomStringPropertyColumn(
+            TableView< RowTypeT > table,
+            String title,
+            double width,
+            Function< RowTypeT, ObjectProperty< String > > propertyetriever
+   ){
+      TableColumn< RowTypeT, String > date = new TableColumn<>( title );
+      date.prefWidthProperty().bind( table.widthProperty().multiply( width ) );
+      date.setCellValueFactory( object -> propertyetriever.apply( object.getValue() ) );
+      date.setEditable( false );
+      table.getColumns().add( date );
+   }//End Method
+   
    @Deprecated public < RowTypeT > void initialiseCustomDoubleColumn(
             TableView< RowTypeT > table,
             String title, 

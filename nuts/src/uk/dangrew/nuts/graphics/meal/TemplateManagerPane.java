@@ -12,7 +12,7 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
+import uk.dangrew.nuts.graphics.food.GeneralFoodTableController;
 import uk.dangrew.nuts.graphics.table.ConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
@@ -32,7 +32,7 @@ public class TemplateManagerPane extends GridPane {
    static final double MEAL_VIEW_HEIGHT_PROPORTION = 35.0;
 
    private final ConceptTableWithControls< Template > templatesTable;
-   private final GeneralConceptTableController< Template > templateController;
+   private final GeneralFoodTableController< Template > templateController;
    private final ConceptTableWithControls< FoodPortion > planView;
    private final TemplateTableController planController;
    private final ConceptTableWithControls< FoodPortion > mealView;
@@ -54,7 +54,7 @@ public class TemplateManagerPane extends GridPane {
       add( templatesTable = new TableComponents< Template >()
                .withDatabase( database )
                .applyColumns( TemplateTableColumns::new )
-               .withController( templateController = new GeneralConceptTableController<>( database.templates() ) )
+               .withController( templateController = new GeneralFoodTableController<>( database, database.templates() ) )
                .withControls( new ConceptControls( templateController ) )
                .buildTableWithControls( "Templates" ), 
       0, 0 );

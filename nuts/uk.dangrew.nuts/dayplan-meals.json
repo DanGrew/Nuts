@@ -12063,5 +12063,67 @@
             "portionValue": 100
          }
       ]
+   },
+   {
+      "name": "Chia Pudding",
+      "id": "5336f7d9-3095-41e5-a48b-a510154b2858",
+      "portions": [
+         {
+            "foodId": "22ebba17-493c-46f1-852d-f05747bec003",
+            "portionValue": 400
+         },
+         {
+            "foodId": "a3bb9243-3126-4e6b-9c7e-3629581ee542",
+            "portionValue": 60
+         },
+         {
+            "foodId": "67e5c338-596e-4940-9d9e-5640eaaf3b2e",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Tomato Sauce Paste",
+      "id": "26413069-baec-45f9-b4dd-2e790ad96797",
+      "portions": [
+         {
+            "foodId": "dea24c80-b06e-4b2f-a77a-5ea7969ba2d8",
+            "portionValue": 10
+         },
+         {
+            "foodId": "70c08a7b-627e-446f-9f03-282d979c613c",
+            "portionValue": 50
+         },
+         {
+            "foodId": "ca99a460-9ff9-4606-9074-cd15d9a4e985",
+            "portionValue": 5
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "4c63acee-fa23-4c2a-890a-8d0f1d15bfd3",
+      "portions": [
+         {
+            "foodId": "06d231be-3e28-4152-922b-caf26e508985",
+            "portionValue": 300
+         },
+         {
+            "foodId": "5a700cef-7554-4c1e-b82e-43db9145f635",
+            "portionValue": 200
+         },
+         {
+            "foodId": "17c3da13-323d-4dc3-adc4-d84dd94ae3fd",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Brazil Nut Butter (100g)",
+      "id": "17c3da13-323d-4dc3-adc4-d84dd94ae3fd",
+      "portions": [{
+         "foodId": "88314087-1e6b-45e2-b354-64d569ae260d",
+         "portionValue": 100
+      }]
    }
 ]}

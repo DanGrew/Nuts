@@ -60,6 +60,7 @@ public class FoodDeletionMechanismTest {
       verify( referenceChecker ).searchFor( deletion );
       verify( deletionConfirmAlert ).friendly_showAndWait();
       verify( replacementConfirmAlert ).friendly_showAndWait();
+      verify( replacementConfirmAlert ).setUsageInformation( Arrays.asList( reference ) );
       verify( selectionDialog ).friendly_showAndWait();
       verify( referenceChecker ).replaceWith( replacement );
       verify( referenceChecker, never() ).removeReferences();
@@ -92,6 +93,7 @@ public class FoodDeletionMechanismTest {
       verify( referenceChecker ).searchFor( deletion );
       verify( deletionConfirmAlert ).friendly_showAndWait();
       verify( replacementConfirmAlert ).friendly_showAndWait();
+      verify( replacementConfirmAlert ).setUsageInformation( Arrays.asList( reference ) );
       verify( selectionDialog ).friendly_showAndWait();
       verify( referenceChecker, never() ).replaceWith( Mockito.any() );
       verify( referenceChecker, never() ).removeReferences();
@@ -108,6 +110,7 @@ public class FoodDeletionMechanismTest {
       verify( referenceChecker ).searchFor( deletion );
       verify( deletionConfirmAlert ).friendly_showAndWait();
       verify( replacementConfirmAlert ).friendly_showAndWait();
+      verify( replacementConfirmAlert ).setUsageInformation( Arrays.asList( reference ) );
       verify( selectionDialog, never() ).friendly_showAndWait();
       verify( referenceChecker, never() ).replaceWith( Mockito.any() );
       verify( referenceChecker ).removeReferences();
@@ -124,6 +127,7 @@ public class FoodDeletionMechanismTest {
       verify( referenceChecker ).searchFor( deletion );
       verify( deletionConfirmAlert ).friendly_showAndWait();
       verify( replacementConfirmAlert ).friendly_showAndWait();
+      verify( replacementConfirmAlert ).setUsageInformation( Arrays.asList( reference ) );
       verify( selectionDialog, never() ).friendly_showAndWait();
       verify( referenceChecker, never() ).replaceWith( Mockito.any() );
       verify( referenceChecker, never() ).removeReferences();

@@ -44,6 +44,10 @@ public class MealTableControllerImpl implements MealTableController, ConceptTabl
                this::portionAddedToMeal, this::portionRemovedFromMeal, this::sort
       );
    }//End Constructor
+   
+   protected FriendlyTableView< ConceptTableRow< FoodPortion > > table(){
+      return table;
+   }//End Method
 
    /**
     * {@inheritDoc}

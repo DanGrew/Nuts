@@ -47,6 +47,7 @@ public class FoodDeletionMechanism {
          return true;
       }
       
+      replacementConfirm.setUsageInformation( referenceChecker.lastSearchResult() );
       Optional< ButtonType > replacementResult = replacementConfirm.friendly_showAndWait();
       if ( replacementResult.get() == UiFoodReplacementConfirmAlert.DELETE ) {
          referenceChecker.removeReferences();
