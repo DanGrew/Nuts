@@ -7,25 +7,26 @@ import uk.dangrew.nuts.graphics.table.ConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.recipe.constraint.RecipeConfiguration;
+import uk.dangrew.nuts.recipe.constraint.RecipeConstraint;
 import uk.dangrew.nuts.store.Database;
 
 public class UiRecipeCreatorConfigurationPane extends GridPane {
 
-   private final ConceptTableWithControls< RecipeConfiguration > table;
+   private final ConceptTableWithControls< RecipeConstraint > table;
    private final UiRecipeConstraintController controller;
    private final UiRecipeConstraintSelector selector;
    private final MealTableController resultController;
    
-   public UiRecipeCreatorConfigurationPane( MealTableController resultController ) {
+   public UiRecipeCreatorConfigurationPane( MealTableController resultController, RecipeConfiguration recipeCongiguration ) {
       this.resultController = resultController;
       new JavaFxStyle().configureConstraintsForColumnPercentages( this, 20, 80 );
       new JavaFxStyle().configureConstraintsForEvenRows( this, 1 );
 
       add( 
-               table = new TableComponents< RecipeConfiguration >()
+               table = new TableComponents< RecipeConstraint >()
                   .withDatabase( new Database() )
                   .applyColumns( UiRecipeConstraintColumns::new )
-                  .withController( controller = new UiRecipeConstraintController( new RecipeConfiguration() ) )
+                  .withController( controller = new UiRecipeConstraintController( recipeCongiguration ) )
                   .withControls( new ConceptControls( controller ) )
                   .buildTableWithControls( "Recipe Configurations" ),
       0, 0 );

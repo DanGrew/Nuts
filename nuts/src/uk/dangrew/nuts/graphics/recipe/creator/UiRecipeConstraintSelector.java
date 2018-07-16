@@ -12,6 +12,7 @@ public class UiRecipeConstraintSelector extends BorderPane {
    
    public UiRecipeConstraintSelector( UiRecipeConstraintController controller ) {
       this.controller = controller;
+      this.setTop( new UiFunctionConfigurer( controller, controller.configuration().function().get() ) );
    }//End Constructor
    
    public void select( RecipeConstraint constraint ) {

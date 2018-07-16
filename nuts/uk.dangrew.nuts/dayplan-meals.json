@@ -12065,24 +12065,6 @@
       ]
    },
    {
-      "name": "Chia Pudding",
-      "id": "5336f7d9-3095-41e5-a48b-a510154b2858",
-      "portions": [
-         {
-            "foodId": "22ebba17-493c-46f1-852d-f05747bec003",
-            "portionValue": 400
-         },
-         {
-            "foodId": "a3bb9243-3126-4e6b-9c7e-3629581ee542",
-            "portionValue": 60
-         },
-         {
-            "foodId": "67e5c338-596e-4940-9d9e-5640eaaf3b2e",
-            "portionValue": 50
-         }
-      ]
-   },
-   {
       "name": "Tomato Sauce Paste",
       "id": "26413069-baec-45f9-b4dd-2e790ad96797",
       "portions": [

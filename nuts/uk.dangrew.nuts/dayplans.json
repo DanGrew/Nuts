@@ -12404,11 +12404,6 @@
       "portions": [
          {
             "consumed": false,
-            "foodId": "5336f7d9-3095-41e5-a48b-a510154b2858",
-            "portionValue": 0
-         },
-         {
-            "consumed": false,
             "foodId": "6b59575d-466c-4a8a-94d9-5e71cf457fcd",
             "portionValue": 150
          },
@@ -12416,6 +12411,11 @@
             "consumed": false,
             "foodId": "00aaf797-bf75-4978-9450-5f972d6da82b",
             "portionValue": 500
+         },
+         {
+            "consumed": false,
+            "foodId": "88d1d1d9-1cc0-44d9-9c60-966017aabcf8",
+            "portionValue": 70
          },
          {
             "consumed": false,

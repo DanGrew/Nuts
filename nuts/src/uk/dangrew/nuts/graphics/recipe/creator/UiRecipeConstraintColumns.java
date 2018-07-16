@@ -12,20 +12,20 @@ import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
-import uk.dangrew.nuts.recipe.constraint.RecipeConfiguration;
+import uk.dangrew.nuts.recipe.constraint.RecipeConstraint;
 
-public class UiRecipeConstraintColumns implements ConceptTableColumnsPopulator< RecipeConfiguration >{
+public class UiRecipeConstraintColumns implements ConceptTableColumnsPopulator< RecipeConstraint >{
 
    static final String COLUMN_TITLE = "Title";
    
    private final TableConfiguration configuration;
 
-   public UiRecipeConstraintColumns( TableComponents< RecipeConfiguration > components ) {
+   public UiRecipeConstraintColumns( TableComponents< RecipeConstraint > components ) {
       this.configuration = new TableConfiguration();
    }//End Constructor
    
-   public void populateColumns( ConceptTable< RecipeConfiguration > table ) {
-      configuration.initialiseCustomStringPropertyColumn( table, COLUMN_TITLE, 1.0, r -> ( ( UiRecipeConstaintRow )r ).constraint().description() );
+   public void populateColumns( ConceptTable< RecipeConstraint > table ) {
+      configuration.initialiseCustomStringPropertyColumn( table, COLUMN_TITLE, 1.0, r -> r.concept().description() );
    }//End Method
    
 }//End Class

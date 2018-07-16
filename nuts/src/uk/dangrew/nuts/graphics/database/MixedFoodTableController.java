@@ -61,6 +61,10 @@ public class MixedFoodTableController implements ConceptTableController< Food >,
       return table;
    }//End Method
    
+   protected Database database(){
+      return database;
+   }//End Method
+   
    private void addRow( Food concept ) {
       table.getItems().add( new ConceptTableRowImpl<>( concept ) );
    }//End Method

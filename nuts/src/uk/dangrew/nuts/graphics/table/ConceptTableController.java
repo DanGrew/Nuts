@@ -8,12 +8,10 @@
  */
 package uk.dangrew.nuts.graphics.table;
 
-import uk.dangrew.nuts.system.Concept;
-
 /**
  * {@link ConceptTableController} provides a controller interface for a {@link ConceptTable}.
  */
-public interface ConceptTableController< TypeT extends Concept > {
+public interface ConceptTableController< TypeT > {
 
    /**
     * Instruction to create a new {@link Concept} of the associated type.

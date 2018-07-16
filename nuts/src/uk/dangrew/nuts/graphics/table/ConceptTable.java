@@ -11,12 +11,11 @@ package uk.dangrew.nuts.graphics.table;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import uk.dangrew.nuts.graphics.FriendlyTableView;
-import uk.dangrew.nuts.system.Concept;
 
 /**
  * {@link ConceptTable} provides a {@link TableView} for {@link Concept}s.
  */
-public class ConceptTable< TypeT extends Concept > 
+public class ConceptTable< TypeT > 
    extends TableView< ConceptTableRow< TypeT > > 
    implements FriendlyTableView< ConceptTableRow< TypeT > > 
 {

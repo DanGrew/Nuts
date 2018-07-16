@@ -12,9 +12,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.system.Concept;
 
-public class TableWithControls< RowTypeT, BackingConceptT extends Concept > extends TitledPane {
+public class TableWithControls< RowTypeT, BackingConceptT > extends TitledPane {
 
    static final String NO_CONTENT_INFORMATION = 
             "No content to display. Use the '+' and '-' to add and remove. Double click on the name to change it.";

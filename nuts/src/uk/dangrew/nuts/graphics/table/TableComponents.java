@@ -6,9 +6,8 @@ import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
 
-public class TableComponents< TypeT extends Concept >{
+public class TableComponents< TypeT >{
 
    private Database database;
    

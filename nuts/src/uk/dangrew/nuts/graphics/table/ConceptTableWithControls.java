@@ -9,12 +9,11 @@
 package uk.dangrew.nuts.graphics.table;
 
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.system.Concept;
 
 /**
  * {@link ConceptTableWithControls} provides a {@link ConceptTable} with {@link ConceptControls}.
  */
-public class ConceptTableWithControls< TypeT extends Concept > extends TableWithControls< ConceptTableRow< TypeT >, TypeT > {
+public class ConceptTableWithControls< TypeT > extends TableWithControls< ConceptTableRow< TypeT >, TypeT > {
 
    ConceptTableWithControls( String title, ConceptTable< TypeT > table, ConceptControls controls ) {
       this( new JavaFxStyle(), title, table, controls );
