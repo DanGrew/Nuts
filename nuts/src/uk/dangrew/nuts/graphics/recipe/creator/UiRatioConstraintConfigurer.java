@@ -19,7 +19,7 @@ public class UiRatioConstraintConfigurer extends BorderPane {
    private final ComboBox< Food > secondIngredientBox;
    
    public UiRatioConstraintConfigurer( UiRecipeConstraintController controller, RatioConstraint constraint ) {
-      setCenter( new PropertiesPane( "Properties", 
+      setCenter( new PropertiesPane( "Ratio Constraint Properties", 
                new PropertyRowBuilder()
                   .withLabelName( "First Ingredient" )
                   .withBinding( new ResponsiveComboProperty<>( 

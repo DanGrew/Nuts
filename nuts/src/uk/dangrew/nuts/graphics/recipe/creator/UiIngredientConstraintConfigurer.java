@@ -18,7 +18,7 @@ public class UiIngredientConstraintConfigurer extends BorderPane {
    private final ComboBox< Food > ingredientBox;
    
    public UiIngredientConstraintConfigurer( UiRecipeConstraintController controller, IngredientConstraint constraint ) {
-      setCenter( new PropertiesPane( "Properties", 
+      setCenter( new PropertiesPane( "Ingredient Constraint Properties", 
                new PropertyRowBuilder()
                   .withLabelName( "Ingredient" )
                   .withBinding( new ResponsiveComboProperty<>( 

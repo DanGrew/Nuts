@@ -14,7 +14,7 @@ import uk.dangrew.nuts.recipe.constraint.BoundConstraint;
 public class UiBoundConstraintConfigurer extends BorderPane {
 
    public UiBoundConstraintConfigurer( UiRecipeConstraintController controller, BoundConstraint constraint ) {
-      setCenter( new PropertiesPane( "Properties", 
+      setCenter( new PropertiesPane( "Bound Constraint Properties", 
                new PropertyRowBuilder()
                   .withLabelName( "Bound Unit" )
                   .withBinding( new ResponsiveComboProperty<>( 
