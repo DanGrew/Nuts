@@ -16,10 +16,12 @@ import uk.dangrew.nuts.graphics.food.UnresponsiveConceptTableController;
 import uk.dangrew.nuts.graphics.meal.MealControls;
 import uk.dangrew.nuts.graphics.meal.MealTableColumns;
 import uk.dangrew.nuts.graphics.meal.MealTableControllerImpl;
+import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.graphics.template.TemplateTableColumns;
 import uk.dangrew.nuts.graphics.template.TemplateTableController;
 import uk.dangrew.nuts.meal.Meal;
@@ -72,14 +74,14 @@ public class UiCalendarPane extends GridPane {
                .withDatabase( database )
                .applyColumns( UiDayPlanMealTableColumns::new )
                .withController( templateController = new TemplateTableController() )
-               .withControls( new MealControls( templateController ) )
+               .withControls( new TableControls( new BasicConceptControls( templateController ), new MealControls( templateController ) ) )
                .buildTableWithControls( "Selected Day" )
       , 0, 2 );
       add( mealView = new TableComponents< FoodPortion >()
                .withDatabase( database )
                .applyColumns( MealTableColumns::new )
                .withController( mealTableController = new MealTableControllerImpl() )
-               .withControls( new MealControls( mealTableController ) )
+               .withControls( new TableControls( new BasicConceptControls( mealTableController ), new MealControls( mealTableController ) ) )
                .buildTableWithControls( "Selected Meal" ), 
       0, 3 );
       

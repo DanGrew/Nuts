@@ -14,10 +14,11 @@ import uk.dangrew.nuts.graphics.graph.custom.GraphBuilder;
 import uk.dangrew.nuts.graphics.graph.custom.GraphDateStringConverter;
 import uk.dangrew.nuts.graphics.graph.custom.GraphSeriesVisibility;
 import uk.dangrew.nuts.graphics.graph.custom.GraphWithSettings;
-import uk.dangrew.nuts.graphics.table.ConceptControls;
+import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableWithControls;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
 
@@ -52,7 +53,7 @@ public class ProgressSeriesPane extends GridPane {
                .withColumns( new ProgressSeriesTableColumns( graphController ) )
                .withCheckBoxController( new ProgressSeriesGraphVisibilityController( graphController ) )
                .withController( seriesController = new ProgressSeriesTableController( database.progressSeries(), graphController ) )
-               .withControls( new ConceptControls( seriesController ) )
+               .withControls( new TableControls( new BasicConceptControls( seriesController ) ) )
                .buildTableWithControls( "Series" ), 
       0, 0 );
       add( new TableWithControls<>( "Data Points", 

@@ -12,8 +12,9 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.meal.MealTableControllerImpl;
-import uk.dangrew.nuts.graphics.table.ConceptControls;
+import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
@@ -39,7 +40,7 @@ public class ShoppingPane extends GridPane {
                .withDatabase( database )
                .applyColumns( ShoppingNeedsTableColumns::new )
                .withController( shoppingController = new MealTableControllerImpl() )
-               .withControls( new ConceptControls( shoppingController ) )
+               .withControls( new TableControls( new BasicConceptControls( shoppingController ) ) )
                .buildTableWithControls( "Plans to shop for" ), 
       1, 0 );
       

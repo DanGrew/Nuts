@@ -3,9 +3,10 @@ package uk.dangrew.nuts.graphics.recipe.creator;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.graphics.meal.MealTableController;
-import uk.dangrew.nuts.graphics.table.ConceptControls;
+import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.recipe.constraint.RecipeConfiguration;
 import uk.dangrew.nuts.recipe.constraint.RecipeConstraint;
 import uk.dangrew.nuts.store.Database;
@@ -30,7 +31,7 @@ public class UiRecipeCreatorConfigurationPane extends GridPane {
                   .withCheckBoxController( new UiRecipeConstraintCheckBoxController( controller ) )
                   .applyColumns( UiRecipeConstraintColumns::new )
                   .withController( controller )
-                  .withControls( new ConceptControls( controller ) )
+                  .withControls( new TableControls( new BasicConceptControls( controller ) ) )
                   .buildTableWithControls( "Recipe Configurations" ),
       0, 0 );
       

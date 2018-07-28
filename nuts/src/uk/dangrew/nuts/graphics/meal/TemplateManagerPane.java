@@ -13,9 +13,10 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.food.GeneralFoodTableController;
-import uk.dangrew.nuts.graphics.table.ConceptControls;
+import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.graphics.template.TemplateTableColumns;
 import uk.dangrew.nuts.graphics.template.TemplateTableController;
 import uk.dangrew.nuts.meal.Meal;
@@ -55,21 +56,21 @@ public class TemplateManagerPane extends GridPane {
                .withDatabase( database )
                .applyColumns( TemplateTableColumns::new )
                .withController( templateController = new GeneralFoodTableController<>( database, database.templates() ) )
-               .withControls( new ConceptControls( templateController ) )
+               .withControls( new TableControls( new BasicConceptControls( templateController ) ) )
                .buildTableWithControls( "Templates" ), 
       0, 0 );
       add( planView = new TableComponents< FoodPortion >()
                .withDatabase( database )
                .applyColumns( MealTableColumns::new )
                .withController( planController = new TemplateTableController() )
-               .withControls( new MealControls( planController ) )
+               .withControls( new TableControls( new BasicConceptControls( planController ), new MealControls( planController ) ) )
                .buildTableWithControls( "Selected Template" ), 
       0, 1 );
       add( mealView = new TableComponents< FoodPortion >()
                .withDatabase( database )
                .applyColumns( MealTableColumns::new )
                .withController( mealController = new MealTableControllerImpl() )
-               .withControls( new MealControls( mealController ) )
+               .withControls( new TableControls( new BasicConceptControls( mealController ), new MealControls( mealController ) ) )
                .buildTableWithControls( "Selected Meal" ), 
       0, 2 );
       

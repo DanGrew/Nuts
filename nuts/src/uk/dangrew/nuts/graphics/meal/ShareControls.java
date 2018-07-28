@@ -13,28 +13,36 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.control.Button;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.graphics.database.RecipeController;
-import uk.dangrew.nuts.graphics.table.ConceptControls;
+import uk.dangrew.nuts.graphics.table.controls.TableControlSet;
+import uk.dangrew.nuts.graphics.table.controls.TableControlType;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 
-public class RecipeControls extends ConceptControls {
-   
-   static final double INSETS = ConceptControls.INSETS;
-   static final double BUTTON_WIDTH = ConceptControls.BUTTON_WIDTH;
+public class ShareControls implements TableControlSet {
    
    private final Button share;
    
-   public RecipeControls( RecipeController controller ) {
+   public ShareControls( RecipeController controller ) {
       this( new JavaFxStyle(), controller );
    }//End Constructor
    
-   RecipeControls( JavaFxStyle styling, RecipeController controller ) {
-      super( styling, controller );
-      
+   ShareControls( JavaFxStyle styling, RecipeController controller ) {
       MaterialDesignIconView shareGlyph = new MaterialDesignIconView( MaterialDesignIcon.SHARE );
-      getChildren().add( share = styling.createGlyphButton( shareGlyph ) );
-      
-      share.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
+      share = styling.createGlyphButton( shareGlyph );
       share.setOnAction( e -> controller.share() );
    }//End Constructor
+   
+   @Override public void addButtons( TableControls tableControls, double prefButtonWidth ) {
+      share.setPrefSize( prefButtonWidth, prefButtonWidth );
+      tableControls.getChildren().add( share );
+   }//End Method
+   
+   @Override public javafx.scene.control.Button getButton( TableControlType type ) {
+      if ( type == TableControlType.Share ) {
+         return share;
+      }
+      
+      return null;
+   }//End Method
    
    Button shareButton() {
       return share;

@@ -10,7 +10,7 @@ import uk.dangrew.nuts.graphics.meal.MealControls;
 import uk.dangrew.nuts.graphics.meal.MealTableColumns;
 import uk.dangrew.nuts.graphics.meal.MealTableController;
 import uk.dangrew.nuts.graphics.meal.MealTableControllerImpl;
-import uk.dangrew.nuts.graphics.meal.RecipeControls;
+import uk.dangrew.nuts.graphics.meal.ShareControls;
 import uk.dangrew.nuts.graphics.selection.model.FoodFilterModel;
 import uk.dangrew.nuts.graphics.selection.model.FoodFilters;
 import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
@@ -18,10 +18,12 @@ import uk.dangrew.nuts.graphics.selection.view.FoodSelectionControlsConfiguratio
 import uk.dangrew.nuts.graphics.selection.view.UiFoodFilter;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodFilterImpl;
 import uk.dangrew.nuts.graphics.selection.view.UiFoodSelectionControls;
-import uk.dangrew.nuts.graphics.table.ConceptControls;
+import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
+import uk.dangrew.nuts.graphics.table.controls.TableControlType;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseComponents;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
@@ -29,7 +31,7 @@ import uk.dangrew.nuts.store.Database;
 public class UiDatabaseManagerPane extends GridPane {
 
    private final UiFoodSelectionControls foodSelectionControls;
-   private final MealControls mealTableControls;
+   private final TableControls mealTableControls;
    
    private final ConceptTableWithControls< Food > foodTable;
    private final ConceptTableWithControls< Food > comparisonTable;
@@ -64,21 +66,27 @@ public class UiDatabaseManagerPane extends GridPane {
                         .withFoodModel( comparisonModel )
                         .applyColumns( UiComparableFoodTableColumns::new ) 
                         .withController( recipeController )
-                        .withControls( new RecipeControls( recipeController ) )
+                        .withControls( new TableControls( 
+                                 new BasicConceptControls( recipeController ), 
+                                 new ShareControls( recipeController ) 
+                        ) )
                         .buildTableWithControls( "Foods" ), 
       0, 1 );
       add( comparisonTable = new TableComponents< Food >()
                   .withDatabase( database )
                   .applyColumns( FoodTableColumns< Food >::new )
                   .withController( mixedTableController = new MixedFoodTableController( database, comparisonModel ) )
-                  .withControls( new ConceptControls( mixedTableController ) )
+                  .withControls( new TableControls( new BasicConceptControls( mixedTableController ) ) )
                   .buildTableWithControls( "Comparison" ), 
       1, 1 );
       add( mealTable = new TableComponents< FoodPortion >()
                .withDatabase( database )
                .applyColumns( MealTableColumns::new )
                .withController( mealTableController = new MealTableControllerImpl() )
-               .withControls( mealTableControls = new MealControls( mealTableController ) )
+               .withControls( mealTableControls = new TableControls( 
+                        new BasicConceptControls( mealTableController ), 
+                        new MealControls( mealTableController ) 
+               ) )
                .buildTableWithControls( "Contents of Selection" ), 
       1, 2 );
       
@@ -116,15 +124,15 @@ public class UiDatabaseManagerPane extends GridPane {
    public void populateComponents( DatabaseComponents components ){
       components
                .withMainTable( foodTable.table() )
-               .withMainTableAddButton( foodTable.controls().addButton() )
+               .withMainTableAddButton( foodTable.controls().getButton( TableControlType.Add ) )
                .withMainTableFoodTypeDialog( recipeController.foodTypeSelectionDialog() )
       
                .withMealTable( mealTable.table() )
-               .withMealTableAddButton( mealTable.controls().addButton() )
-               .withMealTableRemoveButton( mealTable.controls().removeButton() )
-               .withMealTableCopyButton( mealTable.controls().copyButton() )
-               .withMealTableUpButton( mealTableControls.upButton() )
-               .withMealTableDownButton( mealTableControls.downButton() )
+               .withMealTableAddButton( mealTable.controls().getButton( TableControlType.Add ) )
+               .withMealTableRemoveButton( mealTable.controls().getButton( TableControlType.Remove ) )
+               .withMealTableCopyButton( mealTable.controls().getButton( TableControlType.Copy ) )
+               .withMealTableUpButton( mealTableControls.getButton( TableControlType.Up ) )
+               .withMealTableDownButton( mealTableControls.getButton( TableControlType.Down ) )
                ;
    }//End Method
 }//End Class

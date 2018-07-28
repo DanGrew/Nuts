@@ -18,13 +18,14 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class ConceptTableWithControlsTest {
 
    @Spy private JavaFxStyle styling;
-   @Mock private ConceptControls controls;
+   @Mock private TableControls controls;
    private ConceptTable< ? > table;
    private ConceptTableWithControls< ? > systemUnderTest;
 

@@ -10,48 +10,62 @@ package uk.dangrew.nuts.graphics.table;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.graphics.table.controls.TableControlSet;
+import uk.dangrew.nuts.graphics.table.controls.TableControlType;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 
-/**
- * {@link FoodControls} provides a set of basic controls for the {@link FoodTable}s.
- */
-public class ConceptControls extends VBox {
-   
-   protected static final double BUTTON_WIDTH = 40.0;
-   protected static final double INSETS = 4.0;
+public class BasicConceptControls implements TableControlSet {
    
    private final Button add;
    private final Button copy;
    private final Button remove;
    
-   public ConceptControls( ConceptTableController< ? > controller ) {
+   public BasicConceptControls( ConceptTableController< ? > controller ) {
       this( new JavaFxStyle(), controller );
    }//End Constructor
    
-   protected ConceptControls( JavaFxStyle styling, ConceptTableController< ? > controller ) {
-      setAlignment( Pos.CENTER );
-      setPadding( new Insets( INSETS ) );
-      
+   protected BasicConceptControls( JavaFxStyle styling, ConceptTableController< ? > controller ) {
       MaterialDesignIconView addGlyph = new MaterialDesignIconView( MaterialDesignIcon.PLUS );
       MaterialDesignIconView copyGlyph = new MaterialDesignIconView( MaterialDesignIcon.CONTENT_COPY );
       MaterialDesignIconView removeGlyph = new MaterialDesignIconView( MaterialDesignIcon.MINUS );
       
-      getChildren().add( add = styling.createGlyphButton( addGlyph ) );
-      getChildren().add( copy = styling.createGlyphButton( copyGlyph ) );
-      getChildren().add( remove = styling.createGlyphButton( removeGlyph ) );
-      
-      add.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
-      copy.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
-      remove.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
+      add = styling.createGlyphButton( addGlyph );
+      copy = styling.createGlyphButton( copyGlyph );
+      remove = styling.createGlyphButton( removeGlyph );
       
       add.setOnAction( e -> controller.createConcept() );
       copy.setOnAction( e -> controller.copySelectedConcept() );
       remove.setOnAction( e -> controller.removeSelectedConcept() );
    }//End Constructor
+   
+   @Override public void addButtons( TableControls tableControls, double prefButtonWidth ) {
+      add.setPrefSize( prefButtonWidth, prefButtonWidth );
+      copy.setPrefSize( prefButtonWidth, prefButtonWidth );
+      remove.setPrefSize( prefButtonWidth, prefButtonWidth );
+      
+      tableControls.getChildren().add( add );
+      tableControls.getChildren().add( copy );
+      tableControls.getChildren().add( remove );
+   }//End Method
+   
+   @Override public Button getButton( TableControlType type ) {
+      switch ( type ) {
+         case Add:
+            return add;
+         case Copy:
+            return copy;
+         case Remove:
+            return remove; 
+         case Down:
+         case Share:
+         case Up:
+         default:
+            break;
+      }
+      return null;
+   }//End Method
    
    public Button addButton(){
       return add;

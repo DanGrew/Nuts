@@ -12,12 +12,11 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.control.Button;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.table.ConceptControls;
+import uk.dangrew.nuts.graphics.table.controls.TableControlSet;
+import uk.dangrew.nuts.graphics.table.controls.TableControlType;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 
-public class MealControls extends ConceptControls {
-   
-   static final double INSETS = ConceptControls.INSETS;
-   static final double BUTTON_WIDTH = ConceptControls.BUTTON_WIDTH;
+public class MealControls implements TableControlSet {
    
    private final Button up;
    private final Button down;
@@ -27,20 +26,33 @@ public class MealControls extends ConceptControls {
    }//End Constructor
    
    MealControls( JavaFxStyle styling, FoodHolderOperations controller ) {
-      super( styling, controller );
-      
       MaterialDesignIconView upGlyph = new MaterialDesignIconView( MaterialDesignIcon.CHEVRON_UP );
       MaterialDesignIconView downGlyph = new MaterialDesignIconView( MaterialDesignIcon.CHEVRON_DOWN );
       
-      getChildren().add( 0, up = styling.createGlyphButton( upGlyph ) );
-      getChildren().add( down = styling.createGlyphButton( downGlyph ) );
-      
-      up.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
-      down.setPrefSize( BUTTON_WIDTH, BUTTON_WIDTH );
+      up = styling.createGlyphButton( upGlyph );
+      down = styling.createGlyphButton( downGlyph );
       
       up.setOnAction( e -> controller.moveUp() );
       down.setOnAction( e -> controller.moveDown() );
    }//End Constructor
+   
+   @Override public void addButtons( TableControls tableControls, double prefButtonWidth ) {
+      up.setPrefSize( prefButtonWidth, prefButtonWidth );
+      down.setPrefSize( prefButtonWidth, prefButtonWidth );
+      
+      tableControls.getChildren().add( 0, up );
+      tableControls.getChildren().add( down );
+   }//End Method
+   
+   @Override public Button getButton( TableControlType type ) {
+      if ( type == TableControlType.Up ) {
+         return up;
+      } else if ( type == TableControlType.Down ) {
+         return down;
+      }
+      
+      return null;
+   }//End Method
    
    public Button upButton() {
       return up;

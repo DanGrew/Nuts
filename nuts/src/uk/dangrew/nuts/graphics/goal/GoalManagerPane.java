@@ -13,9 +13,10 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.table.ConceptControls;
+import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.store.Database;
 
 public class GoalManagerPane extends GridPane {
@@ -44,7 +45,7 @@ public class GoalManagerPane extends GridPane {
                   .withDatabase( database )
                   .applyColumns( FoodTableColumns< Goal >::new )
                   .withController( goalsController = new GoalTableController( database.calorieGoals(), database.proportionGoals() ) )
-                  .withControls( new ConceptControls( goalsController ) )
+                  .withControls( new TableControls( new BasicConceptControls( goalsController ) ) )
                   .buildTableWithControls( "Goals" ),
       0, 0 );
       ScrollPane scroller = new ScrollPane( goalView = new GoalCalculationView() );

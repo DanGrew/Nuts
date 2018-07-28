@@ -5,6 +5,7 @@ import java.util.function.Function;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.store.Database;
 
 public class TableComponents< TypeT >{
@@ -15,7 +16,7 @@ public class TableComponents< TypeT >{
    private ConceptTableViewController< TypeT > controller;
    private CheckBoxController< TypeT > checkBoxController;
    
-   private ConceptControls tableControls;
+   private TableControls tableControls;
    private SimpleFoodModel foodModel;
    
    public NutsSettings settings(){
@@ -64,11 +65,11 @@ public class TableComponents< TypeT >{
       return this;
    }//End Method
    
-   public ConceptControls tableControls(){
+   public TableControls tableControls(){
       return tableControls;
    }//End Method
    
-   public TableComponents< TypeT > withControls( ConceptControls tableControls ) {
+   public TableComponents< TypeT > withControls( TableControls tableControls ) {
       this.tableControls = tableControls;
       return this;
    }//End Method

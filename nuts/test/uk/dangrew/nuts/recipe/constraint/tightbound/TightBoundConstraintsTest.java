@@ -3,6 +3,7 @@ package uk.dangrew.nuts.recipe.constraint.tightbound;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
@@ -104,7 +105,7 @@ public class TightBoundConstraintsTest {
    }//End Method
    
    @Test public void shouldProvideDescription(){
-      assertThat( systemUnderTest.description().get(), is( notNullValue() ) );
+      assertThat( systemUnderTest.description().get(), is( nullValue() ) );
    }//End Method
    
 }//End Class

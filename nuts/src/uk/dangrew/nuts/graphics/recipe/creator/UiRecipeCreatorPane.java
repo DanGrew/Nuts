@@ -9,8 +9,10 @@ import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.meal.MealControls;
 import uk.dangrew.nuts.graphics.meal.MealTableColumns;
 import uk.dangrew.nuts.graphics.meal.MealTableControllerImpl;
+import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.recipe.constraint.RecipeConfiguration;
 import uk.dangrew.nuts.store.Database;
@@ -38,7 +40,7 @@ public class UiRecipeCreatorPane extends GridPane {
                         .withDatabase( database )
                         .applyColumns( MealTableColumns::new ) 
                         .withController( ingredientsController )
-                        .withControls( new MealControls( ingredientsController ) )
+                        .withControls( new TableControls( new BasicConceptControls( ingredientsController ), new MealControls( ingredientsController ) ) )
                         .buildTableWithControls( "Ingredients" ),
       0, 0 );
       ingredientsController.showMeal( recipe );

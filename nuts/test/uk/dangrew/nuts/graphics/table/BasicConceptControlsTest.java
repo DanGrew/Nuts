@@ -19,39 +19,31 @@ import org.mockito.Spy;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.graphics.table.controls.TableControlType;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.sd.graphics.launch.TestApplication;
 
-public class ConceptControlsTest {
+public class BasicConceptControlsTest {
 
+   private TableControls controls;
    @Captor private ArgumentCaptor< Button > buttonCaptor;
    
    @Spy private JavaFxStyle styling;
    @Mock private ConceptTableController< Food > callBack;
-   private ConceptControls systemUnderTest;
+   private BasicConceptControls systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      systemUnderTest = new ConceptControls( styling, callBack );
+      systemUnderTest = new BasicConceptControls( styling, callBack );
+      controls = new TableControls( systemUnderTest );
    }//End Method
 
-   @Test public void shouldProvideAlignment() {
-      assertThat( systemUnderTest.getAlignment(), is( Pos.CENTER ) );
-   }//End Method
-   
-   @Test public void shouldProvideInsets() {
-      assertThat( systemUnderTest.getInsets().getBottom(), is( ConceptControls.INSETS ) );
-      assertThat( systemUnderTest.getInsets().getTop(), is( ConceptControls.INSETS ) );
-      assertThat( systemUnderTest.getInsets().getRight(), is( ConceptControls.INSETS ) );
-      assertThat( systemUnderTest.getInsets().getLeft(), is( ConceptControls.INSETS ) );
-   }//End Method
-   
    @Test public void shouldProvideButtons() {
-      assertThat( systemUnderTest.getChildren(), contains(
+      assertThat( controls.getChildren(), contains(
                systemUnderTest.addButton(),
                systemUnderTest.copyButton(), 
                systemUnderTest.removeButton()
@@ -71,12 +63,12 @@ public class ConceptControlsTest {
       
       verify( styling, times( 3 ) ).createGlyphButton( Mockito.any() );
       
-      assertThat( systemUnderTest.addButton().getPrefHeight(), is( ConceptControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.addButton().getPrefWidth(), is( ConceptControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.copyButton().getPrefHeight(), is( ConceptControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.copyButton().getPrefWidth(), is( ConceptControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.removeButton().getPrefHeight(), is( ConceptControls.BUTTON_WIDTH ) );
-      assertThat( systemUnderTest.removeButton().getPrefWidth(), is( ConceptControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.addButton().getPrefHeight(), is( TableControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.addButton().getPrefWidth(), is( TableControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.copyButton().getPrefHeight(), is( TableControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.copyButton().getPrefWidth(), is( TableControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.removeButton().getPrefHeight(), is( TableControls.BUTTON_WIDTH ) );
+      assertThat( systemUnderTest.removeButton().getPrefWidth(), is( TableControls.BUTTON_WIDTH ) );
    }//End Method
    
    @Test public void shouldDirectCallsToCallBack() {
@@ -90,4 +82,10 @@ public class ConceptControlsTest {
       verify( callBack ).removeSelectedConcept();
    }//End Method
 
+   @Test public void shouldProvideButtonsForTypes(){
+      assertThat( systemUnderTest.getButton( TableControlType.Add ), is( systemUnderTest.addButton() ) );
+      assertThat( systemUnderTest.getButton( TableControlType.Copy ), is( systemUnderTest.copyButton() ) );
+      assertThat( systemUnderTest.getButton( TableControlType.Remove ), is( systemUnderTest.removeButton() ) );
+   }//End Method
+   
 }//End Class
