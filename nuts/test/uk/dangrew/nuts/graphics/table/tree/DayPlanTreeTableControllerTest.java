@@ -21,6 +21,7 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.database.RecipeShareControllerImpl;
 import uk.dangrew.nuts.store.Database;
 
 public class DayPlanTreeTableControllerTest {
@@ -29,6 +30,7 @@ public class DayPlanTreeTableControllerTest {
    private TreeItem< TreeTableController > reorderedSelection;
    @Mock private TreeTableController selectionController;
    @Mock private TreeStreamer treeStreamer;
+   @Mock private RecipeShareControllerImpl shareController;
    private FoodPortion concept;
    private Database database;
    private DayPlan dayPlan;
@@ -52,7 +54,7 @@ public class DayPlanTreeTableControllerTest {
       reorderedSelection = new TreeTableLeafItem( concept, mock( TreeTableHolderControls.class ) );
       when( treeStreamer.flatten( table.getRoot() ) ).thenReturn( Stream.of( reorderedSelection ) );
       
-      systemUnderTest = new DayPlanTreeTableController( treeStreamer );
+      systemUnderTest = new DayPlanTreeTableController( treeStreamer, shareController );
       systemUnderTest.associate( table );
    }//End Method
 
@@ -114,6 +116,12 @@ public class DayPlanTreeTableControllerTest {
       verify( selectionController ).moveUp();
       
       assertThat( table.getSelectionModel().getSelectedItem(), is( reorderedSelection ) );
+   }//End Method
+   
+   @Test public void shouldShare(){
+      table.getSelectionModel().select( table.getRoot() );
+      systemUnderTest.share();
+      verify( shareController ).share( dayPlan );
    }//End Method
 
 }//End Class

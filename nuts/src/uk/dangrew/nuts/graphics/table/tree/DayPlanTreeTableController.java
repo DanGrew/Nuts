@@ -12,19 +12,23 @@ import javafx.scene.control.TreeItem;
 import uk.dangrew.kode.javafx.tree.TreeStreamer;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.graphics.database.RecipeShareController;
+import uk.dangrew.nuts.graphics.database.RecipeShareControllerImpl;
 import uk.dangrew.nuts.graphics.meal.FoodHolderOperations;
 
-public class DayPlanTreeTableController implements FoodHolderOperations, ConceptTreeTableController< FoodPortion > {
+public class DayPlanTreeTableController implements FoodHolderOperations, ConceptTreeTableController< FoodPortion >, RecipeShareController {
 
    private final TreeStreamer treeStreamer;
+   private final RecipeShareControllerImpl shareController;
    private DayPlanTreeTable table;
    
    public DayPlanTreeTableController() {
-      this( new TreeStreamer() );
+      this( new TreeStreamer(), new RecipeShareControllerImpl() );
    }//End Constructor
    
-   DayPlanTreeTableController( TreeStreamer treeStreamer ) {
+   DayPlanTreeTableController( TreeStreamer treeStreamer, RecipeShareControllerImpl shareController ) {
       this.treeStreamer = treeStreamer;
+      this.shareController = shareController;
    }//End Constructor
    
    @Override public void associate( DayPlanTreeTable table ) {
@@ -86,6 +90,14 @@ public class DayPlanTreeTableController implements FoodHolderOperations, Concept
       
       selection.getValue().moveDown();
       select( selection.getValue().concept() );
+   }//End Method
+   
+   @Override public void share() {
+      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
+      if ( selection == null ) {
+         return;
+      }
+      shareController.share( selection.getValue().concept().food().get() );
    }//End Method
    
    private void select( FoodPortion portion ) {

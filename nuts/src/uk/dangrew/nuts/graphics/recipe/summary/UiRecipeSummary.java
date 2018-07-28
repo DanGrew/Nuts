@@ -8,6 +8,7 @@ import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.LabelBuilder;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
+import uk.dangrew.nuts.meal.FoodHolder;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
@@ -35,9 +36,9 @@ public class UiRecipeSummary extends GridPane {
    
    private int rowCount;
    private int currentIndentation;
-   private Meal individualIngredients;
+   private FoodHolder individualIngredients;
    
-   public UiRecipeSummary( Meal meal ) {
+   public UiRecipeSummary( FoodHolder meal ) {
       this.conversions = new Conversions();
       this.styling = new JavaFxStyle();
       this.styling.configureConstraintsForColumnPercentages( this, 40, 12, 12, 12, 12, 12 );
@@ -50,7 +51,7 @@ public class UiRecipeSummary extends GridPane {
       this.styling.configureConstraintsForEvenRows( this, rowCount );
    }//End Class
    
-   private void addTopLevelMeal( Meal meal ) {
+   private void addTopLevelMeal( FoodHolder meal ) {
       addFoodRow( new FoodPortion( meal, 100.0 ), TOTAL_STATS_BACKGROUND, LIGHT_TEXT_COLOUR );
       currentIndentation++;
       

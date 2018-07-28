@@ -5,7 +5,7 @@ import com.sun.javafx.application.PlatformImpl;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import uk.dangrew.nuts.graphics.recipe.summary.UiRecipeSummary;
-import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.FoodHolder;
 
 public class RecipeSummaryWindow {
    
@@ -21,11 +21,11 @@ public class RecipeSummaryWindow {
       this.stage.hide();
    }//End Constructor
    
-   public void show( Meal meal ){
+   public void show( FoodHolder meal ){
       PlatformImpl.runAndWait( () -> internal_show( meal ) );
    }//End Method
    
-   private void internal_show( Meal meal ) {
+   private void internal_show( FoodHolder meal ) {
       this.stage.setScene( new Scene( new UiRecipeSummary( meal ) ) );
       this.stage.showAndWait();
    }//End Method

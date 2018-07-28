@@ -2,6 +2,7 @@ package uk.dangrew.nuts.graphics.table.tree;
 
 import javafx.scene.layout.BorderPane;
 import uk.dangrew.nuts.graphics.meal.MealControls;
+import uk.dangrew.nuts.graphics.meal.ShareControls;
 import uk.dangrew.nuts.graphics.table.BasicConceptControls;
 import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.store.Database;
@@ -16,7 +17,11 @@ public class DayPlanTreePane extends BorderPane {
       this.setCenter( table = new DayPlanTreeTable( database ) );
       this.controller = new DayPlanTreeTableController();
       this.controller.associate( table );
-      this.setRight( controls = new TableControls( new BasicConceptControls( controller ), new MealControls( controller ) ) );
+      this.setRight( controls = new TableControls( 
+               new BasicConceptControls( controller ), 
+               new MealControls( controller ),
+               new ShareControls( controller )
+      ) );
    }//End Constructor
    
    public DayPlanTreeTableController controller(){

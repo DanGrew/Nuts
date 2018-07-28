@@ -132,7 +132,12 @@ public class MixedFoodTableController implements ConceptTableController< Food >,
    }//End Method
    
    @Override public void share() {
-      recipeShareController.share( table );
+      ConceptTableRow< Food > selectedRow = table.getSelectionModel().getSelectedItem();
+      if ( selectedRow == null ) {
+         return;
+      }
+      
+      recipeShareController.share( selectedRow.concept() );
    }//End Method
    
    public UiEnumTypeSelectionDialog< FoodTypes > foodTypeSelectionDialog() {

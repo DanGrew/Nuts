@@ -1,9 +1,7 @@
 package uk.dangrew.nuts.graphics.database;
 
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.FoodHolder;
 
 public class RecipeShareControllerImpl {
 
@@ -17,19 +15,13 @@ public class RecipeShareControllerImpl {
       this.recipeWindow = window;
    }//End Method
 
-   public void share( ConceptTable< Food > table ) {
-      ConceptTableRow< Food > selectedRow = table.getSelectionModel().getSelectedItem();
-      if ( selectedRow == null ) {
-         return;
-      }
-      
-      Food selection = selectedRow.concept();
+   public void share( Food selection ) {
       if ( selection == null ) {
          return;
       }
       
-      if ( selection instanceof Meal ) {
-         recipeWindow.show( ( Meal )selection );
+      if ( selection instanceof FoodHolder ) {
+         recipeWindow.show( ( FoodHolder )selection );
       }
    }//End Method
 

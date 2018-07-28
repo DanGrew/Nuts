@@ -161,8 +161,10 @@ public class MixedFoodTableControllerTest {
    }//End Method
 
    @Test public void shouldShareWhenPressed(){
+      table.getSelectionModel().select( 0 );
+      
       systemUnderTest.share();
-      verify( shareController ).share( table );
+      verify( shareController ).share( database.foodItems().objectList().get( 0 ) );
    }//End Method
    
 }//End Class

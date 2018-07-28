@@ -11,20 +11,12 @@ import org.mockito.MockitoAnnotations;
 import com.sun.javafx.application.PlatformImpl;
 
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.graphics.table.TableComponents;
-import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.store.Database;
 
 public class RecipeControllerTest {
 
-   private ConceptTable< Food > table;
+   private Meal food;
    
    @Mock private RecipeSummaryWindow window;
    private RecipeShareControllerImpl systemUnderTest;
@@ -33,47 +25,25 @@ public class RecipeControllerTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      Database database = new Database();
-      DataLocation.loadSampleFoodData( database );
-      SimpleFoodModel model = new SimpleFoodModel();
-      database.foodItems().objectList().forEach( model::add );
-      database.meals().objectList().forEach( model::add );
-      
+      food = new Meal( "Meal" );
       PlatformImpl.runAndWait( () -> {
          systemUnderTest = new RecipeShareControllerImpl( window );
-         table = new TableComponents< Food >()
-                  .withDatabase( database )
-                  .applyColumns( FoodTableColumns< Food >::new )
-                  .withController( new MixedFoodTableController( database, model ) )
-                  .buildTable();
       } );
    }//End Method
 
    @Test public void shouldNotShareWhenNoSelection() {
-      systemUnderTest.share( table );
+      systemUnderTest.share( null );
       verifyZeroInteractions( window );
    }//End Method
    
    @Test public void shouldNotShareWhenSelectedNotMeal() {
-      ConceptTableRow< Food > itemRow = table.getRows().stream()
-         .filter( r -> r.concept() instanceof FoodItem )
-         .findAny()
-         .get();
-      table.getSelectionModel().select( itemRow );
-      
-      systemUnderTest.share( table );
+      systemUnderTest.share( new FoodItem( "Item" ) );
       verifyZeroInteractions( window );
    }//End Method
    
    @Test public void shouldShareSelection() {
-      ConceptTableRow< Food > itemRow = table.getRows().stream()
-         .filter( r -> r.concept() instanceof Meal )
-         .findAny()
-         .get();
-      table.getSelectionModel().select( itemRow );
-      
-      systemUnderTest.share( table );
-      verify( window ).show( ( Meal )itemRow.concept() );
+      systemUnderTest.share( food );
+      verify( window ).show( food );
    }//End Method
 
 }//End Class
