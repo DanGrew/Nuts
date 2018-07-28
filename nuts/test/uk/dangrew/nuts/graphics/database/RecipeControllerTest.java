@@ -27,7 +27,7 @@ public class RecipeControllerTest {
    private ConceptTable< Food > table;
    
    @Mock private RecipeSummaryWindow window;
-   private RecipeController systemUnderTest;
+   private RecipeShareControllerImpl systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
@@ -40,17 +40,17 @@ public class RecipeControllerTest {
       database.meals().objectList().forEach( model::add );
       
       PlatformImpl.runAndWait( () -> {
-         systemUnderTest = new RecipeController( window, database, model );
+         systemUnderTest = new RecipeShareControllerImpl( window );
          table = new TableComponents< Food >()
                   .withDatabase( database )
                   .applyColumns( FoodTableColumns< Food >::new )
-                  .withController( systemUnderTest )
+                  .withController( new MixedFoodTableController( database, model ) )
                   .buildTable();
       } );
    }//End Method
 
    @Test public void shouldNotShareWhenNoSelection() {
-      systemUnderTest.share();
+      systemUnderTest.share( table );
       verifyZeroInteractions( window );
    }//End Method
    
@@ -61,7 +61,7 @@ public class RecipeControllerTest {
          .get();
       table.getSelectionModel().select( itemRow );
       
-      systemUnderTest.share();
+      systemUnderTest.share( table );
       verifyZeroInteractions( window );
    }//End Method
    
@@ -72,7 +72,7 @@ public class RecipeControllerTest {
          .get();
       table.getSelectionModel().select( itemRow );
       
-      systemUnderTest.share();
+      systemUnderTest.share( table );
       verify( window ).show( ( Meal )itemRow.concept() );
    }//End Method
 

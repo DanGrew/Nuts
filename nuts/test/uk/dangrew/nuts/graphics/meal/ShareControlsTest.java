@@ -21,7 +21,7 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.Node;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.database.RecipeController;
+import uk.dangrew.nuts.graphics.database.RecipeShareController;
 import uk.dangrew.nuts.graphics.table.controls.TableControlType;
 import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.sd.graphics.launch.TestApplication;
@@ -32,7 +32,7 @@ public class ShareControlsTest {
    private TableControls controls;
    
    @Spy private JavaFxStyle styling;
-   @Mock private RecipeController callBack;
+   @Mock private RecipeShareController callBack;
    private ShareControls systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {

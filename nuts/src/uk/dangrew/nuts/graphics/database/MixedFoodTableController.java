@@ -16,12 +16,13 @@ import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.store.Database;
 
-public class MixedFoodTableController implements ConceptTableController< Food >, ConceptTableViewController< Food > {
+public class MixedFoodTableController implements ConceptTableController< Food >, ConceptTableViewController< Food >, RecipeShareController {
 
    private final UiEnumTypeSelectionDialog< FoodTypes > dialog;
    private final Database database;
    private final FoodModel model;
    private final FoodDeletionMechanism deletionMechanism;
+   private final RecipeShareControllerImpl recipeShareController;
    
    private ConceptTable< Food > table;
    
@@ -29,6 +30,7 @@ public class MixedFoodTableController implements ConceptTableController< Food >,
       this( 
                new FoodDeletionMechanism( database ),
                new UiEnumTypeSelectionDialog<>( FoodTypes.class, FoodTypes.FoodItems ),
+               new RecipeShareControllerImpl(),
                database,
                model
       );
@@ -37,6 +39,7 @@ public class MixedFoodTableController implements ConceptTableController< Food >,
    public MixedFoodTableController( 
             FoodDeletionMechanism deletionMechanism, 
             UiEnumTypeSelectionDialog< FoodTypes > dialog,
+            RecipeShareControllerImpl recipeShareController,
             Database database,
             FoodModel model
    ) {
@@ -44,6 +47,7 @@ public class MixedFoodTableController implements ConceptTableController< Food >,
       this.dialog = dialog;
       this.database = database;
       this.model = model;
+      this.recipeShareController = recipeShareController;
    }//End Constructor
    
    /**
@@ -125,6 +129,10 @@ public class MixedFoodTableController implements ConceptTableController< Food >,
       }
       Food copy = selection.concept().duplicate( "-copy" );
       type.redirect( database ).store( copy );
+   }//End Method
+   
+   @Override public void share() {
+      recipeShareController.share( table );
    }//End Method
    
    public UiEnumTypeSelectionDialog< FoodTypes > foodTypeSelectionDialog() {

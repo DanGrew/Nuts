@@ -1,26 +1,24 @@
 package uk.dangrew.nuts.graphics.database;
 
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.selection.model.FoodModel;
+import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.store.Database;
 
-public class RecipeController extends MixedFoodTableController {
+public class RecipeShareControllerImpl {
 
    private final RecipeSummaryWindow recipeWindow;
    
-   public RecipeController( Database database, FoodModel model ) {
-      this( new RecipeSummaryWindow(), database, model );
+   public RecipeShareControllerImpl() {
+      this( new RecipeSummaryWindow() );
    }//End Constructor
    
-   RecipeController( RecipeSummaryWindow window, Database database, FoodModel model ) {
-      super( database, model );
+   RecipeShareControllerImpl( RecipeSummaryWindow window ) {
       this.recipeWindow = window;
    }//End Method
 
-   public void share() {
-      ConceptTableRow< Food > selectedRow = table().getSelectionModel().getSelectedItem();
+   public void share( ConceptTable< Food > table ) {
+      ConceptTableRow< Food > selectedRow = table.getSelectionModel().getSelectedItem();
       if ( selectedRow == null ) {
          return;
       }

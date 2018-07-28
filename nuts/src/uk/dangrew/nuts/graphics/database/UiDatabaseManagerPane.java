@@ -39,7 +39,7 @@ public class UiDatabaseManagerPane extends GridPane {
    
    private final MixedFoodTableController mixedTableController;
    private final MealTableControllerImpl mealTableController;
-   private final RecipeController recipeController;
+   private final MixedFoodTableController recipeController;
    
    private final SimpleFoodModel comparisonModel;
    
@@ -51,7 +51,7 @@ public class UiDatabaseManagerPane extends GridPane {
       UiFoodFilter filter = new UiFoodFilterImpl( database, filterModel );
       
       comparisonModel = new SimpleFoodModel();
-      recipeController = new RecipeController( database, filterModel );
+      recipeController = new MixedFoodTableController( database, filterModel );
       
       add( foodSelectionControls = new UiFoodSelectionControls( 
                database.labels().objectList(), 

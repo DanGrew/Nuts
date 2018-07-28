@@ -12,7 +12,7 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.control.Button;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.database.RecipeController;
+import uk.dangrew.nuts.graphics.database.RecipeShareController;
 import uk.dangrew.nuts.graphics.table.controls.TableControlSet;
 import uk.dangrew.nuts.graphics.table.controls.TableControlType;
 import uk.dangrew.nuts.graphics.table.controls.TableControls;
@@ -21,11 +21,11 @@ public class ShareControls implements TableControlSet {
    
    private final Button share;
    
-   public ShareControls( RecipeController controller ) {
+   public ShareControls( RecipeShareController controller ) {
       this( new JavaFxStyle(), controller );
    }//End Constructor
    
-   ShareControls( JavaFxStyle styling, RecipeController controller ) {
+   ShareControls( JavaFxStyle styling, RecipeShareController controller ) {
       MaterialDesignIconView shareGlyph = new MaterialDesignIconView( MaterialDesignIcon.SHARE );
       share = styling.createGlyphButton( shareGlyph );
       share.setOnAction( e -> controller.share() );

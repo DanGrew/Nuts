@@ -36,6 +36,7 @@ public class MixedFoodTableControllerTest {
 
    @Mock private FoodDeletionMechanism deletionMechanism;
    @Mock private UiEnumTypeSelectionDialog< FoodTypes > dialog;
+   @Mock private RecipeShareControllerImpl shareController;
    private Database database;
    
    private FoodFilterModel model;
@@ -54,7 +55,13 @@ public class MixedFoodTableControllerTest {
       database.templates().createConcept( "Template2" );
       model = new FoodFilterModel( database );
       
-      systemUnderTest = new MixedFoodTableController( deletionMechanism, dialog, database, model );
+      systemUnderTest = new MixedFoodTableController( 
+               deletionMechanism, 
+               dialog,
+               shareController,
+               database, 
+               model 
+      );
       PlatformImpl.runAndWait( () -> table = new TableComponents< Food >()
                .withDatabase( database )
                .applyColumns( FoodTableColumns< Food >::new )
@@ -153,4 +160,9 @@ public class MixedFoodTableControllerTest {
       assertThat( database.templates().objectList(), hasSize( 3 ) );
    }//End Method
 
+   @Test public void shouldShareWhenPressed(){
+      systemUnderTest.share();
+      verify( shareController ).share( table );
+   }//End Method
+   
 }//End Class
