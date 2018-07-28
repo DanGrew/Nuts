@@ -14,6 +14,10 @@ public class ProgressSeriesGraphVisibilityController extends CheckBoxControllerI
       this.controller = controller;
    }//End Constructor
    
+   @Override protected boolean getModelValue( ProgressSeries concept ) {
+      return controller.visibleSeries().contains( concept );
+   }//End Method
+   
    @Override protected void apply( ObservableValue< ? extends Boolean > property, boolean o, boolean included ) {
       if ( included ) {
          controller.show( conceptFor( property ) );

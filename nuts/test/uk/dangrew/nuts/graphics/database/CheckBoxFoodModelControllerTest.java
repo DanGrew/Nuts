@@ -27,6 +27,7 @@ public class CheckBoxFoodModelControllerTest {
       food1 = new FoodItem( "Food1" );
       food2 = new FoodItem( "Food2" );
       model = new SimpleFoodModel();
+      model.add( food2 );
       systemUnderTest = new CheckBoxFoodModelController( model );
    }//End Method
 
@@ -59,6 +60,11 @@ public class CheckBoxFoodModelControllerTest {
       assertThat( systemUnderTest.propertyFor( food1 ).get(), is( false ) );
       model.add( food1 );
       assertThat( systemUnderTest.propertyFor( food1 ).get(), is( true ) );
+   }//End Method
+   
+   @Test public void shouldTickContainedFoodsInitially(){
+      assertThat( systemUnderTest.propertyFor( food1 ).get(), is( false ) );
+      assertThat( systemUnderTest.propertyFor( food2 ).get(), is( true ) );
    }//End Method
 
 }//End Class

@@ -186,7 +186,7 @@
          "thiamin": 0,
          "niacin": 0,
          "magnesium": 0.5,
-         "calories": 2200,
+         "calories": 2000,
          "omega3": 0,
          "folicacid": 0,
          "sodium": 0,
@@ -195,11 +195,11 @@
          "iron": 0,
          "riboflavin": 0
       },
-      "name": "Keto Omad (2200)",
-      "carbohydrateProportionValue": 25,
+      "name": "Keto Omad (2000)",
+      "carbohydrateProportionValue": 20,
       "fatProportionType": "Calorie",
       "id": "2acc6f40-9184-474d-9adc-17afe356a39e",
       "proteinProportionType": "Weight",
-      "fatProportionValue": 1760
+      "fatProportionValue": 1560
    }
 ]}

@@ -18,6 +18,10 @@ public class CheckBoxFoodModelController extends CheckBoxControllerImpl< Food > 
       ) );
    }//End Constructor
    
+   @Override protected boolean getModelValue( Food concept ) {
+      return model.concepts().contains( concept );
+   }//End Method
+   
    @Override protected void apply( ObservableValue< ? extends Boolean > property, boolean o, boolean included ) {
       if ( included ) {
          model.add( conceptFor( property ) );

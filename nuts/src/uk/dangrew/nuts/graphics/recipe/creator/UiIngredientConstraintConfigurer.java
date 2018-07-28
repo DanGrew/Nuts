@@ -11,21 +11,21 @@ import uk.dangrew.kode.javafx.custom.ResponsiveDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.food.FoodStringConverter;
-import uk.dangrew.nuts.recipe.constraint.IngredientConstraint;
+import uk.dangrew.nuts.recipe.constraint.raw.IngredientRawConstraint;
 
 public class UiIngredientConstraintConfigurer extends BorderPane {
 
    private final ComboBox< Food > ingredientBox;
    
-   public UiIngredientConstraintConfigurer( UiRecipeConstraintController controller, IngredientConstraint constraint ) {
+   public UiIngredientConstraintConfigurer( UiRecipeConstraintController controller, IngredientRawConstraint constraint ) {
       setCenter( new PropertiesPane( "Ingredient Constraint Properties", 
                new PropertyRowBuilder()
                   .withLabelName( "Ingredient" )
                   .withBinding( new ResponsiveComboProperty<>( 
                            ingredientBox = new ComboBox<>( controller.configuration().ingredients() ), 
-                           constraint.ingredient().get(), 
+                           constraint.subject().get(), 
                            ( s, o, n ) -> {
-                              constraint.ingredient().set( n );
+                              constraint.subject().set( n );
                               controller.recalculate();
                            } ) 
                   ),
@@ -42,9 +42,9 @@ public class UiIngredientConstraintConfigurer extends BorderPane {
                new PropertyRowBuilder()
                   .withLabelName( "Amount of Ingredient (number of portions, not %)" )
                   .withBinding( new ResponsiveDoubleAsTextProperty( 
-                           constraint.amountOfIngredient().get(), 
+                           constraint.bound().get(), 
                            ( o, n ) -> {
-                              constraint.amountOfIngredient().set( n );
+                              constraint.bound().set( n );
                               controller.recalculate();
                            },
                            true 

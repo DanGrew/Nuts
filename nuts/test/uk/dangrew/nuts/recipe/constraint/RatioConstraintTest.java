@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.recipe.constraint;
 
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
@@ -43,7 +43,7 @@ public class RatioConstraintTest {
    }//End Method
 
    @Test public void shouldGenerateConstraint() {
-      LinearConstraint constraint = systemUnderTest.generate( foods ).get();
+      LinearConstraint constraint = systemUnderTest.generate( foods ).get( 0 );
       assertThat( constraint.getCoefficients().getEntry( 0 ), is( 3.0 ) );
       assertThat( constraint.getCoefficients().getEntry( 1 ), is( 0.0 ) );
       assertThat( constraint.getCoefficients().getEntry( 2 ), is( -2.0 ) );
@@ -55,41 +55,41 @@ public class RatioConstraintTest {
       systemUnderTest = new RatioConstraint( 
                new FoodItem( "Anything" ), 3.0, food3, 2.0, Relationship.EQ 
       );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
       
       systemUnderTest = new RatioConstraint( 
                food1, 3.0, new FoodItem( "Anything" ), 2.0, Relationship.EQ 
       );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
       
       systemUnderTest = new RatioConstraint( 
                null, 3.0, food2, 2.0, Relationship.EQ 
       );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
       
       systemUnderTest = new RatioConstraint( 
                food1, null, food2, 2.0, Relationship.EQ 
       );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
       
       systemUnderTest = new RatioConstraint( 
                food1, 3.0, null, 2.0, Relationship.EQ 
       );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
       
       systemUnderTest = new RatioConstraint( 
                food1, 3.0, food2, null, Relationship.EQ 
       );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
       
       systemUnderTest = new RatioConstraint( 
                food1, 3.0, food2, 2.0, null 
       );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
    }//End Method
    
    @Test public void shouldGenerateNewConstratins(){
-      assertThat( systemUnderTest.generate( foods ).get() == systemUnderTest.generate( foods ).get(), is( false ) );
+      assertThat( systemUnderTest.generate( foods ).get( 0 ) == systemUnderTest.generate( foods ).get( 0 ), is( false ) );
    }//End Method
    
    @Test public void shouldProvideDescription(){

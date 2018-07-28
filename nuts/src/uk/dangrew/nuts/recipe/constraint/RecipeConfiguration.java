@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.recipe.constraint;
 
 import java.util.Collection;
-import java.util.Optional;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.math3.optim.linear.LinearConstraint;
@@ -13,6 +13,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.nuts.food.Food;
+import uk.dangrew.nuts.recipe.constraint.raw.IngredientRawConstraint;
 import uk.dangrew.nuts.system.Concept;
 import uk.dangrew.nuts.system.Properties;
 
@@ -53,15 +54,14 @@ public class RecipeConfiguration implements Concept {
    public LinearConstraintSet generateConstraints(){
       Collection< LinearConstraint > generated = contraints.stream()
          .map( c -> c.generate( ingredients ) )
-         .filter( Optional::isPresent )
-         .map( Optional::get )
+         .flatMap( List::stream )
          .collect( Collectors.toList() );
       
       ingredients.stream()
-         .map( i -> new IngredientConstraint( i, Relationship.GEQ, 0.0 ) )
+         .map( i -> new IngredientRawConstraint( i, Relationship.GEQ, 0.0 ) )
          .map( c -> c.generate( ingredients ) )
-         .filter( Optional::isPresent )
-         .map( Optional::get )
+         .flatMap( List::stream )
+         .collect( Collectors.toList() )
          .forEach( generated::add );
       return new LinearConstraintSet( generated );
    }//End Method

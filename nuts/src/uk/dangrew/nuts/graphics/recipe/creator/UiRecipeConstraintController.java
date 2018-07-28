@@ -1,9 +1,11 @@
 package uk.dangrew.nuts.graphics.recipe.creator;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
+import javafx.collections.FXCollections;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.meal.MealTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
@@ -31,7 +33,13 @@ public class UiRecipeConstraintController implements ConceptTableViewController<
       this.selected.function().get().unit().set( NutritionalUnit.Fat );
       this.selected.function().get().goalType().set( GoalType.MAXIMIZE );
       this.algorithm = new RecipeAlgorithm( configuration );
-      this.constraintSelector = new UiEnumTypeSelectionDialog<>( ConstraintType.class, ConstraintType.Bound );
+      this.constraintSelector = new UiEnumTypeSelectionDialog<>( 
+               FXCollections.observableArrayList( Arrays.asList( 
+                        ConstraintType.IngredientBounds,
+                        ConstraintType.NutritionalUnitBounds,
+                        ConstraintType.Ratio
+               ) ), ConstraintType.NutritionalUnitBounds 
+   );
    }//End Constructor
    
    @Override public void associate( ConceptTable< RecipeConstraint > table ) {
@@ -58,7 +66,7 @@ public class UiRecipeConstraintController implements ConceptTableViewController<
          return null;
       }
       
-      RecipeConstraint constraint = result.get().generate();
+      RecipeConstraint constraint = result.get().generate( configuration() );
       selected.constraints().add( constraint );
       table.getRows().add( new ConceptTableRowImpl<>( constraint ) );
       return constraint;

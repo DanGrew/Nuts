@@ -9,19 +9,19 @@ import uk.dangrew.kode.javafx.custom.ResponsiveComboProperty;
 import uk.dangrew.kode.javafx.custom.ResponsiveDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
-import uk.dangrew.nuts.recipe.constraint.BoundConstraint;
+import uk.dangrew.nuts.recipe.constraint.raw.NutritionalUnitRawConstraint;
 
-public class UiBoundConstraintConfigurer extends BorderPane {
+public class UiNutritionalUnitConstraintConfigurer extends BorderPane {
 
-   public UiBoundConstraintConfigurer( UiRecipeConstraintController controller, BoundConstraint constraint ) {
+   public UiNutritionalUnitConstraintConfigurer( UiRecipeConstraintController controller, NutritionalUnitRawConstraint constraint ) {
       setCenter( new PropertiesPane( "Bound Constraint Properties", 
                new PropertyRowBuilder()
                   .withLabelName( "Bound Unit" )
                   .withBinding( new ResponsiveComboProperty<>( 
                            FXCollections.observableArrayList( NutritionalUnit.values() ), 
-                           constraint.unit().get(), 
+                           constraint.subject().get(), 
                            ( s, o, n ) -> {
-                              constraint.unit().set( n );
+                              constraint.subject().set( n );
                               controller.recalculate();
                            } ) 
                   ),

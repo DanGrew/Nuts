@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.recipe.constraint;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.StringJoiner;
@@ -11,9 +12,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import uk.dangrew.nuts.food.Food;
 
-public class RatioConstraint implements RecipeConstraint {
+public class RatioConstraint extends RecipeConstraintBase implements RecipeConstraint {
    
-   private final ObjectProperty< String > description;
    private final ObjectProperty< Food > firstIngredient;
    private final ObjectProperty< Double > howMuchOfFirst;
    private final ObjectProperty< Food > secondIngredient;
@@ -31,12 +31,12 @@ public class RatioConstraint implements RecipeConstraint {
             Double howMuchOfSecond,
             Relationship relationship
    ) {
+      super( ConstraintType.Ratio );
       this.firstIngredient = new SimpleObjectProperty<>( firstIngredient );
       this.howMuchOfFirst = new SimpleObjectProperty<>( howMuchOfFirst );
       this.secondIngredient = new SimpleObjectProperty<>( secondIngredient );
       this.howMuchOfSecond = new SimpleObjectProperty<>( howMuchOfSecond );
       this.relationship = new SimpleObjectProperty<>( relationship );
-      this.description = new SimpleObjectProperty<>();
       this.updateDescription();
       
       this.firstIngredient.addListener( ( s, o, n ) -> updateDescription() );
@@ -47,7 +47,7 @@ public class RatioConstraint implements RecipeConstraint {
    }//End Constructor
    
    private void updateDescription(){
-      description.set( 
+      description().set( 
                new StringJoiner( ", " )
                   .add( firstIngredient.get() == null ? "No First Ingredient" : firstIngredient.get().properties().nameProperty().get() )
                   .add( howMuchOfFirst.get() == null ? "No First Amount" : howMuchOfFirst.get().toString() )
@@ -56,10 +56,6 @@ public class RatioConstraint implements RecipeConstraint {
                   .add( relationship.get() == null ? "No Relationship" : "" + relationship.get().toString() )
                   .toString()
       );
-   }//End Method
-   
-   @Override public ObjectProperty< String > description() {
-      return description;
    }//End Method
    
    @Override public ConstraintType type() {
@@ -86,10 +82,7 @@ public class RatioConstraint implements RecipeConstraint {
       return relationship;
    }//End Method
 
-   @Override public Optional< LinearConstraint > generate( List< Food > foods ) {
-      if ( !hasSufficientParameters( foods ) ) {
-         return Optional.empty();
-      }
+   @Override public List< LinearConstraint > unconditionalGenerate( List< Food > foods ) {
       double[] coeffecients = new double[ foods.size() ];
       for ( int i = 0; i < foods.size(); i++ ) {
          Food food = foods.get( i );
@@ -102,10 +95,10 @@ public class RatioConstraint implements RecipeConstraint {
          }
       }
       
-      return Optional.of( new LinearConstraint( coeffecients, relationship.get(), 0.0 ) );
+      return Arrays.asList( new LinearConstraint( coeffecients, relationship.get(), 0.0 ) );
    }//End Method
    
-   private boolean hasSufficientParameters( List< Food > foods ){
+   @Override protected boolean hasSufficientParameters( List< Food > foods ){
       if ( !Optional.ofNullable( firstIngredient.get() ).isPresent() ) {
          return false;
       }

@@ -209,7 +209,7 @@ public class TableConfiguration {
       configurer.setOnEditCommit( ( portion, v ) -> portion.setPortion( Double.valueOf( v ) ) );
    }//End Method
    
-   public < ConceptTypeT extends Concept > void configureCheckBoxController(
+   public < ConceptTypeT > void configureCheckBoxController(
             TableColumnConfigurer< ConceptTypeT, Boolean > configurer,
             CheckBoxController< ConceptTypeT > controller,
             double widthProportion

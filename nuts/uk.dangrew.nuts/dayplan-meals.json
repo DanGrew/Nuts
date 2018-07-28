@@ -12107,5 +12107,511 @@
          "foodId": "88314087-1e6b-45e2-b354-64d569ae260d",
          "portionValue": 100
       }]
+   },
+   {
+      "name": "Tomato Sauce Paste",
+      "id": "22095931-67b0-414a-8169-66454198d567",
+      "portions": [
+         {
+            "foodId": "e03cdec2-7e1b-434f-a49a-94ec2ca2dc72",
+            "portionValue": 10
+         },
+         {
+            "foodId": "8b0727d0-2ad7-4210-bd23-a025ad56c1cf",
+            "portionValue": 50
+         },
+         {
+            "foodId": "742420d5-6ab3-40f4-85d5-88985b8c7a8f",
+            "portionValue": 5
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "9c4ff2e8-f729-4a81-9470-7db8640fe9c3",
+      "portions": [
+         {
+            "foodId": "e663d903-36ec-4035-bf77-624ca85474d7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "6edb46cc-1456-480f-a9e8-dbfcd9ae51fd",
+            "portionValue": 200
+         },
+         {
+            "foodId": "9cbb7b14-9f8c-4f03-8cc7-4c6f4f71cdc6",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Brazil Nut Butter (100g)",
+      "id": "9cbb7b14-9f8c-4f03-8cc7-4c6f4f71cdc6",
+      "portions": [{
+         "foodId": "3759bfd8-b805-43be-98a8-53d9d16503d0",
+         "portionValue": 100
+      }]
+   },
+   {
+      "name": "Cookies",
+      "id": "7ca65149-7ca9-44ab-8c9a-9ad541c89bc5",
+      "portions": [
+         {
+            "foodId": "e9fd2f1c-2f39-43c8-a88e-1d0d10fccd90",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b3b2bb1d-4bda-4dfb-a011-8d052542002b",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "f8aaab91-9887-432c-852f-c371728afdd5",
+      "portions": [
+         {
+            "foodId": "4d5172db-94c7-4958-93a5-54085944aa24",
+            "portionValue": 166
+         },
+         {
+            "foodId": "4e7781d4-8a5f-4c7a-8ff4-c44191b5a858",
+            "portionValue": 100
+         },
+         {
+            "foodId": "96294a67-c3cc-4d18-ba62-5310f0b874df",
+            "portionValue": 50
+         },
+         {
+            "foodId": "7f143b53-3cd9-407e-a87f-98bd3e7e6f6d",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Brazil Nut Butter (100g)",
+      "id": "7f143b53-3cd9-407e-a87f-98bd3e7e6f6d",
+      "portions": [{
+         "foodId": "77e976a0-c7d4-49cd-97b1-f4c3115c60cf",
+         "portionValue": 100
+      }]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "728c6f5b-37c8-4c26-9bd4-4249b2dd921a",
+      "portions": [
+         {
+            "foodId": "8e6faade-1c64-44f7-b721-66f78ba531b7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "cc696782-baa2-4e20-8879-9653a7d5e980",
+            "portionValue": 200
+         },
+         {
+            "foodId": "fca93611-ca7c-44f4-ae65-fbec7aab95ca",
+            "portionValue": 40
+         }
+      ]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "4673bf66-dd28-4b1d-b912-23512b4c18dc",
+      "portions": [
+         {
+            "foodId": "ac67471e-73fa-4651-af6b-84a8077d68be",
+            "portionValue": 100
+         },
+         {
+            "foodId": "746ef687-ad0c-4d94-8572-667f397de76b",
+            "portionValue": 100
+         },
+         {
+            "foodId": "f4a070a1-1803-4b1e-8d8c-c372c8b3af39",
+            "portionValue": 250
+         },
+         {
+            "foodId": "b054f3ad-a469-4d8c-b840-d1a9b51e7cc0",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Peanut Butter (Homemade) (300g)",
+      "id": "7c0a7fd9-4ef5-472a-bab2-41d11f36d41b",
+      "portions": [{
+         "foodId": "d55e1f58-bf63-451c-886b-51298f06c8b6",
+         "portionValue": 300
+      }]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "6733cf17-b0a6-4d65-816c-ccafb26e1040",
+      "portions": [
+         {
+            "foodId": "0b890a6c-8c40-491d-895f-7822571ec509",
+            "portionValue": 300
+         },
+         {
+            "foodId": "b3433eba-d302-4e9d-976c-82400325b124",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c819ca3e-9a46-4532-9f7a-3b6a321578a8",
+            "portionValue": 35
+         }
+      ]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "94518b77-e2ae-4212-8b5f-96a695aa038f",
+      "portions": [
+         {
+            "foodId": "f49134b2-c558-4261-a7e1-ce6e7a1b566f",
+            "portionValue": 100
+         },
+         {
+            "foodId": "ad446696-d789-4183-b0f7-655d316bcb9c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4629e6c4-a06f-44d6-9a60-c86e1308f3c1",
+            "portionValue": 250
+         },
+         {
+            "foodId": "0273e9df-d8e2-40ae-a26b-055afbcb6f9c",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "b7c476a6-7a90-44c7-8080-065f11280e23",
+      "portions": [
+         {
+            "foodId": "2384bb7a-57cf-4a01-a2b0-bd37bac54161",
+            "portionValue": 300
+         },
+         {
+            "foodId": "0d094f6d-26ad-4588-a51a-d8108f8bc72e",
+            "portionValue": 200
+         },
+         {
+            "foodId": "93691f10-5528-40df-ae0f-63b7951108a0",
+            "portionValue": 35
+         }
+      ]
+   },
+   {
+      "name": "Bread - Minute (Keto)",
+      "id": "6f157160-a392-424e-b359-d8ee027c9fa4",
+      "portions": [
+         {
+            "foodId": "cfb7fd51-64ee-41c1-86e9-3b45e7efce52",
+            "portionValue": 15
+         },
+         {
+            "foodId": "f8dda56d-ebd5-4941-a7b5-55936aaf6627",
+            "portionValue": 100
+         },
+         {
+            "foodId": "a9e442fe-f511-4e97-81cc-5a5c5cbb4a3e",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Almond Butter (Homemade) (300g)",
+      "id": "04624050-0a74-47ed-aa70-83f1b8b811b7",
+      "portions": [
+         {
+            "foodId": "49877b07-b484-4c63-9e3b-c8a21f7b4979",
+            "portionValue": 300
+         },
+         {
+            "foodId": "2951926b-5bd3-4645-8206-b36947434471",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "dc3dbaaf-05b8-4439-b316-37eb3dc4464b",
+      "portions": [
+         {
+            "foodId": "a1457803-932b-40ff-a0f4-c4ed1b239bf0",
+            "portionValue": 0
+         },
+         {
+            "foodId": "e0a9b226-765d-4ec2-8557-779b9deeeccd",
+            "portionValue": 100
+         },
+         {
+            "foodId": "104d603d-3eff-487b-993d-7ad79beff1fb",
+            "portionValue": 200
+         },
+         {
+            "foodId": "10e0b8cd-fe90-4a52-8362-530bafacdfe6",
+            "portionValue": 125
+         },
+         {
+            "foodId": "512e71c7-629f-4127-8c9a-4200313b22fb",
+            "portionValue": 0
+         },
+         {
+            "foodId": "5b32dd19-fe10-4abc-b3ab-11a0b57cc9e2",
+            "portionValue": 150
+         },
+         {
+            "foodId": "8f2d9da9-0c7f-44ce-a7f0-16c31606eb8b",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "b6b42bc9-9182-49c4-b027-522c98d78550",
+      "portions": [
+         {
+            "foodId": "55edac16-36c9-4217-a6fa-a69cd0215a2b",
+            "portionValue": 300
+         },
+         {
+            "foodId": "10e0c7a8-bb52-4e17-8b2b-c6cc102e68be",
+            "portionValue": 200
+         },
+         {
+            "foodId": "082cfb68-2088-4c1f-be47-c4baa9beb1f2",
+            "portionValue": 45
+         }
+      ]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "408c0329-31a3-4374-8f9a-262e23672a15",
+      "portions": [
+         {
+            "foodId": "d0438d7a-614f-43bb-93b2-13b013661f91",
+            "portionValue": 100
+         },
+         {
+            "foodId": "77580614-26cf-46dd-80b3-680710168642",
+            "portionValue": 50
+         },
+         {
+            "foodId": "7239873d-1344-4f58-9c1f-c4b8d52facee",
+            "portionValue": 0
+         },
+         {
+            "foodId": "988dd436-b082-46c5-8ea6-4ba1c230d6ca",
+            "portionValue": 0
+         },
+         {
+            "foodId": "f49fd3b4-5d4c-44c4-8602-e2a9dd1e8903",
+            "portionValue": 200
+         },
+         {
+            "foodId": "dd6117b6-0275-4791-ac0d-1514d961fcd4",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Pancake",
+      "id": "75e0a931-053c-418a-8a14-4045b3dbbfd6",
+      "portions": [
+         {
+            "foodId": "d87acbc3-829b-4f7b-aec0-dcd2c99c5b2a",
+            "portionValue": 400
+         },
+         {
+            "foodId": "367d5701-7f0c-4f72-940c-14040cc1f6a5",
+            "portionValue": 200
+         },
+         {
+            "foodId": "d70e9c79-f3e8-4dbd-ad87-23942b4599b6",
+            "portionValue": 150
+         }
+      ]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "c05d84dc-009e-48f6-bc88-9ccbd2a9824e",
+      "portions": [
+         {
+            "foodId": "7339076d-3417-474a-98a5-f888205d647c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "dfdc2431-f3fd-4813-9ea8-754219b1a812",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b1262b36-12e9-4fac-9be5-334b547de89d",
+            "portionValue": 125
+         },
+         {
+            "foodId": "9a0d7d20-d18b-4ad1-b552-b7232f5c0f28",
+            "portionValue": 200
+         },
+         {
+            "foodId": "781fb75f-21b7-44f7-9696-6985185d9d59",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Tomato Sauce Paste",
+      "id": "aac0430a-07fe-4b93-a357-eaa26df29dfb",
+      "portions": [
+         {
+            "foodId": "da5bcf34-e08b-4803-9411-ac0303298621",
+            "portionValue": 10
+         },
+         {
+            "foodId": "f80671d5-7308-416d-b839-2b6b7ec39c07",
+            "portionValue": 40
+         },
+         {
+            "foodId": "3f4a8ec5-3d6a-468a-b489-03285de17eb4",
+            "portionValue": 5
+         }
+      ]
+   },
+   {
+      "name": "Potassium Greens Quota",
+      "id": "544d4fd4-42c2-4cbd-8029-0100d1109da1",
+      "portions": [
+         {
+            "foodId": "16e15eb2-2b9a-470c-82be-1928f3fad682",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b57adc36-8e5f-467e-9068-bc77dfb43a47",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7778fc21-de2f-4c40-8404-89956620ddca",
+            "portionValue": 100
+         },
+         {
+            "foodId": "e128f7a7-1f51-4614-88ae-9b1c10977bc8",
+            "portionValue": 100
+         },
+         {
+            "foodId": "7d6a7c1a-6dfc-4d83-884f-5804c031265a",
+            "portionValue": 125
+         },
+         {
+            "foodId": "80e36cf5-bab8-448f-b705-1d7e37977416",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Pancake",
+      "id": "d6b38172-d80e-4fe2-959a-0d578d7b11ee",
+      "portions": [
+         {
+            "foodId": "ac44e495-2045-40d8-a37a-4481e800c2f3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "aeac5cba-3067-4d2e-8e0d-62b7c56005ac",
+            "portionValue": 50
+         },
+         {
+            "foodId": "770c3d0b-886d-4966-8415-9a276bda4488",
+            "portionValue": 15
+         },
+         {
+            "foodId": "f883c541-ef41-453b-a35e-3bb53ec81126",
+            "portionValue": 0
+         },
+         {
+            "foodId": "6a70478d-966c-4fee-b910-5e1f91f44789",
+            "portionValue": 75
+         }
+      ]
+   },
+   {
+      "name": "Coconut Butter (100g)",
+      "id": "987fa1e6-7d39-4c08-b812-2fb00c04b748",
+      "portions": [{
+         "foodId": "cdd842df-8e91-486f-9128-897edcf814bc",
+         "portionValue": 100
+      }]
+   },
+   {
+      "name": "Peanut Butter (Homemade) (100g)",
+      "id": "15fcd1f6-f958-4fd7-8012-fd435f87c7a4",
+      "portions": [{
+         "foodId": "cd8b20c9-0039-4b49-8f2b-8f09f2cca900",
+         "portionValue": 100
+      }]
+   },
+   {
+      "name": "Cheesecake (OMAD)",
+      "id": "9c63e008-b911-4002-8216-47d284e7f0a0",
+      "portions": [
+         {
+            "foodId": "ff09d8d4-fc3b-4607-bc04-f4904c87f96d",
+            "portionValue": 200
+         },
+         {
+            "foodId": "e724e603-73b2-4216-b40f-eaac96d16590",
+            "portionValue": 300
+         },
+         {
+            "foodId": "0e7b4722-6494-494c-85ec-4637f5ed8343",
+            "portionValue": 50
+         },
+         {
+            "foodId": "c6c47dc9-d4ac-4d12-9392-d8d11fd459a3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "78f31337-cadd-4d70-a34c-6c8424a19cfb",
+            "portionValue": 40
+         },
+         {
+            "foodId": "b67e58ed-04f1-47ee-99ca-aaf12b875e4d",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Coconut Butter (100g)",
+      "id": "78f31337-cadd-4d70-a34c-6c8424a19cfb",
+      "portions": [{
+         "foodId": "7f65ef71-17cc-4982-8024-1175afcbf16a",
+         "portionValue": 100
+      }]
+   },
+   {
+      "name": "Peanut Butter (Homemade) (100g)",
+      "id": "b67e58ed-04f1-47ee-99ca-aaf12b875e4d",
+      "portions": [{
+         "foodId": "b9b5878f-7d43-4103-8ea2-907910c0ba38",
+         "portionValue": 100
+      }]
+   },
+   {
+      "name": "Coconut Cookies",
+      "id": "05126061-1363-4756-9248-924550e01a8c",
+      "portions": [
+         {
+            "foodId": "fbf636f2-2143-4360-8cfc-54cd4ad10443",
+            "portionValue": 20
+         },
+         {
+            "foodId": "da03310d-458c-4964-9c84-72dbe218bf87",
+            "portionValue": 480
+         },
+         {
+            "foodId": "ab9a54bd-2fa2-4950-bd73-8c07dc2752ad",
+            "portionValue": 30
+         }
+      ]
    }
 ]}

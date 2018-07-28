@@ -36,7 +36,7 @@ public class UiRecipeCreatorPane extends GridPane {
       MealTableControllerImpl ingredientsController = new MealTableControllerImpl();
       add( foodTable = new TableComponents< FoodPortion >()
                         .withDatabase( database )
-                        .applyColumns( FoodTableColumns< FoodPortion >::new ) 
+                        .applyColumns( MealTableColumns::new ) 
                         .withController( ingredientsController )
                         .withControls( new MealControls( ingredientsController ) )
                         .buildTableWithControls( "Ingredients" ),

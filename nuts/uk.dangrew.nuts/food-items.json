@@ -1652,13 +1652,13 @@
       "name": "Peanut Butter (T, 100g)",
       "id": "7c64f8a0-be1e-41f5-ad3d-77468c7bfe3a",
       "nutritionalUnits": {
-         "potassium": 0,
+         "potassium": 0.649,
          "calcium": 0,
          "salt": 0,
          "carbohydratesugars": 0,
          "thiamin": 0,
          "niacin": 0,
-         "magnesium": 0,
+         "magnesium": 0.154,
          "calories": 628,
          "omega3": 0,
          "carbohydrate": 10.9,
@@ -4181,6 +4181,33 @@
          "fat": 0,
          "iron": 0,
          "fibre": 2,
+         "riboflavin": 0
+      }
+   },
+   {
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "name": "Magnesium (300mg)",
+      "id": "95327c9d-37aa-474a-bb90-b5d8aa51b606",
+      "nutritionalUnits": {
+         "potassium": 0,
+         "calcium": 0,
+         "salt": 0,
+         "carbohydratesugars": 0,
+         "thiamin": 0,
+         "niacin": 0,
+         "magnesium": 0.3,
+         "calories": 0,
+         "omega3": 0,
+         "carbohydrate": 0,
+         "folicacid": 0,
+         "sodium": 0,
+         "saturatedfat": 0,
+         "monetaryvalue": 0,
+         "protein": 0,
+         "fat": 0,
+         "iron": 0,
+         "fibre": 0,
          "riboflavin": 0
       }
    }

@@ -1,7 +1,6 @@
 package uk.dangrew.nuts.recipe.constraint;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.apache.commons.math3.optim.linear.LinearConstraint;
 
@@ -10,11 +9,15 @@ import uk.dangrew.nuts.food.Food;
 
 public interface RecipeConstraint {
    
+   public ObjectProperty< Boolean > enabled();
+   
    public ObjectProperty< String > description();
    
    public ConstraintType type();
+
+   public default void configure( RecipeConfiguration configuration ){}
    
-   public Optional< LinearConstraint > generate( List< Food > foods );
+   public List< LinearConstraint > generate( List< Food > foods );
 
 }//End Interface
 

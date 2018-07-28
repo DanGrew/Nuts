@@ -1,6 +1,6 @@
-package uk.dangrew.nuts.recipe.constraint;
+package uk.dangrew.nuts.recipe.constraint.raw;
 
-import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -17,15 +17,16 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.recipe.constraint.ConstraintType;
 
-public class BoundConstraintTest {
+public class NutritionalUnitRawConstraintTest {
 
    private Food food1;
    private Food food2;
    private Food food3;
    private List< Food > foods;
    
-   private BoundConstraint systemUnderTest;
+   private NutritionalUnitRawConstraint systemUnderTest;
 
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
@@ -37,11 +38,11 @@ public class BoundConstraintTest {
       food3 = new FoodItem( "Item3" );
       food3.nutrition().of( NutritionalUnit.Fat ).set( 3.0 );
       foods = Arrays.asList( food1, food2, food3 );
-      systemUnderTest = new BoundConstraint( NutritionalUnit.Fat, Relationship.GEQ, 25.0 );
+      systemUnderTest = new NutritionalUnitRawConstraint( NutritionalUnit.Fat, Relationship.GEQ, 25.0 );
    }//End Method
 
    @Test public void shouldGenerateConstraint() {
-      LinearConstraint constraint = systemUnderTest.generate( foods ).get();
+      LinearConstraint constraint = systemUnderTest.generate( foods ).get( 0 );
       for ( int i = 0; i < foods.size(); i++ ) {
          assertThat( constraint.getCoefficients().getEntry( i ), is( foods.get( i ).nutrition().of( NutritionalUnit.Fat ).get() ) );
       }
@@ -54,20 +55,20 @@ public class BoundConstraintTest {
    }//End Method
    
    @Test public void shouldIgnoreMissingProperties() {
-      systemUnderTest = new BoundConstraint( null, Relationship.EQ, 1.0 );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      systemUnderTest = new NutritionalUnitRawConstraint( null, Relationship.EQ, 1.0 );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
       
-      systemUnderTest = new BoundConstraint( NutritionalUnit.Calcium, null, 1.0 );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      systemUnderTest = new NutritionalUnitRawConstraint( NutritionalUnit.Calcium, null, 1.0 );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
       
-      systemUnderTest = new BoundConstraint( NutritionalUnit.Calcium, Relationship.EQ, null );
-      assertThat( systemUnderTest.generate( foods ).isPresent(), is( false ) );
+      systemUnderTest = new NutritionalUnitRawConstraint( NutritionalUnit.Calcium, Relationship.EQ, null );
+      assertThat( systemUnderTest.generate( foods ), is( empty() ) );
    }//End Method
    
    @Test public void shouldProvideDescription(){
-      systemUnderTest = new BoundConstraint();
+      systemUnderTest = new NutritionalUnitRawConstraint();
       assertThat( systemUnderTest.description().get(), is( "No Unit, No Relationship, No Bound" ) );
-      systemUnderTest.unit().set( NutritionalUnit.Calories );
+      systemUnderTest.subject().set( NutritionalUnit.Calories );
       assertThat( systemUnderTest.description().get(), is( "Calories, No Relationship, No Bound" ) );
       systemUnderTest.relationship().set( Relationship.GEQ );
       assertThat( systemUnderTest.description().get(), is( "Calories, >=, No Bound" ) );
@@ -76,7 +77,7 @@ public class BoundConstraintTest {
    }//End Method
    
    @Test public void shouldProvideType(){
-      assertThat( systemUnderTest.type(), is( ConstraintType.Bound ) );
+      assertThat( systemUnderTest.type(), is( ConstraintType.NutritionalUnitRaw ) );
    }//End Method
 
 }//End Class

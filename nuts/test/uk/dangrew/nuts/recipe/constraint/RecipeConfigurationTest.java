@@ -18,6 +18,7 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.model.ModelVerifier;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
+import uk.dangrew.nuts.recipe.constraint.raw.NutritionalUnitRawConstraint;
 
 public class RecipeConfigurationTest {
 
@@ -34,7 +35,7 @@ public class RecipeConfigurationTest {
          .shouldProvideObject( RecipeConfiguration::properties )
          .shouldProvideCollection( RecipeConfiguration::ingredients, new FoodItem( "Anything" ) )
          .shouldProvideProperty( RecipeConfiguration::function, systemUnderTest.function().get(), new RecipeFunction() )
-         .shouldProvideCollection( RecipeConfiguration::constraints, new BoundConstraint() );
+         .shouldProvideCollection( RecipeConfiguration::constraints, new NutritionalUnitRawConstraint() );
    }//End Method
    
    @Test public void shouldGenerateConstraints(){
@@ -42,8 +43,8 @@ public class RecipeConfigurationTest {
       item.nutrition().of( NutritionalUnit.Calcium ).set( 43.0 );
       systemUnderTest.ingredients().add( item );
       
-      BoundConstraint invalid = new BoundConstraint();
-      BoundConstraint valid = new BoundConstraint( NutritionalUnit.Calcium, Relationship.EQ, 25.0 );
+      NutritionalUnitRawConstraint invalid = new NutritionalUnitRawConstraint();
+      NutritionalUnitRawConstraint valid = new NutritionalUnitRawConstraint( NutritionalUnit.Calcium, Relationship.EQ, 25.0 );
       
       systemUnderTest.constraints().add( invalid );
       systemUnderTest.constraints().add( valid );

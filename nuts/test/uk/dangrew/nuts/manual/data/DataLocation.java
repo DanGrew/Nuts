@@ -8,9 +8,13 @@
  */
 package uk.dangrew.nuts.manual.data;
 
+import java.util.Random;
+
 import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
+import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.Gender;
+import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.store.Database;
 
@@ -18,6 +22,8 @@ import uk.dangrew.nuts.store.Database;
  * Locator for test files.
  */
 public class DataLocation {
+   
+   private static final Random random = new Random();
    
    /**
     * Method to load some sample data for E2E tests.
@@ -59,6 +65,14 @@ public class DataLocation {
       calorieGoal.exerciseCalories().set( 500.0 );
       calorieGoal.calorieDeficit().set( 700.0 );
       calorieGoal.fatPerPound().set( 0.35 );
+   }//End Method
+   
+   public static FoodItem randomizedFood(){
+      FoodItem item = new FoodItem( "Anything" );
+      for ( NutritionalUnit unit : NutritionalUnit.values() ) {
+         item.nutrition().of( unit ).set( random.nextDouble() * 100 );
+      }
+      return item;
    }//End Method
    
 }//End Class

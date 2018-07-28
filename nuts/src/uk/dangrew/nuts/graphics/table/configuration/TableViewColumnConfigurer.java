@@ -49,7 +49,10 @@ public class TableViewColumnConfigurer< ConceptTypeT, DataTypeT > implements Tab
    }//End Method
    
    @Override public void setCellValueFactory( Function< ConceptTypeT, ? extends ObservableValue< DataTypeT > > propertyRetriever ) {
-      column.setCellValueFactory( object -> propertyRetriever.apply( object.getValue().concept() ) );
+      column.setCellValueFactory( object -> {
+         //formatted for common debug point
+         return propertyRetriever.apply( object.getValue().concept() );  
+      } );
    }//End Method
    
    @Override public void setFixedCellValueFactory( Function< ConceptTypeT, DataTypeT > propertyRetriever ) {

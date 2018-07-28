@@ -17,16 +17,19 @@ public class UiRecipeCreatorConfigurationPane extends GridPane {
    private final UiRecipeConstraintSelector selector;
    private final MealTableController resultController;
    
-   public UiRecipeCreatorConfigurationPane( MealTableController resultController, RecipeConfiguration recipeCongiguration ) {
+   public UiRecipeCreatorConfigurationPane( MealTableController resultController, RecipeConfiguration recipeConfiguration ) {
       this.resultController = resultController;
       new JavaFxStyle().configureConstraintsForColumnPercentages( this, 20, 80 );
       new JavaFxStyle().configureConstraintsForEvenRows( this, 1 );
 
+      this.controller = new UiRecipeConstraintController( recipeConfiguration );
+      
       add( 
                table = new TableComponents< RecipeConstraint >()
                   .withDatabase( new Database() )
+                  .withCheckBoxController( new UiRecipeConstraintCheckBoxController( controller ) )
                   .applyColumns( UiRecipeConstraintColumns::new )
-                  .withController( controller = new UiRecipeConstraintController( recipeCongiguration ) )
+                  .withController( controller )
                   .withControls( new ConceptControls( controller ) )
                   .buildTableWithControls( "Recipe Configurations" ),
       0, 0 );
