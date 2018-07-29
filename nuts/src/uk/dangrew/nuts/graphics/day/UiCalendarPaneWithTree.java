@@ -28,13 +28,6 @@ public class UiCalendarPaneWithTree extends GridPane {
    private final UiCalendar uiCalendar;
    private final DayPlanTreePane dayPlanTree;
    private final ConceptTable< Template > templatesTable;
-//   private final ConceptTableWithControls< FoodPortion > templateView;
-//   private final TemplateTableController templateController;
-   
-//   private final ConceptTableWithControls< FoodPortion > mealView;
-//   private final MealTableControllerImpl mealTableController;
-   
-//   private final ConsumptionProperties consumptionProperties;
 
    public UiCalendarPaneWithTree( Database database ) {
       this( new JavaFxStyle(), database );
@@ -61,19 +54,8 @@ public class UiCalendarPaneWithTree extends GridPane {
       0, 1 );
       add( dayPlanTree = new DayPlanTreePane( database ), 0, 2 );
       
-//      templateView.table().getSelectionModel().selectedItemProperty().addListener( ( s, o, n ) -> {
-//         Food food = n.concept().food().get();
-//         if ( food instanceof Meal ) {
-//            mealTableController.showMeal( ( Meal )food );
-//         } else {
-//            mealTableController.showMeal( null );
-//         }
-//      } );
-//      
-//      templatesTable.getRows().clear();
       uiCalendar.controller().selector().selection().addListener( ( s, o, n ) -> {
          dayPlanTree.controller().show( n );
-//         templateController.showMeal( n );
          templatesTable.getRows().clear();
          templatesTable.getRows().add( new ConceptTableRowImpl<>( n ) );
 //         consumptionProperties.setDayPlan( n );

@@ -6,7 +6,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
-import uk.dangrew.nuts.graphics.day.UiCalendarPane;
 import uk.dangrew.nuts.graphics.day.UiCalendarPaneWithTree;
 import uk.dangrew.nuts.graphics.day.balance.UiBalanceSummary;
 import uk.dangrew.nuts.graphics.goal.GoalManagerPane;
@@ -45,7 +44,6 @@ public class NutsTabs extends AnchorPane {
       createConcreteTab( "Database", new UiDatabaseManagerPane( database ) );
       createConcreteTab( "Stock", new StockPane( database ) );
       createConcreteTab( "Templates", new TemplateManagerPane( database ) );
-      createConcreteTab( "Day Plans", new UiCalendarPane( database ) );
       createConcreteTab( "Day Plans", new UiCalendarPaneWithTree( database ) );
       createConcreteTab( "Graph", new ProgressSeriesPane( database ) );
       createConcreteTab( "Labels", new UiLabelConfigurationView( database ) );

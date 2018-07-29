@@ -12613,5 +12613,59 @@
             "portionValue": 30
          }
       ]
+   },
+   {
+      "name": "Coconut Cookies",
+      "id": "ce5bcded-583f-40e0-bd7c-1c476a55b1d9",
+      "portions": [
+         {
+            "foodId": "f4cdf9d0-01fb-4c50-898f-7f11c1e2cf4a",
+            "portionValue": 20
+         },
+         {
+            "foodId": "f4c6a5ad-38d7-4f6d-9d90-8fcb867fe685",
+            "portionValue": 480
+         },
+         {
+            "foodId": "0f6cd443-bb6a-45f9-9ae2-5e1c02852de7",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Pancake (Mini)",
+      "id": "5ce57fae-c650-489c-b2cf-e55102cc10dd",
+      "portions": [
+         {
+            "foodId": "547f0a1d-38b7-4921-8802-3be5153020cf",
+            "portionValue": 0
+         },
+         {
+            "foodId": "28577771-1201-4691-8a20-97446512deef",
+            "portionValue": 30
+         },
+         {
+            "foodId": "a5036d49-aa09-4136-8cc0-c04a414746d0",
+            "portionValue": 100
+         },
+         {
+            "foodId": "9480190c-adc1-45bd-b9df-31e1f87c1f94",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Chia Pudding (Almond Milk)",
+      "id": "6c7c6c92-dd4e-4809-a409-4cce9310f466",
+      "portions": [
+         {
+            "foodId": "44ed08ac-aa92-4eef-818d-e3f776dfd75e",
+            "portionValue": 250
+         },
+         {
+            "foodId": "893b36d1-e35c-4441-845b-b07417e15170",
+            "portionValue": 30
+         }
+      ]
    }
 ]}

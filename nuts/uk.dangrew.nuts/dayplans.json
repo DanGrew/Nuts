@@ -12997,21 +12997,72 @@
          },
          {
             "consumed": false,
+            "foodId": "042bce09-737e-4cc3-867a-a79bbbe7bd4a",
+            "portionValue": 200
+         },
+         {
+            "consumed": false,
             "foodId": "9c63e008-b911-4002-8216-47d284e7f0a0",
             "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "bf150745-811c-40e7-8f3b-6a871f26519e",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "ce5bcded-583f-40e0-bd7c-1c476a55b1d9",
+            "portionValue": 50
          }
       ]
    },
    {
       "date": "2018-07-30",
       "allowedCalories": 0,
-      "goalId": null,
+      "goalId": "2acc6f40-9184-474d-9adc-17afe356a39e",
       "isBalanceReset": false,
       "name": "2018-07-30",
       "id": "c952964e-1d33-4866-9f3c-21dd1306972d",
       "consumedCalories": 0,
       "calorieBalance": -14300,
-      "portions": []
+      "portions": [
+         {
+            "consumed": false,
+            "foodId": "fd25adfe-5817-4605-b5ad-ba4aea23505c",
+            "portionValue": 125
+         },
+         {
+            "consumed": false,
+            "foodId": "1ccc5a08-367e-4be1-907a-f476af625ec3",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "8cd0dd81-265e-42a4-833a-29abe41354de",
+            "portionValue": 0
+         },
+         {
+            "consumed": false,
+            "foodId": "584ac4fa-2e52-419c-b945-e4c52fb82035",
+            "portionValue": 30
+         },
+         {
+            "consumed": false,
+            "foodId": "7f4650a0-110a-4d58-ae5c-ef902bdbcae5",
+            "portionValue": 300
+         },
+         {
+            "consumed": false,
+            "foodId": "5ce57fae-c650-489c-b2cf-e55102cc10dd",
+            "portionValue": 100
+         },
+         {
+            "consumed": false,
+            "foodId": "6c7c6c92-dd4e-4809-a409-4cce9310f466",
+            "portionValue": 100
+         }
+      ]
    },
    {
       "date": "2018-07-31",

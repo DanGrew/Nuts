@@ -1842,5 +1842,37 @@
             "portionValue": 200
          }
       ]
+   },
+   {
+      "name": "Nut Butter Pancake (Mini)",
+      "id": "c272d8d6-26a6-4482-8d9d-e067c58ba3fa",
+      "portions": [
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "58b70f2a-bff5-430b-ab0c-29263d7e882f",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Chia Pudding (Almond Milk)",
+      "id": "d04b0097-7084-4aba-859c-fd664eddc4d9",
+      "portions": [
+         {
+            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
+            "portionValue": 250
+         },
+         {
+            "foodId": "2839fd09-3e39-4a84-8e11-44d092f715c8",
+            "portionValue": 30
+         }
+      ]
    }
 ]}
