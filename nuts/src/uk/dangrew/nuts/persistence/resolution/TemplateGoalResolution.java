@@ -1,8 +1,8 @@
 package uk.dangrew.nuts.persistence.resolution;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
 
 public class TemplateGoalResolution implements ResolutionStrategy {

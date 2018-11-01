@@ -3,12 +3,12 @@ package uk.dangrew.nuts.goal.calorie;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
 import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.nutrients.Nutrition;
-import uk.dangrew.nuts.system.Properties;
 
 public class DerivedCalorieGoal implements CalorieGoal {
    

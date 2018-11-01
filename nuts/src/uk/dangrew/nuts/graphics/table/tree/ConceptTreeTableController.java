@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.graphics.table.tree;
 
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.nuts.graphics.table.ConceptTableController;
-import uk.dangrew.nuts.system.Concept;
 
 /**
  * {@link ConceptTreeTableController} provides a controller interface for a {@link DayPlanTreeTable}.

@@ -9,12 +9,12 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import uk.dangrew.jupa.file.protocol.WorkspaceJsonPersistingProtocol;
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.persistence.fooditems.DatabaseIo;
 import uk.dangrew.nuts.persistence.fooditems.FoodItemPersistence;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
 
 public class LabelPersistenceTest {
 

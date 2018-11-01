@@ -4,8 +4,8 @@ import java.util.Collection;
 import java.util.StringJoiner;
 
 import javafx.scene.control.ButtonType;
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.kode.friendly.controlsfx.FriendlyAlert;
-import uk.dangrew.nuts.system.Concept;
 
 public class UiFoodReplacementConfirmAlert extends FriendlyAlert {
 

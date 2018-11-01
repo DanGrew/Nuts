@@ -7,8 +7,8 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.Properties;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.Properties;
 
 public class ProgressSeries implements Concept {
 

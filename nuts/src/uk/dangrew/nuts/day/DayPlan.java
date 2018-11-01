@@ -16,13 +16,13 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
 import uk.dangrew.nuts.meal.FoodHolder;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.meal.TargetedFoodHolder;
-import uk.dangrew.nuts.system.Properties;
 import uk.dangrew.nuts.template.Template;
 
 /**

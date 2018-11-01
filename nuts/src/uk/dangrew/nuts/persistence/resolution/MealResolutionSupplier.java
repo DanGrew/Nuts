@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.persistence.resolution;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.system.ConceptStore;
 
 @FunctionalInterface
 public interface MealResolutionSupplier {

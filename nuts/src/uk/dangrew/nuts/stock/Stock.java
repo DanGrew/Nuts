@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import uk.dangrew.kode.comparator.Comparators;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.system.Properties;
 
 public class Stock extends Meal {
 

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import uk.dangrew.kode.comparator.Comparators;
-import uk.dangrew.nuts.system.Concept;
+import uk.dangrew.kode.concept.Concept;
 
 public class ConceptTestCommon {
 

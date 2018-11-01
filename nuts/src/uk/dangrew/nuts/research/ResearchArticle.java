@@ -2,8 +2,8 @@ package uk.dangrew.nuts.research;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.Properties;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.Properties;
 
 public class ResearchArticle implements Concept {
 

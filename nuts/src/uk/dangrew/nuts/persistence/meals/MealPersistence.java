@@ -16,12 +16,12 @@ import uk.dangrew.jupa.json.structure.JsonStructure;
 import uk.dangrew.jupa.json.write.handle.key.JsonArrayWithObjectWriteHandler;
 import uk.dangrew.jupa.json.write.handle.key.JsonValueWriteHandler;
 import uk.dangrew.jupa.json.write.handle.type.JsonWriteHandleImpl;
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.fooditems.ConceptPersistence;
 import uk.dangrew.nuts.persistence.resolution.MealPortionResolution;
 import uk.dangrew.nuts.persistence.resolution.MealResolutionSupplier;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link MealPersistence} provides the architecture for reading and writing {@link uk.dangrew.nuts.meal.Meal}s.

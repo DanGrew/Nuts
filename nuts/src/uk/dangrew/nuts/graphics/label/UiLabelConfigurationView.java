@@ -8,12 +8,12 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.LabelBuilder;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.label.Labelables;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
 
 public class UiLabelConfigurationView extends GridPane {
    

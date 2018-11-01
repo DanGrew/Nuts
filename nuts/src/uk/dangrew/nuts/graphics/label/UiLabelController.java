@@ -9,12 +9,12 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.comparator.Comparators;
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.kode.observable.PrivatelyModifiableObservableListImpl;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.label.Labelables;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
 
 public class UiLabelController {
    

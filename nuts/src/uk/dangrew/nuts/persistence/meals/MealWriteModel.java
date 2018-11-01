@@ -11,9 +11,9 @@ package uk.dangrew.nuts.persistence.meals;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link MealWriteModel} is responsible for handling the hooks for the {@link uk.dangrew.jupa.json.parse.JsonParser}

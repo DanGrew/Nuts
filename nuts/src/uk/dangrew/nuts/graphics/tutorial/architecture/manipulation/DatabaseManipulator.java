@@ -2,9 +2,9 @@ package uk.dangrew.nuts.graphics.tutorial.architecture.manipulation;
 
 import java.util.function.Function;
 
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class DatabaseManipulator {
 

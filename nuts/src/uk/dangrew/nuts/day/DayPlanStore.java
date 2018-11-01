@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.day;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class DayPlanStore extends MappedObservableStoreManagerImpl< String, DayPlan > implements ConceptStore< DayPlan > {
 

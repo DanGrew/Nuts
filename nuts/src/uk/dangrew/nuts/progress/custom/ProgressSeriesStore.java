@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.progress.custom;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class ProgressSeriesStore extends MappedObservableStoreManagerImpl< String, ProgressSeries > implements ConceptStore< ProgressSeries > {
 

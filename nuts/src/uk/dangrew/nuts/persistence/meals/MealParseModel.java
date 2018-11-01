@@ -9,12 +9,12 @@
 package uk.dangrew.nuts.persistence.meals;
 
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.persistence.resolution.MealPortionResolution;
 import uk.dangrew.nuts.persistence.resolution.MealResolutionSupplier;
 import uk.dangrew.nuts.persistence.resolution.Resolver;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link MealParseModel} provides the handles for the {@link uk.dangrew.jupa.json.parse.JsonParser} when

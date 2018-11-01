@@ -4,8 +4,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.kode.javafx.style.LabelBuilder;
-import uk.dangrew.nuts.system.Concept;
 
 public class UiFoodTileConceptTitle extends BorderPane {
 

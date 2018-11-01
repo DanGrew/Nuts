@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.label.Labelables;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
 
 public class LabelParseModel {
    

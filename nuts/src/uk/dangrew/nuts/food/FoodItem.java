@@ -8,9 +8,9 @@
  */
 package uk.dangrew.nuts.food;
 
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
-import uk.dangrew.nuts.system.Properties;
 
 /**
  * {@link FoodItem} represents a single item of food and the properties of that food. The {@link Food}

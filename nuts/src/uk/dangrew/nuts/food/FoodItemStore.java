@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.food;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link FoodItemStore} provides an {@link uk.dangrew.kode.storage.structure.ObjectStoreManager}

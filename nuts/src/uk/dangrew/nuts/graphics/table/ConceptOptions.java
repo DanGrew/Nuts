@@ -3,7 +3,7 @@ package uk.dangrew.nuts.graphics.table;
 import java.util.Comparator;
 
 import javafx.collections.ObservableList;
-import uk.dangrew.nuts.system.Concept;
+import uk.dangrew.kode.concept.Concept;
 
 public interface ConceptOptions< TypeT extends Concept > {
 

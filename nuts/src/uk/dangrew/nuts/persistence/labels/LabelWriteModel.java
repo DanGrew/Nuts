@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.label.LabelStore;
-import uk.dangrew.nuts.system.Concept;
 
 public class LabelWriteModel {
    

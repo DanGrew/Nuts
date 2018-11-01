@@ -1,10 +1,10 @@
 package uk.dangrew.nuts.persistence.resolution;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class DayPlanMealPortionResolution extends AbstractMealPortionResolution< Meal > {
 

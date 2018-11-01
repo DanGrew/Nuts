@@ -8,9 +8,9 @@
  */
 package uk.dangrew.nuts.persistence.template;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.persistence.meals.MealWriteModel;
-import uk.dangrew.nuts.system.ConceptStore;
 import uk.dangrew.nuts.template.Template;
 
 /**

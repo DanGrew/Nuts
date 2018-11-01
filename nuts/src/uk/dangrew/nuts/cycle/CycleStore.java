@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.cycle;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class CycleStore extends MappedObservableStoreManagerImpl< String, Cycle > implements ConceptStore< Cycle > {
 

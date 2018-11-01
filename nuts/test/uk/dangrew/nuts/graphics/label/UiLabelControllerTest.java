@@ -20,6 +20,7 @@ import org.mockito.MockitoAnnotations;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.observable.PrivatelyModifiableObservableListImpl;
 import uk.dangrew.nuts.concept.ConceptTestCommon;
@@ -27,7 +28,6 @@ import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.label.Labelables;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
 
 public class UiLabelControllerTest {
 

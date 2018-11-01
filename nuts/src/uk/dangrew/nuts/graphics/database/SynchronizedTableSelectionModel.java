@@ -2,9 +2,9 @@ package uk.dangrew.nuts.graphics.database;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.system.Concept;
 
 public class SynchronizedTableSelectionModel< TypeT extends Concept > {
 

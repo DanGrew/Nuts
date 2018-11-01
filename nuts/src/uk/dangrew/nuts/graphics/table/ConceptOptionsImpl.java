@@ -16,9 +16,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.comparator.Comparators;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link ConceptOptions} provides the combined {@link Concept}s available in the {@link Database}.

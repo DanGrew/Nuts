@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javafx.collections.ObservableList;
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
-import uk.dangrew.nuts.system.Concept;
 
 public class RowSynchronizer< TypeT extends Concept > {
 

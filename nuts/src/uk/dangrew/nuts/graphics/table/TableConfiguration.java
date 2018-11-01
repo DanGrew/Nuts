@@ -23,6 +23,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
 import uk.dangrew.kode.comparator.Comparators;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
 import uk.dangrew.kode.javafx.style.Conversions;
 import uk.dangrew.kode.javafx.table.TableViewEditCommitHandler;
@@ -34,8 +36,6 @@ import uk.dangrew.nuts.graphics.table.configuration.TableColumnConfigurer;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.Properties;
 
 /**
  * {@link TableConfiguration} provides common configuration for JavaFx tables using {@link TableColumnConfigurer}s.

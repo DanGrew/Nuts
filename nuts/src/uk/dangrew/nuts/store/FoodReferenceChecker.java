@@ -5,12 +5,12 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.label.LabelStore;
 import uk.dangrew.nuts.meal.Meal;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class FoodReferenceChecker {
 

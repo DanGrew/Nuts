@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.research;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class ResearchArticleStore extends MappedObservableStoreManagerImpl< String, ResearchArticle > implements ConceptStore< ResearchArticle > {
 

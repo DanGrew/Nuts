@@ -2,9 +2,9 @@ package uk.dangrew.nuts.label;
 
 import java.util.function.Function;
 
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public enum Labelables {
    
@@ -20,7 +20,7 @@ public enum Labelables {
    }//End Constructor
    
    public ConceptStore< Concept > redirect( Database database ) {
-      return ( ConceptStore< Concept > )conceptRedirect.apply( database );
+      return (uk.dangrew.kode.concept.ConceptStore< Concept > )conceptRedirect.apply( database );
    }//End Method
 
 }//End Class

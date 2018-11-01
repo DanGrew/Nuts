@@ -8,6 +8,7 @@
  */
 package uk.dangrew.nuts.template;
 
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
@@ -18,7 +19,6 @@ import uk.dangrew.nuts.meal.MealRegistrations;
 import uk.dangrew.nuts.meal.StockUsage;
 import uk.dangrew.nuts.meal.TargetedFoodHolder;
 import uk.dangrew.nuts.nutrients.Nutrition;
-import uk.dangrew.nuts.system.Properties;
 
 /**
  * The {@link Template} represents a collection of {@link FoodPortion}s and provides notifications

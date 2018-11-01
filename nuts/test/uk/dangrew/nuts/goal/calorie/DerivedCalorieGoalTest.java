@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import uk.dangrew.kode.TestCommon;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.GoalAnalytics;
 import uk.dangrew.nuts.food.MacroRatioCalculator;
@@ -20,7 +21,6 @@ import uk.dangrew.nuts.goal.GoalTypes;
 import uk.dangrew.nuts.manual.data.DataLocation;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
-import uk.dangrew.nuts.system.Properties;
 
 public class DerivedCalorieGoalTest {
 

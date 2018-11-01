@@ -2,9 +2,9 @@ package uk.dangrew.nuts.apis.tesco.model.nuts;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.Properties;
 
 public class TescoFoodReference implements Concept {
    

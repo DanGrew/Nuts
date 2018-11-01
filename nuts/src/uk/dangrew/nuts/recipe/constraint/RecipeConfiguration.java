@@ -12,13 +12,13 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.meal.FoodHolder;
 import uk.dangrew.nuts.recipe.constraint.raw.IngredientRawConstraint;
 import uk.dangrew.nuts.recipe.constraint.tightbound.IngredientConstraints;
 import uk.dangrew.nuts.recipe.constraint.tightbound.NutritionalUnitConstraints;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.Properties;
 
 public class RecipeConfiguration implements Concept {
 

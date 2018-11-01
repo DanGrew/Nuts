@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.goal.proportion;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class ProportionGoalStore extends MappedObservableStoreManagerImpl< String, ProportionGoal > implements ConceptStore< ProportionGoal > {
 

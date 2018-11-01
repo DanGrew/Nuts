@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.food;
 
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.nuts.nutrients.Nutrition;
-import uk.dangrew.nuts.system.Concept;
 
 /**
  * {@link Food} provides a common interface for any type of food and access to its properties.

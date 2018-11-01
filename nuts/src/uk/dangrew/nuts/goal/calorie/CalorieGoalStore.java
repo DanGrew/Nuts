@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.goal.calorie;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.system.ConceptStore;
 
 /**
  * {@link GoalStore} provides an {@link uk.dangrew.kode.storage.structure.ObjectStoreManager}

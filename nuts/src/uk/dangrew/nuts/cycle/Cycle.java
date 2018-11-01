@@ -2,10 +2,10 @@ package uk.dangrew.nuts.cycle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.DerivedCalorieGoal;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.Properties;
 
 public class Cycle implements Concept {
 

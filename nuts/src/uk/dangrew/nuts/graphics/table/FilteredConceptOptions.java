@@ -10,9 +10,9 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.kode.comparator.Comparators;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class FilteredConceptOptions< TypeT extends Concept > {
    

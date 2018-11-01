@@ -1,8 +1,8 @@
 package uk.dangrew.nuts.apis.tesco.database;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
 import uk.dangrew.nuts.apis.tesco.model.nuts.TescoFoodDescription;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class TescoFoodDescriptionStore extends MappedObservableStoreManagerImpl< String, TescoFoodDescription > implements ConceptStore< TescoFoodDescription > {
 

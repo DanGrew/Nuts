@@ -1,6 +1,6 @@
 package uk.dangrew.nuts.graphics.table;
 
-import uk.dangrew.nuts.system.Concept;
+import uk.dangrew.kode.concept.Concept;
 
 public class ReadOnlyTableColumns< TypeT extends Concept > implements ConceptTableColumnsPopulator< TypeT >{
 

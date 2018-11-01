@@ -2,9 +2,9 @@ package uk.dangrew.nuts.store;
 
 import java.util.function.Function;
 
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public enum DatabaseType {
    
@@ -22,7 +22,7 @@ public enum DatabaseType {
    
    @SuppressWarnings("unchecked") //responsibility of caller to test and verify 
    public < ConceptT > ConceptStore< ConceptT > redirect( Database database ) {
-      return ( ConceptStore< ConceptT > )conceptRedirect.apply( database );
+      return (uk.dangrew.kode.concept.ConceptStore< ConceptT > )conceptRedirect.apply( database );
    }//End Method
 
 }//End Class

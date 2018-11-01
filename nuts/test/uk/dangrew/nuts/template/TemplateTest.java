@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -25,7 +26,6 @@ import uk.dangrew.nuts.meal.MealPropertiesCalculator;
 import uk.dangrew.nuts.meal.MealRegistrations;
 import uk.dangrew.nuts.meal.StockUsage;
 import uk.dangrew.nuts.nutrients.Nutrition;
-import uk.dangrew.nuts.system.Properties;
 
 public class TemplateTest {
 

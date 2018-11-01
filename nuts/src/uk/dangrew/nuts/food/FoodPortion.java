@@ -12,11 +12,11 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.kode.javafx.registrations.RegistrationManager;
 import uk.dangrew.nuts.nutrients.Nutrition;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.nutrients.OptionalNutritionalUnit;
-import uk.dangrew.nuts.system.Properties;
 
 /**
  * The {@link FoodPortion} wraps a {@link Food} item to portion it linearly, as a percentage.

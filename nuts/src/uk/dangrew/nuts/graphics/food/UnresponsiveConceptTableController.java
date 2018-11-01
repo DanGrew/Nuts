@@ -8,9 +8,9 @@
  */
 package uk.dangrew.nuts.graphics.food;
 
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
-import uk.dangrew.nuts.system.Concept;
 
 public class UnresponsiveConceptTableController< TypeT extends Concept > implements ConceptTableViewController< TypeT > {
 

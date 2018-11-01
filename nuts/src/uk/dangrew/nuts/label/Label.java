@@ -2,8 +2,8 @@ package uk.dangrew.nuts.label;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import uk.dangrew.nuts.system.Concept;
-import uk.dangrew.nuts.system.Properties;
+import uk.dangrew.kode.concept.Concept;
+import uk.dangrew.kode.concept.Properties;
 
 public class Label implements Concept {
 

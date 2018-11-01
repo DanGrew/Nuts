@@ -8,6 +8,7 @@
  */
 package uk.dangrew.nuts.graphics.food;
 
+import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.nuts.configuration.NutritionalUnitShowingListenerImpl;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
@@ -18,7 +19,6 @@ import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;
 import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
-import uk.dangrew.nuts.system.Properties;
 
 /**
  * {@link FoodTableColumns} provides the {@link javafx.scene.control.TableColumn} configuration 

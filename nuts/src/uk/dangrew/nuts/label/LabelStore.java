@@ -8,8 +8,8 @@
  */
 package uk.dangrew.nuts.label;
 
+import uk.dangrew.kode.concept.ConceptStore;
 import uk.dangrew.kode.storage.structure.MappedObservableStoreManagerImpl;
-import uk.dangrew.nuts.system.ConceptStore;
 
 public class LabelStore extends MappedObservableStoreManagerImpl< String, Label > implements ConceptStore< Label > {
 

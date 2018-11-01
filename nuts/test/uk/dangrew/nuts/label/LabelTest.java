@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
+import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.model.ModelVerifier;
-import uk.dangrew.nuts.system.Concept;
 
 public class LabelTest {
 
