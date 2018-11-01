@@ -1,16 +1,16 @@
-package uk.dangrew.nuts.graphics.selection.view;
+package uk.dangrew.nuts.graphics.common;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 
-public class UiFoodSelectionWindowControls extends GridPane {
+public class UiWindowControls extends GridPane {
 
    private final Button apply;
    private final Button cancel;
    
-   public UiFoodSelectionWindowControls( UiFoodSelectionController selectionController, FoodSelectionWindowStageControls stageControls ) {
+   public UiWindowControls( UiWindowControlsActions controller ) {
       JavaFxStyle styling = new JavaFxStyle();
       styling.configureConstraintsForEvenRows( this, 1 );
       styling.configureConstraintsForEvenColumns( this, 5 );
@@ -21,8 +21,8 @@ public class UiFoodSelectionWindowControls extends GridPane {
       this.apply.setMaxSize( Double.MAX_VALUE, Double.MAX_VALUE );
       this.cancel.setMaxSize( Double.MAX_VALUE, Double.MAX_VALUE );
       
-      this.apply.setOnAction( e -> stageControls.apply( selectionController.getAndClearSelection() ) );
-      this.cancel.setOnAction( e -> stageControls.cancel() );
+      this.apply.setOnAction( e -> controller.apply() );
+      this.cancel.setOnAction( e -> controller.cancel() );
       
       this.setPadding( new Insets( 5 ) );
    }//End Constructor

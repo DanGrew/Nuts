@@ -31,11 +31,13 @@ public class RecipeConfigurationTest {
    }//End Method
 
    @Test public void shouldProvideProperties() {
+      systemUnderTest.constraints().clear();
       new ModelVerifier<>( systemUnderTest )
          .shouldProvideObject( RecipeConfiguration::properties )
          .shouldProvideCollection( RecipeConfiguration::ingredients, new FoodItem( "Anything" ) )
          .shouldProvideProperty( RecipeConfiguration::function, systemUnderTest.function().get(), new RecipeFunction() )
-         .shouldProvideCollection( RecipeConfiguration::constraints, new NutritionalUnitRawConstraint() );
+         .shouldProvideCollection( RecipeConfiguration::constraints, new NutritionalUnitRawConstraint() )
+         .shouldProvideObject( RecipeConfiguration::solution );
    }//End Method
    
    @Test public void shouldGenerateConstraints(){

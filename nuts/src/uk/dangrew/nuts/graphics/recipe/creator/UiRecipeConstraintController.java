@@ -50,6 +50,8 @@ public class UiRecipeConstraintController implements ConceptTableViewController<
    public void associate( UiRecipeConstraintSelector selector, MealTableController resultController ) {
       this.selector = selector;
       this.resultController = resultController;
+      
+      configuration().solution().addListener( ( s, o, n ) -> resultController.showMeal( n ) );
    }//End Method
    
    public RecipeConfiguration configuration() {
@@ -93,7 +95,6 @@ public class UiRecipeConstraintController implements ConceptTableViewController<
    }//End Method
 
    public void recalculate() {
-      resultController.showMeal( null );
-      algorithm.solve().ifPresent( resultController::showMeal );
+      algorithm.solve();
    }//End Method
 }//End Class

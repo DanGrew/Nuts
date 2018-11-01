@@ -201,5 +201,34 @@
       "id": "2acc6f40-9184-474d-9adc-17afe356a39e",
       "proteinProportionType": "Weight",
       "fatProportionValue": 1560
+   },
+   {
+      "fiberProportionValue": 0,
+      "carbohydrateProportionType": "Weight",
+      "proteinProportionValue": 100,
+      "fiberProportionType": null,
+      "nutritionalUnitGoals": {
+         "potassium": 0,
+         "calcium": 0,
+         "salt": 0,
+         "carbohydratesugars": 0,
+         "thiamin": 0,
+         "niacin": 0,
+         "magnesium": 0,
+         "calories": 2200,
+         "omega3": 0,
+         "folicacid": 0,
+         "sodium": 0,
+         "saturatedfat": 0,
+         "monetaryvalue": 0,
+         "iron": 0,
+         "riboflavin": 0
+      },
+      "name": "Zero Carb (2200)",
+      "carbohydrateProportionValue": 3,
+      "fatProportionType": "Weight",
+      "id": "49c974e1-1055-43f6-ad04-4c96ab893258",
+      "proteinProportionType": "Weight",
+      "fatProportionValue": 200
    }
 ]}

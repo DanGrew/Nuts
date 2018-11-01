@@ -1,1 +1,67 @@
-{"meals": []}
+{"meals": [{
+   "goalId": "single-goal-no-id-provided-unique",
+   "name": "Unnamed",
+   "id": "4d02e991-6cc8-4f26-8ed1-0dbedabe99bc",
+   "portions": [
+      {
+         "foodId": "847285fa-399e-4f2c-83af-9f35b8c870bc",
+         "portionValue": 100
+      },
+      {
+         "foodId": "ec64f673-08e1-4010-8c12-09a3d67115aa",
+         "portionValue": 100
+      },
+      {
+         "foodId": "89edbcb1-c15f-4a47-8ea9-22ff9006a0e7",
+         "portionValue": 100
+      },
+      {
+         "foodId": "e539f563-e820-4460-8a65-5bc8ec153c53",
+         "portionValue": 100
+      },
+      {
+         "foodId": "a70980ea-139b-4d40-90ac-1b84ee24f752",
+         "portionValue": 100
+      },
+      {
+         "foodId": "abf9c9af-9388-43c6-a0b8-01cdd6d4f698",
+         "portionValue": 100
+      },
+      {
+         "foodId": "937a229d-4976-4358-a2c9-c18d50923805",
+         "portionValue": 100
+      },
+      {
+         "foodId": "4fca9b3e-4ba4-4256-b23b-a422410d5abf",
+         "portionValue": 100
+      },
+      {
+         "foodId": "0fef89f1-7dcb-4b00-84a6-34c35dbdb138",
+         "portionValue": 100
+      },
+      {
+         "foodId": "5839ae04-d581-4846-af8b-ceb2c8fe2068",
+         "portionValue": 100
+      },
+      {
+         "foodId": "5030e2c4-5bb2-4643-aef5-100088da5bfa",
+         "portionValue": 100
+      },
+      {
+         "foodId": "5cbd703f-3dec-48a5-9652-ece4c3299be2",
+         "portionValue": 100
+      },
+      {
+         "foodId": "70c6003a-f8e0-42b8-9703-97a67d45e781",
+         "portionValue": 100
+      },
+      {
+         "foodId": "1490212b-6400-42b1-8457-1b845e0b4989",
+         "portionValue": 100
+      },
+      {
+         "foodId": "8422d915-2a0f-4e0a-836b-9da6921cbb1d",
+         "portionValue": 100
+      }
+   ]
+}]}

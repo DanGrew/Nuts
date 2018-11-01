@@ -21,6 +21,7 @@ import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
+import uk.dangrew.nuts.meal.FoodHolder;
 import uk.dangrew.nuts.meal.Meal;
 
 /**
@@ -32,7 +33,7 @@ public class MealTableControllerImpl implements MealTableController, ConceptTabl
    private final FoodSelectionEvent mealSelectionEvents;
    
    private FriendlyTableView< ConceptTableRow< FoodPortion > > table;
-   private Meal meal;
+   private FoodHolder meal;
    
    public MealTableControllerImpl() {
       this( new FoodSelectionEvent() );
@@ -60,7 +61,7 @@ public class MealTableControllerImpl implements MealTableController, ConceptTabl
     * Method to show the given {@link Meal} in the {@link MealTable}.
     * @param meal the {@link Meal} to show.
     */
-   @Override public void showMeal( Meal meal ) {
+   @Override public void showMeal( FoodHolder meal ) {
       if ( this.meal != null ) {
          this.meal.portions().removeListener( mealListener );
          table.getRows().clear();
@@ -76,7 +77,7 @@ public class MealTableControllerImpl implements MealTableController, ConceptTabl
     * Getter for the {@link Meal} being shown.
     * @return the {@link Meal} being shown.
     */
-   @Override public Meal getShowingMeal(){
+   @Override public FoodHolder getShowingMeal(){
       return meal;
    }//End Method
    

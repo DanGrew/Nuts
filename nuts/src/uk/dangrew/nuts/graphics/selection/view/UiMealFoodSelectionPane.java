@@ -2,12 +2,15 @@ package uk.dangrew.nuts.graphics.selection.view;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.nuts.graphics.common.UiWindowControls;
+import uk.dangrew.nuts.graphics.common.UiWindowControlsActions;
+import uk.dangrew.nuts.graphics.common.UiWindowControlsActionsImpl;
 import uk.dangrew.nuts.graphics.food.UnresponsiveConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.template.TemplateTableColumns;
-import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.FoodHolder;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
 
@@ -32,13 +35,18 @@ public class UiMealFoodSelectionPane extends GridPane {
                .buildTable(),  
       0, 0 );
       add( new UiFoodSelectionTabs( database, controller ), 0, 1 );
-      add( new UiFoodSelectionWindowControls( controller, stageControls ), 0, 2 );
+      
+      UiWindowControlsActions windowActions = new UiWindowControlsActionsImpl( 
+               () -> stageControls.apply( controller.getAndClearSelection() ),
+               stageControls::cancel
+      );
+      add( new UiWindowControls( windowActions ), 0, 2 );
       
       table.getRows().clear();
       table.getRows().add( new ConceptTableRowImpl<>( liveSelectionProperties ) );
    }//End Constructor
 
-   public void selectForMeal( Meal meal ) {
+   public void selectForMeal( FoodHolder meal ) {
       liveSelectionProperties.properties().nameProperty().set( meal.properties().nameProperty().get() );
       liveSelectionProperties.portions().clear();
       liveSelectionProperties.portions().addAll( meal.portions() );

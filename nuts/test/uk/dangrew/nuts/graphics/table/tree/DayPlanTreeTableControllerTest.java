@@ -6,8 +6,10 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.junit.Before;
@@ -22,6 +24,8 @@ import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.database.RecipeShareControllerImpl;
+import uk.dangrew.nuts.graphics.recipe.integration.RecipeGeneratorControllerImpl;
+import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;
 
 public class DayPlanTreeTableControllerTest {
@@ -31,6 +35,7 @@ public class DayPlanTreeTableControllerTest {
    @Mock private TreeTableController selectionController;
    @Mock private TreeStreamer treeStreamer;
    @Mock private RecipeShareControllerImpl shareController;
+   @Mock private RecipeGeneratorControllerImpl recipeGenerator;
    private FoodPortion concept;
    private Database database;
    private DayPlan dayPlan;
@@ -54,7 +59,7 @@ public class DayPlanTreeTableControllerTest {
       reorderedSelection = new TreeTableLeafItem( concept, mock( TreeTableHolderControls.class ) );
       when( treeStreamer.flatten( table.getRoot() ) ).thenReturn( Stream.of( reorderedSelection ) );
       
-      systemUnderTest = new DayPlanTreeTableController( treeStreamer, shareController );
+      systemUnderTest = new DayPlanTreeTableController( database, treeStreamer, shareController, recipeGenerator );
       systemUnderTest.associate( table );
    }//End Method
 
@@ -124,4 +129,31 @@ public class DayPlanTreeTableControllerTest {
       verify( shareController ).share( dayPlan );
    }//End Method
 
+   @Test public void shouldNotGenerateWithNoSelection(){
+      systemUnderTest.generate();
+      verifyZeroInteractions( recipeGenerator );
+   }//End Method
+   
+   @Test public void shouldNotGenerateForNonFoodHolder(){
+      select();
+      systemUnderTest.generate();
+      verifyZeroInteractions( recipeGenerator );
+   }//End Method
+   
+   @Test public void shouldGenerate(){
+      concept.setFood( new Meal( "Meal" ) );
+      select();
+      
+      Meal holder = new Meal( "Meal" );
+      holder.portions().add( new FoodPortion( new FoodItem( "anything" ), 100.0 ) );
+      when( recipeGenerator.generateFor( concept.food().get() ) ).thenReturn( Optional.of( holder ) );
+      
+      systemUnderTest.generate();
+      verify( recipeGenerator ).generateFor( concept.food().get() );
+      assertThat( 
+               ( ( Meal )( concept.food().get() ) ).portions().get( 0 ).food().get().properties().nameProperty().get(), 
+               is( holder.portions().get( 0 ).food().get().properties().nameProperty().get() ) 
+      );
+   }//End Method
+   
 }//End Class

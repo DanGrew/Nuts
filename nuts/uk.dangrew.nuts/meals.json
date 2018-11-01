@@ -1874,5 +1874,37 @@
             "portionValue": 30
          }
       ]
+   },
+   {
+      "name": "Almond Mlik (BulletProof)",
+      "id": "a9877434-0add-46ab-889d-7fd3cc01777e",
+      "portions": [
+         {
+            "foodId": "ec492174-9557-4cf2-859a-98cafb1e3cad",
+            "portionValue": 500
+         },
+         {
+            "foodId": "83ce6541-7e3f-4c34-99f7-0e0ba122f1e9",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Toad in 't' Hole",
+      "id": "c2d7d900-d4cb-42f7-a53e-4c4a2fdb58fa",
+      "portions": [
+         {
+            "foodId": "9397a5c1-259a-4f1f-b3c0-a0e10bc20f6e",
+            "portionValue": 150
+         },
+         {
+            "foodId": "720e4e71-761c-40a2-bcae-63d001aa10c7",
+            "portionValue": 300
+         },
+         {
+            "foodId": "e22447cc-89b2-4a00-abb0-f5bd94fdadd3",
+            "portionValue": 100
+         }
+      ]
    }
 ]}

@@ -7,6 +7,7 @@ public enum TableControlType {
    Remove,
    Up,
    Down,
-   Share
+   Share, 
+   GenerateRecipe
 
 }//End Enum

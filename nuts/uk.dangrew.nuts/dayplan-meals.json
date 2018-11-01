@@ -12638,11 +12638,11 @@
       "portions": [
          {
             "foodId": "547f0a1d-38b7-4921-8802-3be5153020cf",
-            "portionValue": 0
+            "portionValue": 200
          },
          {
             "foodId": "28577771-1201-4691-8a20-97446512deef",
-            "portionValue": 30
+            "portionValue": 0
          },
          {
             "foodId": "a5036d49-aa09-4136-8cc0-c04a414746d0",
@@ -12664,7 +12664,791 @@
          },
          {
             "foodId": "893b36d1-e35c-4441-845b-b07417e15170",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Coconut Milk Mousse",
+      "id": "d40a9466-0aeb-4120-9cbc-cdc1a8819d88",
+      "portions": [
+         {
+            "foodId": "59e9db2e-0ee1-4d30-94e7-768e7bfd3f84",
+            "portionValue": 100
+         },
+         {
+            "foodId": "e257f120-a193-4e70-a180-9776c68844a8",
+            "portionValue": 400
+         },
+         {
+            "foodId": "1cce94b5-ed88-4438-8c7c-22b81f02b259",
+            "portionValue": 35
+         }
+      ]
+   },
+   {
+      "name": "Chia Pudding (Almond Milk)",
+      "id": "1f972e78-86d7-4483-ae27-4dae2836c024",
+      "portions": [
+         {
+            "foodId": "40427c38-201b-47d0-ac70-16294cc604a6",
+            "portionValue": 250
+         },
+         {
+            "foodId": "57f8ac63-cb05-46c7-a730-d957aa79cb81",
             "portionValue": 30
+         },
+         {
+            "foodId": "814b993f-88cd-4a92-84be-10d7cdda7063",
+            "portionValue": 25
+         }
+      ]
+   },
+   {
+      "name": "Nut Cookie Batch",
+      "id": "b8faf881-2d87-45c6-895b-1ee37a90ae69",
+      "portions": [
+         {
+            "foodId": "4f817730-f22b-492f-a042-a4532ded3982",
+            "portionValue": 100
+         },
+         {
+            "foodId": "057345b3-ce46-4dc9-a335-1d7af4ddd37c",
+            "portionValue": 0
+         },
+         {
+            "foodId": "84afa38f-98d2-4465-9d97-2603c6d33a73",
+            "portionValue": 60
+         },
+         {
+            "foodId": "3c8d24c4-62d0-43cb-93fb-34f486f1c243",
+            "portionValue": 40
+         }
+      ]
+   },
+   {
+      "name": "Nut Cookie Batch",
+      "id": "3dffc510-baf4-4406-ac67-cb5dc7db6d2e",
+      "portions": [
+         {
+            "foodId": "dbbd312c-9eb7-49ac-8a09-687c9b23c048",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2ac24d6a-0f03-4d64-a982-e8eb238eb530",
+            "portionValue": 0
+         },
+         {
+            "foodId": "3f9d8f3e-6cfc-44a7-8766-9a854b5fbf8f",
+            "portionValue": 60
+         },
+         {
+            "foodId": "fed16463-442e-4751-9023-e883d45a943f",
+            "portionValue": 40
+         }
+      ]
+   },
+   {
+      "name": "Cheesecake (OMAD)",
+      "id": "54930dbe-e38f-4920-9d98-3bb67d371f09",
+      "portions": [
+         {
+            "foodId": "e987cf81-fcbb-4e2b-ac37-efe7852886a8",
+            "portionValue": 200
+         },
+         {
+            "foodId": "f7a26f06-9dbe-4769-a31b-5568e284a663",
+            "portionValue": 300
+         },
+         {
+            "foodId": "111c9901-5a9f-44d6-af27-c447fd0bc120",
+            "portionValue": 50
+         },
+         {
+            "foodId": "666a34c3-972f-4e3c-90e6-02c57d79e6c9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "48504124-d81b-4d5c-8c21-c15abcab67ac",
+            "portionValue": 75
+         }
+      ]
+   },
+   {
+      "name": "Nut Flax Cookies",
+      "id": "d3cece62-fe85-468a-bd9e-912e2c9bd34e",
+      "portions": [
+         {
+            "foodId": "acbef468-7819-42f0-b249-c52b03936622",
+            "portionValue": 100
+         },
+         {
+            "foodId": "a6cc7d6a-d98d-41cd-9903-69557f1ff412",
+            "portionValue": 0
+         },
+         {
+            "foodId": "7844c57d-ed64-4e9c-8ecc-1b6b96faed8f",
+            "portionValue": 0
+         },
+         {
+            "foodId": "c4331491-3ff0-4a6d-8a45-14f8fb1e48ba",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Nut Flax Cookies",
+      "id": "9b58bce3-f99b-4461-99b8-be5d8a666856",
+      "portions": [
+         {
+            "foodId": "b46a5a33-3971-483c-85ed-e77f86ccc41f",
+            "portionValue": 100
+         },
+         {
+            "foodId": "8707e660-f695-4163-b8f5-57f44727a496",
+            "portionValue": 0
+         },
+         {
+            "foodId": "792be4fb-341a-4941-a64e-2761b5df43be",
+            "portionValue": 0
+         },
+         {
+            "foodId": "c97fde5f-014d-4375-b3ff-a2966bdfc92e",
+            "portionValue": 200
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Pancake (Mini)",
+      "id": "03686904-25c4-402c-8b37-3c854d83ff2d",
+      "portions": [
+         {
+            "foodId": "81fa30f6-5061-40c3-b8ab-b042aea8788c",
+            "portionValue": 200
+         },
+         {
+            "foodId": "777df3ec-a443-43fa-b317-1344456776cc",
+            "portionValue": 100
+         },
+         {
+            "foodId": "a2ee2822-6f1c-432c-bb23-49ae5c573395",
+            "portionValue": 100
+         },
+         {
+            "foodId": "56fb0c00-1476-479f-b6ce-32e3af7057ed",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Cheesecake (OMAD)",
+      "id": "1df82879-a028-4954-908d-09e04d26c0cf",
+      "portions": [
+         {
+            "foodId": "1892ec4e-2616-47e3-92b0-cdd61c8afa94",
+            "portionValue": 300
+         },
+         {
+            "foodId": "60c6a088-f269-4465-b79b-080b96eabc6c",
+            "portionValue": 400
+         },
+         {
+            "foodId": "56444278-bd98-44d6-8d8e-d3ed89dbf4cd",
+            "portionValue": 100
+         },
+         {
+            "foodId": "d16871c9-635a-4a44-8f34-1c5cea2e4fc3",
+            "portionValue": 15
+         },
+         {
+            "foodId": "895fe46f-5cb5-43c9-be6a-407f9109d913",
+            "portionValue": 100
+         },
+         {
+            "foodId": "e88f6a13-62b7-4a04-a6a1-62e597348fc2",
+            "portionValue": 75
+         }
+      ]
+   },
+   {
+      "name": "German Salami Pizza",
+      "id": "dde619f6-5dbe-482b-8c40-58bd12cfcdbf",
+      "portions": [
+         {
+            "foodId": "f6ada1a0-1961-4824-9f95-2047d008f00e",
+            "portionValue": 100
+         },
+         {
+            "foodId": "fa85b750-072e-4f75-bf25-489a1ae5cd3f",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b2fea3c8-fb32-41d4-8081-75b5f247e706",
+            "portionValue": 125
+         },
+         {
+            "foodId": "23228d0c-3485-4de3-aff4-5ee93ab0ed2f",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Fathead Pizza Base",
+      "id": "f6ada1a0-1961-4824-9f95-2047d008f00e",
+      "portions": [
+         {
+            "foodId": "fcdeaa54-1985-4a83-8153-85b4bf8078ed",
+            "portionValue": 180
+         },
+         {
+            "foodId": "8f770aa5-e463-473d-bdf1-f882364b02a5",
+            "portionValue": 100
+         },
+         {
+            "foodId": "02092a91-2747-4aa4-b0bc-9e7ddf570543",
+            "portionValue": 200
+         },
+         {
+            "foodId": "20217716-aaa8-44cb-ab5d-b9f7747a3912",
+            "portionValue": 43
+         }
+      ]
+   },
+   {
+      "name": "Tomato Sauce Paste",
+      "id": "fa85b750-072e-4f75-bf25-489a1ae5cd3f",
+      "portions": [
+         {
+            "foodId": "7d1a364e-3d76-4c83-9401-8a45934f8d09",
+            "portionValue": 10
+         },
+         {
+            "foodId": "03ba7611-1cf2-4307-b192-fbd0bbf01c03",
+            "portionValue": 50
+         },
+         {
+            "foodId": "886bd3ac-3941-4a2e-8d88-a641876c1b4f",
+            "portionValue": 5
+         }
+      ]
+   },
+   {
+      "name": "Cheese Sauce",
+      "id": "23228d0c-3485-4de3-aff4-5ee93ab0ed2f",
+      "portions": [
+         {
+            "foodId": "dcadfafa-caa1-4588-8fde-94e4a30dfbf1",
+            "portionValue": 300
+         },
+         {
+            "foodId": "8547bcd3-87a5-4dd6-ae77-d077b1d01da9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "5830fa84-7be8-45d4-98cb-fd3455f41a1c",
+            "portionValue": 15
+         },
+         {
+            "foodId": "e4b4c9d7-0cb7-485d-af12-941d967633d3",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Bread (Almond Milk, PaleoFlourish)",
+      "id": "e19b5ce6-bb00-4133-ad8a-19b9cd4f85ec",
+      "portions": [
+         {
+            "foodId": "826c9da5-2c2e-499c-a9bb-ab89fddd3505",
+            "portionValue": 120
+         },
+         {
+            "foodId": "86b7b9b0-5ecc-4dc9-8941-beeb6dfaab58",
+            "portionValue": 150
+         },
+         {
+            "foodId": "32f92b83-64b4-41f2-a421-862d4307c4fe",
+            "portionValue": 110
+         },
+         {
+            "foodId": "8f6068e7-7e73-4e52-b24d-bf0d0e46bb83",
+            "portionValue": 300
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Pancake (Mini)",
+      "id": "ef481605-c414-4bd6-8150-dc7612799fe9",
+      "portions": [
+         {
+            "foodId": "4e736e75-2e73-4703-ba6d-db4e76327eb7",
+            "portionValue": 200
+         },
+         {
+            "foodId": "47f7d130-fcd6-4484-a373-c882b8fe6dc5",
+            "portionValue": 100
+         },
+         {
+            "foodId": "1903bf07-55de-4127-89af-170f75d4518a",
+            "portionValue": 0
+         },
+         {
+            "foodId": "d9a728ca-c9ed-47da-8e25-b4ff946072a1",
+            "portionValue": 80
+         }
+      ]
+   },
+   {
+      "name": "Fathead Pizza Base",
+      "id": "e379a643-91d6-492d-baab-1f2069fa500f",
+      "portions": [
+         {
+            "foodId": "af20c591-755f-4311-b74e-5f38ec67f341",
+            "portionValue": 180
+         },
+         {
+            "foodId": "4cf0b36c-cdea-4e45-a5aa-ce66a1290334",
+            "portionValue": 100
+         },
+         {
+            "foodId": "28a0883f-fa0d-452b-a045-6a68d48a61f6",
+            "portionValue": 200
+         },
+         {
+            "foodId": "c3949782-d743-47bd-ad0e-a7bf8fc740a8",
+            "portionValue": 43
+         }
+      ]
+   },
+   {
+      "name": "Tomato Sauce Paste",
+      "id": "a75ea5e8-9beb-4aa6-a8a8-de5e04363575",
+      "portions": [
+         {
+            "foodId": "3e9748c6-9fff-463c-943a-105e11a03923",
+            "portionValue": 10
+         },
+         {
+            "foodId": "1f743735-84c7-4c2e-a08b-e1a753778851",
+            "portionValue": 50
+         },
+         {
+            "foodId": "3adaf889-7a9e-4ada-b68c-988605a0b7ea",
+            "portionValue": 5
+         }
+      ]
+   },
+   {
+      "name": "Cheese Sauce",
+      "id": "7050368a-c96f-4de6-95db-679e754772f3",
+      "portions": [
+         {
+            "foodId": "218e8133-3a2c-479b-84ed-8e5000e218d9",
+            "portionValue": 300
+         },
+         {
+            "foodId": "04a29d26-5cf5-4137-bc36-5321335af76c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "2f4305a2-6b7d-410c-a494-e16321bd45f7",
+            "portionValue": 15
+         },
+         {
+            "foodId": "212be1e2-7c33-4dfb-b715-b3bfebd05e09",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Almond Mlik (BulletProof)",
+      "id": "fc95b976-d767-4ef2-8931-34aeed1260e2",
+      "portions": [
+         {
+            "foodId": "f9f4e644-32a0-4672-a094-ff78baf4933b",
+            "portionValue": 500
+         },
+         {
+            "foodId": "2a65c3d9-1824-4ddd-ada8-800ad568026e",
+            "portionValue": 30
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "d6c1a9a0-daaf-4a46-95e7-c014e3b3914c",
+      "portions": [
+         {
+            "foodId": "d5e55bb8-e37e-478e-8ef5-3028b1fb4447",
+            "portionValue": 300
+         },
+         {
+            "foodId": "3fb77615-8eca-44db-aa93-be5fc8c1a7ab",
+            "portionValue": 100
+         },
+         {
+            "foodId": "420e5fdb-1a0e-41b7-b8a6-836aed545df9",
+            "portionValue": 50
+         },
+         {
+            "foodId": "a39917d3-e202-41c5-90ed-b6b1ca4151f0",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "f4bf6eb0-52e4-48cb-b506-8fad3cea3dad",
+      "portions": [
+         {
+            "foodId": "acd2d418-a4d8-45c5-ab91-a56645098ef1",
+            "portionValue": 300
+         },
+         {
+            "foodId": "2d0fabb9-4c43-43cf-beea-14b2158792a4",
+            "portionValue": 100
+         },
+         {
+            "foodId": "325bf39b-a9bd-4aee-a10b-161d3287fd0a",
+            "portionValue": 50
+         },
+         {
+            "foodId": "c982ba5d-3caa-493c-b73b-31ec731bf66b",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "cb243e81-0f8f-4cee-a9f7-b1e8743258f6",
+      "portions": [
+         {
+            "foodId": "cfc29c92-f835-4ba4-983e-9457f9bea269",
+            "portionValue": 300
+         },
+         {
+            "foodId": "32cae17a-6ecd-4e0c-ab8e-3ca216cefe3d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "04119dde-01e8-4321-9a49-19d313b23757",
+            "portionValue": 50
+         },
+         {
+            "foodId": "be50ada8-8f05-4f1a-9c29-f18902739e0d",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Nut Pancake",
+      "id": "701c9134-7aef-4ccb-85ab-c407ce70c7cb",
+      "portions": [
+         {
+            "foodId": "d1af37b3-7c9d-4fcd-8045-efc12d995990",
+            "portionValue": 100
+         },
+         {
+            "foodId": "e6383800-6f29-4864-b956-31a2ccca305b",
+            "portionValue": 0
+         },
+         {
+            "foodId": "3ada24fb-11a4-4314-b423-d7a43cf8dc37",
+            "portionValue": 0
+         },
+         {
+            "foodId": "b9d37330-57c3-42f2-bdca-78e44b32b3da",
+            "portionValue": 0
+         },
+         {
+            "foodId": "28bb77e0-d1b8-4b63-839b-e072ee833ef3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "e3cb4ca2-bd0a-47cf-9b06-b5e2bfc16bd6",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Mousse",
+      "id": "2810fc5b-c0f1-4cf2-8c2e-eb8573a3ddc9",
+      "portions": [
+         {
+            "foodId": "35f377b6-e466-4028-b7b2-49ba69f2b9f5",
+            "portionValue": 300
+         },
+         {
+            "foodId": "3245f05c-c260-4418-8728-5b4743f0ffc3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "f5caf966-9ca4-4a04-9133-4678acdc805c",
+            "portionValue": 50
+         },
+         {
+            "foodId": "b5fc9473-b908-461d-bc6a-34446b656eb5",
+            "portionValue": 0
+         }
+      ]
+   },
+   {
+      "name": "Fathead Pizza Base",
+      "id": "6545cbb3-fff0-4df9-bc3c-6a136ca25a2f",
+      "portions": [
+         {
+            "foodId": "85ea1dc8-ed17-4a84-b0ec-a703f878499f",
+            "portionValue": 180
+         },
+         {
+            "foodId": "3fd561e1-a2db-49ef-ae41-aa3ec233fa7c",
+            "portionValue": 100
+         },
+         {
+            "foodId": "548a862c-36a6-4e3f-80ab-54b9065119f1",
+            "portionValue": 200
+         },
+         {
+            "foodId": "08fe77ac-a5a3-4883-84dc-25e3662a4958",
+            "portionValue": 43
+         }
+      ]
+   },
+   {
+      "name": "Tomato Sauce Paste",
+      "id": "13d0e54b-cc44-44d3-8cda-f91655dc5d7d",
+      "portions": [
+         {
+            "foodId": "3d3258e9-e8bf-4353-8a77-8dab10d859be",
+            "portionValue": 10
+         },
+         {
+            "foodId": "b73ebfe7-8022-4e0d-8ed9-af8cee01363c",
+            "portionValue": 50
+         },
+         {
+            "foodId": "8578ff23-b5c1-4cff-9047-9b5895b9bd11",
+            "portionValue": 5
+         }
+      ]
+   },
+   {
+      "name": "Cheese Sauce",
+      "id": "da86e5cb-233d-47c8-b97a-61ca7a6dd0f1",
+      "portions": [
+         {
+            "foodId": "c00fb7bc-dea4-4ade-a5e4-e8eb0ae5ed9a",
+            "portionValue": 300
+         },
+         {
+            "foodId": "16a011fa-a07b-4ee0-978a-8400bd962aa9",
+            "portionValue": 100
+         },
+         {
+            "foodId": "a5a83ab6-b379-4116-84e5-20d5f508cc5e",
+            "portionValue": 15
+         },
+         {
+            "foodId": "0526ea29-2850-44a2-b1ec-b69af76aabdf",
+            "portionValue": 60
+         }
+      ]
+   },
+   {
+      "name": "Toad in 't' Hole",
+      "id": "3c1ce698-2a37-4dc3-9e29-70934784e514",
+      "portions": [
+         {
+            "foodId": "c9d67b04-645c-4c47-b340-8cda11e63c95",
+            "portionValue": 150
+         },
+         {
+            "foodId": "156dc28a-0817-4cdb-a41f-f0f1f74dc72c",
+            "portionValue": 300
+         },
+         {
+            "foodId": "536d309b-bace-49f8-a34a-949aa5949bc8",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Cookies",
+      "id": "b4be6c01-d34c-43d5-85df-18a61a957c07",
+      "portions": [
+         {
+            "foodId": "d7670646-9bbe-412a-ac08-f86093efaf88",
+            "portionValue": 50
+         },
+         {
+            "foodId": "07f52b1e-63f5-48a8-8501-84ea11a302ca",
+            "portionValue": 100
+         },
+         {
+            "foodId": "f80d1a34-8e86-4d09-9af6-44cc73c1ffa1",
+            "portionValue": 0
+         },
+         {
+            "foodId": "20118eab-6fef-42c6-a8f4-80dad779dcf8",
+            "portionValue": 120
+         }
+      ]
+   },
+   {
+      "name": "Toad in 't' Hole",
+      "id": "27928622-1060-463d-8bf5-732b80aba9a7",
+      "portions": [
+         {
+            "foodId": "8d290ee2-539a-4ead-92b5-717fc9d20373",
+            "portionValue": 150
+         },
+         {
+            "foodId": "f90e7219-dfb8-46ec-af3e-058d4125f0c6",
+            "portionValue": 300
+         },
+         {
+            "foodId": "71a21a85-dddd-430f-8fbe-6e74483aebee",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Butter Cookies",
+      "id": "ec984014-24dc-4fb0-a6a2-8e05a6d3ec50",
+      "portions": [
+         {
+            "foodId": "982a564f-f761-43b7-952b-ceb50bf481bd",
+            "portionValue": 50
+         },
+         {
+            "foodId": "64580ab8-1679-4839-8663-0d1cce1db3b3",
+            "portionValue": 100
+         },
+         {
+            "foodId": "4486ca34-7c9f-41d0-8ee2-b0f848c7319a",
+            "portionValue": 0
+         },
+         {
+            "foodId": "b4d60832-a69d-4f7f-891c-40b5be6d67f2",
+            "portionValue": 120
+         }
+      ]
+   },
+   {
+      "name": "Walnut Butter (100g) (homemade)",
+      "id": "d8597f56-3ac3-4d6f-b301-584946d4a057",
+      "portions": [{
+         "foodId": "9a264c07-9c19-4a93-9306-258950420c40",
+         "portionValue": 100
+      }]
+   },
+   {
+      "name": "Nut Butter Pancake (Mini)",
+      "id": "fb124027-1429-446c-a1a5-e2710190628c",
+      "portions": [
+         {
+            "foodId": "cddbc59d-747f-4b22-9e48-cbb7a258b4a7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "ff8ff8e1-dd8f-46c3-94d8-8ffb06d295b7",
+            "portionValue": 100
+         },
+         {
+            "foodId": "b05bd31a-60c8-47a0-8cc7-63fe204b469e",
+            "portionValue": 100
+         },
+         {
+            "foodId": "472be9a0-55c4-4efe-9f90-7ec20d3aeaad",
+            "portionValue": 50
+         }
+      ]
+   },
+   {
+      "name": "Cheesecake (OMAD)",
+      "id": "3444e827-d163-4a5f-a65d-9df22cd828bb",
+      "portions": [
+         {
+            "foodId": "70e11be9-77d2-4311-a023-478f0027fede",
+            "portionValue": 300
+         },
+         {
+            "foodId": "2ba83a8c-40d7-44aa-a00b-ab3834526d92",
+            "portionValue": 400
+         },
+         {
+            "foodId": "13241f1d-5fe3-4f5d-bc50-1b2965c021ec",
+            "portionValue": 100
+         },
+         {
+            "foodId": "5f68990f-c779-485c-9e57-40d6a5f16576",
+            "portionValue": 0
+         },
+         {
+            "foodId": "7e1f772e-8782-4a19-9a93-5dcc77912985",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Cheesecake (OMAD)",
+      "id": "58240e09-9bff-403d-b6b8-2329696f900d",
+      "portions": [
+         {
+            "foodId": "59bd02df-4a2a-4b85-bfe2-bb447a076b93",
+            "portionValue": 300
+         },
+         {
+            "foodId": "bc8b3568-3b2f-4ad4-83f5-876543c1cbab",
+            "portionValue": 400
+         },
+         {
+            "foodId": "e6d1328e-c2d8-497c-be3d-36e45bef8078",
+            "portionValue": 100
+         },
+         {
+            "foodId": "35569550-6162-4846-9b55-b396074b305b",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Cookie Batch",
+      "id": "48230185-7c4e-44dc-a02a-b03cab4ddc14",
+      "portions": [
+         {
+            "foodId": "67fec7ac-5688-4c7d-bfd4-2315a16b98aa",
+            "portionValue": 100
+         },
+         {
+            "foodId": "3c40c726-5922-4694-9636-8d53885478cf",
+            "portionValue": 150
+         },
+         {
+            "foodId": "669968c5-d71f-42cf-8aa5-84b0495905ea",
+            "portionValue": 100
+         }
+      ]
+   },
+   {
+      "name": "Nut Cookie Batch",
+      "id": "55d3cd33-77af-4ad3-a5c6-d77cd0fd6635",
+      "portions": [
+         {
+            "foodId": "5245e69c-a156-427a-88e3-1c9637c6997d",
+            "portionValue": 100
+         },
+         {
+            "foodId": "222c23fd-cf9f-41ae-9b4a-999ae9653b17",
+            "portionValue": 100
+         },
+         {
+            "foodId": "fe39dd95-ba37-4700-ad78-efc2de079584",
+            "portionValue": 100
+         },
+         {
+            "foodId": "39f73df8-1e57-4bdd-ac9e-a3e6d4ad72f4",
+            "portionValue": 50
          }
       ]
    }

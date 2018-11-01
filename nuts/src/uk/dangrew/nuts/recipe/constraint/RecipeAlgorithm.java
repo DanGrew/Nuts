@@ -16,12 +16,13 @@ public class RecipeAlgorithm {
       this.configuration = configuration;
    }//End Constructor
    
-   public Optional< Meal > solve(){
+   public void solve(){
       Optional< PointValuePair > solution = configuration.function().get().solve( 
                configuration.ingredients(), configuration.generateConstraints() 
       );
       if ( !solution.isPresent() ) {
-         return Optional.empty();
+         configuration.solution().set( null );
+         return;
       }
       
       Meal result = new Meal( "Result" );
@@ -30,7 +31,7 @@ public class RecipeAlgorithm {
          double portion = solution.get().getPoint()[ i ];
          result.portions().add( new FoodPortion( food, portion * 100 ) );
       }
-      return Optional.of( result );
+      configuration.solution().set( result );
    }//End Constructor
 
 }//End Class

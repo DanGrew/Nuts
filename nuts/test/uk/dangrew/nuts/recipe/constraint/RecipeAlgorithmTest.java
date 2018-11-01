@@ -1,5 +1,7 @@
 package uk.dangrew.nuts.recipe.constraint;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
@@ -16,7 +18,6 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.meal.Meal;
 
 public class RecipeAlgorithmTest {
 
@@ -31,7 +32,8 @@ public class RecipeAlgorithmTest {
    }//End Method
 
    @Test public void shouldReturnEmptyMealIfNoSolution() {
-      assertThat( systemUnderTest.solve(), is( Optional.empty() ) );
+      systemUnderTest.solve();
+      assertThat( configuration.solution().get(), is( nullValue() ) );
    }//End Method
    
    @Test public void shouldScaleIngredientsBasedOnSolution() {
@@ -43,13 +45,13 @@ public class RecipeAlgorithmTest {
       configuration.function().set( mock( RecipeFunction.class ) );
       when( configuration.function().get().solve( anyList(), any() ) ).thenReturn( Optional.of( solution ) );
       
-      Meal result = systemUnderTest.solve().get();
-      assertThat( result.portions().get( 0 ).food().get(), is( configuration.ingredients().get( 0 ) ) );
-      assertThat( result.portions().get( 0 ).portion().get(), is( 100.0 ) );
-      assertThat( result.portions().get( 1 ).food().get(), is( configuration.ingredients().get( 1 ) ) );
-      assertThat( result.portions().get( 1 ).portion().get(), is( 200.0 ) );
-      assertThat( result.portions().get( 2 ).food().get(), is( configuration.ingredients().get( 2 ) ) );
-      assertThat( result.portions().get( 2 ).portion().get(), is( 300.0 ) );
+      systemUnderTest.solve();
+      assertThat( configuration.solution().get().portions().get( 0 ).food().get(), is( configuration.ingredients().get( 0 ) ) );
+      assertThat( configuration.solution().get().portions().get( 0 ).portion().get(), is( 100.0 ) );
+      assertThat( configuration.solution().get().portions().get( 1 ).food().get(), is( configuration.ingredients().get( 1 ) ) );
+      assertThat( configuration.solution().get().portions().get( 1 ).portion().get(), is( 200.0 ) );
+      assertThat( configuration.solution().get().portions().get( 2 ).food().get(), is( configuration.ingredients().get( 2 ) ) );
+      assertThat( configuration.solution().get().portions().get( 2 ).portion().get(), is( 300.0 ) );
    }//End Method
 
 }//End Class

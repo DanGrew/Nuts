@@ -7,14 +7,14 @@ import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindowStageControls;
-import uk.dangrew.nuts.meal.Meal;
+import uk.dangrew.nuts.meal.FoodHolder;
 
 public class FoodSelectionApplier implements FoodSelectionWindowStageControls {
 
    private final Stage stage;
    private final FoodItemStore foodItems;
    
-   private Meal focus;
+   private FoodHolder focus;
    
    public FoodSelectionApplier( Stage stage, FoodItemStore foodItems ) {
       this.stage = stage;
@@ -50,7 +50,7 @@ public class FoodSelectionApplier implements FoodSelectionWindowStageControls {
       stage.hide();
    }//End Method
 
-   public void focus( Meal focus ) {
+   public void focus( FoodHolder focus ) {
       this.focus = focus;
    }//End Method
 
