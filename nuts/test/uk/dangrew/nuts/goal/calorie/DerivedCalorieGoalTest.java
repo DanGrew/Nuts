@@ -113,7 +113,7 @@ public class DerivedCalorieGoalTest {
    
    @Test public void shouldDuplicateWithBaseGoal(){
       DerivedCalorieGoal duplicate = systemUnderTest.duplicate();
-      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "anything" ) );
+      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "(copy)" ) );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       assertThat( duplicate.baseGoal(), is( systemUnderTest.baseGoal() ) );
       assertThat( duplicate.calorieOffset().get(), is( systemUnderTest.calorieOffset().get() ) );
@@ -123,7 +123,7 @@ public class DerivedCalorieGoalTest {
    @Test public void shouldDuplicateWithoutBaseGoal(){
       systemUnderTest = new DerivedCalorieGoal( "No Base" );
       DerivedCalorieGoal duplicate = systemUnderTest.duplicate();
-      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "anything" ) );
+      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "(copy)" ) );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       assertThat( duplicate.baseGoal(), is( nullValue() ) );
       assertThat( duplicate.calorieOffset().get(), is( systemUnderTest.calorieOffset().get() ) );

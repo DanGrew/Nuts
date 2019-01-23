@@ -16,6 +16,8 @@ import uk.dangrew.nuts.nutrients.Nutrition;
  */
 public interface Food extends Concept {
 
+   public static final String COPY_SUFFIX = " -Copy";
+   
    public Nutrition nutrition();
    
    /**

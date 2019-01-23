@@ -11,6 +11,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
@@ -65,7 +66,7 @@ public class GeneralConceptTableControllerTest {
       table.getSelectionModel().select( 0 );
       systemUnderTest.copySelectedConcept();
       assertThat( database.foodItems().objectList().get( 0 ), is( eggs ) );
-      assertThat( database.foodItems().objectList().get( 1 ).properties().nameProperty().get(), is( "Eggs-copy" ) );
+      assertThat( database.foodItems().objectList().get( 1 ).properties().nameProperty().get(), is( "Eggs" + Food.COPY_SUFFIX ) );
       assertThat( table.getItems().get( 0 ).concept(), is( eggs ) );
       assertThat( table.getItems().get( 1 ).concept(), is( database.foodItems().objectList().get( 1 ) ) );
    }//End Method

@@ -18,6 +18,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import uk.dangrew.kode.concept.Properties;
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodAnalytics;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -130,9 +131,8 @@ public class MealTest {
       systemUnderTest.portions().add( new FoodPortion( level1Meal1, 1 ) );
       systemUnderTest.portions().add( new FoodPortion( level1Meal2, 2 ) );
       
-      String ref = "-ref";
       Meal duplicate = systemUnderTest.duplicate();
-      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + ref ) );
+      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + Food.COPY_SUFFIX ) );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       
       assertThat( duplicate.portions(), hasSize( systemUnderTest.portions().size() ) );

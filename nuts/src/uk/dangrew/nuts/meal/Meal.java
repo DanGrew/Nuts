@@ -140,7 +140,7 @@ public class Meal implements Food, FoodHolder {
    }//End Method
    
    @Override public Meal duplicate() {
-      Meal duplicate = new Meal( properties().nameProperty().get() + "(copy)" );
+      Meal duplicate = new Meal( properties().nameProperty().get() + Food.COPY_SUFFIX );
       duplicateProperties( duplicate );
       return duplicate;
    }//End Method

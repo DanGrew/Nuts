@@ -5,6 +5,7 @@ import static uk.dangrew.nuts.graphics.database.FoodTypes.ofTypeInPortion;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -57,6 +58,7 @@ public class DayPlanController {
             FoodHolder subject
    ) {
       FoodItem copy = copy( food );
+      
       FoodPortion newPortion = new FoodPortion( copy, portion );
       subject.portions().add( newPortion );
       return newPortion;
@@ -75,12 +77,14 @@ public class DayPlanController {
    
    private FoodItem copy( FoodItem item ) {
       FoodItem copy = item.duplicate();
+      copy.properties().nameProperty().set( copy.properties().nameProperty().get().replaceAll( Food.COPY_SUFFIX, "" ) );
       foodItems.store( copy );
       return copy;
    }//End Method
    
    private Meal copy( Meal food ) {
       Meal copy = meals.createConcept( food.properties().nameProperty().get() );
+      copy.properties().nameProperty().set( copy.properties().nameProperty().get().replaceAll( Food.COPY_SUFFIX, "" ) );
       for ( FoodPortion mealPortion : food.portions() ) {
          ofType( mealPortion.food().get(), FoodItem.class ).ifPresent( foodItem -> {
             FoodItem itemCopy = copy( foodItem );

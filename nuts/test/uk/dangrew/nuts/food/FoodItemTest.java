@@ -72,7 +72,7 @@ public class FoodItemTest {
       FoodItem duplicate = systemUnderTest.duplicate();
       assertTrue( duplicate != systemUnderTest );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
-      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "-anything" ) );
+      assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + Food.COPY_SUFFIX ) );
       assertThat( duplicate.nutrition().of( NutritionalUnit.Calories ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Calories ).get() ) );
       assertThat( duplicate.nutrition().of( NutritionalUnit.Fibre ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Fibre ).get() ) );
       assertThat( duplicate.nutrition().of( NutritionalUnit.Carbohydrate ).get(), is( systemUnderTest.nutrition().of( NutritionalUnit.Carbohydrate ).get() ) );
