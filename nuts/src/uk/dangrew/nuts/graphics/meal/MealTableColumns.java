@@ -50,7 +50,7 @@ public class MealTableColumns extends FoodTableColumns< FoodPortion > {
    }//End Constructor
    
    @Override protected void changeColumns() {
-      configuration.initialiseFoodDropDownColumn( 
+      configuration.initialiseDropDownColumn( 
                new TableViewColumnConfigurer<>( table() ), 
                COLUMN_TITLE_FOOD, 
                COLUMN_WIDTH_FOOD, 

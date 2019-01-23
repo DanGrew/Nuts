@@ -2,6 +2,7 @@ package uk.dangrew.nuts.graphics.table.configuration;
 
 import java.util.Comparator;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import javafx.beans.property.ReadOnlyObjectProperty;
@@ -34,11 +35,14 @@ public interface TableColumnConfigurer< ConceptTypeT, DataTypeT > {
    );
    
    public void setCheckBoxCellFactory();
+   
+//   public void setButtonFactory( String buttonText, Consumer< ConceptTypeT > handler );
 
    public void setEditable( boolean editable );
    
    public void setOnEditCommit( BiConsumer< ConceptTypeT, DataTypeT > consumer );
 
    public void setComparator( Comparator< DataTypeT > comparator );
+
 
 }//End Interface

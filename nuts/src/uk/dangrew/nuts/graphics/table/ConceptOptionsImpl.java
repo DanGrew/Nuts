@@ -55,6 +55,21 @@ public class ConceptOptionsImpl< TypeT extends Concept > implements ConceptOptio
       }
    }//End Constructor
    
+   public ConceptOptionsImpl( ObservableList< ? extends TypeT > collection ) {
+      this();
+      
+      collection.forEach( this::add );
+      collection.addListener( new FunctionListChangeListenerImpl<>( 
+               this::add, this::remove 
+      ) );
+   }//End Constructor
+   
+   public ConceptOptionsImpl() {
+      this.options = FXCollections.observableArrayList();
+      this.comparator = Comparators.stringExtractionComparater( f -> f.properties().nameProperty().get() );
+      this.nameResponder = ( s, o, n ) -> sort();
+   }//End Constructor
+   
    /**
     * Method to add a {@link Concept} to the options.
     * @param concept the {@link Concept} to add.

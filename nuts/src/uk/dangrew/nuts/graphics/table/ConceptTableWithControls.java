@@ -16,7 +16,7 @@ import uk.dangrew.nuts.graphics.table.controls.TableControls;
  */
 public class ConceptTableWithControls< TypeT > extends TableWithControls< ConceptTableRow< TypeT >, TypeT > {
 
-   ConceptTableWithControls( String title, ConceptTable< TypeT > table, TableControls controls ) {
+   public ConceptTableWithControls( String title, ConceptTable< TypeT > table, TableControls controls ) {
       this( new JavaFxStyle(), title, table, controls );
    }//End Constructor
    

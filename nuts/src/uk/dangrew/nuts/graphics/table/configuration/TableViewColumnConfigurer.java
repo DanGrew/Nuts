@@ -14,11 +14,13 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
+import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.table.TableViewEditCommitHandler;
 import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 
 public class TableViewColumnConfigurer< ConceptTypeT, DataTypeT > implements TableColumnConfigurer< ConceptTypeT, DataTypeT > {
    
+   private final JavaFxStyle styling;
    private TableView< ConceptTableRow< ConceptTypeT > > table;
    private TableColumn< ConceptTableRow< ConceptTypeT >, DataTypeT > column;
    
@@ -33,6 +35,7 @@ public class TableViewColumnConfigurer< ConceptTypeT, DataTypeT > implements Tab
       this.table = table;
       this.column = column;
       this.table.getColumns().add( column );
+      this.styling = new JavaFxStyle();
    }//End Constructor
    
    @SuppressWarnings("unchecked") //responsibility of caller to test and verify 
@@ -77,6 +80,27 @@ public class TableViewColumnConfigurer< ConceptTypeT, DataTypeT > implements Tab
       TableColumn< ConceptTypeT, Boolean > refined = refine();
       refined.setCellFactory( CheckBoxTableCell.forTableColumn( refined ) );
    }//End Method
+   
+//   @Override public void setButtonFactory( String buttonText, Consumer< ConceptTypeT > handler ) {
+//      column.setCellFactory( new Callback<TableColumn<ConceptTableRow< ConceptTypeT >, DataTypeT>, TableCell<ConceptTableRow< ConceptTypeT >, DataTypeT>>() {
+//         @Override public TableCell<ConceptTableRow< ConceptTypeT >, DataTypeT> call(TableColumn<ConceptTableRow< ConceptTypeT >, DataTypeT> p) {
+//             return new TableCell< ConceptTableRow< ConceptTypeT >, DataTypeT>(){
+//                @Override protected void updateItem(DataTypeT item, boolean empty) {
+//                   if (!empty) {
+//                      Button button = new Button( buttonText );
+//                      button.setMaxWidth( Double.MAX_VALUE );
+//                      setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+//                      setGraphic(button);
+//                      ConceptTypeT concept = getTableView().getItems().get( getTableRow().getIndex() ).concept();
+//                      button.setOnAction( e -> handler.accept( concept ) );
+//                    } else {
+//                      setGraphic(null);
+//                    }
+//                }
+//             };
+//         }
+//     } );
+//   }//End Method
    
    @Override public void setOnEditCommit( BiConsumer< ConceptTypeT, DataTypeT > consumer ){
       column.setOnEditCommit( new TableViewEditCommitHandler<>( ( r, v ) -> consumer.accept( r.concept(), v ) ) );

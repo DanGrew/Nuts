@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import uk.dangrew.kode.javafx.custom.BoundTextProperty;
+import uk.dangrew.kode.javafx.custom.BoundDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.custom.PropertiesPane;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerBindingImpl;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerMismatchBindingImpl;
@@ -114,7 +114,7 @@ public class ProportionGoalView extends VBox {
       for ( NutritionalUnit unit : orderedUnits ) {
          builders.add( new PropertyRowBuilder()
             .withLabelName( unit.displayName() )
-            .withBinding( new BoundTextProperty( unit.of( viewModel ).property(), true ) )
+            .withBinding( new BoundDoubleAsTextProperty( unit.of( viewModel ).property(), true ) )
          );
       }
       getChildren().add( new PropertiesPane( "Nutritional Units", builders ) );

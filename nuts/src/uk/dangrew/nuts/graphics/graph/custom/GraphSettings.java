@@ -11,7 +11,7 @@ package uk.dangrew.nuts.graphics.graph.custom;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
-import uk.dangrew.kode.javafx.custom.BoundTextProperty;
+import uk.dangrew.kode.javafx.custom.BoundDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.custom.PropertiesPane;
 import uk.dangrew.kode.javafx.custom.ResponsiveButtonRegion;
 import uk.dangrew.kode.javafx.custom.ResponsiveComboProperty;
@@ -58,13 +58,13 @@ public class GraphSettings extends GridPane {
             ) ),
          new PropertyRowBuilder()
                .withLabelName( "Minimum Value" )
-               .withBinding( new BoundTextProperty( 
+               .withBinding( new BoundDoubleAsTextProperty( 
                         controller.yAxisLowerBoundProperty().asObject(),
                         true 
                ) ),
          new PropertyRowBuilder()
                .withLabelName( "Maximum Value" )
-               .withBinding( new BoundTextProperty( 
+               .withBinding( new BoundDoubleAsTextProperty( 
                         controller.yAxisUpperBoundProperty().asObject(),
                         true 
                ) ),

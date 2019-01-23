@@ -68,6 +68,10 @@ public class TreeTableColumnConfigurer< ConceptTypeT, DataTypeT, RowTypeT extend
       refined.setCellFactory( CheckBoxTreeTableCell.forTreeTableColumn( refined ) );
    }//End Method
    
+//   @Override public void setButtonFactory( String buttonText, Consumer< ConceptTypeT > handler ) {
+//      throw new UnsupportedOperationException();
+//   }//End Method
+   
    @Override public void setOnEditCommit( BiConsumer< ConceptTypeT, DataTypeT > consumer ){
       column.setOnEditCommit( new TreeTableEditCommitHandler<>( ( r, v ) -> consumer.accept( r.concept(), v ) ) );
    }//End Method

@@ -10,7 +10,7 @@ package uk.dangrew.nuts.graphics.tools.dryweight;
 
 import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
-import uk.dangrew.kode.javafx.custom.BoundTextProperty;
+import uk.dangrew.kode.javafx.custom.BoundDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.custom.PropertiesPane;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
 
@@ -30,39 +30,39 @@ public class DryWeightToolPane extends VBox {
                "Portion Scaling",
                new PropertyRowBuilder()
                   .withLabelName( "Dry Weight Portion Size" )
-                  .withBinding( new BoundTextProperty( tool.properties().portionDryWeight(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().portionDryWeight(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Cooked Weight Portion Size" )
-                  .withBinding( new BoundTextProperty( tool.properties().portionCookedWeight(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().portionCookedWeight(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Calories in Portion" )
-                  .withBinding( new BoundTextProperty( tool.properties().portionCalories(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().portionCalories(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Dry to Cooked Scale Factor" )
-                  .withBinding( new BoundTextProperty( tool.properties().dryToCookedScaleFactor(), false ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().dryToCookedScaleFactor(), false ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Cooked to Dry Scale Factor" )
-                  .withBinding( new BoundTextProperty( tool.properties().cookedToDryScaleFactor(), false ) )
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().cookedToDryScaleFactor(), false ) )
       ) );
       
       getChildren().add( new PropertiesPane(
                "Dry Weight For Cooked Weight", 
                new PropertyRowBuilder()
                   .withLabelName( "Desired Cooked Weight" )
-                  .withBinding( new BoundTextProperty( tool.properties().desiredCookedWeight(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().desiredCookedWeight(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Calculated Dry Weight" )
-                  .withBinding( new BoundTextProperty( tool.properties().calculatedDryWeightForDesiredCookedWeight(), false ) )
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().calculatedDryWeightForDesiredCookedWeight(), false ) )
       ) );
       
       getChildren().add( new PropertiesPane( 
                "Dry Weight For Calories", 
                new PropertyRowBuilder()
                   .withLabelName( "Desired Calories" )
-                  .withBinding( new BoundTextProperty( tool.properties().desiredCalories(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().desiredCalories(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Calculated Dry Weight" )
-                  .withBinding( new BoundTextProperty( tool.properties().calculatedDryWeightForDesiredCalories(), false ) )
+                  .withBinding( new BoundDoubleAsTextProperty( tool.properties().calculatedDryWeightForDesiredCalories(), false ) )
       ) );
    }//End Constructor
    

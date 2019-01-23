@@ -10,6 +10,7 @@ package uk.dangrew.nuts.graphics.table;
 
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -44,6 +45,16 @@ public class TableConfiguration {
    
    private final static Conversions conversions = new Conversions();
    
+   public < TypeT, AnyT > void initialiseEmptyColumn(
+            TableColumnConfigurer< TypeT, AnyT > configurer,
+            String title, 
+            double widthProportion
+   ){
+      configurer.setTitle( title );
+      configurer.bindPrefWidth( widthProportion );
+      configurer.setEditable( false );
+   }//End Method
+   
    public < FoodTypeT extends Food > void initialiseFoodPropertyStringColumn( 
             TableColumnConfigurer< FoodTypeT, String > configurer,
             String title, 
@@ -60,7 +71,7 @@ public class TableConfiguration {
       );
    }//End Method
    
-   public < TypeT extends Concept > void initialiseStringColumn(
+   public < TypeT > void initialiseStringColumn(
             TableColumnConfigurer< TypeT, String > configurer,
             String title, 
             double widthProportion,
@@ -150,10 +161,8 @@ public class TableConfiguration {
             Function< ConceptTypeT, ObjectProperty< Double > > propertyRetriever,
             boolean editable
    ){
-      configurer.setTitle( title );
-      configurer.bindPrefWidth( widthProportion );
-      configurer.setCellValueFactoryAsString( propertyRetriever );
-      configurer.setComparator( Comparators.STRING_AS_NUMBER_ASCENDING );
+      initialiseReadOnlyDoubleColumn( configurer, title, widthProportion, propertyRetriever );
+      configurer.setEditable( editable );
       
       if ( editable ) {
          configurer.setTextFieldCellFactory();
@@ -162,6 +171,32 @@ public class TableConfiguration {
          );
       }
    }//End Method
+   
+   public < ConceptTypeT > void initialiseReadOnlyDoubleColumn(
+            TableColumnConfigurer< ConceptTypeT, String > configurer,
+            String title, 
+            double widthProportion,
+            Function< ConceptTypeT, ? extends ReadOnlyObjectProperty< Double > > propertyRetriever
+   ){
+      configurer.setTitle( title );
+      configurer.bindPrefWidth( widthProportion );
+      configurer.setCellValueFactoryAsString( propertyRetriever );
+      configurer.setComparator( Comparators.STRING_AS_NUMBER_ASCENDING );
+      configurer.setEditable( false );
+   }//End Method
+   
+//   public < ConceptTypeT > void initialiseButtonColumn(
+//            TableColumnConfigurer< ConceptTypeT, String > configurer,
+//            String title, 
+//            double widthProportion,
+//            String buttonText,
+//            Consumer< ConceptTypeT > handler
+//   ){
+//      configurer.setTitle( title );
+//      configurer.bindPrefWidth( widthProportion );
+//      configurer.setButtonFactory( buttonText, handler );
+//      configurer.setEditable( false );
+//   }//End Method
    
    public < FoodTypeT extends Food > void initialiseRatioColumn(
             TableColumnConfigurer< FoodTypeT, String > configurer,
@@ -175,21 +210,21 @@ public class TableConfiguration {
       configurer.setComparator( Comparators.STRING_AS_NUMBER_ASCENDING );
    }//End Method
    
-   public < ConceptTypeT, FoodTypeT extends Food > void initialiseFoodDropDownColumn(
-            TableColumnConfigurer< ConceptTypeT, FoodTypeT > configurer,
+   public < ConceptTypeT, TypeT extends Concept > void initialiseDropDownColumn(
+            TableColumnConfigurer< ConceptTypeT, TypeT > configurer,
             String title, 
             double widthProportion,
-            Function< ConceptTypeT, ObservableValue< FoodTypeT > > propertyRetriever,
-            BiConsumer< ConceptTypeT, FoodTypeT > propertySetter,
-            ConceptOptions< FoodTypeT > foodOptions
+            Function< ConceptTypeT, ObservableValue< TypeT > > propertyRetriever,
+            BiConsumer< ConceptTypeT, TypeT > propertySetter,
+            ConceptOptions< TypeT > options
    ){
       configurer.setTitle( title );
       configurer.setComboBoxCellFactory( 
                new StringExtractConverter<>( 
                   object -> object.properties().nameProperty().get(),
-                  foodOptions::find,
+                  options::find,
                   "None"
-               ), foodOptions.options() 
+               ), options.options() 
       );
       configurer.setCellValueFactory( propertyRetriever );
       configurer.bindPrefWidth( widthProportion );

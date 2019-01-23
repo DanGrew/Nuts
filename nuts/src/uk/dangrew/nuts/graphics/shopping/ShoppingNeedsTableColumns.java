@@ -37,7 +37,7 @@ public class ShoppingNeedsTableColumns implements ConceptTableColumnsPopulator< 
    }//End Constructor
       
    @Override public void populateColumns( ConceptTable< FoodPortion > table ) {
-      configuration.initialiseFoodDropDownColumn( 
+      configuration.initialiseDropDownColumn( 
                new TableViewColumnConfigurer<>( table ), 
                COLUMN_TITLE_FOOD, 
                0.6, 
