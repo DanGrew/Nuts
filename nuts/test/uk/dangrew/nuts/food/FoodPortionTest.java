@@ -268,7 +268,7 @@ public class FoodPortionTest {
       String ref = "ref";
       
       systemUnderTest.setFood( food );
-      FoodPortion duplicate = systemUnderTest.duplicate( ref );
+      FoodPortion duplicate = systemUnderTest.duplicate();
       assertFalse( duplicate == systemUnderTest );
       assertThat( duplicate.portion().get(), is( systemUnderTest.portion().get() ) );
       assertTrue( duplicate.food().get() == food );
@@ -278,7 +278,7 @@ public class FoodPortionTest {
       String ref = "ref";
       
       systemUnderTest.setFood( null );
-      FoodPortion duplicate = systemUnderTest.duplicate( ref );
+      FoodPortion duplicate = systemUnderTest.duplicate();
       assertFalse( duplicate == systemUnderTest );
       assertThat( duplicate.portion().get(), is( systemUnderTest.portion().get() ) );
       assertThat( duplicate.food().get(), is( nullValue() ) );

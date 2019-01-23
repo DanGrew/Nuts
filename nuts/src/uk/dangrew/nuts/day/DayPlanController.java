@@ -74,7 +74,7 @@ public class DayPlanController {
    }//End Method
    
    private FoodItem copy( FoodItem item ) {
-      FoodItem copy = item.duplicate( "" );
+      FoodItem copy = item.duplicate();
       foodItems.store( copy );
       return copy;
    }//End Method

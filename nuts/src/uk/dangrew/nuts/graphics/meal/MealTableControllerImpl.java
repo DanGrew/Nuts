@@ -136,7 +136,7 @@ public class MealTableControllerImpl implements MealTableController, ConceptTabl
          return;
       }
       
-      FoodPortion copy = selection.concept().duplicate( "" );
+      FoodPortion copy = selection.concept().duplicate();
       meal.portions().add( copy );
    }//End Method 
 

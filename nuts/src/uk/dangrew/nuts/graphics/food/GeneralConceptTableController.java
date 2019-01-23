@@ -95,7 +95,7 @@ public class GeneralConceptTableController< TypeT extends Concept > implements C
          return;
       }
       
-      TypeT copy = ( TypeT )selection.concept().duplicate( "-copy" );
+      TypeT copy = ( TypeT )selection.concept().duplicate();
       concepts.store( copy );
    }//End Method
    

@@ -29,7 +29,7 @@ public class RecipeGeneratorWindow {
    }//End Constructor
    
    public Optional< FoodHolder > generate( Database database, FoodHolder original ){
-      FoodHolder recipe = original.duplicate( "-Recipe" );
+      FoodHolder recipe = original.duplicate();
       PlatformImpl.runAndWait( () -> internal_show( database, recipe ) );
       if ( cancelled ) {
          return Optional.empty();

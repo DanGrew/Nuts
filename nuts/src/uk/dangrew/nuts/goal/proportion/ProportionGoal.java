@@ -80,7 +80,7 @@ public class ProportionGoal implements Goal {
       return GoalTypes.Proportion;
    }//End Method
    
-   @Override public Food duplicate( String referenceId ) {
+   @Override public Food duplicate() {
       return this;
    }//End Method
 

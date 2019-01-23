@@ -69,7 +69,7 @@ public class FoodItemTest {
       systemUnderTest.nutrition().of( NutritionalUnit.Fat ).set( 102.0 );
       systemUnderTest.nutrition().of( NutritionalUnit.Protein ).set( 103.0 );
       
-      FoodItem duplicate = systemUnderTest.duplicate( "-anything" );
+      FoodItem duplicate = systemUnderTest.duplicate();
       assertTrue( duplicate != systemUnderTest );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + "-anything" ) );

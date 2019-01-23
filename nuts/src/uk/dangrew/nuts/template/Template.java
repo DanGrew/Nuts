@@ -83,9 +83,9 @@ public class Template extends Meal implements TargetedFoodHolder {
       return goalAnalytics;
    }//End Method
    
-   @Override public Template duplicate( String referenceId ) {
-      Template duplicate = new Template( properties().nameProperty().get() + referenceId );
-      super.duplicateProperties( duplicate, referenceId );
+   @Override public Template duplicate() {
+      Template duplicate = new Template( properties().nameProperty().get() + "(copy)" );
+      super.duplicateProperties( duplicate );
       duplicate.goalAnalytics().goal().set( goalAnalytics().goal().get() );
       return duplicate;
    }//End Method 

@@ -43,7 +43,7 @@ public class RecipeConfiguration implements Concept {
       return properties;
    }//End Method
    
-   @Override public Concept duplicate( String referenceId ) {
+   @Override public Concept duplicate() {
       return this;
    }//End Method
    

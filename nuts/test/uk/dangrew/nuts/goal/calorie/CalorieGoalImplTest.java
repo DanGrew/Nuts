@@ -112,7 +112,7 @@ public class CalorieGoalImplTest {
    }//End Method
    
    @Test public void shouldNotDuplicate(){
-      assertThat( systemUnderTest.duplicate( "anythign" ), is( systemUnderTest ) );
+      assertThat( systemUnderTest.duplicate(), is( systemUnderTest ) );
    }//End Method
    
    @Test public void shouldProvideType(){

@@ -127,7 +127,7 @@ public class MixedFoodTableController implements ConceptTableController< Food >,
       if ( type == null ) {
          return;
       }
-      Food copy = selection.concept().duplicate( "-copy" );
+      Food copy = selection.concept().duplicate();
       type.redirect( database ).store( copy );
    }//End Method
    

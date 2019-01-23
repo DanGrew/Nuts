@@ -173,7 +173,7 @@ public class CalorieGoalImpl implements CalorieGoal {
       return gender;
    }//End Method
    
-   @Override public Food duplicate( String referenceId ) {
+   @Override public Food duplicate() {
       return this;
    }//End Method
 

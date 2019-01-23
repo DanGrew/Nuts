@@ -139,14 +139,14 @@ public class Meal implements Food, FoodHolder {
       portions().add( secondIndex, portion1 );
    }//End Method
    
-   @Override public Meal duplicate( String referenceId ) {
-      Meal duplicate = new Meal( properties().nameProperty().get() + referenceId );
-      duplicateProperties( duplicate, referenceId );
+   @Override public Meal duplicate() {
+      Meal duplicate = new Meal( properties().nameProperty().get() + "(copy)" );
+      duplicateProperties( duplicate );
       return duplicate;
    }//End Method
    
-   protected void duplicateProperties( Meal duplicate, String referenceId ){
-      portions().forEach( p -> duplicate.portions().add( p.duplicate( referenceId ) ) );
+   protected void duplicateProperties( Meal duplicate ){
+      portions().forEach( p -> duplicate.portions().add( p.duplicate() ) );
    }//End Method
    
    @Override public String toString() {

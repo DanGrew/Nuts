@@ -26,9 +26,8 @@ public interface Food extends Concept {
    
    /**
     * Method to duplicate the {@link Food}.
-    * @param referenceId the reference to append to the name.
     * @return the duplicatred {@link Food}.
     */
-   @Override public Food duplicate( String referenceId );
+   @Override public Food duplicate();
    
 }//End Interface

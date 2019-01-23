@@ -181,7 +181,7 @@ public class FoodPortion implements Food {
       return analytics;
    }//End Method
    
-   @Override public FoodPortion duplicate( String referenceId ) {
+   @Override public FoodPortion duplicate() {
       if ( food().get() == null ) {
          return new FoodPortion( null, portion().get() );
       } else {

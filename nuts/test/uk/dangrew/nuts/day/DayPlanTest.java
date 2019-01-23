@@ -91,7 +91,7 @@ public class DayPlanTest {
    }//End Method
    
    @Test public void shouldNotDuplicate(){
-      assertThat( systemUnderTest.duplicate( "anything" ), is( systemUnderTest ) );
+      assertThat( systemUnderTest.duplicate(), is( systemUnderTest ) );
    }//End Method
    
    @Test public void shouldProvideConsumedCalories(){

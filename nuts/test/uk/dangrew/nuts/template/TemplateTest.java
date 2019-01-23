@@ -127,7 +127,7 @@ public class TemplateTest {
       systemUnderTest.portions().add( portion1 );
       systemUnderTest.portions().add( portion2 );
       systemUnderTest.goalAnalytics().goal().set( new CalorieGoalImpl( "Goal" ) );
-      Template duplicate = systemUnderTest.duplicate( "anything" );
+      Template duplicate = systemUnderTest.duplicate();
       assertThat( duplicate.portions().get( 0 ).portion().get(), is( portion1.portion().get() ) );
       assertThat( duplicate.portions().get( 1 ).portion().get(), is( portion2.portion().get() ) );
       assertTrue( duplicate.portions().get( 0 ).food().get() == portion1.food().get() );

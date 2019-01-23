@@ -130,7 +130,7 @@ public class DayPlan extends Template implements TargetedFoodHolder {
       if ( consumedSecond ) consumed().add( portion2 );
    }//End Method
    
-   @Override public DayPlan duplicate( String referenceId ) {
+   @Override public DayPlan duplicate() {
       return this;
    }//End Method
    

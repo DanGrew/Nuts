@@ -131,7 +131,7 @@ public class MealTest {
       systemUnderTest.portions().add( new FoodPortion( level1Meal2, 2 ) );
       
       String ref = "-ref";
-      Meal duplicate = systemUnderTest.duplicate( ref );
+      Meal duplicate = systemUnderTest.duplicate();
       assertThat( duplicate.properties().nameProperty().get(), is( systemUnderTest.properties().nameProperty().get() + ref ) );
       assertThat( duplicate.properties().id(), is( not( systemUnderTest.properties().id() ) ) );
       

@@ -133,11 +133,11 @@ public class GoalTableController implements ConceptTableViewController< Goal > {
       
       switch ( selection.concept().type() ) {
          case Calorie:
-            CalorieGoal calorieCopy = ( CalorieGoal )selection.concept().duplicate( "-copy" );
+            CalorieGoal calorieCopy = ( CalorieGoal )selection.concept().duplicate();
             calorieGoals.store( calorieCopy );
             return;
          case Proportion:
-            ProportionGoal proportionCopy = ( ProportionGoal )selection.concept().duplicate( "-copy" );
+            ProportionGoal proportionCopy = ( ProportionGoal )selection.concept().duplicate();
             proportionGoals.store( proportionCopy );
             return;
       }

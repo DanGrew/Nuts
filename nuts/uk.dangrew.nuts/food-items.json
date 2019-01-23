@@ -4723,5 +4723,86 @@
          "fibre": 11.5,
          "riboflavin": 0
       }
+   },
+   {
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "name": "Organs - Liver (100g)",
+      "id": "e98164d7-510b-47e0-8be6-b228487f86ec",
+      "nutritionalUnits": {
+         "potassium": 0.352,
+         "calcium": 0.006,
+         "salt": 0,
+         "carbohydratesugars": 0,
+         "thiamin": 2.0E-4,
+         "niacin": 0.0175,
+         "magnesium": 0.021,
+         "calories": 191,
+         "omega3": 0,
+         "carbohydrate": 5.1,
+         "folicacid": 0,
+         "sodium": 0.079,
+         "saturatedfat": 2.9,
+         "monetaryvalue": 0,
+         "protein": 29.1,
+         "fat": 5.3,
+         "iron": 0.0065,
+         "fibre": 0,
+         "riboflavin": 0.0034
+      }
+   },
+   {
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "name": "Organs - Hearts (100g)",
+      "id": "a941bf30-6d8b-40e6-9b32-54bae6e1391c",
+      "nutritionalUnits": {
+         "potassium": 0.287,
+         "calcium": 0.007,
+         "salt": 0,
+         "carbohydratesugars": 0,
+         "thiamin": 2.0E-4,
+         "niacin": 0.0075,
+         "magnesium": 0.021,
+         "calories": 112,
+         "omega3": 0,
+         "carbohydrate": 0.1,
+         "folicacid": 0,
+         "sodium": 0.098,
+         "saturatedfat": 1.4,
+         "monetaryvalue": 0,
+         "protein": 17.7,
+         "fat": 3.9,
+         "iron": 0.0043,
+         "fibre": 0,
+         "riboflavin": 9.0E-4
+      }
+   },
+   {
+      "loggedWeight": 0,
+      "soldInWeight": 0,
+      "name": "Organs - Kidney (100g)",
+      "id": "75b02ade-948b-4813-926e-558bea42b96e",
+      "nutritionalUnits": {
+         "potassium": 0.262,
+         "calcium": 0.013,
+         "salt": 0,
+         "carbohydratesugars": 0,
+         "thiamin": 4.0E-4,
+         "niacin": 0.008,
+         "magnesium": 0.017,
+         "calories": 99,
+         "omega3": 0,
+         "carbohydrate": 0.3,
+         "folicacid": 0,
+         "sodium": 0.182,
+         "saturatedfat": 0.9,
+         "monetaryvalue": 0,
+         "protein": 17.4,
+         "fat": 3.1,
+         "iron": 0.0046,
+         "fibre": 0,
+         "riboflavin": 0.0028
+      }
    }
 ]}

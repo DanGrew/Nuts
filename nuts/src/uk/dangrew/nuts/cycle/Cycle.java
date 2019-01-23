@@ -46,7 +46,7 @@ public class Cycle implements Concept {
       return goals;
    }//End Method
 
-   @Override public Cycle duplicate( String referenceId ) {
+   @Override public Cycle duplicate() {
       return this;
    }//End Method
 

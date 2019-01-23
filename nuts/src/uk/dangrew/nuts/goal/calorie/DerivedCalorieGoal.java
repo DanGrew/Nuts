@@ -89,8 +89,8 @@ public class DerivedCalorieGoal implements CalorieGoal {
       return analytics;
    }//End Method
 
-   @Override public DerivedCalorieGoal duplicate( String referenceId ) {
-      DerivedCalorieGoal duplicate = new DerivedCalorieGoal( properties().nameProperty().get() + referenceId );
+   @Override public DerivedCalorieGoal duplicate() {
+      DerivedCalorieGoal duplicate = new DerivedCalorieGoal( properties().nameProperty().get() + "(copy)" );
       if ( baseGoal != null ) {
          duplicate.setBaseGoal( baseGoal );
       }

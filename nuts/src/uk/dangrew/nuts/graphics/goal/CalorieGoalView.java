@@ -14,7 +14,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Pair;
-import uk.dangrew.kode.javafx.custom.BoundTextProperty;
+import uk.dangrew.kode.javafx.custom.BoundDoubleAsTextProperty;
 import uk.dangrew.kode.javafx.custom.PropertiesPane;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerBindingImpl;
 import uk.dangrew.kode.javafx.registrations.ChangeListenerMismatchBindingImpl;
@@ -58,45 +58,45 @@ public class CalorieGoalView extends VBox {
                "Predictive Equations",
                new PropertyRowBuilder()
                   .withLabelName( "Basal Metabolic Rate (kcal)" )
-                  .withBinding( new BoundTextProperty( viewModel.bmr(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( viewModel.bmr(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Physical Activity Level (%)" )
-                  .withBinding( new BoundTextProperty( viewModel.pal(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( viewModel.pal(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Total Energy Expenditure (kcal)" )
-                  .withBinding( new BoundTextProperty( viewModel.tee(), true ) )
+                  .withBinding( new BoundDoubleAsTextProperty( viewModel.tee(), true ) )
       ) );
       
       getChildren().add( new PropertiesPane( 
                "Calories", 
                new PropertyRowBuilder()
                   .withLabelName( "Exercise (kcal)" )
-                  .withBinding( new BoundTextProperty( viewModel.exerciseCalories(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( viewModel.exerciseCalories(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Deficit (kcal)" )
-                  .withBinding( new BoundTextProperty( viewModel.calorieDeficit(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( viewModel.calorieDeficit(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Calorie Goal (kcal)" )
-                  .withBinding( new BoundTextProperty( NutritionalUnit.Calories.of( viewModel ).property(), true ) )
+                  .withBinding( new BoundDoubleAsTextProperty( NutritionalUnit.Calories.of( viewModel ).property(), true ) )
       ) );
       
       getChildren().add( new PropertiesPane( 
                "Goals", 
                new PropertyRowBuilder()
                   .withLabelName( "Protein per Pound" )
-                  .withBinding( new BoundTextProperty( viewModel.proteinPerPound(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( viewModel.proteinPerPound(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Fat per Pound" )
-                  .withBinding( new BoundTextProperty( viewModel.fatPerPound(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( viewModel.fatPerPound(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Carbohydrates Goal (g)" )
-                  .withBinding( new BoundTextProperty( NutritionalUnit.Carbohydrate.of( viewModel ).property(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( NutritionalUnit.Carbohydrate.of( viewModel ).property(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Fats Goal (g)" )
-                  .withBinding( new BoundTextProperty( NutritionalUnit.Fat.of( viewModel ).property(), true ) ),
+                  .withBinding( new BoundDoubleAsTextProperty( NutritionalUnit.Fat.of( viewModel ).property(), true ) ),
                new PropertyRowBuilder()
                   .withLabelName( "Protein Goal (g)" )
-                  .withBinding( new BoundTextProperty( NutritionalUnit.Protein.of( viewModel ).property(), true ) )
+                  .withBinding( new BoundDoubleAsTextProperty( NutritionalUnit.Protein.of( viewModel ).property(), true ) )
       ) );
       
       List< PropertyRowBuilder > builders = new ArrayList<>();
@@ -112,7 +112,7 @@ public class CalorieGoalView extends VBox {
       for ( NutritionalUnit unit : orderedUnits ) {
          builders.add( new PropertyRowBuilder()
             .withLabelName( unit.displayName() )
-            .withBinding( new BoundTextProperty( unit.of( viewModel ).property(), true ) )
+            .withBinding( new BoundDoubleAsTextProperty( unit.of( viewModel ).property(), true ) )
          );
       }
       getChildren().add( new PropertiesPane( "Nutritional Units", builders ) );

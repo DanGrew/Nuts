@@ -6,7 +6,7 @@ import uk.dangrew.nuts.food.FoodPortion;
 
 public interface FoodHolder extends Food {
 
-   @Override public FoodHolder duplicate( String referenceId );
+   @Override public FoodHolder duplicate();
    
    public ObservableList< FoodPortion > portions();
 

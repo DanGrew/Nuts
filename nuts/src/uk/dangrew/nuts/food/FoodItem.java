@@ -97,8 +97,8 @@ public class FoodItem implements Food {
    /**
     * {@inheritDoc}
     */
-   @Override public FoodItem duplicate( String referenceId ) {
-      FoodItem duplicate = new FoodItem( properties().nameProperty().get() + referenceId );
+   @Override public FoodItem duplicate() {
+      FoodItem duplicate = new FoodItem( properties().nameProperty().get() + "(copy)" );
       for ( NutritionalUnit unit : NutritionalUnit.values() ) {
          unit.of( duplicate ).set( unit.of( this ).get() );
       }

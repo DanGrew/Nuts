@@ -1,21 +1,21 @@
 {"showNutritionalUnits": {
    "potassium": true,
-   "calcium": false,
+   "calcium": true,
    "salt": false,
    "carbohydratesugars": false,
-   "thiamin": false,
-   "niacin": false,
+   "thiamin": true,
+   "niacin": true,
    "magnesium": true,
    "calories": true,
    "omega3": false,
    "carbohydrate": true,
    "folicacid": false,
-   "sodium": false,
+   "sodium": true,
    "saturatedfat": false,
    "monetaryvalue": false,
    "protein": true,
    "fat": true,
-   "iron": false,
+   "iron": true,
    "fibre": false,
-   "riboflavin": false
+   "riboflavin": true
 }}

@@ -40,7 +40,7 @@ public class TescoFoodReferenceTest {
    }//End Method
    
    @Test public void shouldNotDuplicate(){
-      assertThat( systemUnderTest.duplicate( "" ), is( systemUnderTest ) );
+      assertThat( systemUnderTest.duplicate(), is( systemUnderTest ) );
    }//End Method
 
 }//End Class
