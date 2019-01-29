@@ -265,8 +265,6 @@ public class FoodPortionTest {
    }//End Method
    
    @Test public void shouldDuplicatePortion(){
-      String ref = "ref";
-      
       systemUnderTest.setFood( food );
       FoodPortion duplicate = systemUnderTest.duplicate();
       assertFalse( duplicate == systemUnderTest );
@@ -275,8 +273,6 @@ public class FoodPortionTest {
    }//End Method
    
    @Test public void shouldDuplicatePortionWithNoFood(){
-      String ref = "ref";
-      
       systemUnderTest.setFood( null );
       FoodPortion duplicate = systemUnderTest.duplicate();
       assertFalse( duplicate == systemUnderTest );

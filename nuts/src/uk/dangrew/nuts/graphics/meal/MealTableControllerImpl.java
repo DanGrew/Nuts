@@ -22,7 +22,6 @@ import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.meal.FoodHolder;
-import uk.dangrew.nuts.meal.Meal;
 
 /**
  * The {@link MealTableController} is responsible for controlling and updating the {@link MealTable}.

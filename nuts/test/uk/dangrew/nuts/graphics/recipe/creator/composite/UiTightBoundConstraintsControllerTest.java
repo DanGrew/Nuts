@@ -1,10 +1,8 @@
 package uk.dangrew.nuts.graphics.recipe.creator.composite;
 
-import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -22,7 +20,6 @@ import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.recipe.constraint.RecipeConfiguration;
 import uk.dangrew.nuts.recipe.constraint.tightbound.IngredientConstraints;
-import uk.dangrew.nuts.recipe.constraint.tightbound.NutritionalUnitConstraints;
 import uk.dangrew.nuts.recipe.constraint.tightbound.TightBoundConstraint;
 
 public class UiTightBoundConstraintsControllerTest {

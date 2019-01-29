@@ -1,7 +1,5 @@
 package uk.dangrew.nuts.graphics.recipe.creator.composite;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

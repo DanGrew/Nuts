@@ -20,7 +20,7 @@ public enum Labelables {
    }//End Constructor
    
    public ConceptStore< Concept > redirect( Database database ) {
-      return (uk.dangrew.kode.concept.ConceptStore< Concept > )conceptRedirect.apply( database );
+      return ( ConceptStore< Concept > )conceptRedirect.apply( database );
    }//End Method
 
 }//End Class

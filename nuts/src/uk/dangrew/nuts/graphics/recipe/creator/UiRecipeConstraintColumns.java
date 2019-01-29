@@ -34,7 +34,13 @@ public class UiRecipeConstraintColumns implements ConceptTableColumnsPopulator< 
                controller, 
                0.1 
       );
-      configuration.initialiseCustomStringPropertyColumn( table, COLUMN_TITLE, 0.9, r -> r.concept().description() );
+      configuration.initialiseStringColumn( 
+               new TableViewColumnConfigurer<>( table ), 
+               COLUMN_TITLE, 
+               0.9, 
+               RecipeConstraint::description, 
+               false 
+      ); 
    }//End Method
    
 }//End Class

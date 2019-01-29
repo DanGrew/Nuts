@@ -23,7 +23,6 @@ import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class GraphController {
    
-   private final TimestampFormat format;
    private final GraphSeriesVisibility seriesVisibility;
    private final NumberAxis xAxis;
    private final NumberAxis yAxis;
@@ -45,7 +44,6 @@ public class GraphController {
             NumberAxis xAxis, 
             NumberAxis yAxis
    ) {
-      this.format = formats;
       this.seriesVisibility = new GraphSeriesVisibility( chartData );
       
       this.xAxis = xAxis;
