@@ -443,6 +443,18 @@
          "portionValue": 0
       },
       {
+         "foodId": "a941bf30-6d8b-40e6-9b32-54bae6e1391c",
+         "portionValue": 0
+      },
+      {
+         "foodId": "75b02ade-948b-4813-926e-558bea42b96e",
+         "portionValue": 0
+      },
+      {
+         "foodId": "e98164d7-510b-47e0-8be6-b228487f86ec",
+         "portionValue": 0
+      },
+      {
          "foodId": "ba0b26c6-42e4-42c3-ab28-3f40357b564e",
          "portionValue": 0
       },
@@ -680,18 +692,6 @@
       },
       {
          "foodId": "5b27430a-8322-4db1-ac98-e049c9b57fd3",
-         "portionValue": 0
-      },
-      {
-         "foodId": "e98164d7-510b-47e0-8be6-b228487f86ec",
-         "portionValue": 0
-      },
-      {
-         "foodId": "a941bf30-6d8b-40e6-9b32-54bae6e1391c",
-         "portionValue": 0
-      },
-      {
-         "foodId": "75b02ade-948b-4813-926e-558bea42b96e",
          "portionValue": 0
       },
       {

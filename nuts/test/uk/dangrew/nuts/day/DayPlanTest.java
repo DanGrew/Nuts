@@ -94,22 +94,6 @@ public class DayPlanTest {
       assertThat( systemUnderTest.duplicate(), is( systemUnderTest ) );
    }//End Method
    
-   @Test public void shouldProvideConsumedCalories(){
-      assertThat( systemUnderTest.consumedCalories().get(), is( DayPlan.DEFAULT_CONSUMED_CALORIES ) );
-   }//End Method
-   
-   @Test public void shouldProvideAllowedCalories(){
-      assertThat( systemUnderTest.allowedCalories().get(), is( DayPlan.DEFAULT_ALLOWED_CALORIES ) );
-   }//End Method
-   
-   @Test public void shouldProvideCalorieBalance(){
-      assertThat( systemUnderTest.calorieBalance().get(), is( DayPlan.DEFAULT_CALORIE_BALANCE ) );
-   }//End Method
-   
-   @Test public void shouldProvideBalanceResetProperty(){
-      assertThat( systemUnderTest.isBalanceReset().get(), is( DayPlan.DEFAULT_BALANCE_IS_RESET ) );
-   }//End Method
-   
 //   @Test public void shouldNotExtendTemplateAndShouldNotBeCompatibleWithTemplateOperations(){
 //      fail();
 //   }//End Method

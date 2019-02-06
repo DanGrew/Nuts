@@ -7,7 +7,6 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.graphics.day.UiCalendarPaneWithTree;
-import uk.dangrew.nuts.graphics.day.balance.UiBalanceSummary;
 import uk.dangrew.nuts.graphics.goal.GoalManagerPane;
 import uk.dangrew.nuts.graphics.graph.weight.WeightRecordingsPane;
 import uk.dangrew.nuts.graphics.information.IntroductionPane;
@@ -47,7 +46,6 @@ public class NutsTabs extends AnchorPane {
       createConcreteTab( "Day Plans", new UiCalendarPaneWithTree( database ) );
       createConcreteTab( "Graph", new ProgressSeriesPane( database ) );
       createConcreteTab( "Labels", new UiLabelConfigurationView( database ) );
-      createConcreteTab( "Balance", new UiBalanceSummary( database.dayPlans() ) );
       createConcreteTab( "Weigh Ins", new WeightRecordingsPane( database.weightProgress() ) );
       createConcreteTab( "Tools", new TitledPane( "Dry Weight Conversion", new DryWeightToolPane() ) );
    }//End Constructor

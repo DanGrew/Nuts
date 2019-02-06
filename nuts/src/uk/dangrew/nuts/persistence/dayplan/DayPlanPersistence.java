@@ -30,10 +30,6 @@ public class DayPlanPersistence implements ConceptPersistence {
    static final String PORTION = MealPersistence.PORTION;
    static final String DATE = "date";
    static final String CONSUMED = "consumed";
-   static final String CONSUMED_CALORIES = "consumedCalories";
-   static final String ALLOWED_CALORIES = "allowedCalories";
-   static final String CALORIE_BALANCE = "calorieBalance";
-   static final String IS_BALANCE_RESET = "isBalanceReset";
    
    private final JsonStructure structure;
    private final JsonParser parserWithReadHandles;
@@ -64,10 +60,6 @@ public class DayPlanPersistence implements ConceptPersistence {
     */
    private void modifyStructure(){
       structure.optionalChild( DATE, MEAL );
-      structure.optionalChild( CONSUMED_CALORIES, MEAL );
-      structure.optionalChild( ALLOWED_CALORIES, MEAL );
-      structure.optionalChild( CALORIE_BALANCE, MEAL );
-      structure.optionalChild( IS_BALANCE_RESET, MEAL );
       structure.optionalChild( CONSUMED, PORTION );
    }//End Method
    
@@ -77,10 +69,6 @@ public class DayPlanPersistence implements ConceptPersistence {
    private void modifyReadHandles(){
       parserWithReadHandles.when( DATE, new StringParseHandle( parseModel::setDateString ) );
       parserWithReadHandles.when( CONSUMED, new BooleanParseHandle( parseModel::setConsumed ) );
-      parserWithReadHandles.when( CONSUMED_CALORIES, new DoubleParseHandle( parseModel::setConsumedCalories ) );
-      parserWithReadHandles.when( ALLOWED_CALORIES, new DoubleParseHandle( parseModel::setAllowedCalories ) );
-      parserWithReadHandles.when( CALORIE_BALANCE, new DoubleParseHandle( parseModel::setCalorieBalance ) );
-      parserWithReadHandles.when( IS_BALANCE_RESET, new BooleanParseHandle( parseModel::setIsBalanceReset ) );
    }//End Method
    
    /**
@@ -89,10 +77,6 @@ public class DayPlanPersistence implements ConceptPersistence {
    private void modifyWriteHandles(){
       parserWithWriteHandles.when( DATE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getDateString ) ) );
       parserWithWriteHandles.when( CONSUMED, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::isConsumed ) ) );
-      parserWithWriteHandles.when( CONSUMED_CALORIES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getConsumedCalories ) ) );
-      parserWithWriteHandles.when( ALLOWED_CALORIES, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getAllowedCalories ) ) );
-      parserWithWriteHandles.when( CALORIE_BALANCE, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::getCalorieBalance ) ) );
-      parserWithWriteHandles.when( IS_BALANCE_RESET, new JsonWriteHandleImpl( new JsonValueWriteHandler( writeModel::isBalanceReset ) ) );
    }//End Method
    
    @Override public JsonStructure structure(){

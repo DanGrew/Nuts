@@ -97,11 +97,4 @@ public class DataSetupTest {
       }
    }//End Method
    
-   @Test public void shouldUseCalorieBalance(){
-      systemUnderTest.configureDefaultDayPlans();
-      DayPlan test = database.dayPlans().objectList().get( 0 );
-      test.consumedCalories().set( 100.0 );
-      assertThat( test.calorieBalance().get(), is( 100.0 ) );
-   }//End Method
-
 }//End Class

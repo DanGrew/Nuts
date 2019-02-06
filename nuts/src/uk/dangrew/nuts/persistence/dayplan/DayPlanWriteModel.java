@@ -49,22 +49,6 @@ class DayPlanWriteModel extends TemplateWriteModel< DayPlan > {
       return currentFood().date().toString();
    }//End Method
    
-   Double getConsumedCalories( String key ) {
-      return currentFood().consumedCalories().get();
-   }//End Method
-   
-   Double getAllowedCalories( String key ) {
-      return currentFood().allowedCalories().get();
-   }//End Method
-   
-   Double getCalorieBalance( String key ) {
-      return currentFood().calorieBalance().get();
-   }//End Method
-   
-   Boolean isBalanceReset( String key ) {
-      return currentFood().isBalanceReset().get();
-   }//End Method
-   
    Boolean isConsumed( String key ) {
       return currentFood().consumed().contains( currentFoodPortion() );
    }//End Method

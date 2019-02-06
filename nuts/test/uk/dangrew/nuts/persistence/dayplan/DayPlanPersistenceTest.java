@@ -112,9 +112,6 @@ public class DayPlanPersistenceTest {
       meal1.portions().add( new FoodPortion( item3, 50.0 ) );
       meal1.goalAnalytics().goal().set( goal1 );
       meal1.setDate( LocalDate.now() );
-      meal1.consumedCalories().set( 2400.0 );
-      meal1.allowedCalories().set( 2700.0 );
-      meal1.calorieBalance().set( 300.0 );
       database.dayPlans().store( meal1 );
       
       DayPlan meal2 = new DayPlan( "556676", "Meal2" );
@@ -127,7 +124,6 @@ public class DayPlanPersistenceTest {
       meal2.consumed().add( meal2.portions().get( 1 ) );
       meal2.consumed().add( meal2.portions().get( 2 ) );
       meal2.consumed().add( meal2.portions().get( 3 ) );
-      meal2.isBalanceReset().set( true );
       database.dayPlans().store( meal2 );
       
       DayPlan meal3 = new DayPlan( "8878886", "Meal3" );
@@ -200,10 +196,6 @@ public class DayPlanPersistenceTest {
       assertThat( meal.goalAnalytics().goal().get().properties().id(), is( goalId ) );
       assertThat( meal.date(), is( date ) );
       assertThat( meal.portions(), hasSize( portions.length ) );
-      assertThat( meal.consumedCalories().get(), is( consumed ) );
-      assertThat( meal.allowedCalories().get(), is( allowed ) );
-      assertThat( meal.calorieBalance().get(), is( balance ) );
-      assertThat( meal.isBalanceReset().get(), is( reset ) );
       
       for ( int i = 0; i < portions.length; i++ ) {
          ExpectedFoodPortion expectedPortion = portions[ i ];
@@ -226,10 +218,6 @@ public class DayPlanPersistenceTest {
       assertThat( meal.properties().id(), is( expected.properties().id() ) );
       assertThat( meal.properties().nameProperty().get(), is( expected.properties().nameProperty().get() ) );
       assertThat( meal.portions(), hasSize( expected.portions().size() ) );
-      assertThat( meal.consumedCalories().get(), is( expected.consumedCalories().get() ) );
-      assertThat( meal.allowedCalories().get(), is( expected.allowedCalories().get() ) );
-      assertThat( meal.calorieBalance().get(), is( expected.calorieBalance().get() ) );
-      assertThat( meal.isBalanceReset().get(), is( expected.isBalanceReset().get() ) );
       
       for ( int i = 0; i < expected.portions().size(); i++ ) {
          FoodPortion expectedPortion = expected.portions().get( i );
