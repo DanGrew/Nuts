@@ -24,7 +24,7 @@ public class Graph extends BorderPane {
       NumberAxis xAxis = new NumberAxis();
       xAxis.setLabel( graphBuilder.xAxisTitle() );
       if ( !graphBuilder.isXAxisVisible() ) {
-         xAxis.setTickLabelsVisible( false );
+//         xAxis.setTickLabelsVisible( false );
          xAxis.setOpacity( 0 );
       }
       xAxis.setTickUnit( graphBuilder.xAxisTickInterval() );

@@ -31,7 +31,7 @@ public class NutsTabsTest {
    }//End Method
 
    @Test public void shouldProvideConcreteTabs() {
-      assertThat( systemUnderTest.tabPane().getTabs(), hasSize( 12 ) );
+      assertThat( systemUnderTest.tabPane().getTabs(), hasSize( 11 ) );
       assertThat( systemUnderTest.getChildren().contains( systemUnderTest.tabPane() ), is( true ) );
    }//End Method
    
