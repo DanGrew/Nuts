@@ -30,7 +30,7 @@ public class GraphSettingsTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       controller = spy( new GraphController( FXCollections.observableArrayList(), new NumberAxis(), new NumberAxis() ) );
-      systemUnderTest = new GraphSettings( controller );
+      systemUnderTest = new GraphSettings( controller, "Graph" );
    }//End Method
 
    @Test public void shouldInitialiseGraphBounds() {

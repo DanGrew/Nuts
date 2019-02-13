@@ -32,7 +32,7 @@ public class GraphSettings extends GridPane {
    private final TimestampBox horizontalAxisFocusField;
    private final ComboBox< TimestampPeriod > timestampPeriodBox;
    
-   public GraphSettings( GraphController controller ) {
+   public GraphSettings( GraphController controller, String graphName ) {
       this.controller = controller;
       this.styling = new JavaFxStyle();
       this.styling.configureConstraintsForEvenColumns( this, 1 );
@@ -42,7 +42,7 @@ public class GraphSettings extends GridPane {
       this.timestampPeriodBox = new ComboBox<>();
       this.timestampPeriodBox.getItems().addAll( TimestampPeriod.values() );
       
-      getChildren().add( new PropertiesPane( "Graph Range", 
+      getChildren().add( new PropertiesPane( graphName + " Range", 
           new PropertyRowBuilder()
              .withLabelName( "Timestamp Mid Point" )
              .withBinding( new ResponsiveTextRegion(

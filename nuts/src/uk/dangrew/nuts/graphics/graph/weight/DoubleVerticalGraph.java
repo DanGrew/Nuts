@@ -47,7 +47,7 @@ public class DoubleVerticalGraph extends BorderPane {
                   .withXAxisTickFormatter( new GraphDateStringConverter() )
                   .withXAxisTickInterval( 86400 )
       );
-      this.graphSettings1 = new GraphSettings( graph1.controller() );
+      this.graphSettings1 = new GraphSettings( graph1.controller(), innerYAxisTitle );
       this.graph1.getStylesheets().addAll( PRIMARY_CHART_STYLE_SHEET.toExternalForm() );
       content.getChildren().add( graph1 );
       
@@ -60,7 +60,7 @@ public class DoubleVerticalGraph extends BorderPane {
                   .withXAxisTickInterval( 1 )
                   .withYAxisTitle( outerYAxisTitle )
       );
-      this.graphSettings2 = new GraphSettings( graph2.controller() );
+      this.graphSettings2 = new GraphSettings( graph2.controller(), outerYAxisTitle );
       this.graph2.getStylesheets().addAll( SECONDARY_CHART_STYLE_SHEET.toExternalForm() );
       content.getChildren().add( graph2 );
       

@@ -9,7 +9,7 @@ public class GraphWithSettings extends BorderPane {
    
    public GraphWithSettings( GraphBuilder graphBuilder ) {
       this.setCenter( graph = new Graph( graphBuilder ) );
-      this.setRight( settings = new GraphSettings( graph.controller() ) );
+      this.setRight( settings = new GraphSettings( graph.controller(), "Graph" ) );
    }//End Constructor
    
    public Graph graph() {
