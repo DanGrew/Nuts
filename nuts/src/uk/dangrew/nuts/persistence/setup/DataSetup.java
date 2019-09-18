@@ -9,12 +9,16 @@
 package uk.dangrew.nuts.persistence.setup;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import uk.dangrew.nuts.day.DayPlan;
+import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.progress.weight.SystemDateRange;
+import uk.dangrew.nuts.progress.weight.WeightProgressConverter;
 import uk.dangrew.nuts.store.Database;
 
 /**
@@ -80,4 +84,12 @@ public class DataSetup {
       }
    }//End Method
    
+   public void upgradeWeightRecordings(){
+      List< ProgressSeries > series = new WeightProgressConverter().convert( database.weightProgress() );
+      series.forEach( s -> database.progressSeries().store( s ) );
+      
+      //if already exist, clear and recreate
+      //delete weight progress from database
+      //stop saving of weight progress
+   }//End Method
 }//End Class

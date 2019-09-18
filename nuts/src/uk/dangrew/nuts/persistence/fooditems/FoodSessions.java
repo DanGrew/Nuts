@@ -17,6 +17,7 @@ import uk.dangrew.nuts.persistence.dayplan.DayPlanPersistence;
 import uk.dangrew.nuts.persistence.goal.calorie.CalorieGoalPersistence;
 import uk.dangrew.nuts.persistence.goal.proportion.ProportionGoalPersistence;
 import uk.dangrew.nuts.persistence.meals.MealPersistence;
+import uk.dangrew.nuts.persistence.progress.ProgressSeriesPersistence;
 import uk.dangrew.nuts.persistence.resolution.DayPlanMealPortionResolution;
 import uk.dangrew.nuts.persistence.setup.DataSetup;
 import uk.dangrew.nuts.persistence.stock.StockPersistence;
@@ -143,7 +144,10 @@ public class FoodSessions {
                )
                .withWeightRecordings( weightRecordingLocation )
                .withLabels( labelFileLocation )
-               .withProgressSeries( progressSeriesFileLocation )
+               .withMarshallerFor( new ProgressSeriesPersistence( database ), 
+                        progressSeriesFileLocation,
+                        setup::upgradeWeightRecordings
+               )
                ;  
    }//End Constructor
    
