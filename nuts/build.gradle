@@ -2,7 +2,7 @@
  * PLGUINS: apply all plugins needed for the build
  */
 plugins {
-    id "com.jfrog.bintray" version "1.6"
+    id "com.jfrog.bintray" version "1.8.1"
     id "com.github.johnrengelman.shadow" version "1.2.3"
 }
 
@@ -55,6 +55,7 @@ sourceSets {
  * DEPENDENCIES: define repos for resolving and dependencies to resolve
  */
 repositories {
+     mavenCentral()
 	 maven { url  "http://dl.bintray.com/dangrew/dag-kode" }
      maven { url  "http://dl.bintray.com/dangrew/SystemDigest" }
      maven { url  "http://dl.bintray.com/dangrew/JsonUpgradingPersistenceArchitecture" }

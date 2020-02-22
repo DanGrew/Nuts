@@ -20,6 +20,7 @@ public class TescoWebsiteParserTest {
       systemUnderTest = new TescoWebsiteParser();
    }//End Method
 
+   @Ignore
    @Test public void shouldParseFromWebsiteRealIntegrationTest() {
       TescoFoodDescription description = TescoExamples.cravendaleMilk();
       
@@ -75,7 +76,8 @@ public class TescoWebsiteParserTest {
       new NutritionAsserter()
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
-   
+
+   @Ignore
    @Test public void variation254852996() {
       TescoFoodDescription description = new TescoFoodDescription( "Weetabix Cereal 24 Pack" );
       description.productDetail().tpncs().add( "254852996" );
@@ -129,7 +131,8 @@ public class TescoWebsiteParserTest {
          .ironValuePerServing( "4.5" )
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
-   
+
+   @Ignore
    @Test public void variation278371514() {
       TescoFoodDescription description = new TescoFoodDescription( "Mcvities Milk Chocolate Hobnobs 262G" );
       description.productDetail().tpncs().add( "278371514" );
@@ -168,7 +171,8 @@ public class TescoWebsiteParserTest {
          .saltValuePerServing( "0.1" )
          .assertThatValuesAreCorrect( description.productDetail().nutrition() );
    }//End Method
-   
+
+   @Ignore
    @Test public void variation274811214() {
       TescoFoodDescription description = new TescoFoodDescription( "Hovis Original 7 Seeds Bread 800G" );
       description.productDetail().tpncs().add( "274811214" );
