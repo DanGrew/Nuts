@@ -14,8 +14,7 @@ import java.time.ZoneOffset;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
@@ -30,8 +29,8 @@ public class GraphModelImplTest {
       for ( int i = 0; i < 7; i++ ) {
          progress.values().record( LocalDateTime.now().plusDays( i ), i* 10.0 );
       }
-      
-      PlatformImpl.runAndWait( () -> systemUnderTest = new GraphModelImpl(
+
+      JavaFxThreading.runAndWait( () -> systemUnderTest = new GraphModelImpl(
                progress 
       ) );;
    }//End Method

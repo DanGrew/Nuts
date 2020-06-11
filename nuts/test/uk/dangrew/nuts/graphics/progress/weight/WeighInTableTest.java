@@ -3,10 +3,8 @@ package uk.dangrew.nuts.graphics.progress.weight;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import uk.dangrew.nuts.graphics.progress.weight.WeighInTable;
+import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
-import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class WeighInTableTest {
 

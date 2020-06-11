@@ -17,8 +17,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
@@ -62,7 +61,7 @@ public class MixedFoodTableControllerTest {
                database, 
                model 
       );
-      PlatformImpl.runAndWait( () -> table = new TableComponents< Food >()
+      JavaFxThreading.runAndWait( () -> table = new TableComponents< Food >()
                .withDatabase( database )
                .applyColumns( FoodTableColumns< Food >::new )
                .withController( systemUnderTest )

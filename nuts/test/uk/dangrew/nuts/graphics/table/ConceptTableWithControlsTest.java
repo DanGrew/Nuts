@@ -1,26 +1,24 @@
 package uk.dangrew.nuts.graphics.table;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.verify;
-
+import javafx.scene.control.Label;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
-
-import com.sun.javafx.application.PlatformImpl;
-
-import javafx.scene.control.Label;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.graphics.table.controls.TableControls;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.sd.graphics.launch.TestApplication;
+
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
 
 public class ConceptTableWithControlsTest {
 
@@ -34,7 +32,7 @@ public class ConceptTableWithControlsTest {
       MockitoAnnotations.initMocks( this );
       
       Database database = new Database();
-      PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
+      JavaFxThreading.runAndWait( () -> table = new TableComponents< FoodItem >()
                .withDatabase( database )
                .applyColumns( FoodTableColumns< FoodItem >::new )
                .withController( new GeneralConceptTableController<>( database.foodItems() ) )

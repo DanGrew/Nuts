@@ -9,8 +9,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.store.Database;
 
@@ -27,7 +26,7 @@ public class NutsTabsTest {
       database = new Database();
       database.shoppingLists().createConcept( "anything" );
       database.stockLists().createConcept( "anything" );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new NutsTabs( database, operations ) );
+      JavaFxThreading.runAndWait( () -> systemUnderTest = new NutsTabs( database, operations ) );
    }//End Method
 
    @Test public void shouldProvideConcreteTabs() {

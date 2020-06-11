@@ -66,7 +66,8 @@ public class TescoWebsiteParserTest {
    @Test public void shouldIgnoreInvalidDescription(){
       systemUnderTest.parseNutritionFor( new TescoFoodDescription( "anything" ) );
    }//End Method
-   
+
+   @Ignore
    @Test public void shouldSupportNonNutritionalProducts(){
       TescoFoodDescription description = new TescoFoodDescription( "Alberto Balsam Coconut And Lychee Shampoo 350Ml" );
       description.productDetail().tpncs().add( "291181564" );

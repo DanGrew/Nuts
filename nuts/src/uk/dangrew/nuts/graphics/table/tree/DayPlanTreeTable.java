@@ -1,8 +1,7 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.control.TreeTableView;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanController;
@@ -72,7 +71,7 @@ public class DayPlanTreeTable extends TreeTableView< TreeTableController >{
    }//End Constructor
    
    public void setFocus( DayPlan focus ) {
-      PlatformImpl.runAndWait( () -> {
+      JavaFxThreading.runAndWait( () -> {
          this.setRoot( new TreeTableRootItem( plan = focus, dayPlanController ) );
       } );
    }//End Method

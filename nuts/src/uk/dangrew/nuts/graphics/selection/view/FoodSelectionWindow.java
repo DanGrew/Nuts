@@ -1,9 +1,8 @@
 package uk.dangrew.nuts.graphics.selection.view;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionApplier;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionEvent;
 import uk.dangrew.nuts.meal.FoodHolder;
@@ -29,7 +28,7 @@ public class FoodSelectionWindow {
    public void show( FoodHolder meal ){
       selectionApplier.focus( meal );
       selectionPane.selectForMeal( meal );
-      PlatformImpl.runAndWait( stage::showAndWait );
+      JavaFxThreading.runAndWait( stage::showAndWait );
    }//End Method
    
    public void show( Template template ){
@@ -37,7 +36,7 @@ public class FoodSelectionWindow {
       selectionPane.selectForTemplate( template );
       
       if ( !stage.isShowing() ) {
-         PlatformImpl.runAndWait( stage::showAndWait );
+         JavaFxThreading.runAndWait( stage::showAndWait );
       }
    }//End Method
    

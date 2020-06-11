@@ -15,9 +15,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.input.ContextMenuEvent;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.utility.event.TestMouseEvent;
 import uk.dangrew.nuts.day.DayPlan;
@@ -36,9 +35,9 @@ public class UiCalendarDatesSelectorTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      uiDay1 = spy( new UiDay( day1 = new DayPlan( LocalDate.now() ) ) );
-      uiDay2 = spy( new UiDay( day2 = new DayPlan( LocalDate.now().plusDays( 2 ) ) ) );
-      PlatformImpl.runAndWait( () -> {
+      uiDay1 = new UiDay( day1 = new DayPlan( LocalDate.now() ) );
+      uiDay2 = new UiDay( day2 = new DayPlan( LocalDate.now().plusDays( 2 ) ) );
+      JavaFxThreading.runAndWait( () -> {
          systemUnderTest = new UiCalendarDatesSelector( new UiCalendarController( new Database() ), contextMenu );
       } );
       
@@ -48,21 +47,21 @@ public class UiCalendarDatesSelectorTest {
 
    @Test public void shouldSelectSingleDay() {
       uiDay1.getOnMouseClicked().handle( new TestMouseEvent() );
-      verify( uiDay1 ).select();
+      assertThat(uiDay1.isSelected(), is(true));
       assertThat( systemUnderTest.selection().get(), is( day1 ) );
       
       uiDay2.getOnMouseClicked().handle( new TestMouseEvent() );
-      verify( uiDay1 ).deselect();
-      verify( uiDay2 ).select();
+      assertThat(uiDay1.isSelected(), is(false));
+      assertThat(uiDay2.isSelected(), is(true));
       assertThat( systemUnderTest.selection().get(), is( day2 ) );
    }//End Method
    
    @Test public void shouldDeselectWhenRemoved() {
       uiDay1.getOnMouseClicked().handle( new TestMouseEvent() );
-      verify( uiDay1 ).select();
+      assertThat(uiDay1.isSelected(), is(true));
       
       systemUnderTest.remove( uiDay1 );
-      verify( uiDay1 ).deselect();
+      assertThat(uiDay1.isSelected(), is(false));
       assertThat( systemUnderTest.selection().get(), is( nullValue() ) );
    }//End Method
    

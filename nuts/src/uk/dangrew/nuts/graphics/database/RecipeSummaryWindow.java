@@ -1,9 +1,8 @@
 package uk.dangrew.nuts.graphics.database;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.nuts.graphics.recipe.summary.UiRecipeSummary;
 import uk.dangrew.nuts.meal.FoodHolder;
 
@@ -22,7 +21,7 @@ public class RecipeSummaryWindow {
    }//End Constructor
    
    public void show( FoodHolder meal ){
-      PlatformImpl.runAndWait( () -> internal_show( meal ) );
+      JavaFxThreading.runAndWait( () -> internal_show( meal ) );
    }//End Method
    
    private void internal_show( FoodHolder meal ) {

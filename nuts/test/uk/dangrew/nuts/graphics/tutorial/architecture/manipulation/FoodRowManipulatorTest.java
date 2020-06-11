@@ -1,16 +1,10 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.manipulation;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-
+import javafx.scene.control.TableRow;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
-import com.sun.javafx.application.PlatformImpl;
-
-import javafx.scene.control.TableRow;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
@@ -21,6 +15,10 @@ import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
+
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class FoodRowManipulatorTest {
 
@@ -39,7 +37,7 @@ public class FoodRowManipulatorTest {
       row.setItem( new ConceptTableRowImpl<>( food ) );
       
       Database database = new Database();
-      PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
+      JavaFxThreading.runAndWait( () -> table = new TableComponents< FoodItem >()
                .withDatabase( database )
                .applyColumns( FoodTableColumns< FoodItem >::new )
                .withController( new GeneralConceptTableController<>( database.foodItems() ) )

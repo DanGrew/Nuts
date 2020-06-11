@@ -1,16 +1,14 @@
 package uk.dangrew.nuts.graphics.goal;
 
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.assertThat;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.goal.GoalTypes;
+
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.junit.Assert.assertThat;
 
 public class UiGoalTypeSelectionDialogTest {
 
@@ -19,7 +17,7 @@ public class UiGoalTypeSelectionDialogTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new UiGoalTypeSelectionDialog() );
+      JavaFxThreading.runAndWait( () -> systemUnderTest = new UiGoalTypeSelectionDialog() );
    }//End Method
 
    @Test public void shouldContainOptions() {

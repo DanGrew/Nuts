@@ -8,8 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
@@ -32,8 +31,8 @@ public class SynchronizedTableSelectionModelTest {
       database.foodItems().createConcept( "Food1" );
       database.foodItems().createConcept( "Food2" );
       database.foodItems().createConcept( "Food3" );
-      
-      PlatformImpl.runAndWait( () -> {
+
+      JavaFxThreading.runAndWait( () -> {
          table1 = new TableComponents< FoodItem >()
                      .withDatabase( database )
                      .applyColumns( FoodTableColumns< FoodItem >::new )

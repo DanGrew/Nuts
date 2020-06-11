@@ -6,10 +6,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Supplier;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 
 public class ImageLoaderService {
 
@@ -31,7 +30,7 @@ public class ImageLoaderService {
    public void loadImage( ImageView view, String imageUrl ) {
       service.submit( () -> {
          boolean newLoad = !cachedImages.containsKey( imageUrl );
-         PlatformImpl.runAndWait( () -> applyImage( view, imageUrl ) );
+         JavaFxThreading.runAndWait( () -> applyImage( view, imageUrl ) );
          if ( newLoad ) {
             Thread.sleep( 1000 );
          }

@@ -15,8 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.food.FoodItem;
@@ -89,7 +88,7 @@ public class DayPlanTreeTableTest {
    
    @Ignore
    @Test public void manual() throws InterruptedException {
-      PlatformImpl.runAndWait( () -> new FoodSelectionWindow( database ) );
+      JavaFxThreading.runAndWait( () -> new FoodSelectionWindow( database ) );
       TestApplication.launch( () -> pane = new DayPlanTreePane( database ) );
       
       pane.controller().show( focus );

@@ -14,10 +14,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.event.ActionEvent;
 import javafx.scene.control.ButtonType;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.store.Database;
 import uk.dangrew.nuts.template.Template;
@@ -37,8 +36,8 @@ public class UiDayPlanContextMenuTest {
       MockitoAnnotations.initMocks( this );
       selection = new Template( "Template" );
       dateSelection = LocalDate.now().plusDays( 100 );
-      
-      PlatformImpl.runAndWait( () -> {
+
+      JavaFxThreading.runAndWait( () -> {
          controller = spy( new UiCalendarController( new Database() ) );
          systemUnderTest = new UiDayPlanContextMenu( controller, templateSelection, dateSelectionDialog, confirmAlert );  
       } );

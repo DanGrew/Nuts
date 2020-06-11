@@ -1,29 +1,23 @@
 package uk.dangrew.nuts.graphics.meal;
 
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
+import javafx.scene.Node;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.*;
+import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.kode.launch.TestApplication;
+import uk.dangrew.nuts.graphics.table.controls.TableControlType;
+import uk.dangrew.nuts.graphics.table.controls.TableControls;
+
+import java.awt.*;
+
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-
-import java.awt.Button;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
-
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
-import javafx.scene.Node;
-import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.table.controls.TableControlType;
-import uk.dangrew.nuts.graphics.table.controls.TableControls;
-import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class MealControlsTest {
 

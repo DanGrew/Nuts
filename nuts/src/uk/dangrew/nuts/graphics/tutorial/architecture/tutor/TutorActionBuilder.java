@@ -1,11 +1,11 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.tutor;
 
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
-
-import com.sun.javafx.application.PlatformImpl;
 
 public class TutorActionBuilder {
 
@@ -22,12 +22,12 @@ public class TutorActionBuilder {
    }//End Method
    
    public TutorActionBuilder graphicalNonBlockingAction( Runnable action ) {
-      this.actions.add( () -> PlatformImpl.runLater( action::run ) );
+      this.actions.add( () -> JavaFxThreading.runLater( action::run ) );
       return this;
    }//End Method
    
    public TutorActionBuilder graphicalBlockingAction( Runnable action ) {
-      this.actions.add( () -> PlatformImpl.runAndWait( action::run ) );
+      this.actions.add( () -> JavaFxThreading.runAndWait( action::run ) );
       return this;
    }//End Method
    

@@ -2,11 +2,10 @@ package uk.dangrew.nuts.graphics.recipe.integration;
 
 import java.util.Optional;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.nuts.graphics.common.UiWindowControls;
 import uk.dangrew.nuts.graphics.common.UiWindowControlsActionsImpl;
 import uk.dangrew.nuts.graphics.recipe.creator.UiRecipeCreatorPane;
@@ -30,7 +29,7 @@ public class RecipeGeneratorWindow {
    
    public Optional< FoodHolder > generate( Database database, FoodHolder original ){
       FoodHolder recipe = original.duplicate();
-      PlatformImpl.runAndWait( () -> internal_show( database, recipe ) );
+      JavaFxThreading.runAndWait( () -> internal_show( database, recipe ) );
       if ( cancelled ) {
          return Optional.empty();
       } else {

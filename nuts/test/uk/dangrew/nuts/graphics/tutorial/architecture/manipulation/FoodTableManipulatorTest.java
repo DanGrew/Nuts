@@ -1,15 +1,9 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.manipulation;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertThat;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
@@ -17,6 +11,10 @@ import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
+
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 public class FoodTableManipulatorTest {
 
@@ -45,8 +43,8 @@ public class FoodTableManipulatorTest {
       FoodItem egg = database.foodItems().createConcept( EGG );
       FoodItem cream = database.foodItems().createConcept( CREAM );
       FoodItem cheese = database.foodItems().createConcept( CHEESE );
-      
-      PlatformImpl.runAndWait( () -> {} );
+
+      JavaFxThreading.runAndWait( () -> {} );
       
       assertThat( systemUnderTest.findRow( EGG ).concept(), is( egg ) );
       assertThat( systemUnderTest.findRow( CREAM ).concept(), is( cream ) );
@@ -61,8 +59,8 @@ public class FoodTableManipulatorTest {
       FoodItem egg1 = database.foodItems().createConcept( EGG );
       FoodItem egg2 = database.foodItems().createConcept( EGG );
       FoodItem egg3 = database.foodItems().createConcept( EGG );
-      
-      PlatformImpl.runAndWait( () -> {} );
+
+      JavaFxThreading.runAndWait( () -> {} );
       
       assertThat( systemUnderTest.findRow( EGG ).concept(), is( egg1 ) );
       assertThat( systemUnderTest.findRow( EGG, 1 ).concept(), is( egg1 ) );
@@ -80,8 +78,8 @@ public class FoodTableManipulatorTest {
       FoodItem cream = database.foodItems().createConcept( CREAM );
       
       systemUnderTest = new FoodTableManipulator<>( table, f -> cream );
-      
-      PlatformImpl.runAndWait( () -> {} );
+
+      JavaFxThreading.runAndWait( () -> {} );
       
       assertThat( systemUnderTest.findRow( EGG ), is( nullValue() ) );
       assertThat( systemUnderTest.findRow( CREAM ).concept(), is( egg ) );

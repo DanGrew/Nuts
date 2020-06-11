@@ -7,9 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.stage.Stage;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 
 public class TutorialWindowTest {
@@ -20,8 +19,8 @@ public class TutorialWindowTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      
-      PlatformImpl.runAndWait( () -> {
+
+      JavaFxThreading.runAndWait( () -> {
          stage = new Stage();
          systemUnderTest = new TutorialWindow( stage );
       } );

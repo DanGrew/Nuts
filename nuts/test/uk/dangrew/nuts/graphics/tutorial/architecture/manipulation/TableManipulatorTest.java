@@ -39,7 +39,8 @@ public class TableManipulatorTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       
-      table = spy( new TableView<>() );
+      table = new TableView<>();
+      table.setEditable(true);
       table.getColumns().addAll( new TableColumn<>(), new TableColumn<>() );
       
       rows = Arrays.asList( mock( TableRow.class ), mock( TableRow.class ) );
@@ -64,15 +65,17 @@ public class TableManipulatorTest {
    
    @Test public void shouldTriggerCellEdit() {
       systemUnderTest.triggerCellEdit( 0, 0 );
-      verify( table ).edit( 0, table.getColumns().get( 0 ) );
-      
+      assertThat(table.editingCellProperty().get().getColumn(), is( 0));
+      assertThat(table.editingCellProperty().get().getRow(), is( 0));
+
       systemUnderTest.triggerCellEdit( 2, 1 );
-      verify( table ).edit( 2, table.getColumns().get( 1 ) );
+      assertThat(table.editingCellProperty().get().getColumn(), is( 1));
+      assertThat(table.editingCellProperty().get().getRow(), is( 2));
    }//End Method
    
    @Test public void shouldFinishCellEdit() {
       systemUnderTest.finishCellEdit();
-      verify( table ).edit( -1, null );
+      assertThat(table.editingCellProperty().get(), is( nullValue()));
    }//End Method
 
 }//End Class

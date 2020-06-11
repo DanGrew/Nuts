@@ -8,8 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.store.Database;
 
@@ -22,7 +21,7 @@ public class DayPlanTreePaneTest {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
       database = new Database();
-      PlatformImpl.runAndWait( () -> systemUnderTest = new DayPlanTreePane( database ) );
+      JavaFxThreading.runAndWait( () -> systemUnderTest = new DayPlanTreePane( database ) );
    }//End Method
 
    @Test public void shouldContainStructure() {

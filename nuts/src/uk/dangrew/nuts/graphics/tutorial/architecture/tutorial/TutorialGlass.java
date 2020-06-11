@@ -2,11 +2,10 @@ package uk.dangrew.nuts.graphics.tutorial.architecture.tutorial;
 
 import java.util.function.Function;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorActionBuilder;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorHighlight;
 import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorMessageBuilder;
@@ -44,7 +43,7 @@ public class TutorialGlass extends StackPane {
    }//End Constructor
    
    public void replaceUnderlyingContent( Node underlyingContent ) {
-      PlatformImpl.runAndWait( () -> {
+      JavaFxThreading.runAndWait( () -> {
          this.getChildren().clear();
          this.getChildren().addAll( underlyingContent, glass );
          this.glass.getChildren().clear();
@@ -54,11 +53,11 @@ public class TutorialGlass extends StackPane {
    
    public void tutorUser( TutorMessageBuilder messageBuilder ) {
       if ( messageBuilder.getComponent() != null ) {
-         PlatformImpl.runLater( () -> popOver.show( messageBuilder ) );
+         JavaFxThreading.runLater( () -> popOver.show( messageBuilder ) );
       }
       
       if ( messageBuilder.getHighlightSubject() != null ) {
-         PlatformImpl.runLater( () -> highlight.focus( messageBuilder.getHighlightSubject(), messageBuilder.getHighlightColour() ) );
+         JavaFxThreading.runLater( () -> highlight.focus( messageBuilder.getHighlightSubject(), messageBuilder.getHighlightColour() ) );
       }
    }//End Method
    

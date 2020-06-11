@@ -16,8 +16,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalTypes;
@@ -44,7 +43,7 @@ public class GoalTableControllerTest {
       database.proportionGoals().createConcept( "ProportionGoal1" );
       
       systemUnderTest = new GoalTableController( dialog, database.calorieGoals(), database.proportionGoals() );
-      PlatformImpl.runAndWait( () -> table = new TableComponents< Goal >()
+      JavaFxThreading.runAndWait( () -> table = new TableComponents< Goal >()
                .withDatabase( database )
                .applyColumns( FoodTableColumns< Goal >::new )
                .withController( systemUnderTest )

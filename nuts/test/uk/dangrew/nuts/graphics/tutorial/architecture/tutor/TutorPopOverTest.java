@@ -1,27 +1,21 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.tutor;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
-
+import javafx.geometry.Pos;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.text.TextFlow;
 import org.controlsfx.control.PopOver.ArrowLocation;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
-import com.sun.javafx.application.PlatformImpl;
-
-import javafx.geometry.Pos;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.text.TextFlow;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorMessageBuilder;
-import uk.dangrew.nuts.graphics.tutorial.architecture.tutor.TutorPopOver;
+
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.*;
 
 public class TutorPopOverTest {
 
@@ -31,7 +25,7 @@ public class TutorPopOverTest {
    @Before public void initialiseSystemUnderTest() throws InterruptedException {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      PlatformImpl.runAndWait( () -> systemUnderTest = spy( new TutorPopOver() ) );
+      JavaFxThreading.runAndWait( () -> systemUnderTest = new TutorPopOver() );
       
       liveWindow = new BorderPane();
       TestApplication.launch( () -> liveWindow );
@@ -51,13 +45,15 @@ public class TutorPopOverTest {
    }//End Method
    
    @Test public void shouldUpdatePopupWithMessage(){
+      systemUnderTest = spy(systemUnderTest);
+
       TutorMessageBuilder message = new TutorMessageBuilder()
                .pointing( ArrowLocation.RIGHT_BOTTOM )
                .withMessage( new TextFlow() )
                .withRespectTo( liveWindow )
                .withConfirmation();
-      
-      PlatformImpl.runAndWait( () -> systemUnderTest.show( message ) );
+
+      JavaFxThreading.runAndWait( () -> systemUnderTest.show( message ) );
       
       assertThat( systemUnderTest.getArrowLocation(), is( message.getArrowDirection() ) );
       assertThat( systemUnderTest.content().getCenter(), is( message.getMessage() ) );
@@ -70,8 +66,8 @@ public class TutorPopOverTest {
                .withRespectTo( liveWindow )
                .withConfirmation()
                .callingBackTo( mock( Runnable.class ) );
-      
-      PlatformImpl.runAndWait( () -> systemUnderTest.show( message ) );
+
+      JavaFxThreading.runAndWait( () -> systemUnderTest.show( message ) );
       systemUnderTest.confirmationButton().fire();
       
       verify( message.callback().get() ).run();
@@ -81,8 +77,8 @@ public class TutorPopOverTest {
       TutorMessageBuilder message = new TutorMessageBuilder()
                .withRespectTo( liveWindow )
                .callingBackTo( mock( Runnable.class ) );
-      
-      PlatformImpl.runAndWait( () -> systemUnderTest.show( message ) );
+
+      JavaFxThreading.runAndWait( () -> systemUnderTest.show( message ) );
       assertThat( systemUnderTest.content().getBottom(), is( nullValue() ) );
    }//End Method
    

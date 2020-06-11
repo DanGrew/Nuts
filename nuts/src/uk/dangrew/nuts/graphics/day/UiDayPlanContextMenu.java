@@ -11,12 +11,11 @@ package uk.dangrew.nuts.graphics.day;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import uk.dangrew.kode.javafx.contextmenu.ContextMenuWithCancel;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
 import uk.dangrew.nuts.progress.weight.SystemDateRange;
 import uk.dangrew.nuts.template.Template;
@@ -100,7 +99,7 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
    }//End Method
    
    private void applyTemplate(){
-      PlatformImpl.runAndWait( () -> {
+      JavaFxThreading.runAndWait( () -> {
          uiTemplateSelectionDialog.friendly_setHeaderText( APPLY_TEMPLATE_DESCRIPTION );
          Optional< Template > result = uiTemplateSelectionDialog.friendly_showAndWait();
          result.ifPresent( controller::applyTemplate );
@@ -108,7 +107,7 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
    }//End Method
    
    private void addFromTemplate(){
-      PlatformImpl.runAndWait( () -> {
+      JavaFxThreading.runAndWait( () -> {
          uiTemplateSelectionDialog.friendly_setHeaderText( ADD_FROM_TEMPLATE_DESCRIPTION );
          Optional< Template > result = uiTemplateSelectionDialog.friendly_showAndWait();
          result.ifPresent( controller::addFromTemplate );
@@ -116,7 +115,7 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
    }//End Method
    
    private void copyToDate(){
-      PlatformImpl.runAndWait( () -> {
+      JavaFxThreading.runAndWait( () -> {
          uiDateSelectionDialog.friendly_setHeaderText( COPY_TO_DATE_DESCRIPTION );
          Optional< LocalDate > result = uiDateSelectionDialog.friendly_showAndWait();
          result.ifPresent( controller::copyToDay );
@@ -124,9 +123,9 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
    }//End Method
    
    private void clear(){
-      PlatformImpl.runAndWait( () -> {
+      JavaFxThreading.runAndWait( () -> {
          confirmAlert.friendly_setHeaderText( CLEAR_DESCRIPTION );
-         Optional< ButtonType > result = confirmAlert.friendly_showAndWait();
+         Optional<ButtonType> result = confirmAlert.friendly_showAndWait();
          result.filter( t -> t == ButtonType.OK ).ifPresent( t -> controller.clearSelection() );
       } );
    }//End Method

@@ -3,8 +3,7 @@ package uk.dangrew.nuts.graphics.information;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import uk.dangrew.sd.graphics.launch.TestApplication;
+import uk.dangrew.kode.launch.TestApplication;
 
 public class StandardDietIntroductionPaneTest {
 

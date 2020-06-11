@@ -11,7 +11,7 @@ package uk.dangrew.nuts.main;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import uk.dangrew.jupa.javafx.platform.PlatformLifecycle;
+import uk.dangrew.kode.javafx.platform.PlatformLifecycle;
 import uk.dangrew.nuts.graphics.main.CoreInterface;
 
 /**

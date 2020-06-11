@@ -1,18 +1,18 @@
 package uk.dangrew.nuts.graphics.common;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import java.time.LocalDateTime;
+import javafx.scene.control.ButtonType;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
-import com.sun.javafx.application.PlatformImpl;
-
-import javafx.scene.control.ButtonType;
 import uk.dangrew.kode.datetime.TimestampFormat;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
+
+import java.time.LocalDateTime;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class UiTimestampInputDialogTest {
 
@@ -21,12 +21,12 @@ public class UiTimestampInputDialogTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new UiTimestampInputDialog() );
+      JavaFxThreading.runAndWait( () -> systemUnderTest = new UiTimestampInputDialog() );
    }//End Method
 
    @Ignore
    @Test public void manual() {
-      PlatformImpl.runAndWait( () -> systemUnderTest.showAndWait() );
+      JavaFxThreading.runAndWait( () -> systemUnderTest.showAndWait() );
    }//End Method
    
    @Test public void shouldInitialiseDateAndTimeToCurrent(){

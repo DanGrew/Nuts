@@ -10,8 +10,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
@@ -29,7 +28,7 @@ public class UiDatabaseManagerPaneTest {
       MockitoAnnotations.initMocks( this );
       Database database = new Database();
       DataLocation.loadSampleFoodData( database );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new UiDatabaseManagerPane( database ) );
+      JavaFxThreading.runAndWait( () -> systemUnderTest = new UiDatabaseManagerPane( database ) );
    }//End Method
 
    @Ignore

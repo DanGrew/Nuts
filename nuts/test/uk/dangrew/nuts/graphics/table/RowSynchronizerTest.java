@@ -8,10 +8,9 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
@@ -28,7 +27,7 @@ public class RowSynchronizerTest {
       TestApplication.startPlatform();
       
       Database database = new Database();
-      PlatformImpl.runAndWait( () -> table = new TableComponents< FoodItem >()
+      JavaFxThreading.runAndWait( () -> table = new TableComponents< FoodItem >()
                .withDatabase( database )
                .applyColumns( FoodTableColumns< FoodItem >::new )
                .withController( new GeneralConceptTableController<>( database.foodItems() ) )

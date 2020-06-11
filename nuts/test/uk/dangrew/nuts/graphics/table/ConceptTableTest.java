@@ -1,9 +1,9 @@
 package uk.dangrew.nuts.graphics.table;
 
+import javafx.scene.layout.BorderPane;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import javafx.scene.layout.BorderPane;
+import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -11,7 +11,6 @@ import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
-import uk.dangrew.sd.graphics.launch.TestApplication;
 
 public class ConceptTableTest {
 

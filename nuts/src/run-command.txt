@@ -1,0 +1,4 @@
+<path-to>/jdk-14.0.1.jdk/Contents/Home/bin/java --module-path <path-to>/javafx-sdk-14.0.1/lib --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml,javafx.media -jar nuts-<version>-runnable.jar
+
+//exammple for macs
+/Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/bin/java --module-path /Library/Java/JavaVirtualMachines/javafx-sdk-14.0.1/lib --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml,javafx.media -jar nuts-<version>-runnable.jar

@@ -1,9 +1,8 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.tutorial;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.nuts.graphics.tutorial.database.components.DatabaseTutorial;
 
 public class TutorialWindow {
@@ -22,7 +21,7 @@ public class TutorialWindow {
    }//End Constructor
    
    public void show(){
-      PlatformImpl.runAndWait( stage::showAndWait );
+      JavaFxThreading.runAndWait( stage::showAndWait );
    }//End Method
    
 }//End Class

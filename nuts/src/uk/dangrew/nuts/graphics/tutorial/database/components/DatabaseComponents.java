@@ -1,8 +1,7 @@
 package uk.dangrew.nuts.graphics.tutorial.database.components;
 
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.scene.control.Button;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
@@ -43,7 +42,7 @@ public class DatabaseComponents {
       this.database = new Database();
       this.databaseManipulator = new DatabaseManipulator( database );
       this.database.stockLists().createConcept( "" );
-      PlatformImpl.runAndWait( () -> this.parent = new UiDatabaseManagerPane( database ) );
+      JavaFxThreading.runAndWait( () -> this.parent = new UiDatabaseManagerPane( database ) );
       this.parent.populateComponents( this );
    }//End Method
    

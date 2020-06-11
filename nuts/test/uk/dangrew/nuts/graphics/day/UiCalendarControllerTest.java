@@ -15,8 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.day.DayPlan;
 import uk.dangrew.nuts.day.DayPlanOperations;
@@ -41,7 +40,7 @@ public class UiCalendarControllerTest {
       MockitoAnnotations.initMocks( this );
       
       database = new Database();
-      PlatformImpl.runAndWait( () -> selector = new UiCalendarDatesSelector( new UiCalendarController( database ) ) );
+      JavaFxThreading.runAndWait( () -> selector = new UiCalendarDatesSelector( new UiCalendarController( database ) ) );
       uiDay = new UiDay( day = new DayPlan( LocalDate.now() ) );
       
       

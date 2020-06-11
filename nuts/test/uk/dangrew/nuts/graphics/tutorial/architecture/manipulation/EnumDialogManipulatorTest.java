@@ -1,16 +1,15 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.manipulation;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class EnumDialogManipulatorTest {
 
@@ -20,8 +19,8 @@ public class EnumDialogManipulatorTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-      
-      PlatformImpl.runAndWait( () -> dialog = new UiEnumTypeSelectionDialog<>( FoodTypes.class, FoodTypes.FoodItems ) );
+
+      JavaFxThreading.runAndWait( () -> dialog = new UiEnumTypeSelectionDialog<>( FoodTypes.class, FoodTypes.FoodItems ) );
       systemUnderTest = new EnumDialogManipulator<>( dialog );
    }//End Method
 

@@ -4,9 +4,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
-import com.sun.javafx.application.PlatformImpl;
-
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.selection.view.FoodSelectionWindow;
 import uk.dangrew.nuts.manual.data.DataLocation;
@@ -24,12 +22,12 @@ public class UiRecipeCreatorPaneTest {
       
       database = new Database();
       DataLocation.loadSampleFoodData( database );
-      PlatformImpl.runAndWait( () -> systemUnderTest = new UiRecipeCreatorPane( database, new Meal( "Recipe" ) ) );
+      JavaFxThreading.runAndWait( () -> systemUnderTest = new UiRecipeCreatorPane( database, new Meal( "Recipe" ) ) );
    }//End Method
 
    @Ignore
    @Test public void manual() throws InterruptedException {
-      PlatformImpl.runAndWait( () -> new FoodSelectionWindow( database ) );
+      JavaFxThreading.runAndWait( () -> new FoodSelectionWindow( database ) );
       TestApplication.launch( () -> systemUnderTest );
       
       Thread.sleep( 9999999 );

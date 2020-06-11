@@ -1,13 +1,11 @@
 package uk.dangrew.nuts.graphics.selection.view;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
-import com.sun.javafx.application.PlatformImpl;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.junit.Ignore;
+import org.junit.Test;
 import uk.dangrew.kode.event.structure.Event;
+import uk.dangrew.kode.javafx.platform.JavaFxThreading;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -39,8 +37,8 @@ public class FoodSelectionWindowTest {
       for ( int i = 0; i < 10; i++ ) {
          stock.portionFor( sample.foodItems().objectList().get( i ) ).setPortion( 100 );
       }
-      
-      PlatformImpl.runAndWait( () -> {
+
+      JavaFxThreading.runAndWait( () -> {
          window = new FoodSelectionWindow( sample );
       } );
    

@@ -1,11 +1,9 @@
 package uk.dangrew.nuts.graphics.main;
 
+import javafx.scene.layout.BorderPane;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import javafx.scene.layout.BorderPane;
-import uk.dangrew.nuts.graphics.main.CoreInterface;
-import uk.dangrew.sd.graphics.launch.TestApplication;
+import uk.dangrew.kode.launch.TestApplication;
 
 public class CoreInterfaceTest {
 
