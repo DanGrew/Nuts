@@ -5,13 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.javafx.platform.JavaFxThreading;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.controller.GeneralConceptTableController;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
@@ -23,7 +23,7 @@ import static org.junit.Assert.assertThat;
 public class FoodRowManipulatorTest {
 
    private ConceptTable< FoodItem > table;
-   private TableRow< ConceptTableRow< FoodItem > > row;
+   private TableRow<ConceptTableRow< FoodItem >> row;
    private FoodItem food;
    
    private FoodRowManipulator< FoodItem > systemUnderTest;

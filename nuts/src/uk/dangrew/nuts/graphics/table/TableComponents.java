@@ -2,10 +2,14 @@ package uk.dangrew.nuts.graphics.table;
 
 import java.util.function.Function;
 
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.column.ConceptTableColumnsPopulator;
+import uk.dangrew.kode.javafx.table.controller.ConceptTableViewController;
+import uk.dangrew.kode.javafx.table.controls.ConceptTableWithControls;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.graphics.selection.model.SimpleFoodModel;
-import uk.dangrew.nuts.graphics.table.controls.TableControls;
+import uk.dangrew.kode.javafx.table.controls.TableControls;
 import uk.dangrew.nuts.store.Database;
 
 public class TableComponents< TypeT >{
@@ -78,7 +82,7 @@ public class TableComponents< TypeT >{
       return new ConceptTable<>( columnsPopulator, controller );
    }//End Method
    
-   public ConceptTableWithControls< TypeT > buildTableWithControls( String title ){
+   public ConceptTableWithControls< TypeT > buildTableWithControls(String title ){
       return new ConceptTableWithControls<>( title, buildTable(), tableControls() );
    }//End Method
    

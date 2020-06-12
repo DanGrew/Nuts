@@ -9,8 +9,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.food.FoodStringConverter;
-import uk.dangrew.nuts.graphics.table.ConceptOptions;
-import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
+import uk.dangrew.kode.javafx.table.options.ConceptOptions;
+import uk.dangrew.kode.javafx.table.options.ConceptOptionsImpl;
 import uk.dangrew.nuts.store.Database;
 
 public class UiFoodSelectionDialog extends ChoiceDialog< Food > {

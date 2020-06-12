@@ -2,12 +2,12 @@ package uk.dangrew.nuts.graphics.selection.view;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
 import uk.dangrew.nuts.graphics.common.UiWindowControls;
 import uk.dangrew.nuts.graphics.common.UiWindowControlsActions;
 import uk.dangrew.nuts.graphics.common.UiWindowControlsActionsImpl;
-import uk.dangrew.nuts.graphics.food.UnresponsiveConceptTableController;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.controller.UnresponsiveConceptTableController;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.template.TemplateTableColumns;
 import uk.dangrew.nuts.meal.FoodHolder;

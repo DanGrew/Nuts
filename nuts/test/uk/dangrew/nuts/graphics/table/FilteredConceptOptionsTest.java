@@ -10,6 +10,9 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.comparator.Comparators;
+import uk.dangrew.kode.javafx.table.options.ConceptOptions;
+import uk.dangrew.kode.javafx.table.options.ConceptOptionsImpl;
+import uk.dangrew.kode.javafx.table.options.FilteredConceptOptions;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;

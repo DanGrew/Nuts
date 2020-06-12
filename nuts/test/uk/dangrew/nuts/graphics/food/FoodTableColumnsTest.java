@@ -8,11 +8,12 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import javafx.scene.control.TableColumn;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.controller.GeneralConceptTableController;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.FoodItem;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;

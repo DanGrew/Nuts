@@ -21,7 +21,7 @@ public class TreeTableHolderControlsImplTest {
 
    private FoodPortion concept;
    private FoodHolder holder;
-   private TreeItem< TreeTableController > treeItem;
+   private TreeItem< TreeTableController<FoodPortion> > treeItem;
    
    private TreeTableHolderControlsImpl systemUnderTest;
 
@@ -35,7 +35,7 @@ public class TreeTableHolderControlsImplTest {
       
       systemUnderTest = new TreeTableHolderControlsImpl( concept, holder, treeItem ) {
          @Override public void requestAddTo( FoodHolder holder ) {}
-         @Override public void remove( TreeItem< TreeTableController > treeItem ) {}
+         @Override public void remove( TreeItem< TreeTableController<FoodPortion> > treeItem ) {}
          @Override public void remove() {}
          @Override public void moveUp() {}
          @Override public void moveDown() {}
@@ -58,7 +58,7 @@ public class TreeTableHolderControlsImplTest {
       FoodPortion portion = new FoodPortion( new Meal( "Another" ), 45.0 );
       holder.portions().add( portion );
       
-      TreeItem< TreeTableController > child = treeItem.getChildren().get( 0 );
+      TreeItem< TreeTableController<FoodPortion> > child = treeItem.getChildren().get( 0 );
       assertThat( child.getValue(), is( instanceOf( TreeTableBranchController.class ) ) );
       assertThat( child.getValue().concept(), is( portion ) );
    }//End Method
@@ -69,7 +69,7 @@ public class TreeTableHolderControlsImplTest {
       FoodPortion portion = new FoodPortion( new FoodItem( "Another" ), 45.0 );
       holder.portions().add( portion );
       
-      TreeItem< TreeTableController > child = treeItem.getChildren().get( 0 );
+      TreeItem< TreeTableController<FoodPortion> > child = treeItem.getChildren().get( 0 );
       assertThat( child.getValue(), is( instanceOf( TreeTableLeafController.class ) ) );
       assertThat( child.getValue().concept(), is( portion ) );
    }//End Method

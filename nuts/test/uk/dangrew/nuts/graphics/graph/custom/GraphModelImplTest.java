@@ -29,7 +29,7 @@ public class GraphModelImplTest {
       for ( int i = 0; i < 7; i++ ) {
          progress.values().record( LocalDateTime.now().plusDays( i ), i* 10.0 );
       }
-
+      
       JavaFxThreading.runAndWait( () -> systemUnderTest = new GraphModelImpl(
                progress 
       ) );;

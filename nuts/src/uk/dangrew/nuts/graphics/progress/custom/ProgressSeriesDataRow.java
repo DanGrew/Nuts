@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class ProgressSeriesDataRow extends ConceptTableRowImpl< ProgressSeries >{

@@ -12,14 +12,14 @@ import org.mockito.MockitoAnnotations;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import uk.dangrew.kode.javafx.dialog.UiEnumTypeSelectionDialog;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.kode.model.BuilderVerifier;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
 import uk.dangrew.nuts.graphics.database.UiDatabaseManagerPane;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.DatabaseManipulator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.EnumDialogManipulator;
 import uk.dangrew.nuts.graphics.tutorial.architecture.manipulation.FoodTableManipulator;

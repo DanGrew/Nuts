@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.graphics.goal;
 
+import uk.dangrew.kode.javafx.dialog.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.goal.GoalTypes;
-import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 
 public class UiGoalTypeSelectionDialog extends UiEnumTypeSelectionDialog< GoalTypes > {
 

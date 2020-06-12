@@ -12,11 +12,11 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.graphics.graph.custom.GraphSeriesVisibility;
 import uk.dangrew.nuts.graphics.graph.weight.DoubleVerticalGraph;
-import uk.dangrew.nuts.graphics.table.BasicConceptControls;
-import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
+import uk.dangrew.kode.javafx.table.controls.BasicConceptControls;
+import uk.dangrew.kode.javafx.table.controls.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
-import uk.dangrew.nuts.graphics.table.TableWithControls;
-import uk.dangrew.nuts.graphics.table.controls.TableControls;
+import uk.dangrew.kode.javafx.table.controls.TableWithControls;
+import uk.dangrew.kode.javafx.table.controls.TableControls;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
 

@@ -27,7 +27,8 @@ import uk.dangrew.kode.concept.Concept;
 import uk.dangrew.kode.concept.Properties;
 import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
 import uk.dangrew.kode.javafx.style.Conversions;
-import uk.dangrew.kode.javafx.table.TableViewEditCommitHandler;
+import uk.dangrew.kode.javafx.table.options.ConceptOptions;
+import uk.dangrew.kode.javafx.table.tools.TableViewEditCommitHandler;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
@@ -136,7 +137,7 @@ public class TableConfiguration {
    
    /**
     * Method to initialise a {@link TableColumn} with the given properties/behaviour for a {@link String} value.
-    * @param table the {@link TableView} to configure.
+    * @param configurer the {@link TableView} to configure.
     * @param title the title of the {@link TableColumn}.
     * @param width the proportion of the width the {@link TableColumn} should be.
     * @param propertyRetriever the {@link Function} to retrieve the value from the {@link FoodProperties}.

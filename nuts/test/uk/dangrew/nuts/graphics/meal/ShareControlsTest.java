@@ -9,8 +9,8 @@ import org.mockito.*;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.graphics.database.RecipeShareController;
-import uk.dangrew.nuts.graphics.table.controls.TableControlType;
-import uk.dangrew.nuts.graphics.table.controls.TableControls;
+import uk.dangrew.kode.javafx.table.controls.TableControlType;
+import uk.dangrew.kode.javafx.table.controls.TableControls;
 
 import java.awt.*;
 

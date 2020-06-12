@@ -9,11 +9,11 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.javafx.platform.JavaFxThreading;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
 import uk.dangrew.nuts.graphics.food.GeneralFoodTableController;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
 
@@ -31,7 +31,7 @@ public class SynchronizedTableSelectionModelTest {
       database.foodItems().createConcept( "Food1" );
       database.foodItems().createConcept( "Food2" );
       database.foodItems().createConcept( "Food3" );
-
+      
       JavaFxThreading.runAndWait( () -> {
          table1 = new TableComponents< FoodItem >()
                      .withDatabase( database )

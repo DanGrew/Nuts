@@ -2,11 +2,13 @@ package uk.dangrew.nuts.graphics.table;
 
 import org.junit.Before;
 import org.junit.Test;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.controller.GeneralConceptTableController;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
 import uk.dangrew.nuts.store.Database;
 
 import static org.hamcrest.CoreMatchers.nullValue;

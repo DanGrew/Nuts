@@ -1,9 +1,10 @@
 package uk.dangrew.nuts.graphics.food;
 
 import uk.dangrew.kode.concept.ConceptStore;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.controller.GeneralConceptTableController;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.deletion.FoodDeletionMechanism;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.store.Database;
 
 public class GeneralFoodTableController< TypeT extends Food > extends GeneralConceptTableController< TypeT > {

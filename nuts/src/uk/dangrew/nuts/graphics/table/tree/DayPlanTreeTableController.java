@@ -65,7 +65,7 @@ public class DayPlanTreeTableController implements FoodHolderOperations,
    }//End Method
    
    @Override public FoodPortion createConcept() {
-      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController<FoodPortion> > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return null;
       }
@@ -76,7 +76,7 @@ public class DayPlanTreeTableController implements FoodHolderOperations,
    }//End Method
    
    @Override public void removeSelectedConcept() {
-      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController<FoodPortion> > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -85,7 +85,7 @@ public class DayPlanTreeTableController implements FoodHolderOperations,
    }//End Method
    
    @Override public void copySelectedConcept() {
-      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController<FoodPortion> > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -94,7 +94,7 @@ public class DayPlanTreeTableController implements FoodHolderOperations,
    }//End Method 
 
    @Override public void moveUp() {
-      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController<FoodPortion> > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -104,7 +104,7 @@ public class DayPlanTreeTableController implements FoodHolderOperations,
    }//End Method
    
    @Override public void moveDown() {
-      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController<FoodPortion> > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -114,7 +114,7 @@ public class DayPlanTreeTableController implements FoodHolderOperations,
    }//End Method
    
    @Override public void share() {
-      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController<FoodPortion> > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }
@@ -122,7 +122,7 @@ public class DayPlanTreeTableController implements FoodHolderOperations,
    }//End Method
    
    @Override public void generate() {
-      TreeItem< TreeTableController > selection = table.getSelectionModel().getSelectedItem();
+      TreeItem< TreeTableController<FoodPortion> > selection = table.getSelectionModel().getSelectedItem();
       if ( selection == null ) {
          return;
       }

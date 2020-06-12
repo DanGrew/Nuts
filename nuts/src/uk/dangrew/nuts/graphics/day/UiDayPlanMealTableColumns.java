@@ -10,10 +10,10 @@ package uk.dangrew.nuts.graphics.day;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
 import uk.dangrew.nuts.graphics.meal.MealTableColumns;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 
 public class UiDayPlanMealTableColumns extends MealTableColumns {

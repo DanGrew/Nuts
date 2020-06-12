@@ -5,11 +5,11 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import uk.dangrew.kode.javafx.platform.JavaFxThreading;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodItemStore;
 import uk.dangrew.nuts.graphics.deletion.FoodDeletionMechanism;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.store.Database;
 

@@ -14,7 +14,7 @@ import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
+import uk.dangrew.kode.javafx.table.options.ConceptOptionsImpl;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;

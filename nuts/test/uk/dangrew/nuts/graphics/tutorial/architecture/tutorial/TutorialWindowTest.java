@@ -19,7 +19,7 @@ public class TutorialWindowTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-
+      
       JavaFxThreading.runAndWait( () -> {
          stage = new Stage();
          systemUnderTest = new TutorialWindow( stage );

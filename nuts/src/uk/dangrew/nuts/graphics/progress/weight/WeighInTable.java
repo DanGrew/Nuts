@@ -14,12 +14,12 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
-import uk.dangrew.nuts.graphics.FriendlyTableView;
+import uk.dangrew.kode.javafx.table.base.FriendlyTableView;
 import uk.dangrew.nuts.progress.weight.WeightProgress;
 import uk.dangrew.nuts.progress.weight.WeightRecording;
 
 /**
- * {@link WeighInTable} provides a {@link TableView} for {@link uk.dangrew.nuts.progress.WeightRecording}s.
+ * {@link WeighInTable} provides a {@link TableView} for {@link WeightRecording}s.
  */
 public class WeighInTable extends TableView< WeightRecordingRow > 
    implements FriendlyTableView< WeightRecordingRow > 

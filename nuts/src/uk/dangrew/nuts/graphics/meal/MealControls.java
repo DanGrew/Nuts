@@ -12,9 +12,9 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.control.Button;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.table.controls.TableControlSet;
-import uk.dangrew.nuts.graphics.table.controls.TableControlType;
-import uk.dangrew.nuts.graphics.table.controls.TableControls;
+import uk.dangrew.kode.javafx.table.controls.TableControlSet;
+import uk.dangrew.kode.javafx.table.controls.TableControlType;
+import uk.dangrew.kode.javafx.table.controls.TableControls;
 
 public class MealControls implements TableControlSet {
    

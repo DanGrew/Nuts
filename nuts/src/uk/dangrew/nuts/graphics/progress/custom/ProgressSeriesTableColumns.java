@@ -8,9 +8,9 @@
  */
 package uk.dangrew.nuts.graphics.progress.custom;
 
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.column.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.graph.custom.GraphSeriesVisibility;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;

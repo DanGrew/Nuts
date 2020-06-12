@@ -36,7 +36,7 @@ public class UiDayPlanContextMenuTest {
       MockitoAnnotations.initMocks( this );
       selection = new Template( "Template" );
       dateSelection = LocalDate.now().plusDays( 100 );
-
+      
       JavaFxThreading.runAndWait( () -> {
          controller = spy( new UiCalendarController( new Database() ) );
          systemUnderTest = new UiDayPlanContextMenu( controller, templateSelection, dateSelectionDialog, confirmAlert );  

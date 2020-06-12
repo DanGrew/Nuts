@@ -24,7 +24,6 @@ public class TescoExamples {
    
    public static Document readHtmlIntoDocument( String file ) {
       String content = new IoCommon().readFileIntoString( TescoExamples.class, file );
-
       return Jsoup.parse( content );
    }//End Method
 }//End Class

@@ -8,9 +8,9 @@
  */
 package uk.dangrew.nuts.graphics.recipe.creator;
 
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.column.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.common.CheckBoxController;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.graphics.table.configuration.TableViewColumnConfigurer;

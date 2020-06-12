@@ -17,9 +17,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
 import uk.dangrew.kode.launch.TestApplication;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 
 public class TableViewColumnConfigurerTest {
 

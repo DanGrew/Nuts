@@ -1,5 +1,13 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.tutor;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.TextFlow;

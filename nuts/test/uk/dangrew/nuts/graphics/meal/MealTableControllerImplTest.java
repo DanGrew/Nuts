@@ -17,12 +17,12 @@ import org.mockito.MockitoAnnotations;
 
 import uk.dangrew.kode.comparator.Comparators;
 import uk.dangrew.kode.event.structure.Event;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionEvent;
 import uk.dangrew.nuts.graphics.selection.model.FoodSelectionRequest;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.store.Database;

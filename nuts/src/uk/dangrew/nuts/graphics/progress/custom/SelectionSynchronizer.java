@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.graphics.progress.custom;
 
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
 
 public class SelectionSynchronizer< ConceptTypeT > {
 

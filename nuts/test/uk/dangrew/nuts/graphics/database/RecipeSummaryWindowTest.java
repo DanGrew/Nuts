@@ -18,7 +18,7 @@ public class RecipeSummaryWindowTest {
    @Before public void initialiseSystemUnderTest() {
       TestApplication.startPlatform();
       MockitoAnnotations.initMocks( this );
-
+      
       JavaFxThreading.runAndWait( () -> {
          stage = new Stage();
          systemUnderTest = new RecipeSummaryWindow( stage );

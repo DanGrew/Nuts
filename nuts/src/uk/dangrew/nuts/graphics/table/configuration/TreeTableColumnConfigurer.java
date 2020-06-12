@@ -14,8 +14,8 @@ import javafx.scene.control.cell.CheckBoxTreeTableCell;
 import javafx.scene.control.cell.ComboBoxTreeTableCell;
 import javafx.scene.control.cell.TextFieldTreeTableCell;
 import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
-import uk.dangrew.kode.javafx.table.TreeTableEditCommitHandler;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.tools.TreeTableEditCommitHandler;
 
 public class TreeTableColumnConfigurer< ConceptTypeT, DataTypeT, RowTypeT extends ConceptTableRow< ConceptTypeT > > implements TableColumnConfigurer< ConceptTypeT, DataTypeT >{
    

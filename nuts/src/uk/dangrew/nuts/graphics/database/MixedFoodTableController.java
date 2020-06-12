@@ -4,16 +4,16 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import uk.dangrew.kode.javafx.dialog.UiEnumTypeSelectionDialog;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.controller.ConceptTableController;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.controller.ConceptTableViewController;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
 import uk.dangrew.nuts.graphics.deletion.FoodDeletionMechanism;
 import uk.dangrew.nuts.graphics.selection.model.FoodModel;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableController;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
-import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.store.Database;
 
 public class MixedFoodTableController implements ConceptTableController< Food >, ConceptTableViewController< Food >, RecipeShareController {

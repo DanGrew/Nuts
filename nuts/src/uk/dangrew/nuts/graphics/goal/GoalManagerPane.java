@@ -13,10 +13,10 @@ import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.table.BasicConceptControls;
-import uk.dangrew.nuts.graphics.table.ConceptTableWithControls;
+import uk.dangrew.kode.javafx.table.controls.BasicConceptControls;
+import uk.dangrew.kode.javafx.table.controls.ConceptTableWithControls;
 import uk.dangrew.nuts.graphics.table.TableComponents;
-import uk.dangrew.nuts.graphics.table.controls.TableControls;
+import uk.dangrew.kode.javafx.table.controls.TableControls;
 import uk.dangrew.nuts.store.Database;
 
 public class GoalManagerPane extends GridPane {

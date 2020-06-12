@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.graphics.tutorial.architecture.manipulation;
 
 import javafx.event.Event;
-import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
+import uk.dangrew.kode.javafx.dialog.UiEnumTypeSelectionDialog;
 
 public class EnumDialogManipulator< EnumTypeT extends Enum< ? > > {
 

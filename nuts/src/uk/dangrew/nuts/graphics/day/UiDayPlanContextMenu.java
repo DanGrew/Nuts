@@ -8,17 +8,17 @@
  */
 package uk.dangrew.nuts.graphics.day;
 
-import java.time.LocalDate;
-import java.util.Optional;
-
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import uk.dangrew.kode.javafx.contextmenu.ContextMenuWithCancel;
 import uk.dangrew.kode.javafx.platform.JavaFxThreading;
-import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
+import uk.dangrew.kode.javafx.table.options.ConceptOptionsImpl;
 import uk.dangrew.nuts.progress.weight.SystemDateRange;
 import uk.dangrew.nuts.template.Template;
+
+import java.time.LocalDate;
+import java.util.Optional;
 
 public class UiDayPlanContextMenu extends ContextMenuWithCancel {
 
@@ -56,7 +56,7 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
       this( 
                controller, 
                new UiTemplateSelectionDialog( 
-                        new ConceptOptionsImpl<>( controller.database().templates() ) 
+                        new ConceptOptionsImpl<>( controller.database().templates() )
                ),
                new UiDateSelectionDialog( new SystemDateRange().get() ),
                new UiConfirmAlert()
@@ -125,7 +125,7 @@ public class UiDayPlanContextMenu extends ContextMenuWithCancel {
    private void clear(){
       JavaFxThreading.runAndWait( () -> {
          confirmAlert.friendly_setHeaderText( CLEAR_DESCRIPTION );
-         Optional<ButtonType> result = confirmAlert.friendly_showAndWait();
+         Optional< ButtonType > result = confirmAlert.friendly_showAndWait();
          result.filter( t -> t == ButtonType.OK ).ifPresent( t -> controller.clearSelection() );
       } );
    }//End Method

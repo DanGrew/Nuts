@@ -10,9 +10,9 @@ package uk.dangrew.nuts.graphics.day;
 
 import javafx.scene.layout.GridPane;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.nuts.graphics.food.UnresponsiveConceptTableController;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.controller.UnresponsiveConceptTableController;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.tree.DayPlanTreePane;
 import uk.dangrew.nuts.graphics.template.TemplateTableColumns;

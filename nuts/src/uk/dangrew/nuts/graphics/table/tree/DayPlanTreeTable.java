@@ -12,7 +12,7 @@ import uk.dangrew.nuts.graphics.table.configuration.TreeTableColumnConfigurer;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.store.Database;
 
-public class DayPlanTreeTable extends TreeTableView< TreeTableController >{
+public class DayPlanTreeTable extends TreeTableView< TreeTableController<FoodPortion> >{
 
    private final DayPlanController dayPlanController;
    private final NutsSettings settings;

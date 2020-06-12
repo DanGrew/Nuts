@@ -37,7 +37,7 @@ public class FoodSelectionWindowTest {
       for ( int i = 0; i < 10; i++ ) {
          stock.portionFor( sample.foodItems().objectList().get( i ) ).setPortion( 100 );
       }
-
+      
       JavaFxThreading.runAndWait( () -> {
          window = new FoodSelectionWindow( sample );
       } );

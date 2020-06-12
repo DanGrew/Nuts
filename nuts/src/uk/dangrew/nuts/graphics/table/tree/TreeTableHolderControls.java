@@ -4,7 +4,7 @@ import javafx.scene.control.TreeItem;
 import uk.dangrew.nuts.food.FoodPortion;
 import uk.dangrew.nuts.meal.FoodHolder;
 
-public interface TreeTableHolderControls extends TreeTableController {
+public interface TreeTableHolderControls extends TreeTableController<FoodPortion> {
    
    public void requestAddTo( FoodHolder holder );
 
@@ -12,7 +12,7 @@ public interface TreeTableHolderControls extends TreeTableController {
    
    public void copy( FoodPortion concept, FoodHolder holder );
    
-   public void remove( TreeItem< TreeTableController > treeItem );
+   public void remove( TreeItem< TreeTableController<FoodPortion> > treeItem );
 
    public void moveUp( FoodPortion portion );
 

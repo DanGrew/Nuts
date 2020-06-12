@@ -1,21 +1,21 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
 import javafx.scene.control.TreeItem;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
 import uk.dangrew.nuts.meal.FoodHolder;
 
 public abstract class TreeTableHolderControlsImpl extends ConceptTableRowImpl< FoodPortion > implements TreeTableHolderControls {
 
    private final FoodHolder holder;
-   private final TreeItem< TreeTableController > treeItem;
+   private final TreeItem< TreeTableController<FoodPortion> > treeItem;
    
    public TreeTableHolderControlsImpl(
             FoodPortion concept,
             FoodHolder holder, 
-            TreeItem< TreeTableController > treeItem 
+            TreeItem< TreeTableController<FoodPortion> > treeItem
    ) {
       super( concept );
       this.treeItem = treeItem;
@@ -28,7 +28,7 @@ public abstract class TreeTableHolderControlsImpl extends ConceptTableRowImpl< F
       return holder;
    }//End Method
    
-   protected TreeItem< TreeTableController > treeItem(){
+   protected TreeItem< TreeTableController<FoodPortion> > treeItem(){
       return treeItem;
    }//End Method
    
@@ -73,7 +73,7 @@ public abstract class TreeTableHolderControlsImpl extends ConceptTableRowImpl< F
          .ifPresent( t -> treeItem.getChildren().remove( t ) );
    }//End Method
    
-   @Override public abstract void remove( TreeItem< TreeTableController > treeItem );
+   @Override public abstract void remove( TreeItem< TreeTableController<FoodPortion> > treeItem );
    
    @Override public abstract void moveUp();
    

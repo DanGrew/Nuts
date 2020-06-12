@@ -1,7 +1,7 @@
 package uk.dangrew.nuts.graphics.meal;
 
+import uk.dangrew.kode.javafx.table.controller.ConceptTableController;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.ConceptTableController;
 
 public interface FoodHolderOperations extends ConceptTableController< FoodPortion >{
 

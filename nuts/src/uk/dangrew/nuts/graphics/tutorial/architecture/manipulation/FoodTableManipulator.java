@@ -6,8 +6,8 @@ import java.util.function.Function;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.util.Pair;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 
 public class FoodTableManipulator< FoodT extends Food > extends TableManipulator< ConceptTableRow< FoodT >, FoodRowManipulator< FoodT > >{
 

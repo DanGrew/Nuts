@@ -1,9 +1,9 @@
 package uk.dangrew.nuts.graphics.progress.custom;
 
 import uk.dangrew.kode.concept.ConceptStore;
-import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.controller.GeneralConceptTableController;
 import uk.dangrew.nuts.graphics.graph.custom.GraphSeriesVisibility;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.progress.custom.ProgressSeries;
 
 public class ProgressSeriesTableController extends GeneralConceptTableController< ProgressSeries > {

@@ -67,7 +67,7 @@ public class TableManipulatorTest {
       systemUnderTest.triggerCellEdit( 0, 0 );
       assertThat(table.editingCellProperty().get().getColumn(), is( 0));
       assertThat(table.editingCellProperty().get().getRow(), is( 0));
-
+      
       systemUnderTest.triggerCellEdit( 2, 1 );
       assertThat(table.editingCellProperty().get().getColumn(), is( 1));
       assertThat(table.editingCellProperty().get().getRow(), is( 2));

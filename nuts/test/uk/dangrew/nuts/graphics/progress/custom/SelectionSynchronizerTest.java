@@ -11,13 +11,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
 import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.graphics.food.FoodTableColumns;
-import uk.dangrew.nuts.graphics.food.GeneralConceptTableController;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
+import uk.dangrew.kode.javafx.table.controller.GeneralConceptTableController;
 import uk.dangrew.nuts.graphics.table.TableComponents;
-import uk.dangrew.nuts.progress.custom.ProgressSeries;
 import uk.dangrew.nuts.store.Database;
 
 public class SelectionSynchronizerTest {

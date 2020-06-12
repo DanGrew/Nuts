@@ -12,6 +12,10 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.controller.ConceptTableViewController;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.goal.Goal;
 import uk.dangrew.nuts.goal.GoalTypes;
@@ -19,10 +23,6 @@ import uk.dangrew.nuts.goal.calorie.CalorieGoal;
 import uk.dangrew.nuts.goal.calorie.CalorieGoalStore;
 import uk.dangrew.nuts.goal.proportion.ProportionGoal;
 import uk.dangrew.nuts.goal.proportion.ProportionGoalStore;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
-import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 
 public class GoalTableController implements ConceptTableViewController< Goal > {
 

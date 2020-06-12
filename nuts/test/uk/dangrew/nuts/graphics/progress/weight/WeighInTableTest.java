@@ -1,5 +1,6 @@
 package uk.dangrew.nuts.graphics.progress.weight;
 
+import javafx.scene.layout.BorderPane;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -17,7 +18,7 @@ public class WeighInTableTest {
 
    @Ignore
    @Test public void manual() throws InterruptedException {
-      TestApplication.launch( () -> systemUnderTest );
+      TestApplication.launch( () -> new BorderPane(systemUnderTest) );
       
       Thread.sleep( 99999999 );
    }//End Method

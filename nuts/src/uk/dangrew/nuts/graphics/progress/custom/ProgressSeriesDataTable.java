@@ -10,7 +10,7 @@ package uk.dangrew.nuts.graphics.progress.custom;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
-import uk.dangrew.nuts.graphics.FriendlyTableView;
+import uk.dangrew.kode.javafx.table.base.FriendlyTableView;
 
 public class ProgressSeriesDataTable extends TableView< ProgressSeriesDataRow > implements FriendlyTableView< ProgressSeriesDataRow > {
 

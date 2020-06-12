@@ -6,12 +6,12 @@ import java.util.Optional;
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
 import javafx.collections.FXCollections;
-import uk.dangrew.nuts.graphics.common.UiEnumTypeSelectionDialog;
+import uk.dangrew.kode.javafx.dialog.UiEnumTypeSelectionDialog;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.controller.ConceptTableViewController;
 import uk.dangrew.nuts.graphics.meal.MealTableController;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
-import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.recipe.constraint.ConstraintType;
 import uk.dangrew.nuts.recipe.constraint.RecipeAlgorithm;

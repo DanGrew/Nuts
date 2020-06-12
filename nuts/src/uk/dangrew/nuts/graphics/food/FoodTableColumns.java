@@ -9,11 +9,11 @@
 package uk.dangrew.nuts.graphics.food;
 
 import uk.dangrew.kode.concept.Properties;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.column.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.configuration.NutritionalUnitShowingListenerImpl;
 import uk.dangrew.nuts.configuration.NutsSettings;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableColumnsPopulator;
 import uk.dangrew.nuts.graphics.table.TableComponents;
 import uk.dangrew.nuts.graphics.table.TableConfiguration;
 import uk.dangrew.nuts.graphics.table.configuration.TableColumnWidths;

@@ -4,8 +4,8 @@ import javafx.scene.layout.BorderPane;
 import uk.dangrew.nuts.graphics.meal.MealControls;
 import uk.dangrew.nuts.graphics.meal.ShareControls;
 import uk.dangrew.nuts.graphics.recipe.integration.RecipeGeneratorControls;
-import uk.dangrew.nuts.graphics.table.BasicConceptControls;
-import uk.dangrew.nuts.graphics.table.controls.TableControls;
+import uk.dangrew.kode.javafx.table.controls.BasicConceptControls;
+import uk.dangrew.kode.javafx.table.controls.TableControls;
 import uk.dangrew.nuts.store.Database;
 
 public class DayPlanTreePane extends BorderPane {

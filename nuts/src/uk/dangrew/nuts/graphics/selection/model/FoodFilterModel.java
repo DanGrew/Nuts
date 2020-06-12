@@ -7,9 +7,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.graphics.database.FoodTypes;
-import uk.dangrew.nuts.graphics.table.ConceptOptions;
-import uk.dangrew.nuts.graphics.table.ConceptOptionsImpl;
-import uk.dangrew.nuts.graphics.table.FilteredConceptOptions;
+import uk.dangrew.kode.javafx.table.options.ConceptOptions;
+import uk.dangrew.kode.javafx.table.options.ConceptOptionsImpl;
+import uk.dangrew.kode.javafx.table.options.FilteredConceptOptions;
 import uk.dangrew.nuts.label.Label;
 import uk.dangrew.nuts.store.Database;
 

@@ -13,9 +13,9 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.control.Button;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.nuts.graphics.database.RecipeShareController;
-import uk.dangrew.nuts.graphics.table.controls.TableControlSet;
-import uk.dangrew.nuts.graphics.table.controls.TableControlType;
-import uk.dangrew.nuts.graphics.table.controls.TableControls;
+import uk.dangrew.kode.javafx.table.controls.TableControlSet;
+import uk.dangrew.kode.javafx.table.controls.TableControlType;
+import uk.dangrew.kode.javafx.table.controls.TableControls;
 
 public class ShareControls implements TableControlSet {
    
@@ -36,7 +36,7 @@ public class ShareControls implements TableControlSet {
       tableControls.getChildren().add( share );
    }//End Method
    
-   @Override public javafx.scene.control.Button getButton( TableControlType type ) {
+   @Override public Button getButton( TableControlType type ) {
       if ( type == TableControlType.Share ) {
          return share;
       }

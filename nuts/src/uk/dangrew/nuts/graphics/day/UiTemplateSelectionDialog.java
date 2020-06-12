@@ -3,7 +3,7 @@ package uk.dangrew.nuts.graphics.day;
 import java.util.Optional;
 
 import javafx.scene.control.ChoiceDialog;
-import uk.dangrew.nuts.graphics.table.ConceptOptions;
+import uk.dangrew.kode.javafx.table.options.ConceptOptions;
 import uk.dangrew.nuts.template.Template;
 
 public class UiTemplateSelectionDialog extends ChoiceDialog< Template > {

@@ -30,9 +30,9 @@ import uk.dangrew.nuts.store.Database;
 
 public class DayPlanTreeTableControllerTest {
 
-   private TreeItem< TreeTableController > selection;
-   private TreeItem< TreeTableController > reorderedSelection;
-   @Mock private TreeTableController selectionController;
+   private TreeItem< TreeTableController<FoodPortion> > selection;
+   private TreeItem< TreeTableController<FoodPortion> > reorderedSelection;
+   @Mock private TreeTableController<FoodPortion> selectionController;
    @Mock private TreeStreamer treeStreamer;
    @Mock private RecipeShareControllerImpl shareController;
    @Mock private RecipeGeneratorControllerImpl recipeGenerator;

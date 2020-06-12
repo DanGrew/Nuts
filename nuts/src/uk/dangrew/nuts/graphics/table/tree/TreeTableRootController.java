@@ -64,7 +64,7 @@ public class TreeTableRootController extends TreeTableHolderControlsImpl impleme
       //Do nothing, cannot remove the root.
    }//End Method
    
-   public void remove( TreeItem< TreeTableController > treeItem ) {
+   public void remove( TreeItem< TreeTableController<FoodPortion> > treeItem ) {
       this.dayPlanController.remove( treeItem.getValue().concept(), plan );
    }//End Method
    

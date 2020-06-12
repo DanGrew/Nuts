@@ -68,5 +68,5 @@ public class UiDay extends GridPane {
    public boolean isSelected(){
       return getBackground().getFills().get(0).getFill().equals(Color.ORANGE);
    }
-   
+
 }//End Class

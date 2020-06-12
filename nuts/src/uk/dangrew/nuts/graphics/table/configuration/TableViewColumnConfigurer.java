@@ -15,8 +15,8 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import uk.dangrew.kode.javafx.spinner.StringExtractConverter;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
-import uk.dangrew.kode.javafx.table.TableViewEditCommitHandler;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.tools.TableViewEditCommitHandler;
 
 public class TableViewColumnConfigurer< ConceptTypeT, DataTypeT > implements TableColumnConfigurer< ConceptTypeT, DataTypeT > {
    

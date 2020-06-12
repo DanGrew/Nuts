@@ -2,8 +2,8 @@ package uk.dangrew.nuts.graphics.tutorial.architecture.manipulation;
 
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
 import uk.dangrew.nuts.food.Food;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 
 public class FoodRowManipulator< FoodT extends Food > extends TableRowManipulator< ConceptTableRow< FoodT > >{

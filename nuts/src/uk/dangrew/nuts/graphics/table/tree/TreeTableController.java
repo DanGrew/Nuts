@@ -1,9 +1,8 @@
 package uk.dangrew.nuts.graphics.table.tree;
 
-import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.ConceptTableRow;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRow;
 
-public interface TreeTableController extends ConceptTableRow< FoodPortion >{
+public interface TreeTableController<ConceptT> extends ConceptTableRow< ConceptT >{
    
    public void add();
 

@@ -18,7 +18,7 @@ import uk.dangrew.kode.javafx.custom.ResponsiveComboProperty;
 import uk.dangrew.kode.javafx.custom.ResponsiveTextRegion;
 import uk.dangrew.kode.javafx.style.JavaFxStyle;
 import uk.dangrew.kode.javafx.style.PropertyRowBuilder;
-import uk.dangrew.nuts.graphics.common.TimestampBox;
+import uk.dangrew.kode.javafx.time.TimestampBox;
 
 public class GraphSettings extends GridPane {
    

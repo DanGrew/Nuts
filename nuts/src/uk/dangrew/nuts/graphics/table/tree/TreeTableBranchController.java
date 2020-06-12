@@ -42,7 +42,7 @@ public class TreeTableBranchController extends TreeTableHolderControlsImpl imple
       this.parent.remove( treeItem() );
    }//End Method
    
-   @Override public void remove( TreeItem< TreeTableController > treeItem ) {
+   @Override public void remove( TreeItem< TreeTableController<FoodPortion> > treeItem ) {
       this.parent.remove( treeItem );
    }//End Method
    

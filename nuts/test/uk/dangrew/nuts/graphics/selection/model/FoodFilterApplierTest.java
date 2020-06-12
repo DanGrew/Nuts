@@ -13,7 +13,7 @@ import uk.dangrew.kode.launch.TestApplication;
 import uk.dangrew.nuts.food.Food;
 import uk.dangrew.nuts.food.FoodItem;
 import uk.dangrew.nuts.food.FoodPortion;
-import uk.dangrew.nuts.graphics.table.FilteredConceptOptions;
+import uk.dangrew.kode.javafx.table.options.FilteredConceptOptions;
 import uk.dangrew.nuts.meal.Meal;
 import uk.dangrew.nuts.nutrients.NutritionalUnit;
 import uk.dangrew.nuts.stock.Stock;

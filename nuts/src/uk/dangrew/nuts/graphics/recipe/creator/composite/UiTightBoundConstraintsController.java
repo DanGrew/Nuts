@@ -2,11 +2,11 @@ package uk.dangrew.nuts.graphics.recipe.creator.composite;
 
 import javafx.beans.value.ChangeListener;
 import javafx.collections.ListChangeListener;
+import uk.dangrew.kode.javafx.table.base.ConceptTable;
+import uk.dangrew.kode.javafx.table.base.ConceptTableRowImpl;
+import uk.dangrew.kode.javafx.table.controller.ConceptTableViewController;
 import uk.dangrew.kode.observable.FunctionListChangeListenerImpl;
 import uk.dangrew.nuts.graphics.recipe.creator.UiRecipeConstraintController;
-import uk.dangrew.nuts.graphics.table.ConceptTable;
-import uk.dangrew.nuts.graphics.table.ConceptTableRowImpl;
-import uk.dangrew.nuts.graphics.table.ConceptTableViewController;
 import uk.dangrew.nuts.recipe.constraint.tightbound.TightBoundConstraint;
 import uk.dangrew.nuts.recipe.constraint.tightbound.TightBoundConstraints;
 
